@@ -1,0 +1,57 @@
+.form-control{
+    border-radius: 0;
+}
+.btn{
+    border-radius: 0;
+}
+.close-btn:focus{
+    border: none;
+    outline: none;
+}
+body{
+
+font-family : Calibri;
+}
+
+.loader{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+.aims-font{
+    font-size: 30px;
+}
+th,td{
+    color: rgba(0, 0, 0, 0.5);
+}
+.table-bordered{
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+.table-bordered tbody tr td,.table-bordered tbody tr th{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.table-bordered tfoot tr th{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: none;
+}
+.table-bordered thead tr th,.table-bordered tfoot tr th{
+    background-color: #8099df;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid black;
+    border-top: none;
+    border-bottom: none;
+}
+.h3{
+    font-family: 'Quicksand', sans-serif;
+}
+input[type=checkbox]{
+
+    transform: scale(1.3);
+}

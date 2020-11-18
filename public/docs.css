@@ -1,0 +1,81 @@
+
+.custom-bottom-border{
+    border-bottom: 2px solid black;
+}
+table.table-bordered > thead > tr > th{
+    background-color: rgba(128, 128, 128, 0.13);
+    padding-top: 0;
+    padding-bottom: 0;
+    border:2px solid black;
+}
+table.table-bordered > tbody > tr > td{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border:2px solid black;
+}
+table.table-bordered > tbody > tr > th{
+    padding-top: 0;
+    padding-bottom: 0;
+    border:2px solid black;
+}
+.font-10{
+    font-size: 20px;
+}
+.font-9{
+    font-size: 12px;
+}
+
+.font-11{
+    font-size: 16px;
+}
+
+
+.font-12{
+    font-size: 20px;
+}
+.font-24{
+    font-size: 38px;
+}
+.font-14{
+    font-size: 21px;
+}
+
+.b{
+    font-weight: bold;
+}
+.font-style{
+    font-family: "Times New Roman";
+}
+.bg-yellow{
+    background-color: yellow;
+}
+input[type='checkbox']{
+    width: 14px;
+}
+.custom-border{
+    border: 2px solid black;
+}
+.border-left-right-0{
+    border-right: none;
+    border-left: none;
+}
+.col-12,.col-7{
+    margin: 0;
+}
+@media print
+{
+
+    table.table-bordered > thead > tr > th{
+        background-color: rgba(128, 128, 128, 0.13) !important;
+    }
+
+    table.table-bordered > thead > tr > th,table.table-bordered > tbody > tr > td,table.table-bordered > tbody > tr > th {
+        border:2px solid black !important;
+        -webkit-print-color-adjust: exact;
+    }
+    body {-webkit-print-color-adjust: exact;}
+}
+.printspan
+{
+    display: none;
+}
