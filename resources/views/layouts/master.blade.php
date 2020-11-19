@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
 </head>
+{{--
 <style>
     .loader{
         background: url('{{url('/img/pre-loader.gif')}}')
@@ -32,6 +33,7 @@
 <div id="preloader" class="loader">
 
 </div>
+--}}
 
 <body id="page-top">
 <div id="wrapper">
@@ -56,6 +58,7 @@
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
+{{--
 
 <script>
     $(window).on('load', function() {
@@ -64,6 +67,7 @@
 </script>
 
 
+--}}
 
 
 <!-- Bootstrap core JavaScript-->
