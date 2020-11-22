@@ -27,8 +27,8 @@
     @foreach($menus as $menu)
         @can($menu->slug)
         <li class="nav-item {{(Request::url()==url(''.$menu->url))?"active":""}}">
-            <a class="nav-link" href="{{url($menu->url)}}">
-                <i class="{{$menu->icon}}"></i>
+            <a class="nav-link p-0 p-md-2 text-sm-left" href="{{url($menu->url)}}">
+                <i class="{{$menu->icon}} d-md-inline d-none"></i>
                 <span>{{$menu->name}}</span>
             </a>
         </li>
