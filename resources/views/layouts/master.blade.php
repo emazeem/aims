@@ -64,8 +64,7 @@
         $(".sidebar").removeClass("toggled");
     }
     $(window).scroll(function() {
-                $(".sidebar").removeClass("toggled");
-
+        $(".custom-sidebar").removeClass("toggled");
     });
 </script>
 

@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-primary sidebar sidebar-dark  accordion sidebar-toggled toggled" id="accordionSidebar">
+<ul class="navbar-nav bg-primary sidebar sidebar-dark  accordion sidebar-toggled toggled custom-sidebar" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
