@@ -14,7 +14,7 @@
     </div>
 <div class="row">
   <div class="col-lg-12">
-    <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+      <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
       <thead>
       <tr>
         <th>ID</th>
