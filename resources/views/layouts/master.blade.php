@@ -58,16 +58,15 @@
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
-{{--
 
 <script>
-    $(window).on('load', function() {
-        $('#preloader').delay(350).fadeOut('slow');
-    })
+    if ($(window).width() < 480) {
+        $('.sidebar').toggle();
+
+    }
 </script>
 
 
---}}
 
 
 <!-- Bootstrap core JavaScript-->
