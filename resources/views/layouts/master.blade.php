@@ -60,10 +60,11 @@
 </a>
 
 <script>
-    if ($(window).width() < 480) {
-        $('.sidebar').toggle();
 
+    if ($(window).width() < 480){
+        $(".sidebar").addClass("toggled");
     }
+
 </script>
 
 
