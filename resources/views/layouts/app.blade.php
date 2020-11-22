@@ -32,6 +32,7 @@
     <!--  extension responsive  -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
 </head>
+{{--
 <style>
     .loader{
         background: url('{{url('/img/pre-loader.gif')}}')
@@ -46,6 +47,7 @@
 
 <div id="preloader" class="loader">
 </div>
+--}}
 <body id="page-top" style="background-image: url({{url('/img/login.jpg')}});">
 <div class="container-fluid">
     @yield('content')
@@ -65,6 +67,7 @@
 
 
 
+{{--
 <script>
     $(window).on('load', function() {
         $('#status').fadeOut();
@@ -72,6 +75,7 @@
     })
 </script>
 
+--}}
 
 
 

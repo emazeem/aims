@@ -179,7 +179,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\aimscal\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\aims\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -345,12 +345,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\aimscal\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\aims\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\aimscal\\storage\\app/public',
+        'root' => 'C:\\xampp\\htdocs\\aims\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -367,7 +367,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\aimscal\\public\\storage' => 'C:\\xampp\\htdocs\\aimscal\\storage\\app/public',
+      'C:\\xampp\\htdocs\\aims\\public\\storage' => 'C:\\xampp\\htdocs\\aims\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -401,13 +401,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\aimscal\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aims\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\aimscal\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aims\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -457,7 +457,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\aimscal\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aims\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -514,7 +514,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\aimscal\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\aims\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -654,7 +654,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\aimscal\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\aims\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -674,9 +674,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\aimscal\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\aims\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\aimscal\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\aims\\storage\\framework\\views',
   ),
   'dompdf' => 
   array (
@@ -684,10 +684,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => 'C:\\xampp\\htdocs\\aimscal\\storage\\fonts/',
-      'font_cache' => 'C:\\xampp\\htdocs\\aimscal\\storage\\fonts/',
+      'font_dir' => 'C:\\xampp\\htdocs\\aims\\storage\\fonts/',
+      'font_cache' => 'C:\\xampp\\htdocs\\aims\\storage\\fonts/',
       'temp_dir' => 'C:\\Users\\emazeem_\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\xampp\\htdocs\\aimscal',
+      'chroot' => 'C:\\xampp\\htdocs\\aims',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',
@@ -831,7 +831,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'C:\\xampp\\htdocs\\aimscal\\storage\\framework/laravel-excel',
+      'local_path' => 'C:\\xampp\\htdocs\\aims\\storage\\framework/laravel-excel',
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,

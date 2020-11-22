@@ -8,6 +8,15 @@
 
 ## CHANGELOG
 
+### v4.36.0 - 11-14-2020
+
+- Add drawCallbackWithLivewire api.
+- Solution as per issue https://github.com/yajra/laravel-datatables/issues/2401.
+
+### v4.35.2 - 11-14-2020
+
+- Add missing button options as per [docs](https://datatables.net/reference/option/#buttons).
+
 ### v4.35.1 - 11-03-2020
 
 - Add missing upload field options as per doc. [#152]
