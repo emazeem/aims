@@ -64,11 +64,8 @@
         $(".sidebar").removeClass("toggled");
     }
     $(window).scroll(function() {
-        if ($(".sidebar").hasClass("toggled")) {
-            if ($(window).width() > 480){
                 $(".sidebar").removeClass("toggled");
-            }
-        }
+
     });
 </script>
 
