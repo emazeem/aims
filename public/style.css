@@ -55,3 +55,9 @@ input[type=checkbox]{
 
     transform: scale(1.3);
 }
+
+@media (max-width: 400px) {
+    .border-md-bottom{
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}
