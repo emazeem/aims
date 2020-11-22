@@ -65,8 +65,7 @@
     }
     $(window).scroll(function() {
         if (!$(".sidebar").hasClass("toggled")){
-            alert(1);
-            //$(".sidebar").removeClass("toggled");
+            $(".sidebar").addClass("toggled");
         }
     });
 </script>
