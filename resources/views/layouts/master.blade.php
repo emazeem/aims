@@ -64,8 +64,9 @@
         $(".sidebar").removeClass("toggled");
     }
     $(window).scroll(function() {
+        //toggle=hide
         if (!$(".sidebar").hasClass("toggled")){
-            $(".sidebar").toggle(true);
+            $(".sidebar").toggle(false);
         }
     });
 </script>
