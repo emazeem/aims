@@ -61,10 +61,9 @@
 
 <script>
 
-/*    if ($(window).width() < 480){
-        $(".sidebar").addClass("toggled");
-
-    }*/
+    if ($(window).width() > 480){
+        $(".sidebar").removeClass("toggled");
+    }
 </script>
 
 
