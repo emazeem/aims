@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/sb-admin-2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/sb-admin-2.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +173,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="4" />
-          <entry key="js" value="5" />
+          <entry key="js" value="6" />
           <entry key="php" value="93" />
         </counts>
       </usages-collector>
@@ -181,14 +181,14 @@
         <counts>
           <entry key="Blade" value="42" />
           <entry key="CSS" value="4" />
-          <entry key="JavaScript" value="5" />
+          <entry key="JavaScript" value="6" />
           <entry key="PHP" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="64" />
-          <entry key="js" value="8" />
+          <entry key="js" value="9" />
           <entry key="php" value="171" />
         </counts>
       </usages-collector>
@@ -196,18 +196,27 @@
         <counts>
           <entry key="Blade" value="171" />
           <entry key="CSS" value="64" />
-          <entry key="JavaScript" value="8" />
+          <entry key="JavaScript" value="9" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="70" column="46" lean-forward="true" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+            <state relative-caret-position="339">
+              <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/sb-admin-2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -219,7 +228,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>depart</find>
       <find>uncetainties</find>
       <find>add_procedure_form</find>
       <find>capabilities</find>
@@ -249,6 +257,7 @@
       <find>sidebar</find>
       <find>scroll</find>
       <find>//</find>
+      <find>if ($(window).width() &lt; 480 &amp;&amp; !$(&quot;.sidebar&quot;).hasClass(&quot;toggled&quot;)) {</find>
     </findStrings>
     <replaceStrings>
       <replace>due</replace>
@@ -309,7 +318,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProcedureController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/public/style.css" />
-        <option value="$PROJECT_DIR$/public/js/sb-admin-2.js" />
         <option value="$PROJECT_DIR$/resources/views/designation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/uncertainty.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/parameter.blade.php" />
@@ -335,6 +343,7 @@
         <option value="$PROJECT_DIR$/resources/views/awaiting/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/sb-admin-2.js" />
       </list>
     </option>
   </component>
@@ -539,13 +548,6 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="sb-admin-2.js" type="620a8d5e:NestingTreeNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
@@ -972,12 +974,12 @@
       <workItem from="1605946872270" duration="70000" />
       <workItem from="1606016916862" duration="853000" />
       <workItem from="1606028334723" duration="5169000" />
-      <workItem from="1606036546256" duration="4072000" />
+      <workItem from="1606036546256" duration="4320000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="894841000" />
+    <option name="totallyTimeSpent" value="895089000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1114,13 +1116,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/sb-admin-2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-103">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1309,8 +1304,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="70" column="46" lean-forward="true" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+        <state relative-caret-position="339">
+          <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/sb-admin-2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
         </state>
       </provider>
     </entry>
