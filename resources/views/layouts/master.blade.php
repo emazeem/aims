@@ -61,16 +61,10 @@
 
 <script>
 
-    if ($(window).width() < 480){
+/*    if ($(window).width() < 480){
         $(".sidebar").addClass("toggled");
 
-    }
-
-    $(window).scroll(function(event){
-        if ($(window).width() < 480 && !$(".sidebar").hasClass("toggled")) {
-            $(".sidebar").addClass("toggled");
-        }
-    });
+    }*/
 </script>
 
 
