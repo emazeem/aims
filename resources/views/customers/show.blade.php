@@ -8,17 +8,16 @@
         </script>
     @endif
 
-    <div class="card mb-4 py-3 border-left-primary">
-
-        <div class="card-body">
-            <div class="d-sm-flex mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Customer Details</h1>
-                <div class="col-11 text-right">
-                    <a href="" class="d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Customer Ledger</a>
-                    <a href="" class="d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Receivable Aging Ledger</a>
-                </div>
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Customer Details</h1>
+            <div class="text-md-right">
+                <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fas fa-eye"></i> Customer Ledger</a>
+                <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fas fa-eye"></i> Receivable Aging Ledger</a>
             </div>
-            <table class="table table-bordered table-striped table-sm">
+        </div>
+        <div class="col-12">
+            <table class="table table-bordered table-responsive-sm table-hover font-13">
                 <tr>
                     <th>Registration Name</th>
                     <td>{{$show->reg_name}}</td>
@@ -127,8 +126,5 @@
         </div>
     </div>
 
-    <div class="row pb-3">
-        <div class="col-12">
-        </div>
-    </div>
+
 @endsection
