@@ -65,7 +65,7 @@
     }
     $(window).scroll(function() {
         if (!$(".sidebar").hasClass("toggled")){
-            $(".sidebar").addClass("toggled");
+            $(".sidebar").show();
         }
     });
 </script>
