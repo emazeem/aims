@@ -64,7 +64,9 @@
         $(".sidebar").removeClass("toggled");
     }
     $(window).scroll(function() {
-        $(".custom-sidebar").removeClass("toggled");
+        if (!$(".sidebar").hasClass("toggled")){
+            $(".sidebar").removeClass("toggled");
+        }
     });
 </script>
 
