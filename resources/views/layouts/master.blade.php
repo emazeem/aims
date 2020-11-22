@@ -66,7 +66,7 @@
     $(window).scroll(function() {
         //toggle=hide
         if ($(".sidebar").hasClass("toggled")){
-            $(".sidebar").toggle(false);
+            $(".sidebar").toggle(true);
         }
     });
 </script>
