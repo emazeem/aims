@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::get('/quote',function (){return view('docs.quotation');});
 Route::get('/jobform',function (){return view('docs.jobform');});
+Route::get('/worksheet',function (){return view('worksheets.worksheets');});
 Route::get('/invoice',function (){return view('docs.invoice');});
 Route::get('/review',function (){return view('docs.contractreview');});
 Route::get('/gate-pass',function (){return view('docs.gatepass');});

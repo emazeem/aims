@@ -60,7 +60,7 @@
             </h5>
         </div>
         <div class="col-12">
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-sm table-hover">
                 <tr>
                     <th>ID</th>
                     <td>{{$show->id}}</td>
