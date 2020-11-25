@@ -17,6 +17,7 @@ Route::post('/set_profile', [App\Http\Controllers\UserController::class, 'setpro
 Auth::routes();
 
 Route::get('/quote',function (){return view('docs.quotation');});
+Route::get('/jobtag',function (){return view('docs.jobtag');});
 Route::get('/jobform',function (){return view('docs.jobform');});
 Route::get('/worksheet',function (){return view('worksheets.worksheets');});
 Route::get('/invoice',function (){return view('docs.invoice');});
