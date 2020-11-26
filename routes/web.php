@@ -25,6 +25,7 @@ Route::get('/review',function (){return view('docs.contractreview');});
 Route::get('/gate-pass',function (){return view('docs.gatepass');});
 Route::get('/deliverynote',function (){return view('docs.deliverynote');});
 
+
 Route::group(['prefix'=> 'customers'],function() {
     Route::get('',[App\Http\Controllers\CustomerController::class, 'index'])->middleware('auth')->name('customers');
     Route::get('/create',[App\Http\Controllers\CustomerController::class, 'create'])->middleware('auth')->name('customers.create');
@@ -52,8 +53,9 @@ Route::group(['prefix'=> 'capabilities'],function() {
     Route::post('',[App\Http\Controllers\CapabilitiesController::class, 'fetch'])->middleware('auth')->name('capabilities.fetch');
     Route::get('/create',[App\Http\Controllers\CapabilitiesController::class, 'create'])->middleware('auth')->name('capabilities.create');
     Route::post('/store',[App\Http\Controllers\CapabilitiesController::class, 'store'])->middleware('auth')->name('capabilities.store');
-    Route::get('/edit/{id}',[App\Http\Controllers\CapabilitiesController::class, 'edit'])->middleware('auth')->name('capabilities.edit');
-    Route::post('/update/{id}',[App\Http\Controllers\CapabilitiesController::class, 'update'])->middleware('auth')->name('capabilities.update');
+    Route::post('/edit',[App\Http\Controllers\CapabilitiesController::class, 'edit'])->middleware('auth')->name('capabilities.edit');
+    Route::post('/update/',[App\Http\Controllers\CapabilitiesController::class, 'update'])->middleware('auth')->name('capabilities.update');
+    Route::delete('/delete',[App\Http\Controllers\CapabilitiesController::class, 'delete'])->middleware('auth')->name('capabilities.delete');
     Route::get('/view/{id}',[App\Http\Controllers\CapabilitiesController::class, 'show'])->middleware('auth')->name('capabilities.show');
 });
 

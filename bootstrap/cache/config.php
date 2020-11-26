@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:VqvtPfOTt+aUL7RMs8pala7h3Z8SbosN7EzCLidbHvE=',
+    'key' => 'base64:t+6V4vNoUieEMgO9krclEpC+4ec9wScfeGC3tBBYLQg=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -36,11 +36,12 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'App\\Providers\\AppServiceProvider',
-      23 => 'App\\Providers\\AuthServiceProvider',
-      24 => 'App\\Providers\\EventServiceProvider',
-      25 => 'App\\Providers\\RouteServiceProvider',
-      26 => 'Barryvdh\\DomPDF\\ServiceProvider',
+      22 => 'SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider',
+      23 => 'App\\Providers\\AppServiceProvider',
+      24 => 'App\\Providers\\AuthServiceProvider',
+      25 => 'App\\Providers\\EventServiceProvider',
+      26 => 'App\\Providers\\RouteServiceProvider',
+      27 => 'Barryvdh\\DomPDF\\ServiceProvider',
     ),
     'aliases' => 
     array (
@@ -81,6 +82,7 @@
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
       'PDF' => 'Barryvdh\\DomPDF\\Facade',
+      'QrCode' => 'SimpleSoftwareIO\\QrCode\\Facades\\QrCode',
     ),
   ),
   'auth' => 
@@ -469,11 +471,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => '700rdns1.websouls.net',
-        'port' => '465',
+        'host' => 'smtp.mailtrap.io',
+        'port' => '2525',
         'encryption' => NULL,
-        'username' => 'info@aimscal.com',
-        'password' => '4Ghulamhussain@472',
+        'username' => NULL,
+        'password' => NULL,
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -506,8 +508,8 @@
     ),
     'from' => 
     array (
-      'address' => 'info@aimscal.com',
-      'name' => '${AIMS}',
+      'address' => NULL,
+      'name' => 'Laravel',
     ),
     'markdown' => 
     array (
@@ -686,7 +688,7 @@
     array (
       'font_dir' => 'C:\\xampp\\htdocs\\aims\\storage\\fonts/',
       'font_cache' => 'C:\\xampp\\htdocs\\aims\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\emazeem_\\AppData\\Local\\Temp',
+      'temp_dir' => 'C:\\Users\\user\\AppData\\Local\\Temp',
       'chroot' => 'C:\\xampp\\htdocs\\aims',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',

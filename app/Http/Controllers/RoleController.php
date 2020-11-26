@@ -32,7 +32,7 @@ class RoleController extends Controller
                 $token=csrf_token();
                 if (Auth::user()->can('items-delete')){
                     $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
-                    <form id=\"form$data->id\" method=\"post\" role='form'>
+                    <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"DELETE\">

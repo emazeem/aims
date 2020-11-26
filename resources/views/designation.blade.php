@@ -118,18 +118,19 @@
                 },
                 success: function(data)
                 {
-
-                    if(!data.errors)
-                    {
-                        //$('#add_designation').modal('toggle');
-                        swal("Success", "designation added successfully", "success");
-                        location.reload();
+                    swal('success',data.success,'success').then((value) => {
+                        $('#add_designation').modal('hide');
                         InitTable();
-                    }
+                    });
+
                 },
-                error: function()
+                error: function(xhr)
                 {
-                    swal("Failed", "Fields Required. Try again.", "error");
+                    var error='';
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
                 }
             });
         }));

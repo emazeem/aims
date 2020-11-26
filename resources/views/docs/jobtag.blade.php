@@ -11,27 +11,29 @@
 
 </head>
 
-<body>
+<body class="main">
 
 <div class="container">
 
     <div class="col-12 font-style mt-2">
-        <div class="col-6">
-            <table class="table table-bordered">
+        <div class="col-6" id="printarea">
+            <table class="table table-bordered p-0 m-0">
                 <tbody>
                 <tr>
-                    <th colspan="2" class="text-center p-3"> ITEM TAG</th>
+                    <th colspan="2"  class="text-center  py-3"> ITEM TAG</th>
+                    <td rowspan="3" class="text-center p-0 m-0 py-3 ">
+                        {{QrCode::size(75)->generate('Item # 01 , Job # 001 , Asset ID / Serial # 34728934')}}
+                    </td>
                 </tr>
                 <tr>
                     <th>Job No :</th>
-                    <td> </td>
                 </tr>
                 <tr>
-                    <th colspan="2">Item # : <span class="px-md-5"></span> of </th>
+                    <th colspan="2">Item # : <span class="px-md-4"></span> of </th>
                 </tr>
                 </tbody>
             </table>
-            <p class="text-center m-0 p-0">Doc # : AIMS-TM-FRM-12, Issue Date: 15-02-2020, Issue # 01, Rev#: 01</p>
+            <p class="text-center"><small>Doc # : AIMS-TM-FRM-12 , Rev#: 01</small></p>
         </div>
     </div>
 </div>

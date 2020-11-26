@@ -7,6 +7,7 @@ use App\Models\Capabilities;
 use App\Models\Parameter;
 use App\Models\Procedure;
 use App\Models\Suggestion;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
@@ -14,19 +15,18 @@ use Yajra\DataTables\DataTables;
 class CapabilitiesController extends Controller
 {
     public function index(){
-
-        return view('capabilities.index');
+        $procedures=Procedure::all();
+        $parameters=DB::table('parameters')->get();
+        return view('capabilities.index',compact('parameters','procedures'));
     }
     public function create(){
         $procedures=Procedure::all();
         $parameters=DB::table('parameters')->get();
         return view('capabilities.create',compact('parameters','procedures'));
     }
-    public function edit($id){
-        $procedures=Procedure::all();
-        $edit=Capabilities::find($id);
-        $parameters=DB::table('parameters')->get();
-        return view('capabilities.edit',compact('edit','parameters','procedures'));
+    public function edit(Request $request){
+        $edit=Capabilities::find($request->id);
+        return response()->json($edit);
     }
     public function fetch(){
         $data=Capabilities::with('parameters')->get ();
@@ -62,10 +62,18 @@ class CapabilitiesController extends Controller
 
             ->addColumn('options', function ($data) {
 
+                $action=null;
+                $token=csrf_token();
+                $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method=\"post\" role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+
                 return "&emsp;
                     <a title='Detail' class='btn btn-sm btn-primary' href='" . url('/capabilities/view/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/capabilities/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
+                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>                 ".$action;
 
             })
             ->rawColumns(['options'])
@@ -93,8 +101,6 @@ class CapabilitiesController extends Controller
             'remarks.required' => 'Remarks field is required *',
             'location.required' => 'Location field is required *',
             'procedure.required' => 'Procedure field is required *',
-
-
         ]);
         $capabilities=new Capabilities();
         $capabilities->name=$request->name;
@@ -108,9 +114,9 @@ class CapabilitiesController extends Controller
         $capabilities->remarks=$request->remarks;
         $capabilities->procedure=$request->procedure;
         $capabilities->save();
-        return redirect()->back()->with('success', 'Capability Added Successfully');
+        return response()->json(['success'=> 'Capability added successfully']);
     }
-    public function update($id,Request $request){
+    public function update(Request $request){
         $this->validate(request(), [
             'name' => 'required',
             'category' => 'required',
@@ -135,7 +141,7 @@ class CapabilitiesController extends Controller
 
 
         ]);
-        $capabilities=Capabilities::find($id);
+        $capabilities=Capabilities::find($request->id);
         $capabilities->name=$request->name;
         $capabilities->parameter=$request->category;
         $capabilities->range=$request->range;
@@ -147,13 +153,19 @@ class CapabilitiesController extends Controller
         $capabilities->remarks=$request->remarks;
         $capabilities->procedure=$request->procedure;
         $capabilities->save();
-        return redirect()->back()->with('success', 'Capability Updated Successfully');
+        return response()->json(['success'=> 'Capability updated successfully']);
+
     }
     public function show($id){
         $parameters=Parameter::all();
         $show=Capabilities::find($id);
         $suggestions=Suggestion::where('capabilities',$id)->get();
         return view('capabilities.show',compact('show','parameters','suggestions'));
+    }
+    public function delete(Request $request){
+        $item=Capabilities::find($request->id);
+        $item->delete();
+        return response()->json(['success'=> 'Capability deleted successfully']);
     }
     //
 }
