@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::get('/quote',function (){return view('docs.quotation');});
 Route::get('/jobtag',function (){return view('docs.jobtag');});
+Route::get('/certificate',function (){return view('worksheets.certificate');});
 Route::get('/jobform',function (){return view('docs.jobform');});
 Route::get('/worksheet',function (){return view('worksheets.worksheets');});
 Route::get('/invoice',function (){return view('docs.invoice');});
@@ -346,6 +347,11 @@ Route::group(['prefix'=> 'uncertainties'],function() {
 });
 
 
+Route::group(['prefix'=> 'calculator'],function() {
+    Route::get('',[App\Http\Controllers\CalculatorController::class, 'index'])->middleware('auth')->name('calculator');
+});
+
+
 
 
 
@@ -356,6 +362,7 @@ Route::get('/taxes',[App\Http\Controllers\TaxesController::class, 'index'])->mid
 Route::post('/search',[App\Http\Controllers\InvoicingLedgerController::class, 'search'])->middleware('auth')->name('search');
 Route::post('/clear/filter',[App\Http\Controllers\InvoicingLedgerController::class, 'clearfilter'])->middleware('auth')->name('clear.filter');
 Route::post('/calculate',[App\Http\Controllers\MytaskController::class, 'calculate'])->middleware('auth')->name('calculate');
+
 
 
 

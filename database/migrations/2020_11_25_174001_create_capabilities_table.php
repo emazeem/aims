@@ -25,6 +25,7 @@ class CreateCapabilitiesTable extends Migration
             $table->string('remarks',191);
             $table->string('location',191);
             $table->string('accredited',191);
+            $table->string('code',191);
             $table->softDeletes();
             $table->timestamps();
         });
