@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_25_174001_create_capabilities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_25_174001_create_capabilities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/worksheets/certificate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/worksheets/certificate.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -205,12 +203,12 @@
           <entry key="env" value="4" />
           <entry key="js" value="18" />
           <entry key="json" value="2" />
-          <entry key="php" value="5906" />
+          <entry key="php" value="5922" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="5259" />
+          <entry key="Blade" value="5275" />
           <entry key="CSS" value="140" />
           <entry key="HTML" value="3" />
           <entry key="JSON" value="2" />
@@ -235,8 +233,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/worksheets/certificate.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+            <state relative-caret-position="102">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="22" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -253,7 +251,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>h4</find>
       <find>mea</find>
       <find>meas</find>
       <find>calibrati</find>
@@ -283,6 +280,7 @@
       <find>calibration pro</find>
       <find>calibration results</find>
       <find>thermohy</find>
+      <find>digital</find>
     </findStrings>
     <replaceStrings>
       <replace>due</replace>
@@ -1079,12 +1077,12 @@
       <workItem from="1606365031809" duration="1210000" />
       <workItem from="1606388574301" duration="6797000" />
       <workItem from="1606451005608" duration="779000" />
-      <workItem from="1606452696822" duration="7268000" />
+      <workItem from="1606452696822" duration="7975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="941601000" />
+    <option name="totallyTimeSpent" value="942308000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1485,8 +1483,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/worksheets/certificate.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+        <state relative-caret-position="102">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="22" />
           <folding>
             <element signature="n#style#0;n#span#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
