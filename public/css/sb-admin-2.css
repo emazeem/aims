@@ -10142,6 +10142,7 @@ a:focus {
 }
 
 .topbar {
+  background-color: red;
   height: 4.375rem;
 }
 

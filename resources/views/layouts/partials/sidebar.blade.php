@@ -1,78 +1,74 @@
-<!-- Sidebar -->
-<ul class="navbar-nav bg-primary sidebar sidebar-dark  accordion sidebar-toggled toggled custom-sidebar" id="accordionSidebar">
+<nav id="sidebar">
+    <div class="sidebar-header pt-3 pb-2">
+        <h3 class="text-center">
+            {{--<img src="{{url('/img/aims-logo.png')}}" class="img-fluid" width="70">
+            --}}
+            AIMS
+            <br>
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
-        {{--<div class="sidebar-brand-icon rotate-n-15">
-            <i class="fa fa-flask" aria-hidden="true"></i>
-        </div>--}}
-        <img src="{{url('/img/aims-logo.png')}}" class="img-fluid" width="70">
-        {{--<div class="sidebar-brand-text mx-3">AIMS</div>--}}
-    </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{(Request::url()==url(''))?"active":""}}">
-        <a class="nav-link p-1 p-md-2 text-sm-left" href="{{url('/')}}">
-
-            <span class="text-xs border-md-bottom">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                Dashboard
-            </span>
-        </a>
-    </li>
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        ALL MENUS
+        </h3>
+        <strong><small>AIMS</small></strong>
     </div>
+    <div class="text-center p-2 border-bottom border-top">
+        <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 65px;width: 65px;">
+        <br>
 
-    @foreach($menus as $menu)
-        @can($menu->slug)
-        <li class="nav-item {{(Request::url()==url(''.$menu->url))?"active":""}}">
-            <a class="nav-link p-1 p-md-2 text-sm-left" href="{{url($menu->url)}}">
-                <span class="text-xs border-md-bottom">
-                    <i class="{{$menu->icon}} d-inline text-xs"></i>
-                    {{$menu->name}}
-                </span>
+        <p style="font-size: 12px;" class="col-12 p-0 m-0 text-white">{{auth()->user()->fname}} {{auth()->user()->lname}}</p>
+
+    </div>
+    <ul class="list-unstyled components font-weight-lighter">
+        <li>
+            @foreach($menus as $menu)
+                @can($menu->slug)
+                    <a href="{{url($menu->url)}}" class="py-1 my-0 {{(Request::url()==url(''.$menu->url))?"active":""}} sidebar-a">
+                        <i class="{{$menu->icon}}"></i>
+                        <span>{{$menu->name}}</span>
+                    </a>
+                @endcan
+            @endforeach
+                @can('settings-index')
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <i class="fas fa-fw fa-cog"></i>
+                Settings
             </a>
+
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="{{url('/taxes')}}">Manage Taxes</a>
+                    <a href="{{url('/taxes')}}">Others</a>
+                </li>
+            </ul>
+                @endcan
+                <a href="{{route('logout')}}"  onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                    <i class="fa fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+                <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+
         </li>
-        @endcan
-    @endforeach
-    @can('settings-index')
-        <li class="nav-item {{(Request::url()==url(''.'settings'))?"active":""}}">
-            <a class="nav-link collapsed  p-1 p-md-2 text-sm-left" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+    </ul>
+</nav>
+
+{{--
+@can('settings-index')
+    <li class="nav-item {{(Request::url()==url(''.'settings'))?"active":""}}">
+        <a class="nav-link collapsed  p-1 p-md-2 text-sm-left" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <span class="text-xs border-md-bottom">
                 <i class="fas fa-fw fa-cog d-inline text-xs"></i>
 
                 Settings
                 </span>
 
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-primary text-white py-2 collapse-inner rounded">
-                    <a class="collapse-item text-white" href="{{url('/taxes')}}">Manage Taxes</a>
-                    <a class="collapse-item text-white" href="{{url('/taxes')}}">Others</a>
-                </div>
-            </div>
-        </li>
-
-    @endcan
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('logout')}}"  onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-            <i class="fa fa-sign-out-alt"></i>
-            <span>Logout</span>
         </a>
-        <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
-
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-primary text-white py-2 collapse-inner rounded">
+                <a class="collapse-item text-white" href="{{url('/taxes')}}">Manage Taxes</a>
+                <a class="collapse-item text-white" href="{{url('/taxes')}}">Others</a>
+            </div>
+        </div>
     </li>
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
 
-</ul>
-<!-- End of Sidebar -->
+@endcan
+    --}}

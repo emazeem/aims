@@ -1,50 +1,12 @@
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
-<style>
-    .aims-font,.user-name{
-        font-family: 'Quicksand', sans-serif;
-    }
-    .customize-nav{
-        background-color: red;
-    }
-    /* width */
-    ::-webkit-scrollbar {
-        width: 7px;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        border-radius: 40px;
-        background: #0275d8;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
-</style>
-
-
-<!-- Topbar -->
 <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow ">
 
-    <!-- Sidebar Toggle (Topbar) -->
-    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
-        <i class="fa fa-bars"></i>
+    <!-- End of Topbar -->
+    <button class="sidebar-collapse text-gray-700" id="sidebarCollapse">
+        <i class="fas fa-bars"></i>
+        <span></span>
     </button>
 
-    <p class="d-md-block d-none mt-3 aims-font">Al-Meezan Industrial Meterology Services
-
-
-    </p>
-
-
-    <h6 class="d-md-none d-block aims-font text-center">AIMS</h6>
-
+    <span class="mx-auto d-md-block d-none ">Al-Meezan Industrial Meterology Services</span>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
@@ -66,13 +28,13 @@
                 <div style="height: 300px;overflow-y: scroll">
 
                     @foreach(Auth::user()->Notifications as $notification)
-                    <a class="dropdown-item {{($notification->read_at==null)?"bg-gradient-light":""}}" href="{{url('/notification/markasread/'.$notification->id)}}">
-                        <div class="{{($notification->read_at==null)?"font-weight-bold":""}}">
-                            {{$notification->data['data']['title']}}
-                        <span class="small text-gray-500"><i class="fa fa-clock"></i> {{$notification['created_at']->diffForHumans()}}</span>
-                        </div>
-                        <p>{{$notification->data['data']['body']}}</p>
-                    </a>
+                        <a class="dropdown-item {{($notification->read_at==null)?"bg-gradient-light":""}}" href="{{url('/notification/markasread/'.$notification->id)}}">
+                            <div class="{{($notification->read_at==null)?"font-weight-bold":""}}">
+                                {{$notification->data['data']['title']}}
+                                <span class="small text-gray-500"><i class="fa fa-clock"></i> {{$notification['created_at']->diffForHumans()}}</span>
+                            </div>
+                            <p>{{$notification->data['data']['body']}}</p>
+                        </a>
                     @endforeach
 
 
@@ -130,23 +92,22 @@
                 </div>
 
 
-               {{-- <a class="dropdown-item mt-3" href="{{url('/profile')}}">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                </a>
-                <a class="dropdown-item" href="{{url('/change_password')}}">
-                    <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Change Password
-                </a>
-                <a class="dropdown-item" href="{{route('logout')}}"  onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                </a>
-                <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
---}}            </div>
+                {{-- <a class="dropdown-item mt-3" href="{{url('/profile')}}">
+                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                     Profile
+                 </a>
+                 <a class="dropdown-item" href="{{url('/change_password')}}">
+                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+                     Change Password
+                 </a>
+                 <a class="dropdown-item" href="{{route('logout')}}"  onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                     Logout
+                 </a>
+                 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     {{ csrf_field() }}
+                 </form>
+ --}}            </div>
         </li>
     </ul>
 </nav>
-<!-- End of Topbar -->
