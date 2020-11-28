@@ -8,7 +8,9 @@
         </script>
     @endif
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Lab Tasks</h1>
+
+        <h2 class="border-bottom text-dark">Lab Tasks</h2>
+
     </div>
 
     <div class="row">
@@ -46,7 +48,8 @@
     </div>
     <hr>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800 ">Site Tasks</h1>
+        <h2 class="border-bottom text-dark">Site Tasks</h2>
+
     </div>
 
     <div class="row">

@@ -9,7 +9,9 @@
     @endif
     <div class="col-12">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800 col-12">Schedule Jobs</h1>
+
+            <h2 class="border-bottom text-dark">Scheduling Jobs</h2>
+
             {{--<form method="post" action="" class="pull-right col-md-3 col-12">
                 @csrf
                 <div class="row">

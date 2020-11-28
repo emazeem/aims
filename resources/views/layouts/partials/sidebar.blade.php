@@ -1,6 +1,6 @@
 <nav id="sidebar">
-    <div class="sidebar-header pt-3 pb-2">
-        <h3 class="text-center">
+    <div class="sidebar-header" style="padding: 10px">
+        <h3 class="text-center ">
             {{--<img src="{{url('/img/aims-logo.png')}}" class="img-fluid" width="70">
             --}}
             AIMS
@@ -16,8 +16,12 @@
         <p style="font-size: 12px;" class="col-12 p-0 m-0 text-white">{{auth()->user()->fname}} {{auth()->user()->lname}}</p>
 
     </div>
-    <ul class="list-unstyled components font-weight-lighter">
+    <ul class="list-unstyled components">
         <li>
+            <a href="{{url('/')}}" class="py-1 my-0 {{(Request::url()==url(''))?"active":""}} sidebar-a">
+                <i class="fa fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
             @foreach($menus as $menu)
                 @can($menu->slug)
                     <a href="{{url($menu->url)}}" class="py-1 my-0 {{(Request::url()==url(''.$menu->url))?"active":""}} sidebar-a">

@@ -1,8 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">All Quotes</h1>
-  <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_session"><i class="fas fa-plus"></i> Quote</button>
+    <h2 class="border-bottom text-dark">All Quotes</h2>
+
+    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_session"><i class="fas fa-plus"></i> Quote</button>
 </div>
 
 @if(Session::has('success'))

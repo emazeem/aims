@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">All Menus</h1>
+  <h2 class="border-bottom text-dark">All Menus</h2>
     <div>
     <a href="{{route('menus.manage')}}" class="btn btn-sm pull-right btn-success shadow-sm"><i class="fas fa-sort"></i> Manage Menus</a>
     <button type="button" class="btn btn-sm pull-right btn-primary shadow-sm" data-toggle="modal" data-target="#add_menu"><i class="fas fa-plus"></i> Menu</button>

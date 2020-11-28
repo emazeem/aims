@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">All Units</h1>
+        <h2 class="border-bottom text-dark">All Units</h2>
+
         <span>
         <a href="{{route('units.create')}}" class="btn btn-primary pull-right btn-sm">
             <span class="fa fa-plus"></span> Add Unit

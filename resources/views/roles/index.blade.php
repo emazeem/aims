@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-12 mb-4">
-            <h1 class="h3 mb-0 text-gray-800 float-left">All Roles</h1>
+            <h2 class="border-bottom text-dark">All Roles</h2>
 
 
             <a href="{{route('roles.create')}}" class="btn float-right btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Roles</a>

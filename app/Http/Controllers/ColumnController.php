@@ -14,7 +14,7 @@ class ColumnController extends Controller
         return view('column',compact('assets'));
     }
     public function fetch(){
-        $data=Column::with('departments')->get();
+        $data=Column::all();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -23,7 +23,14 @@ class ColumnController extends Controller
                 return $data->column;
             })
             ->addColumn('assets', function ($data) {
-                return $data->assets;
+                $all=explode(',',$data->assets);
+                $assets=null;
+                foreach ($all as $asset){
+                    $temp=Asset::find($asset);
+                    $assets.='<label class="badge badge-primary mr-1">'.$temp->name.'</label>';
+                }
+
+                return $assets;
             })
             ->addColumn('options', function ($data) {
 
@@ -32,7 +39,7 @@ class ColumnController extends Controller
                   ";
 
             })
-            ->rawColumns(['options'])
+            ->rawColumns(['options','assets'])
             ->make(true);
     }
     public function store(Request $request){

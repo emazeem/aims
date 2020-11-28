@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-12 mb-4">
-            <h1 class="h3 mb-0 text-gray-800 float-left">Capabilities & Prices</h1>
+            <h2 class="border-bottom text-dark">Capabilities & Prices</h2>
             <a  class="btn float-right btn-sm btn-primary shadow-sm" href="#" data-toggle="modal" data-target="#add_capabilities"><i class="fas fa-plus"></i> Capabilities & Prices</a>
             <a href="{{route('parameters')}}" class="btn float-right mx-1 btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Parameters</a>
         </div>

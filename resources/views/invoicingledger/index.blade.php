@@ -9,7 +9,8 @@
     @endif
     <div class="col-12">
         <div class="d-sm-flex align-items-center justify-content-between mb-4 p-2">
-            <h1 class="h3 mb-0 text-gray-800 col-12">Invoicing Ledger</h1>
+            <h2 class="border-bottom text-dark">Invoicing Ledger</h2>
+
             <a href="" class="btn btn-secondary"><i class="fa fa-print"></i></a>
         </div>
     </div>
@@ -36,8 +37,6 @@
                         <form method="post" action="{{route('search')}}" role="form">
                             @csrf
                             <div class="form-group row">
-                                <label class="col-sm-2"></label>
-
                                 <div class="form-check ml-md-5">
                                     <label class="form-check-label">
                                         <input type="radio" class="form-check-input" name="show" value="customer_radio">Customer

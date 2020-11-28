@@ -1,18 +1,17 @@
-<nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow ">
+<nav class="navbar navbar-expand navbar-light bg-gray-400 topbar mb-4 static-top shadow custom-navbar">
 
     <!-- End of Topbar -->
-    <button class="sidebar-collapse text-gray-700" id="sidebarCollapse">
+    <button class="sidebar-collapse text-white" id="sidebarCollapse">
         <i class="fas fa-bars"></i>
         <span></span>
     </button>
 
-    <span class="mx-auto d-md-block d-none ">Al-Meezan Industrial Meterology Services</span>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
+                <i class="fas fa-bell fa-fw text-white"></i>
                 <!-- Counter - Alerts -->
                 @php $unread=auth()->user()->unreadNotifications()->count(); @endphp
                 <span class="badge badge-danger badge-counter">@if($unread>0){{$unread}}@endif</span>
@@ -21,7 +20,7 @@
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" >
                 <h5 class="bg-primary text-white py-3 px-2 pl-md-4">
                     Notification
-                    <i class="fas float-right fa-bell fa-fw">
+                    <i class="fas float-right fa-bell fa-fw ">
 
                     </i>
                 </h5>
@@ -48,7 +47,7 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-dark user-name font-weight-normal small ">{{auth()->user()->fname}} {{auth()->user()->lname}}</span>
+                <span class="mr-2 d-none d-lg-inline user-name font-weight-normal text-white ">{{auth()->user()->fname}} {{auth()->user()->lname}}</span>
                 @if(auth()->user()->profile)
                     <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 35px;width: 35px;">
                 @else

@@ -1,7 +1,9 @@
 @extends('layouts.master')
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Manage Reference Errors & Uncertainty</h1>
+
+        <h3 class="border-bottom text-dark">Manage Reference Errors & Uncertainty</h3>
+
         <span>
         <a href="{{route('units')}}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i class="fas fa-eye"></i> Manage Units</a>
         <a href="{{route('manageref.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Add Errors & Uncertainty</a>
