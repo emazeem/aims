@@ -1,13 +1,11 @@
 <nav id="sidebar">
-    <div class="sidebar-header" style="padding: 10px">
-        <h3 class="text-center ">
+    <div class="sidebar-header">
+        <h3 class="text-center py-2">
             {{--<img src="{{url('/img/aims-logo.png')}}" class="img-fluid" width="70">
             --}}
             AIMS
-            <br>
-
         </h3>
-        <strong><small>AIMS</small></strong>
+        <strong class="pt-1"><small>AIMS</small></strong>
     </div>
     <div class="text-center p-2 border-bottom border-top">
         <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 65px;width: 65px;">
