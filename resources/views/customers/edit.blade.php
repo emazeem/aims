@@ -8,7 +8,7 @@
     </script>
     @endif
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  
+
     <h2 class="border-bottom text-dark">Edit Customer</h2>
 
 </div>

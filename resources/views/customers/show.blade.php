@@ -9,8 +9,9 @@
     @endif
 
     <div class="row">
+        <h2 class="border-bottom text-dark">Customer Details</h2>
         <div class="col-12 mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Customer Details</h1>
+
             <div class="text-md-right">
                 <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fas fa-eye"></i> Customer Ledger</a>
                 <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fas fa-eye"></i> Receivable Aging Ledger</a>

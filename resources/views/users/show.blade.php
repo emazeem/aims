@@ -7,16 +7,15 @@
             });
         </script>
     @endif
-    <div class="card mb-4 py-3 border-left-primary">
 
-        <div class="card-body">
+
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Staff Details</h1>
+        <h2 class="border-bottom text-dark">Staff Details</h2>
     </div>
 
     <div class="row pb-3">
         <div class="col-12">
-            <table class="table table-bordered table-striped table-responsive-sm">
+            <table class="table table-bordered table-responsive-sm table-hover font-13">
                 <tr>
                     <th>First Name</th>
                     <td>{{$show->fname}}</td>
@@ -68,5 +67,5 @@
             </table>
         </div>
     </div>
-        </div></div>
+
 @endsection

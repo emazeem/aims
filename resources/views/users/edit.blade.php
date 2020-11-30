@@ -10,8 +10,7 @@
         </script>
     @endif
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Edit Personnel</h1>
-
+        <h2 class="border-bottom text-dark">Edit Personnel</h2>
     </div>
 
     <div class="row pb-3">
