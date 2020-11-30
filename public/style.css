@@ -1,18 +1,21 @@
-.form-control{
+.form-control {
     border-radius: 0;
 }
-.btn{
+
+.btn {
     border-radius: 0;
 }
-.close-btn:focus{
+
+.close-btn:focus {
     border: none;
     outline: none;
 }
-body{
+
+body {
     font-family: Cambria;
 }
 
-.loader{
+.loader {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -20,76 +23,57 @@ body{
     height: 100%;
     z-index: 9999;
 }
-.aims-font{
+
+.aims-font {
     font-size: 30px;
 }
-th,td{
+
+th, td {
     color: rgba(0, 0, 0, 0.5);
 }
-.table-bordered{
+
+.table-bordered {
     border: 1px solid rgba(0, 0, 0, 0.2);
 
-
 }
-.table-bordered tbody tr td,.table-bordered tbody tr th{
+
+.table-bordered tbody tr td, .table-bordered tbody tr th {
     border: 1px solid rgba(0, 0, 0, 0.2);
     color: rgba(0, 0, 0, 0.8);
 
 }
-.table-bordered tfoot tr th{
+
+.table-bordered tfoot tr th {
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-bottom: none;
 }
-.table-bordered thead tr th,.table-bordered tfoot tr th{
+
+.table-bordered thead tr th, .table-bordered tfoot tr th {
     background-color: rgba(38, 59, 110, 0.88);
-    color:#fff;
+    color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-top: none;
     border-bottom: none;
 }
-.h3{
+
+.h3 {
     font-family: 'Quicksand', sans-serif;
 }
-input[type=checkbox]{
+
+input[type=checkbox] {
 
     transform: scale(1.3);
 }
-.font-13{
+
+.font-13 {
     font-size: 13px;
 }
 
 @media (max-width: 400px) {
-    .border-md-bottom{
+    .border-md-bottom {
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -99,11 +83,12 @@ p {
     color: #999;
 }
 
-a{
+a {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
 }
+
 i,
 span {
     display: inline-block;
@@ -189,7 +174,6 @@ span {
     display: block;
 }
 
-
 #sidebar ul li a:hover {
     color: white;
     text-decoration: none;
@@ -200,7 +184,7 @@ span {
     margin-right: 10px;
 }
 
-#sidebar ul li.active>a,
+#sidebar ul li.active > a,
 a[aria-expanded="true"] {
     color: #fff;
     background: transparent;
@@ -209,8 +193,6 @@ a[aria-expanded="true"] {
 a[data-toggle="collapse"] {
     position: relative;
 }
-
-
 
 .dropdown-toggle::after {
     display: block;
@@ -249,19 +231,54 @@ a.article:hover {
     color: #fff !important;
 }
 
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
+.sidebar-collapse, .sidebar-collapse:focus, .sidebar-collapse:active {
+
+    border: none !important;
+    outline: 2px !important;
+    background-color: transparent;
+}
+
+#sidebar ul li .active {
+    background: #2a2725;
+    border-left: 3px solid rgba(38, 59, 110, 0.88);
+
+}
+
+.sidebar-a {
+    font-family: Corbel;
+}
+
+.custom-navbar {
+    height: 50px;
+    background-color: rgba(38, 59, 110, 0.88) !important;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .nav-link:hover, .topbar.navbar-light .navbar-nav .nav-item .nav-link:focus, .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
+    background-color: transparent;
+}
+
+.btn-primary {
+    border: 1px solid rgba(38, 59, 110, 0.88);
+    background-color: rgba(38, 59, 110, 0.88);
+}
+
+.btn-primary:hover {
+    background-color: rgba(38, 59, 110, 1);
+}
+
+.aims-primary-bg {
+    background-color: rgba(38, 59, 110, 0.88);
+}
+
+.text-primary {
+    color: rgba(38, 59, 110, 0.88);
+}
 
 #content {
     width: 100%;
     min-height: 100vh;
     transition: all 0.3s;
 }
-
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
 
 @media (max-width: 768px) {
     #sidebar {
@@ -270,6 +287,7 @@ a.article:hover {
         text-align: center;
         margin-left: -80px !important;
     }
+
     .dropdown-toggle::after {
         top: auto;
         bottom: 10px;
@@ -278,72 +296,46 @@ a.article:hover {
         -ms-transform: translateX(50%);
         transform: translateX(50%);
     }
+
     #sidebar.active {
         margin-left: 0 !important;
     }
+
     #sidebar .sidebar-header h3,
     #sidebar .CTAs {
         display: none;
     }
+
     #sidebar .sidebar-header strong {
         display: block;
     }
+
     #sidebar ul li a {
         padding: 20px 10px;
     }
+
     #sidebar ul li a span {
         font-size: 0.85em;
     }
+
     #sidebar ul li a i {
         margin-right: 0;
         display: block;
     }
+
     #sidebar ul ul a {
         padding: 10px !important;
     }
+
     #sidebar ul li a i {
         font-size: 1.3em;
     }
+
     #sidebar {
         margin-left: 0;
     }
+
     #sidebarCollapse span {
         display: none;
     }
-}
-.sidebar-collapse,.sidebar-collapse:focus,.sidebar-collapse:active{
-
-    border: none !important;
-    outline: 2px !important;
-    background-color: transparent;
-}
-#sidebar ul li .active {
-    background: #2a2725;
-    border-left: 3px solid rgba(38, 59, 110, 0.88);
-
-}
-
-.sidebar-a{
-    font-family: Corbel;
-}
-.custom-navbar{
-    height: 50px;
-    background-color: rgba(38, 59, 110, 0.88) !important;
-}
-.topbar.navbar-light .navbar-nav .nav-item .nav-link:hover ,.topbar.navbar-light .navbar-nav .nav-item .nav-link:focus ,.topbar.navbar-light .navbar-nav .nav-item .nav-link:active{
-    background-color: transparent;
-}
-.btn-primary{
-    border: 1px solid rgba(38, 59, 110, 0.88);
-    background-color: rgba(38, 59, 110, 0.88);
-}
-.btn-primary:hover{
-    background-color: rgba(38, 59, 110, 1);
-}
-.aims-primary-bg{
-    background-color: rgba(38, 59, 110, 0.88);
-}
-
-.text-primary{
-    color: rgba(38, 59, 110, 0.88);
 }
