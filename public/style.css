@@ -333,7 +333,7 @@ a.article:hover {
 .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover ,.topbar.navbar-light .navbar-nav .nav-item .nav-link:focus ,.topbar.navbar-light .navbar-nav .nav-item .nav-link:active{
     background-color: transparent;
 }
-.btn-primary,.page-link{
+.btn-primary{
     border: 1px solid rgba(38, 59, 110, 0.88);
     background-color: rgba(38, 59, 110, 0.88);
 }
@@ -341,7 +341,7 @@ a.article:hover {
     background-color: rgba(38, 59, 110, 1);
 }
 .aims-primary{
-    background-color: rgba(38, 59, 110, 1);
+    background-color: rgba(38, 59, 110, 0.88);
 }
 
 .text-primary{
