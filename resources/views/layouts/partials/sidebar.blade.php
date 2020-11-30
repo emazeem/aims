@@ -1,4 +1,6 @@
 <nav id="sidebar" >
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <div class="sidebar-header">
         <h3 class="text-center py-2">
             {{--<img src="{{url('/img/aims-logo.png')}}" class="img-fluid" width="70">
