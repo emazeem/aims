@@ -8,10 +8,12 @@
         <strong class="pt-1"><small>AIMS</small></strong>
     </div>
     <div class="text-center p-2 border-bottom border-top">
-        <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 65px;width: 65px;">
+        <i class="fa fa-temperature-high fa-3x"></i>
+        {{--<img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 65px;width: 65px;">
         <br>
 
         <p style="font-size: 12px;" class="col-12 p-0 m-0 text-white">{{auth()->user()->fname}} {{auth()->user()->lname}}</p>
+        --}}
 
     </div>
     <ul class="list-unstyled components">

@@ -14,8 +14,6 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Created_at</th>
-        <th>Updated_at</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -25,8 +23,6 @@
       <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Created_at</th>
-          <th>Updated_at</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -56,8 +52,6 @@
             "columns": [
                 { "data": "id" },
                 { "data": "name" },
-                { "data": "createdat" },
-                { "data": "updatedat" },
                 { "data": "options" ,"orderable":false},
             ]
 

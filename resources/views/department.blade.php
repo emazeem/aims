@@ -4,7 +4,7 @@
 
     <h2 class="border-bottom text-dark">All Departments</h2>
 
-    <button type="button" class="btn btn-sm btn-primary float-right shadow-sm" data-toggle="modal" data-target="#add_department"><i class="fas fa-plus"></i> Department</button>
+    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_department"><i class="fas fa-plus"></i> Department</button>
 </div>
 
 <div class="row">
@@ -15,8 +15,6 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Created_at</th>
-        <th>Updated_at</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -26,8 +24,6 @@
       <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Created_at</th>
-          <th>Updated_at</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -57,8 +53,6 @@
             "columns": [
                 { "data": "id" },
                 { "data": "name" },
-                { "data": "createdat" },
-                { "data": "updatedat" },
                 { "data": "options" ,"orderable":false},
             ]
 

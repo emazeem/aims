@@ -3,7 +3,7 @@
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h2 class="border-bottom text-dark">Customer Details</h2>
-            <a href="{{route('customers.create')}}" class="mt-2 btn btn-sm float-right btn-primary shadow-sm"><i class="fas fa-plus"></i> Customer</a>
+            <a href="{{route('customers.create')}}" class="mt-2 btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Customer</a>
         </div>
 
         <div class="row">

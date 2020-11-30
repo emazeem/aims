@@ -15,8 +15,6 @@
         <th>ID</th>
         <th>Department</th>
         <th>Name</th>
-        <th>Created_at</th>
-        <th>Updated_at</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -27,8 +25,6 @@
           <th>ID</th>
           <th>Department</th>
           <th>Name</th>
-          <th>Created_at</th>
-          <th>Updated_at</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -59,8 +55,6 @@
                 { "data": "id" },
                 { "data": "department_id" },
                 { "data": "name" },
-                { "data": "createdat" },
-                { "data": "updatedat" },
                 { "data": "options" ,"orderable":false},
             ]
 

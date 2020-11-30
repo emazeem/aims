@@ -41,8 +41,8 @@ th,td{
     border-bottom: none;
 }
 .table-bordered thead tr th,.table-bordered tfoot tr th{
-    background-color: #d5dfd9;
-    color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(38, 59, 110, 0.88);
+    color:#fff;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-top: none;
     border-bottom: none;
@@ -193,7 +193,7 @@ span {
 #sidebar ul li a:hover {
     color: white;
     text-decoration: none;
-    background: #0f74a8;
+    background-color: rgba(38, 59, 110, 0.88) !important;
 }
 
 #sidebar ul li a i {
@@ -245,7 +245,7 @@ a.download {
 
 a.article,
 a.article:hover {
-    background: #6d7fcc !important;
+    background-color: rgba(38, 59, 110, 0.88) !important;
     color: #fff !important;
 }
 
@@ -319,7 +319,7 @@ a.article:hover {
 }
 #sidebar ul li .active {
     background: #2a2725;
-    border-left: 3px solid #0f74a8;
+    border-left: 3px solid rgba(38, 59, 110, 0.88);
 
 }
 
@@ -332,4 +332,18 @@ a.article:hover {
 }
 .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover ,.topbar.navbar-light .navbar-nav .nav-item .nav-link:focus ,.topbar.navbar-light .navbar-nav .nav-item .nav-link:active{
     background-color: transparent;
+}
+.btn-primary,.page-link{
+    border: 1px solid rgba(38, 59, 110, 0.88);
+    background-color: rgba(38, 59, 110, 0.88);
+}
+.btn-primary:hover{
+    background-color: rgba(38, 59, 110, 1);
+}
+.aims-primary{
+    background-color: rgba(38, 59, 110, 1);
+}
+
+.text-primary{
+    color: rgba(38, 59, 110, 0.88);
 }

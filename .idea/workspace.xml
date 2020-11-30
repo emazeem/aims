@@ -3,36 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ColumnController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ColumnController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ParameterControlller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ParameterControlller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/assets/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/awaiting/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/awaiting/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/certificates.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/certificates.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/column.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/column.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/customers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customers/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/department.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/department.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/designation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/designation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/expensecategory/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expensecategory/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/expenses/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expenses/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jobs/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/manage/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manage/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mytask/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mytask/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/parameter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/parameter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pendings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pendings/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/procedures/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/procedures/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/quotes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quotes/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/reference_errors/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reference_errors/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/roles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/scheduling/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/scheduling/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/uncertainty.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/uncertainty.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/units/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/units/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,58 +170,60 @@
     <session id="-332573018">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="12" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.19" value="2" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="29" />
+          <entry key="project.opened" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="17" />
+          <entry key="css" value="19" />
           <entry key="env" value="3" />
           <entry key="htaccess" value="1" />
           <entry key="html" value="2" />
           <entry key="js" value="13" />
           <entry key="json" value="2" />
-          <entry key="php" value="194" />
+          <entry key="php" value="204" />
           <entry key="sql" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="123" />
-          <entry key="CSS" value="17" />
+          <entry key="Blade" value="129" />
+          <entry key="CSS" value="19" />
           <entry key="HTML" value="2" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="13" />
-          <entry key="PHP" value="71" />
+          <entry key="PHP" value="75" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="743" />
+          <entry key="css" value="869" />
           <entry key="env" value="4" />
           <entry key="js" value="18" />
           <entry key="json" value="2" />
-          <entry key="php" value="7683" />
+          <entry key="php" value="7777" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="6739" />
-          <entry key="CSS" value="743" />
+          <entry key="Blade" value="6833" />
+          <entry key="CSS" value="869" />
           <entry key="HTML" value="3" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="18" />
@@ -254,11 +235,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret lean-forward="true" />
+            <state relative-caret-position="293">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -266,17 +247,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="335" selection-start-line="335" selection-end-line="335" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="103" selection-start-line="20" selection-start-column="103" selection-end-line="20" selection-end-column="103" />
+            <state relative-caret-position="412">
+              <caret line="344" selection-start-line="344" selection-end-line="344" />
             </state>
           </provider>
         </entry>
@@ -288,8 +260,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>thermohy</find>
-      <find>digital</find>
       <find>bootstra</find>
       <find>content</find>
       <find>document</find>
@@ -303,7 +273,6 @@
       <find>body</find>
       <find>`</find>
       <find>a</find>
-      <find>sidebar</find>
       <find>sidebarCollapse</find>
       <find>topbar</find>
       <find>border</find>
@@ -318,6 +287,9 @@
       <find>header</find>
       <find>collapse</find>
       <find>i</find>
+      <find>sidebar</find>
+      <find>tr</find>
+      <find>notification</find>
     </findStrings>
     <replaceStrings>
       <replace>due</replace>
@@ -356,8 +328,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/js/sb-admin-2.js" />
-        <option value="$PROJECT_DIR$/resources/views/customers/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mytask/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/worksheets/worksheets.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/profile.blade.php" />
@@ -377,15 +347,10 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/public/css/sb-admin-2.css" />
         <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/roles/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/menus.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/customers/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/users/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/department.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/designation.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/parameter.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/procedures/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quotes/index.blade.php" />
@@ -405,8 +370,15 @@
         <option value="$PROJECT_DIR$/app/Models/Column.php" />
         <option value="$PROJECT_DIR$/resources/views/column.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ColumnController.php" />
-        <option value="$PROJECT_DIR$/public/style.css" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/customers/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/department.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php" />
+        <option value="$PROJECT_DIR$/resources/views/designation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/parameter.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ParameterControlller.php" />
+        <option value="$PROJECT_DIR$/public/style.css" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" />
       </list>
     </option>
   </component>
@@ -590,119 +562,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
-          <expand>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="awaiting" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
-          <expand>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="awaiting" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="awaiting" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -932,6 +791,119 @@
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="awaiting" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="awaiting" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="awaiting" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -1226,11 +1198,13 @@
       <workItem from="1606536698668" duration="2582000" />
       <workItem from="1606553396417" duration="3393000" />
       <workItem from="1606565275903" duration="3921000" />
+      <workItem from="1606569519745" duration="321000" />
+      <workItem from="1606705964081" duration="1691000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="968354000" />
+    <option name="totallyTimeSpent" value="970366000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1243,8 +1217,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2602118" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18154311" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1295,34 +1270,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Lenovo/aims (1).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="1340" lean-forward="true" selection-start-line="341" selection-end-line="1340" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Capabilities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="164" column="26" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RoleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_11_25_174001_create_capabilities_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1431,35 +1378,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/customers/create.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/users/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/department.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/designation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/parameter.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" selection-start-line="3" selection-end-line="4" />
@@ -1609,24 +1528,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret lean-forward="true" />
+        <state relative-caret-position="170">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Department.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/department.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="74" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DesignationController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ParameterControlller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/designation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/parameter.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="335" selection-start-line="335" selection-end-line="335" />
+        <state relative-caret-position="412">
+          <caret line="344" selection-start-line="344" selection-end-line="344" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="103" selection-start-line="20" selection-start-column="103" selection-end-line="20" selection-end-column="103" />
+        <state relative-caret-position="293">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
         </state>
       </provider>
     </entry>

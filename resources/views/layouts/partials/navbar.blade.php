@@ -18,7 +18,7 @@
             </a>
             <!-- Dropdown - Alerts -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" >
-                <h5 class="bg-primary text-white py-3 px-2 pl-md-4">
+                <h5 class="aims-primary text-white py-3 px-2 pl-md-4">
                     Notification
                     <i class="fas float-right fa-bell fa-fw ">
 

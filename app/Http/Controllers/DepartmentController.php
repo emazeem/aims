@@ -21,12 +21,6 @@ class DepartmentController extends Controller
             ->addColumn('name', function ($data) {
                 return $data->name;
             })
-            ->addColumn('createdat', function ($data) {
-                return date('h:i A d M,Y',strtotime($data->created_at));
-            })
-            ->addColumn('updatedat', function ($data) {
-                return date('h:i A d M,Y',strtotime($data->updated_at));
-            })
             ->addColumn('options', function ($data) {
 
                 return "&emsp;
