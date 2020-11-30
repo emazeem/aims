@@ -9,6 +9,8 @@ use App\Models\Parameter;
 use App\Models\Procedure;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\DocBlock;
 use Yajra\DataTables\DataTables;
 
@@ -64,7 +66,7 @@ class AssetController extends Controller
                 return $data->accuracy;
             })
             ->addColumn('due', function ($data) {
-                return $data->next_due;
+                return $data->due;
             })
             ->addColumn('options', function ($data) {
 
@@ -113,75 +115,111 @@ class AssetController extends Controller
     public function store(Request $request){
         $this->validate(request(), [
             'name' => 'required',
-            'category' => 'required',
+            'parameter' => 'required',
             'make' => 'required',
             'model' => 'required',
             'range' => 'required',
             'resolution' => 'required',
             'accuracy' => 'required',
             'due' => 'required',
+            'commissioned' => 'required',
+            'calibration' => 'required',
+            'traceability' => 'required',
+            'serial' => 'required',
+            'certificate' => 'required',
+            'status' => 'required',
             'code' => 'required|unique:assets',
         ],[
             'name.required' => 'Asset name field is required *',
-            'category.required' => 'Parameter field is required *',
+            'parameter.required' => 'Parameter field is required *',
             'make.required' => 'Make field is required *',
-            'model.required' => 'Make field is required *',
-            'range.required' => 'Make field is required *',
-            'resolution.required' => 'Make field is required *',
-            'accuracy.required' => 'Make field is required *',
-            'due.required' => 'Make field is required *',
+            'model.required' => 'Model field is required *',
+            'range.required' => 'Range field is required *',
+            'resolution.required' => 'Resolution field is required *',
+            'accuracy.required' => 'Accuracy field is required *',
+            'due.required' => 'Due field is required *',
             'code.required' => 'Code field is required *',
         ]);
 
         $asset=new Asset();
         $asset->name=$request->name;
         $asset->code=$request->code;
-        $asset->parameter=$request->category;
+        $asset->parameter=$request->parameter;
         $asset->make=$request->make;
         $asset->model=$request->model;
         $asset->range=$request->range;
-        $asset->status=0;
+        $asset->status=$request->status;
         $asset->resolution=$request->resolution;
         $asset->accuracy=$request->accuracy;
-        $asset->next_due=$request->due;
+        $asset->due=$request->due;
+        $asset->commissioned=$request->commissioned;
+        $asset->calibration=$request->calibration;
+        $asset->certificate_no=$request->certificate;
+        $asset->traceability=$request->traceability;
+        $asset->serial_no=$request->serial;
+        $asset->location=$request->location;
+        if (isset($request->image)){
+            $attachment=time().$request->image->getClientOriginalName();
+            Storage::disk('local')->put('/public/assets/'.$attachment, File::get($request->profile));
+            $asset->image=$attachment;
+        }
         $asset->save();
-        return redirect()->back()->with('success', 'Asset Added Successfully');
+        return redirect()->back()->with('success', 'Asset added successfully');
 
     }
     public function update($id,Request $request){
         $this->validate(request(), [
             'name' => 'required',
-            'category' => 'required',
+            'parameter' => 'required',
             'make' => 'required',
             'model' => 'required',
             'range' => 'required',
             'resolution' => 'required',
             'accuracy' => 'required',
             'due' => 'required',
+            'commissioned' => 'required',
+            'calibration' => 'required',
+            'traceability' => 'required',
+            'serial' => 'required',
+            'certificate' => 'required',
+            'status' => 'required',
             'code' => 'required|unique:assets',
         ],[
             'name.required' => 'Asset name field is required *',
-            'category.required' => 'Parameter field is required *',
+            'parameter.required' => 'Parameter field is required *',
             'make.required' => 'Make field is required *',
-            'model.required' => 'Make field is required *',
-            'range.required' => 'Make field is required *',
-            'resolution.required' => 'Make field is required *',
-            'accuracy.required' => 'Make field is required *',
-            'due.required' => 'Make field is required *',
+            'model.required' => 'Model field is required *',
+            'range.required' => 'Range field is required *',
+            'resolution.required' => 'Resolution field is required *',
+            'accuracy.required' => 'Accuracy field is required *',
+            'due.required' => 'Due field is required *',
             'code.required' => 'Code field is required *',
         ]);
+
         $asset=Asset::find($id);
-        $asset->code=$request->code;
         $asset->name=$request->name;
-        $asset->parameter=$request->category;
+        $asset->code=$request->code;
+        $asset->parameter=$request->parameter;
         $asset->make=$request->make;
         $asset->model=$request->model;
         $asset->range=$request->range;
+        $asset->status=$request->status;
         $asset->resolution=$request->resolution;
         $asset->accuracy=$request->accuracy;
-        $asset->next_due=$request->due;
+        $asset->due=$request->due;
+        $asset->commissioned=$request->commissioned;
+        $asset->calibration=$request->calibration;
+        $asset->certificate_no=$request->certificate;
+        $asset->traceability=$request->traceability;
+        $asset->serial_no=$request->serial;
+        $asset->location=$request->location;
+        if (isset($request->image)){
+            $attachment=time().$request->image->getClientOriginalName();
+            Storage::disk('local')->put('/public/assets/'.$attachment, File::get($request->profile));
+            $asset->image=$attachment;
+        }
         $asset->save();
-        return redirect()->back()->with('success', 'Asset Updated Successfully');
+        return redirect()->back()->with('success', 'Asset updated successfully!');
 
     }
 }

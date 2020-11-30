@@ -21,7 +21,7 @@
                 <h5 class="text-white py-2 px-3 aims-primary-bg">
                     Notification <small class="fas mt-1 float-right fa-bell"></small>
                 </h5>
-                <div style="height: 300px;overflow-y: scroll">
+                <div style="height: 300px;overflow-y: scroll" class="notification-scroll">
 
                     @foreach(Auth::user()->Notifications as $notification)
                         <a class="dropdown-item {{($notification->read_at==null)?"bg-gradient-light":""}}" href="{{url('/notification/markasread/'.$notification->id)}}">
@@ -32,9 +32,6 @@
                             <p>{{$notification->data['data']['body']}}</p>
                         </a>
                     @endforeach
-
-
-
                 </div>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Notifications</a>
             </div>

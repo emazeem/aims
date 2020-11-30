@@ -29,10 +29,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="category" class="col-sm-2 control-label">Parameter</label>
+                    <label for="parameter" class="col-sm-2 control-label">Parameter</label>
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="category" name="category">
+                            <select class="form-control" id="parameter" name="parameter">
                                 <option selected disabled>Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}" {{($edit->parameter==$parameter->id)?"selected":""}}>{{$parameter->name}}</option>
@@ -40,9 +40,9 @@
 
                             </select>
                         </div>
-                        @if ($errors->has('category'))
+                        @if ($errors->has('parameter'))
                             <span class="text-danger">
-                          <strong>{{ $errors->first('category') }}</strong>
+                          <strong>{{ $errors->first('parameter') }}</strong>
                       </span>
                         @endif
                     </div>
@@ -115,12 +115,126 @@
                     </div>
                 </div>
                 <div class="form-group mt-md-4 row">
+                    <label for="certificate" class="col-sm-2 control-label">Certificate #</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="certificate" name="certificate"
+                               placeholder="Certificate #" autocomplete="off" value="{{old('certificate',$edit->certificate_no)}}">
+                        @if ($errors->has('certificate'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('certificate') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group mt-md-4 row">
+                    <label for="serial" class="col-sm-2 control-label">Serial #</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="serial" name="serial" placeholder="Serial #"
+                               autocomplete="off" value="{{old('serial',$edit->serial_no)}}">
+                        @if ($errors->has('serial'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('serial') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group mt-md-4 row">
+                    <label for="traceability" class="col-sm-2 control-label">Traceability </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="traceability" name="traceability" placeholder="Traceability"
+                               autocomplete="off" value="{{old('traceability',$edit->traceability)}}">
+                        @if ($errors->has('traceability'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('traceability') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="location" class="col-sm-2 control-label">Location</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="location" name="location">
+                                <option selected disabled>Select Location</option>
+                                <option value="lab1" {{($edit->location=="lab1")?'selected':''}}>Lab 1</option>
+                                <option value="lab2" {{($edit->location=="lab2")?'selected':''}}>Lab 2</option>
+                                <option value="lab3" {{($edit->location=="lab3")?'selected':''}}>Lab 3</option>
+                            </select>
+                        </div>
+                        @if ($errors->has('location'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('location') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+
+
+
+                <div class="form-group mt-md-4 row">
+                    <label for="calibration" class="col-sm-2 control-label">Calibration Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="calibration" name="calibration" placeholder="" autocomplete="off"
+                               value="{{old('calibration',$edit->calibration)}}">
+                        @if ($errors->has('calibration'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('calibration') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group mt-md-4 row">
+                    <label for="commissioned" class="col-sm-2 control-label">Commissioned Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="commissioned" name="commissioned" placeholder="" autocomplete="off"
+                               value="{{old('commissioned',$edit->commissioned)}}">
+                        @if ($errors->has('commissioned'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('commissioned') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group mt-md-4 row">
                     <label for="due" class="col-sm-2 control-label">Due Date</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="due" name="due" placeholder="" autocomplete="off" value="{{old('due',$edit->next_due)}}">
+                        <input type="date" class="form-control" id="due" name="due" placeholder="" autocomplete="off"
+                               value="{{old('due',$edit->due)}}">
                         @if ($errors->has('due'))
                             <span class="text-danger">
                           <strong>{{ $errors->first('due') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="status" class="col-sm-2 control-label">Status</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="status" name="status">
+                                <option selected disabled>Select Status</option>
+                                <option value="0" {{($edit->code==0)?'selected':''}}>Available</option>
+                                <option value="1" {{($edit->code==1)?'selected':''}}>Assigned</option>
+                            </select>
+                        </div>
+                        @if ($errors->has('status'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('status') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="image" class="col-sm-2 control-label">Image</label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="image" id="image">
+                            <label class="custom-file-label" for="cv">Image (opt)</label>
+                        </div>
+                        @if ($errors->has('image'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('image') }}</strong>
                       </span>
                         @endif
                     </div>

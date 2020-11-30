@@ -354,6 +354,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 20px;
 
 }
+
 #sidebar ul.components::-webkit-scrollbar {
     width: 0.4em;
 
@@ -368,6 +369,35 @@ body::-webkit-scrollbar-thumb {
     border-radius: 20px;
     outline: white;
 }
+
+.notification-scroll::-webkit-scrollbar {
+    width: 0.4em;
+
+}
+
+.notification-scroll::-webkit-scrollbar-track {
+    background-color: rgba(216, 243, 249, 0.68);
+}
+
+.notification-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 20px;
+    outline: white;
+}
+
+
 .wrapper .active ul li a.dropdown-toggle i{
     padding-left: 10px;
+}
+.form-control{
+    border: 1px solid rgba(38, 59, 110, 0.88);
+}
+.form-control:focus,.form-control:active{
+    outline: none;
+    box-shadow:  0 0 3px 2px rgba(38, 59, 110, 0.5);
+    border: 1px solid rgba(38, 59, 110, 0.88);
+}
+
+.control-label{
+    color: black;
 }

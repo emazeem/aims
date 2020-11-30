@@ -43,7 +43,7 @@
         <div class="container-fluid">
             @yield('content')
 
-            <footer class="fixed-bottom">
+            <footer class="">
                 <div class="container mt-auto">
                     <div class="copyright text-center mt-auto">
                         <span>ERP &copy; 2020 AIMS CAL LAB </span>

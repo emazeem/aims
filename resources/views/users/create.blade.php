@@ -194,7 +194,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="address" class="col-sm-2 control-label">Upload CV</label>
+                    <label for="cv" class="col-sm-2 control-label">Upload CV</label>
                     <div class="col-sm-10">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name="cv" id="cv">

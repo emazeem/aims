@@ -53,6 +53,23 @@
                     <td>{{$show->model}}</td>
                 </tr>
                 <tr>
+                    <th>Certificate #</th>
+                    <td>{{$show->certificate_no}}</td>
+                </tr>
+                <tr>
+                    <th>Serial #</th>
+                    <td>{{$show->serial_no}}</td>
+                </tr>
+                <tr>
+                    <th>Traceability #</th>
+                    <td>{{$show->traceability}}</td>
+                </tr>
+                <tr>
+                    <th>Model</th>
+                    <td>{{$show->model}}</td>
+                </tr>
+
+                <tr>
                     <th>Range</th>
                     <td>{{$show->range}}</td>
                 </tr>
@@ -68,8 +85,18 @@
 
                 <tr>
                     <th>Due Date</th>
-                    <td>{{$show->next_due}}</td>
+                    <td>{{$show->due}}</td>
                 </tr>
+                <tr>
+                    <th>Commissioned Date</th>
+                    <td>{{$show->commissioned}}</td>
+                </tr>
+                <tr>
+                    <th>Calibration Date</th>
+                    <td>{{$show->calibration}}</td>
+                </tr>
+
+
                 <tr>
                     <th>Created on</th>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
