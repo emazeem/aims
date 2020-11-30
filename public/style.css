@@ -247,34 +247,6 @@ a.article:hover {
 
 @media (max-width: 768px) {
 
-    .text-primary {
-        color: rgba(38, 59, 110, 0.88);
-    }
-
-    .custom-navbar {
-        height: 50px;
-        background-color: rgba(38, 59, 110, 0.88) !important;
-    }
-
-    .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover, .topbar.navbar-light .navbar-nav .nav-item .nav-link:focus, .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
-        background-color: transparent;
-    }
-
-    .btn-primary {
-        border: 1px solid rgba(38, 59, 110, 0.88);
-        background-color: rgba(38, 59, 110, 0.88);
-    }
-
-    .btn-primary:hover {
-        background-color: rgba(38, 59, 110, 1);
-    }
-
-    .aims-primary-bg {
-        background-color: rgba(38, 59, 110, 0.88);
-    }
-
-
-
     #sidebar {
         min-width: 80px;
         max-width: 80px;
@@ -333,3 +305,32 @@ a.article:hover {
         display: none;
     }
 }
+.text-primary {
+    color: rgba(38, 59, 110, 0.88);
+}
+
+.custom-navbar {
+    height: 50px;
+    background-color: rgba(38, 59, 110, 0.88) !important;
+}
+
+.topbar.navbar-light .navbar-nav .nav-item .nav-link:hover, .topbar.navbar-light .navbar-nav .nav-item .nav-link:focus, .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
+    background-color: transparent;
+}
+
+.btn-primary {
+    border: 1px solid rgba(38, 59, 110, 0.88);
+    background-color: rgba(38, 59, 110, 0.88);
+}
+
+.btn-primary:hover {
+    background-color: rgba(38, 59, 110, 1);
+}
+
+.aims-primary-bg {
+    background-color: rgba(38, 59, 110, 0.88);
+}
+
+
+
+    
