@@ -18,8 +18,6 @@
         <th>Name</th>
         <th>Slug</th>
         <th>Icon</th>
-        <th>Created_at</th>
-        <th>Updated_at</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -31,8 +29,6 @@
           <th>Name</th>
           <th>Slug</th>
           <th>Icon</th>
-          <th>Created_at</th>
-          <th>Updated_at</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -64,8 +60,6 @@
                 { "data": "name" },
                 { "data": "slug" },
                 { "data": "icon" },
-                { "data": "createdat" },
-                { "data": "updatedat" },
                 { "data": "options" ,"orderable":false},
             ]
 
@@ -226,7 +220,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add Menu</h5>
+                <h4 class="border-bottom text-dark">Add Menu</h4>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -285,7 +279,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Menu</h5>
+
+                <h4 class="border-bottom text-dark">Edit Menu</h4>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

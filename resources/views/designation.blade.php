@@ -13,8 +13,8 @@
       <thead>
       <tr>
         <th>ID</th>
-        <th>Department</th>
         <th>Name</th>
+        <th>Department</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -23,8 +23,8 @@
       <tfoot>
       <tr>
           <th>ID</th>
-          <th>Department</th>
           <th>Name</th>
+          <th>Department</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -53,8 +53,8 @@
             },
             "columns": [
                 { "data": "id" },
-                { "data": "department_id" },
                 { "data": "name" },
+                { "data": "department_id" },
                 { "data": "options" ,"orderable":false},
             ]
 

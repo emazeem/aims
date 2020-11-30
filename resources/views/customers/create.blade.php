@@ -8,7 +8,7 @@
         </script>
     @endif
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Add Customer</h1>
+        <h2 class="border-bottom text-dark">Add Customer</h2>
     </div>
 
     <div class="row pb-3">
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-4 bg-white border">
+                        <div class="col-md-4 col-12 bg-white border">
                             <label for="principal" class="col-form-label">Principal Contact</label>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="principal" name="prin_name_1" placeholder="Name" autocomplete="off" value="{{old('prin_name_1')}}">
@@ -144,7 +144,7 @@
 
 
                         </div>
-                        <div class="col-4 bg-white border">
+                        <div class="col-md-4 col-12 bg-white border">
                             <label for="principal" class="col-form-label">Principal Contact</label>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="principal" name="prin_name_2" placeholder="Name" autocomplete="off" value="{{old('prin_name_2')}}">
@@ -175,7 +175,7 @@
 
 
                         </div>
-                        <div class="col-4 bg-white border">
+                        <div class="col-md-4 col-12 bg-white border">
                             <label for="principal" class="col-form-label">Principal Contact</label>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="principal" name="prin_name_3" placeholder="Name" autocomplete="off" value="{{old('prin_name_3')}}">
@@ -208,7 +208,7 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-6 bg-white border ">
+                        <div class="col-md-6 col-12 bg-white border ">
                             <label for="purchase" class="col-form-label">Purchase Contact</label>
 
                             <div class="form-group">
@@ -250,7 +250,7 @@
 
                             </div>
                         </div>
-                        <div class="col-6 bg-white border">
+                        <div class="col-md-6 col-12 bg-white border">
                             <label for="account" class="col-form-label">Accounts Payable</label>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="account" name="acc_name" placeholder="Name" autocomplete="off" value="{{old('acc_name')}}">

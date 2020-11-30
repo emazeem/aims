@@ -18,8 +18,8 @@
             </a>
             <!-- Dropdown - Alerts -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" >
-                <h5 class="text-white py-3 px-2 pl-md-4 aims-primary-bg">
-                    Notification <i class="fas float-right fa-bell fa-fw "></i>
+                <h5 class="text-white py-2 px-3 aims-primary-bg">
+                    Notification <small class="fas mt-1 float-right fa-bell"></small>
                 </h5>
                 <div style="height: 300px;overflow-y: scroll">
 

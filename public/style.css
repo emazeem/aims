@@ -1,20 +1,16 @@
 .form-control {
     border-radius: 0;
 }
-
 .btn {
     border-radius: 0;
 }
-
 .close-btn:focus {
     border: none;
     outline: none;
 }
-
 body {
     font-family: Cambria;
 }
-
 .loader {
     position: fixed;
     left: 0px;
@@ -44,20 +40,15 @@ th, td {
     border-top: none;
     border-bottom: none;
 }
-
 .h3 {
     font-family: 'Quicksand', sans-serif;
 }
-
 input[type=checkbox] {
-
     transform: scale(1.3);
 }
-
 .font-13 {
     font-size: 13px;
 }
-
 @media (max-width: 400px) {
     .border-md-bottom {
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -323,14 +314,26 @@ a.article:hover {
     background-color: rgba(38, 59, 110, 0.88);
 }
 
-.btn-primary:hover {
-    background-color: rgba(38, 59, 110, 1);
+.btn-primary:hover,.btn-primary:active,.btn-primary:focus{
+    border: 1px solid rgba(38, 59, 110, 0.88);
+    background-color: rgba(38, 59, 110, 0.88) !important;
 }
 
 .aims-primary-bg {
     background-color: rgba(38, 59, 110, 0.88);
 }
-
-
-
-    
+div.dataTables_wrapper div.dataTables_paginate ul li a ,div.dataTables_wrapper div.dataTables_paginate ul .disabled a{
+    color: white;
+    border: 1px solid white;
+    background-color: rgba(38, 59, 110, 0.88) !important;
+}
+div.dataTables_wrapper div.dataTables_paginate ul .active{
+    color: white;
+    border: 1px solid white;
+    background-color: rgba(38, 59, 110, 0.88) !important;
+}
+div.dataTables_wrapper div.dataTables_paginate ul .active .page-link{
+    border: 1px solid rgba(38, 59, 110, 0.88);
+    color:rgba(38, 59, 110, 0.88);
+    background-color: #fff !important;
+}

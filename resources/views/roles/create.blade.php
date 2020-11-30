@@ -15,16 +15,9 @@
         .custom-label{
             font-size: 30px;
         }
-        .left-space{
-            margin-left: 20px;
-        }
-        .left-space-2{
-            margin-left: 40px;
-        }
-
     </style>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Add Roles</h1>
+        <h2 class="border-bottom text-dark">Add Roles</h2>
     </div>
 
     <div class="row pb-3">
@@ -62,16 +55,16 @@
                     </ul>
                 </div>
                 --}}
-                <div class="form-group col-sm-6">
+                <div class="form-group col-12">
                     <ul style="list-style:none">
                         @foreach($menuus as $menu)
                             @if($menu->parent_id==null)
                                 <div class="checkbox">
-                                    <label class="custom-label"><input type="checkbox" value="{{$menu->slug}}" name="menu_arr[]"><i class="fa fa-bars text-info left-space"></i> {{$menu->name}}</label>
+                                    <label class="custom-label"><input type="checkbox" value="{{$menu->slug}}" name="menu_arr[]"><i class="fa fa-bars text-info ml-3"></i> {{$menu->name}}</label>
                                 </div>
                                 @foreach($menu->parent as $item)
-                                    <div class="checkbox left-space-2">
-                                    <label class="custom-label"><input type="checkbox" value="{{$item->slug}}" name="menu_arr[]"><i class="fa fa-lock text-danger left-space"></i> {{$item->name}}</label>
+                                    <div class="checkbox ml-md-5 ml-3">
+                                    <label class="custom-label"><input type="checkbox" value="{{$item->slug}}" name="menu_arr[]"><i class="fa fa-lock text-danger ml-3"></i> {{$item->name}}</label>
                                 </div>
                                 @endforeach
                             @endif
