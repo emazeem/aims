@@ -15,7 +15,6 @@
           rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{url('css/sb-admin-2.min.css')}}" rel="stylesheet">
-    <link href="{{url('style.css')}}" rel="stylesheet">
     <link href="{{url('styling.css')}}" rel="stylesheet">
     <script src="{{url('js/sweetalert.min.js')}}"></script>
 
