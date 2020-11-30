@@ -17,7 +17,8 @@
     @endif
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{$show->name}} [ {{$show->code}} ]</h1>
+        <h2 class="border-bottom text-dark">{{$show->name}} <small>[  {{$show->code}} ]</small></h2>
+
         <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_specification"><i class="fas fa-plus"></i> Add Specifications</button>
 
     </div>
@@ -25,7 +26,8 @@
     <div class="row pb-3">
         <div class="col-12">
 
-            <table class="table table-bordered table-striped">
+            <table class="table table-hover font-13 table-bordered">
+
                 <tr>
                     <th>Name</th>
                     <td>{{$show->name}}</td>

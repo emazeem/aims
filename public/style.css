@@ -145,8 +145,10 @@ span {
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    height: 100vh;
+    overflow-y: scroll;
 }
+
 
 #sidebar ul li a {
     padding: 10px;
@@ -336,4 +338,40 @@ div.dataTables_wrapper div.dataTables_paginate ul .active .page-link{
     border: 1px solid rgba(38, 59, 110, 0.88);
     color:rgba(38, 59, 110, 0.88);
     background-color: #fff !important;
+}
+
+body::-webkit-scrollbar {
+    width: 0.6em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(38, 59, 110, 0.88);
+    border-radius: 20px;
+
+}
+
+
+
+
+
+#sidebar ul.components::-webkit-scrollbar {
+    width: 0.4em;
+
+}
+
+#sidebar ul.components::-webkit-scrollbar-track {
+    background-color: rgba(216, 243, 249, 0.68);
+}
+
+#sidebar ul.components::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 20px;
+    outline: white;
+}
+.wrapper .active ul li a.dropdown-toggle i{
+    padding-left: 10px;
 }

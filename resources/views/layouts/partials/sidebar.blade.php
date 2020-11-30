@@ -1,4 +1,4 @@
-<nav id="sidebar">
+<nav id="sidebar" >
     <div class="sidebar-header">
         <h3 class="text-center py-2">
             {{--<img src="{{url('/img/aims-logo.png')}}" class="img-fluid" width="70">

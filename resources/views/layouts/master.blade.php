@@ -43,14 +43,14 @@
         <div class="container-fluid">
             @yield('content')
 
-        </div>
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>ERP &copy; 2020 AIMS CAL LAB </span>
+            <footer class="fixed-bottom">
+                <div class="container mt-auto">
+                    <div class="copyright text-center mt-auto">
+                        <span>ERP &copy; 2020 AIMS CAL LAB </span>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
 </div>
 </body>

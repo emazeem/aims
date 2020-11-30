@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
     <div class="row">
+        <h2 class="border-bottom text-dark">Capabilities & Prices</h2>
         <div class="col-12 mb-4">
-            <h2 class="border-bottom text-dark">Capabilities & Prices</h2>
             <a  class="btn float-right btn-sm btn-primary shadow-sm" href="#" data-toggle="modal" data-target="#add_capabilities"><i class="fas fa-plus"></i> Capabilities & Prices</a>
             <a href="{{route('parameters')}}" class="btn float-right mx-1 btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Parameters</a>
         </div>
