@@ -9,7 +9,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h2 class="float-left">{{$show->name}}'s Detail</h2>
+            <h2 class="float-left">{{$show->id}}'s Detail</h2>
 
             {{--<button type="button" class="btn btn-primary create-jobs" data-id="{{$show->id}}">
                 <i class='fa fa-plus'></i> Create Jobs

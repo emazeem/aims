@@ -74,10 +74,12 @@
                 {{--
                 <a title='Send to Customer' class='btn btn-info' href="{{url('quotes/sendmail/' . $show->id)}}"><i class='fa fa-paper-plane'></i></a>
                 --}}
+                @if($show->customers->pur_name)
                 <div class="col-12 text-right">
                     <a title='Revise' class='btn btn-outline-danger revise' href='#' data-id='{{$show->id}}'><i class='fa fa-sync'></i> Revise</a>
                     <a title='Approve' class='btn btn-outline-success approved' href='#' data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
                 </div>
+                    @endif
                 <form id="form{{$show->id}}" action="" method='post' role='form'>
                     @csrf
                     <input name='id' type='hidden' value='{{$show->id}}'>
@@ -87,8 +89,11 @@
 
         @endif
             @elseif($show->status==0)
+
                 <div class="col-12 text-right">
+                    @if(count($items)>0)
                     <a title='Complete' class='btn btn-outline-primary complete' href='#' data-id='{{$show->id}}'><i class='fa fa-thumbs-up'></i> Mark as Complete</a>
+                        @endif
                 </div>
         @endif
 
@@ -158,7 +163,7 @@
     <div class="row">
         <div class="col-lg-12 my-2">
 
-            @if($show->status<2)
+            @if($show->status==0)
             <a href="{{url('/items/create/'.$show->id)}}" class='btn btn-sm btn-outline-primary float-right'><i class='fa fa-plus'></i> Items</a>
             @endif
         </div>

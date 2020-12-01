@@ -217,6 +217,7 @@ class ItemController extends Controller
     }
     public function getCapabilities($id){
         $capabilities=Capabilities::where('parameter', $id)
+            ->orderBy('name','ASC')
             ->pluck('id', 'name')
             ->all();
         return response()->json($capabilities);

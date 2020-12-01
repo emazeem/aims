@@ -16,13 +16,13 @@ class CreateAssetsTable extends Migration
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
             $table->string('name',225);
-            $table->string('code',225)->nullable()->unique();
+            $table->string('code',225)->unique();
             $table->integer('parameter');
             $table->string('make',225);
             $table->string('model',225);
             $table->string('range',225);
             $table->string('resolution',225);
-            $table->integer('status');
+            $table->integer('status')->default(0);
             $table->string('accuracy',225);
             $table->string('certificate_no',225);
             $table->string('serial_no',225);

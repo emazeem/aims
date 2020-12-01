@@ -183,7 +183,8 @@ class AssetController extends Controller
             'serial' => 'required',
             'certificate' => 'required',
             'status' => 'required',
-            'code' => 'required|unique:assets',
+
+            'code' => 'required|unique:assets,code,'.$request->id,
         ],[
             'name.required' => 'Asset name field is required *',
             'parameter.required' => 'Parameter field is required *',
@@ -215,7 +216,7 @@ class AssetController extends Controller
         $asset->location=$request->location;
         if (isset($request->image)){
             $attachment=time().$request->image->getClientOriginalName();
-            Storage::disk('local')->put('/public/assets/'.$attachment, File::get($request->profile));
+            Storage::disk('local')->put('/public/assets/'.$attachment, File::get($request->image));
             $asset->image=$attachment;
         }
         $asset->save();

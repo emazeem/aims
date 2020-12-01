@@ -15,7 +15,7 @@ class QuotesController extends Controller
 {
     public function index(){
         $this->authorize('quote-index');
-        $customers=Customer::all();
+        $customers=Customer::orderBY('reg_name')->get();
         $tms=User::where('department',3)->get();
         return view('quotes.index',compact('customers','tms'));
     }
@@ -162,8 +162,8 @@ class QuotesController extends Controller
         $this->authorize('quote-view');
         $show=Quotes::find($id);
         $tms=User::where('department',3)->get();
-
-        return view('quotes.show',compact('show','id','tms'));
+        $items=Item::where('quote_id',$id)->get();
+        return view('quotes.show',compact('show','id','tms','items'));
     }
 
     public function sendmail($id){

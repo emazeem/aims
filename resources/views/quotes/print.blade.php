@@ -25,7 +25,8 @@
 
         <div class="row">
             <div class="col-2 text-center custom-border">
-                <img src="{{Storage::disk('local')->url('/public/AIMS.png')}}" class="mt-2 ml-2" width="100">
+                <img src="{{url('/img/aims.png')}}" width="150" class="img-fluid ">
+
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
                 <p class="text-center b font-24" style="margin-top: 40px">QUOTATION</p>

@@ -45,7 +45,7 @@ Route::group(['prefix'=> 'users'],function() {
     Route::post('/update/{id}',[App\Http\Controllers\UserController::class, 'update'])->middleware('auth')->name('users.update');
     Route::post('',[App\Http\Controllers\UserController::class, 'fetch'])->middleware('auth')->name('users.fetch');
     Route::post('/store',[App\Http\Controllers\UserController::class, 'store'])->middleware('auth')->name('users.store');
-    Route::get('/fetch/ation/{id}',[App\Http\Controllers\UserController::class, 'fetchDesignation'])->middleware('auth')->name('users.fetch.designation');
+    Route::get('/fetch/designation/{id}',[App\Http\Controllers\UserController::class, 'fetchDesignation'])->middleware('auth')->name('users.fetch.designation');
 
 });
 
@@ -137,7 +137,7 @@ Route::group(['prefix'=> 'quotes'],function() {
     //Route::get('/sendmail/{id}',[App\Http\Controllers\QuotesController::class, 'sendmail'])->middleware('auth')->name('quotes.sendmail');
     Route::get('/print/{id}',[App\Http\Controllers\QuotesController::class, 'prints'])->middleware('auth')->name('quotes.print');
     Route::get('get_principal/{id}',[App\Http\Controllers\QuotesController::class, 'get_principal'])->middleware('auth')->name('quotes.get_principal');
-    Route::get('/complete/{id}',[App\Http\Controllers\QuotesController::class, 'complete'])->middleware('auth')->name('quotes.complete');
+    Route::delete('/complete/{id}',[App\Http\Controllers\QuotesController::class, 'complete'])->middleware('auth')->name('quotes.complete');
     Route::post('/approved/{id}',[App\Http\Controllers\QuotesController::class, 'approved'])->middleware('auth')->name('quotes.approved');
     Route::post('/revised/{id}',[App\Http\Controllers\QuotesController::class, 'revised'])->middleware('auth')->name('quotes.revised');
     Route::post('/approval_details',[App\Http\Controllers\QuotesController::class, 'approval_details'])->middleware('auth')->name('quotes.approval_details');
@@ -145,6 +145,7 @@ Route::group(['prefix'=> 'quotes'],function() {
 Route::group(['prefix'=> 'awaitings'],function() {
     Route::group(['prefix'=> 'checkin'],function() {
         Route::get('/{id}',[App\Http\Controllers\CheckinController::class, 'index'])->name('checkin');
+        Route::get('create/{type}/{id}',[App\Http\Controllers\CheckinController::class, 'create'])->name('checkin.create');
         Route::post('store',[App\Http\Controllers\CheckinController::class, 'store'])->name('checkin.store');
         Route::post('storesite',[App\Http\Controllers\CheckinController::class, 'storesite'])->name('checkin.storesite');
         Route::post('edit/{id}',[App\Http\Controllers\CheckinController::class, 'edit'])->name('checkin.edit');
@@ -233,6 +234,7 @@ Route::group(['prefix'=> 'jobs'],function() {
     Route::get('print/invoice/{id}',[App\Http\Controllers\JobController::class, 'print_invoice'])->middleware('auth')->name('jobs.print.invoice');
     Route::get('print/DN/{id}',[App\Http\Controllers\JobController::class, 'print_DN'])->middleware('auth')->name('jobs.print.DN');
     Route::get('print/GP/{id}',[App\Http\Controllers\JobController::class, 'print_gp'])->middleware('auth')->name('gatepass.print_gp');
+    Route::get('print/jobtag/{loc}/{index}/{id}',[App\Http\Controllers\JobController::class, 'print_jt'])->middleware('auth')->name('gatepass.print_gp');
 
 
     Route::get('/view/{id}',[App\Http\Controllers\JobController::class, 'view'])->middleware('auth')->name('jobs.view');
@@ -350,9 +352,6 @@ Route::group(['prefix'=> 'uncertainties'],function() {
 Route::group(['prefix'=> 'calculator'],function() {
     Route::get('',[App\Http\Controllers\CalculatorController::class, 'index'])->middleware('auth')->name('calculator');
 });
-
-
-
 
 
 

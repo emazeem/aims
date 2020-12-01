@@ -135,7 +135,7 @@ class UserController extends Controller
             'fathername' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'password' => 'required',
+            //'password' => 'required',
             'cnic' => 'required',
             'address' => 'required',
             'designation' => 'required',
@@ -169,7 +169,9 @@ class UserController extends Controller
         $user->dob=$request->dob;
         $user->joining=$request->joining;
         $user->cnic=$request->cnic;
-        $user->password=Hash::make($request->get('password'));
+        if ($request->password){
+            $user->password=Hash::make($request->get('password'));
+        }
         $user->address=$request->address;
         $user->designation=$request->designation;
         $user->department=$request->department;
@@ -178,6 +180,7 @@ class UserController extends Controller
     }
     public function fetchDesignation($id){
         $designation=Designation::where('department_id',$id)->pluck('id', 'name');
+
         return response()->json($designation);
     }
     public function setprofile(Request $request){

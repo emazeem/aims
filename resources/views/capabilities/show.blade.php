@@ -70,7 +70,7 @@
     </div>
 
         <div class="col-12 table-responsive">
-            <table class="table table-hover font-13 table-bordered">
+            <table class="table table-hover table-bordered">
                 <tr>
                     <th>Capability</th>
                     <th>Parameter</th>

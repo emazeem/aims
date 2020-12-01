@@ -20,7 +20,6 @@ class TaskController extends Controller
         $parameters=Parameter::all();
         $assets=Asset::all();
         $job=Labjob::with('items')->with('jobs')->find($id);
-
         $suggestions=Suggestion::where('capabilities',$job->items->capability)->get();
         $sug=array();
         foreach ($suggestions as $suggestion){
@@ -44,6 +43,9 @@ class TaskController extends Controller
 
     public function store(Request $request){
 
+        if ($request->start > $request->end){
+            return  redirect()->back()->with('error','Start date can not be greater than End date');
+        }
         $this->validate($request,[
             'start'=>'required',
             'end'=>'required',

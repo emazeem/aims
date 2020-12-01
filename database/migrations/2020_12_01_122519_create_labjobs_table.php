@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSitejobsTable extends Migration
+class CreateLabjobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateSitejobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sitejobs', function (Blueprint $table) {
+        Schema::create('labjobs', function (Blueprint $table) {
             $table->id()->from(1000);
             $table->integer('job_id');
             $table->integer('item_id');
             $table->string('eq_id')->nullable();
+            $table->string('serial')->nullable();
             $table->string('model')->nullable();
+            $table->string('make')->nullable();
             $table->string('accessories')->nullable();
             $table->string('visual_inspection')->nullable();
             $table->integer('status')->default(0);
@@ -28,8 +30,6 @@ class CreateSitejobsTable extends Migration
             $table->dateTime('ended_at')->nullable();
             $table->integer('assign_user')->nullable();
             $table->string('assign_assets')->nullable();
-            $table->string('group_users')->nullable();
-            $table->string('group_assets')->nullable();
             $table->string('certificate')->nullable();
             $table->timestamps();
         });
@@ -42,6 +42,6 @@ class CreateSitejobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sitejobs');
+        Schema::dropIfExists('labjobs');
     }
 }

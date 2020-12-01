@@ -26,9 +26,6 @@ class ManageJobsController extends Controller
             ->addColumn('customer', function ($data) {
                 return $data->customers->reg_name;
             })
-            ->addColumn('name', function ($data) {
-                return $data->name;
-            })
             ->addColumn('location', function ($data) {
                 return ucfirst($data->location);
             })
@@ -40,7 +37,11 @@ class ManageJobsController extends Controller
                 return $turnaround;
             })
             ->addColumn('total', function ($data) {
-                $total=Item::where('quote_id',$data->id)->count();
+                $items=Item::where('quote_id',$data->id)->get();
+                $total=0;
+                foreach ($items as $item){
+                    $total=$total+$item->quantity;
+                }
                 return $total;
             })
             ->addColumn('jobs', function ($data) {

@@ -1,18 +1,21 @@
 @extends('layouts.master')
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Item Entries</h1>
+        <h2 class="border-bottom text-dark">Item Entries</h2>
     </div>
 
     <div class="row">
         <div class="col-12">
-            <table id="example" class="table table-striped table-bordered table-responsive-sm table-sm" width="100%">
+            <table class="table table-hover table-bordered">
+
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>Item Description</th>
                     <th>Parameter</th>
                     <th>Equipment ID</th>
+                    <th>Serial</th>
+                    <th>Make</th>
                     <th>Model</th>
                     <th>Accessories</th>
                     <th>Visual Inspection</th>
@@ -22,7 +25,6 @@
                 </thead>
                 <tbody>
                     @foreach($jobs as $job)
-
                         <tr>
                             <td>{{$job->id}}</td>
                             <td>{{\App\Models\Capabilities::find($job->items->capability)->name}}</td>
@@ -35,12 +37,30 @@
                                 @endif
                             </td>
                             <td>
+                                @if($job->serial)
+                                    {{$job->serial}}
+                                @else
+                                    <small class="font-italic text-danger">NULL</small>
+                                @endif
+                            </td>
+                            <td>
+                                @if($job->make)
+                                    {{$job->make}}
+                                @else
+                                    <small class="font-italic text-danger">NULL</small>
+                                @endif
+                            </td>
+                            <td>
                                 @if($job->model)
                                 {{$job->model}}
                                     @else
                                     <small class="font-italic text-danger">NULL</small>
                                 @endif
                             </td>
+
+
+
+
                             <td>
                                 @if($job->accessories)
                                 {{$job->accessories}}
@@ -79,11 +99,13 @@
                     <th>ID</th>
                     <th>Item Description</th>
                     <th>Parameter</th>
-                    <th>Status</th>
                     <th>Equipment ID</th>
+                    <th>Serial</th>
+                    <th>Make</th>
                     <th>Model</th>
                     <th>Accessories</th>
                     <th>Visual Inspection</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -122,12 +144,21 @@
                         $('#edit_details').modal('toggle');
                         $('#edit_id').val(data.id);
                         $('#edit_eq_id').val(data.eq_id);
+                        $('#edit_make').val(data.make);
+                        $('#edit_serial').val(data.serial);
                         $('#edit_model').val(data.model);
                         $('#edit_accessories').val(data.accessories);
                         $('#edit_visualinspection').val(data.visual_inspection);
                         //Populating Form Data to Edit Ends
                     },
-                    error: function(){},
+                    error:  function(xhr, status, error)
+                    {
+                        var error;
+                        error=null;
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");},
                 });
             });
 
@@ -146,16 +177,21 @@
                         if(!data.errors)
                         {
                             $('#add_details').modal('toggle');
-                            swal("Success", "Item checked in successfully", "success");
-                            location.reload();
+                            swal('success',data.success,'success').then((value) => {
+                                location.reload();
+                            });
 
                         }
                     },
-                    error: function(e)
+                    error:  function(xhr, status, error)
                     {
-                        swal("Failed", "Fields Required. Try again.", "error");
-
-                    }
+                        var error;
+                        error=null;
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    },
                 });
             }));
             $("#edit_details_form").on('submit',(function(e) {
@@ -173,16 +209,21 @@
                         if(!data.errors)
                         {
                             $('#edit_details').modal('toggle');
-                            swal("Success", "Item checked in updated successfully", "success");
-                            location.reload();
+                            swal('success',data.success,'success').then((value) => {
+                                location.reload();
+                            });
 
                         }
                     },
-                    error: function(e)
+                    error:  function(xhr, status, error)
                     {
-                        swal("Failed", "Fields Required. Try again.", "error");
-
-                    }
+                        var error;
+                        error=null;
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                        },
                 });
             }));
         });
@@ -206,9 +247,19 @@
                                 <input type="text" class="form-control" id="eq_id" name="eq_id" placeholder="Equipment ID" autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
+                                <label for="serial">Serial #</label>
+                                <input type="text" class="form-control" id="serial" name="serial" placeholder="Serial #" autocomplete="off" value="">
+                            </div>
+
+                            <div class="form-group col-12  float-left">
                                 <label for="model">Model</label>
                                 <input type="text" class="form-control" id="model" name="model" placeholder="Model" autocomplete="off" value="">
                             </div>
+                            <div class="form-group col-12  float-left">
+                                <label for="make">Make</label>
+                                <input type="text" class="form-control" id="make" name="make" placeholder="make" autocomplete="off" value="">
+                            </div>
+
                             <div class="form-group col-12  float-left">
                                 <label for="accessories">Accessories</label>
                                 <input type="text" class="form-control" id="model" name="accessories" placeholder="Accessories" autocomplete="off" value="NILL">
@@ -251,9 +302,19 @@
                                 <input type="text" class="form-control" id="edit_eq_id" name="eq_id" placeholder="Equipment ID" autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
+                                <label for="serial">Serial #</label>
+                                <input type="text" class="form-control" id="edit_serial" name="serial" placeholder="Serial #" autocomplete="off" value="">
+                            </div>
+                            <div class="form-group col-12  float-left">
                                 <label for="edit_model">Model</label>
                                 <input type="text" class="form-control" id="edit_model" name="model" placeholder="Model" autocomplete="off" value="">
                             </div>
+                            <div class="form-group col-12  float-left">
+                                <label for="make">Make</label>
+                                <input type="text" class="form-control" id="edit_make" name="make" placeholder="make" autocomplete="off" value="">
+                            </div>
+
+
                             <div class="form-group col-12  float-left">
                                 <label for="edit_accessories">Accessories</label>
                                 <input type="text" class="form-control" id="edit_accessories" name="accessories" placeholder="Accessories" autocomplete="off" value="">

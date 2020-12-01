@@ -29,7 +29,6 @@
       <thead>
       <tr>
         <th>ID</th>
-        <th>Title</th>
         <th>Customer</th>
         <th>Turnaround</th>
         <th>Total Items</th>
@@ -43,7 +42,6 @@
       <tfoot>
       <tr>
           <th>ID</th>
-          <th>Title</th>
           <th>Customer</th>
           <th>Turnaround</th>
           <th>Total Items</th>
@@ -77,7 +75,6 @@
             },
             "columns": [
                 { "data": "id" },
-                { "data": "name" },
                 { "data": "customer" },
                 { "data": "turnaround" },
                 { "data": "total" },

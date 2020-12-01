@@ -20,10 +20,10 @@
             <form class="form-horizontal" action="{{route('items.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mt-md-4 row">
-                    <label for="session" class="col-sm-2 control-label">Session</label>
+                    <label for="session" class="col-sm-2 control-label">Quote</label>
                     <div class="col-sm-10">
                         <input type="hidden" value="{{$session->id}}" name="session_id">
-                        <input type="text" class="form-control" id="session" name="session" placeholder="session" autocomplete="off" value="{{$session->name}}" disabled>
+                        <input type="text" class="form-control" id="session" name="session" placeholder="" autocomplete="off" value="{{$session->id}}" disabled>
                         @if ($errors->has('session'))
                             <span class="text-danger">
                           <strong>{{ $errors->first('session') }}</strong>

@@ -20,41 +20,36 @@ class CheckinController extends Controller
         $edit=Labjob::find($id);
         return response()->json($edit);
     }
+    public function create($type,$id){
+        if ($type=='lab'){
+            $show=Labjob::find($id);
+        }else{
+            $show=Sitejob::find($id);
+        }
+
+        return view('awaiting.create',compact('show'));
+    }
 
     public function store(Request $request){
 
         $this->validate($request,[
-            'eq_id'=>'required',
+            'eq_id'=>'required_without:serial',
+            'serial'=>'required_without:eq_id',
+            'make'=>'required',
             'model'=>'required',
             'accessories'=>'required',
             'visualinspection'=>'required',
         ]);
         $details=Labjob::find($request->id);
         $details->eq_id=$request->eq_id;
+        $details->serial=$request->serial;
+        $details->make=$request->make;
         $details->model=$request->model;
         $details->accessories=$request->accessories;
         $details->status=1;
         $details->visual_inspection=$request->visualinspection;
         $details->save();
-/*        $change_awaiting_status=Labjob::with('items')->where('job_id',$details->job_id)->get();
-        $totallabjobs=0;
-        foreach ($change_awaiting_status as $awaiting_status){
-            if ($awaiting_status->items->location=="lab"){
-                $totallabjobs++;
-            }
-        }
-        $jobfromshavingonestatus=0;
-        foreach ($change_awaiting_status as $awaiting_status){
-            if ($awaiting_status->status==1){
-                $jobfromshavingonestatus++;
-            }
-        }
-        if ($jobfromshavingonestatus==$totallabjobs){
-            $session=Quotes::find($details->job_id);
-            $session->status=4;
-            $session->save();
-        }*/
-        return response()->json(['success'=>'Added completed']);
+        return response()->json(['success'=>'Added/Updated successfully']);
 
     }
     public function storesite(Request $request){

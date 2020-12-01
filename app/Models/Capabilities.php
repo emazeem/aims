@@ -17,4 +17,7 @@ class Capabilities extends Model
         return $this->belongsTo(
             'App\Models\Procedure','procedure');
     }
+    public function units(){
+        return $this->belongsTo('App\Models\Unit','unit')->withDefault();
+    }
 }

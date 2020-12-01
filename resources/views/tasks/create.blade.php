@@ -8,16 +8,26 @@
         </script>
     @endif
 
+    @if(Session::has('failed'))
+        <script>
+            $(document).ready(function () {
+                swal("Sorry!", '{{Session('failed')}}', "error");
+            });
+        </script>
+    @endif
+
+
+
     <div class="row pb-3">
         <div class=" d-sm-flex align-items-center justify-content-between mb-4 col-12">
             <h1 class="h3 mb-0 text-gray-800">Assign Task</h1>
             <a href="" data-toggle="modal" data-target="#add_suggestion" class="pull-right"><i class="fa fa-question"></i> Add Suggestion</a>
         </div>
         <div class="col-12">
-            <table class="table table-striped table-bordered table-sm" width="100%">
+            <table class="table table-hover table-bordered">
                 <tr>
-                    <th>Session</th>
-                    <td>{{$job->jobs->quotes->name}}</td>
+                    <th>Quotes</th>
+                    <td>{{$job->jobs->quote_id}}</td>
                 </tr>
                 <tr>
                     <th>Customer</th>
@@ -194,9 +204,7 @@
                         <div class="row mt-2">
                             <label for="optassets" class="col-12 text-xs control-label">Select Opt Assets</label>
                             <div class="form-check col-12">
-                                <select class="form-control select2" id="optassets" name="optassets[]" multiple style="width: 100%;font-size: 10px" >
-
-                                </select>
+                                <select class="form-control select2" id="optassets" name="optassets[]" multiple style="width: 100%;font-size: 10px" ></select>
                             </div>
                         </div>
 
@@ -212,7 +220,7 @@
     </div>
     <script>
         $('#assets').select2({
-            placeholder: 'Select an option'
+            placeholder: 'Select/Search Assets'
         });
         $('#optassets').select2({
             placeholder: 'Select optional assets'

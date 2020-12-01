@@ -154,8 +154,7 @@
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="designation" name="designation">
-                                <option selected disabled="">Select Designation</option>
-
+                                <option selected value="{{$edit->designation}}">{{\App\Models\Designation::find($edit->designation)->name}}</option>
                             </select>
                         </div>
                         @if ($errors->has('designation'))

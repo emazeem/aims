@@ -178,7 +178,6 @@
                     error: function(e)
                     {
                         swal("Failed", "Fields Required. Try again.", "error");
-
                     }
                 });
             }));

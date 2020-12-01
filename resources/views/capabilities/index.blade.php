@@ -318,10 +318,18 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group mt-md-4 row">
+                        <div class="form-group row">
                             <label for="unit" class="col-sm-2 control-label">Unit</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="unit" name="unit" placeholder="Unit" autocomplete="off" value="{{old('unit')}}">
+                                <div class="form-check form-check-inline" style="width: 100%">
+                                    <select class="form-control" id="unit" name="unit">
+                                        <option selected disabled>Select Unit</option>
+                                        @foreach($units as $unit)
+                                            <option value="{{$unit->id}}">{{$unit->unit}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
                                 @if ($errors->has('unit'))
                                     <span class="text-danger">
                           <strong>{{ $errors->first('unit') }}</strong>
@@ -473,10 +481,18 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group mt-md-4 row">
+                        <div class="form-group row">
                             <label for="unit" class="col-sm-2 control-label">Unit</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="editunit" name="unit" placeholder="Unit" autocomplete="off" value="{{old('unit')}}">
+                                <div class="form-check form-check-inline" style="width: 100%">
+                                    <select class="form-control" id="editunit" name="unit">
+                                        <option selected disabled>Select Unit</option>
+                                        @foreach($units as $unit)
+                                            <option value="{{$unit->id}}">{{$unit->unit}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
                                 @if ($errors->has('unit'))
                                     <span class="text-danger">
                           <strong>{{ $errors->first('unit') }}</strong>

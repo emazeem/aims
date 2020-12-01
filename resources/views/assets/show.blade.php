@@ -9,7 +9,7 @@
     @endif
     @if(session('failed'))
         <script>
-            $( document ).ready(function() {
+            $(document).ready(function () {
                 swal("Failed", "{{session('failed')}}", "error");
             });
 
@@ -17,9 +17,13 @@
     @endif
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">{{$show->name}} <small>[  {{$show->code}} ]</small></h2>
+        <h2 class="border-bottom text-dark">{{$show->name}}
+            <small>[ {{$show->code}} ]</small>
+        </h2>
 
-        <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_specification"><i class="fas fa-plus"></i> Add Specifications</button>
+        <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
+                data-target="#add_specification"><i class="fas fa-plus"></i> Add Specifications
+        </button>
 
     </div>
 
@@ -105,25 +109,38 @@
                     <th>Updated on</th>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
                 </tr>
-                @if(count($specifications)>0)
                 <tr>
-                    <th colspan="2" class="text-center bg-primary"><h6 class="font-weight-bold text-white">Specifications</h6></th>
-                </tr>
-                @foreach($specifications as $specification)
-                <tr>
-                    <th>{{$specification->columns->column}}</th>
+                    <th>Image</th>
                     <td>
-                        <a data-id="{{$specification->id}}" class="edit"><i class="fa fa-edit"></i>
-                        {{$specification->value}}
-                        </a>
+                        @if(empty($show->image))
+                            <img src="{{url('/img/default_asset.jpg')}}" class="img-fluid" width="70">
+                            @else
+                            <img src="{{Storage::disk('local')->url('/assets/'.$show->image)}}" class="img-fluid" width="100">
+                        @endif
                     </td>
                 </tr>
-                @endforeach
-                    @endif
+
+                @if(count($specifications)>0)
+                    <tr>
+                        <th colspan="2" class="text-center bg-primary"><h6 class="font-weight-bold text-white">
+                                Specifications</h6></th>
+                    </tr>
+                    @foreach($specifications as $specification)
+                        <tr>
+                            <th>{{$specification->columns->column}}</th>
+                            <td>
+                                <a data-id="{{$specification->id}}" class="edit"><i class="fa fa-edit"></i>
+                                    {{$specification->value}}
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
             </table>
         </div>
     </div>
-    <div class="modal fade" id="add_specification" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="add_specification" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -150,7 +167,8 @@
                                 </div>
                             </div>
                             <div class="form-group col-12  float-left">
-                                <input type="text" class="form-control" id="value" name="value" placeholder="Value" autocomplete="off" value="">
+                                <input type="text" class="form-control" id="value" name="value" placeholder="Value"
+                                       autocomplete="off" value="">
                             </div>
                             <div class="col-2">
                                 <button class="btn btn-primary" type="submit">Save</button>
@@ -163,7 +181,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="edit_specification" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="edit_specification" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -178,7 +197,8 @@
                         <input type="hidden" value="" name="id" id="edit-id">
                         <div class="row">
                             <div class="form-group col-12  float-left">
-                                <input type="text" class="form-control" id="edit-value" name="value" placeholder="Value" autocomplete="off" value="">
+                                <input type="text" class="form-control" id="edit-value" name="value" placeholder="Value"
+                                       autocomplete="off" value="">
                             </div>
                             <div class="col-2">
                                 <button class="btn btn-primary" type="submit">Save</button>
@@ -194,101 +214,96 @@
 
 
     <script>
-        $(document).ready(function() {
-            $(document).on('click', '.edit', function() {
+        $(document).ready(function () {
+            $(document).on('click', '.edit', function () {
                 var id = $(this).attr('data-id');
                 $.ajax({
                     "url": "{{url('/specifications/edit')}}",
                     type: "POST",
-                    data: {'id': id,_token: '{{csrf_token()}}'},
-                    dataType : "json",
-                    beforeSend : function()
-                    {
+                    data: {'id': id, _token: '{{csrf_token()}}'},
+                    dataType: "json",
+                    beforeSend: function () {
                         $(".loading").fadeIn();
                     },
                     statusCode: {
-                        403: function() {
+                        403: function () {
                             $(".loading").fadeOut();
-                            swal("Failed", "Permission denied for this action." , "error");
+                            swal("Failed", "Permission denied for this action.", "error");
                             return false;
                         }
                     },
-                    success: function(data)
-                    {
+                    success: function (data) {
                         $('#edit_specification').modal('toggle');
                         $('#edit-id').val(data.id);
                         $('#edit-value').val(data.value);
                         $('#edit-attribute').val(data.title);
                     },
-                    error: function(){},
+                    error: function () {
+                    },
                 });
             });
 
-            $("#add_specifications_form").on('submit',(function(e) {
+            $("#add_specifications_form").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
                     url: "{{route('specifications.store')}}",
                     type: "POST",
-                    data:  new FormData(this),
+                    data: new FormData(this),
                     contentType: false,
                     cache: false,
-                    processData:false,
+                    processData: false,
                     statusCode: {
-                        403: function() {
-                            swal("Failed", "Access Denied" , "error");
+                        403: function () {
+                            swal("Failed", "Access Denied", "error");
                             return false;
                         }
                     },
-                    success: function(data)
-                    {
+                    success: function (data) {
 
                         $('#add_specification').modal('toggle');
-                        swal('success',data.success,'success').then((value) => {
+                        swal('success', data.success, 'success').then((value) => {
                             location.reload();
                         });
 
                     },
-                    error: function(xhr, status, error)
-                    {
+                    error: function (xhr, status, error) {
 
                         var error;
-                        error='';
+                        error = '';
                         $.each(xhr.responseJSON.errors, function (key, item) {
-                            error+=item;
+                            error += item;
                         });
                         swal("Failed", error, "error");
                     }
 
                 });
             }));
-            $("#edit_specifications_form").on('submit',(function(e) {
+            $("#edit_specifications_form").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
                     url: "{{route('specifications.update')}}",
                     type: "POST",
-                    data:  new FormData(this),
+                    data: new FormData(this),
                     contentType: false,
                     cache: false,
-                    processData:false,
+                    processData: false,
                     statusCode: {
-                        403: function() {
-                            swal("Failed", "Access Denied" , "error");
+                        403: function () {
+                            swal("Failed", "Access Denied", "error");
                             return false;
                         }
                     },
-                    success: function(data)
-                    {
+                    success: function (data) {
                         $('#edit_specification').modal('toggle');
-                        swal('success',data.success,'success').then((value) => {
+                        swal('success', data.success, 'success').then((value) => {
                             location.reload();
                         });
 
                     },
-                    error: function(xhr, status, error)
-                    {
-                        var error='';
+                    error: function (xhr, status, error) {
+                        var error = '';
                         $.each(xhr.responseJSON.errors, function (key, item) {
-                            error+=item;
+                            error += item;
                         });
                         swal("Failed", error, "error");
                     }

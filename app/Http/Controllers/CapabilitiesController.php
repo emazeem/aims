@@ -7,6 +7,7 @@ use App\Models\Capabilities;
 use App\Models\Parameter;
 use App\Models\Procedure;
 use App\Models\Suggestion;
+use App\Models\Unit;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,8 @@ class CapabilitiesController extends Controller
     public function index(){
         $procedures=Procedure::all();
         $parameters=DB::table('parameters')->get();
-        return view('capabilities.index',compact('parameters','procedures'));
+        $units=Unit::all();
+        return view('capabilities.index',compact('parameters','procedures','units'));
     }
     public function create(){
         $procedures=Procedure::all();
@@ -48,7 +50,7 @@ class CapabilitiesController extends Controller
                 return $data->price;
             })
             ->addColumn('unit', function ($data) {
-                return $data->unit;
+                return $data->units->unit;
             })
             ->addColumn('location', function ($data) {
                 return $data->location;
