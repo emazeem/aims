@@ -157,6 +157,7 @@ class MytaskController extends Controller
 
         $parent_details=Dataentry::where('job_type',0)->where('job_type_id',$id)->first();
         $entries=null;
+
         if ($parent_details){
             $entries=Dataentry::where('parent_id',$parent_details->id)->get();
         }

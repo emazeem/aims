@@ -251,6 +251,7 @@
         </div>
     </div>
 
+    @if($parent_details)
     <div class="col-12 table-responsive">
         <b>Location :</b>
         @if($parent_details->job_type==0)
@@ -297,4 +298,5 @@
             @endforeach
         </table>
     </div>
+    @endif
 @endsection
