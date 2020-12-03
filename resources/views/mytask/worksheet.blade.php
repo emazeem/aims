@@ -151,7 +151,7 @@
                 <tbody>
                 <tr>
                     <th class="font-11" width="20%">Location :</th>
-                    <td class="font-11" width="80%"></td>
+                    <td class="font-11" width="80%">{{$entries->location}}</td>
                 </tr>
                 <tr>
                     <th class="font-11">Calibration Date :</th>

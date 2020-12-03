@@ -269,13 +269,16 @@
         <br>
         <b>Unit : </b>
         {{\App\Models\Unit::find($dataentries->unit)->unit}}
-
+        <br>
+        <span class="mb-3">
+            <a href="{{route('mytasks.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
+            <a href="{{route('mytasks.print_certificate',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Certificate</a>
+        </span>
         <table class="table table-hover table-bordered">
 
             <tr>
                 <th>Fixed Value</th>
                 <th>Repeated Values</th>
-                <th>Action</th>
             </tr>
             @foreach($dataentries->child as $dataentry)
             <tr>
@@ -291,10 +294,7 @@
                     <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
                     <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
                 </th>
-                <th>
-                    <a href="{{route('mytasks.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm">Worksheet</a>
-                    <a href="" class="btn btn-primary btn-sm">Certificate</a>
-                </th>
+
             </tr>
             @endforeach
         </table>

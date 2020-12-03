@@ -4,7 +4,6 @@
         <script>
             $(document).ready(function () {
                 swal("Done!", '{{Session('success')}}', "success");
-                location.reload();
             });
         </script>
     @endif

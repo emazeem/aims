@@ -38,36 +38,16 @@ class DataentryController extends Controller
             $entry->fixed_type=$request->fixed;
             $entry->before_offset=$request->before_offset;
             $entry->after_offset=$request->after_offset;
-
-            if ($entry->save()){
-                $labjob->save();
-            }
-            $x1=[];
-            $x2=[];
-            $x3=[];
-            $x4=[];
-            $x5=[];
-            $fixed=[];
-            foreach ($request->x1 as $item){
-                $x1[]=$item;
-            }
-            foreach ($request->x2 as $item){
-                $x2[]=$item;
-            }
-            foreach ($request->x3 as $item){
-                $x3[]=$item;
-            }
-            foreach ($request->x4 as $item){
-                $x4[]=$item;
-            }
-            foreach ($request->x5 as $item){
-                $x5[]=$item;
-            }
-            foreach ($request->fixed_value as $item){
-                $fixed[]=$item;
-            }
+            $entry->calibrated_by=auth()->user()->id;
+            if ($entry->save()){$labjob->save();}
+            $x1=[];$x2=[];$x3=[];$x4=[];$x5=[];$fixed=[];
+            foreach ($request->x1 as $item){$x1[]=$item;}
+            foreach ($request->x2 as $item){$x2[]=$item;}
+            foreach ($request->x3 as $item){$x3[]=$item;}
+            foreach ($request->x4 as $item){$x4[]=$item;}
+            foreach ($request->x5 as $item){$x5[]=$item;}
+            foreach ($request->fixed_value as $item){$fixed[]=$item;}
             for ($i=0;$i<count($x1);$i++){
-
                 $item=new Dataentry();
                 $item->fixed_value=$fixed[$i];
                 $item->x1=$x1[$i];

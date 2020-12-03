@@ -425,5 +425,15 @@ class MytaskController extends Controller
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
         return view('mytask.worksheet',compact('entries','job','quote','mainjob'));
     }
+    public function print_certificate($location,$id){
+        if ($location==0){
+            $job=Labjob::find($id);
+            $mainjob=Job::find($job->job_id);
+            $quote=Quotes::find($mainjob->quote_id);
+        }
+        $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
+        return view('mytask.certificate',compact('entries','job','quote','mainjob'));
+    }
+
     //
 }
