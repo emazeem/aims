@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="" />
+    <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +189,7 @@
           <entry key="ini" value="1" />
           <entry key="js" value="13" />
           <entry key="json" value="2" />
-          <entry key="php" value="360" />
+          <entry key="php" value="361" />
           <entry key="sql" value="6" />
         </counts>
       </usages-collector>
@@ -198,7 +201,7 @@
           <entry key="Ini" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="13" />
-          <entry key="PHP" value="140" />
+          <entry key="PHP" value="141" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SQL" value="6" />
         </counts>
@@ -210,7 +213,7 @@
           <entry key="ini" value="9" />
           <entry key="js" value="18" />
           <entry key="json" value="2" />
-          <entry key="php" value="17403" />
+          <entry key="php" value="17414" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -221,7 +224,7 @@
           <entry key="Ini" value="9" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="4434" />
+          <entry key="PHP" value="4445" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -229,11 +232,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="211" column="35" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+              <caret line="75" column="46" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+              <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+              <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+              <caret line="87" column="46" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -332,7 +348,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ManageJobsController.php" />
         <option value="$PROJECT_DIR$/resources/views/manage/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manage/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
         <option value="$PROJECT_DIR$/resources/views/items/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/users/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
@@ -371,6 +386,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" />
         <option value="$PROJECT_DIR$/resources/views/mytask/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
       </list>
     </option>
   </component>
@@ -527,7 +543,7 @@
       <path value="$PROJECT_DIR$/vendor/anam/phantommagick" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -1146,12 +1162,12 @@
       <workItem from="1606738575459" duration="10767000" />
       <workItem from="1606800767637" duration="12533000" />
       <workItem from="1606816914776" duration="45152000" />
-      <workItem from="1606966448989" duration="1904000" />
+      <workItem from="1606966448989" duration="2572000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1052874000" />
+    <option name="totallyTimeSpent" value="1053542000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1164,6 +1180,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24810892" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1507,17 +1524,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="211" column="35" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="71" column="46" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="46" />
+          <caret line="75" column="46" selection-start-line="75" selection-start-column="46" selection-end-line="75" selection-end-column="46" />
+          <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+          <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+          <caret line="87" column="46" selection-start-line="87" selection-start-column="46" selection-end-line="87" selection-end-column="46" />
         </state>
       </provider>
     </entry>
