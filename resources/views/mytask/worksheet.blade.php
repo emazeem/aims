@@ -18,7 +18,7 @@
     <div class="row">
 
         <div class="col-2 text-center custom-border">
-                <img src="{{asset('/img/aims.png')}}" class="mt-2 ml-2" width="100">
+                <img src="{{asset('/img/AIMS.png')}}" class="mt-2 ml-2" width="100">
             </div>
         <div class="col-7 border-left-right-0 custom-border" >
                 <p class="text-center b font-24" style="margin-top: 10px">Calibration Worksheet
