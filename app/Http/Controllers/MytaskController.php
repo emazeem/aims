@@ -156,11 +156,9 @@ class MytaskController extends Controller
         $assets=Asset::whereIn('id',$assets)->get();
 
         $parent_details=Dataentry::where('job_type',0)->where('job_type_id',$id)->first();
+        $entries=null;
         if ($parent_details){
             $entries=Dataentry::where('parent_id',$parent_details->id)->get();
-        }
-        if (!$entries){
-            $entries=null;
         }
         return view('mytask.show',compact('show','location','parameters','assets','entries','parent_details'));
     }
