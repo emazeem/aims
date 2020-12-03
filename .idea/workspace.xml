@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchedulingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchedulingController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +188,7 @@
           <entry key="ini" value="1" />
           <entry key="js" value="13" />
           <entry key="json" value="2" />
-          <entry key="php" value="364" />
+          <entry key="php" value="365" />
           <entry key="sql" value="6" />
         </counts>
       </usages-collector>
@@ -200,7 +200,7 @@
           <entry key="Ini" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="13" />
-          <entry key="PHP" value="143" />
+          <entry key="PHP" value="144" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="6" />
         </counts>
@@ -240,12 +240,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="191">
               <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
               <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SchedulingController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+              <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -332,7 +342,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/users/create.blade.php" />
         <option value="$PROJECT_DIR$/public/style.css" />
         <option value="$PROJECT_DIR$/resources/views/assets/create.blade.php" />
@@ -383,6 +392,7 @@
         <option value="$PROJECT_DIR$/resources/views/quotes/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/JobController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SchedulingController.php" />
       </list>
     </option>
   </component>
@@ -1158,12 +1168,12 @@
       <workItem from="1606738575459" duration="10767000" />
       <workItem from="1606800767637" duration="12533000" />
       <workItem from="1606816914776" duration="45152000" />
-      <workItem from="1606966448989" duration="4166000" />
+      <workItem from="1606966448989" duration="4826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1055136000" />
+    <option name="totallyTimeSpent" value="1055796000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1229,13 +1239,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/jobs/jobtag.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="33" column="65" lean-forward="true" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -1532,6 +1535,14 @@
         <state relative-caret-position="191">
           <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
           <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SchedulingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
         </state>
       </provider>
     </entry>
