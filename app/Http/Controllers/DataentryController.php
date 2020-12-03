@@ -36,6 +36,7 @@ class DataentryController extends Controller
             $entry->location=$request->location;
             $entry->unit=$request->units;
             $entry->fixed_type=$request->fixed;
+            $entry->asset_id=$request->assets;
             $entry->before_offset=$request->before_offset;
             $entry->after_offset=$request->after_offset;
             $entry->calibrated_by=auth()->user()->id;

@@ -13,7 +13,6 @@ Route::post('/change_password', [App\Http\Controllers\UserController::class, 'ch
 
 
 Route::post('/set_profile', [App\Http\Controllers\UserController::class, 'setprofile'])->middleware('auth')->name('setprofile');
-
 Auth::routes();
 
 Route::get('/quote',function (){return view('docs.quotation');});
@@ -22,6 +21,7 @@ Route::get('/certificate',function (){return view('worksheets.certificate');});
 Route::get('/jobform',function (){return view('docs.jobform');});
 Route::get('/worksheet',function (){return view('worksheets.worksheets');});
 Route::get('/invoice',function (){return view('docs.invoice');});
+Route::get('/uncertainty',function (){return view('docs.uncertainty');});
 Route::get('/review',function (){return view('docs.contractreview');});
 Route::get('/gate-pass',function (){return view('docs.gatepass');});
 Route::get('/deliverynote',function (){return view('docs.deliverynote');});
@@ -211,6 +211,7 @@ Route::group(['prefix'=> 'mytasks'],function() {
     Route::get('s_view/{id}',[App\Http\Controllers\MytaskController::class, 's_show'])->middleware('auth')->name('mytasks.s_show');
     Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_worksheet'])->middleware('auth')->name('mytasks.print_worksheet');
     Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_certificate'])->middleware('auth')->name('mytasks.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_uncertainty'])->middleware('auth')->name('mytasks.print_uncertainty');
     Route::post('/start',[App\Http\Controllers\MytaskController::class, 'start'])->middleware('auth')->name('mytasks.start');
     Route::post('/end',[App\Http\Controllers\MytaskController::class, 'end'])->middleware('auth')->name('mytasks.end');
 });

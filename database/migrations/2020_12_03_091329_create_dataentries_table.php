@@ -17,6 +17,7 @@ class CreateDataentriesTable extends Migration
 
             $table->id();
             $table->string('job_type')->nullable();
+            $table->integer('asset_id')->nullable();
             $table->integer('job_type_id')->nullable();
             $table->string('unit')->nullable();
             $table->string('location')->nullable();

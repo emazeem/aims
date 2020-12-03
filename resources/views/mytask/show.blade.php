@@ -273,6 +273,7 @@
         <span class="mb-3">
             <a href="{{route('mytasks.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
             <a href="{{route('mytasks.print_certificate',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Certificate</a>
+            <a href="{{route('mytasks.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Uncertainty</a>
         </span>
         <table class="table table-hover table-bordered">
 
