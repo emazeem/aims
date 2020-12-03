@@ -426,17 +426,15 @@
                     .then((willDelete) => {
                         if (willDelete) {
                             var id = $(this).attr('data-id');
-                            var token= '{{csrf_token()}}';
                             e.preventDefault();
-
-                            var request_method = $("#form"+id).attr("method");
-                            var form_data = $("#form"+id).serialize();
-
                             $.ajax({
                                 url: "{{url('quotes/complete')}}/"+id,
-                                type: request_method,
+                                type: 'POST',
                                 dataType: "JSON",
-                                data: form_data,
+                                data: {
+                                    "_token": "{{ csrf_token() }}",
+                                    "id": id
+                                },
                                 statusCode: {
                                     403: function() {
                                         swal("Failed", "Permission denied." , "error");
