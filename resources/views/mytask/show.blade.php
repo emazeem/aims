@@ -251,24 +251,24 @@
         </div>
     </div>
 
-    @if($parent_details)
+    @if($dataentries)
     <div class="col-12 table-responsive">
         <b>Location :</b>
-        @if($parent_details->job_type==0)
+        @if($dataentries->job_type==0)
             Lab
         @else
             Site
         @endif
         <br>
         <b>Fixed Value : </b>
-        @if($parent_details->fixed_type=='UUC')
+        @if($dataentries->fixed_type=='UUC')
             Reference Standard
         @else
             UUC
         @endif
         <br>
         <b>Unit : </b>
-        {{\App\Models\Unit::find($parent_details->unit)->unit}}
+        {{\App\Models\Unit::find($dataentries->unit)->unit}}
 
         <table class="table table-hover table-bordered">
 
@@ -277,18 +277,19 @@
                 <th>Repeated Values</th>
                 <th>Action</th>
             </tr>
-            @foreach($entries as $entry)
+            @foreach($dataentries->child as $dataentry)
             <tr>
+
                 <td>
-                    {{$entry->fixed_value}}
+                    {{$dataentry->fixed_value}}
                 </td>
                 <th>
-                    <span class="badge badge-dark p-2">{{$entry->x1}}</span>
-                    <span class="badge badge-dark p-2">{{$entry->x2}}</span>
-                    <span class="badge badge-dark p-2">{{$entry->x3}}</span>
-                    <span class="badge badge-dark p-2">{{$entry->x4}}</span>
-                    <span class="badge badge-dark p-2">{{$entry->x5}}</span>
-                    <span class="badge badge-dark p-2">{{$entry->x6}}</span>
+                    <span class="badge badge-dark p-2">{{$dataentry->x1}}</span>
+                    <span class="badge badge-dark p-2">{{$dataentry->x2}}</span>
+                    <span class="badge badge-dark p-2">{{$dataentry->x3}}</span>
+                    <span class="badge badge-dark p-2">{{$dataentry->x4}}</span>
+                    <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
+                    <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
                 </th>
                 <th>
                     <a href="{{route('mytasks.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm">Worksheet</a>

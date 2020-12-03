@@ -155,13 +155,9 @@ class MytaskController extends Controller
         $parameters=Parameter::whereIn('id',$parameters)->get();
         $assets=Asset::whereIn('id',$assets)->get();
 
-        $parent_details=Dataentry::where('job_type',0)->where('job_type_id',$id)->first();
-        $entries=null;
-
-        if ($parent_details){
-            $entries=Dataentry::where('parent_id',$parent_details->id)->get();
-        }
-        return view('mytask.show',compact('show','location','parameters','assets','entries','parent_details'));
+        $dataentries=Dataentry::where('parent_id',null)->where('job_type',0)->where('job_type_id',$id)->with('child')->first();
+        //dd($dataentries);
+        return view('mytask.show',compact('show','location','parameters','assets','dataentries'));
     }
     public function s_show($id){
         $this->authorize('mytask-view');
@@ -426,9 +422,8 @@ class MytaskController extends Controller
             $mainjob=Job::find($job->job_id);
             $quote=Quotes::find($mainjob->quote_id);
         }
-        $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->get();
-        $caldate=Dataentry::where('job_type',$location)->where('job_type_id',$id)->first();
-        return view('mytask.worksheet',compact('entries','job','quote','mainjob','caldate'));
+        $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
+        return view('mytask.worksheet',compact('entries','job','quote','mainjob'));
     }
     //
 }

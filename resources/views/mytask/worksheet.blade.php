@@ -155,7 +155,7 @@
                 </tr>
                 <tr>
                     <th class="font-11">Calibration Date :</th>
-                    <td class="font-11">{{date('d-M-y',strtotime($caldate->created_at))}}</td>
+                    <td class="font-11">{{date('d-M-y',strtotime($entries->created_at))}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -224,19 +224,19 @@
                 <tr>
                     <td class="font-11" colspan="12">Offset of UUC :</td>
                     <td class="font-11" colspan="12">Before Adjustment</td>
-                    <td class="font-11" colspan="12">{{$caldate->before_offset}}</td>
+                    <td class="font-11" colspan="12">{{$entries->before_offset}}</td>
                     <td class="font-11" colspan="12">After Adjustment</td>
-                    <td class="font-11" colspan="12">{{$caldate->after_offset}}</td>
+                    <td class="font-11" colspan="12">{{$entries->after_offset}}</td>
                 </tr>
                 <tr>
                     <th class="font-11 text-center py-2" colspan="50" >Readings on the
-                        @if($caldate->fixed_type=='UUC')
+                        @if($entries->fixed_type=='UUC')
                             Reference Standard
                         @else
                             UUC
                         @endif
                         :</th>
-                    <th class="font-11 text-center" colspan="10" rowspan="2" >Reading on <br> ( {{$caldate->fixed_type}} )</th>
+                    <th class="font-11 text-center" colspan="10" rowspan="2" >Reading on <br> ( {{$entries->fixed_type}} )</th>
                 </tr>
 
                 <tr>
@@ -247,10 +247,10 @@
                     <td class="font-11 text-center" colspan="10">x5 ↓</td>
                 </tr>
                 <tr class="text-center">
-                    <td class="font-11" colspan="50"> ({{\App\Models\Unit::find($caldate->unit)->unit}}) </td>
-                    <td class="font-11" colspan="10" >({{\App\Models\Unit::find($caldate->unit)->unit}})</td>
+                    <td class="font-11" colspan="50"> ({{\App\Models\Unit::find($entries->unit)->unit}}) </td>
+                    <td class="font-11" colspan="10" >({{\App\Models\Unit::find($entries->unit)->unit}})</td>
                 </tr>
-                @foreach($entries as $entry)
+                @foreach($entries->child as $entry)
                     <tr>
                         <td class="font-11 text-center" colspan="10">{{$entry->x1}}</td>
                         <td class="font-11 text-center" colspan="10">{{$entry->x2}}</td>
