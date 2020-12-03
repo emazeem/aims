@@ -32,10 +32,10 @@ class SchedulingController extends Controller
             })
             ->addColumn('status', function ($data) {
                 //
-                if ($data->status===0){
+                if ($data->status==0){
                     $status= '<b class="text-success">Pending</b>';
                 }
-                if ($data->status===1){
+                if ($data->status==1){
                     $status= '<b class="text-success">Completed</b>';
                 }
                 return $status;
