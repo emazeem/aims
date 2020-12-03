@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/jobs/deliverynote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/deliverynote.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jobs/gatepass.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/gatepass.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jobs/jobform.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/jobform.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +188,7 @@
           <entry key="ini" value="1" />
           <entry key="js" value="13" />
           <entry key="json" value="2" />
-          <entry key="php" value="377" />
+          <entry key="php" value="380" />
           <entry key="sql" value="6" />
         </counts>
       </usages-collector>
@@ -203,7 +200,7 @@
           <entry key="Ini" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="13" />
-          <entry key="PHP" value="148" />
+          <entry key="PHP" value="151" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="6" />
         </counts>
@@ -234,11 +231,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="153" column="92" selection-start-line="153" selection-start-column="92" selection-end-line="153" selection-end-column="92" />
+            <state relative-caret-position="242">
+              <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
             </state>
           </provider>
         </entry>
@@ -306,9 +303,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/jobs/jobtag.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -332,8 +333,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>show</find>
-      <find>asser</find>
       <find>combined_uncertainty_of_standard</find>
       <find>corre</find>
       <find>homogeniety</find>
@@ -362,6 +361,8 @@
       <find>calda</find>
       <find>c</find>
       <find>$dataentries</find>
+      <find>jobform</find>
+      <find>jt</find>
     </findStrings>
     <replaceStrings>
       <replace>custom-bottom-border</replace>
@@ -440,7 +441,6 @@
         <option value="$PROJECT_DIR$/resources/views/calculator/create.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_02_073233_create_dataentries_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/quotes/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/JobController.php" />
@@ -453,6 +453,7 @@
         <option value="$PROJECT_DIR$/resources/views/jobs/gatepass.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/jobform.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -1228,12 +1229,12 @@
       <workItem from="1606738575459" duration="10767000" />
       <workItem from="1606800767637" duration="12533000" />
       <workItem from="1606816914776" duration="45152000" />
-      <workItem from="1606966448989" duration="8046000" />
+      <workItem from="1606966448989" duration="8291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1059016000" />
+    <option name="totallyTimeSpent" value="1059261000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1299,7 +1300,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_10_25_075519_create_sitejobs_table.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/awaiting/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1554,24 +1554,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="153" column="92" selection-start-line="153" selection-start-column="92" selection-end-line="153" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Dataentry.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="279" column="40" selection-start-line="279" selection-start-column="21" selection-end-line="279" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1618,7 +1604,32 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/jobs/jobtag.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/aims/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="227" selection-start-line="227" selection-end-line="228" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="279" column="40" selection-start-line="279" selection-start-column="21" selection-end-line="279" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="238" lean-forward="true" selection-start-line="238" selection-end-line="238" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
