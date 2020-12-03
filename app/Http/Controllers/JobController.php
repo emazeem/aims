@@ -52,11 +52,11 @@ class JobController extends Controller
                     return "SPLIT";
             })
             ->addColumn('status', function ($data) {
-                if ($data->status===0){
-                    $status= '<b class="text-danger">Pending</b>';
+                if ($data->status==0){
+                    $status= '<b class="badge badge-danger">Pending</b>';
                 }
-                if ($data->status===1){
-                    $status= '<b class="text-success">Complete</b>';
+                if ($data->status==1){
+                    $status= '<b class="badge badge-success">Complete</b>';
                 }
                 return $status;
             })
