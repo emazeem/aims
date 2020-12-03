@@ -68,24 +68,24 @@ class QuotesController extends Controller
             })
             ->addColumn('status', function ($data) {
                 //Items are adding
-                if ($data->status===0){
-                    $status= '<b class="text-secondary">Pending</b>';
+                if ($data->status==0){
+                    $status= '<b class="badge badge-secondary">Pending</b>';
                 }
                 //Session email send, awaiting customer approval
-                if ($data->status===1){
-                    $status= '<b class="text-success">Awaiting Customer Approval</b>';
+                if ($data->status==1){
+                    $status= '<b class="badge badge-success">Awaiting Customer Approval</b>';
                 }
                 //Session is approved or working.
-                if ($data->status===2){
-                    $status= '<b class="text-success">Closed</b>';
+                if ($data->status==2){
+                    $status= '<b class="badge badge-success">Closed</b>';
                 }
                 //Team is working
-                if ($data->status===3){
-                    $status= '<b class="text-danger">Approved</b>';
+                if ($data->status==3){
+                    $status= '<b class="badge badge-danger">Approved</b>';
                 }
                 //Team is working
-                if ($data->status===4){
-                    $status= '<b class="text-danger">Team is working</b>';
+                if ($data->status==4){
+                    $status= '<b class="badge badge-danger">Team is working</b>';
                 }
                 return $status;
             })
