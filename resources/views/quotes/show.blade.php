@@ -428,7 +428,7 @@
                             var id = $(this).attr('data-id');
                             e.preventDefault();
                             $.ajax({
-                                url: "{{url('quotes/complete')}}/"+id,
+                                url: "{{route('quotes.complete')}}",
                                 type: 'POST',
                                 dataType: "JSON",
                                 data: {

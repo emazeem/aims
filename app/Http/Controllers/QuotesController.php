@@ -303,9 +303,9 @@ class QuotesController extends Controller
         $approval->save();
         return response()->json(['success'=>'You can review your quote now']);
     }
-    public function complete($id){
+    public function complete(Request $request){
         $this->authorize('quote-revised');
-        $approval=Quotes::find($id);
+        $approval=Quotes::find($request->id);
         $approval->status=1;
         $approval->save();
         return response()->json(['success'=>'Quote is marked as complete']);
