@@ -108,10 +108,10 @@
 
                             </td>
                             @php $assets=explode(',',$labjob->assign_assets) @endphp
-                            <td class="text-xs">
+                            <td>
                                 @if($labjob->assign_assets)
                                     @foreach($assets as $asset)
-                                        <li>{{\App\Models\Asset::find($asset)->name}}</li>
+                                        <span class="badge badge-dark">{{\App\Models\Asset::find($asset)->name}}</span>
                                     @endforeach
                                 @endif
                             </td>

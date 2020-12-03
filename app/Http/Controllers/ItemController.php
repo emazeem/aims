@@ -14,9 +14,9 @@ use Yajra\DataTables\Facades\DataTables;
 
 class ItemController extends Controller
 {
-    /*public function index(){
+    public function index(){
         return view('items.index');
-    }*/
+    }
     public function create($id){
         $this->authorize('items-create');
         $session=Quotes::find($id);

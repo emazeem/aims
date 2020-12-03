@@ -6,6 +6,7 @@ use App\Models\Asset;
 use App\Models\Assetspecification;
 use App\Models\Capabilities;
 use App\Models\Certificate;
+use App\Models\Dataentry;
 use App\Models\Item;
 use App\Models\Job;
 use App\Models\Labjob;
@@ -153,13 +154,15 @@ class MytaskController extends Controller
         $parameters=array_unique($parameters);
         $parameters=Parameter::whereIn('id',$parameters)->get();
         $assets=Asset::whereIn('id',$assets)->get();
-        return view('mytask.show',compact('show','location','parameters','assets'));
+
+        $parent_details=Dataentry::where('job_type',0)->where('job_type_id',$id)->first();
+        $entries=Dataentry::where('parent_id',$parent_details->id)->get();
+        return view('mytask.show',compact('show','location','parameters','assets','entries','parent_details'));
     }
     public function s_show($id){
         $this->authorize('mytask-view');
         $location=1;
         $show=Sitejob::find($id);
-
         return view('mytask.show',compact('show','location'));
     }
 
@@ -236,10 +239,9 @@ class MytaskController extends Controller
 
         
         $average_repeated_value=($x1+$x2+$x3+$x4+$x5)/$n;
-        
-        
+
         echo "Average Value of Repeated : ".$average_repeated_value;
-        
+
         if ($request->fixed=="Ref"){
             $reference=$fixed_value;
             $uuc=$average_repeated_value;
@@ -251,15 +253,15 @@ class MytaskController extends Controller
         echo 'Reference : '.$reference;
         
         echo 'UUC : '.$uuc;
-        
+
         
         //may be there will be need to use unit in manage reference query;
         $reference_table=Managereference::where('asset',$request->assets)->get();
         $intervals=[];
-        echo 'INTERVALS';
+        echo '<br>INTERVALS<br>';
         foreach ($reference_table as $item) {
             $intervals[]=$item->uuc;
-            echo (int)$item->uuc;
+            echo (int)$item->uuc.'<br>';
         }
         echo 'END INTERVALS';
         $min=null;$max=null;$count=count($intervals);
@@ -339,7 +341,7 @@ class MytaskController extends Controller
             $temp=$average_repeated_value-$all_repeated_values[$i];
             $square_sum=$square_sum+($temp*$temp);
         }
-        
+        //dd($n);
         $temp=$square_sum/($n-1);
         $SD=sqrt($temp);
         
@@ -367,24 +369,19 @@ class MytaskController extends Controller
 
         $drift_of_the_standard=$uncertainty_of_reference/sqrt(3);
         $combined_uncertainty_of_standard=$uncertainty_of_reference/2;
-        
-
-        
-
         $uncertainty_due_to_offset_of_uuc=$request->offset/sqrt(3);
+        //$homogeniety=Assetspecification::where('asset_id',$request->assets)->where('column',1)->first()->value;
+        //$uncertainty_due_to_homogeniety=$homogeniety/sqrt(3);
+        
+        //$instability =Assetspecification::where('asset_id',$request->assets)->where('column',2)->first()->value;
+        //$uncertainty_due_to_instability =$instability/sqrt(3);
+        
 
-        $homogeniety=Assetspecification::where('asset_id',$request->assets)->where('column',1)->first()->value;
-        $uncertainty_due_to_homogeniety=$homogeniety/sqrt(3);
+        //$loadingofsource =Assetspecification::where('asset_id',$request->assets)->where('column',3)->first()->value;
+        //$uncertainty_due_to_loadingofsource =$loadingofsource/sqrt(3);
         
-        $instability =Assetspecification::where('asset_id',$request->assets)->where('column',2)->first()->value;
-        $uncertainty_due_to_instability =$instability/sqrt(3);
-        
-
-        $loadingofsource =Assetspecification::where('asset_id',$request->assets)->where('column',3)->first()->value;
-        $uncertainty_due_to_loadingofsource =$loadingofsource/sqrt(3);
-        
-        $parallex =Assetspecification::where('asset_id',$request->assets)->where('column',4)->first()->value;
-        $uncertainty_due_to_parallex  = $parallex/sqrt(3);
+        //$parallex =Assetspecification::where('asset_id',$request->assets)->where('column',4)->first()->value;
+        //$uncertainty_due_to_parallex  = $parallex/sqrt(3);
 
 
         if (in_array('standard-deviation',$proSlugs)){
@@ -401,13 +398,13 @@ class MytaskController extends Controller
         echo '<br>';
         echo 'Uncertainty Due to Resolution of UUC : '.$uncertainty_due_to_resolution_of_uuc;
         echo '<br>';
-        echo 'Uncertainty due to loading of source  : '.$uncertainty_due_to_loadingofsource;
+        //echo 'Uncertainty due to loading of source  : '.$uncertainty_due_to_loadingofsource;
         echo '<br>';
-        echo 'Uncertainty due to instability  : '.$uncertainty_due_to_instability;
+        //echo 'Uncertainty due to instability  : '.$uncertainty_due_to_instability;
         echo '<br>';
-        echo 'Uncertainty due to homogeniety : '.$uncertainty_due_to_homogeniety;
+        //echo 'Uncertainty due to homogeniety : '.$uncertainty_due_to_homogeniety;
         echo '<br>';
-        echo 'Uncertainty due to parallex  : '.$uncertainty_due_to_parallex;
+        //echo 'Uncertainty due to parallex  : '.$uncertainty_due_to_parallex;
         echo '<br>';
         echo 'Uncertainty of Reference : '.$uncertainty_of_reference;
         echo '<br>';
@@ -418,6 +415,16 @@ class MytaskController extends Controller
         echo 'Combined uncertainty of standard : '.$combined_uncertainty_of_standard;
         echo '<br>';
         echo 'Drift of the Standard : '.$drift_of_the_standard;
+    }
+    public function print_worksheet($location,$id){
+        if ($location==0){
+            $job=Labjob::find($id);
+            $mainjob=Job::find($job->job_id);
+            $quote=Quotes::find($mainjob->quote_id);
+        }
+        $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->get();
+        $caldate=Dataentry::where('job_type',$location)->where('job_type_id',$id)->first();
+        return view('mytask.worksheet',compact('entries','job','quote','mainjob','caldate'));
     }
     //
 }

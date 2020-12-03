@@ -19,6 +19,9 @@ class CreateLabjobsTable extends Migration
             $table->integer('item_id');
             $table->string('eq_id')->nullable();
             $table->string('serial')->nullable();
+            $table->string('resolution')->nullable();
+            $table->string('accuracy')->nullable();
+            $table->string('range')->nullable();
             $table->string('model')->nullable();
             $table->string('make')->nullable();
             $table->string('accessories')->nullable();

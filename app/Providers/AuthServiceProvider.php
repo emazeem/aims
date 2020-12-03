@@ -478,12 +478,19 @@ class AuthServiceProvider extends ServiceProvider
     }
     public function items()
     {
+        Gate::define('uuc-items-index', function ($user) {
+            if (in_array('uuc-items-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
         Gate::define('items-create', function ($user) {
             if (in_array('items-create',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
+
         Gate::define('items-edit', function ($user) {
             if (in_array('items-edit',explode(',',$user->roles->permissions))){
                 return true;
