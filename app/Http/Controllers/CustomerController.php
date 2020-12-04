@@ -120,7 +120,7 @@ class CustomerController extends Controller
         $users = User::where('user_type', 1)->get();
         $url = '/customers/view/'.$customer->id;
         $creator = auth()->user()->fname . ' ' . auth()->user()->lname;
-        $message = collect(['title' => 'New customer added', 'body' => 'A new customer ('.$customer->id.') has been added by ' . $creator . ' , please review it.', 'redirectURL' => $url]);
+        $message = collect(['title' => 'New customer added','by'=>auth()->user()->id, 'body' => 'A new customer ('.$customer->id.') has been added by ' . $creator . ' , please review it.', 'redirectURL' => $url]);
         Notification::send($users, new CustomerNotification($message));
         return redirect()->back()->with('success', 'Customer Added Successfully');
     }
