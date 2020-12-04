@@ -114,7 +114,8 @@ class MenuController extends Controller
     }
     public function manage(){
         $mens=Menu::all()->where('parent_id',null)->where('status',1);
-        return view('manage-menus',compact('mens'));
+        $childs=Menu::all()->where('parent_id',!null)->where('status',1)->where('has_child',1);
+        return view('manage-menus',compact('mens','childs'));
     }
     public function manage_store(Request $request){
         //dd($request->all());
@@ -126,6 +127,15 @@ class MenuController extends Controller
             $change->save();
             $i++;
         }
+        $childs=Menu::all()->where('parent_id',!null)->where('status',1)->where('has_child',1);
+        foreach ($childs as $men) {
+            $change=Menu::find($men->id);
+            $change->position=$request->menu[$i];
+            $change->save();
+            $i++;
+        }
+
+
         return redirect()->back()->with('success','Ordered successfully');
 
     }

@@ -10,7 +10,7 @@
     <style>
         input[type='checkbox'] {
             height: 15px;
-            width: 15px;
+            width: 25px;
         }
 
         .custom-label {
@@ -39,13 +39,24 @@
                 @php $i=1; @endphp
                 <div class="row">
                 @foreach($mens as $men)
-                    <div class="form-group col-3 border p-2">
+                    <div class="form-group col-md-3 col-6 border border-dark p-2">
                         <label for="index{{$i}}" class="float-left">{{$men->name}}</label>
-                        <input type="number"class="form-control float-right col-3" id="index{{$i}}" name="menu[]" placeholder="" value="{{$men->position}}" required>
+                        <br>
+                        <input type="number" class="form-control float-right col-4" id="index{{$i}}" name="menu[]" placeholder="" value="{{$men->position}}" required>
 
                     </div>
                 @php $i++; @endphp
-            @endforeach
+                @endforeach
+                @foreach($childs as $men)
+                    <div class="form-group col-md-3 col-6 border border-dark p-2">
+                        <label for="index{{$i}}" class="float-left">{{$men->name}}</label>
+                        <br>
+                        <input type="number" class="form-control float-right col-4" id="index{{$i}}" name="menu[]" placeholder="" value="{{$men->position}}" required>
+
+                    </div>
+                @php $i++; @endphp
+                @endforeach
+
                 </div>
             <!-- /.box-body -->
                 <div class="box-footer">

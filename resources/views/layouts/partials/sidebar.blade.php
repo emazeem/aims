@@ -29,7 +29,7 @@
                             {{$menu->name}}
                         </a>
                         <?php
-                        $submenus=\App\Models\Menu::where('parent_id',$menu->id)->where('has_child',1)->get();
+                        $submenus=\App\Models\Menu::where('parent_id',$menu->id)->where('has_child',1)->orderBy('position','ASC')->get();
                         $url=[];
                         foreach ($submenus as $submenu){
                             $url[]=\Illuminate\Support\Facades\URL::to('/').'/'.$submenu->url;

@@ -176,7 +176,6 @@ Route::group(['prefix'=> 'scheduling'],function() {
     Route::post('',[App\Http\Controllers\SchedulingController::class, 'fetch'])->middleware('auth')->name('scheduling.fetch');
 });
 
-
 Route::group(['prefix'=> 'items'],function() {
     Route::get('',[App\Http\Controllers\ItemController::class, 'index'])->middleware('auth')->name('items');
     Route::get('/select-capabilities/{id}',[App\Http\Controllers\ItemController::class, 'getCapabilities'])->middleware('auth')->name('items.getcapabilities');

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/manage-menus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manage-menus.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -190,19 +193,19 @@
           <entry key="ini" value="1" />
           <entry key="js" value="13" />
           <entry key="json" value="2" />
-          <entry key="php" value="430" />
+          <entry key="php" value="432" />
           <entry key="sql" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="256" />
+          <entry key="Blade" value="257" />
           <entry key="CSS" value="34" />
           <entry key="HTML" value="2" />
           <entry key="Ini" value="1" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="13" />
-          <entry key="PHP" value="174" />
+          <entry key="PHP" value="175" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="6" />
         </counts>
@@ -214,18 +217,18 @@
           <entry key="ini" value="9" />
           <entry key="js" value="18" />
           <entry key="json" value="2" />
-          <entry key="php" value="22995" />
+          <entry key="php" value="23199" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="16590" />
+          <entry key="Blade" value="16677" />
           <entry key="CSS" value="1658" />
           <entry key="HTML" value="4" />
           <entry key="Ini" value="9" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="6401" />
+          <entry key="PHP" value="6518" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -236,75 +239,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="178" selection-start-line="178" selection-end-line="178" />
+            <state relative-caret-position="86">
+              <caret line="177" selection-start-line="177" selection-end-line="177" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/style.css">
+        <entry file="file://$PROJECT_DIR$/resources/views/manage-menus.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="222" selection-start-line="222" selection-end-line="222" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="58" column="18" lean-forward="true" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+            <state relative-caret-position="256">
+              <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MenuController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="395">
-              <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/profile.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="23" column="52" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="122" column="84" selection-start-line="122" selection-start-column="84" selection-end-line="122" selection-end-column="84" />
+              <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -391,7 +345,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CheckinController.php" />
         <option value="$PROJECT_DIR$/resources/views/awaiting/quotes.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Capabilities.php" />
@@ -425,7 +378,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2020_11_10_115740_create_procedures_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_10_24_125315_create_menus_table.php" />
         <option value="$PROJECT_DIR$/resources/views/menus.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_11_01_163438_create_expensecategories_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_04_080224_create_expensecategories_table.php" />
@@ -434,7 +386,6 @@
         <option value="$PROJECT_DIR$/resources/views/roles/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/roles/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ExpenseController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/expensecategory/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PendingRequestController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php" />
@@ -442,6 +393,9 @@
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/manage-menus.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" />
       </list>
     </option>
   </component>
@@ -893,7 +847,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="nav&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/layouts/partials/navbar.blade.php&#10;login&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/auth/login.blade.php&#10;side&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/layouts/partials/sidebar.blade.php&#10;web&#9;FILE&#9;file://C:/xampp/htdocs/aims/routes/web.php&#10;auth&#9;null&#9;null&#10;style.cs&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/style.css&#10;worksheet&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/worksheets/worksheets.blade.php&#10;authser&#9;null&#9;null&#10;aut&#9;FILE&#9;file://C:/xampp/htdocs/aimscal/app/Providers/AuthServiceProvider.php&#10;au&#9;FILE&#9;file://C:/xampp/htdocs/aimscal/app/Providers/AuthServiceProvider.php&#10;ath&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="side&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/layouts/partials/sidebar.blade.php&#10;manage&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/manage-menus.blade.php&#10;nav&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/layouts/partials/navbar.blade.php&#10;login&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/auth/login.blade.php&#10;web&#9;FILE&#9;file://C:/xampp/htdocs/aims/routes/web.php&#10;auth&#9;null&#9;null&#10;style.cs&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/style.css&#10;worksheet&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/worksheets/worksheets.blade.php&#10;authser&#9;null&#9;null&#10;aut&#9;FILE&#9;file://C:/xampp/htdocs/aimscal/app/Providers/AuthServiceProvider.php&#10;au&#9;FILE&#9;file://C:/xampp/htdocs/aimscal/app/Providers/AuthServiceProvider.php&#10;ath&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -1191,12 +1145,12 @@
       <workItem from="1606816914776" duration="45152000" />
       <workItem from="1606966448989" duration="31287000" />
       <workItem from="1607050977310" duration="2186000" />
-      <workItem from="1607056852492" duration="22565000" />
+      <workItem from="1607056852492" duration="23385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1107008000" />
+    <option name="totallyTimeSpent" value="1107828000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1211,7 +1165,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24810892" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24810892" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1262,13 +1216,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="307" column="41" selection-start-line="307" selection-start-column="41" selection-end-line="307" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/quotes/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1466,13 +1413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MenuController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="81" column="46" selection-start-line="81" selection-start-column="46" selection-end-line="81" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/menus.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1548,13 +1488,6 @@
         <state relative-caret-position="-714" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="178" selection-start-line="178" selection-end-line="178" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1610,6 +1543,27 @@
             <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="177" selection-start-line="177" selection-end-line="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/manage-menus.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MenuController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="130" column="24" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="24" />
         </state>
       </provider>
     </entry>
