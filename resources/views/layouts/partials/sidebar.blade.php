@@ -20,31 +20,33 @@
     </div>
     <ul class="list-unstyled components">
         <li>
-            <a href="{{url('/')}}" class="py-1 my-0 {{(Request::url()==url(''))?"active":""}} sidebar-a">
-                <i class="fa fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-            </a>
             @foreach($menus as $menu)
+                @if($menu->has_child==1)
+                    @can($menu->slug)
+                        <a href="#{{$menu->slug}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <i class="{{$menu->icon}}"></i>
+                            {{$menu->name}}
+                        </a>
+                        <ul class="collapse list-unstyled" id="{{$menu->slug}}">
+                            <li>
+                                <?php $submenus=\App\Models\Menu::where('parent_id',$menu->id)->where('has_child',1)->get(); ?>
+                                @foreach($submenus as $submenu)
+                                        @can($submenu->slug)
+                                            <a href="{{url($submenu->url)}}">{{$submenu->name}}</a>
+                                        @endcan
+                                @endforeach
+                            </li>
+                        </ul>
+                    @endcan
+                @else
                 @can($menu->slug)
                     <a href="{{url($menu->url)}}" class="py-1 my-0 {{(Request::url()==url(''.$menu->url))?"active":""}} sidebar-a">
                         <i class="{{$menu->icon}}"></i>
                         <span>{{$menu->name}}</span>
                     </a>
                 @endcan
+                @endif
             @endforeach
-                @can('settings-index')
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="fas fa-fw fa-cog"></i>
-                Settings
-            </a>
-
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="{{url('/taxes')}}">Manage Taxes</a>
-                    <a href="{{url('/taxes')}}">Others</a>
-                </li>
-            </ul>
-                @endcan
                 <a href="{{route('logout')}}"  onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                     <i class="fa fa-sign-out-alt"></i>
                     <span>Logout</span>

@@ -586,9 +586,8 @@ class MytaskController extends Controller
                     $uncertainty_due_to_resolution_of_uuc=(Labjob::find($entries->job_type_id)->resolution/2)/sqrt(3);
                 }
             }
-            if (in_array('combined-uncertainty-of-standard',$uncertainties)){
-                $combined_uncertainty_of_standard=$uncertainty_of_reference/2;
-            }
+
+
             //dd($entries->before_offset);
             if (in_array('uncertainty-due-to-offset-of-uuc',$uncertainties)){
                 $uncertainty_due_to_offset_of_uuc=$entries->before_offset/sqrt(3);
@@ -623,6 +622,7 @@ class MytaskController extends Controller
                 $uncertainty_of_hysterisis=($del_x/2)/sqrt(3);
 
             }
+            $combined_uncertainty_of_standard=$uncertainty_of_reference/2;
             //dd($drift_of_the_standard);
             $squresum=(pow($uncertainty_Type_A,2)+pow($combined_uncertainty_of_standard,2)+pow($uncertainty_due_to_resolution_of_uuc,2)+pow($uncertainty_due_to_accuracy_of_uuc,2)+pow($drift_of_the_standard,2)+pow($uncertainty_due_to_offset_of_uuc,2)+pow($uncertainty_of_hysterisis,2));
             $combined_uncertainty=sqrt($squresum);

@@ -47,14 +47,14 @@ class RoleController extends Controller
     }
 
     public function create(){
-        $this->authorize('roles-create');
+        //$this->authorize('roles-create');
         //$menulist=Menu::all();
         $menuus=Menu::with('parent')->where('parent_id',null)->get();
         //dd($m);
         return view('roles.create',compact('menuus'));
     }
     public function edit($id){
-        $this->authorize('roles-edit');
+        //$this->authorize('roles-edit');
         $edit=Role::find($id);
         $permissions=explode(',',$edit->permissions);
         $menuus=Menu::with('parent')->where('parent_id',null)->get();
@@ -76,7 +76,7 @@ class RoleController extends Controller
         return back()->with('success','Role created successfully');
     }
     public function update(Request $request){
-        $this->authorize('roles-edit');
+        //$this->authorize('roles-edit');
         $this->validate(request(), [
             'name' => 'required',
         ],[

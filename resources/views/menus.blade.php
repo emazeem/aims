@@ -98,7 +98,9 @@
                     $('#edit_url').val(data.url);
                     if (data.parent_id){
                         $('#edit_parent').val(data.parent_id);
-
+                    }
+                    if(data.has_child==0){
+                        $("#edit_has_child").prop('checked', true);
                     }
                     //Populating Form Data to Edit Ends
                 },
@@ -259,11 +261,11 @@
                         </div>
                         <div class="col-12 form-check">
                             <div class="text-right">
-                                <input type="checkbox" class="form-check-input"  name="is_nav" id="is_nav">
-                                <label class="form-check-label" for="is_nav">Show in Nav</label>
+                                <input type="checkbox" class="form-check-input"  name="has_child" id="has_child">
+                                <label class="form-check-label" for="has_child">Has/Is Child</label>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 text-right">
                             <button class="btn btn-primary" type="submit">Save</button>
                         </div>
                     </div>
@@ -317,11 +319,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-12 form-check">
-                            <div class="text-right">
-                                <input type="checkbox" class="form-check-input"  name="is_nav" id="is_nav">
-                                <label class="form-check-label" for="is_nav">Show in Nav</label>
-                            </div>
+                        <div class="text-right">
+                            <input type="checkbox" class="form-check-input"  name="has_child" id="edit_has_child">
+                            <label class="form-check-label" for="has_child">Has/Is Child</label>
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary" type="submit">Update</button>

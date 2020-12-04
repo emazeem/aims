@@ -20,9 +20,9 @@ class CreateMenusTable extends Migration
             $table->string('icon');
             $table->integer('status')->default(0);
             $table->string('url')->default('#');
-            //$table->integer('is_parent');
             $table->integer('position')->default(0);
             $table->string('parent_id')->nullable();
+            $table->integer('has_child')->comment('parent_id=[0,1] if zero no dropdown and if one then show dropdown. if has child checked for child entries then show in nav');
             $table->softDeletes();
             $table->timestamps();
         });

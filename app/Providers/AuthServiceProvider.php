@@ -50,6 +50,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->roles();
         $this->pendings();
         $this->awaitings();
+        $this->staf();
         $this->menus();
         $this->manage_reference();
         $this->parameters();
@@ -111,6 +112,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function staf()
+    {
+        Gate::define('staff-details', function ($user) {
+            if (in_array('staff-details',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
 
     public function units()
     {
@@ -155,12 +166,26 @@ class AuthServiceProvider extends ServiceProvider
     }
     public function expenses()
     {
+        Gate::define('finance-accounts', function ($user) {
+            if (in_array('finance-accounts',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
         Gate::define('expenses-index', function ($user) {
             if (in_array('expenses-index',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
+
+        Gate::define('expense-categories', function ($user) {
+            if (in_array('expense-categories',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
 
     }
 
@@ -338,12 +363,19 @@ class AuthServiceProvider extends ServiceProvider
     }
     public function capabilities()
     {
+        Gate::define('calibration-management', function ($user) {
+            if (in_array('calibration-management',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
         Gate::define('capabilities-index', function ($user) {
             if (in_array('capabilities-index',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
+
         Gate::define('capabilities-create', function ($user) {
             if (in_array('capabilities-create',explode(',',$user->roles->permissions))){
                 return true;
@@ -524,6 +556,22 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
+        Gate::define('dashboard-index', function ($user) {
+            if (in_array('dashboard-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+                Gate::define('manage-jobs', function ($user) {
+            if (in_array('manage-jobs',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
     }
 
     public function mytasks()

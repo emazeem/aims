@@ -212,7 +212,7 @@
                 <td width="25%">
                     Uncertainty
                     <br>
-                    <br>(	{{\App\Models\Unit::find($entries->unit)->unit}}	)
+                    <br>±(	{{\App\Models\Unit::find($entries->unit)->unit}}	)
                 </td>
             </tr>
             @foreach($entries->child as $item)

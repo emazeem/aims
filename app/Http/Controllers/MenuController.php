@@ -74,14 +74,15 @@ class MenuController extends Controller
         $menus->name=$request->name;
         $menus->slug=$request->slug;
         $menus->url=($request->url)?$request->url:'#';
-        //$menus->is_parent=($request->is_nav)?1:0;
         if (isset($request->is_nav)){
             $menus->status=1;
         }
         $max=Menu::max('position');
         $menus->position=$max+1;
+        $menus->has_child=($request->has_child)?1:0;
         $menus->parent_id=($request->parent)?$request->parent:null;
         $menus->icon=($request->icon)?$request->icon:"fa fa-";
+        $menus->status=1;
         $menus->save();
         return response()->json(['success'=>'Added successfully']);
     }
@@ -98,9 +99,9 @@ class MenuController extends Controller
         $menus->name=$request->name;
         $menus->slug=$request->slug;
         $menus->url=($request->url)?$request->url:'#';
-        //$menus->is_parent=($request->is_nav)?1:0;
-        //$menus->is_parent=($request->is_nav)?1:0;
         $menus->parent_id=($request->parent)?$request->parent:null;
+        $menus->has_child=($request->has_child)?1:0;
+        $menus->status=1;
         $menus->icon=($request->icon)?$request->icon:"fa fa-";
         $menus->save();
         return response()->json(['success'=>'Updated successfully']);

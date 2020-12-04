@@ -17,6 +17,7 @@ class CreateProceduresTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->longText('uncertainties');
+            $table->longText('description');
             $table->timestamps();
         });
     }

@@ -109,13 +109,13 @@ span {
 #sidebar.active ul li a {
     padding: 20px 10px;
     text-align: center;
-    font-size: 0.85em;
+    font-size:12px;
 }
 
 #sidebar.active ul li a i {
     margin-right: 0;
     display: block;
-    font-size: 1.8em;
+    font-size: 1em;
     margin-bottom: 5px;
 }
 
@@ -146,13 +146,11 @@ span {
 #sidebar ul.components {
     padding: 20px 0;
     height: 100vh;
-    overflow-x: hidden;
-    overflow-y:scroll;
 }
 
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 5px;
     font-size: 1.1em;
     display: block;
 }
@@ -186,9 +184,9 @@ a[data-toggle="collapse"] {
 }
 
 ul ul a {
-    font-size: 0.9em !important;
+    font-size: 0.7em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #101010;
 }
 
 ul.CTAs {
@@ -354,6 +352,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 20px;
 
 }
+/*
 
 #sidebar ul.components::-webkit-scrollbar {
     width: 0.4em;
@@ -385,9 +384,10 @@ body::-webkit-scrollbar-thumb {
     outline: white;
 }
 
+*/
 
 .wrapper .active ul li a.dropdown-toggle i{
-    padding-left: 10px;
+    /*//padding-left: 10px;*/
 }
 .form-control{
     border: 1px solid rgba(38, 59, 110, 0.88);
@@ -400,4 +400,7 @@ body::-webkit-scrollbar-thumb {
 
 .control-label{
     color: black;
+}
+#sidebar ul li a {
+    font-size: 0.8em;
 }

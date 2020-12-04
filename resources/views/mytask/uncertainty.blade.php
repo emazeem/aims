@@ -54,14 +54,16 @@
                         ?>
                         <td>{{$u->name}}</td>
                 @endforeach
+                <td>Combined Uncertainty</td>
                 <td>Expanded Uncertainty</td>
             </tr>
             @foreach($allentries as $entry)
                 <tr class="text-center">
                     @foreach($uncertainties as $uncertainty)
-                        <td>{{$data[$entry->fixed_value][$uncertainty]}}</td>
+                        <td>{{round($data[$entry->fixed_value][$uncertainty],6)}}</td>
                     @endforeach
-                    <td>{{$data[$entry->fixed_value]['expanded-uncertainty']}}</td>
+                    <td>{{round($data[$entry->fixed_value]['combined-uncertainty'],6)}}</td>
+                    <td>{{round($data[$entry->fixed_value]['expanded-uncertainty'],6)}}</td>
                 </tr>
             @endforeach
         </table>
