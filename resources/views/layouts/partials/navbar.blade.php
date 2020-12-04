@@ -27,9 +27,6 @@
                         <a class="dropdown-item {{($notification->read_at==null)?"bg-warning":"bg-light"}}" href="{{url('/notification/markasread/'.$notification->id)}}">
                             <div class="{{($notification->read_at==null)?"font-weight-bold":""}}">
                                 @if(\App\Models\User::find($notification->data['data']['by'])->profile==null)
-                                    <?php
-                                    $notification->data['data']['by']=1;
-                                    ?>
                                     <img src="{{url('img/profile.png')}}" class="img-fluid rounded-circle bg-white" style="height: 25px;width: 25px;">
                                 @else
                                     <img src="{{Storage::disk('local')->url('public/profile/'.$notification->data['data']['by'].'/'.\App\Models\User::find($notification->data['data']['by'])->profile)}}" class="img-fluid rounded-circle" style="height: 25px;width: 25px;">
