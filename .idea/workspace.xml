@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -215,12 +214,12 @@
           <entry key="ini" value="9" />
           <entry key="js" value="18" />
           <entry key="json" value="2" />
-          <entry key="php" value="22787" />
+          <entry key="php" value="22929" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="16382" />
+          <entry key="Blade" value="16524" />
           <entry key="CSS" value="1658" />
           <entry key="HTML" value="4" />
           <entry key="Ini" value="9" />
@@ -282,9 +281,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+            <state relative-caret-position="208">
+              <caret line="29" column="93" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
               <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -312,8 +312,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>type-a</find>
-      <find>combined-</find>
       <find>resolution-</find>
       <find>accuracy-</find>
       <find>drift-</find>
@@ -342,6 +340,8 @@
       <find>font-size</find>
       <find>border-le</find>
       <find>{{</find>
+      <find>profile</find>
+      <find>profile.png</find>
     </findStrings>
     <replaceStrings>
       <replace>custom-bottom-border</replace>
@@ -1182,12 +1182,12 @@
       <workItem from="1606816914776" duration="45152000" />
       <workItem from="1606966448989" duration="31287000" />
       <workItem from="1607050977310" duration="2186000" />
-      <workItem from="1607056852492" duration="21161000" />
+      <workItem from="1607056852492" duration="21715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1105604000" />
+    <option name="totallyTimeSpent" value="1106158000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1595,9 +1595,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+        <state relative-caret-position="208">
+          <caret line="29" column="93" selection-start-line="29" selection-start-column="93" selection-end-line="29" selection-end-column="93" />
           <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#a#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#nav#0;n#!!top" expanded="true" />
           </folding>
         </state>
