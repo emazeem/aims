@@ -89,25 +89,7 @@
                     </form>
 
                 </div>
-
-
-                {{-- <a class="dropdown-item mt-3" href="{{url('/profile')}}">
-                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                     Profile
-                 </a>
-                 <a class="dropdown-item" href="{{url('/change_password')}}">
-                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
-                     Change Password
-                 </a>
-                 <a class="dropdown-item" href="{{route('logout')}}"  onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                     Logout
-                 </a>
-                 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-                     {{ csrf_field() }}
-                 </form>
-
- --}}            </div>
+            </div>
         </li>
     </ul>
 </nav>
