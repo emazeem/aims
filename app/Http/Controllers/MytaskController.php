@@ -467,7 +467,7 @@ class MytaskController extends Controller
 
             $average_repeated_value=($x1+$x2+$x3+$x4+$x5)/$n;
 
-            echo "Average Value of Repeated : ".$average_repeated_value;
+            //echo "Average Value of Repeated : ".$average_repeated_value;
 
             if ($entries->fixed_type=="Ref"){
                 $reference=$entry->fixed_value;
@@ -477,25 +477,25 @@ class MytaskController extends Controller
                 $uuc=$entry->fixed_value;
                 $reference=$average_repeated_value;
             }
-            echo 'Reference : '.$reference;
-            echo 'UUC : '.$uuc;
+            //echo 'Reference : '.$reference;
+            //echo 'UUC : '.$uuc;
 
             //may be there will be need to use unit in manage reference query;
             $reference_table=Managereference::where('asset',$entries->asset_id)->get();
             $intervals=[];
-            echo '<br>START INTERVALS<br>';
+            //echo '<br>START INTERVALS<br>';
             foreach ($reference_table as $item) {
                 $intervals[]=$item->uuc;
-                echo (int)$item->uuc.'<br>';
+                //echo (int)$item->uuc.'<br>';
             }
-            echo 'END INTERVALS';
+            //echo 'END INTERVALS';
             $min=null;$max=null;$count=count($intervals);
 
             //no interpolation needed
             if (in_array($reference,$intervals)){
-                echo '<h3>No interpolation needed</h3>';
+                //echo '<h3>No interpolation needed</h3>';
                 $map=array_search($reference,$intervals);
-                echo 'MAP : '.$map;
+                //echo 'MAP : '.$map;
             }
             //interpolation needed
             else{
@@ -526,8 +526,8 @@ class MytaskController extends Controller
                 }
             }
 
-            echo 'Minimum Range ='.$min;
-            echo 'Maximum Range ='.$max;
+           // echo 'Minimum Range ='.$min;
+            //echo 'Maximum Range ='.$max;
 
 
             if (isset($map)){
@@ -535,9 +535,9 @@ class MytaskController extends Controller
                     if ($item->uuc==$intervals[$map]){
                         $uncertainty_of_reference=$item->uncertainty;
                         $final_error=$item->error;
-                        echo 'Error of Std: '.$final_error;
-                        echo 'Corrected value of Std:';
-                        echo $final_error=$reference-$final_error;
+                        //echo 'Error of Std: '.$final_error;
+                        //echo 'Corrected value of Std:';
+                        //echo $final_error=$reference-$final_error;
                         $final_error=$uuc-$final_error;
                     }
                 }
@@ -557,11 +557,11 @@ class MytaskController extends Controller
                     }
                 }
                 $error=((($reference-$min)*($max_error-$min_error))/($max-$min))+$min_error;
-                echo 'Error of Std : '.$error;
+                //echo 'Error of Std : '.$error;
                 $reference=$reference-$error;
                 $final_error=$uuc-$reference;
             }
-            echo 'Error: '.$final_error;
+            //echo 'Error: '.$final_error;
             $square_sum=0;
             $all_repeated_values=[$x1,$x2,$x3,$x4,$x5];
             for($i=0;$i<$n;$i++){
@@ -627,7 +627,7 @@ class MytaskController extends Controller
             $squresum=(pow($uncertainty_Type_A,2)+pow($combined_uncertainty_of_standard,2)+pow($uncertainty_due_to_resolution_of_uuc,2)+pow($uncertainty_due_to_accuracy_of_uuc,2)+pow($drift_of_the_standard,2)+pow($uncertainty_due_to_offset_of_uuc,2)+pow($uncertainty_of_hysterisis,2));
             $combined_uncertainty=sqrt($squresum);
             $expanded_uncertainties=$combined_uncertainty*2;
-            $data[]=[
+            $data[$entry->fixed_value]=[
                 'standard-deviation'=>$SD,
                 'uncertainty-type-a'=>$uncertainty_Type_A,
                 'combined-uncertainty-of-standard'=>$combined_uncertainty_of_standard,
@@ -640,8 +640,8 @@ class MytaskController extends Controller
                 'expanded-uncertainty'=>$expanded_uncertainties,
             ];
         }
-        dd($data);
-        return view('mytask.uncertainty',compact('entries','job','uncertainties'));
+        //dd($data);
+        return view('mytask.uncertainty',compact('entries','job','uncertainties','allentries','data'));
     }
 
     public function print_certificate($location,$id){

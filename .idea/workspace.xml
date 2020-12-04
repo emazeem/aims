@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_03_091329_create_dataentries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_03_091329_create_dataentries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mytask/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mytask/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +163,7 @@
     <session id="-332573018">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="33" />
+          <entry key="project.closed" value="34" />
           <entry key="project.open.time.0" value="6" />
           <entry key="project.open.time.1" value="14" />
           <entry key="project.open.time.11" value="1" />
@@ -173,6 +171,7 @@
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.20" value="2" />
@@ -180,7 +179,7 @@
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="38" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -216,18 +215,18 @@
           <entry key="ini" value="9" />
           <entry key="js" value="18" />
           <entry key="json" value="2" />
-          <entry key="php" value="20940" />
+          <entry key="php" value="21446" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="14950" />
+          <entry key="Blade" value="15409" />
           <entry key="CSS" value="1469" />
           <entry key="HTML" value="4" />
           <entry key="Ini" value="9" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="5986" />
+          <entry key="PHP" value="6033" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -238,7 +237,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
+            <state relative-caret-position="3621">
               <caret line="213" column="167" selection-start-line="213" selection-start-column="167" selection-end-line="213" selection-end-column="167" />
             </state>
           </provider>
@@ -247,26 +246,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
+            <state relative-caret-position="4675">
               <caret line="275" column="153" selection-start-line="275" selection-start-column="153" selection-end-line="275" selection-end-column="153" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="53" column="45" lean-forward="true" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+            <state relative-caret-position="205">
+              <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="642" column="18" selection-start-line="642" selection-start-column="18" selection-end-line="642" selection-end-column="18" />
+            <state relative-caret-position="225">
+              <caret line="639" column="37" selection-start-line="639" selection-start-column="17" selection-end-line="639" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -283,7 +282,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>jt</find>
       <find>jobs.print.job.form</find>
       <find>print_job_form</find>
       <find>Mytask</find>
@@ -313,6 +311,7 @@
       <find>accuracy-</find>
       <find>drift-</find>
       <find>offset-</find>
+      <find>minim</find>
     </findStrings>
     <replaceStrings>
       <replace>custom-bottom-border</replace>
@@ -400,10 +399,10 @@
         <option value="$PROJECT_DIR$/resources/views/docs/uncertainty.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/mytask/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_03_091329_create_dataentries_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" />
+        <option value="$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php" />
       </list>
     </option>
   </component>
@@ -1109,12 +1108,13 @@
       <workItem from="1606738575459" duration="10767000" />
       <workItem from="1606800767637" duration="12533000" />
       <workItem from="1606816914776" duration="45152000" />
-      <workItem from="1606966448989" duration="31175000" />
+      <workItem from="1606966448989" duration="31287000" />
+      <workItem from="1607050977310" duration="2144000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1082145000" />
+    <option name="totallyTimeSpent" value="1084401000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1142,7 +1142,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.8" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.48032787" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.26885247" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1255,9 +1255,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="56" lean-forward="true" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1272,9 +1269,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
           <caret line="193" selection-start-line="193" selection-end-line="365" />
-          <folding>
-            <element signature="n#div#8;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1409,13 +1403,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_02_073233_create_dataentries_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_02_073233_create_dataentries_table.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/calculator/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1468,20 +1456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="213" column="167" selection-start-line="213" selection-start-column="167" selection-end-line="213" selection-end-column="167" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="275" column="153" selection-start-line="275" selection-start-column="153" selection-end-line="275" selection-end-column="153" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_03_091329_create_dataentries_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1493,23 +1467,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
           <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-          <folding>
-            <element signature="e#40#65#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="53" column="45" lean-forward="true" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+        <state relative-caret-position="3621">
+          <caret line="213" column="167" selection-start-line="213" selection-start-column="167" selection-end-line="213" selection-end-column="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4675">
+          <caret line="275" column="153" selection-start-line="275" selection-start-column="153" selection-end-line="275" selection-end-column="153" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="642" column="18" selection-start-line="642" selection-start-column="18" selection-end-line="642" selection-end-column="18" />
+        <state relative-caret-position="225">
+          <caret line="639" column="37" selection-start-line="639" selection-start-column="17" selection-end-line="639" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
         </state>
       </provider>
     </entry>

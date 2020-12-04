@@ -36,26 +36,34 @@
                 </p>
             </div>
         </div>
-        <table class="table table-bordered mt-3">
+
+        <table class="table table-bordered table-sm mt-3">
             <tr>
-                <td class="h3" colspan="100%">
+                <td class="h5 p-2" colspan="100%">
                     Uncertainty Evaluation for Temperature
                 </td>
             </tr>
-            <tr>
-                <td>Standard Deviation</td>
-                <td class="text-center"  colspan="100%">Uncertainty Budget</td>
+            <tr class="bg-warning">
+                <th>Standard Deviation</th>
+                <th class="text-center"  colspan="100%">Uncertainty Budget</th>
             </tr>
-            <tr>
+            <tr class="text-center">
                 @foreach($uncertainties  as $uncertainty)
                         <?php
                         $u=\App\Models\Uncertainty::where('slug',$uncertainty)->first();
                         ?>
                         <td>{{$u->name}}</td>
                 @endforeach
+                <td>Expanded Uncertainty</td>
             </tr>
-
-
+            @foreach($allentries as $entry)
+                <tr class="text-center">
+                    @foreach($uncertainties as $uncertainty)
+                        <td>{{$data[$entry->fixed_value][$uncertainty]}}</td>
+                    @endforeach
+                    <td>{{$data[$entry->fixed_value]['expanded-uncertainty']}}</td>
+                </tr>
+            @endforeach
         </table>
     </div>
 </div>
