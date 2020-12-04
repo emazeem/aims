@@ -145,7 +145,6 @@ span {
 
 #sidebar ul.components {
     padding: 20px 0;
-    height: 100vh;
 }
 
 
@@ -220,8 +219,9 @@ a.article:hover {
 }
 
 #sidebar ul li .active {
-    background: #2a2725;
-    border-left: 3px solid rgba(38, 59, 110, 0.88);
+    /*background: #2a2725;*/
+    background-color: rgba(0, 0, 0, 0.14);
+    border-left: 3px solid rgb(255, 246, 246);
 
 }
 
@@ -402,5 +402,5 @@ body::-webkit-scrollbar-thumb {
     color: black;
 }
 #sidebar ul li a {
-    font-size: 0.8em;
+    font-size: 0.9em;
 }

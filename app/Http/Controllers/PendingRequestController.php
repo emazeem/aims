@@ -41,7 +41,6 @@ class PendingRequestController extends Controller
                 return $data->updated_at;
             })
 
-
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 return "&emsp;              

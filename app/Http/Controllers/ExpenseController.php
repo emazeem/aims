@@ -15,7 +15,6 @@ class ExpenseController extends Controller
     }
     public function fetch(){
         $data=Expense::with('categories')->with('subcategories')->get();
-        //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;

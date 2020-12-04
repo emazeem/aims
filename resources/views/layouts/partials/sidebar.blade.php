@@ -20,6 +20,7 @@
     </div>
     <ul class="list-unstyled components">
         <li>
+
             @foreach($menus as $menu)
                 @if($menu->has_child==1)
                     @can($menu->slug)
@@ -27,12 +28,20 @@
                             <i class="{{$menu->icon}}"></i>
                             {{$menu->name}}
                         </a>
-                        <ul class="collapse list-unstyled" id="{{$menu->slug}}">
+                        <?php
+                        $submenus=\App\Models\Menu::where('parent_id',$menu->id)->where('has_child',1)->get();
+                        $url=[];
+                        foreach ($submenus as $submenu){
+                            $url[]=\Illuminate\Support\Facades\URL::to('/').'/'.$submenu->url;
+                        }
+                        ?>
+                        <ul class="collapse list-unstyled {{(in_array(Request::url(),$url))?'show':''}}" id="{{$menu->slug}}">
+
                             <li>
-                                <?php $submenus=\App\Models\Menu::where('parent_id',$menu->id)->where('has_child',1)->get(); ?>
                                 @foreach($submenus as $submenu)
                                         @can($submenu->slug)
-                                            <a href="{{url($submenu->url)}}">{{$submenu->name}}</a>
+                                            <a href="{{url($submenu->url)}}" class="{{(Request::url()==url(''.$submenu->url))?"active":""}}">{{$submenu->name}}
+                                            </a>
                                         @endcan
                                 @endforeach
                             </li>

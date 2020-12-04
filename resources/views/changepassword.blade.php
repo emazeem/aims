@@ -20,11 +20,12 @@
     @endif
 
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6 col-12">
+        <div class="col-md-12 text-center">
+            <h2 class="border-bottom text-dark pb-2">Change Password</h2>
+        </div>
+        <div class="col-md-4 col-12"></div>
+        <div class="col-md-4 mt-4 col-12">
             <div class="text-center">
-                <h1 class="h3 mb-0 text-gray-800">Change Password</h1>
-
             </div>
             <form class="form-horizontal" action="{{route('change-password')}}" method="post" autocomplete="off">
                 @csrf
