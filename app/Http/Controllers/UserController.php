@@ -184,11 +184,13 @@ class UserController extends Controller
         return response()->json($designation);
     }
     public function setprofile(Request $request){
+
+        //dd($request->profile->extension());
         $this->validate(request(), [
             'profile'=>'required',
         ]);
         $user=User::find(auth()->user()->id);
-        $attachment=time().$request->profile->getClientOriginalName();
+        $attachment=time().'.png';
         Storage::disk('local')->put('/public/profile/'.auth()->user()->id.'/'.$attachment, File::get($request->profile));
         $user->profile=$attachment;
         $user->save();

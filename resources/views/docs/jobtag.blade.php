@@ -1,3 +1,4 @@
+{{--
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,3 +35,19 @@
 </div>
 </body>
 </html>
+
+--}}
+<body>
+<p>This should NOT be shown in Print Preview</p>
+<div id="main">
+    <p>This should NOT be shown in Print Preview</p>
+    <div id="printarea">ONLY this should be shown in Print Preview</div>
+</div>
+</body>
+
+<style>
+    @media print {
+        body *, #main * { display:none; }
+        #main, #main #printarea, #main #printarea * { display:block; }
+    }
+</style>

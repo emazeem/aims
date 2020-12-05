@@ -27,7 +27,10 @@
 
     </style>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Manage & Sort Menus</h1><span class="border p-2 m-2"><i class="fa fa-sort"></i> Range 0-{{count($mens)-1}}</span>
+
+        <h2 class="border-bottom text-dark">Manage & Sort Menus</h2>
+
+        <span class="border p-2 m-2"><i class="fa fa-sort"></i> Range 0-{{count($mens)-1}}</span>
     </div>
 
     <div class="row pb-3">
