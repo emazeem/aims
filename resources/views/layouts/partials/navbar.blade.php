@@ -49,7 +49,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline user-name font-weight-normal text-white ">{{auth()->user()->fname}} {{auth()->user()->lname}}</span>
                 @if(auth()->user()->profile)
-                    <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 35px;width: 35px;">
+                    <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 35px;width: 35px;object-fit: cover;">
                 @else
                     <i class="fas fa-user-circle fa-2x"></i>
                 @endif
@@ -58,7 +58,7 @@
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <div class="text-center p-4">
                     @if(auth()->user()->profile)
-                        <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 65px;width: 65px;">
+                        <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 65px;width: 65px;object-fit: cover;">
                     @else
                         <i class="fas fa-user-circle fa-3x"></i>
                     @endif

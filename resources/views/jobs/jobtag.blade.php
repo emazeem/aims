@@ -23,6 +23,22 @@
         transform: translateY(-50%);
     }
 </style>
+<style>
+    @media print
+    {
+        @page {
+            size: 25.4mm 50.8mm; /* DIN A4 standard, Europe */
+            margin:0;
+        }
+        html, body {
+            width: 50.8mm;
+            /* height: 297mm; */
+            height: 25.4mm;
+            background: #ff00f9;
+            overflow:visible;
+        }
+    }
+</style>
 <div class="container">
     <div class="col-12 font-style vertical-center">
         <div class="col-5 m-auto" id="printarea">

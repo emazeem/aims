@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
+
 <body class="main">
 <div class="container">
     <div class="col-12 font-style mt-2">
