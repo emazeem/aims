@@ -30,11 +30,10 @@
 <style>
     @media print {
         @page {
-            size: 25.4mm 50.8mm; /* DIN A4 standard, Europe */
+            size: 50.8mm 25.4mm; /* DIN A4 standard, Europe */
             margin: 0;
         }
         html, body {
-            background: #ff00f9;
             overflow: visible;
         }
         body * ,.sticker-size *{
