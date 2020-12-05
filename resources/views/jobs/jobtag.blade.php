@@ -37,8 +37,13 @@
             background: #ff00f9;
             overflow: visible;
         }
+        body * {
+            visibility: hidden;
+        }
+        .sticker-size, .sticker-size * {
+            visibility: visible;
+        }
     }
-
     .sticker-size {
         width: 50.8mm;
         height: 25.4mm;
