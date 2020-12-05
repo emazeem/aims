@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="" />
+    <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/views/jobs/jobtag.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/jobtag.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,12 +214,12 @@
           <entry key="ini" value="9" />
           <entry key="js" value="18" />
           <entry key="json" value="2" />
-          <entry key="php" value="23507" />
+          <entry key="php" value="23572" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="16915" />
+          <entry key="Blade" value="16980" />
           <entry key="CSS" value="1658" />
           <entry key="HTML" value="4" />
           <entry key="Ini" value="9" />
@@ -234,8 +236,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/jobs/jobtag.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="50" column="5" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
+            <state relative-caret-position="528">
+              <caret line="98" lean-forward="true" selection-start-line="96" selection-end-line="98" />
             </state>
           </provider>
         </entry>
@@ -1051,12 +1053,12 @@
       <workItem from="1606816914776" duration="45152000" />
       <workItem from="1606966448989" duration="31287000" />
       <workItem from="1607050977310" duration="2186000" />
-      <workItem from="1607056852492" duration="29456000" />
+      <workItem from="1607056852492" duration="29750000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1113899000" />
+    <option name="totallyTimeSpent" value="1114193000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1463,8 +1465,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/jobs/jobtag.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="46" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
+        <state relative-caret-position="528">
+          <caret line="98" lean-forward="true" selection-start-line="96" selection-end-line="98" />
         </state>
       </provider>
     </entry>
