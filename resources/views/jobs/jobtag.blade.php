@@ -28,29 +28,39 @@
 --}}
 
 <div class="container">
-    <table class="table table-bordered col-12">
-        <tbody>
-        <tr >
-            <th style="padding:20px" colspan="2" class="text-center"> <h1>ITEM TAG</h1></th>
-            <td rowspan="3" class="text-center py-5">
-                <span class="py-5">
-                {{QrCode::size(200)->generate(route('checkin.create',[$loc,$tag->id]))}}
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <th class="p-3"><h1>Job No : {{$tag->job_id}}</h1></th>
-        </tr>
-        <tr>
-            <th colspan="2" class="p-3"><h1>Item # : {{$index}} of {{$total}}</h1></th>
-        </tr>
-        <tr>
-            <td class="text-center p-0" colspan="3">
-                <h3 class="p-2">Doc # : AIMS-TM-FRM-12 , Rev#: 01</h3>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="row p-">
+
+        <table class="table table-bordered col-12">
+            <tbody>
+            <tr >
+                <th>
+                    <div class="row">
+                        <div class="col-9 mt-5 pt-5">
+                            <h1 class="text-center">ITEM TAG</h1>
+                        </div>
+                        <div class="col-3">
+                            <span class="float-right py-3">{{QrCode::size(200)->generate(route('checkin.create',[$loc,$tag->id]))}}</span>
+                        </div>
+                    </div>
+
+            </tr>
+            <tr>
+                <th class="p-3"><h1>Job No : {{$tag->job_id}}</h1></th>
+            </tr>
+            <tr>
+                <th colspan="2" class="p-3"><h1>Item # : {{$index}} of {{$total}}</h1></th>
+            </tr>
+            <tr>
+                <td class="text-center p-0" colspan="3">
+                    <h3 class="p-2">Doc # : AIMS-TM-FRM-12 , Rev#: 01</h3>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        {{--<div class="col-4">
+            {{QrCode::size(340)->generate(route('checkin.create',[$loc,$tag->id]))}}
+        </div>--}}
+    </div>
 </div>
 </body>
 </html>
