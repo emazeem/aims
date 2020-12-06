@@ -100,7 +100,6 @@ class PendingRequestController extends Controller
             $quotes->capability=$capabilities->id;
             $quotes->not_available=null;
             $quotes->status=2;
-
             $quotes->range=$request->range;
             $quotes->price=$request->price;
             $quotes->save();
