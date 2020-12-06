@@ -19,7 +19,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Session</th>
+                    <th>Quote</th>
                     <th>Customer</th>
                     <th>Not Available</th>
                     <th>Created_at</th>
@@ -33,7 +33,7 @@
                 <tfoot>
                 <tr>
                     <th>ID</th>
-                    <th>Session</th>
+                    <th>Quote</th>
                     <th>Customer</th>
                     <th>Not Available</th>
                     <th>Created_at</th>
@@ -67,7 +67,7 @@
                 },
                 "columns": [
                     { "data": "id" },
-                    { "data": "session" },
+                    { "data": "quotes" },
                     { "data": "customer" },
                     { "data": "not_available" },
                     { "data": "createdat" },

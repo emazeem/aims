@@ -19,16 +19,16 @@ class PendingRequestController extends Controller
         return view('pendings.index');
     }
     public function fetch(){
-        $data=Item::with('sessions')->where('not_available','!=',null)->where('status','!=',3)->get();
+        $data=Item::with('quotes')->where('not_available','!=',null)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
             })
-            ->addColumn('session', function ($data) {
-                return $data->sessions->name;
+            ->addColumn('quotes', function ($data) {
+                return $data->quote_id;
             })
             ->addColumn('customer', function ($data) {
-                $customer=Customer::find($data->sessions->customer_id);
+                $customer=Customer::find($data->quotes->customer_id);
                 return $customer->reg_name;
             })
             ->addColumn('not_available', function ($data) {
@@ -45,7 +45,7 @@ class PendingRequestController extends Controller
                 $token=csrf_token();
                 return "&emsp;              
                   <a title='Add' class='btn btn-sm btn-primary' href='" . url('pendings/create/'.$data->id) . "'><i class='fa fa-plus'></i></a>
-                  <a title='Review' class='btn btn-sm btn-info' href='" . url('pendings/print_review/'.$data->session_id) . "'><i class='fa fa-print'></i></a>
+                  <a title='Review' class='btn btn-sm btn-info' href='" . url('pendings/print_review/'.$data->quote_id) . "'><i class='fa fa-print'></i></a>
                   
                 <a class='btn btn-danger btn-sm nofacility' href='#' data-id='{$data->id}'><i class='fa fa-ban'></i></a>
                     <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
@@ -112,8 +112,7 @@ class PendingRequestController extends Controller
     }
     public function print_review($id){
         $print=Item::where('id',$id)->get();
-        dd($print);
-        return view('pendings.reviewform',compact('edit'));
+        return view('pendings.reviewform',compact('print'));
     }
     //
 }
