@@ -26,7 +26,6 @@
         <div class="row">
             <div class="col-2 text-center custom-border">
                 <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid ">
-
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
                 <p class="text-center b font-24" style="margin-top: 40px">QUOTATION</p>
