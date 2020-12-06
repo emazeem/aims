@@ -26,40 +26,31 @@
     }
 </style>
 --}}
+<style>
 
+    .font-1{
+        font-size: 100px;
+    }
+    .font-2{
+        font-size: 80px;
+    }
+    .font-3{
+        font-size: 55px;
+    }
+
+
+</style>
 <div class="container">
-    <div class="row p-">
-
-        <table class="table table-bordered col-12">
-            <tbody>
-            <tr >
-                <th>
-                    <div class="row">
-                        <div class="col-9 mt-5 pt-5">
-                            <h1 class="text-center">ITEM TAG</h1>
-                        </div>
-                        <div class="col-3">
-                            <span class="float-right py-3">{{QrCode::size(200)->generate(route('checkin.create',[$loc,$tag->id]))}}</span>
-                        </div>
-                    </div>
-
-            </tr>
-            <tr>
-                <th class="p-3"><h1>Job No : {{$tag->job_id}}</h1></th>
-            </tr>
-            <tr>
-                <th colspan="2" class="p-3"><h1>Item # : {{$index}} of {{$total}}</h1></th>
-            </tr>
-            <tr>
-                <td class="text-center p-0" colspan="3">
-                    <h3 class="p-2">Doc # : AIMS-TM-FRM-12 , Rev#: 01</h3>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        {{--<div class="col-4">
-            {{QrCode::size(340)->generate(route('checkin.create',[$loc,$tag->id]))}}
-        </div>--}}
+    <div class="row">
+        <div class="col-8 p-1">
+            <h1 class="text-center font-1">ITEM TAG</h1>
+            <h1 class="font-2">Job No : {{$tag->job_id}}</h1>
+            <h1 class="font-2">Item # : {{$index}} of {{$total}}</h1>
+            <h3 class="p-2 font-3">AIMS-TM-FRM-12 R#01</h3>
+        </div>
+        <div class="col-4">
+            <span class="float-right py-3">{{QrCode::size(375)->generate(route('checkin.create',[$loc,$tag->id]))}}</span>
+        </div>
     </div>
 </div>
 </body>

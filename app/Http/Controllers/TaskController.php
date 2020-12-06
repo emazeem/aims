@@ -16,7 +16,8 @@ use phpDocumentor\Reflection\DocBlock;
 class TaskController extends Controller
 {
     public function create($id){
-        $users=User::all()->where('department',3);
+        //$users=User::all()->where('department',3);
+        $users=User::all();
         $parameters=Parameter::all();
         $assets=Asset::all();
         $job=Labjob::with('items')->with('jobs')->find($id);
@@ -34,7 +35,8 @@ class TaskController extends Controller
         return view('tasks.create',compact('job','users','assets','sug','parameters'));
     }
     public function edit($id){
-        $users=User::all()->where('department',3);
+        //$users=User::all()->where('department',3);
+        $users=User::all();
         $assets=Asset::all();
         $job=Labjob::find($id);
         $job->assign_assets=explode(',',$job->assign_assets);
