@@ -110,6 +110,24 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="procedure" class="col-sm-2 control-label">Procedure</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="procedure" name="procedure">
+                                <option selected disabled>Select Procedure</option>
+                                @foreach($procedures as $procedure)
+                                    <option value="{{$procedure->id}}">{{$procedure->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @if ($errors->has('procedure'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('procedure') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
                 <div class="form-group mt-md-4 row">
                     <label for="remarks" class="col-sm-2 control-label">Remarks</label>
                     <div class="col-sm-10">

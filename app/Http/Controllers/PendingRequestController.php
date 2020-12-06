@@ -6,6 +6,7 @@ use App\Models\Capabilities;
 use App\Models\Customer;
 use App\Models\Item;
 use App\Models\Parameter;
+use App\Models\Procedure;
 use App\Models\Quotes;
 use App\Models\Session;
 use Illuminate\Http\Request;
@@ -91,6 +92,7 @@ class PendingRequestController extends Controller
         $capabilities->price=$request->price;
         $capabilities->remarks=$request->remarks;
         $capabilities->location=$request->location;
+        $capabilities->procedure=$request->procedure;
         $capabilities->accredited=($request->accredited)?$request->accredited:'';
         if ($capabilities->save()){
             $quotes=Item::find($request->na_id);
@@ -98,6 +100,7 @@ class PendingRequestController extends Controller
             $quotes->capability=$capabilities->id;
             $quotes->not_available=null;
             $quotes->status=2;
+
             $quotes->range=$request->range;
             $quotes->price=$request->price;
             $quotes->save();
@@ -107,8 +110,9 @@ class PendingRequestController extends Controller
     //capapbility create page in pending menu with id of not listed item
     public function create($id){
         $edit=Item::find($id);
+        $procedures=Procedure::all();
         $parameters=Parameter::all();
-        return view('pendings.create',compact('parameters','id','edit'));
+        return view('pendings.create',compact('parameters','id','edit','procedures'));
     }
     public function print_review($id){
         $print=Item::where('id',$id)->get();
