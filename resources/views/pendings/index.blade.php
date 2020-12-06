@@ -98,7 +98,7 @@
                             var form_data = $("#form"+id).serialize();
 
                             $.ajax({
-                                url: "{{url('quotes/nofacility')}}/"+id,
+                                url: "{{url('items/nofacility')}}/"+id,
                                 type: request_method,
                                 dataType: "JSON",
                                 data: form_data,

@@ -25,7 +25,7 @@
 
         <div class="row">
             <div class="col-2 text-center custom-border">
-                <img src="{{url('/img/aims.png')}}" width="150" class="img-fluid ">
+                <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid ">
 
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
@@ -380,7 +380,7 @@
                 <p class="font-11 line-height col-12 b "><span class="custom-bottom-border">Date :  {{date('d-m-Y',time())}}</span></p>
             </div>
             <div class="col-4 mb-5 text-right">
-                <img src="{{url('/img/aims.png')}}" width="150" class="img-fluid ">
+                <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid ">
             </div>
         </div>
     </div>
