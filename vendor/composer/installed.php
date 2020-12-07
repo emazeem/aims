@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '681f29ce6b80e2ab4291f85f1934fa47c8143dcf',
+    'reference' => '2221362a6d1039f4381bac8ad8d3c8ccf889bcba',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -259,6 +259,24 @@
       ),
       'reference' => '8c3d0a3f6af734494ad8f6fbbee0ba92422859f3',
     ),
+    'hnhdigital-os/laravel-number-converter' => 
+    array (
+      'pretty_version' => '1.4.0',
+      'version' => '1.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '535bf827d131d29ff22805f28461b66365cdb99a',
+    ),
+    'hnhdigital-os/php-number-converter' => 
+    array (
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '92a256430b781124161df61fcce2a9340d08ac9e',
+    ),
     'illuminate/auth' => 
     array (
       'replaced' => 
@@ -499,7 +517,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '681f29ce6b80e2ab4291f85f1934fa47c8143dcf',
+      'reference' => '2221362a6d1039f4381bac8ad8d3c8ccf889bcba',
     ),
     'laravel/tinker' => 
     array (

@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quotation</title>
+    <title>AIMS-Q-{{date('y')}}-{{$session->id}} {{$session->customers->reg_name}}</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -25,7 +25,7 @@
 
         <div class="row">
             <div class="col-2 text-center custom-border">
-                <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid ">
+                <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid p-1">
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
                 <p class="text-center b font-24" style="margin-top: 40px">QUOTATION</p>
@@ -50,7 +50,7 @@
         </div>
         <div class="row py-3">
             <div class="col-3 font-11 b">Document Type:</div>
-            <div class="col-3 font-11 b"><input type="checkbox"> Calibration Services Offer</div>
+            <div class="col-3 font-11 b"><input type="checkbox" checked> Calibration Services Offer</div>
             <div class="col-3 font-11 b"><input type="checkbox"> Offer for Sale of Equipment</div>
             <div class="col-3 font-11 b"><input type="checkbox"> Training Offer</div>
             <div class="col-3 font-11 b"></div>
@@ -323,7 +323,6 @@
                 <tr>
                     <th colspan="8">Punjab Revenue Authority Tax  ({{$session->customers->region}})</th>
                     <th colspan="2">
-
                         @if($session->customers->region="PRA")
                             16% @php $tax=16/100; @endphp
                         @elseif($session->customers->region="SRB")
@@ -335,17 +334,15 @@
                         @elseif($session->customers->region="IRD")
                             16% @php $tax=16/100; @endphp
                         @endif
-
                     </th>
                 </tr>
                 <tr>
-                    <th colspan="8">Total</th>
+                    <?php $total=($subtotal*$tax)+$subtotal; ?>
+                    <th colspan="8"  class="text-capitalize">Total ( {{NumConvert::word($total)}} )</th>
                     <th colspan="2">{{($subtotal*$tax)+$subtotal}}</th>
                 </tr>
                 </tbody>
             </table>
-
-
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">8</span> TERMS & CONDITIONS:</p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">8.1 -	Price basis is Ex works Pakistan unless otherwise mentioned anywhere in the body of this quote.</span></p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">8.2 -	AIMS prices are applicable for the quoted quantities, in case of any variation, AIMS reserve the rights to change unit prices.</span></p>

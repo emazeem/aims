@@ -19,7 +19,7 @@
             <img src="{{url('/img/aims.png')}}" class="mt-2 ml-2" width="100">
         </div>
         <div class="col-7 border-left-right-0 custom-border">
-            <p class="text-center b font-24" style="margin-top: 10px">Contract Review Sheet for Calibration Job</p>
+            <p class="text-center b font-24" style="margin-top: 10px">Contract Review Sheet <br>for Calibration Job</p>
         </div>
         <div class="col-3 row custom-border font-9 p-0">
             <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
@@ -34,18 +34,46 @@
         </div>
     </div>
     <div class="row py-3">
-        <div class="col-3 my-1 font-11 ">Inquiry#:<span class="custom-bottom-border " style="padding-left: 80%"></span></div>
-        <div class="col-3 my-1 font-11 ">Inquiry Date:<span class="custom-bottom-border " style="padding-left: 70%"></span></div>
-        <div class="col-4 my-1 font-11 ">Mode of Inquiry # <span class="custom-bottom-border " style="padding-left: 100%"></span></div>
-        <div class="col-6 my-1 font-11 ">Contact #: <span class="custom-bottom-border " style="padding-left: 80%"></span></div>
-        <div class="col-6 my-1 font-11 ">Email: <span class="custom-bottom-border " style="padding-left: 84%"></span></div>
+        <div class="col-3 row my-1 font-11 ">
+            <div class="col-3">Inquiry#:</div>
+            <div class="col-9 custom-bottom-border  text-center" >{{$quotes->id}}</div>
+        </div>
+        <div class="col-4 row my-1 font-11 ">
+            <div class="col-5">Inquiry Date:</div>
+            <div class="col-7 custom-bottom-border  text-center" >{{date('d-m-y',strtotime($quotes->created_at))}}</div>
+        </div>
+        <div class="col-5 row my-1 font-11 ">
+            <div class="col-5">Mode of Inquiry # </div>
+            <div class="col-7 custom-bottom-border  text-center" >{{date('d-m-y',strtotime($quotes->created_at))}}</div>
+        </div>
+        <div class="col-6 row my-1 font-11 ">
+            <div class="col-3">Contact #: </div>
+            <div class="col-9 custom-bottom-border  text-center" >{{$quotes->customers->reg_name}}</div>
+        </div>
+        <div class="col-6 row my-1 font-11 ">
+            <div class="col-2"> Email : </div>
+            <div class="col-10 custom-bottom-border  text-center" >
+                @if($quotes->principal==$quotes->customers->prin_name_1)
+                    {{$quotes->customers->prin_email_1}}
+                @elseif($quotes->principal==$quotes->customers->prin_name_2)
+                    {{$quotes->customers->prin_email_2}}
+                @else
+                    {{$quotes->customers->prin_email_3}}
+                @endif
+            </div>
+        </div>
+
     </div>
-    <div class="row text-center custom-border">
-        <p class="col-12 font-14 mt-3 b">Scope of Work</p>
+    <div class="row text-center custom-border ">
+        <p class="col-12 font-14 my-2 b">Scope of Work</p>
     </div>
     <div class="row">
+
         <div class="col-12 mt-2"><p class="font-11"><input type="checkbox"> Equipment List provided by customer</p>
         </div>
+        @foreach($nlitems as $nlitem)
+            <div class="font-11 col-12"><input type="checkbox"> {{$nlitem->not_available}}</div>
+        @endforeach
         <div class="col-12"><p class="font-11"><input type="checkbox"> Equipment not covered by AIMS Capability List;
             </p></div>
     </div>
@@ -65,18 +93,24 @@
     </div>
     <div class="row mt-3">
         <div class="col-4 py-2 custom-border border-right-0">
-            Review closed on <span class="custom-bottom-border " style="padding-left: 60%"></span>
+            Review closed on
+            <div class="custom-bottom-border ">
+                {{date('d-m-y',strtotime($quotes->created_at))}}
+            </div>
         </div>
         <div class="col-4 py-2 custom-border border-right-0">
-            Closed by <span class="custom-bottom-border " style="padding-left: 60%"></span>
+            Closed by
+            <div class="custom-bottom-border ">
+                Technical Manager
+            </div>
         </div>
         <div class="col-4 py-2  custom-border">
             Signature <span class="custom-bottom-border " style="padding-left: 60%"></span>
         </div>
     </div>
 
-    <div class="row mt-3 text-center custom-border">
-        <p class=" font-12">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission on the company</p>
+    <div class="row my-3 text-center custom-border">
+        <span class="col-12 font-11">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission on the company</span>
     </div>
 </div>
 </body>

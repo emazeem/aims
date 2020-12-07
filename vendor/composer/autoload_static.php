@@ -212,6 +212,11 @@ class ComposerStaticInit42d337d5d64db9a1d1fdbd03f25b6bf7
             'Illuminate\\Foundation\\Auth\\' => 27,
             'Illuminate\\' => 11,
         ),
+        'H' => 
+        array (
+            'HnhDigital\\PhpNumberConverter\\' => 30,
+            'HnhDigital\\LaravelNumberConverter\\' => 34,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -548,6 +553,14 @@ class ComposerStaticInit42d337d5d64db9a1d1fdbd03f25b6bf7
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'HnhDigital\\PhpNumberConverter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hnhdigital-os/php-number-converter/src',
+        ),
+        'HnhDigital\\LaravelNumberConverter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hnhdigital-os/laravel-number-converter/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -721,6 +734,7 @@ class ComposerStaticInit42d337d5d64db9a1d1fdbd03f25b6bf7
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerController.php',
         'App\\Http\\Controllers\\DashboardControlller' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardControlller.php',
+        'App\\Http\\Controllers\\DataentryController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataentryController.php',
         'App\\Http\\Controllers\\DepartmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/DepartmentController.php',
         'App\\Http\\Controllers\\DesignationController' => __DIR__ . '/../..' . '/app/Http/Controllers/DesignationController.php',
         'App\\Http\\Controllers\\ExpenseController' => __DIR__ . '/../..' . '/app/Http/Controllers/ExpenseController.php',
@@ -764,6 +778,7 @@ class ComposerStaticInit42d337d5d64db9a1d1fdbd03f25b6bf7
         'App\\Models\\Certificate' => __DIR__ . '/../..' . '/app/Models/Certificate.php',
         'App\\Models\\Column' => __DIR__ . '/../..' . '/app/Models/Column.php',
         'App\\Models\\Customer' => __DIR__ . '/../..' . '/app/Models/Customer.php',
+        'App\\Models\\Dataentry' => __DIR__ . '/../..' . '/app/Models/Dataentry.php',
         'App\\Models\\Department' => __DIR__ . '/../..' . '/app/Models/Department.php',
         'App\\Models\\Designation' => __DIR__ . '/../..' . '/app/Models/Designation.php',
         'App\\Models\\Expense' => __DIR__ . '/../..' . '/app/Models/Expense.php',
@@ -2026,6 +2041,9 @@ class ComposerStaticInit42d337d5d64db9a1d1fdbd03f25b6bf7
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'HnhDigital\\LaravelNumberConverter\\Facade' => __DIR__ . '/..' . '/hnhdigital-os/laravel-number-converter/src/Facade.php',
+        'HnhDigital\\LaravelNumberConverter\\ServiceProvider' => __DIR__ . '/..' . '/hnhdigital-os/laravel-number-converter/src/ServiceProvider.php',
+        'HnhDigital\\PhpNumberConverter\\NumberConverter' => __DIR__ . '/..' . '/hnhdigital-os/php-number-converter/src/NumberConverter.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
         'Illuminate\\Auth\\Access\\HandlesAuthorization' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/HandlesAuthorization.php',

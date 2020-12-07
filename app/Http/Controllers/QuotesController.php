@@ -6,11 +6,10 @@ use App\Models\Customer;
 use App\Models\Item;
 use App\Models\Quotes;
 use App\Models\User;
-use PDF;
 use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
 use Yajra\DataTables\DataTables;
-
+use NumConvert;
 class QuotesController extends Controller
 {
     public function index(){
@@ -23,7 +22,6 @@ class QuotesController extends Controller
         $user=Customer::find($id);
         return response()->json($user);
     }
-
     public function fetch(){
         $this->authorize('quote-index');
         $data=Quotes::with('customers')->get();
@@ -101,7 +99,8 @@ class QuotesController extends Controller
                 $action=null;
                 $action.="<a title='view' href=".url('/quotes/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
                 $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>";
-                $action.="<a href=".url('/quotes/print/'.$data->id)." title='Print' class='btn btn-sm btn-secondary'><i class='fa fa-print'></i></a>";
+                $action.="<a href=".url('/quotes/print/'.$data->id)." title='Print' class='btn btn-sm btn-danger'><b>QF</b></a>";
+                $action.="<a href=".url('print_rf/'.$data->id)." title='Print' class='btn btn-sm btn-info'><b>RF</b></a>";
                 return "&emsp;".$action;
             })
             ->rawColumns(['options','status'])
@@ -268,6 +267,13 @@ class QuotesController extends Controller
         $session=Quotes::find($id);
         return view('quotes.print',compact('session'));
     }
+    public function print_rf($id){
+        //$this->authorize('quote-print-details');
+        $quotes=Quotes::find($id);
+        $nlitems=Item::where('status','>',0)->where('quote_id',$quotes->id)->get();
+        return view('quotes.review',compact('quotes','nlitems'));
+    }
+
     public function approved($id){
         $this->authorize('quote-accept');
         $checktypes=Item::where('quote_id',$id)->get();
@@ -310,6 +316,4 @@ class QuotesController extends Controller
         $approval->save();
         return response()->json(['success'=>'Quote is marked as complete']);
     }
-
-    //
 }

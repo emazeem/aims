@@ -122,6 +122,7 @@ Route::group(['prefix'=> 'roles'],function() {
     Route::post('/store',[App\Http\Controllers\RoleController::class, 'store'])->middleware('auth')->name('roles.store');
     Route::post('/update',[App\Http\Controllers\RoleController::class, 'update'])->middleware('auth')->name('roles.update');
 });
+Route::get('/print_rf/{id}',[App\Http\Controllers\QuotesController::class, 'print_rf'])->middleware('auth')->name('quotes.print_rf');
 
 Route::group(['prefix'=> 'quotes'],function() {
     Route::get('',[App\Http\Controllers\QuotesController::class, 'index'])->middleware('auth')->name('quotes');
@@ -136,6 +137,7 @@ Route::group(['prefix'=> 'quotes'],function() {
     //Route::post('/getprintdetails',[App\Http\Controllers\QuotesController::class, 'getprintdetails'])->middleware('auth')->name('quotes.getprintdetails');
     //Route::get('/sendmail/{id}',[App\Http\Controllers\QuotesController::class, 'sendmail'])->middleware('auth')->name('quotes.sendmail');
     Route::get('/print/{id}',[App\Http\Controllers\QuotesController::class, 'prints'])->middleware('auth')->name('quotes.print');
+    Route::get('/print_rf/{id}',[App\Http\Controllers\QuotesController::class, 'print_review_form'])->middleware('auth')->name('quotes.print_review_form');
     Route::get('get_principal/{id}',[App\Http\Controllers\QuotesController::class, 'get_principal'])->middleware('auth')->name('quotes.get_principal');
     Route::post('/complete/',[App\Http\Controllers\QuotesController::class, 'complete'])->middleware('auth')->name('quotes.complete');
     Route::post('/approved/{id}',[App\Http\Controllers\QuotesController::class, 'approved'])->middleware('auth')->name('quotes.approved');

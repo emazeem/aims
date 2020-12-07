@@ -117,6 +117,7 @@ class JobController extends Controller
         $job=Job::with('quotes')->find($id);
         $labjobs=Labjob::where('job_id',$id)->get();
         $sitejobs=Sitejob::where('job_id',$id)->get();
+
         return view('jobs.jobform',compact('job','labjobs','sitejobs'));
     }
     public function print_DN($id){

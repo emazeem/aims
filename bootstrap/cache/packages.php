@@ -35,6 +35,13 @@
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
     ),
   ),
+  'hnhdigital-os/laravel-number-converter' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'HnhDigital\\LaravelNumberConverter\\ServiceProvider',
+    ),
+  ),
   'laravel/tinker' => 
   array (
     'providers' => 
