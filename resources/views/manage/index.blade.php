@@ -1,12 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-
-
     <h2 class="border-bottom text-dark">Manage Jobs</h2>
-
 </div>
-
 @if(Session::has('success'))
     <script>
         $(document).ready(function () {
@@ -14,7 +10,6 @@
         });
     </script>
 @endif
-
 @if(Session::has('failed'))
     <script>
         $(document).ready(function () {
@@ -22,10 +17,9 @@
         });
     </script>
 @endif
-
 <div class="row">
   <div class="col-lg-12">
-    <table id="example" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+      <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
       <thead>
       <tr>
         <th>ID</th>
@@ -82,14 +76,10 @@
                 { "data": "type" },
                 { "data": "options" ,"orderable":false},
             ]
-
         });
-
     }
     $(document).ready(function() {
         InitTable();
     });
-
 </script>
-
 @endsection

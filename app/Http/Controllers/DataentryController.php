@@ -16,6 +16,8 @@ class DataentryController extends Controller
             'uuc_resolution' => 'required',
             'accuracy' => 'required',
             'range' => 'required',
+            'start_temp' => 'required',
+            'end_temp' => 'required',
             'before_offset' => 'required',
             'after_offset' => 'required',
             'fixed' => 'required',
@@ -34,6 +36,8 @@ class DataentryController extends Controller
             $entry->job_type=0;
             $entry->job_type_id=$request->jobtypeid;
             $entry->location=$request->location;
+            $entry->start_temp=$request->start_temp;
+            $entry->end_temp=$request->end_temp;
             $entry->unit=$request->units;
             $entry->fixed_type=$request->fixed;
             $entry->asset_id=$request->assets;

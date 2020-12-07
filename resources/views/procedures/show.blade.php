@@ -23,9 +23,8 @@
 
     <div class="row pb-3">
         <div class="col-12">
-
-            <table class="table table-bordered table-striped">
-                <tr>
+            <table class="table table-bordered table-responsive-sm table-hover font-13">
+            <tr>
                     <th>Name</th>
                     <td>{{$show->name}}</td>
                 </tr>

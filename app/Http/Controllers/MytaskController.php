@@ -239,7 +239,6 @@ class MytaskController extends Controller
 
         
         $average_repeated_value=($x1+$x2+$x3+$x4+$x5)/$n;
-
         echo "Average Value of Repeated : ".$average_repeated_value;
 
         if ($request->fixed=="Ref"){
@@ -458,7 +457,6 @@ class MytaskController extends Controller
             $x3=($entry->x3)?$entry->x3:null;
             $x4=($entry->x4)?$entry->x4:null;
             $x5=($entry->x5)?$entry->x5:null;
-
             if (isset($x1)){$n++;}
             if (isset($x2)){$n++;}
             if (isset($x3)){$n++;}
@@ -466,7 +464,7 @@ class MytaskController extends Controller
             if (isset($x5)){$n++;}
 
             $average_repeated_value=($x1+$x2+$x3+$x4+$x5)/$n;
-
+            //dd($average_repeated_value);
             //echo "Average Value of Repeated : ".$average_repeated_value;
 
             if ($entries->fixed_type=="Ref"){
@@ -561,6 +559,7 @@ class MytaskController extends Controller
                 $reference=$reference-$error;
                 $final_error=$uuc-$reference;
             }
+            //dd($final_error);
             //echo 'Error: '.$final_error;
             $square_sum=0;
             $all_repeated_values=[$x1,$x2,$x3,$x4,$x5];
@@ -575,6 +574,7 @@ class MytaskController extends Controller
 
             if (in_array('standard-deviation',$uncertainties)){
                 $SD=sqrt($temp);
+                //dd($SD);
             }
 
             if (in_array('uncertainty-type-a',$uncertainties)){
@@ -602,6 +602,10 @@ class MytaskController extends Controller
             if (in_array('drift-of-the-standard',$uncertainties)){
                 $drift_of_the_standard=$uncertainty_of_reference/sqrt(3);
             }
+            if (in_array('uncertainty-due-to-drift-in-temperature',$uncertainties)){
+                $uncertainty_due_to_drift_in_temprature=($entries->start_temp-$entries->end_temp)*(0.0004/1000)/sqrt(3);
+            }
+
             //dd($drift_of_the_standard);
             if (in_array('uncertainty-due-to-hysteresis-uuc',$uncertainties)){
 
@@ -636,6 +640,7 @@ class MytaskController extends Controller
                 'drift-of-the-standard'=>$drift_of_the_standard,
                 'uncertainty-due-to-offset-of-uuc'=>$uncertainty_due_to_offset_of_uuc,
                 'uncertainty-due-to-hysteresis-uuc'=>$uncertainty_of_hysterisis,
+                'uncertainty-due-to-drift-in-temperature'=>$uncertainty_due_to_drift_in_temprature,
                 'combined-uncertainty'=>$combined_uncertainty,
                 'expanded-uncertainty'=>$expanded_uncertainties,
             ];

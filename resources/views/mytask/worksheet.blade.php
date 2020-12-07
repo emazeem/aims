@@ -192,7 +192,7 @@
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <th class="font-11">Calibration Method(s) Used : <span class="font-weight-normal">{{$job->items->capabilities->procedures->name}}</span></th>
+                    <th class="font-11">Calibration Method(s) Used : <span class="font-weight-normal">{{$job->items->capabilities->procedures->name}} <span class="mx-5"></span>{{$job->items->capabilities->procedures->description}}</span></th>
                 </tr>
                 </tbody>
             </table>
