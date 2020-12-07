@@ -15,7 +15,7 @@
 
                 <div class="form-group mt-md-4 row">
                     <label for="name" class="col-2 control-label">
-                        <h5 class="font-italic">Name of Procedure</h5>
+                        <h6 class="font-italic">Name of Procedure</h6>
                     </label>
                     <div class="col-10">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Name"
@@ -27,6 +27,21 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group mt-md-4 row">
+                    <label for="name" class="col-2 control-label">
+                        <h6 class="font-italic">Short Description</h6>
+                    </label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Short Description of Procedure"
+                               autocomplete="off" value="{{old('description')}}">
+                        @if ($errors->has('description'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('description') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+
                 <h5 class="font-italic">Select Uncertainties of Procedure</h5>
                 <table class="table table-bordered table-sm table-striped">
                     @foreach($uncertainties as $uncertainty)

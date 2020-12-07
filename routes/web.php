@@ -99,26 +99,20 @@ Route::group(['prefix'=> 'designations'],function() {
 });
 Route::group(['prefix'=> 'menus'],function() {
     Route::get('',[App\Http\Controllers\MenuController::class, 'index'])->middleware('auth')->name('menus');
-
     Route::post('',[App\Http\Controllers\MenuController::class, 'fetch'])->middleware('auth')->name('menus.fetch');
     Route::post('/store',[App\Http\Controllers\MenuController::class, 'store'])->middleware('auth')->name('menus.store');
     Route::post('/edit',[App\Http\Controllers\MenuController::class, 'edit'])->middleware('auth')->name('menus.edit');
     Route::delete('/delete',[App\Http\Controllers\MenuController::class, 'destroy'])->middleware('auth')->name('menus.destroy');
-
     Route::post('/update',[App\Http\Controllers\MenuController::class, 'update'])->middleware('auth')->name('menus.update');
     Route::get('/manage',[App\Http\Controllers\MenuController::class, 'manage'])->middleware('auth')->name('menus.manage');
     Route::post('/manage',[App\Http\Controllers\MenuController::class, 'manage_store'])->middleware('auth')->name('menus.manage.store');
-
-
 });
 Route::group(['prefix'=> 'roles'],function() {
     Route::get('',[App\Http\Controllers\RoleController::class, 'index'])->middleware('auth')->name('roles');
     Route::get('/create',[App\Http\Controllers\RoleController::class, 'create'])->middleware('auth')->name('roles.create');
     Route::get('/edit/{id}',[App\Http\Controllers\RoleController::class, 'edit'])->middleware('auth')->name('roles.edit');
-
     Route::post('',[App\Http\Controllers\RoleController::class, 'fetch'])->middleware('auth')->name('roles.fetch');
     Route::delete('/delete',[App\Http\Controllers\RoleController::class, 'destroy'])->middleware('auth')->name('roles.delete');
-
     Route::post('/store',[App\Http\Controllers\RoleController::class, 'store'])->middleware('auth')->name('roles.store');
     Route::post('/update',[App\Http\Controllers\RoleController::class, 'update'])->middleware('auth')->name('roles.update');
 });
@@ -143,6 +137,7 @@ Route::group(['prefix'=> 'quotes'],function() {
     Route::post('/approved/{id}',[App\Http\Controllers\QuotesController::class, 'approved'])->middleware('auth')->name('quotes.approved');
     Route::post('/revised/{id}',[App\Http\Controllers\QuotesController::class, 'revised'])->middleware('auth')->name('quotes.revised');
     Route::post('/approval_details',[App\Http\Controllers\QuotesController::class, 'approval_details'])->middleware('auth')->name('quotes.approval_details');
+    Route::post('/discount',[App\Http\Controllers\QuotesController::class, 'discount'])->middleware('auth')->name('quotes.discount');
 });
 Route::group(['prefix'=> 'awaitings'],function() {
     Route::group(['prefix'=> 'checkin'],function() {
@@ -158,7 +153,6 @@ Route::group(['prefix'=> 'awaitings'],function() {
 
 
 Route::group(['prefix'=> 'scheduling'],function() {
-
     Route::group(['prefix'=> 'labs'],function() {
         Route::get('/{id}',[App\Http\Controllers\LabjobsController::class, 'index'])->middleware('auth')->name('lab');
         Route::post('store',[App\Http\Controllers\LabjobsController::class, 'store'])->middleware('auth')->name('jobs.store');
@@ -169,11 +163,8 @@ Route::group(['prefix'=> 'scheduling'],function() {
         Route::get('create/{id}',[App\Http\Controllers\TaskController::class, 'create'])->middleware('auth')->name('tasks.create');
         Route::get('edit/{id}',[App\Http\Controllers\TaskController::class, 'edit'])->middleware('auth')->name('tasks.edit');
         Route::get('/respective-assets/{id}',[App\Http\Controllers\TaskController::class, 'respectiveassets'])->middleware('auth')->name('tasks.respectiveassets');
-
         Route::post('store',[App\Http\Controllers\TaskController::class, 'store'])->middleware('auth')->name('tasks.store');
-
     });
-
     Route::get('',[App\Http\Controllers\SchedulingController::class, 'index'])->middleware('auth')->name('scheduling');
     Route::post('',[App\Http\Controllers\SchedulingController::class, 'fetch'])->middleware('auth')->name('scheduling.fetch');
 });
@@ -337,13 +328,6 @@ Route::group(['prefix'=> 'columns'],function(){
     Route::post('/update/',[App\Http\Controllers\ColumnController::class, 'update'])->middleware('auth')->name('columns.update');
     Route::post('/edit',[App\Http\Controllers\ColumnController::class, 'edit'])->middleware('auth')->name('columns.edit');
 });
-
-
-
-
-
-
-
 Route::group(['prefix'=> 'uncertainties'],function() {
     Route::get('',[App\Http\Controllers\UncertaintyController::class, 'index'])->middleware('auth')->name('uncertainties');
     Route::post('',[App\Http\Controllers\UncertaintyController::class, 'fetch'])->middleware('auth')->name('uncertainties.fetch');
@@ -351,25 +335,13 @@ Route::group(['prefix'=> 'uncertainties'],function() {
     Route::post('/edit',[App\Http\Controllers\UncertaintyController::class, 'edit'])->middleware('auth')->name('uncertainties.edit');
     Route::post('/update',[App\Http\Controllers\UncertaintyController::class, 'update'])->middleware('auth')->name('uncertainties.update');
 });
-
-
 Route::group(['prefix'=> 'calculator'],function() {
     Route::get('{loc}/{id}',[App\Http\Controllers\CalculatorController::class, 'index'])->middleware('auth')->name('calculator');
 });
 Route::group(['prefix'=> 'data_entry'],function() {
     Route::post('store',[App\Http\Controllers\DataentryController::class, 'store'])->middleware('auth')->name('data_entry.create');
 });
-
-
-
-
-
 Route::get('/taxes',[App\Http\Controllers\TaxesController::class, 'index'])->middleware('auth')->name('taxes');
 Route::post('/search',[App\Http\Controllers\InvoicingLedgerController::class, 'search'])->middleware('auth')->name('search');
 Route::post('/clear/filter',[App\Http\Controllers\InvoicingLedgerController::class, 'clearfilter'])->middleware('auth')->name('clear.filter');
 Route::post('/calculate',[App\Http\Controllers\MytaskController::class, 'calculate'])->middleware('auth')->name('calculate');
-
-
-
-
-

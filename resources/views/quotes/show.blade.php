@@ -17,16 +17,14 @@
             </a>
         </div>
         <h2 class="col-12">QT/{{date('y')}}/{{$show->id}} Detail</h2>
-
         @if($show->status>0)
         @if(!$show->mode)
             <div class="col-12">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Accordion -->
                     <a href="#approval_card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">{{(!$show->mode)?"Add":"Update"}} Approval Details</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">{{(!$show->mode)?"Add":"Update"}} Approval Details / Add Discount</h6>
                     </a>
-
                     <!-- Card Content - Collapse -->
                     <div class="collapse" id="approval_card">
                         <div class="card-body">
@@ -65,6 +63,21 @@
                                 </div>
                                 <button class="btn btn-primary" type="submit">Approve Quote</button>
                             </form>
+                            <form action="{{route('quotes.discount')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$show->id}}">
+                                <div class="row py-3">
+                                    <div class="col-md-3 col-8">
+                                        <div class="font-italic form-group p-0 m-0">
+                                            <input type="text" class="form-control " id="discount" name="discount" autocomplete="off" value="" placeholder="Enter % of Discount">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-4">
+                                        <button class="btn btn-primary" type="submit">Discount</button>
+                                    </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>

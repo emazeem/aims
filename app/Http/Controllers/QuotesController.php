@@ -270,8 +270,9 @@ class QuotesController extends Controller
     public function print_rf($id){
         //$this->authorize('quote-print-details');
         $quotes=Quotes::find($id);
-        $nlitems=Item::where('status','>',0)->where('quote_id',$quotes->id)->get();
-        return view('quotes.review',compact('quotes','nlitems'));
+        $listed=Item::where('status',2)->where('quote_id',$quotes->id)->get();
+        $nonlisted=Item::where('status',3)->where('quote_id',$quotes->id)->get();
+        return view('quotes.review',compact('quotes','listed','nonlisted'));
     }
 
     public function approved($id){
@@ -315,5 +316,17 @@ class QuotesController extends Controller
         $approval->status=1;
         $approval->save();
         return response()->json(['success'=>'Quote is marked as complete']);
+    }
+    public function discount(Request $request){
+        //dd($request->all());
+        $items=Item::where('quote_id',$request->id)->get();
+        foreach ($items as $item){
+            if ($item->status==0 || $item->status==2){
+                $update=Item::find($item->id);
+                $update->price=$update->price-(($request->discount/100)*$update->price);
+                $update->save();
+            }
+        }
+        return back()->with('success', 'Discount added successfully');
     }
 }

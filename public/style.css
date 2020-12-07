@@ -224,7 +224,9 @@ a.article:hover {
     border-left: 3px solid rgb(255, 246, 246);
 
 }
-
+.bg-custom-notification-unread{
+    background-color: #c7cfff;
+}
 .sidebar-a {
     font-family: Corbel;
 }

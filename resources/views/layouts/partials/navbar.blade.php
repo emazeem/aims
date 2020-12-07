@@ -24,7 +24,7 @@
                 <div style="height: 300px;overflow-y: scroll" class="notification-scroll">
 
                     @foreach(Auth::user()->Notifications as $notification)
-                        <a class="dropdown-item {{($notification->read_at==null)?"bg-warning":"bg-light"}}" href="{{url('/notification/markasread/'.$notification->id)}}">
+                        <a class="dropdown-item {{($notification->read_at==null)?"bg-custom-notification-unread":"bg-light"}}" href="{{url('/notification/markasread/'.$notification->id)}}">
                             <div class="{{($notification->read_at==null)?"font-weight-bold":""}}">
                                 @if(\App\Models\User::find($notification->data['data']['by'])->profile==null)
                                     <img src="{{url('img/profile.png')}}" class="img-fluid rounded-circle bg-white" style="height: 25px;width: 25px;">
@@ -32,7 +32,7 @@
                                     <img src="{{Storage::disk('local')->url('public/profile/'.$notification->data['data']['by'].'/'.\App\Models\User::find($notification->data['data']['by'])->profile)}}" class="img-fluid rounded-circle" style="height: 25px;width: 25px;">
                                 @endif
 
-                                <small class="font-weight-bold ml-1 pb-1 border-bottom">{{$notification->data['data']['title']}}</small>
+                                <small class="font-weight-bold ml-1 pb-1">{{$notification->data['data']['title']}}</small>
                                 <small class="float-right"><i class="fa fa-clock"></i> {{$notification['created_at']->diffForHumans()}}</small>
                             </div>
                             <small>{{$notification->data['data']['body']}}</small>

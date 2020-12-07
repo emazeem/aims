@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AIMS-Q-{{date('y')}}-{{$session->id}} {{$session->customers->reg_name}}</title>
+    <title>AIMS-QT-{{date('y')}}-{{$session->id}} {{$session->customers->reg_name}}</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -266,8 +266,6 @@
             <div class="col-3 font-10 b"><input type="checkbox"> Dollar ($)</div>
         </div>
         <div class="row py-3">
-
-
             <table class="table table-bordered">
                 <thead>
                 <tr>

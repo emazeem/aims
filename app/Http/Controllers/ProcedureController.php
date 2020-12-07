@@ -50,13 +50,16 @@ class ProcedureController extends Controller
         $this->validate(request(), [
             'uncertainties' => 'required',
             'name' => 'required',
+            'description' => 'required',
         ],[
             'uncertainties.required' => 'Procedure uncertainties field are required *',
             'name.required' => 'Procedure name is required *',
+            'description.required' => 'Procedure description is required *',
         ]);
         $procedure=new Procedure();
         $procedure->uncertainties=implode(',',$request->uncertainties);
         $procedure->name=$request->name;
+        $procedure->description=$request->description;
         $procedure->save();
         return response()->json(['success'=>'Added successfully']);
     }

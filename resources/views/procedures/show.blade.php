@@ -30,24 +30,16 @@
                     <td>{{$show->name}}</td>
                 </tr>
                 <tr>
-                    <th>Parameter</th>
-                    <td>{{$show->parameters->name}}</td>
+                    <th>Description</th>
+                    <td>{{$show->description}}</td>
                 </tr>
                 <tr>
-                    <th>Assets</th>
+                    <th>Uncertainties</th>
                     <td>
-                    @foreach($show->assets as $asset)
-                            <b class="badge badge-primary">{{$asset->name.' ◇ '.$asset->code}}</b>
-                    @endforeach
-                    </td>
-                </tr>
-                <tr>
-                    <th>Columns</th>
-                    <td>
-                        @foreach($show->columns as $column)
-                            <a data-id="{{$column->id}}" class="edit text-xs mr-5"><i class="fa fa-sync"></i>
-                            {{$column->column}}
-                            </a>
+                        @foreach(explode(',',$show->uncertainties) as $uncertainty)
+                            <span class="badge badge-danger h3">
+                                {{\App\Models\Uncertainty::where('slug',$uncertainty)->first()->name}}
+                            </span>
                         @endforeach
                     </td>
                 </tr>

@@ -44,16 +44,20 @@ class PendingRequestController extends Controller
 
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
-                return "&emsp;              
-                  <a title='Add' class='btn btn-sm btn-primary' href='" . url('pendings/create/'.$data->id) . "'><i class='fa fa-plus'></i></a>
-                  <a title='Review' class='btn btn-sm btn-info' href='" . url('pendings/print_review/'.$data->quote_id) . "'><i class='fa fa-print'></i></a>
-                  
-                <a class='btn btn-danger btn-sm nofacility' href='#' data-id='{$data->id}'><i class='fa fa-ban'></i></a>
+                $option=null;
+                if ($data->status==1) {
+                    $option .= "<a title='Add' class='btn btn-sm btn-primary' href='" . url('pendings/create/' . $data->id) . "'><i class='fa fa-plus'></i></a>";
+                    $option.="<a class='btn btn-danger btn-sm nofacility' href='#' data-id='{$data->id}'><i class='fa fa-ban'></i></a>
                     <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
                       </form>";
+                }
+                else{
+                    $option='<span class="badge badge-danger">Closed</span>';
+                }
+                return $option."&emsp;";
 
             })
             ->rawColumns(['options'])
@@ -98,7 +102,7 @@ class PendingRequestController extends Controller
             $quotes=Item::find($request->na_id);
             $quotes->parameter=$request->category;
             $quotes->capability=$capabilities->id;
-            $quotes->not_available=null;
+            //$quotes->not_available=null;
             $quotes->status=2;
             $quotes->range=$request->range;
             $quotes->price=$request->price;
