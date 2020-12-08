@@ -11,7 +11,8 @@
 
     <div class="row pb-3">
         <div class="col-12">
-            <table class="table table-striped table-bordered table-responsive-sm table-sm" width="100%">
+            <table class="table table-hover table-bordered table-sm">
+
                 <tr>
                     <th>Session</th>
                     <td>{{$job->jobs->quotes->name}}</td>
@@ -43,14 +44,12 @@
             </table>
         </div>
     </div>
-    <div class="container">
-        <div class="row border">
-            <div class="col-md-3 col-12 bg-white">
-                <h1>STATUS</h1>
-            </div>
-            <div class="col-md-9 col-12">
+
+
+
+            <div class="col-12 border p-2">
                 <div class=" d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Assign Task</h1>
+                    <h3 class="mt-3">Assign Task</h3>
                 </div>
 
                 <form class="form-horizontal" action="{{route('tasks.store')}}" method="post" enctype="multipart/form-data">
@@ -134,8 +133,8 @@
                 </form>
             </div>
 
-        </div>
-    </div>
+
+
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script>

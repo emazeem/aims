@@ -448,6 +448,7 @@ class MytaskController extends Controller
             $uncertainty_of_hysterisis=0;
             $combined_uncertainty=0;
             $expanded_uncertainties=0;
+            $uncertainty_due_to_drift_in_temprature=0;
             $uncertainty_due_to_resolution_of_std=0;
 
             //calculations
@@ -657,6 +658,7 @@ class MytaskController extends Controller
                 'combined-uncertainty'=>$combined_uncertainty,
                 'expanded-uncertainty'=>$expanded_uncertainties,
             ];
+            //dd($data);
         }
         return view('mytask.uncertainty',compact('entries','job','uncertainties','allentries','data'));
     }

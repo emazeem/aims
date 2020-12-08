@@ -24,7 +24,7 @@
             <a href="" data-toggle="modal" data-target="#add_suggestion" class="pull-right"><i class="fa fa-question"></i> Add Suggestion</a>
         </div>
         <div class="col-12">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered table-sm">
                 <tr>
                     <th>Quotes</th>
                     <td>{{$job->jobs->quote_id}}</td>
@@ -56,10 +56,12 @@
             </table>
         </div>
     </div>
-    <div class="border">
-        <div class="border">
-            <div class="col-12 p-2">
 
+
+            <div class="col-12 p-2 border">
+                <div class=" d-sm-flex align-items-center justify-content-between mb-4">
+                    <h3 class="">Assign Task</h3>
+                </div>
                 <form class="form-horizontal" action="{{route('tasks.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" value="{{$job->id}}" name="id">
@@ -141,8 +143,6 @@
                 </form>
             </div>
 
-        </div>
-    </div>
     <script type="text/javascript">
         $(document).ready(function() {
             $('select[name="parameter"]').on('change', function() {
