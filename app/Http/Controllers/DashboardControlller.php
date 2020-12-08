@@ -36,6 +36,9 @@ class DashboardControlller extends Controller
         $parameters=Parameter::all()->count();
         $quotes=Quotes::all()->count();
         $jobs=Job::all()->count();
+
+
+
         return view('dashboard',compact('customers','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations'));
     }
     public function markRead($id)

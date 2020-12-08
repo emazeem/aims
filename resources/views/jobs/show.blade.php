@@ -12,7 +12,7 @@
             <h2>Job Detail</h2>
         </div>
         <div class="col-12">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered table-sm">
                 <tr>
                     <th>ID</th>
                     <td>{{$job->id}}</td>
@@ -62,7 +62,7 @@
 
             <div class="col-12">
                 <h4>Lab Detail</h4>
-                <table class="table table-hover table-bordered table-responsive">
+                <table class="table table-hover table-bordered table-responsive table-sm">
 
                     <thead>
                     <tr>

@@ -165,5 +165,43 @@
       </div>
     </div>
   </div>
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+  <div class="container">
+    <div class="response alert alert-success mt-2" style="display: none;"></div>
+    <div id='calendar'></div>
+  </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('#calendar').fullCalendar({
+            editable: true,
+            events: '{{route('calendar')}}',
+            displayEventTime: true,
+            //editable: true,
+            eventRender: function (event, element, view) {
+                if (event.allDay === 'true') {
+                    event.allDay = true;
+                } else {
+                    event.allDay = false;
+                }
+            }
+        });
+    });
+
+        function displayMessage(message) {
+        $(".response").css('display','block');
+        $(".response").html(""+message+"");
+        setInterval(function() { $(".response").fadeOut(); }, 4000);
+    }
+</script>--}}
 @endsection

@@ -113,11 +113,11 @@
                 </tr>
                 <tr>
                     <td class="font-11">Start :</td>
-                    <td class="font-11"></td>
+                    <td class="font-11">{{$entries->start_temp}} C</td>
                 </tr>
                 <tr>
                     <td class="font-11">End :</td>
-                    <td class="font-11"></td>
+                    <td class="font-11">{{$entries->end_temp}} C</td>
                 </tr>
                 <tr>
                     <th class="font-11" colspan="2">Humidity :</th>

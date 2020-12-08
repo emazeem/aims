@@ -278,7 +278,6 @@
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
-
                 cols += '<td><input type="text" class="form-control" name="fixed_value[]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="x1[]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="x2[]"/></td>';

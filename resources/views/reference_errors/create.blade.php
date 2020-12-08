@@ -233,11 +233,9 @@
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
-
-                cols += '<td><input type="text" class="form-control" name="uuc[]"/></td>';
-                cols += '<td><input type="text" class="form-control" name="reference[]"/></td>';
-                cols += '<td><input type="text" class="form-control" name="uncertainty[]"/></td>';
-
+                cols += '<td><input type="text" class="form-control" name="uuc[]" value="'+$('input[name="uuc[]"]').val()+'"/></td>';
+                cols += '<td><input type="text" class="form-control" name="reference[]" value="'+$('input[name="reference[]"]').val()+'"/></td>';
+                cols += '<td><input type="text" class="form-control" name="uncertainty[]" value="'+$('input[name="uncertainty[]"]').val()+'"/></td>';
                 cols += '<td><i class="ibtnDel fa fa-times-circle mt-2 text-lg text-danger"></i></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
