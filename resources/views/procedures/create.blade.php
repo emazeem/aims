@@ -48,11 +48,11 @@
                         <tr>
                             <td class="text-center">
                                 <div class="checkbox mt-2">
-                                    <input type="checkbox" value="{{$uncertainty->slug}}" name="uncertainties[]">
+                                    <input type="checkbox" id="{{$uncertainty->slug}}" value="{{$uncertainty->slug}}" name="uncertainties[]">
                                 </div>
                             </td>
                             <td>
-                                <label class="custom-label">
+                                <label for="{{$uncertainty->slug}}">
                                     <span class="text-lg">{{$uncertainty->name}}</span>
                                 </label>
                             </td>

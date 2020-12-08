@@ -97,7 +97,7 @@ class ProcedureController extends Controller
         return view('procedures.create',compact('parameters','uncertainties'));
     }
     public function show($id){
-        $show=Procedure::find($id)->with('columns')->first();
+        $show=Procedure::find($id);
         $parameters=Parameter::all();
         return view('procedures.show',compact('parameters','show'));
     }

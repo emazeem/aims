@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tasks/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tasks/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tasks/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tasks/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProcedureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcedureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/procedures/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/procedures/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/procedures/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/procedures/edit.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,19 +196,19 @@
           <entry key="ini" value="1" />
           <entry key="js" value="13" />
           <entry key="json" value="4" />
-          <entry key="php" value="516" />
+          <entry key="php" value="519" />
           <entry key="sql" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="306" />
+          <entry key="Blade" value="308" />
           <entry key="CSS" value="35" />
           <entry key="HTML" value="2" />
           <entry key="Ini" value="1" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="13" />
-          <entry key="PHP" value="210" />
+          <entry key="PHP" value="211" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="7" />
         </counts>
@@ -218,18 +220,18 @@
           <entry key="ini" value="9" />
           <entry key="js" value="18" />
           <entry key="json" value="5" />
-          <entry key="php" value="27908" />
+          <entry key="php" value="28138" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="19195" />
+          <entry key="Blade" value="19229" />
           <entry key="CSS" value="1666" />
           <entry key="HTML" value="6" />
           <entry key="Ini" value="9" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="8707" />
+          <entry key="PHP" value="8903" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -246,32 +248,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="602" column="17" lean-forward="true" selection-start-line="602" selection-start-column="17" selection-end-line="602" selection-end-column="17" />
+            <state relative-caret-position="259">
+              <caret line="650" column="100" selection-start-line="650" selection-start-column="100" selection-end-line="650" selection-end-column="100" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/tasks/create.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcedureController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="26" selection-start-line="26" selection-end-line="27" />
-              <folding>
-                <element signature="e#2084#6599#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/tasks/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="378">
+              <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -288,12 +278,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>aims.png</find>
-      <find>total</find>
-      <find>accredited</find>
-      <find>quotes</find>
-      <find>print</find>
-      <find>review</find>
       <find>print_review_form</find>
       <find>email</find>
       <find>closed</find>
@@ -315,9 +299,15 @@
       <find>require</find>
       <find>illuminate</find>
       <find>uncertainty_due_to_drift_in_temprature</find>
-      <find>accuracy</find>
       <find>status</find>
       <find>assign task</find>
+      <find>uncertainty-due-to-temperature-stability-of-chamber</find>
+      <find>resolution</find>
+      <find>combi</find>
+      <find>$uncertainty_due_to_temprature_stability_of_chamber</find>
+      <find>accuracy</find>
+      <find>reference</find>
+      <find>$uncertainty_of_reference</find>
     </findStrings>
     <replaceStrings>
       <replace>-</replace>
@@ -385,11 +375,8 @@
         <option value="$PROJECT_DIR$/resources/views/quotes/print.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
         <option value="$PROJECT_DIR$/resources/views/quotes/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/procedures/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProcedureController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" />
         <option value="$PROJECT_DIR$/public/style.css" />
-        <option value="$PROJECT_DIR$/resources/views/procedures/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/procedures/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pendings/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manage/index.blade.php" />
@@ -406,9 +393,12 @@
         <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" />
         <option value="$PROJECT_DIR$/resources/views/tasks/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/tasks/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/procedures/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/procedures/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProcedureController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" />
       </list>
     </option>
   </component>
@@ -760,6 +750,13 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="procedures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1077,12 +1074,12 @@
       <workItem from="1607234825054" duration="1187000" />
       <workItem from="1607237553170" duration="15620000" />
       <workItem from="1607317929714" duration="27826000" />
-      <workItem from="1607398752942" duration="4171000" />
+      <workItem from="1607398752942" duration="9662000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1165819000" />
+    <option name="totallyTimeSpent" value="1171310000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1097,7 +1094,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19969743" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19969743" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1290,13 +1287,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/procedures/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="43" selection-start-line="29" selection-start-column="16" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customers/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1329,20 +1319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="26" column="16" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcedureController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/procedures/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1450,10 +1426,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/tasks/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="602" column="17" lean-forward="true" selection-start-line="602" selection-start-column="17" selection-end-line="602" selection-end-column="17" />
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
@@ -1467,10 +1443,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tasks/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/procedures/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="255">
+          <caret line="50" column="86" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/procedures/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="50" column="86" selection-start-line="50" selection-start-column="86" selection-end-line="50" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcedureController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="100" column="35" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="650" column="100" selection-start-line="650" selection-start-column="100" selection-end-line="650" selection-end-column="100" />
         </state>
       </provider>
     </entry>
