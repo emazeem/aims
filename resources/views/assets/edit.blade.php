@@ -195,19 +195,25 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="form-group mt-md-4 row">
-                    <label for="due" class="col-sm-2 control-label">Due Date</label>
+                <div class="form-group row">
+                    <label for="interval" class="col-sm-2 control-label">Select Interval</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="due" name="due" placeholder="" autocomplete="off"
-                               value="{{old('due',$edit->due)}}">
-                        @if ($errors->has('due'))
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="interval" name="interval">
+                                <option selected disabled>Select Interval</option>
+                                <option value="1">One Year</option>
+                                <option value="2">Two Years</option>
+                                <option value="3">Three Years</option>
+                            </select>
+                        </div>
+                        @if ($errors->has('interval'))
                             <span class="text-danger">
-                          <strong>{{ $errors->first('due') }}</strong>
+                          <strong>{{ $errors->first('interval') }}</strong>
                       </span>
                         @endif
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="status" class="col-sm-2 control-label">Status</label>
                     <div class="col-sm-10">

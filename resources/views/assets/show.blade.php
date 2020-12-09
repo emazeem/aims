@@ -12,7 +12,6 @@
             $(document).ready(function () {
                 swal("Failed", "{{session('failed')}}", "error");
             });
-
         </script>
     @endif
 
@@ -85,12 +84,6 @@
                     <th>Accuracy</th>
                     <td>{{$show->accuracy}}</td>
                 </tr>
-
-
-                <tr>
-                    <th>Due Date</th>
-                    <td>{{$show->due}}</td>
-                </tr>
                 <tr>
                     <th>Commissioned Date</th>
                     <td>{{$show->commissioned}}</td>
@@ -99,7 +92,14 @@
                     <th>Calibration Date</th>
                     <td>{{$show->calibration}}</td>
                 </tr>
-
+                <tr>
+                    <th>Due Date</th>
+                    <td>{{$show->due}}</td>
+                </tr>
+                <tr>
+                    <th>Calibration Interval</th>
+                    <td>{{($show->calibration_interval==1)?'1 Year':'2 Years'}}</td>
+                </tr>
 
                 <tr>
                     <th>Created on</th>

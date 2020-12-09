@@ -31,6 +31,7 @@ class CreateAssetsTable extends Migration
             $table->string('location',225);
             $table->string('image',225)->nullable();
             $table->date('due');
+            $table->integer('calibration_interval');
             $table->date('commissioned');
             $table->date('calibration');
             $table->softDeletes();

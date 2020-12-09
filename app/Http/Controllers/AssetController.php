@@ -18,6 +18,16 @@ class AssetController extends Controller
 {
     //
     public function index(){
+
+/*        $temps=Asset::all();
+        foreach ($temps as $temp){
+            $asset=Asset::find($temp->id);
+            $asset->calibration_interval=1;
+            $due=strtotime($temp->calibration)+(60*60*24*365);
+            $asset->due=date('Y-m-d',$due);
+            $asset->save();
+        }
+        dd('done');*/
         $assets=Asset::all();
         return view('assets.index',compact('assets'));
     }
@@ -113,6 +123,7 @@ class AssetController extends Controller
     }
 
     public function store(Request $request){
+       // dd($request->all());
         $this->validate(request(), [
             'name' => 'required',
             'parameter' => 'required',
@@ -121,7 +132,7 @@ class AssetController extends Controller
             'range' => 'required',
             'resolution' => 'required',
             'accuracy' => 'required',
-            'due' => 'required',
+            'interval' => 'required',
             'commissioned' => 'required',
             'calibration' => 'required',
             'traceability' => 'required',
@@ -137,7 +148,7 @@ class AssetController extends Controller
             'range.required' => 'Range field is required *',
             'resolution.required' => 'Resolution field is required *',
             'accuracy.required' => 'Accuracy field is required *',
-            'due.required' => 'Due field is required *',
+            'interval.required' => 'Due field is required *',
             'code.required' => 'Code field is required *',
         ]);
 
@@ -153,6 +164,9 @@ class AssetController extends Controller
         $asset->accuracy=$request->accuracy;
         $asset->due=$request->due;
         $asset->commissioned=$request->commissioned;
+        $asset->calibration_interval=$request->interval;
+        $due=strtotime($request->calibration)+(60*60*24*365)*$request->interval;
+        $asset->due=date('Y-m-d',$due);
         $asset->calibration=$request->calibration;
         $asset->certificate_no=$request->certificate;
         $asset->traceability=$request->traceability;
@@ -176,7 +190,7 @@ class AssetController extends Controller
             'range' => 'required',
             'resolution' => 'required',
             'accuracy' => 'required',
-            'due' => 'required',
+            'interval' => 'required',
             'commissioned' => 'required',
             'calibration' => 'required',
             'traceability' => 'required',
@@ -193,7 +207,7 @@ class AssetController extends Controller
             'range.required' => 'Range field is required *',
             'resolution.required' => 'Resolution field is required *',
             'accuracy.required' => 'Accuracy field is required *',
-            'due.required' => 'Due field is required *',
+            'interval.required' => 'Due field is required *',
             'code.required' => 'Code field is required *',
         ]);
 
@@ -210,6 +224,9 @@ class AssetController extends Controller
         $asset->due=$request->due;
         $asset->commissioned=$request->commissioned;
         $asset->calibration=$request->calibration;
+        $asset->calibration_interval=$request->interval;
+        $due=strtotime($request->calibration)+(60*60*24*365)*$request->interval;
+        $asset->due=date('Y-m-d',$due);
         $asset->certificate_no=$request->certificate;
         $asset->traceability=$request->traceability;
         $asset->serial_no=$request->serial;
