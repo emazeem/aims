@@ -18,6 +18,7 @@ class CreateAssetsTable extends Migration
             $table->string('name',225);
             $table->string('code',225)->unique();
             $table->integer('parameter');
+            $table->integer('group_id');
             $table->string('make',225);
             $table->string('model',225);
             $table->string('range',225);

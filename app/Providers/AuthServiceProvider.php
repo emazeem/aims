@@ -360,6 +360,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('asset-groups', function ($user) {
+            if (in_array('asset-groups',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
     }
     public function capabilities()
     {

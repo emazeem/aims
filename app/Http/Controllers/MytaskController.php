@@ -680,7 +680,6 @@ class MytaskController extends Controller
         }
         return view('mytask.uncertainty',compact('entries','job','uncertainties','allentries','data'));
     }
-
     public function print_certificate($location,$id){
         if ($location==0){
             $job=Labjob::find($id);
