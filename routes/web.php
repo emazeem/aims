@@ -77,6 +77,7 @@ Route::group(['prefix'=> 'asset/groups'],function() {
     Route::get('',[App\Http\Controllers\AssetgroupController::class, 'index'])->middleware('auth')->name('assets.groups');
     Route::get('/create',[App\Http\Controllers\AssetgroupController::class, 'create'])->middleware('auth')->name('assets.groups.create');
     Route::get('/edit/{id}',[App\Http\Controllers\AssetgroupController::class, 'edit'])->middleware('auth')->name('assets.groups.edit');
+    Route::get('/show/{id}',[App\Http\Controllers\AssetgroupController::class, 'show'])->middleware('auth')->name('assets.groups.show');
     Route::post('/update',[App\Http\Controllers\AssetgroupController::class, 'update'])->middleware('auth')->name('assets.groups.update');
     Route::post('',[App\Http\Controllers\AssetgroupController::class, 'fetch'])->middleware('auth')->name('assets.groups.fetch');
     Route::post('store',[App\Http\Controllers\AssetgroupController::class, 'store'])->middleware('auth')->name('assets.groups.store');

@@ -36,9 +36,10 @@ class AssetgroupController extends Controller
                 return $label;
             })
             ->addColumn('options', function ($data) {
-                return "&emsp;
-                    <a title='Edit' class='btn edit btn-sm btn-success'  href='".url('asset/groups/edit/'.$data->id)."'><i class='fa fa-edit'></i></a>
-                  ";
+                $action=null;
+                $action.="<a title='Edit' class='btn edit btn-sm btn-success'  href='".url('asset/groups/edit/'.$data->id)."'><i class='fa fa-edit'></i></a>";
+                $action.="<a title='Show' class='btn show btn-sm btn-danger'  href='".url('asset/groups/show/'.$data->id)."'><i class='fa fa-eye'></i></a>";
+                return $action;
             })
             ->rawColumns(['options','assets'])
             ->make(true);
@@ -48,6 +49,11 @@ class AssetgroupController extends Controller
         $assets=Asset::all();
         return view('assets_groups.create',compact('parameters','assets'));
     }
+    public function show($id){
+        $show=Assetgroup::find($id);
+        return view('assets_groups.show',compact('show'));
+    }
+
     public function edit($id){
         $parameters=Parameter::all();
         $assets=Asset::all();
