@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use App\Models\Assetspecification;
 use App\Models\Column;
+use App\Models\Intermediatechecksofasset;
 use App\Models\Parameter;
 use App\Models\Procedure;
 use function GuzzleHttp\Promise\all;
@@ -18,8 +19,7 @@ class AssetController extends Controller
 {
     //
     public function index(){
-
-/*        $temps=Asset::all();
+/*      $temps=Asset::all();
         foreach ($temps as $temp){
             $asset=Asset::find($temp->id);
             $asset->calibration_interval=1;
@@ -119,7 +119,8 @@ class AssetController extends Controller
 
             }
         }
-        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate'));
+        $intermediatechecks=Intermediatechecksofasset::where('equipment_under_test_id',$id)->get();
+        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks'));
     }
 
     public function store(Request $request){

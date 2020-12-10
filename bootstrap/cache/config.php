@@ -36,12 +36,10 @@
       19 => 'Illuminate\\Translation\\TranslationServiceProvider',
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
-      22 => 'SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider',
-      23 => 'App\\Providers\\AppServiceProvider',
-      24 => 'App\\Providers\\AuthServiceProvider',
-      25 => 'App\\Providers\\EventServiceProvider',
-      26 => 'App\\Providers\\RouteServiceProvider',
-      27 => 'Barryvdh\\DomPDF\\ServiceProvider',
+      22 => 'App\\Providers\\AppServiceProvider',
+      23 => 'App\\Providers\\AuthServiceProvider',
+      24 => 'App\\Providers\\EventServiceProvider',
+      25 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -70,7 +68,6 @@
       'Password' => 'Illuminate\\Support\\Facades\\Password',
       'Queue' => 'Illuminate\\Support\\Facades\\Queue',
       'Redirect' => 'Illuminate\\Support\\Facades\\Redirect',
-      'Redis' => 'Illuminate\\Support\\Facades\\Redis',
       'Request' => 'Illuminate\\Support\\Facades\\Request',
       'Response' => 'Illuminate\\Support\\Facades\\Response',
       'Route' => 'Illuminate\\Support\\Facades\\Route',
@@ -81,9 +78,6 @@
       'URL' => 'Illuminate\\Support\\Facades\\URL',
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
-      'PDF' => 'Barryvdh\\DomPDF\\Facade',
-      'QrCode' => 'SimpleSoftwareIO\\QrCode\\Facades\\QrCode',
-      'NumConvert' => 'HnhDigital\\LaravelNumberConverter\\Facade',
     ),
   ),
   'auth' => 
@@ -144,6 +138,11 @@
           'useTLS' => true,
         ),
       ),
+      'ably' => 
+      array (
+        'driver' => 'ably',
+        'key' => NULL,
+      ),
       'redis' => 
       array (
         'driver' => 'redis',
@@ -182,7 +181,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\aims\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\aims8\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -228,6 +227,7 @@
     'paths' => 
     array (
       0 => 'api/*',
+      1 => 'sanctum/csrf-cookie',
     ),
     'allowed_methods' => 
     array (
@@ -342,18 +342,17 @@
   'filesystems' => 
   array (
     'default' => 'local',
-    'cloud' => 's3',
     'disks' => 
     array (
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\aims\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\aims8\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\aims\\storage\\app/public',
+        'root' => 'C:\\xampp\\htdocs\\aims8\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -370,7 +369,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\aims\\public\\storage' => 'C:\\xampp\\htdocs\\aims\\storage\\app/public',
+      'C:\\xampp\\htdocs\\aims8\\public\\storage' => 'C:\\xampp\\htdocs\\aims8\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -404,13 +403,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\aims\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aims8\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\aims\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aims8\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -460,7 +459,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\aims\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\aims8\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -517,7 +516,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\aims\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\aims8\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -568,19 +567,6 @@
       'model_key' => 'name',
       'store' => 'default',
     ),
-  ),
-  'query-builder' => 
-  array (
-    'parameters' => 
-    array (
-      'include' => 'include',
-      'filter' => 'filter',
-      'sort' => 'sort',
-      'fields' => 'fields',
-      'append' => 'append',
-    ),
-    'count_suffix' => 'Count',
-    'disable_invalid_filter_query_exception' => false,
   ),
   'queue' => 
   array (
@@ -657,7 +643,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\aims\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\aims8\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -677,32 +663,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\aims\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\aims8\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\aims\\storage\\framework\\views',
-  ),
-  'dompdf' => 
-  array (
-    'show_warnings' => false,
-    'orientation' => 'portrait',
-    'defines' => 
-    array (
-      'font_dir' => 'C:\\xampp\\htdocs\\aims\\storage\\fonts/',
-      'font_cache' => 'C:\\xampp\\htdocs\\aims\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\user\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\xampp\\htdocs\\aims',
-      'enable_font_subsetting' => false,
-      'pdf_backend' => 'CPDF',
-      'default_media_type' => 'screen',
-      'default_paper_size' => 'a4',
-      'default_font' => 'serif',
-      'dpi' => 96,
-      'enable_php' => false,
-      'enable_javascript' => true,
-      'enable_remote' => true,
-      'font_height_ratio' => 1.1,
-      'enable_html5_parser' => false,
-    ),
+    'compiled' => 'C:\\xampp\\htdocs\\aims8\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -733,176 +696,6 @@
     'remote_sites_path' => '',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
-  ),
-  'excel' => 
-  array (
-    'exports' => 
-    array (
-      'chunk_size' => 1000,
-      'pre_calculate_formulas' => false,
-      'strict_null_comparison' => false,
-      'csv' => 
-      array (
-        'delimiter' => ',',
-        'enclosure' => '"',
-        'line_ending' => '
-',
-        'use_bom' => false,
-        'include_separator_line' => false,
-        'excel_compatibility' => false,
-      ),
-      'properties' => 
-      array (
-        'creator' => '',
-        'lastModifiedBy' => '',
-        'title' => '',
-        'description' => '',
-        'subject' => '',
-        'keywords' => '',
-        'category' => '',
-        'manager' => '',
-        'company' => '',
-      ),
-    ),
-    'imports' => 
-    array (
-      'read_only' => true,
-      'ignore_empty' => false,
-      'heading_row' => 
-      array (
-        'formatter' => 'slug',
-      ),
-      'csv' => 
-      array (
-        'delimiter' => ',',
-        'enclosure' => '"',
-        'escape_character' => '\\',
-        'contiguous' => false,
-        'input_encoding' => 'UTF-8',
-      ),
-      'properties' => 
-      array (
-        'creator' => '',
-        'lastModifiedBy' => '',
-        'title' => '',
-        'description' => '',
-        'subject' => '',
-        'keywords' => '',
-        'category' => '',
-        'manager' => '',
-        'company' => '',
-      ),
-    ),
-    'extension_detector' => 
-    array (
-      'xlsx' => 'Xlsx',
-      'xlsm' => 'Xlsx',
-      'xltx' => 'Xlsx',
-      'xltm' => 'Xlsx',
-      'xls' => 'Xls',
-      'xlt' => 'Xls',
-      'ods' => 'Ods',
-      'ots' => 'Ods',
-      'slk' => 'Slk',
-      'xml' => 'Xml',
-      'gnumeric' => 'Gnumeric',
-      'htm' => 'Html',
-      'html' => 'Html',
-      'csv' => 'Csv',
-      'tsv' => 'Csv',
-      'pdf' => 'Dompdf',
-    ),
-    'value_binder' => 
-    array (
-      'default' => 'Maatwebsite\\Excel\\DefaultValueBinder',
-    ),
-    'cache' => 
-    array (
-      'driver' => 'memory',
-      'batch' => 
-      array (
-        'memory_limit' => 60000,
-      ),
-      'illuminate' => 
-      array (
-        'store' => NULL,
-      ),
-    ),
-    'transactions' => 
-    array (
-      'handler' => 'db',
-    ),
-    'temporary_files' => 
-    array (
-      'local_path' => 'C:\\xampp\\htdocs\\aims\\storage\\framework/laravel-excel',
-      'remote_disk' => NULL,
-      'remote_prefix' => NULL,
-      'force_resync_remote' => NULL,
-    ),
-  ),
-  'datatables-buttons' => 
-  array (
-    'namespace' => 
-    array (
-      'base' => 'DataTables',
-      'model' => '',
-    ),
-    'pdf_generator' => 'snappy',
-    'snappy' => 
-    array (
-      'options' => 
-      array (
-        'no-outline' => true,
-        'margin-left' => '0',
-        'margin-right' => '0',
-        'margin-top' => '10mm',
-        'margin-bottom' => '10mm',
-      ),
-      'orientation' => 'landscape',
-    ),
-    'parameters' => 
-    array (
-      'dom' => 'Bfrtip',
-      'order' => 
-      array (
-        0 => 
-        array (
-          0 => 0,
-          1 => 'desc',
-        ),
-      ),
-      'buttons' => 
-      array (
-        0 => 'create',
-        1 => 'export',
-        2 => 'print',
-        3 => 'reset',
-        4 => 'reload',
-      ),
-    ),
-    'generator' => 
-    array (
-      'columns' => 'id,add your columns,created_at,updated_at',
-      'buttons' => 'create,export,print,reset,reload',
-      'dom' => 'Bfrtip',
-    ),
-  ),
-  'datatables-html' => 
-  array (
-    'namespace' => 'LaravelDataTables',
-    'table' => 
-    array (
-      'class' => 'table',
-      'id' => 'dataTableBuilder',
-    ),
-    'callback' => 
-    array (
-      0 => '$',
-      1 => '$.',
-      2 => 'function',
-    ),
-    'script' => 'datatables::script',
-    'editor' => 'datatables::editor',
   ),
   'datatables' => 
   array (
@@ -958,11 +751,6 @@
   array (
     'proxies' => NULL,
     'headers' => 94,
-  ),
-  'datatables-fractal' => 
-  array (
-    'includes' => 'include',
-    'serializer' => 'League\\Fractal\\Serializer\\DataArraySerializer',
   ),
   'tinker' => 
   array (

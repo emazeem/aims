@@ -4,8 +4,6 @@
         <h2 class="border-bottom text-dark">All Assets</h2>
 
         <div class="col-12 mb-4">
-
-
             <a href="{{route('assets.create')}}" class="btn float-right mt-1 btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Assets</a>
             <a href="{{route('parameters')}}" class="btn float-right mt-1 mx-1 btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Parameters</a>
             <button type="button" class="btn btn-sm btn-primary float-right mt-1 shadow-sm" data-toggle="modal" data-target="#add_column"><i class="fas fa-plus"></i> Add Specific Column</button>

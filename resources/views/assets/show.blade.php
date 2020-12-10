@@ -14,16 +14,16 @@
             });
         </script>
     @endif
-
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h2 class="border-bottom text-dark">{{$show->name}}
             <small>[ {{$show->code}} ]</small>
         </h2>
-
+        <span>
+            <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Intermediate Checks</a>
         <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
                 data-target="#add_specification"><i class="fas fa-plus"></i> Add Specifications
         </button>
-
+        </span>
     </div>
 
     <div class="row pb-3">
@@ -312,5 +312,28 @@
             }));
         });
     </script>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>Check Reference</th>
+            <th>Reference Value</th>
+            <th>Measured Value</th>
+            <th>Action</th>
+        </tr>
+        @foreach($intermediatechecks as $intermediatecheck)
+            <tr>
+                <td>{{\App\Models\Asset::find($intermediatecheck->check_reference_id)->name .' ( '. \App\Models\Asset::find($intermediatecheck->check_reference_id)->code. ' )'}}</td>
+                <td>{{$intermediatecheck->reference_value}}</td>
+                <td>
+                    @foreach(explode(',',$intermediatecheck->measured_value) as $measured_value)
+                        <span class="badge badge-dark">{{$measured_value}}</span>
+                    @endforeach
+                </td>
+                <td>
+                    <a title='Edit' class='btn btn-sm btn-success' href='{{route('intermediate-checks.edit',[$intermediatecheck->id])}}'><i class='fa fa-edit'></i></a>
+                </td>
+            </tr>
+        @endforeach
+
+    </table>
 
 @endsection

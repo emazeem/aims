@@ -78,7 +78,7 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-                Gate::define('customer-edit', function ($user) {
+        Gate::define('customer-edit', function ($user) {
             if (in_array('customer-edit',explode(',',$user->roles->permissions))){
                 return true;
             }
@@ -431,33 +431,33 @@ class AuthServiceProvider extends ServiceProvider
         });
 
     }public function menus()
-    {
-        Gate::define('menu-index', function ($user) {
-            if (in_array('menu-index',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
-        Gate::define('menu-create', function ($user) {
-            if (in_array('menu-create',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
-        Gate::define('menu-edit', function ($user) {
-            if (in_array('menu-edit',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
-        Gate::define('menu-delete', function ($user) {
-            if (in_array('menu-delete',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
+{
+    Gate::define('menu-index', function ($user) {
+        if (in_array('menu-index',explode(',',$user->roles->permissions))){
+            return true;
+        }
+        return false;
+    });
+    Gate::define('menu-create', function ($user) {
+        if (in_array('menu-create',explode(',',$user->roles->permissions))){
+            return true;
+        }
+        return false;
+    });
+    Gate::define('menu-edit', function ($user) {
+        if (in_array('menu-edit',explode(',',$user->roles->permissions))){
+            return true;
+        }
+        return false;
+    });
+    Gate::define('menu-delete', function ($user) {
+        if (in_array('menu-delete',explode(',',$user->roles->permissions))){
+            return true;
+        }
+        return false;
+    });
 
-    }
+}
 
     public function quotes()
     {
@@ -570,7 +570,7 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-                Gate::define('manage-jobs', function ($user) {
+        Gate::define('manage-jobs', function ($user) {
             if (in_array('manage-jobs',explode(',',$user->roles->permissions))){
                 return true;
             }
