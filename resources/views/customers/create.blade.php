@@ -40,7 +40,6 @@
                       </span>
                         @endif
                     </div>
-
                 </div>
                 <div class="form-group row">
                     <label for="address" class="col-sm-2 control-label">Physical Address</label>

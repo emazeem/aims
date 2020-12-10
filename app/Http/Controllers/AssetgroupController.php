@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use App\Models\Assetgroup;
 use App\Models\Parameter;
+use App\Models\Preventivechecklist;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-
 class AssetgroupController extends Controller
 {
     public function index(){
@@ -51,7 +51,8 @@ class AssetgroupController extends Controller
     }
     public function show($id){
         $show=Assetgroup::find($id);
-        return view('assets_groups.show',compact('show'));
+        $checklists=Preventivechecklist::where('group_id',$id)->get();
+        return view('assets_groups.show',compact('show','checklists'));
     }
 
     public function edit($id){
@@ -115,6 +116,4 @@ class AssetgroupController extends Controller
         }
         return redirect()->back()->with('success', 'Asset group updated successfully!');
     }
-
-
 }

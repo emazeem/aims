@@ -15,6 +15,8 @@ class CreatePreventivechecklistsTable extends Migration
     {
         Schema::create('preventivechecklists', function (Blueprint $table) {
             $table->id();
+            $table->integer('group_id');
+            $table->string('tasktodo',225);
             $table->timestamps();
         });
     }
