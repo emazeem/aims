@@ -25,7 +25,7 @@
                     <?php $assets=\App\Models\Asset::where('group_id',$show->id)->get(); ?>
                     <td>
                         @foreach($assets as $asset)
-                            <span class="badge badge-dark">{{$asset->name}}</span>
+                            <span class="badge badge-danger my-1" style="font-size: 15px">{{$asset->name.' '.$asset->code}}</span>
                         @endforeach
                     </td>
                 </tr>

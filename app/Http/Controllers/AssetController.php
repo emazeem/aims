@@ -121,8 +121,12 @@ class AssetController extends Controller
             }
         }
         $intermediatechecks=Intermediatechecksofasset::where('equipment_under_test_id',$id)->get();
-
-        $limit_of_intermediatecheck=false;
+        $limit_of_intermediatecheck=true;
+        if ($show->calibration=='1900-01-01'){
+            $limit_of_intermediatecheck=false;
+        }else{
+            $limit_of_intermediatecheck=true;
+        }
         $available=Intermediatechecksofasset::where('equipment_under_test_id',$id)->first();
         if (isset($available)){
             $asset=Asset::find($id);
@@ -134,7 +138,6 @@ class AssetController extends Controller
             if ($count==$repetition-1){
                 $limit_of_intermediatecheck=true;
             }
-
         }
         return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck'));
     }

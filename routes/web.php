@@ -80,6 +80,11 @@ Route::group(['prefix'=> 'preventive/checklist'],function() {
     Route::post('update',[App\Http\Controllers\PreventivechecklistController::class, 'update'])->middleware('auth')->name('preventive.checklist.update');
     Route::post('edit',[App\Http\Controllers\PreventivechecklistController::class, 'edit'])->middleware('auth')->name('preventive.checklist.edit');
 });
+Route::group(['prefix'=> 'preventive/maintenance'],function() {
+    Route::get('create/{id}',[App\Http\Controllers\PreventivemaintenancerecordsanController::class, 'create'])->middleware('auth')->name('preventive.maintenance.create');
+    Route::post('store',[App\Http\Controllers\PreventivemaintenancerecordsanController::class, 'store'])->middleware('auth')->name('preventive.maintenance.store');
+});
+
 
 Route::group(['prefix'=> 'parameters'],function() {
     Route::get('',[App\Http\Controllers\ParameterControlller::class, 'index'])->middleware('auth')->name('parameters');

@@ -19,13 +19,15 @@
             <small>[ {{$show->code}} ]</small>
         </h2>
         <span>
+
+            <a href="{{url('preventive/maintenance/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add Preventive Maintenance</a>
             @if($show->calibration!='1900-01-01')
                 @if($limit_of_intermediatecheck== true)
-                <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Intermediate Checks</a>
+                <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add Intermediate Checks</a>
                 @endif
             @endif
                 <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
-                        data-target="#add_specification"><i class="fas fa-plus"></i> Add Specifications
+                        data-target="#add_specification"><i class="fas fa-plus-circle"></i> Add Specifications
         </button>
         </span>
     </div>
