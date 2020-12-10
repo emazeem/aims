@@ -19,9 +19,13 @@
             <small>[ {{$show->code}} ]</small>
         </h2>
         <span>
-            <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Intermediate Checks</a>
-        <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
-                data-target="#add_specification"><i class="fas fa-plus"></i> Add Specifications
+            @if($show->calibration!='1900-01-01')
+                @if($limit_of_intermediatecheck== true)
+                <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Intermediate Checks</a>
+                @endif
+            @endif
+                <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
+                        data-target="#add_specification"><i class="fas fa-plus"></i> Add Specifications
         </button>
         </span>
     </div>
@@ -114,8 +118,9 @@
                     <td>
                         @if(empty($show->image))
                             <img src="{{url('/img/default_asset.jpg')}}" class="img-fluid" width="70">
-                            @else
-                            <img src="{{Storage::disk('local')->url('/assets/'.$show->image)}}" class="img-fluid" width="100">
+                        @else
+                            <img src="{{Storage::disk('local')->url('/assets/'.$show->image)}}" class="img-fluid"
+                                 width="100">
                         @endif
                     </td>
                 </tr>
@@ -312,6 +317,7 @@
             }));
         });
     </script>
+    @if(count($intermediatechecks)>0)
     <table class="table table-hover table-bordered">
         <tr>
             <th>Check Reference</th>
@@ -329,11 +335,12 @@
                     @endforeach
                 </td>
                 <td>
-                    <a title='Edit' class='btn btn-sm btn-success' href='{{route('intermediate-checks.edit',[$intermediatecheck->id])}}'><i class='fa fa-edit'></i></a>
+                    <a title='Edit' class='btn btn-sm btn-success'
+                       href='{{route('intermediate-checks.edit',[$intermediatecheck->id])}}'><i class='fa fa-edit'></i></a>
                 </td>
             </tr>
         @endforeach
 
     </table>
-
+    @endif
 @endsection

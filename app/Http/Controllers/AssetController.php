@@ -19,7 +19,7 @@ class AssetController extends Controller
 {
     //
     public function index(){
-/*      $temps=Asset::all();
+        /*$temps=Asset::all();
         foreach ($temps as $temp){
             $asset=Asset::find($temp->id);
             $asset->calibration_interval=1;
@@ -28,6 +28,7 @@ class AssetController extends Controller
             $asset->save();
         }
         dd('done');*/
+
         $assets=Asset::all();
         return view('assets.index',compact('assets'));
     }
@@ -120,7 +121,22 @@ class AssetController extends Controller
             }
         }
         $intermediatechecks=Intermediatechecksofasset::where('equipment_under_test_id',$id)->get();
-        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks'));
+
+        $limit_of_intermediatecheck=false;
+        $available=Intermediatechecksofasset::where('equipment_under_test_id',$id)->first();
+        if (isset($available)){
+            $asset=Asset::find($id);
+            $difference=strtotime($asset->due)-strtotime($asset->calibration);
+            $threemonthscheck=60*60*24*91;
+            $repetition=$difference/$threemonthscheck;
+            $repetition=(int)$repetition-1;
+            $count=Intermediatechecksofasset::where('equipment_under_test_id',$id)->count();
+            if ($count==$repetition-1){
+                $limit_of_intermediatecheck=true;
+            }
+
+        }
+        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck'));
     }
 
     public function store(Request $request){

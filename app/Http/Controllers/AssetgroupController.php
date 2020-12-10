@@ -82,7 +82,7 @@ class AssetgroupController extends Controller
         return redirect()->back()->with('success', 'Asset group added successfully!');
     }
     public function update(Request $request){
-        dd($request->all());
+        //dd($request->all());
         $this->validate(request(),[
             'name' => 'required',
             'parameter' => 'required',
@@ -93,6 +93,12 @@ class AssetgroupController extends Controller
             'assets.required' => 'Group Asset fields are required *',
         ]);
         $assetGroup=Assetgroup::find($request->id);
+        $temp_assets=Asset::where('group_id',$request->id)->get();
+        foreach ($temp_assets as $temp_asset) {
+            $default=Asset::find($temp_asset->id);
+            $default->group_id=0;
+            $default->save();
+        }
         $assetGroup->parameter=$request->parameter;
         $assetGroup->name=$request->name;
         $assetGroup->save();
