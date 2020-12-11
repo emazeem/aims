@@ -7,6 +7,7 @@ use App\Models\Assetspecification;
 use App\Models\Column;
 use App\Models\Intermediatechecksofasset;
 use App\Models\Parameter;
+use App\Models\Preventivemaintenancerecord;
 use App\Models\Procedure;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
@@ -139,7 +140,8 @@ class AssetController extends Controller
                 $limit_of_intermediatecheck=true;
             }
         }
-        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck'));
+        $checklists=Preventivemaintenancerecord::where('asset_id',$id)->get();
+        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck','checklists'));
     }
 
     public function store(Request $request){

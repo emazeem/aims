@@ -20,14 +20,16 @@
         </h2>
         <span>
 
-            <a href="{{url('preventive/maintenance/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add Preventive Maintenance</a>
+            <a href="{{url('preventive/maintenance/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i
+                        class="fa fa-plus-circle"></i> Add Preventive Maintenance</a>
             @if($show->calibration!='1900-01-01')
                 @if($limit_of_intermediatecheck== true)
-                <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add Intermediate Checks</a>
+                    <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i
+                                class="fa fa-plus-circle"></i> Add Intermediate Checks</a>
                 @endif
             @endif
-                <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
-                        data-target="#add_specification"><i class="fas fa-plus-circle"></i> Add Specifications
+            <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
+                    data-target="#add_specification"><i class="fas fa-plus-circle"></i> Add Specifications
         </button>
         </span>
     </div>
@@ -320,29 +322,67 @@
         });
     </script>
     @if(count($intermediatechecks)>0)
-    <table class="table table-hover table-bordered">
-        <tr>
-            <th>Check Reference</th>
-            <th>Reference Value</th>
-            <th>Measured Value</th>
-            <th>Action</th>
-        </tr>
-        @foreach($intermediatechecks as $intermediatecheck)
+        <table class="table table-hover table-bordered">
             <tr>
-                <td>{{\App\Models\Asset::find($intermediatecheck->check_reference_id)->name .' ( '. \App\Models\Asset::find($intermediatecheck->check_reference_id)->code. ' )'}}</td>
-                <td>{{$intermediatecheck->reference_value}}</td>
-                <td>
-                    @foreach(explode(',',$intermediatecheck->measured_value) as $measured_value)
-                        <span class="badge badge-dark">{{$measured_value}}</span>
-                    @endforeach
-                </td>
-                <td>
-                    <a title='Edit' class='btn btn-sm btn-success'
-                       href='{{route('intermediate-checks.edit',[$intermediatecheck->id])}}'><i class='fa fa-edit'></i></a>
-                </td>
+                <th>Check Reference</th>
+                <th>Reference Value</th>
+                <th>Measured Value</th>
+                <th>Action</th>
             </tr>
-        @endforeach
+            @foreach($intermediatechecks as $intermediatecheck)
+                <tr>
+                    <td>{{\App\Models\Asset::find($intermediatecheck->check_reference_id)->name .' ( '. \App\Models\Asset::find($intermediatecheck->check_reference_id)->code. ' )'}}</td>
+                    <td>{{$intermediatecheck->reference_value}}</td>
+                    <td>
+                        @foreach(explode(',',$intermediatecheck->measured_value) as $measured_value)
+                            <span class="badge badge-dark">{{$measured_value}}</span>
+                        @endforeach
+                    </td>
+                    <td>
+                        <a title='Edit' class='btn btn-sm btn-success'
+                           href='{{route('intermediate-checks.edit',[$intermediatecheck->id])}}'><i
+                                    class='fa fa-edit'></i></a>
+                    </td>
+                </tr>
+            @endforeach
 
-    </table>
+        </table>
     @endif
+    @if(count($checklists)>0)
+        <table class="table table-hover table-bordered">
+            <tr class="text-center">
+                <th>List</th>
+                <th>Breakdown <br>Description</th>
+                <th>Corrective <br>Description</th>
+                <th>Performed <br>By</th>
+                <th>Lab <br>Incharge</th>
+                <th>Action</th>
+            </tr>
+            @foreach($checklists as $checklist)
+                <tr>
+                    <td>
+                        @foreach(explode(',',$checklist->checked) as $id)
+                            <b class="m-1"><input type="checkbox" checked disabled> {{\App\Models\Preventivechecklist::find($id)->tasktodo}}</b>
+                            <br>
+                        @endforeach
+                        @if($checklist->unchecked)
+                            @foreach(explode(',',$checklist->unchecked) as $id)
+                                <b class="m-1"><input type="checkbox" disabled> {{\App\Models\Preventivechecklist::find($id)->tasktodo}}
+                                </b><br>
+                            @endforeach
+                        @endif
+                    </td>
+                    <td>{{$checklist->breakdown_description}}</td>
+                    <td>{{$checklist->corrective_description}}</td>
+                    <td>{{\App\Models\User::find($checklist->performed_by)->fname.' '.\App\Models\User::find($checklist->performed_by)->lname}}</td>
+                    <td>{{\App\Models\User::find($checklist->lab_in_charge)->fname.' '.\App\Models\User::find($checklist->lab_in_charge)->lname}}</td>
+                    <td>
+                        <a title='Edit' class='btn btn-sm btn-success' href='{{route('preventive.maintenance.edit',[$checklist->id])}}'><i class='fa fa-edit'></i></a>
+                    </td>
+                </tr>
+            @endforeach
+
+        </table>
+    @endif
+
 @endsection

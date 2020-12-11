@@ -15,6 +15,13 @@ class CreatePreventivemaintenancerecordsTable extends Migration
     {
         Schema::create('preventivemaintenancerecords', function (Blueprint $table) {
             $table->id();
+            $table->integer('asset_id');
+            $table->string('checked');
+            $table->string('unchecked');
+            $table->longText('breakdown_description')->nullable();
+            $table->longText('corrective_description')->nullable();
+            $table->integer('performed_by');
+            $table->integer('lab_in_charge');
             $table->timestamps();
         });
     }

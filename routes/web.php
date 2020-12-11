@@ -81,8 +81,10 @@ Route::group(['prefix'=> 'preventive/checklist'],function() {
     Route::post('edit',[App\Http\Controllers\PreventivechecklistController::class, 'edit'])->middleware('auth')->name('preventive.checklist.edit');
 });
 Route::group(['prefix'=> 'preventive/maintenance'],function() {
-    Route::get('create/{id}',[App\Http\Controllers\PreventivemaintenancerecordsanController::class, 'create'])->middleware('auth')->name('preventive.maintenance.create');
-    Route::post('store',[App\Http\Controllers\PreventivemaintenancerecordsanController::class, 'store'])->middleware('auth')->name('preventive.maintenance.store');
+    Route::get('create/{id}',[App\Http\Controllers\PreventivemaintenancerecordsController::class, 'create'])->middleware('auth')->name('preventive.maintenance.create');
+    Route::get('edit/{id}',[App\Http\Controllers\PreventivemaintenancerecordsController::class, 'edit'])->middleware('auth')->name('preventive.maintenance.edit');
+    Route::post('store',[App\Http\Controllers\PreventivemaintenancerecordsController::class, 'store'])->middleware('auth')->name('preventive.maintenance.store');
+    Route::post('update',[App\Http\Controllers\PreventivemaintenancerecordsController::class, 'update'])->middleware('auth')->name('preventive.maintenance.update');
 });
 
 
