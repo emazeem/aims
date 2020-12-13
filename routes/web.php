@@ -6,6 +6,7 @@ Route::get('cmd', function () {
 });
 Route::get('/home', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth');
 Route::get('/', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth')->name('home');
+Route::get('notifications', [App\Http\Controllers\DashboardControlller::class, 'notification'])->middleware('auth')->name('notification');
 Route::get('notification/markasread/{id}', [App\Http\Controllers\DashboardControlller::class, 'markread'])->middleware('auth')->name('notification.markasread');
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->middleware('auth')->name('profile');
 Route::get('/change_password', [App\Http\Controllers\UserController::class, 'changepw'])->middleware('auth')->name('change-pw');
@@ -109,6 +110,22 @@ Route::group(['prefix'=> 'departments'],function() {
     Route::post('/edit',[App\Http\Controllers\DepartmentController::class, 'edit'])->middleware('auth')->name('departments.edit');
     Route::post('/update',[App\Http\Controllers\DepartmentController::class, 'update'])->middleware('auth')->name('departments.update');
 });
+Route::group(['prefix'=> 'sop'],function() {
+    Route::get('',[App\Http\Controllers\SopsController::class, 'index'])->middleware('auth')->name('sops');
+    Route::post('',[App\Http\Controllers\SopsController::class, 'fetch'])->middleware('auth')->name('sops.fetch');
+    Route::post('/store',[App\Http\Controllers\SopsController::class, 'store'])->middleware('auth')->name('sops.store');
+    Route::get('/view/{id}',[App\Http\Controllers\SopsController::class, 'show'])->middleware('auth')->name('sops.show');
+    Route::post('/edit',[App\Http\Controllers\SopsController::class, 'edit'])->middleware('auth')->name('sops.edit');
+    Route::post('/update',[App\Http\Controllers\SopsController::class, 'update'])->middleware('auth')->name('sops.update');
+});
+Route::group(['prefix'=> 'clauses'],function() {
+    Route::get('/create/{id}',[App\Http\Controllers\ClauseController::class, 'create'])->middleware('auth')->name('clauses.create');
+    Route::post('/store',[App\Http\Controllers\ClauseController::class, 'store'])->middleware('auth')->name('clauses.store');
+    Route::get('/edit/{id}',[App\Http\Controllers\ClauseController::class, 'edit'])->middleware('auth')->name('clauses.edit');
+    Route::post('/update',[App\Http\Controllers\ClauseController::class, 'update'])->middleware('auth')->name('clauses.update');
+});
+
+
 Route::group(['prefix'=> 'designations'],function() {
     Route::get('',[App\Http\Controllers\DesignationController::class, 'index'])->middleware('auth')->name('designations');
     Route::post('',[App\Http\Controllers\DesignationController::class, 'fetch'])->middleware('auth')->name('designations.fetch');
@@ -157,20 +174,16 @@ Route::group(['prefix'=> 'quotes'],function() {
     Route::post('/approval_details',[App\Http\Controllers\QuotesController::class, 'approval_details'])->middleware('auth')->name('quotes.approval_details');
     Route::post('/discount',[App\Http\Controllers\QuotesController::class, 'discount'])->middleware('auth')->name('quotes.discount');
 });
-Route::group(['prefix'=> 'awaitings'],function() {
-    Route::group(['prefix'=> 'checkin'],function() {
-        Route::get('/{id}',[App\Http\Controllers\CheckinController::class, 'index'])->name('checkin');
-        Route::get('create/{type}/{id}',[App\Http\Controllers\CheckinController::class, 'create'])->name('checkin.create');
-        Route::post('store',[App\Http\Controllers\CheckinController::class, 'store'])->name('checkin.store');
-        Route::post('storesite',[App\Http\Controllers\CheckinController::class, 'storesite'])->name('checkin.storesite');
-        Route::post('edit/{id}',[App\Http\Controllers\CheckinController::class, 'edit'])->name('checkin.edit');
-    });
+Route::group(['prefix'=> '/item/entries'],function() {
+    Route::get('/{id}',[App\Http\Controllers\ItemEntriesController::class, 'index'])->name('checkin');
+        Route::get('create/{type}/{id}',[App\Http\Controllers\ItemEntriesController::class, 'create'])->name('checkin.create');
+        Route::post('store',[App\Http\Controllers\ItemEntriesController::class, 'store'])->name('checkin.store');
+        Route::post('store/site',[App\Http\Controllers\ItemEntriesController::class, 'storesite'])->name('checkin.storesite');
+        Route::post('edit/{id}',[App\Http\Controllers\ItemEntriesController::class, 'edit'])->name('checkin.edit');
 });
 Route::group(['prefix'=> 'scheduling'],function() {
     Route::group(['prefix'=> 'labs'],function() {
-        Route::get('/{id}',[App\Http\Controllers\LabjobsController::class, 'index'])->middleware('auth')->name('lab');
-        Route::post('store',[App\Http\Controllers\LabjobsController::class, 'store'])->middleware('auth')->name('jobs.store');
-        Route::post('edit/{id}',[App\Http\Controllers\LabjobsController::class, 'edit'])->middleware('auth')->name('jobs.edit');
+        Route::get('/{id}',[App\Http\Controllers\SchedulingController::class, 'show'])->middleware('auth')->name('lab');
     });
     Route::group(['prefix'=> 'tasks'],function() {
         Route::post('assign_site_job',[App\Http\Controllers\TaskController::class, 'siteassignjobs'])->middleware('auth')->name('tasks.siteassignjobs');

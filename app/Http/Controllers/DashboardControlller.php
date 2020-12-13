@@ -44,13 +44,16 @@ class DashboardControlller extends Controller
     public function markRead($id)
     {
         $notification = Notification::where('id', $id)->first();
-        if (empty($notification->read_at)){
+        if (empty($notification->read_at)) {
             $notification->read_at = date('Y-m-d H:i:s');
             $notification->save();
             return redirect($notification->data['data']['redirectURL']);
         }
         return redirect($notification->data['data']['redirectURL']);
 
+    }
+    public function notification(){
+        return view('notifications');
     }
     //
 }

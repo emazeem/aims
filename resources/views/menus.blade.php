@@ -131,15 +131,22 @@
 
                     if(!data.errors)
                     {
-                        //$('#add_menu').modal('toggle');
-                        swal("Success", "menu added successfully", "success");
-                        location.reload();
-                        InitTable();
+                        $('#add_menu').modal('toggle');
+                        swal('success',data.success,'success').then((value) => {
+                            InitTable();
+                        });
+
                     }
                 },
-                error: function()
+                error: function(xhr, status, error)
                 {
-                    swal("Failed", "Fields Required. Try again.", "error");
+
+                    var error;
+                    error=null;
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
                 }
             });
         }));
@@ -154,18 +161,21 @@
                 processData:false,
                 success: function(data)
                 {
-
-                    if(!data.errors)
-                    {
-                        $('#edit_menu').modal('toggle');
-                        swal("Success", "menu updated successfully", "success");
+                    $('#edit_menu').modal('hide');
+                    swal('success',data.success,'success').then((value) => {
                         InitTable();
-                    }
-                },
-                error: function(e)
-                {
-                    swal("Failed", "Fields Required. Try again.", "error");
+                    });
 
+                },
+                error: function(xhr, status, error)
+                {
+
+                    var error;
+                    error=null;
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
                 }
             });
         }));
@@ -204,9 +214,16 @@
                                 });
 
                             },
-                            error: function(data){
-                                swal("Failed", data.error , "error");
-                            },
+                            error: function(xhr, status, error)
+                            {
+
+                                var error;
+                                error=null;
+                                $.each(xhr.responseJSON.errors, function (key, item) {
+                                    error+=item;
+                                });
+                                swal("Failed", error, "error");
+                            }
                         });
 
                     }

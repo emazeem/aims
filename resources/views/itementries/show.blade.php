@@ -124,7 +124,7 @@
                 var id = $(this).attr('data-id');
 
                 $.ajax({
-                    "url": "{{url('awaitings/checkin/edit/')}}/"+id,
+                    "url": "{{url('item/entries/edit/')}}/"+id,
                     type: "POST",
                     data: {'id': id,_token: '{{csrf_token()}}'},
                     dataType : "json",

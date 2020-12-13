@@ -9,7 +9,7 @@
             <input type="hidden" value="{{$show->id}}" id="add_id" name="id" >
             <div class="form-group col-md-8 col-12 float-left">
                 <label for="eq_id">Equipment ID</label>
-                <input type="text" class="form-control" id="eq_id" name="eq_id" placeholder="Equipment ID"
+                <input type="text" class="form-control " id="eq_id" name="eq_id" placeholder="Equipment ID"
                        autocomplete="off" value="{{$show->eq_id}}">
             </div>
             <div class="form-group col-md-8 col-12  float-left">

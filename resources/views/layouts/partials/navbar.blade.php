@@ -23,7 +23,7 @@
                 <div style="height: 300px;overflow-y: scroll" class="notification-scroll">
 
                     @foreach(Auth::user()->Notifications as $notification)
-                            <a class="dropdown-item d-flex align-items-center p-1 {{($notification->read_at==null)?"bg-custom-notification-unread":"bg-light"}}" href="#">
+                            <a class="dropdown-item d-flex align-items-center p-1 {{($notification->read_at==null)?"bg-custom-notification-unread":"bg-light"}}" href="{{$notification->data['data']['redirectURL']}}">
                                 <div class="mr-2">
                                 <div class="icon-circle">
                                     @if(\App\Models\User::find($notification->data['data']['by'])->profile==null)
@@ -31,7 +31,6 @@
                                     @else
                                         <img src="{{Storage::disk('local')->url('public/profile/'.$notification->data['data']['by'].'/'.\App\Models\User::find($notification->data['data']['by'])->profile)}}" class="img-fluid rounded-circle" style="width: 30px;height: 30px;object-fit: cover">
                                     @endif
-
                                 </div>
                                 </div>
                                 <div>
@@ -44,7 +43,7 @@
 
 
                 </div>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Notifications</a>
+                <a class="dropdown-item text-center small text-gray-500" href="{{url('/notifications')}}">Show All Notifications</a>
             </div>
         </li>
         <div class="topbar-divider d-none d-sm-block"></div>

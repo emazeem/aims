@@ -2,9 +2,9 @@
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
-    <h2 class="border-bottom text-dark">All Departments</h2>
+    <h2 class="border-bottom text-dark">All SOP's</h2>
 
-    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_department"><i class="fas fa-plus"></i> Department</button>
+    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_sop"><i class="fas fa-plus"></i> SOP</button>
 </div>
 
 <div class="row">
@@ -45,7 +45,7 @@
             "order": [[0, 'desc']],
             "pageLength": 25,
             "ajax":{
-                "url": "{{ route('departments.fetch') }}",
+                "url": "{{ route('sops.fetch') }}",
                 "dataType": "json",
                 "type": "POST",
                 "data":{ _token: "{{csrf_token()}}"}
@@ -66,7 +66,7 @@
             var id = $(this).attr('data-id');
 
             $.ajax({
-                "url": "{{url('/departments/edit')}}",
+                "url": "{{url('/sop/edit')}}",
                 type: "POST",
                 data: {'id': id,_token: '{{csrf_token()}}'},
                 dataType : "json",
@@ -83,7 +83,7 @@
                 },
                 success: function(data)
                 {
-                    $('#edit_department').modal('toggle');
+                    $('#edit_sop').modal('toggle');
                     $('#editid').val(data.id);
                     $('#editname').val(data.name);
                     //Populating Form Data to Edit Ends
@@ -93,11 +93,11 @@
         });
 
 
-        $("#add_department_form").on('submit',(function(e) {
+        $("#add_sop_form").on('submit',(function(e) {
 
             e.preventDefault();
             $.ajax({
-                url: "{{route('departments.store')}}",
+                url: "{{route('sops.store')}}",
                 type: "POST",
                 data:  new FormData(this),
                 contentType: false,
@@ -113,7 +113,7 @@
                 success: function(data)
                 {
                     swal('success',data.success,'success').then((value) => {
-                        $('#add_department').modal('hide');
+                        $('#add_sop').modal('hide');
                         InitTable();
                     });
 
@@ -128,10 +128,10 @@
                 }
             });
         }));
-        $("#edit_department_form").on('submit',(function(e) {
+        $("#edit_sop_form").on('submit',(function(e) {
             e.preventDefault();
             $.ajax({
-                url: "{{route('departments.update')}}",
+                url: "{{route('sops.update')}}",
                 type: "POST",
                 data:  new FormData(this),
                 contentType: false,
@@ -140,7 +140,7 @@
                 success: function(data)
                 {
                     swal('success',data.success,'success').then((value) => {
-                        $('#edit_department').modal('hide');
+                        $('#edit_sop').modal('hide');
                         InitTable();
                     });
 
@@ -161,21 +161,21 @@
 </script>
 
 
-<div class="modal fade" id="add_department" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="add_sop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add department</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Add SOP</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="add_department_form">
+                <form id="add_sop_form">
                     @csrf
                     <div class="row">
-                        <div class="form-group col-9  float-left">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
+                        <div class="form-group col-12  float-left">
+                            <textarea class="form-control" rows="5" id="name" name="name" placeholder="Title of SOP"></textarea>
                         </div>
                         <div class="col-3">
                             <button class="btn btn-primary" type="submit">Save</button>
@@ -191,22 +191,22 @@
     </div>
 </div>
 
-<div class="modal fade" id="edit_department" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="edit_sop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Edit department</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Edit SOP</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="edit_department_form">
+                <form id="edit_sop_form">
                     @csrf
                     <input type="hidden" name="id" id="editid">
                     <div class="row">
-                        <div class="form-group col-9  float-left">
-                            <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
+                        <div class="form-group col-12 float-left">
+                            <textarea class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name"></textarea>
                         </div>
                         <div class="col-3">
                             <button class="btn btn-primary" type="submit">Update</button>

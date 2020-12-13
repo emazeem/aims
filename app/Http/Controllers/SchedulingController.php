@@ -90,6 +90,10 @@ class SchedulingController extends Controller
             ->rawColumns(['options','status','type'])
             ->make(true);
     }
+    public function show($id){
+        $jobs=Jobitem::with('items')->where('job_id',$id)->where('type',0)->get();
+        return view('scheduling.lab_items',compact('jobs'));
+    }
 
     //
 }

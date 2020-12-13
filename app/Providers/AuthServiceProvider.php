@@ -50,6 +50,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->roles();
         $this->pendings();
         $this->awaitings();
+        $this->document_control();
         $this->staf();
         $this->menus();
         $this->manage_reference();
@@ -58,6 +59,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->manage_jobs();
         $this->tasks();
         $this->scheduling();
+        $this->sop();
         $this->jobs();
         $this->certificates();
         $this->invoicing_ledger();
@@ -103,6 +105,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function document_control()
+    {
+        Gate::define('document-control', function ($user) {
+            if (in_array('document-control',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
     public function columns()
     {
         Gate::define('column-index', function ($user) {
@@ -112,6 +124,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function sop()
+    {
+        Gate::define('sop-index', function ($user) {
+            if (in_array('sop-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
     public function staf()
     {
         Gate::define('staff-details', function ($user) {

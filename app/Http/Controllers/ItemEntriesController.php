@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Job;
 use App\Models\Jobitem;
-use App\Models\Labjob;
-use App\Models\Sitejob;
 use Illuminate\Http\Request;
 
-class CheckinController extends Controller
+class ItemEntriesController extends Controller
 {
     public function index($id){
 
         $jobs=Jobitem::with('items')->where('job_id',$id)->where('type',0)->get();
         //dd($jobs);
-        return view('awaiting.quotes',compact('jobs'));
+        return view('itementries.show',compact('jobs'));
     }
     public function edit($id){
         $edit=Jobitem::find($id);
@@ -60,6 +57,5 @@ class CheckinController extends Controller
         $details->save();
         return response()->json(['success'=>'Added successfully']);
     }
-
     //
 }
