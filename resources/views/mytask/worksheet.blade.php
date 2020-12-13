@@ -175,7 +175,7 @@
                     <th class="font-11">ID # </th>
                 </tr>
                 <tr>
-                    <?php $assets=explode(',',$job->assign_assets);$i=0; ?>
+                    <?php $i=0; ?>
                     @foreach($assets as $asset)
                          <td class="font-11" width="16%">{{\App\Models\Asset::find($asset)->code}}</td>
                          <?php $i++; ?>

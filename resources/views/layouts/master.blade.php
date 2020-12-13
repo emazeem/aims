@@ -42,14 +42,6 @@
         @include('layouts.partials.navbar')
         <div class="container-fluid">
             @yield('content')
-
-            <footer style="padding-top: 100px">
-                <div class="container mt-auto">
-                    <div class="copyright text-center mt-auto">
-                        <span>ERP &copy; 2020 AIMS CAL LAB </span>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 </div>
@@ -60,6 +52,8 @@
 <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>
 <!-- extension responsive -->
 <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
+
+{{--<script src="{{url('js/demo/chart-area-demo.js')}}"></script>--}}
 <script>
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {

@@ -4,6 +4,7 @@ Route::get('cmd', function () {
     \Artisan::call('config:cache');
     dd("Done");
 });
+Route::get('/home', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth');
 Route::get('/', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth')->name('home');
 Route::get('notification/markasread/{id}', [App\Http\Controllers\DashboardControlller::class, 'markread'])->middleware('auth')->name('notification.markasread');
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->middleware('auth')->name('profile');
@@ -20,7 +21,9 @@ Route::get('/invoice',function (){return view('docs.invoice');});
 Route::get('/uncertainty',function (){return view('docs.uncertainty');});
 Route::get('/review',function (){return view('docs.contractreview');});
 Route::get('/gate-pass',function (){return view('docs.gatepass');});
+Route::get('/calibration-sticker',function (){return view('docs.calibration_sticker');});
 Route::get('/deliverynote',function (){return view('docs.deliverynote');});
+Route::get('/masterlistofequipments',function (){ $assets=\App\Models\Asset::all(); return view('docs.masterlistofequipments',compact('assets'));});
 Route::group(['prefix'=> 'customers'],function() {
     Route::get('',[App\Http\Controllers\CustomerController::class, 'index'])->middleware('auth')->name('customers');
     Route::get('/create',[App\Http\Controllers\CustomerController::class, 'create'])->middleware('auth')->name('customers.create');
@@ -162,8 +165,6 @@ Route::group(['prefix'=> 'awaitings'],function() {
         Route::post('storesite',[App\Http\Controllers\CheckinController::class, 'storesite'])->name('checkin.storesite');
         Route::post('edit/{id}',[App\Http\Controllers\CheckinController::class, 'edit'])->name('checkin.edit');
     });
-    Route::get('',[App\Http\Controllers\AwaitingController::class, 'index'])->name('awaitings');
-    Route::post('',[App\Http\Controllers\AwaitingController::class, 'fetch'])->name('awaitings.fetch');
 });
 Route::group(['prefix'=> 'scheduling'],function() {
     Route::group(['prefix'=> 'labs'],function() {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\Jobitem;
 use App\Models\Labjob;
 use App\Models\Parameter;
 use App\Models\Quotes;
@@ -20,7 +21,7 @@ class TaskController extends Controller
         $users=User::all();
         $parameters=Parameter::all();
         $assets=Asset::all();
-        $job=Labjob::with('items')->with('jobs')->find($id);
+        $job=Jobitem::with('items')->with('jobs')->find($id);
         $suggestions=Suggestion::where('capabilities',$job->items->capability)->get();
         $sug=array();
         foreach ($suggestions as $suggestion){
@@ -38,7 +39,7 @@ class TaskController extends Controller
         //$users=User::all()->where('department',3);
         $users=User::all();
         $assets=Asset::all();
-        $job=Labjob::find($id);
+        $job=Jobitem::find($id);
         $job->assign_assets=explode(',',$job->assign_assets);
         return view('tasks.edit',compact('job','users','assets'));
     }
@@ -55,7 +56,7 @@ class TaskController extends Controller
             'assets'=>'required',
         ]);
         //dd($request->all());
-        $tasks=Labjob::find($request->id);
+        $tasks=Jobitem::find($request->id);
         $tasks->start=$request->start;
         $tasks->end=$request->end;
         $tasks->status=2;
@@ -76,10 +77,10 @@ class TaskController extends Controller
             'user'=>'required',
             'assets'=>'required',
         ]);
-
-        $jobs=Sitejob::where('job_id',$request->id)->get();
-        foreach ($jobs as $job) {
-            $job->status=2;
+        $jobs=Jobitem::where('job_id',$request->id)->where('type',1)->get();
+        foreach ($jobs as $item) {
+            $job=Jobitem::find($item->id);
+            $job->status=1;
             $job->start=$request->start;
             $job->end=$request->end;
             $assets=implode(',',$request->assets);
@@ -88,7 +89,7 @@ class TaskController extends Controller
             $job->group_users=$users;
             $job->save();
         }
-        return redirect()->back()->with('success','Site job has assigned successfully');
+        return response()->json(['success'=> 'Site job has assigned successfully']);
 
     }
     //

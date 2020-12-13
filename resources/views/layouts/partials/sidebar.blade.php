@@ -25,8 +25,7 @@
                 @if($menu->has_child==1)
                     @can($menu->slug)
                         <a href="#{{$menu->slug}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class="{{$menu->icon}}"></i>
-                            {{$menu->name}}
+                            <i class="{{$menu->icon}}"></i>{{$menu->name}}
                         </a>
                         <?php
                         $submenus=\App\Models\Menu::where('parent_id',$menu->id)->where('has_child',1)->orderBy('position','ASC')->get();

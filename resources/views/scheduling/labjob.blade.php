@@ -48,11 +48,9 @@
                             <td>
                                 {{$job->items->location}}
                             </td>
-
-
                             <td>
                                 @if($job->status==0)
-                                    <span class="badge badge-success">Pending</span>
+                                    <span class="badge badge-success">Waiting Store Entry</span>
                                 @elseif($job->status==1)
                                     <span class="badge badge-danger">Not Assigned</span>
                                 @elseif($job->status==2)

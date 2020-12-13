@@ -9,27 +9,7 @@
     @endif
     <div class="col-12">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-
             <h2 class="border-bottom text-dark">Scheduling Jobs</h2>
-
-            {{--<form method="post" action="" class="pull-right col-md-3 col-12">
-                @csrf
-                <div class="row">
-                    <div class="form-group pull-left col-10">
-                        <select id="inputState" class="form-control">
-                            <option selected disabled>Choose Job Type</option>
-                            <option value="lab">LAB</option>
-                            <option value="site">SITE</option>
-                        </select>
-                    </div>
-                    <div class="-pull-right col-2">
-                        <button type="submit" class="btn btn-success">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
---}}
         </div>
 
     </div>
@@ -97,8 +77,37 @@
             $(document).on('click', '.assign-site', function() {
                 var id = $(this).attr('data-id');
                 $('#assign_site_job').modal('toggle');
-                $('#session_id').val(id);
+                $('#job_id').val(id);
             });
+
+            $("#assign_site_job_form").on('submit',(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('tasks.siteassignjobs')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
+
+                    },
+                    error: function(xhr, status, error)
+                    {
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+
+
 
         });
 
@@ -114,9 +123,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="{{route('tasks.siteassignjobs')}}" method="post">
+                    <form class="form-horizontal" id="assign_site_job_form" method="post">
                         @csrf
-                        <input type="hidden" value="" name="id" id="session_id">
+                        <input type="hidden" value="" name="id" id="job_id">
                         @php $today=date('Y-m-d',time()); @endphp
                         <div class="form-group row">
                             <label for="start" class="col-sm-2 control-label">Start Date</label>

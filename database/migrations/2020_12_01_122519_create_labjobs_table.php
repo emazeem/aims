@@ -13,7 +13,7 @@ class CreateLabjobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('labjobs', function (Blueprint $table) {
+        Schema::create('jobitems', function (Blueprint $table) {
             $table->id()->from(1000);
             $table->integer('job_id');
             $table->integer('item_id');

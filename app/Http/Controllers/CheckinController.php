@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
+use App\Models\Jobitem;
 use App\Models\Labjob;
-use App\Models\Quotes;
-use App\Models\Session;
 use App\Models\Sitejob;
 use Illuminate\Http\Request;
 
@@ -12,24 +12,14 @@ class CheckinController extends Controller
 {
     public function index($id){
 
-        $jobs=Labjob::with('items')->where('job_id',$id)->get();
+        $jobs=Jobitem::with('items')->where('job_id',$id)->where('type',0)->get();
         //dd($jobs);
         return view('awaiting.quotes',compact('jobs'));
     }
     public function edit($id){
-        $edit=Labjob::find($id);
+        $edit=Jobitem::find($id);
         return response()->json($edit);
     }
-    public function create($type,$id){
-        if ($type=='lab'){
-            $show=Labjob::find($id);
-        }else{
-            $show=Sitejob::find($id);
-        }
-
-        return view('awaiting.create',compact('show'));
-    }
-
     public function store(Request $request){
 
         $this->validate($request,[
@@ -40,7 +30,7 @@ class CheckinController extends Controller
             'accessories'=>'required',
             'visualinspection'=>'required',
         ]);
-        $details=Labjob::find($request->id);
+        $details=Jobitem::find($request->id);
         $details->eq_id=$request->eq_id;
         $details->serial=$request->serial;
         $details->make=$request->make;
@@ -58,14 +48,17 @@ class CheckinController extends Controller
             'model'=>'required',
             'visualinspection'=>'required',
         ]);
-        $details=Sitejob::find($request->id);
+        $details=Jobitem::find($request->id);
         $details->eq_id=$request->eq_id;
+        $details->serial=$request->serial;
+        $details->make=$request->make;
         $details->model=$request->model;
-        $details->status=5;
+        $details->status=2;
+        $details->accessories=$request->accessories;
         $details->visual_inspection=$request->visualinspection;
+
         $details->save();
         return response()->json(['success'=>'Added successfully']);
-
     }
 
     //

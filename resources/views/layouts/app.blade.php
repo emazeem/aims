@@ -1,95 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>AIMS ERP</title>
-    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-
-    <!-- Custom fonts for this template-->
     <link href="{{url('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
     <link href="{{url('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{url('style.css')}}" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
-
-    <!--  Datatables  -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
-
-    <!--  extension responsive  -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
 </head>
-{{--
-<style>
-    .loader{
-        background: url('{{url('/img/pre-loader.gif')}}')
-        50% 50% no-repeat rgba(255, 255, 255, 0.9);
-    }
-    #page-top{
-
-        background-position: center;
-        background-size: cover;
-    }
-</style>
-
-<div id="preloader" class="loader">
-</div>
---}}
-<body id="page-top" style="background-image: url({{url('/img/login.jpg')}});">
+<body id="page-top" style="background: linear-gradient(180deg, rgb(13,17,30), rgba(0,0,0,0.76)),url('{{url('img/lab-room.jpg')}}');background-size: cover">
 <div class="container-fluid">
     @yield('content')
 </div>
-<!-- Bootstrap core JavaScript-->
-<script src="{{url('vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{url('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="{{url('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{url('js/sb-admin-2.min.js')}}"></script>
-
-
-
-
-
-
-{{--
-<script>
-    $(window).on('load', function() {
-        $('#status').fadeOut();
-        $('#preloader').delay(350).fadeOut('slow');
-    })
-</script>
-
---}}
-
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-<!--   Datatables-->
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
-
-<!-- extension responsive -->
-<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-
 </body>
-
 </html>

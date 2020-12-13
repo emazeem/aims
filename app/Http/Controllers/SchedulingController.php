@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use App\Models\Job;
+use App\Models\Jobitem;
 use App\Models\Labjob;
 use App\Models\Quotes;
 use App\Models\Session;
@@ -16,7 +17,8 @@ use Yajra\DataTables\Facades\DataTables;
 class SchedulingController extends Controller
 {
     public function index(){
-        $users=User::all()->where('department',3);
+        //$users=User::all()->where('department',3);
+        $users=User::all();
         $assets=Asset::all();
         return view('scheduling.index',compact('users','assets'));
     }
@@ -45,64 +47,42 @@ class SchedulingController extends Controller
                 return $turnaround;
             })
             ->addColumn('type', function ($data) {
-
                 $check=null;
-                $l=Labjob::where('job_id',$data->id)->count();
-                if ($l>0){
-                    //lab
-                    $check=0;
+                $items=Jobitem::where('job_id',$data->id)->get();
+                $check=[];
+                foreach ($items as $item){
+                    $check[]=$item->type;
                 }
-
-                $s=Sitejob::where('job_id',$data->id)->count();
-                if ($s>0){
-                    if (!isset($check)){
-                        $check=1;
-                    }else{
-                        $check=2;
-                    }
-                }
-
-
-                if ($check==0){
-                    return "LAB";
-                }
-                if ($check==1){
-                    return "SITE";
-
-                }
-                if ($check==2){
-                    return "SPLIT";
-                }
-
-                //return $data->sessions->type;
+                $type=null;
+                $check=array_unique($check);
+                if ($check==[0]){$type='LAB';}
+                else if ($check==[1]){$type='SITE';}
+                else {$type='SPLIT';}
+                return $type;
             })->addColumn('options', function ($data) {
                 $check=null;
-                $l=Labjob::where('job_id',$data->id)->count();
-                if ($l>0){
-                    //lab
-                    $check=0;
+                $items=Jobitem::where('job_id',$data->id)->get();
+                $check=[];
+                foreach ($items as $item){
+                    $check[]=$item->type;
                 }
-
-                $s=Sitejob::where('job_id',$data->id)->count();
-                if ($s>0){
-                    if (!isset($check)){
-                        $check=1;
-                    }else{
-                        $check=2;
-                    }
-                }
+                $type=null;
+                $check=array_unique($check);
+                if ($check==[0]){$type=0;}
+                else if ($check==[1]){$type=1;}
+                else{$type=2;}
                 $action=null;
                 //if(Auth::user()->can('scheduling-show')){
-                    if ($check==1){
-                        $action="<button type='button' title='assign site job' class='btn btn-sm btn-danger assign-site' data-id=".$data->id."  href=''><i class='fa fa-plus'></i></button>";
+                    if ($type==1){
+                        $action="<button type='button' title='assign site job' class='btn btn-sm btn-danger assign-site' data-id=".$data->id."  href=''>SITE</button>";
                     }
-                    if ($check==0){
-                        $action.="<a title='view' href=".url('/scheduling/labs/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-eye'></i></a>";
+                    if ($type==0){
+                        $action.="<a title='view' href=".url('/scheduling/labs/'.$data->id)." class='btn btn-sm btn-success'>LAB</i></a>";
                     }
-                    if ($check==2){
-                        $action="<button type='button' title='assign site job' class='btn btn-sm btn-danger assign-site' data-id=".$data->id."  href=''><i class='fa fa-plus'></i></button>";
+                    if ($type==2){
+                        $action="<button type='button' title='assign site job' class='btn btn-sm btn-danger assign-site' data-id=".$data->id."  href=''>SITE</button>";
 
-                        $action.="<a title='view' href=".url('/scheduling/labs/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-eye'></i></a>";
+                        $action.="<a title='view' href=".url('/scheduling/labs/'.$data->id)." class='btn btn-sm btn-success'>LAB</a>";
                     }
                 //}
                 return "&emsp;".$action;

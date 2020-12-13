@@ -17,92 +17,101 @@
             display: none;
         }
     }
+
+    .font-md{
+        font-size: 18px;
+    }
+    .font-sm {
+        font-size: 13px;
+    }
+    .font-xs {
+        font-size: 12px;
+    }
+
 </style>
 <body>
 <button onclick="window.print()" id="printPageButton" class="btn btn-danger btn-sm float-right">Print</button>
-<div class="container">
-    <div class="col-12 font-style mt-2">
-        <div class="row">
-            <div class="col-2 text-center custom-border">
+<div class="container p-3">
+    <div class="col-12 font-style mt-2 ">
+        <div class="row custom-border">
+            <div class="col-2 text-center">
                 <img src="{{url('/img/AIMS.png')}}" class="mt-2 ml-2" width="100">
             </div>
-            <div class="col-7 border-left-right-0 custom-border">
-                <p class="text-center b font-24" style="margin-top: 10px">Calibration Job Form /
+            <div class="col-7 custom-border-left">
+                <p class="text-center b font-24" style="margin-top: 10px">Calibration Job Form /<br>
                     Customer Contract Form</p>
             </div>
-            <div class="col-3 row custom-border font-9 p-0">
-                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
+            <div class="col-3 row  font-9 p-0 custom-border-left">
+                <p class="text-center font-sm col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
                 <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2020</p>
+                <p class="text-center font-sm col-12 my-2">Issue Date : 06-10-2020</p>
                 <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 mt-2 mb-1">
-                    Issue # 01
-                    <span class="px-4"></span>
-                    Rev # 02
-                </p>
+                <p class="text-center font-sm col-6 mt-2 mb-1">Issue # 01</p>
+                <p class="text-center font-sm col-6 mt-2 mb-1 custom-border-left">Rev # 02</p>
             </div>
-
         </div>
-        <div class="row py-3">
-            <div class="col-3 row my-1 font-11 ">
-                <div class="col-3">Job#:</div>
-                <div class="col-9 custom-bottom-border  text-center">{{$job->id}}</div>
-            </div>
-            <div class="col-2 row my-1 font-11 ">
-                <div class="col-3">Date:</div>
-                <div class="col-9 custom-bottom-border  text-center">{{date('d m Y')}}</div>
-            </div>
-            <div class="col-4 row my-1 font-11 ">
-                <div class="col-7">Work order / Quotation #</div>
-                <div class="col-5 custom-bottom-border  text-center">{{$job->quotes->mode}}</div>
-            </div>
-            <div class="col-3 row my-1 font-11 ">
-                <div class="col-3">Dated:</div>
-                <div class="col-9 custom-bottom-border  text-center">{{$job->quotes->approval_date}}</div>
-            </div>
-            <div class="col-6 row my-1 font-11 ">
-                <div class="col-4">Customer Name:</div>
-                <div class="col-8 custom-bottom-border">{{$job->quotes->customers->reg_name}}</div>
-            </div>
-            <div class="col-6 row my-1 font-11 ">
-                <div class="col-3">Address:</div>
-                <div class="col-9 custom-bottom-border">{{$job->quotes->customers->address}}</div>
-            </div>
-            <div class="col-12 row my-1 font-11 ">
-                <div class="col-2">Contact Person:</div>
-                <div class="col-10 custom-bottom-border">{{$job->quotes->principal}}</div>
-            </div>
-            <div class="col-6 row my-1 font-11 ">
-                <div class="col-3">Contact #:</div>
-                <div class="col-9 custom-bottom-border">
-                    @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_phone_1}}
-                    @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_phone_2}}
-                    @else
-                        {{$job->quotes->customers->prin_phone_3}}
-                    @endif
-                </div>
-            </div>
-            <div class="col-6 row my-1 font-11 ">
-                <div class="col-3">Email:</div>
-                <div class="col-9 custom-bottom-border">
-                    @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_email_1}}
-                    @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_email_2}}
-                    @else
-                        {{$job->quotes->customers->prin_email_3}}
-                    @endif
-                </div>
-            </div>
+    </div>
+</div>
+<div class="container">
+    <div class="col-12 font-style">
 
+        <div class="row custom-border p-2">
+        <div class="col-3 row my-1 font-md">
+            <div class="col-4">Job#:</div>
+            <div class="col-8 custom-bottom-border text-center">JN/{{date('y',strtotime($job->created_at))}}/{{$job->id}}</div>
+        </div>
+        <div class="col-2 row my-1 font-sm ">
+            <div class="col-3">Date:</div>
+            <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y')}}</div>
+        </div>
+        <div class="col-4 row my-1 font-sm ">
+            <div class="col-7">Work order / Quotation #</div>
+            <div class="col-5 custom-bottom-border  text-center">{{$job->quotes->mode}}</div>
+        </div>
+        <div class="col-3 row my-1 font-md ">
+            <div class="col-3">Dated:</div>
+            <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y',strtotime($job->quotes->approval_date))}}</div>
+        </div>
+        <div class="col-6 row my-1 font-md ">
+            <div class="col-4 font-sm">Customer Name:</div>
+            <div class="col-8 custom-bottom-border">{{$job->quotes->customers->reg_name}}</div>
+        </div>
+        <div class="col-6 row my-1 font-md ">
+            <div class="col-4">Address:</div>
+            <div class="col-8 custom-bottom-border font-sm">{{$job->quotes->customers->address}}</div>
+        </div>
+        <div class="col-12 row my-1 font-md ">
+            <div class="col-2">Contact Person:</div>
+            <div class="col-10 custom-bottom-border">{{$job->quotes->principal}}</div>
+        </div>
+        <div class="col-6 row my-1 font-md ">
+            <div class="col-4">Contact #:</div>
+            <div class="col-8 custom-bottom-border">
+                @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
+                    {{$job->quotes->customers->prin_phone_1}}
+                @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
+                    {{$job->quotes->customers->prin_phone_2}}
+                @else
+                    {{$job->quotes->customers->prin_phone_3}}
+                @endif
+            </div>
+        </div>
+        <div class="col-6 row my-1 font-md ">
+            <div class="col-4">Email:</div>
+            <div class="col-8 custom-bottom-border">
+                @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
+                    {{$job->quotes->customers->prin_email_1}}
+                @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
+                    {{$job->quotes->customers->prin_email_2}}
+                @else
+                    {{$job->quotes->customers->prin_email_3}}
+                @endif
+            </div>
         </div>
         <div class="col-12 text-center">
             <p class=" font-14 b mt-3">Items received for calibration</p>
         </div>
-        <div class="row">
-            <table class="table table-bordered">
+            <table class="table table-bordered font-md">
                 <thead>
                 <tr>
                     <th>Sr#</th>
@@ -118,53 +127,52 @@
                 @php $i=1; @endphp
                 @foreach($labjobs as $labjob)
                     <tr>
-                        <td class="font-11">{{$i}}</td>
+                        <td class="font-md">{{$i}}</td>
                         @php $i++; @endphp
-                        <td class="font-11">{{\App\Models\Item::find($labjob->item_id)->capabilities->name}}</td>
-                        <td class="font-11">{{$labjob->eq_id}}</td>
-                        <td class="font-11">{{$labjob->model}}</td>
-                        <td class="font-11">{{date('d M-Y h:i A',strtotime($labjob->jobs->quotes->turnaround))}}</td>
-                        <td class="font-11">{{$labjob->accessories}}</td>
-                        <td class="font-11">{{$labjob->visual_inspection}}</td>
+                        <td class="font-md">{{\App\Models\Item::find($labjob->item_id)->capabilities->name}}</td>
+                        <td class="font-md">{{$labjob->eq_id}}</td>
+                        <td class="font-md">{{$labjob->model}}</td>
+                        <td class="font-md">{{date('d M-Y h:i A',strtotime($labjob->jobs->quotes->turnaround))}}</td>
+                        <td class="font-md">{{$labjob->accessories}}</td>
+                        <td class="font-md">{{$labjob->visual_inspection}}</td>
                     </tr>
                 @endforeach
                 @foreach($sitejobs as $sitejob)
                     <tr>
-                        <td class="font-11">{{$i}}</td>
+                        <td class="font-md">{{$i}}</td>
                         @php $i++; @endphp
-                        <td class="font-11">{{$sitejob->items->capabilities->name}}</td>
-                        <td class="font-11">{{$sitejob->eq_id}}</td>
-                        <td class="font-11">{{$sitejob->model}}</td>
-                        <td class="font-11">{{date('d M-Y h:i A',strtotime($sitejob->jobs->quotes->turnaround))}}</td>
-                        <td class="font-11">{{$sitejob->accessories}}</td>
-                        <td class="font-11">{{$sitejob->visual_inspection}}</td>
+                        <td class="font-md">{{$sitejob->items->capabilities->name}}</td>
+                        <td class="font-md">{{$sitejob->eq_id}}</td>
+                        <td class="font-md">{{$sitejob->model}}</td>
+                        <td class="font-md">{{date('d M-Y h:i A',strtotime($sitejob->jobs->quotes->turnaround))}}</td>
+                        <td class="font-md">{{$sitejob->accessories}}</td>
+                        <td class="font-md">{{$sitejob->visual_inspection}}</td>
                     </tr>
                 @endforeach
 
 
                 </tbody>
             </table>
-        </div>
-        <div class="row">
-            <div class="p-0 col-2"><p class="font-11"><input type="checkbox"> Urgent Job</p></div>
-            <div class="p-0 col-3"><p class="font-11"><input type="checkbox"> Normal Job</p></div>
-            <div class="p-0 col-4"><p class="font-11"><input type="checkbox"> Accredited Calibration</p></div>
-            <div class="p-0 col-3"><p class="font-11"><input type="checkbox"> Non Accredited Calibration</p></div>
-            <div class="p-0 col-5"><p class="font-11"><input type="checkbox"> Full Ranges of Items to be calibrated</p>
+
+            <div class="p-0 col-2"><p class="font-md"><input type="checkbox"> Urgent Job</p></div>
+            <div class="p-0 col-3"><p class="font-md"><input type="checkbox" checked> Normal Job</p></div>
+            <div class="p-0 col-4"><p class="font-md"><input type="checkbox"> Accredited Calibration</p></div>
+            <div class="p-0 col-3"><p class="font-md"><input type="checkbox"> Non Accredited Calibration</p></div>
+            <div class="p-0 col-5"><p class="font-md"><input type="checkbox" checked> Full Ranges of Items to be calibrated</p>
             </div>
-            <div class="p-0 col-7"><p class="font-11"><input type="checkbox"> Partial Ranges to be calibrated as
+            <div class="p-0 col-7"><p class="font-md"><input type="checkbox"> Partial Ranges to be calibrated as
                     negotiated.</p></div>
-            <div class="p-0 col-5"><p class="font-11"><input type="checkbox"> Re-Calibration Interval of 12 months</p>
+            <div class="p-0 col-5"><p class="font-md"><input type="checkbox" checked> Re-Calibration Interval of 12 months</p>
             </div>
-            <div class="p-0 col-7"><p class="font-11"><input type="checkbox"> Re-Calibration Interval of 6 months</p>
+            <div class="p-0 col-7"><p class="font-md"><input type="checkbox"> Re-Calibration Interval of 6 months</p>
             </div>
-            <div class="p-0 col-5"><p class="font-11"><input type="checkbox"> Customer Preferred Cal Procedure
+            <div class="p-0 col-5"><p class="font-md"><input type="checkbox"> Customer Preferred Cal Procedure
                 </p></div>
-            <div class="p-0 col-7"><p class="font-11"><input type="checkbox"> AIMS's Selected Cal Price</p></div>
+            <div class="p-0 col-7"><p class="font-md"><input type="checkbox" checked> AIMS's Selected Cal Price</p></div>
             <div class="p-0 col-5">
-                <p class="font-11"><input type="checkbox"> Statement of Conformity required</p>
+                <p class="font-md"><input type="checkbox"> Statement of Conformity required</p>
             </div>
-            <div class="col-12">
+            <div class="col-12 font-md">
                 <p>
                     ( In case Customer chooses this option then Customer will provide detailed acceptance / specification
                     limits for each
@@ -176,28 +184,29 @@
                 </p>
             </div>
             <div class="p-0 col-5">
-                <p class="font-11"><input type="checkbox"> Statement of Conformity Not required</p>
+                <p class="font-md"><input type="checkbox" checked> Statement of Conformity Not required</p>
             </div>
-        </div>
-        <div class="row">
-            <p class="col-12 font-10 b">Note:</p>
-            <p class="col-12 font-10">
-                Dear Customer, you are requested to collect your calibrated equipment within 30 days of the "Return Date" as per this Job Form. After that AIMS CAL Lab shall not be responsible for any damage / loss of above listed equipment. By signing you also agree with the terms and conditions mentioned below or on the reverse side of this Calibration Job Form.
+
+        <p class="col-12 font-md b">Note:</p>
+        <p class="col-12 font-md ">
+            Dear Customer, you are requested to collect your calibrated equipment within 30 days of the "Return Date" as per
+            this Job Form. After that AIMS CAL Lab shall not be responsible for any damage / loss of above listed equipment. By
+            signing you also agree with the terms and conditions mentioned below or on the reverse side of this Calibration Job
+            Form.
 
 
-            </p>
-        </div>
-        <div class="row mt-3">
-            <table class="table table-bordered">
+        </p>
+
+        <table class="table table-bordered">
                 <thead>
-                <tr>
+                <tr class="font-md">
                     <th width="50%" class="text-center">Received for calibration by (AIMS Representative)</th>
                     <th width="50%" class="text-center">Customer Representative</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td class="font-11">
+                    <td class="font-md">
                         <div class="row py-3">
                             <div class="col-3">
                                 Signature
@@ -222,7 +231,7 @@
 
                     </td>
 
-                    <td class="font-11">
+                    <td class="font-sm">
                         <div class="row py-3">
                             <div class="col-3">
                                 Signature
@@ -249,12 +258,11 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
         <div class="col-12 text-center">
-            <p class=" font-14 b mt-3">Terms and Conditions</p>
+            <p class="font-md b mt-3">Terms and Conditions</p>
         </div>
         <div class="col-12">
-            <p class="font-10">1. On receipt of equipment, one copy of Calibration Job Form shall be handed over to
+            <p class="font-xs">1. On receipt of equipment, one copy of Calibration Job Form shall be handed over to
                 Customer Representative.<br>
                 2. In case the equipment is received through courier/mail, Calibration Job Form shall be dispatched by
                 mail or through Fax to confirm
@@ -273,11 +281,13 @@
                 that AIMS Cal Lab shall not be responsible for any damage/loss of above listed equipment.
             </p>
         </div>
-    </div>
-    <div class="col-12 text-center font-11">
-        <p class="custom-border">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission of the company.</p>
+    <div class="col-12 text-center font-sm">
+        <p class="custom-border">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or
+            copied without prior written permission of the company.</p>
 
     </div>
+    </div>
 </div>
+
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Job;
+use App\Models\Jobitem;
 use App\Models\Labjob;
 use App\Models\Quotes;
 use App\Models\Role;
@@ -79,11 +80,11 @@ class ManageJobsController extends Controller
         }
         foreach ($job_ids as $job_id) {
             //for lab
-            $labs=Labjob::where('job_id',$job_id)->get();
+            $labs=Jobitem::where('job_id',$job_id)->where('type',0)->get();
             foreach ($labs as $lab){
                 $assigned_items[]=$lab->item_id;
             }
-            $sites=Sitejob::where('job_id',$job_id)->get();
+            $sites=Jobitem::where('job_id',$job_id)->where('type',1)->get();
             foreach ($sites as $site){
                 $assigned_items[]=$site->item_id;
             }
@@ -109,15 +110,17 @@ class ManageJobsController extends Controller
          foreach ($quotes as $quote) {
              if (in_array($quote->id,$items)){
                  for ($x = 0; $x < $quote->quantity; $x++) {
+                     $jobitem = new Jobitem();
                      if ($quote->location == "site") {
-                         $jobform = new Sitejob();
+                        $jobitem->type=1;
+                        $jobitem->status=1;
                      }
                      if ($quote->location == "lab") {
-                         $jobform = new Labjob();
+                         $jobitem->type=0;
                      }
-                     $jobform->job_id = $job->id;
-                     $jobform->item_id = $quote->id;
-                     $jobform->save();
+                     $jobitem->job_id = $job->id;
+                     $jobitem->item_id = $quote->id;
+                     $jobitem->save();
                  }
              }
          }
@@ -127,13 +130,9 @@ class ManageJobsController extends Controller
     //
     public function destroy(Request $request){
         $job=Job::find($request->id);
-        $labjobs=Labjob::where('job_id',$request->id)->get();
-        foreach ($labjobs as $labjob) {
-            $labjob->delete();
-        }
-        $sitejobs=Sitejob::where('job_id',$request->id)->get();
-        foreach ($sitejobs as $sitejob) {
-            $sitejob->delete();
+        $jobitems=Jobitem::where('job_id',$request->id)->get();
+        foreach ($jobitems as $jobitem) {
+            $jobitem->delete();
         }
         $job->delete();
         return response()->json(['success'=>'Deleted successfully']);

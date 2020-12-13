@@ -7,6 +7,13 @@
             });
         </script>
     @endif
+    @if(Session::has('failed'))
+        <script>
+            $(document).ready(function () {
+                swal("Sorry!", '{{Session('failed')}}', "error");
+            });
+        </script>
+    @endif
     <div class="row">
         <h2 class="border-bottom text-dark">Calculator</h2>
     </div>

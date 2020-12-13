@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dataentry;
+use App\Models\Jobitem;
 use App\Models\Labjob;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class DataentryController extends Controller
             'x2' => 'required',
         ]);
 
-        if ($request->jobtype==0){
+/*        if ($request->jobtype==0){*/
             $already_exsited=Dataentry::where('job_type',0)->where('asset_id',$request->assets)->where('unit',$request->units)->first();
             if ($already_exsited){
                 $x1=[];$x2=[];$x3=[];$x4=[];$x5=[];$fixed=[];
@@ -50,7 +51,7 @@ class DataentryController extends Controller
                 }
                 return redirect()->back()->with('success','Entry added successfully');
             }
-            $labjob=Labjob::find($request->jobtypeid);
+            $labjob=Jobitem::find($request->jobtypeid);
             $labjob->accuracy=$request->accuracy;
             $labjob->range=$request->range;
             $labjob->resolution=$request->uuc_resolution;
@@ -90,7 +91,8 @@ class DataentryController extends Controller
             //dd($request->all());
             return redirect()->back()->with('success','Entry added successfully');
 
-        }
+        /*}*/
+
 
     }
 }

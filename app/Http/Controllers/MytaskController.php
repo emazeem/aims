@@ -9,6 +9,7 @@ use App\Models\Certificate;
 use App\Models\Dataentry;
 use App\Models\Item;
 use App\Models\Job;
+use App\Models\Jobitem;
 use App\Models\Labjob;
 use App\Models\Managereference;
 use App\Models\Parameter;
@@ -31,7 +32,7 @@ class MytaskController extends Controller
     public function fetch(Request $request){
         $this->authorize('mytask-index');
 
-        $data=Labjob::all()->where('assign_user',auth()->user()->id);
+        $data=Jobitem::all()->where('assign_user',auth()->user()->id);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -78,16 +79,14 @@ class MytaskController extends Controller
     }
     public function s_fetch(Request $request){
         $this->authorize('mytask-index');
-
-        $filters=Sitejob::all();
+        $filters=Jobitem::all()->where('type',1);
         $skip_ids=array();
         foreach ($filters as $filter) {
             if (in_array(auth()->user()->id,explode(',',$filter->group_users))){
                 $skip_ids[]=$filter->id;
             }
         }
-        $data=Sitejob::all()->whereIn('id',$skip_ids);
-
+        $data=Jobitem::all()->whereIn('id',$skip_ids)->where('type',1);
         return DataTables::of($data)
 
             ->addColumn('id', function ($data) {
@@ -125,8 +124,6 @@ class MytaskController extends Controller
                 if ($data->status==6){
                     $status= "<b class=\"text-success\">Completed</b>";
                 }
-
-
                 return $status;
             })
 
@@ -145,7 +142,7 @@ class MytaskController extends Controller
     public function show($id){
         $this->authorize('mytask-view');
         $location=0;
-        $show=Labjob::find($id);
+        $show=Jobitem::find($id);
         $parameters=[];
         $assets=explode(',',$show->assign_assets);
         foreach ($assets as $asset){
@@ -161,31 +158,31 @@ class MytaskController extends Controller
     }
     public function s_show($id){
         $this->authorize('mytask-view');
+        $show=Jobitem::find($id);
+        $parameters=[];
+        $assets=explode(',',$show->group_assets);
+        foreach ($assets as $asset){
+            $parameters[]=Asset::find($asset)->parameter;
+        }
+        $parameters=array_unique($parameters);
+        $parameters=Parameter::whereIn('id',$parameters)->get();
+        $assets=Asset::whereIn('id',$assets)->get();
+        $assets=Asset::whereIn('id',$assets)->get();
         $location=1;
-        $show=Sitejob::find($id);
-        return view('mytask.show',compact('show','location'));
+        $dataentries=Dataentry::where('parent_id',null)->where('job_type',0)->where('job_type_id',$id)->with('child')->first();
+        return view('mytask.show',compact('show','location','assets','dataentries'));
     }
 
     public function start(Request $request){
         $this->authorize('start-mytask');
-        if ($request->location==0){
-            $start=Labjob::find($request->id);
-        }
-        elseif ($request->location==1){
-            $start=Sitejob::find($request->id);
-        }
+        $start=Jobitem::find($request->id);
         $start->status=3;
         $start->started_at=date('Y-m-d H:i:s');
         $start->save();
         return redirect()->back()->with('success','Task has been started');
     }
     public function end(Request $request){
-        if ($request->location==0){
-            $start=Labjob::find($request->id);
-        }
-        elseif ($request->location==1){
-            $start=Sitejob::find($request->id);
-        }
+        $start=Jobitem::find($request->id);
         $start->status=4;
         $start->ended_at=date('Y-m-d H:i:s');
         $start->save();
@@ -416,17 +413,22 @@ class MytaskController extends Controller
         echo 'Drift of the Standard : '.$drift_of_the_standard;
     }
     public function print_worksheet($location,$id){
-        if ($location==0){
-            $job=Labjob::find($id);
+            $job=Jobitem::find($id);
             $mainjob=Job::find($job->job_id);
             $quote=Quotes::find($mainjob->quote_id);
-        }
+            if ($location==0){
+                $assets=explode(',',$job->assign_assets);
+            }
+            else{
+                $assets=explode(',',$job->group_assets);
+            }
+
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
-        return view('mytask.worksheet',compact('entries','job','quote','mainjob'));
+        return view('mytask.worksheet',compact('entries','job','quote','mainjob','assets'));
     }
     public function print_uncertainty($location,$id){
         if ($location==0){
-            $job=Labjob::find($id);
+            $job=Jobitem::find($id);
 
         }
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
@@ -489,6 +491,10 @@ class MytaskController extends Controller
             foreach ($reference_table as $item) {
                 $intervals[]=$item->uuc;
                 //echo (int)$item->uuc.'<br>';
+            }
+            if (!isset($intervals)){
+                return redirect()->back()->with('failed','Reference data is not available');
+
             }
             //echo 'END INTERVALS';
             $min=null;$max=null;$count=count($intervals);
@@ -682,7 +688,7 @@ class MytaskController extends Controller
     }
     public function print_certificate($location,$id){
         if ($location==0){
-            $job=Labjob::find($id);
+            $job=Jobitem::find($id);
             $mainjob=Job::find($job->job_id);
             $quote=Quotes::find($mainjob->quote_id);
         }

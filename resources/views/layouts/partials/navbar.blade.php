@@ -5,7 +5,6 @@
         <i class="fas fa-bars"></i>
         <span></span>
     </button>
-
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto ">
 
@@ -24,20 +23,26 @@
                 <div style="height: 300px;overflow-y: scroll" class="notification-scroll">
 
                     @foreach(Auth::user()->Notifications as $notification)
-                        <a class="dropdown-item {{($notification->read_at==null)?"bg-custom-notification-unread":"bg-light"}}" href="{{url('/notification/markasread/'.$notification->id)}}">
-                            <div class="{{($notification->read_at==null)?"font-weight-bold":""}}">
-                                @if(\App\Models\User::find($notification->data['data']['by'])->profile==null)
-                                    <img src="{{url('img/profile.png')}}" class="img-fluid rounded-circle bg-white" style="height: 25px;width: 25px;">
-                                @else
-                                    <img src="{{Storage::disk('local')->url('public/profile/'.$notification->data['data']['by'].'/'.\App\Models\User::find($notification->data['data']['by'])->profile)}}" class="img-fluid rounded-circle" style="height: 25px;width: 25px;">
-                                @endif
+                            <a class="dropdown-item d-flex align-items-center p-1 {{($notification->read_at==null)?"bg-custom-notification-unread":"bg-light"}}" href="#">
+                                <div class="mr-2">
+                                <div class="icon-circle">
+                                    @if(\App\Models\User::find($notification->data['data']['by'])->profile==null)
+                                        <img src="{{url('img/profile.png')}}" class="img-fluid rounded-circle bg-white" style="width: 30px;">
+                                    @else
+                                        <img src="{{Storage::disk('local')->url('public/profile/'.$notification->data['data']['by'].'/'.\App\Models\User::find($notification->data['data']['by'])->profile)}}" class="img-fluid rounded-circle" style="width: 30px;height: 30px;object-fit: cover">
+                                    @endif
 
-                                <small class="font-weight-bold ml-1 pb-1">{{$notification->data['data']['title']}}</small>
-                                <small class="float-right"><i class="fa fa-clock"></i> {{$notification['created_at']->diffForHumans()}}</small>
-                            </div>
-                            <small>{{$notification->data['data']['body']}}</small>
-                        </a>
+                                </div>
+                                </div>
+                                <div>
+                                    <div class="small">{{$notification->data['data']['title']}}</div>
+                                    <span class="{{($notification->read_at==null)?"font-weight-bold":""}}">{{$notification->data['data']['body']}}</span>
+                                    <div class="small text-right"><i class="fa fa-clock"></i> {{$notification['created_at']->diffForHumans()}}</div>
+                                </div>
+                            </a>
                     @endforeach
+
+
                 </div>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Notifications</a>
             </div>
