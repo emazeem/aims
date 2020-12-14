@@ -10,7 +10,7 @@
     <link href="{{url('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{url('style.css')}}" rel="stylesheet">
 </head>
-<body id="page-top" style="background: linear-gradient(180deg, rgb(13,17,30), rgba(0,0,0,0.76)),url('{{url('img/lab-room.jpg')}}');background-size: cover">
+<body id="page-top" style="background: linear-gradient(180deg, rgb(13,17,30), rgba(0,0,0,0.6)),url('{{url('img/lab-room.jpg')}}');background-size: cover">
 <div class="container-fluid">
     @yield('content')
 </div>

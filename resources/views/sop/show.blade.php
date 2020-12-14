@@ -41,12 +41,10 @@
         </div>
         <h3 class="border-bottom text-dark m-2">All Clauses</h3>
         <div class="col-12">
-            <table class="table table-hover font-13 table-bordered">
-                <tr>
+            <table class="table table-hover font-13 table-bordered"><tr>
                     <th>Title</th>
                     <th>Description</th>
                 </tr>
-
                 @foreach($clauses as $clause)
                     <tr>
                         <td>{{$clause->title}}</td>

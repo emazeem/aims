@@ -8,6 +8,8 @@ use App\Models\Capabilities;
 use App\Models\Customer;
 use App\Models\Department;
 use App\Models\Designation;
+use App\Models\Expense;
+use App\Models\Expensecategory;
 use App\Models\Item;
 use App\Models\Job;
 use App\Models\Jobform;
@@ -36,10 +38,9 @@ class DashboardControlller extends Controller
         $parameters=Parameter::all()->count();
         $quotes=Quotes::all()->count();
         $jobs=Job::all()->count();
-
-
-
-        return view('dashboard',compact('customers','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations'));
+        $expense_categories=Expensecategory::all()->count();
+        $expenses=Expense::all()->count();
+        return view('dashboard',compact('customers','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations'));
     }
     public function markRead($id)
     {

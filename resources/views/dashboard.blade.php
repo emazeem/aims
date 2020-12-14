@@ -2,7 +2,6 @@
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h2 class="border-bottom text-dark">Dashboard</h2>
-
 </div>
 
 <div class="row">
@@ -80,7 +79,7 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="{{url('sessions')}}"><span class="text-danger">Quotes</span></a></div>
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="{{url('quotes')}}"><span class="text-danger">Quotes</span></a></div>
             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$quotes}}</div>
           </div>
           <div class="col-auto">
@@ -125,7 +124,7 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="#"><span class="text-dark">My Tasks</span></a></div>
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="{{url('mytasks')}}"><span class="text-dark">My Tasks</span></a></div>
             <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
           </div>
           <div class="col-auto">
@@ -140,7 +139,7 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-uppercase mb-1"><a style="text-decoration:none" href="#"><span class="text-primary">Department</span></a></div>
+            <div class="text-xs font-weight-bold text-uppercase mb-1"><a style="text-decoration:none" href="{{url('departments')}}"><span class="text-primary">Department</span></a></div>
             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$departments}}</div>
           </div>
           <div class="col-auto">
@@ -155,7 +154,7 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="#"><span class="text-dark">Designation</span></a></div>
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="{{url('designations')}}"><span class="text-dark">Designation</span></a></div>
             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$designations}}</div>
           </div>
           <div class="col-auto">
@@ -165,6 +164,38 @@
       </div>
     </div>
   </div>
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-danger shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><a style="text-decoration:none" href="{{url('expenses_categories')}}"><span class="text-danger">Expense Categories</span></a></div>
+            <div class="h5 mb-0 font-weight-bold text-danger">{{$expense_categories}}</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-user fa-2x text-danger"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-success shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a style="text-decoration:none" href="{{url('expenses')}}"><span class="text-success">Expenses </span></a></div>
+            <div class="h5 mb-0 font-weight-bold text-success">{{$expenses}}</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-user fa-2x text-success"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
