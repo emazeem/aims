@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="08ddbbe4-b28f-4206-b183-2196bfddb232" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_05_040735_create_users_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clauses/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clauses/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/sop/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sop/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/designation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/designation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,44 +64,49 @@
           <entry key="htaccess" value="1" />
           <entry key="html" value="2" />
           <entry key="js" value="1" />
-          <entry key="php" value="209" />
+          <entry key="json" value="1" />
+          <entry key="php" value="217" />
+          <entry key="sql" value="1" />
           <entry key="vcf" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="96" />
+          <entry key="Blade" value="100" />
           <entry key="CSS" value="3" />
           <entry key="HTML" value="2" />
+          <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="113" />
+          <entry key="PHP" value="117" />
           <entry key="PLAIN_TEXT" value="5" />
+          <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="53" />
           <entry key="js" value="18" />
-          <entry key="php" value="11551" />
+          <entry key="php" value="11598" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="6575" />
+          <entry key="Blade" value="6607" />
           <entry key="CSS" value="53" />
           <entry key="JavaScript" value="18" />
-          <entry key="PHP" value="4976" />
+          <entry key="PHP" value="4991" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.15" value="2" />
-          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="3" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.29" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
     </session>
@@ -111,35 +114,14 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="190" column="52" selection-start-line="190" selection-start-column="52" selection-end-line="190" selection-end-column="52" />
-              <folding>
-                <element signature="e#7478#7506#0#HTML" expanded="true" />
-                <element signature="e#8176#8204#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="42" column="82" selection-start-line="42" selection-start-column="82" selection-end-line="42" selection-end-column="82" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>checkincontroller</find>
-      <find>sched</find>
-      <find>siteassignjobs</find>
-      <find>session_id</find>
       <find>taskcontr</find>
       <find>home</find>
       <find>uncertainty</find>
@@ -166,6 +148,10 @@
       <find>edit_sop</find>
       <find>body</find>
       <find>quote</find>
+      <find>add de</find>
+      <find>muhammad azeem</find>
+      <find>emazeem07</find>
+      <find>users</find>
     </findStrings>
     <replaceStrings>
       <replace>font-sm</replace>
@@ -178,11 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/docs.css" />
-        <option value="$PROJECT_DIR$/resources/views/docs/masterlistofequipments.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_12_01_122519_create_labjobs_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/JobitemController.php" />
-        <option value="$PROJECT_DIR$/resources/views/manage/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AwaitingController.php" />
         <option value="$PROJECT_DIR$/app/Models/Jobitem.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_12_034056_create_jobitems_table.php" />
@@ -219,16 +200,21 @@
         <option value="$PROJECT_DIR$/resources/views/sop.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_13_120623_create_clauses_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SopsController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/clauses/eidt.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ClauseController.php" />
         <option value="$PROJECT_DIR$/resources/views/clauses/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/sop/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/clauses/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/designation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/users/create.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_10_05_040735_create_users_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_12_14_161201_create_users_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -529,12 +515,6 @@
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -567,20 +547,6 @@
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="sop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -590,7 +556,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="style.&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/style.css&#10;migration&#9;FILE&#9;file://C:/xampp/htdocs/aims/database/migrations&#10;we&#9;FILE&#9;file://C:/xampp/htdocs/aims/routes/web.php&#10;auth&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;tas&#9;null&#9;null&#10;asset&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/assets&#10;data&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/DataentryController.php&#10;ca&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/CalculatorController.php&#10;mytas&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;jobs&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/jobs&#10;checkin&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/CheckinController.php&#10;mytask&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;aw&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Models/Awaiting.php&#10;q&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/QuotesController.php&#10;calc&#9;null&#9;null&#10;dataentryc&#9;null&#9;null&#10;sche&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/SchedulingController.php&#10;sc&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/SchedulingController.php&#10;jobcontr&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;job&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/jobs&#10;sched&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/SchedulingController.php&#10;create_lab&#9;FILE&#9;file://C:/xampp/htdocs/aims/database/migrations/2020_12_01_122519_create_labjobs_table.php&#10;manage&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/manage&#10;docs&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/docs.css&#10;docs.c&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/docs.css&#10;docs/&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/docs&#10;assets&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/assets&#10;customer&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/customers&#10;web.&#9;FILE&#9;file://C:/xampp/htdocs/aims/routes/web.php&#10;assetgr&#9;null&#9;null&#10;assetgro&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Models/Assetgroup.php&#10;assetcon&#9;null&#9;null&#10;composer.json&#9;FILE&#9;file://C:/xampp/htdocs/aims8/composer.json&#10;authser&#9;FILE&#9;file://C:/xampp/htdocs/aims8/app/Providers/AuthServiceProvider.php" />
+    <property name="SearchEverywhereHistoryKey" value="composer&#9;FILE&#9;file://C:/xampp/htdocs/aims/composer.json&#10;web.php&#9;FILE&#9;file://C:/xampp/htdocs/aims/routes/web.php&#10;style.&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/style.css&#10;migration&#9;FILE&#9;file://C:/xampp/htdocs/aims/database/migrations&#10;we&#9;FILE&#9;file://C:/xampp/htdocs/aims/routes/web.php&#10;auth&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;tas&#9;null&#9;null&#10;asset&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/assets&#10;data&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/DataentryController.php&#10;ca&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/CalculatorController.php&#10;mytas&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;jobs&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/jobs&#10;checkin&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/CheckinController.php&#10;mytask&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;aw&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Models/Awaiting.php&#10;q&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/QuotesController.php&#10;calc&#9;null&#9;null&#10;dataentryc&#9;null&#9;null&#10;sche&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/SchedulingController.php&#10;sc&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/SchedulingController.php&#10;jobcontr&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;job&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/jobs&#10;sched&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/SchedulingController.php&#10;create_lab&#9;FILE&#9;file://C:/xampp/htdocs/aims/database/migrations/2020_12_01_122519_create_labjobs_table.php&#10;manage&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/manage&#10;docs&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/docs.css&#10;docs.c&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/docs.css&#10;docs/&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/docs&#10;assets&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/assets&#10;customer&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/customers&#10;web.&#9;FILE&#9;file://C:/xampp/htdocs/aims/routes/web.php&#10;assetgr&#9;null&#9;null&#10;assetgro&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Models/Assetgroup.php&#10;assetcon&#9;null&#9;null&#10;composer.json&#9;FILE&#9;file://C:/xampp/htdocs/aims8/composer.json&#10;authser&#9;FILE&#9;file://C:/xampp/htdocs/aims8/app/Providers/AuthServiceProvider.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -640,11 +606,13 @@
       <workItem from="1607833184867" duration="11118000" />
       <workItem from="1607846994866" duration="18002000" />
       <workItem from="1607925730238" duration="2367000" />
+      <workItem from="1607961611141" duration="1579000" />
+      <workItem from="1607995843011" duration="899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93279000" />
+    <option name="totallyTimeSpent" value="95757000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -658,7 +626,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.22541603" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22844176" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -671,7 +639,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.23606557" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" visible="true" weight="0.23606557" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.60819674" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -708,28 +676,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/awaiting/quotes.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/scheduling/labjob.blade.php" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SitejobsController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/jobs/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/jobs/invoice.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -776,13 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
           <caret line="425" column="52" selection-start-line="425" selection-start-column="52" selection-end-line="425" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="31" />
         </state>
       </provider>
     </entry>
@@ -893,13 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/designation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="129" column="17" selection-start-line="114" selection-start-column="16" selection-end-line="129" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -954,9 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="68" column="54" selection-start-line="68" selection-start-column="54" selection-end-line="68" selection-end-column="54" />
-          <folding>
-            <element signature="e#40#62#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -964,9 +893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
-          <folding>
-            <element signature="e#40#62#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -998,44 +924,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
-          <folding>
-            <element signature="e#208#232#0#HTML" expanded="true" />
-            <element signature="e#494#542#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/clauses/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="124" column="26" selection-start-line="124" selection-start-column="26" selection-end-line="124" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="42" column="82" selection-start-line="42" selection-start-column="82" selection-end-line="42" selection-end-column="82" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="190" column="52" selection-start-line="190" selection-start-column="52" selection-end-line="190" selection-end-column="52" />
-          <folding>
-            <element signature="e#7478#7506#0#HTML" expanded="true" />
-            <element signature="e#8176#8204#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="106" selection-start-line="8" selection-start-column="106" selection-end-line="8" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/designation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="168" column="74" selection-start-line="168" selection-start-column="74" selection-end-line="168" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="42" column="82" selection-start-line="42" selection-start-column="82" selection-end-line="42" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_10_05_040735_create_users_table.php" />
+    <entry file="file://D:/LIMS Data/AIMS DB/rdfkojzp_erp.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="2424" selection-start-line="2424" selection-end-line="2430" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="38" column="100" selection-start-line="38" selection-start-column="82" selection-end-line="38" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_14_161201_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="215" column="30" selection-start-line="215" selection-start-column="30" selection-end-line="215" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

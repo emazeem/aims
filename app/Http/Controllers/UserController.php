@@ -20,7 +20,7 @@ class UserController extends Controller
         return view('users.index');
     }
     public function create(){
-        $this->authorize('staff-create');
+        //$this->authorize('staff-create');
         $roles=Role::all();
         $departments=Department::all();
         return view('users.create',compact('departments','roles'));

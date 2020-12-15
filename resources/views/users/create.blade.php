@@ -207,6 +207,21 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="signature" class="col-sm-2 control-label">Signature</label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="signature" id="signature">
+                            <label class="custom-file-label" for="cv">Choose Signature</label>
+                        </div>
+                        @if ($errors->has('signature'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('signature') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+
                 <div class="input-group mb-3">
 
                 </div>

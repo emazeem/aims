@@ -6,7 +6,7 @@
                 {{--<div class="card-header py-md-3 text-center" style="background-color: rgba(255,255,255,0.3)">
                 </div>--}}
                 <div class="card-body pt-4" style="background-color: rgba(255,255,255,0.05)">
-                    <h2 class="text-light text-center bg-gradient-secondary p-4">
+                    <h2 class="text-light text-center p-4" style="background-color: rgba(255,255,255,0.71)">
                         <img src="{{asset('img/AIMS.png')}}" class="img-fluid" width="100">
                         <br>
                     </h2>
