@@ -21,6 +21,7 @@ use App\Models\Session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 
 class DashboardControlller extends Controller
 {
@@ -56,5 +57,6 @@ class DashboardControlller extends Controller
     public function notification(){
         return view('notifications');
     }
+
     //
 }

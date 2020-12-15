@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         <div class="col-12 col-md-6">
-            <div class="border-left-primary shadow h-100 py-2 p-5">
+            <div class="border-left-primary shadow h-100 py-2 p-5 text-center">
                 @if(auth()->user()->profile)
                     <img src="{{Storage::disk('local')->url('/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
                          class="img-fluid">
