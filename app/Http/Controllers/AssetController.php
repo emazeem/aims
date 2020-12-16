@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\AssetChart;
 use App\Models\Asset;
 use App\Models\Assetspecification;
 use App\Models\Column;
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\DocBlock;
 use Yajra\DataTables\DataTables;
-
 class AssetController extends Controller
 {
     //
@@ -141,7 +141,12 @@ class AssetController extends Controller
             }
         }
         $checklists=Preventivemaintenancerecord::where('asset_id',$id)->get();
-        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck','checklists'));
+
+
+        
+
+
+        return view('assets.show',compact('parameters','usersChart','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck','checklists'));
     }
 
     public function store(Request $request){

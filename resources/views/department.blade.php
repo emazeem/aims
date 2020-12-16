@@ -2,12 +2,13 @@
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
-    <h2 class="border-bottom text-dark">All Departments</h2>
-
-    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_department"><i class="fas fa-plus"></i> Department</button>
 </div>
 
 <div class="row">
+    <div class="col-12">
+        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-list"></i> All Departments</h3>
+        <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_department"><i class="fa fa-plus-circle"></i> Department</button>
+    </div>
   <div class="col-lg-12">
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
 
@@ -165,7 +166,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add department</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Department</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -195,7 +196,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Edit department</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-pencil"></i> Edit Department</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

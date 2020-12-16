@@ -27,7 +27,7 @@ class ParameterControlller extends Controller
             ->addColumn('options', function ($data) {
 
                 $action=null;
-                $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>";
+                $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
                 $action.="<button type='button' title='View Assets' class='btn view-assets btn-sm btn-dark' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-eye'></i> Assets</button>";
                 $action.="<button type='button' title='View Capabilities' class='btn view-capabilities btn-sm btn-primary' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-eye'></i> Capabilities</button>";
                 return "&emsp;".$action;

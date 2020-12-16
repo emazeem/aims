@@ -58,12 +58,12 @@ class JobController extends Controller
                 $action=null;
 
                 $action.="<a title='view' href=".url('/jobs/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
-                $action.="<a title='Job Form' href=".url('/jobs/print/jobform/'.$data->id)." class='btn btn-sm btn-danger'><b>J</b></a>";
-                $action.="<a title='Invoice' href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-dollar-sign'></i></a>";
-                $action.="<a title='Invoice' href=".url('/jobs/print/DN/'.$data->id)." class='btn btn-sm btn-info'>DN</a>";
+                $action.="<a title='Job Form' href=".url('/jobs/print/jobform/'.$data->id)." class='btn btn-sm btn-danger'><small>JN</small></a>";
+                $action.="<a title='Invoice' href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-dollar'></i></a>";
+                $action.="<a title='Invoice' href=".url('/jobs/print/DN/'.$data->id)." class='btn btn-sm btn-info'><small>DN</small></a>";
                 if ($check>0){
                     $action.="<a title='Item Entries' href=".url('/item/entries/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-arrow-alt-circle-down'></i></a>";
-                    $action.="<a title='Gatepass' class='btn btn-sm text-light bg-warning' href=".url('jobs/print/GP/'.$data->id).">GP</a>";
+                    $action.="<a title='Gatepass' class='btn btn-sm text-light bg-warning' href=".url('jobs/print/GP/'.$data->id)."><small>GP</small></a>";
                 }
                 $invoice=InvoicingLedger::where('job_id',$data->id)->get();
                 $invoice_exist=count($invoice);

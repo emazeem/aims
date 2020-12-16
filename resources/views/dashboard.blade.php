@@ -1,262 +1,84 @@
 @extends('layouts.master')
 @section('content')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h2 class="border-bottom text-dark">Dashboard</h2>
-</div>
 
-<div class="row">
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-primary shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a style="text-decoration:none" href="{{url('customers')}}">Customers</a></div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$customers}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-user-friends fa-2x text-primary"></i>
-          </div>
+    <div class="row">
+        <div class="col-12">
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-home"></i> Dashboard</h3>
+
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-uppercase mb-1"><a style="text-decoration:none" href="{{url('parameters')}}"><span class="text-success">Parameters</span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$parameters}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-dollar-sign fa-2x text-success"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-info shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a style="text-decoration:none" href="{{url('capabilities')}}"><span class="text-info">Capabilities</span></a></div>
-            <div class="row no-gutters align-items-center">
-              <div class="col-auto">
-                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$capabilities}}</div>
-              </div>
+        <div class="col-md-12">
+            <div class="">
+                <div class="x_content">
+                    <div class="row">
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-users"></i>
+                                </div>
+                                <div class="count">{{$customers}}</div>
+                                <h3><a href="{{url('customers')}}">Customers</a></h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-tasks"></i>
+                                </div>
+                                <div class="count">{{$parameters}}</div>
+                                <h3><a href="{{url('parameters')}}">Parameters</a></h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-dollar"></i>
+                                </div>
+                                <div class="count">{{$capabilities}}</div>
+                                <h3><a href="{{url('capabilities')}}">Capabilities</a></h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-tasks"></i>
+                                </div>
+                                <div class="count">{{$assets}}</div>
+                                <h3><a href="{{url('assets')}}">Assets</a></h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-question"></i>
+                                </div>
+                                <div class="count">{{$quotes}}</div>
+                                <h3><a href="{{url('quotes')}}">Quotes</a></h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-recycle"></i>
+                                </div>
+                                <div class="count">{{$jobs}}</div>
+                                <h3><a href="{{url('jobs')}}">Jobs</a></h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-user-plus"></i>
+                                </div>
+                                <div class="count">{{$personnels}}</div>
+                                <h3><a href="{{url('users')}}">Users</a></h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-history"></i>
+                                </div>
+                                <div class="count">{{$departments}}</div>
+                                <h3><a href="{{url('departments')}}">Departments</a></h3>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-clipboard-list fa-2x text-info"></i>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-warning shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a style="text-decoration:none" href="{{url('assets')}}"><span class="text-warning">Assets</span></a></div>
-            <div class="row no-gutters align-items-center">
-              <div class="col-auto">
-                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$assets}}</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-clipboard-list fa-2x text-warning"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-danger shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="{{url('quotes')}}"><span class="text-danger">Quotes</span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$quotes}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-comments fa-2x text-danger"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-primary shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a style="text-decoration:none" href="{{url('jobs')}}"><span class="text-primary">Jobs</span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$jobs}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-user-friends fa-2x text-primary"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a style="text-decoration:none" href="{{url('users')}}"><span class="text-success">Staff</span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$personnels}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-dollar-sign fa-2x text-success"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-dark shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="{{url('mytasks')}}"><span class="text-dark">My Tasks</span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-comments fa-2x text-dark"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-primary shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-uppercase mb-1"><a style="text-decoration:none" href="{{url('departments')}}"><span class="text-primary">Department</span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$departments}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-comments fa-2x text-primary"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-dark shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a style="text-decoration:none" href="{{url('designations')}}"><span class="text-dark">Designation</span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$designations}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-user fa-2x text-dark"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-danger shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><a style="text-decoration:none" href="{{url('expenses_categories')}}"><span class="text-danger">Expense Categories</span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-danger">{{$expense_categories}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-user fa-2x text-danger"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-success shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a style="text-decoration:none" href="{{url('expenses')}}"><span class="text-success">Expenses </span></a></div>
-            <div class="h5 mb-0 font-weight-bold text-success">{{$expenses}}</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-user fa-2x text-success"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-</div>
-<div id='calendar'></div>
-<link href='https://fullcalendar.io/releases/fullcalendar/3.9.0/fullcalendar.min.css' rel='stylesheet' />
-<link href='https://fullcalendar.io/releases/fullcalendar/3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src='https://fullcalendar.io/releases/fullcalendar/3.9.0/lib/moment.min.js'></script>
-<script src='https://fullcalendar.io/releases/fullcalendar/3.9.0/lib/jquery.min.js'></script>
-<script src='https://fullcalendar.io/releases/fullcalendar/3.9.0/fullcalendar.min.js'></script>
-<script>
-
-    jQuery(document).ready(function($) {
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,basicWeek,basicDay'
-            },
-            navLinks: true, // can click day/week names to navigate views
-            editable: true,
-            eventLimit: true, // allow "more" link when too many events
-        });
-    });
-</script>
-
-{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-  <div class="container">
-    <div class="response alert alert-success mt-2" style="display: none;"></div>
-    <div id='calendar'></div>
-  </div>
-</div>
-
-<script>
-    $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $('#calendar').fullCalendar({
-            editable: true,
-            events: '{{route('calendar')}}',
-            displayEventTime: true,
-            //editable: true,
-            eventRender: function (event, element, view) {
-                if (event.allDay === 'true') {
-                    event.allDay = true;
-                } else {
-                    event.allDay = false;
-                }
-            }
-        });
-    });
-
-        function displayMessage(message) {
-        $(".response").css('display','block');
-        $(".response").html(""+message+"");
-        setInterval(function() { $(".response").fadeOut(); }, 4000);
-    }
-</script>--}}
 @endsection

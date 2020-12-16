@@ -8,13 +8,14 @@
         </script>
         @php Session::forget('success') @endphp
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">Add Asset</h2>
-        <a href="{{route('capabilities.store')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                    class="fas fa-plus"></i> Add Parameters</a>
-    </div>
-
     <div class="row pb-3">
+        <div class="col-12">
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-plus-circle"></i> Add Asset</h3>
+            <span class="text-right ">
+                 <a href="{{route('capabilities.store')}}" class="pull-right btn btn-sm btn-primary shadow-sm mt-2  "><i
+                             class="fa fa-plus-circle"></i> Add Parameters</a>
+        </span>
+        </div>
         <div class="col-12">
 
             <form class="form-horizontal" action="{{route('assets.store')}}" method="post"

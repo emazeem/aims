@@ -9,14 +9,16 @@
     @endif
     <div class="row">
 
-        <div class="col-12 mb-2">
-            <a href="{{url('/customers/edit/'.$show->customer_id)}}" class="btn btn-secondary btn-block">
+        <div class="col-12">
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> AIMS/QT/{{date('y')}}/{{$show->id}} Detail</h3>
+            <span class="text-right ">
+            <a href="{{url('/customers/edit/'.$show->customer_id)}}" class="pull-right btn btn-secondary btn-sm">
                 {{(!$show->customers->pur_name)?"Add":"Update"}}
                 {{$show->customers->reg_name}}'s
                 Purchase Contact Details
             </a>
+            </span>
         </div>
-        <h2 class="col-12">QT/{{date('y')}}/{{$show->id}} Detail</h2>
         @if($show->status>0)
         @if(!$show->mode)
             <div class="col-12">
@@ -113,7 +115,6 @@
 
 
     </div>
-
     <div class="row">
         <div class="col-12">
             <table class="table table-striped bg-white table-sm table-bordered mt-2">
@@ -219,8 +220,6 @@
 
         </div>
     </div>
-
-
     <script>
 
         function InitTable() {
@@ -310,10 +309,6 @@
 
         } );
     </script>
-
-
-
-
     <script type="text/javascript">
         $(document).ready(function() {
             $(document).on('click', '.edit', function() {
@@ -515,7 +510,6 @@
         } );
 
     </script>
-
     <div class="modal fade" id="edit_na" tabindex="-1" role="dialog" aria-labelledby="add_na" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -564,9 +558,3 @@
         </div>
     </div>
 @endsection
-
-
-
-
-
-

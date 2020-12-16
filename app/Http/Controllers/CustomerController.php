@@ -55,8 +55,8 @@ class CustomerController extends Controller
             })
             ->addColumn('options', function ($data) {
                 return "&emsp;
-                    <a title='Detail' class='btn btn-sm btn-primary' href='" . url('/customers/view/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/customers/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                  <a title='Edit' class='btn btn-sm btn-warning' href='" . url('/customers/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></a>
+                    <a title='Detail' class='btn btn-sm btn-success' href='" . url('/customers/view/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
                   ";
 
             })
@@ -98,7 +98,7 @@ class CustomerController extends Controller
         $customer->credit_limit=0;
         $customer->prin_name_1=$request->prin_name_1;
         $customer->prin_phone_1=$request->prin_phone_1;
-        $customer->prin_email_1=$request->prin_email_1;
+        $customer->prin_email_1=$request->prin_email_1;/*
         $customer->prin_name_2=($request->prin_name_2)?$request->prin_name_2:null;
         $customer->prin_phone_2=($request->prin_phone_2)?$request->prin_phone_2:null;
         $customer->prin_email_2=($request->prin_email_2)?$request->prin_email_2:null;
@@ -111,7 +111,7 @@ class CustomerController extends Controller
         $customer->pur_email=($request->pur_email)?$request->pur_email:null;
         $customer->acc_name=($request->acc_name)?$request->acc_name:null;
         $customer->acc_phone=($request->acc_phone_1)?$request->acc_phone_1:null.",".($request->acc_phone_2)?$request->acc_phone_2:null;
-        $customer->acc_email=($request->acc_email)?$request->acc_email:null;
+        $customer->acc_email=($request->acc_email)?$request->acc_email:null;*/
         $customer->save();
 
 
@@ -166,13 +166,13 @@ class CustomerController extends Controller
         $customer->prin_name_3=($request->prin_name_3)?$request->prin_name_3:null;
         $customer->prin_phone_3=($request->prin_phone_3)?$request->prin_phone_3:null;
         $customer->prin_email_3=($request->prin_email_3)?$request->prin_email_3:null;
-
+/*
         $customer->pur_name=($request->pur_name)?$request->pur_name:null;
         $customer->pur_phone=($request->pur_phone_1)?$request->pur_phone_1:null.",".($request->pur_phone_2)?$request->pur_phone_2:null;
         $customer->pur_email=($request->pur_email)?$request->pur_email:null;
         $customer->acc_name=($request->acc_name)?$request->acc_name:null;
         $customer->acc_phone=($request->acc_phone_1)?$request->acc_phone_1:null.",".($request->acc_phone_2)?$request->acc_phone_2:null;
-        $customer->acc_email=($request->acc_email)?$request->acc_email:null;
+        $customer->acc_email=($request->acc_email)?$request->acc_email:null;*/
         $customer->save();
         return redirect()->back()->with('success', 'Customer Updated Successfully');
     }

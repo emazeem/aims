@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h2 class="border-bottom text-dark">Manage Jobs</h2>
+<div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+    <h3 class="border-bottom"><i class="fa fa-tasks"></i> Manage Jobs</h3>
 </div>
 @if(Session::has('success'))
     <script>

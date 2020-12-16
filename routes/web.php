@@ -176,10 +176,10 @@ Route::group(['prefix'=> 'quotes'],function() {
 });
 Route::group(['prefix'=> '/item/entries'],function() {
     Route::get('/{id}',[App\Http\Controllers\ItemEntriesController::class, 'index'])->name('checkin');
-        Route::get('create/{type}/{id}',[App\Http\Controllers\ItemEntriesController::class, 'create'])->name('checkin.create');
-        Route::post('store',[App\Http\Controllers\ItemEntriesController::class, 'store'])->name('checkin.store');
-        Route::post('store/site',[App\Http\Controllers\ItemEntriesController::class, 'storesite'])->name('checkin.storesite');
-        Route::post('edit/{id}',[App\Http\Controllers\ItemEntriesController::class, 'edit'])->name('checkin.edit');
+    Route::get('create/{type}/{id}',[App\Http\Controllers\ItemEntriesController::class, 'create'])->name('checkin.create');
+    Route::post('store',[App\Http\Controllers\ItemEntriesController::class, 'store'])->name('checkin.store');
+    Route::post('store/site',[App\Http\Controllers\ItemEntriesController::class, 'storesite'])->name('checkin.storesite');
+    Route::post('edit/{id}',[App\Http\Controllers\ItemEntriesController::class, 'edit'])->name('checkin.edit');
 });
 Route::group(['prefix'=> 'scheduling'],function() {
     Route::group(['prefix'=> 'labs'],function() {

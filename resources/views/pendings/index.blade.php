@@ -7,9 +7,8 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">All Pending Reviews</h2>
-
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+        <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> All Pending Reviews</h3>
     </div>
 
     <div class="row">

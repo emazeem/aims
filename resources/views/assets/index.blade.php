@@ -1,17 +1,14 @@
 @extends('layouts.master')
 @section('content')
-    <div class="row">
-        <h2 class="border-bottom text-dark">All Assets</h2>
-
-        <div class="col-12 mb-4">
-            <a href="{{route('assets.create')}}" class="btn float-right mt-1 btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Assets</a>
-            <a href="{{route('parameters')}}" class="btn float-right mt-1 mx-1 btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Parameters</a>
-            <button type="button" class="btn btn-sm btn-primary float-right mt-1 shadow-sm" data-toggle="modal" data-target="#add_column"><i class="fas fa-plus"></i> Add Specific Column</button>
-
-        </div>
-
-    </div>
 <div class="row">
+    <div class="col-12">
+        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-users"></i> All Assets</h3>
+        <span class="text-right ">
+                <a href="{{route('assets.create')}}" class="btn float-right mt-1 btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle"></i> Assets</a>
+            <a href="{{route('parameters')}}" class="btn float-right mt-1 mx-1 btn-sm btn-success shadow-sm"><i class="fa fa-eye"></i> Parameters</a>
+            <button type="button" class="btn btn-sm btn-primary float-right mt-1 shadow-sm" data-toggle="modal" data-target="#add_column"><i class="fa fa-plus-circle"></i> Add Specific Column</button>
+        </span>
+    </div>
   <div class="col-lg-12">
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
       <thead>

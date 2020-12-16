@@ -15,8 +15,8 @@
         });
     </script>
 @endif
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h2 class="border-bottom text-dark">All Jobs</h2>
+<div class="d-sm-flex col-12 align-items-center justify-content-between mb-4">
+    <h3 class="border-bottom">All Jobs</h3>
 </div>
 <div class="row">
 

@@ -1,12 +1,13 @@
 @extends('layouts.master')
 @section('content')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h2 class="border-bottom text-dark">All Parameters</h2>
+    <div class="row">
+    <div class="col-12">
+        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Parameters</h3>
+        <span class="pull-right">
+    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_parameter"><i class="fa fa-plus-circle"></i> Parameter</button>
 
-    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_parameter"><i class="fas fa-plus"></i> Parameter</button>
-</div>
-
-<div class="row">
+        </span>
+    </div>
   <div class="col-lg-12">
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
 
@@ -236,7 +237,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add Parameter</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Parameter</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -266,7 +267,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Parameter</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-pencil"></i> Edit Parameter</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -297,7 +298,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Assets List</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-tasks"></i> Assets List</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -322,7 +323,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Capabilities List</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-tasks"></i> Capabilities List</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

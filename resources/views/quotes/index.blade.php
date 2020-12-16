@@ -1,11 +1,5 @@
 @extends('layouts.master')
 @section('content')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h2 class="border-bottom text-dark">All Quotes</h2>
-
-    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_session"><i class="fas fa-plus"></i> Quote</button>
-</div>
-
 @if(Session::has('success'))
     <script>
         $(document).ready(function () {
@@ -13,7 +7,6 @@
         });
     </script>
 @endif
-
 @if(Session::has('failed'))
     <script>
         $(document).ready(function () {
@@ -21,9 +14,15 @@
         });
     </script>
 @endif
-
 <div class="row">
-  <div class="col-lg-12">
+    <div class="col-12">
+        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Quotes</h3>
+        <span class="">
+            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-circle"></i> Quote</button>
+        </span>
+    </div>
+
+    <div class="col-lg-12">
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
       <thead>
       <tr>
@@ -53,6 +52,9 @@
 
   </div>
 </div>
+<script>
+
+</script>
 <script>
 
     function InitTable() {
@@ -87,6 +89,31 @@
     }
     $(document).ready(function() {
         InitTable();
+        $('select[name="customer"]').on('change', function() {
+            var customer = $(this).val();
+            //alert(customer);
+            if(customer) {
+                $.ajax({
+                    url: "{{url('/quotes/get_principal')}}/"+customer,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('select[name="principal"]').empty();
+                        if (data.prin_name_1!=null){
+                            $('select[name="principal"]').append('<option value="'+ data.prin_name_1 +'">'+ data.prin_name_1 +'</option>');
+                        }
+                        if (data.prin_name_2!=null){
+                            $('select[name="principal"]').append('<option value="'+ data.prin_name_2 +'">'+ data.prin_name_2 +'</option>');
+                        }
+                        if (data.prin_name_3!=null){
+                            $('select[name="principal"]').append('<option value="'+ data.prin_name_3 +'">'+ data.prin_name_3 +'</option>');
+                        }
+                    }
+                });
+            }else{
+                $('select[name="principal"]').empty();
+            }
+        });
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('data-id');
 
@@ -202,7 +229,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="add_session">Add Quote</h5>
+                <h5 class="modal-title" id="add_session"><i class="fa fa-plus-circle"></i> Add Quote</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -335,32 +362,5 @@
         </div>
     </div>
 </div>
-<script>
 
-    $('select[name="customer"]').on('change', function() {
-        var customer = $(this).val();
-        //alert(customer);
-        if(customer) {
-            $.ajax({
-                url: "{{url('/quotes/get_principal')}}/"+customer,
-                type: "GET",
-                dataType: "json",
-                success:function(data) {
-                    $('select[name="principal"]').empty();
-                    if (data.prin_name_1!=null){
-                        $('select[name="principal"]').append('<option value="'+ data.prin_name_1 +'">'+ data.prin_name_1 +'</option>');
-                    }
-                    if (data.prin_name_2!=null){
-                        $('select[name="principal"]').append('<option value="'+ data.prin_name_2 +'">'+ data.prin_name_2 +'</option>');
-                    }
-                    if (data.prin_name_3!=null){
-                        $('select[name="principal"]').append('<option value="'+ data.prin_name_3 +'">'+ data.prin_name_3 +'</option>');
-                    }
-                }
-            });
-        }else{
-            $('select[name="principal"]').empty();
-        }
-    });
-</script>
 @endsection

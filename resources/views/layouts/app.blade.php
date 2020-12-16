@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>AIMS ERP</title>
-    <link href="{{url('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="{{url('css/sb-admin-2.min.css')}}" rel="stylesheet">
-    <link href="{{url('style.css')}}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AIMS </title>
+    <link rel="icon" href="{{url('/img/aims-logo.png')}}">
+    <!-- Bootstrap -->
+    <link href="{{url('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url('build/css/custom.min.css')}}" rel="stylesheet">
+
 </head>
-<body id="page-top" style="background: linear-gradient(180deg, rgb(13,17,30), rgba(0,0,0,0.6)),url('{{url('img/lab-room.jpg')}}');background-size: cover">
-<div class="container-fluid">
+<body class="nav-md bg-white">
+
+<div class="container">
     @yield('content')
 </div>
+        <!-- /footer content -->
+
+</div>
+<link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
+<link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
+<!-- jQuery -->
+<script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>
+<!-- Bootstrap -->
+<script src="{{url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 </body>
 </html>

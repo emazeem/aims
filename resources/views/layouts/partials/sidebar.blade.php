@@ -1,90 +1,100 @@
-<nav id="sidebar" >
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
-    <div class="sidebar-header">
-        <h3 class="text-center py-2">
-            {{--<img src="{{url('/img/aims-logo.png')}}" class="img-fluid" width="70">
-            --}}
-            AIMS
-        </h3>
-        <strong class="pt-1"><small>AIMS</small></strong>
-    </div>
-    <div class="text-center p-2 border-bottom border-top">
-        <i class="fa fa-temperature-high fa-3x"></i>
-        {{--<img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 65px;width: 65px;">
-        <br>
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        {{--<div class="navbar nav_title" style="border: 0;">
+            <a href="" class="site_title"><i class="fa fa-cog"></i> <span>AIMS</span></a>
+        </div>--}}
 
-        <p style="font-size: 12px;" class="col-12 p-0 m-0 text-white">{{auth()->user()->fname}} {{auth()->user()->lname}}</p>
-        --}}
+        <div class="clearfix"></div>
 
-    </div>
-    <ul class="list-unstyled components">
-        <li>
-
-            @foreach($menus as $menu)
-                @if($menu->has_child==1)
-                    @can($menu->slug)
-                        <a href="#{{$menu->slug}}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                            <i class="{{$menu->icon}}"></i>{{$menu->name}}
-                        </a>
-                        <?php
-                        $submenus=\App\Models\Menu::where('parent_id',$menu->id)->where('has_child',1)->orderBy('position','ASC')->get();
-                        $url=[];
-                        foreach ($submenus as $submenu){
-                            $url[]=\Illuminate\Support\Facades\URL::to('/').'/'.$submenu->url;
-                        }
-                        ?>
-                        <ul class="collapse list-unstyled {{(in_array(Request::url(),$url))?'show':''}}" id="{{$menu->slug}}">
-
-                            <li>
-                                @foreach($submenus as $submenu)
-                                        @can($submenu->slug)
-                                            <a href="{{url($submenu->url)}}" class="{{(Request::url()==url(''.$submenu->url))?"active":""}}">{{$submenu->name}}
-                                            </a>
-                                        @endcan
-                                @endforeach
-                            </li>
-                        </ul>
-                    @endcan
+        <!-- menu profile quick info -->
+        <div class="profile clearfix">
+            <div class="profile_pic">
+                @if(auth()->user()->profile)
+                    <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-circle profile_img">
                 @else
-                @can($menu->slug)
-                    <a href="{{url($menu->url)}}" class="py-1 my-0 {{(Request::url()==url(''.$menu->url))?"active":""}} sidebar-a">
-                        <i class="{{$menu->icon}}"></i>
-                        <span>{{$menu->name}}</span>
-                    </a>
-                @endcan
+                    <i class="fas fa-user-circle fa-3x"></i>
                 @endif
-            @endforeach
-                <a href="{{route('logout')}}"  onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                    <i class="fa fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </a>
-                <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
+            </div>
+            <div class="profile_info">
+                <span>Welcome,</span>
+                <h2>{{auth()->user()->fname.' '.auth()->user()->lname}}</h2>
 
-        </li>
-    </ul>
-</nav>
-
-{{--
-@can('settings-index')
-    <li class="nav-item {{(Request::url()==url(''.'settings'))?"active":""}}">
-        <a class="nav-link collapsed  p-1 p-md-2 text-sm-left" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                <span class="text-xs border-md-bottom">
-                <i class="fas fa-fw fa-cog d-inline text-xs"></i>
-
-                Settings
-                </span>
-
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-primary text-white py-2 collapse-inner rounded">
-                <a class="collapse-item text-white" href="{{url('/taxes')}}">Manage Taxes</a>
-                <a class="collapse-item text-white" href="{{url('/taxes')}}">Others</a>
             </div>
         </div>
-    </li>
+        <!-- /menu profile quick info -->
 
-@endcan
-    --}}
+        <br />
+
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+
+                    @foreach($menus as $menu)
+                        @if($menu->has_child==1)
+
+                            @can($menu->slug)
+                                <li><a><i class="{{$menu->icon}}"></i> {{$menu->name}} <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <?php
+                                        $submenus=\App\Models\Menu::where('parent_id',$menu->id)->where('has_child',1)->orderBy('position','ASC')->get();
+                                        $url=[];
+                                        foreach ($submenus as $submenu){
+                                            $url[]=\Illuminate\Support\Facades\URL::to('/').'/'.$submenu->url;
+                                        }
+                                        ?>
+
+                                    @foreach($submenus as $submenu)
+                                            @can($submenu->slug)
+                                                <li class="sub_menu"><a href="{{url($submenu->url)}}">{{$submenu->name}}</a></li>
+
+                                            @endcan
+                                        @endforeach
+                                    </ul>
+                                </li>
+
+                            @endcan
+
+                        @else
+                            @can($menu->slug)
+                                {{--<a href="{{url($menu->url)}}" class="py-1 my-0 {{(Request::url()==url(''.$menu->url))?"active":""}} sidebar-a">
+                                    <i class="{{$menu->icon}}"></i>
+                                    <span>{{$menu->name}}</span>
+                                </a>
+--}}
+                                <li>
+                                    {{--{{(Request::url()==url(''.$menu->url))?"active":""}}--}}
+                                    <a href="{{url($menu->url)}}"><i class="{{$menu->icon}}"></i> {{$menu->name}}
+                                        <span class="label label-success pull-right"></span>
+                                    </a>
+                                </li>
+                            @endcan
+                        @endif
+                    @endforeach
+
+                </ul>
+            </div>
+
+        </div>
+        <!-- /sidebar menu -->
+
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+                {{--<a data-toggle="tooltip" data-placement="top" title="Settings">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                </a>
+                <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                </a>
+                <a data-toggle="tooltip" data-placement="top" title="Lock">
+                    <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                </a>
+                <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                </a>--}}
+        </div>
+
+        <!-- /menu footer buttons -->
+    </div>
+</div>

@@ -7,14 +7,99 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Add Items</h1>
-        <a class="btn btn-danger" data-toggle="modal" href="#" data-target="#add_na">
-            <i class="fa fa-times"></i> Not Listed
-        </a>
-    </div>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#add_na_form").on('submit',(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('items.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    statusCode: {
+                        403: function() {
+                            $(".loading").fadeOut();
+                            swal("Failed", "Access Denied" , "error");
+                            return false;
+                        }
+                    },
+                    success: function(data)
+                    {
+
+                        if(!data.errors)
+                        {
+
+                            swal("Success", "Added successfully", "success");
+                            $('#add_na').modal('hide');
+                            location.reload();
+                            InitTable();
+                        }
+                    },
+                    error: function()
+                    {
+                        swal("Failed", "Fields Required. Try again.", "error");
+                    }
+                });
+            }));
+
+
+
+            $('select[name="capability"]').append('<option disabled selected>Select Respective Parameter</option>');
+            $('select[name="parameter"]').on('change', function() {
+                $('#price').val('');
+                $('#range').val('');
+                var parameter = $(this).val();
+                if(parameter) {
+                    $.ajax({
+                        url: '/items/select-capabilities/'+parameter,
+                        type: "GET",
+                        dataType: "json",
+                        success:function(data) {
+                            $('select[name="capability"]').empty();
+
+                            $('select[name="capability"]').append('<option disabled selected>Select Respective Parameter</option>');
+                            $.each(data, function(key, value) {
+                                $('select[name="capability"]').append('<option value="'+ value +'">'+ key +'</option>');
+                            });
+                        }
+                    });
+                }else{
+                    $('select[name="capability"]').empty();
+                }
+            });
+
+            $('select[name="capability"]').on('change', function() {
+                var capability = $(this).val();
+                if(capability) {
+                    $.ajax({
+                        url: '/items/select-price/'+capability,
+                        type: "GET",
+                        dataType: "json",
+                        success:function(data) {
+                            $('#price').val(data.price);
+                            $('#range').val(data.range);
+                            $('#location').val(data.location);
+                            $('#accredited').val(data.accredited);
+                        }
+                    });
+                }else{
+                    $('select[name="capability"]').empty();
+                }
+            });
+        });
+    </script>
     <div class="row pb-3">
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+            <h1 class="h3 border-bottom"><i class="fa fa-plus-circle"></i> Add Items</h1>
+            <a class="btn btn-danger btn-sm" data-toggle="modal" href="#" data-target="#add_na">
+                <i class="fa fa-times"></i> Not Listed
+            </a>
+        </div>
         <div class="col-12">
 
             <form class="form-horizontal" action="{{route('items.store')}}" method="post" enctype="multipart/form-data">
@@ -155,91 +240,6 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            $("#add_na_form").on('submit',(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    url: "{{route('items.store')}}",
-                    type: "POST",
-                    data:  new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                    statusCode: {
-                        403: function() {
-                            $(".loading").fadeOut();
-                            swal("Failed", "Access Denied" , "error");
-                            return false;
-                        }
-                    },
-                    success: function(data)
-                    {
-
-                        if(!data.errors)
-                        {
-
-                            swal("Success", "Added successfully", "success");
-                            $('#add_na').modal('hide');
-                            location.reload();
-                            InitTable();
-                        }
-                    },
-                    error: function()
-                    {
-                        swal("Failed", "Fields Required. Try again.", "error");
-                    }
-                });
-            }));
-
-
-
-            $('select[name="capability"]').append('<option disabled selected>Select Respective Parameter</option>');
-            $('select[name="parameter"]').on('change', function() {
-                $('#price').val('');
-                $('#range').val('');
-                var parameter = $(this).val();
-                if(parameter) {
-                    $.ajax({
-                        url: '/items/select-capabilities/'+parameter,
-                        type: "GET",
-                        dataType: "json",
-                        success:function(data) {
-                            $('select[name="capability"]').empty();
-
-                            $('select[name="capability"]').append('<option disabled selected>Select Respective Parameter</option>');
-                            $.each(data, function(key, value) {
-                                $('select[name="capability"]').append('<option value="'+ value +'">'+ key +'</option>');
-                            });
-                        }
-                    });
-                }else{
-                    $('select[name="capability"]').empty();
-                }
-            });
-
-            $('select[name="capability"]').on('change', function() {
-                var capability = $(this).val();
-                if(capability) {
-                    $.ajax({
-                        url: '/items/select-price/'+capability,
-                        type: "GET",
-                        dataType: "json",
-                        success:function(data) {
-                            $('#price').val(data.price);
-                            $('#range').val(data.range);
-                            $('#location').val(data.location);
-                            $('#accredited').val(data.accredited);
-                        }
-                    });
-                }else{
-                    $('select[name="capability"]').empty();
-                }
-            });
-        });
-
-    </script>
     <div class="modal fade" id="add_na" tabindex="-1" role="dialog" aria-labelledby="add_na" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">

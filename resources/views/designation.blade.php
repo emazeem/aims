@@ -1,13 +1,11 @@
 @extends('layouts.master')
 @section('content')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-
-    <h2 class="border-bottom text-dark">All Designations</h2>
-
-    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_designation"><i class="fas fa-plus"></i> Designation</button>
-</div>
-
 <div class="row">
+
+    <div class="col-12">
+        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-list"></i> All Designations</h3>
+        <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2" data-toggle="modal" data-target="#add_designation"><i class="fa fa-plus-circle"></i> Designation</button>
+    </div>
   <div class="col-lg-12">
     <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
       <thead>
@@ -166,7 +164,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add Designation</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus"></i> Add Designation</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -206,7 +204,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Designation</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-pencil"></i>  Edit Designation</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

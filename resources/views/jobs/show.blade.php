@@ -9,13 +9,13 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h2>Job Detail</h2>
+            <h3 class="border-bottom pull-left"><i class="fa fa-tasks"></i> Job Detail</h3>
         </div>
         <div class="col-12">
             <table class="table table-hover table-bordered table-sm">
                 <tr>
                     <th>ID</th>
-                    <td>{{$job->id}}</td>
+                    <td>JN/{{date('y',strtotime($job->created_at))}}/{{$job->id}}</td>
                 </tr>
                 <tr>
                     <th>Status</th>
@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <th>Quote ID</th>
-                    <td>{{$job->quote_id}}</td>
+                    <td>AIMS/QR/{{date('y',strtotime($job->quotes->created_at))}}/{{$job->quote_id}}</td>
                 </tr>
                 <tr>
                     <th>Type</th>
@@ -59,7 +59,6 @@
         </div>
 
         @if($labjobs)
-
             <div class="col-12">
                 <h4>Lab Detail</h4>
                 <table class="table table-hover table-bordered table-responsive table-sm">

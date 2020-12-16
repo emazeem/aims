@@ -8,19 +8,17 @@
         </script>
     @endif
     <div class="row">
-        <div class="col-12">
-            <h2 class="float-left">{{$show->id}}'s Detail</h2>
 
+        <div class="col-12">
             {{--<button type="button" class="btn btn-primary create-jobs" data-id="{{$show->id}}">
                 <i class='fa fa-plus'></i> Create Jobs
             </button>
             --}}
+            <h3 class="border-bottom pull-left">{{$show->id}}'s Detail</h3>
             <a class="btn btn-primary float-right" href="{{url('/jobs/manage/create/'.$show->id)}}">
                 <i class='fa fa-plus'></i> Create Jobs
             </a>
-
-
-            <table class="table table-striped bg-white table-sm table-bordered mt-2">
+            <table class="table table-hover bg-white table-bordered mt-2">
                 <tr>
                     <td><b>Quote #</b></td>
                     <td>{{$show->id}}</td>

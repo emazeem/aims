@@ -60,62 +60,6 @@
             "install-path": "../asm89/stack-cors"
         },
         {
-            "name": "bacon/bacon-qr-code",
-            "version": "2.0.3",
-            "version_normalized": "2.0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Bacon/BaconQrCode.git",
-                "reference": "3e9d791b67d0a2912922b7b7c7312f4b37af41e4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/3e9d791b67d0a2912922b7b7c7312f4b37af41e4",
-                "reference": "3e9d791b67d0a2912922b7b7c7312f4b37af41e4",
-                "shasum": ""
-            },
-            "require": {
-                "dasprid/enum": "^1.0.3",
-                "ext-iconv": "*",
-                "php": "^7.1 || ^8.0"
-            },
-            "require-dev": {
-                "phly/keep-a-changelog": "^1.4",
-                "phpunit/phpunit": "^7 | ^8 | ^9",
-                "squizlabs/php_codesniffer": "^3.4"
-            },
-            "suggest": {
-                "ext-imagick": "to generate QR code images"
-            },
-            "time": "2020-10-30T02:02:47+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "BaconQrCode\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Ben Scholzen 'DASPRiD'",
-                    "email": "mail@dasprids.de",
-                    "homepage": "https://dasprids.de/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "BaconQrCode is a QR code generator for PHP.",
-            "homepage": "https://github.com/Bacon/BaconQrCode",
-            "support": {
-                "issues": "https://github.com/Bacon/BaconQrCode/issues",
-                "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.3"
-            },
-            "install-path": "../bacon/bacon-qr-code"
-        },
-        {
             "name": "brick/math",
             "version": "0.9.1",
             "version_normalized": "0.9.1.0",
@@ -173,56 +117,6 @@
                 }
             ],
             "install-path": "../brick/math"
-        },
-        {
-            "name": "dasprid/enum",
-            "version": "1.0.3",
-            "version_normalized": "1.0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DASPRiD/Enum.git",
-                "reference": "5abf82f213618696dda8e3bf6f64dd042d8542b2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DASPRiD/Enum/zipball/5abf82f213618696dda8e3bf6f64dd042d8542b2",
-                "reference": "5abf82f213618696dda8e3bf6f64dd042d8542b2",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7 | ^8 | ^9",
-                "squizlabs/php_codesniffer": "^3.4"
-            },
-            "time": "2020-10-02T16:03:48+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "DASPRiD\\Enum\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Ben Scholzen 'DASPRiD'",
-                    "email": "mail@dasprids.de",
-                    "homepage": "https://dasprids.de/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP 7.1 enum implementation",
-            "keywords": [
-                "enum",
-                "map"
-            ],
-            "support": {
-                "issues": "https://github.com/DASPRiD/Enum/issues",
-                "source": "https://github.com/DASPRiD/Enum/tree/1.0.3"
-            },
-            "install-path": "../dasprid/enum"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -722,17 +616,17 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.5.2",
-            "version_normalized": "2.5.2.0",
+            "version": "2.5.3",
+            "version_normalized": "2.5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "08668034beb185fa2ac6f09b1034eaa440952ace"
+                "reference": "d8dc4f90ed469f9f9313b976fb078c20585d5c99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/08668034beb185fa2ac6f09b1034eaa440952ace",
-                "reference": "08668034beb185fa2ac6f09b1034eaa440952ace",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/d8dc4f90ed469f9f9313b976fb078c20585d5c99",
+                "reference": "d8dc4f90ed469f9f9313b976fb078c20585d5c99",
                 "shasum": ""
             },
             "require": {
@@ -756,7 +650,7 @@
             "suggest": {
                 "laravel/telescope": "^3.1"
             },
-            "time": "2020-11-17T09:18:51+00:00",
+            "time": "2020-12-09T20:25:45+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -858,17 +752,17 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.12.0",
-            "version_normalized": "1.12.0.0",
+            "version": "v1.12.1",
+            "version_normalized": "1.12.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "9aa6c9e289860951e6b4d010c7a841802d015cd8"
+                "reference": "841e8bdde345cc1ea9f98e776959e7531cadea0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/9aa6c9e289860951e6b4d010c7a841802d015cd8",
-                "reference": "9aa6c9e289860951e6b4d010c7a841802d015cd8",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/841e8bdde345cc1ea9f98e776959e7531cadea0e",
+                "reference": "841e8bdde345cc1ea9f98e776959e7531cadea0e",
                 "shasum": ""
             },
             "require": {
@@ -882,7 +776,7 @@
                 "ext-intl": "*",
                 "phpunit/phpunit": "^7.5.20 || ^8.5.8 || ^9.4.2"
             },
-            "time": "2020-11-23T09:33:08+00:00",
+            "time": "2020-12-11T10:39:41+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -907,7 +801,7 @@
             ],
             "support": {
                 "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v1.12.0"
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.12.1"
             },
             "install-path": "../fakerphp/faker"
         },
@@ -2185,17 +2079,17 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.1.1",
-            "version_normalized": "2.1.1.0",
+            "version": "2.2.0",
+            "version_normalized": "2.2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f9eee5cec93dfb313a38b6b288741e84e53f02d5"
+                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f9eee5cec93dfb313a38b6b288741e84e53f02d5",
-                "reference": "f9eee5cec93dfb313a38b6b288741e84e53f02d5",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
+                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
                 "shasum": ""
             },
             "require": {
@@ -2208,16 +2102,17 @@
             "require-dev": {
                 "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
-                "elasticsearch/elasticsearch": "^6.0",
+                "elasticsearch/elasticsearch": "^7",
                 "graylog2/gelf-php": "^1.4.2",
+                "mongodb/mongodb": "^1.8",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
-                "php-parallel-lint/php-parallel-lint": "^1.0",
                 "phpspec/prophecy": "^1.6.1",
+                "phpstan/phpstan": "^0.12.59",
                 "phpunit/phpunit": "^8.5",
                 "predis/predis": "^1.1",
                 "rollbar/rollbar": "^1.3",
-                "ruflin/elastica": ">=0.90 <3.0",
+                "ruflin/elastica": ">=0.90 <7.0.1",
                 "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
@@ -2234,11 +2129,11 @@
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
-            "time": "2020-07-23T08:41:23+00:00",
+            "time": "2020-12-14T13:15:25+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-main": "2.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -2255,11 +2150,11 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "homepage": "http://github.com/Seldaek/monolog",
+            "homepage": "https://github.com/Seldaek/monolog",
             "keywords": [
                 "log",
                 "logging",
@@ -2267,7 +2162,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.1.1"
+                "source": "https://github.com/Seldaek/monolog/tree/2.2.0"
             },
             "funding": [
                 {
@@ -2721,23 +2616,23 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.0.3",
-            "version_normalized": "3.0.3.0",
+            "version": "3.0.4",
+            "version_normalized": "3.0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae"
+                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/726c026815142e4f8677b7cb7f2249c9ffb7ecae",
-                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/e4782611070e50613683d2b9a57730e9a3ba5451",
+                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2 || ^8.0"
             },
-            "time": "2020-11-30T09:21:21+00:00",
+            "time": "2020-12-13T23:18:30+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -2769,7 +2664,7 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.0.3"
+                "source": "https://github.com/phar-io/version/tree/3.0.4"
             },
             "install-path": "../phar-io/version"
         },
@@ -5156,158 +5051,6 @@
                 }
             ],
             "install-path": "../sebastian/version"
-        },
-        {
-            "name": "simplesoftwareio/simple-qrcode",
-            "version": "4.1.0",
-            "version_normalized": "4.1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SimpleSoftwareIO/simple-qrcode.git",
-                "reference": "3b721089cc541f6c37f0a41b90377529af977948"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SimpleSoftwareIO/simple-qrcode/zipball/3b721089cc541f6c37f0a41b90377529af977948",
-                "reference": "3b721089cc541f6c37f0a41b90377529af977948",
-                "shasum": ""
-            },
-            "require": {
-                "bacon/bacon-qr-code": "^2.0",
-                "ext-gd": "*",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "~1",
-                "phpunit/phpunit": "~9"
-            },
-            "suggest": {
-                "ext-imagick": "Allows the generation of PNG QrCodes.",
-                "illuminate/support": "Allows for use within Laravel."
-            },
-            "time": "2020-10-06T22:51:06+00:00",
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "SimpleSoftwareIO\\QrCode\\QrCodeServiceProvider"
-                    ],
-                    "aliases": {
-                        "QrCode": "SimpleSoftwareIO\\QrCode\\Facades\\QrCode"
-                    }
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "SimpleSoftwareIO\\QrCode\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Simple Software LLC",
-                    "email": "support@simplesoftware.io"
-                }
-            ],
-            "description": "Simple QrCode is a QR code generator made for Laravel.",
-            "homepage": "http://www.simplesoftware.io",
-            "keywords": [
-                "Simple",
-                "generator",
-                "laravel",
-                "qrcode",
-                "wrapper"
-            ],
-            "support": {
-                "issues": "https://github.com/SimpleSoftwareIO/simple-qrcode/issues",
-                "source": "https://github.com/SimpleSoftwareIO/simple-qrcode/tree/4.1.0"
-            },
-            "install-path": "../simplesoftwareio/simple-qrcode"
-        },
-        {
-            "name": "spatie/laravel-permission",
-            "version": "3.18.0",
-            "version_normalized": "3.18.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "1c51a5fa12131565fe3860705163e53d7a26258a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/1c51a5fa12131565fe3860705163e53d7a26258a",
-                "reference": "1c51a5fa12131565fe3860705163e53d7a26258a",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/auth": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/container": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/contracts": "^5.8|^6.0|^7.0|^8.0",
-                "illuminate/database": "^5.8|^6.0|^7.0|^8.0",
-                "php": "^7.2.5|^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0",
-                "predis/predis": "^1.1"
-            },
-            "time": "2020-11-09T14:08:36+00:00",
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\Permission\\PermissionServiceProvider"
-                    ]
-                }
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Permission\\": "src"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Permission handling for Laravel 5.8 and up",
-            "homepage": "https://github.com/spatie/laravel-permission",
-            "keywords": [
-                "acl",
-                "laravel",
-                "permission",
-                "permissions",
-                "rbac",
-                "roles",
-                "security",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/3.18.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "install-path": "../spatie/laravel-permission"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7964,17 +7707,17 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v9.15.1",
-            "version_normalized": "9.15.1.0",
+            "version": "v9.15.2",
+            "version_normalized": "9.15.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "309d0341fab69f5a44188cf2489db09236b52941"
+                "reference": "e0b416d8b7d4472b16217c40e74284074cc34dde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/309d0341fab69f5a44188cf2489db09236b52941",
-                "reference": "309d0341fab69f5a44188cf2489db09236b52941",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/e0b416d8b7d4472b16217c40e74284074cc34dde",
+                "reference": "e0b416d8b7d4472b16217c40e74284074cc34dde",
                 "shasum": ""
             },
             "require": {
@@ -7994,7 +7737,7 @@
                 "yajra/laravel-datatables-fractal": "Plugin for server-side response using Fractal.",
                 "yajra/laravel-datatables-html": "Plugin for server-side HTML builder of dataTables."
             },
-            "time": "2020-12-03T09:31:52+00:00",
+            "time": "2020-12-09T15:42:04+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -8036,7 +7779,7 @@
             ],
             "support": {
                 "issues": "https://github.com/yajra/laravel-datatables/issues",
-                "source": "https://github.com/yajra/laravel-datatables/tree/v9.15.1"
+                "source": "https://github.com/yajra/laravel-datatables/tree/v9.15.2"
             },
             "funding": [
                 {

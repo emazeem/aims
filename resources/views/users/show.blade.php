@@ -8,12 +8,10 @@
         </script>
     @endif
 
-
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">Staff Details</h2>
-    </div>
-
     <div class="row pb-3">
+        <div class="col-12">
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> Staff Details</h3>
+        </div>
         <div class="col-12">
             <table class="table table-bordered table-responsive-sm table-hover font-13">
                 <tr>

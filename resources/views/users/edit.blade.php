@@ -9,11 +9,11 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">Edit Personnel</h2>
-    </div>
-
     <div class="row pb-3">
+        <div class="col-12">
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-pencil"></i> Edit Personnel</h3>
+        </div>
+
         <div class="col-12">
 
             <form class="form-horizontal" action="{{url('/users/update/'.$edit->id)}}" method="post" enctype="multipart/form-data">

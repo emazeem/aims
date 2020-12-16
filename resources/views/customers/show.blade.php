@@ -9,12 +9,11 @@
     @endif
 
     <div class="row">
-        <h2 class="border-bottom text-dark">Customer Details</h2>
-        <div class="col-12 mb-4">
-
+        <div class="col-12">
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> Customer Details</h3>
             <div class="text-md-right">
-                <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fas fa-eye"></i> Customer Ledger</a>
-                <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fas fa-eye"></i> Receivable Aging Ledger</a>
+                <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fa fa-eye"></i> Customer Ledger</a>
+                <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fa fa-eye"></i> Receivable Aging Ledger</a>
             </div>
         </div>
         <div class="col-12">

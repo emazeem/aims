@@ -8,8 +8,8 @@
 
         </script>
     @endif
-    <div class="box box-info">
-        <h2 class="border-bottom text-dark mb-5">Edit Intermediate Checks</h2>
+    <div class="row col-12">
+        <h3 class="border-bottom mb-5"><i class="fa fa-pencil"></i> Edit Intermediate Checks</h3>
         <form class="form-horizontal" action="{{route('intermediate-checks.update')}}" method="post">
             @csrf
             <input type="hidden" class="form-control" id="id" name="id" value="{{$edit->id}}">

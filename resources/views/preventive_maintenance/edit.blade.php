@@ -10,7 +10,7 @@
     @endif
 
     <div class="box box-info">
-        <h2 class="border-bottom text-dark mb-5">Edit Preventive Maintenance Record</h2>
+        <h2 class="border-bottom mb-5"><i class="fa fa-pencil"></i> Edit Preventive Maintenance Record</h2>
         <form class="form-horizontal" action="{{route('preventive.maintenance.update')}}" method="post">
             @csrf
             <input type="hidden" name="id" value="{{$edit->id}}">

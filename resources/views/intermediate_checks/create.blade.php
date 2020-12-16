@@ -9,8 +9,8 @@
         </script>
     @endif
 
-    <div class="box box-info">
-        <h2 class="border-bottom text-dark mb-5">Add Intermediate Checks</h2>
+    <div class="row col-12">
+        <h3 class="border-bottom mb-5"><i class="fa fa-tasks"></i> Add Intermediate Checks</h3>
         <form class="form-horizontal" action="{{route('intermediate-checks.store')}}" method="post">
             @csrf
             <input type="hidden" class="form-control" id="equipment_under_test" name="equipment_under_test" placeholder="equipment_under_test" autocomplete="off" value="{{$id}}">

@@ -9,12 +9,13 @@
         </script>
     @endif
 
-    <div class="box box-info">
-        <h2 class="border-bottom text-dark mb-5">Add Preventive Maintenance Record</h2>
+    <div class="row">
+    <div class="col-12">
+        <h3 class="border-bottom mb-5"><i class="fa fa-plus-circle"></i> Add Preventive Maintenance Record</h3>
         <form class="form-horizontal" action="{{route('preventive.maintenance.store')}}" method="post">
             @csrf
             <input type="hidden" name="id" value="{{$asset->id}}">
-            <table class="table table-bordered table-sm table-striped col-sm-12">
+            <table class="table table-bordered table-sm table-striped col-12">
                 <?php $all=[];?>
             @foreach($checklists as $checklist)
                     <tr>
@@ -64,6 +65,7 @@
             </div>
             <!-- /.box-footer -->
         </form>
+    </div>
     </div>
     <!-- /.box -->
 

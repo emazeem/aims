@@ -3,13 +3,10 @@
 namespace App\Providers;
 
 use App\Models\Menu;
-use App\Models\Notification;
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
-use phpDocumentor\Reflection\Types\True_;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -19,7 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -29,8 +26,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(Request $request)
     {
-
-
         //View::share('notifications',Notification::all());
         View::share('menus',Menu::where('parent_id',null)->where('status',1)->orderBy('position','ASC')->get());
         $this->registerPolicies();
