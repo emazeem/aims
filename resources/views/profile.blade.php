@@ -18,8 +18,7 @@
         <div class="col-12 col-md-6">
             <div class="border-left-primary shadow h-100 py-2 p-5 text-center">
                 @if(auth()->user()->profile)
-                    <img src="{{Storage::disk('local')->url('/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
-                         class="img-fluid">
+                    <img src="{{Storage::disk('local')->url('/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid">
                 @else
                     <img src="{{url('img/profile.png')}}" class="img-fluid">
                 @endif
@@ -37,8 +36,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="col-auto ">
-                                <h3 class="text-primary "><i class="fas fa-user"></i> Personal Details</h3>
-
+                                <h3 class="text-primary "><i class="fa fa-user"></i> Personal Details</h3>
                             </div>
                             <table class="table table-striped table-sm border mt-5 bg-white ">
                                 <tr>

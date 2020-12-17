@@ -16,30 +16,15 @@
     @endif
     <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
         <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Forms & Formats</h3>
+        <a href="{{url('forms/create/'.$show->id)}}" class="btn btn-sm btn-primary shadow-sm" ><i class="fa fa-plus-circle"></i> Form & Format</a>
 
     </div>
     <div class="row pb-3">
         <div class="col-12">
             <table class="table table-hover font-13 table-bordered">
                 <tr>
-                    <th>ID</th>
-                    <td>{{$show->id}}</td>
-                </tr>
-                <tr>
                     <th>Name</th>
                     <td>{{$show->name}}</td>
-                </tr>
-                <tr>
-                    <th>Revision #</th>
-                    <td>{{$show->rev_no}}</td>
-                </tr>
-                <tr>
-                    <th>Issue #</th>
-                    <td>{{$show->issue_no}}</td>
-                </tr>
-                <tr>
-                    <th>Doc #</th>
-                    <td>{{$show->doc_no}}</td>
                 </tr>
                 <tr>
                     <th>Sop's</th>
@@ -51,23 +36,86 @@
                     @endforeach
                     </td>
                 </tr>
-
-                <tr>
-                    <th>Created on</th>
-                    <td>{{date('h:i A  d-M-Y ',strtotime($show->created_at))}}</td>
-                </tr>
-                <tr>
-                    <th>File</th>
-                    <td >
-                        <div class="col-md-4 col-12 border border-primary p-2">
-                            <div class="col-12 p-0 m-0">
-                                <b class="text-primary">{{$show->file}}</b>
-                                <a href="{{Storage::disk('local')->url('Forms&Formats/'.$show->name.'/'.$show->file)}}" download class="btn border px-2 p-0 m-0 pull-right"><small><i class="fa fa-download"></i></small> </a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
             </table>
         </div>
+        <div class="col-12">
+            <table class="table table-hover font-13 table-bordered">
+                <tr>
+
+                    <th>Doc #</th>
+                    <th>Revision #</th>
+                    <th>Issue #</th>
+                    <th>File</th>
+                    <th>Action</th>
+                </tr>
+                @foreach($details as $detail)
+                    <tr>
+                        <td>{{$detail->doc_no}}</td>
+                        <td>{{$detail->rev_no}}</td>
+                        <td>{{$detail->issue_no}}</td>
+                        <td>{{$detail->file}}
+                            <a href="{{Storage::disk('local')->url('SOPS/'.$show->name.'/'.$detail->file)}}" download
+                               class="btn border px-2 p-0 m-0 pull-right">
+                                <small>Download <i class="fa fa-download"></i></small>
+                            </a></td>
+                        <td>
+                            <a href="{{url('/forms/edit/details/'.$detail->id)}}" class="btn btn-sm btn-primary shadow-sm" ><i class="fa fa-pencil"></i></a>
+                            <a class='btn btn-danger btn-sm delete' href='#' data-id='{{$detail->id}}'><i class='fa fa-trash-o'></i></a>
+                            <form id="form{{$detail->id}}" method='post' role='form'>
+                                <input name="_token" type="hidden" value="{{csrf_token()}}">
+                                <input name="id" type="hidden" value='{{$detail->id}}'>
+                                <input name="_method" type="hidden" value="DELETE">
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+
     </div>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.delete', function(e)
+            {
+                swal({
+                    title: "Are you sure to delete this Forms&Formats?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var id = $(this).attr('data-id');
+                            var token= '{{csrf_token()}}';
+                            e.preventDefault();
+                            var request_method = $("#form"+id).attr("method");
+                            var form_data = $("#form"+id).serialize();
+                            $.ajax({
+                                url: "{{url('forms/destroy')}}",
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
+                                statusCode: {
+                                    403: function() {
+                                        swal("Failed", "Permission denied." , "error");
+                                        return false;
+                                    }
+                                },
+                                success: function(data)
+                                {
+                                    swal('success',data.success,'success').then((value) => {
+                                        location.reload();
+                                    });
+
+                                },
+                                error: function(data){
+                                    swal("Failed", data.error , "error");
+                                },
+                            });
+
+                        }
+                    });
+            });
+        });
+    </script>
 @endsection

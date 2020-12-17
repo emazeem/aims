@@ -8,16 +8,16 @@
 
         <!-- menu profile quick info -->
         <div class="profile clearfix">
-            <div class="profile_pic">
+            <div class="profile_pic ">
                 @if(auth()->user()->profile)
                     <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-circle profile_img">
-                @else
-                    <i class="fas fa-user-circle fa-3x"></i>
+                 @else
+                    <img src="{{url('img/profile.png')}}" class="img-circle profile_img">
                 @endif
             </div>
             <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>{{auth()->user()->fname.' '.auth()->user()->lname}}</h2>
+                <p class="p-0 m-0 mt-2"><small>Welcome,</small></p>
+                <p class="p-0 m-0"><small>{{auth()->user()->fname.' '.auth()->user()->lname}}</small></p>
 
             </div>
         </div>

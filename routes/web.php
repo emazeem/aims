@@ -351,8 +351,9 @@ Route::group(['prefix'=> 'sop'],function() {
 Route::group(['prefix'=> 'forms'],function() {
     Route::get('',[App\Http\Controllers\FormsandformatsController::class, 'index'])->middleware('auth')->name('forms.index');
     Route::post('',[App\Http\Controllers\FormsandformatsController::class, 'fetch'])->middleware('auth')->name('forms.fetch');
-    Route::get('create',[App\Http\Controllers\FormsandformatsController::class, 'create'])->middleware('auth')->name('forms.create');
-    Route::get('edit/{id}',[App\Http\Controllers\FormsandformatsController::class, 'edit'])->middleware('auth')->name('forms.edit');
+    Route::get('create/{id}',[App\Http\Controllers\FormsandformatsController::class, 'create'])->middleware('auth')->name('forms.create');
+    Route::post('edit',[App\Http\Controllers\FormsandformatsController::class, 'edit'])->middleware('auth')->name('forms.edit');
+    Route::get('edit/details/{id}',[App\Http\Controllers\FormsandformatsController::class, 'edit_details'])->middleware('auth')->name('forms.edit_details');
     Route::get('view/{id}',[App\Http\Controllers\FormsandformatsController::class, 'show'])->middleware('auth')->name('forms.show');
     Route::post('store',[App\Http\Controllers\FormsandformatsController::class, 'store'])->middleware('auth')->name('forms.store');
     Route::post('update',[App\Http\Controllers\FormsandformatsController::class, 'update'])->middleware('auth')->name('forms.update');

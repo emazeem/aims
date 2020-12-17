@@ -110,7 +110,7 @@
                         @if(auth()->user()->profile)
                             <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid rounded-circle" style="height: 35px;width: 35px;object-fit: cover;">
                         @else
-                            <i class="fas fa-user-circle fa-2x"></i>
+                            <img src="{{url('img/profile.png')}}" class="img-fluid">
                         @endif
                         {{auth()->user()->fname}} {{auth()->user()->lname}}
                     </a>

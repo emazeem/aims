@@ -15,17 +15,7 @@
         <h3 class="border-bottom text-dark"><i class="fa fa-plus-circle"></i> Add Form and Format</h3>
         <form action="{{route('forms.store')}}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="row pb-2 mt-3">
-                <label for="name" class="col-sm-2 control-label">Name</label>
-                <div class="col-sm-10">
-                    <input class="form-control" id="name" name="name" placeholder="Name">
-                    @if ($errors->has('name'))
-                        <span class="text-danger">
-                             <strong>{{ $errors->first('name') }}</strong>
-                         </span>
-                    @endif
-                </div>
-            </div>
+            <input class="form-control" value="{{$id}}" id="id" name="id" type="hidden">
             <div class="row pb-2">
                 <label for="doc" class="col-sm-2 control-label">Doc #</label>
                 <div class="col-sm-10">
@@ -77,25 +67,6 @@
                     @endif
                 </div>
             </div>
-
-
-            <div class="row pb-2">
-                <label for="sops" class="col-sm-2 control-label">SOP's</label>
-                <div class="col-sm-10">
-                    <div class="form-check form-check-inline" style="width: 100%">
-                        <select class="form-control" id="sops" name="sops[]" multiple>
-                            @foreach($sops as $sop)
-                                <option value="{{$sop->id}}">{{$sop->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    @if ($errors->has('sops'))
-                        <span class="text-danger">
-                        <strong>{{ $errors->first('sops') }}</strong>
-                    </span>
-                    @endif
-                </div>
-            </div>
             <div class="row pb-2">
                 <label for="sops" class="col-sm-2 control-label">Upload Form</label>
                 <div class="col-sm-10 ">
@@ -105,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary pull-right" type="submit">Save</button>
+            <button class="btn btn-primary pull-right btn-sm" type="submit">Save</button>
         </form>
 
     </div>

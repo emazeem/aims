@@ -15,12 +15,13 @@ class CreateFormsandformatsTable extends Migration
     {
         Schema::create('formsandformats', function (Blueprint $table) {
             $table->id();
-            $table->string('sops');
-            $table->string('name');
-            $table->string('doc_no');
-            $table->string('rev_no');
-            $table->string('issue_no');
-            $table->string('file');
+            $table->string('name')->nullable();
+            $table->string('sops')->nullable();
+            $table->string('parent_id')->nullable();
+            $table->string('doc_no')->nullable();
+            $table->string('rev_no')->nullable();
+            $table->string('issue_no')->nullable();
+            $table->string('file')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
