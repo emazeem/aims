@@ -142,11 +142,7 @@ class AssetController extends Controller
         }
         $checklists=Preventivemaintenancerecord::where('asset_id',$id)->get();
 
-
-        
-
-
-        return view('assets.show',compact('parameters','usersChart','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck','checklists'));
+        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck','checklists'));
     }
 
     public function store(Request $request){
