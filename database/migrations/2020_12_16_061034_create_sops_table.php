@@ -15,10 +15,13 @@ class CreateSopsTable extends Migration
     {
         Schema::create('sops', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-/*            $table->integer('prepared_by');
-            $table->integer('reviewed_by');
-            $table->integer('approved_by');*/
+            $table->string('name',225)->nullable();
+            $table->string('parent_id',225)->nullable();
+            $table->string('issue_no',225)->nullable();
+            $table->string('rev_no',225)->nullable();
+            $table->string('doc_no',225)->nullable();
+            $table->string('file',225)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

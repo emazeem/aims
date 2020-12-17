@@ -1,10 +1,10 @@
 @extends('layouts.master')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Jobs for Planing</h1>
-    </div>
-
     <div class="row">
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+            <h1 class="border-bottom"><i class="fa fa-tasks"></i> Jobs for Planing</h1>
+        </div>
         <div class="col-12">
             <table id="example" class="table table-striped table-bordered table-responsive-sm table-sm" width="100%">
                 <thead>
@@ -29,7 +29,7 @@
                                     <small class="font-italic text-danger">NULL</small>
                                 @endif
                             </td>
-                            <td>{{\App\Models\Capabilities::find($job->items->capability)->name}}</td>
+                            <td>{{\App\Models\Capabilities::find($job->item->capability)->name}}</td>
 
                             <td>
                                 @if($job->model)
@@ -46,7 +46,7 @@
                                 @endif
                             </td>
                             <td>
-                                {{$job->items->location}}
+                                {{$job->item->location}}
                             </td>
                             <td>
                                 @if($job->status==0)

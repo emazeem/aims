@@ -10,6 +10,7 @@
     <link rel="icon" href="{{url('/img/aims-logo.png')}}">
     <link rel="stylesheet" href="{{url('style.css')}}">
     <!-- Bootstrap -->
+
     <link href="{{url('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{url('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">

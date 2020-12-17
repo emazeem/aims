@@ -60,7 +60,7 @@
                 <th>Accuracy</th>
             </tr>
             <tr>
-                <td class="py-3">{{$job->items->capabilities->name}}</td>
+                <td class="py-3">{{$job->item->capabilities->name}}</td>
                 <td class="py-3">{{$job->make}}</td>
                 <td class="py-3">{{$job->model}}</td>
                 <td class="py-3">{{$job->serial}}</td>
@@ -106,7 +106,7 @@
     </div>
     <div class="row">
         <div class="col-3">Calibration Procedure:</div>
-        <div class="col-3">{{$job->items->capabilities->procedures->name}}</div>
+        <div class="col-3">{{$job->item->capabilities->procedures->name}}</div>
         <div class="col-6">Calibration of Weighing Instruments</div>
     </div>
     <div class="row">

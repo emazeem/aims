@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">Item Entries</h2>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+        <h3 class="border-bottom text-dark "><i class="fa fa-tasks"></i> Item Entries</h3>
     </div>
 
     <div class="row">
@@ -27,8 +27,8 @@
                     @foreach($jobs as $job)
                         <tr>
                             <td>{{$job->id}}</td>
-                            <td>{{\App\Models\Capabilities::find($job->items->capability)->name}}</td>
-                            <td>{{\App\Models\Parameter::find($job->items->parameter)->name}}</td>
+                            <td>{{\App\Models\Capabilities::find($job->item->capability)->name}}</td>
+                            <td>{{\App\Models\Parameter::find($job->item->parameter)->name}}</td>
                             <td>
                                 @if($job->eq_id)
                                 {{$job->eq_id}}

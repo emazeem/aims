@@ -38,7 +38,7 @@ class MytaskController extends Controller
                 return $data->id;
             })
             ->addColumn('uuc', function ($data) {
-                return $data->items->capabilities->name;
+                return $data->item->capabilities->name;
             })
             ->addColumn('eqid', function ($data) {
                 return $data->eq_id;
@@ -93,7 +93,7 @@ class MytaskController extends Controller
                 return $data->id;
             })
             ->addColumn('uuc', function ($data) {
-                return $data->items->capabilities->name;
+                return $data->item->capabilities->name;
             })
             ->addColumn('eqid', function ($data) {
                 return $data->eq_id;
@@ -234,7 +234,6 @@ class MytaskController extends Controller
         if (isset($x4)){$n++;}
         if (isset($x5)){$n++;}
 
-        
         $average_repeated_value=($x1+$x2+$x3+$x4+$x5)/$n;
         echo "Average Value of Repeated : ".$average_repeated_value;
 
@@ -259,6 +258,7 @@ class MytaskController extends Controller
             $intervals[]=$item->uuc;
             echo (int)$item->uuc.'<br>';
         }
+
         echo 'END INTERVALS';
         $min=null;$max=null;$count=count($intervals);
         //no interpolation needed
@@ -434,7 +434,7 @@ class MytaskController extends Controller
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
         $allentries=Dataentry::where('parent_id',$entries->id)->get();
 
-        $procedure = Procedure::find($job->items->capabilities->procedure);
+        $procedure = Procedure::find($job->item->capabilities->procedure);
         $uncertainties=explode(',',$procedure->uncertainties);
 
         $data=array();
@@ -486,6 +486,9 @@ class MytaskController extends Controller
 
             //may be there will be need to use unit in manage reference query;
             $reference_table=Managereference::where('asset',$entries->asset_id)->get();
+            if (count($reference_table)==0){
+                return redirect()->back()->with('failed','Reference data is not available');
+            }
             $intervals=[];
             //echo '<br>START INTERVALS<br>';
             foreach ($reference_table as $item) {

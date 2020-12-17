@@ -9,8 +9,7 @@ class ItemEntriesController extends Controller
 {
     public function index($id){
 
-        $jobs=Jobitem::with('items')->where('job_id',$id)->where('type',0)->get();
-        //dd($jobs);
+        $jobs=Jobitem::with('item')->where('job_id',$id)->where('type',0)->get();
         return view('itementries.show',compact('jobs'));
     }
     public function edit($id){

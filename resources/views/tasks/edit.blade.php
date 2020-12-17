@@ -12,7 +12,6 @@
     <div class="row pb-3">
         <div class="col-12">
             <table class="table table-hover table-bordered table-sm">
-
                 <tr>
                     <th>Session</th>
                     <td>{{$job->jobs->quotes->name}}</td>
@@ -23,11 +22,11 @@
                 </tr>
                 <tr>
                     <th>Item Description</th>
-                    <td>{{\App\Models\Capabilities::find($job->items->capability)->name}}</td>
+                    <td>{{\App\Models\Capabilities::find($job->item->capability)->name}}</td>
                 </tr>
                 <tr>
                     <th>Parameter</th>
-                    <td>{{\App\Models\Parameter::find($job->items->parameter)->name}}</td>
+                    <td>{{\App\Models\Parameter::find($job->item->parameter)->name}}</td>
                 </tr>
                 <tr>
                     <th>Equipment ID</th>
@@ -49,7 +48,7 @@
 
             <div class="col-12 border p-2">
                 <div class=" d-sm-flex align-items-center justify-content-between mb-4">
-                    <h3 class="mt-3">Assign Task</h3>
+                    <h3 class="border-bottom"><i class="fa fa-tasks"></i> Assign Task</h3>
                 </div>
 
                 <form class="form-horizontal" action="{{route('tasks.store')}}" method="post" enctype="multipart/form-data">
@@ -110,7 +109,7 @@
                                 <select class="form-control" multiple id="assets" name="assets[]">
                                     <option disabled>Select Assets</option>
                                     @foreach($assets as $asset)
-                                        <option style="font-size: 11px" value="{{$asset->id}}" {{(in_array($asset->id,$job->assign_assets)?"selected":"")}}>{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
+                                        <option value="{{$asset->id}}" {{(in_array($asset->id,$job->assign_assets)?"selected":"")}}>{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -135,8 +134,9 @@
 
 
 
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script>
         $('#assets').select2({
             placeholder: 'Select an option'

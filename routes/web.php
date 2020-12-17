@@ -110,20 +110,6 @@ Route::group(['prefix'=> 'departments'],function() {
     Route::post('/edit',[App\Http\Controllers\DepartmentController::class, 'edit'])->middleware('auth')->name('departments.edit');
     Route::post('/update',[App\Http\Controllers\DepartmentController::class, 'update'])->middleware('auth')->name('departments.update');
 });
-Route::group(['prefix'=> 'sop'],function() {
-    Route::get('',[App\Http\Controllers\SopsController::class, 'index'])->middleware('auth')->name('sops');
-    Route::post('',[App\Http\Controllers\SopsController::class, 'fetch'])->middleware('auth')->name('sops.fetch');
-    Route::post('/store',[App\Http\Controllers\SopsController::class, 'store'])->middleware('auth')->name('sops.store');
-    Route::get('/view/{id}',[App\Http\Controllers\SopsController::class, 'show'])->middleware('auth')->name('sops.show');
-    Route::post('/edit',[App\Http\Controllers\SopsController::class, 'edit'])->middleware('auth')->name('sops.edit');
-    Route::post('/update',[App\Http\Controllers\SopsController::class, 'update'])->middleware('auth')->name('sops.update');
-});
-Route::group(['prefix'=> 'clauses'],function() {
-    Route::get('/create/{id}',[App\Http\Controllers\ClauseController::class, 'create'])->middleware('auth')->name('clauses.create');
-    Route::post('/store',[App\Http\Controllers\ClauseController::class, 'store'])->middleware('auth')->name('clauses.store');
-    Route::get('/edit/{id}',[App\Http\Controllers\ClauseController::class, 'edit'])->middleware('auth')->name('clauses.edit');
-    Route::post('/update',[App\Http\Controllers\ClauseController::class, 'update'])->middleware('auth')->name('clauses.update');
-});
 
 
 Route::group(['prefix'=> 'designations'],function() {
@@ -348,3 +334,27 @@ Route::get('/taxes',[App\Http\Controllers\TaxesController::class, 'index'])->mid
 Route::post('/search',[App\Http\Controllers\InvoicingLedgerController::class, 'search'])->middleware('auth')->name('search');
 Route::post('/clear/filter',[App\Http\Controllers\InvoicingLedgerController::class, 'clearfilter'])->middleware('auth')->name('clear.filter');
 Route::post('/calculate',[App\Http\Controllers\MytaskController::class, 'calculate'])->middleware('auth')->name('calculate');
+
+
+
+
+Route::group(['prefix'=> 'sop'],function() {
+    Route::get('',[App\Http\Controllers\SopsController::class, 'index'])->middleware('auth')->name('sops');
+    Route::post('',[App\Http\Controllers\SopsController::class, 'fetch'])->middleware('auth')->name('sops.fetch');
+    Route::post('/store',[App\Http\Controllers\SopsController::class, 'store'])->middleware('auth')->name('sops.store');
+    Route::get('/view/{id}',[App\Http\Controllers\SopsController::class, 'show'])->middleware('auth')->name('sops.show');
+    Route::post('/edit',[App\Http\Controllers\SopsController::class, 'edit'])->middleware('auth')->name('sops.edit');
+    Route::post('/update',[App\Http\Controllers\SopsController::class, 'update'])->middleware('auth')->name('sops.update');
+    Route::delete('/delete',[App\Http\Controllers\SopsController::class, 'destroy'])->middleware('auth')->name('sops.delete');
+
+});
+Route::group(['prefix'=> 'forms'],function() {
+    Route::get('',[App\Http\Controllers\FormsandformatsController::class, 'index'])->middleware('auth')->name('forms.index');
+    Route::post('',[App\Http\Controllers\FormsandformatsController::class, 'fetch'])->middleware('auth')->name('forms.fetch');
+    Route::get('create',[App\Http\Controllers\FormsandformatsController::class, 'create'])->middleware('auth')->name('forms.create');
+    Route::get('edit/{id}',[App\Http\Controllers\FormsandformatsController::class, 'edit'])->middleware('auth')->name('forms.edit');
+    Route::get('view/{id}',[App\Http\Controllers\FormsandformatsController::class, 'show'])->middleware('auth')->name('forms.show');
+    Route::post('store',[App\Http\Controllers\FormsandformatsController::class, 'store'])->middleware('auth')->name('forms.store');
+    Route::post('update',[App\Http\Controllers\FormsandformatsController::class, 'update'])->middleware('auth')->name('forms.update');
+    Route::delete('destroy',[App\Http\Controllers\FormsandformatsController::class, 'destroy'])->middleware('auth')->name('forms.destroy');
+});

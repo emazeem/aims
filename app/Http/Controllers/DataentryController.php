@@ -88,7 +88,6 @@ class DataentryController extends Controller
                 $item->parent_id=$entry->id;
                 $item->save();
             }
-            //dd($request->all());
             return redirect()->back()->with('success','Entry added successfully');
 
         /*}*/

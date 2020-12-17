@@ -89,7 +89,7 @@
                             <td class="text-center">
                                 Item {{$sr}} of {{count($labjobs)+count($sitejobs)}}<br>
                                 <a href="{{url('jobs/print/jobtag/lab/'.$sr.'/'.$labjob->id)}}" class="btn"><i
-                                            class="fas fa-qrcode text-danger fa-2x"></i></a>
+                                            class="fa fa-qrcode text-danger fa-2x"></i></a>
                             </td>
                             <td>@if($labjob->eq_id){{$labjob->eq_id}}@else ---@endif</td>
                             <td>@if($labjob->serial){{$labjob->serial}}@else ---@endif</td>

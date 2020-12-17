@@ -62,7 +62,7 @@ class JobController extends Controller
                 $action.="<a title='Invoice' href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-dollar'></i></a>";
                 $action.="<a title='Invoice' href=".url('/jobs/print/DN/'.$data->id)." class='btn btn-sm btn-info'><small>DN</small></a>";
                 if ($check>0){
-                    $action.="<a title='Item Entries' href=".url('/item/entries/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-arrow-alt-circle-down'></i></a>";
+                    $action.="<a title='Item Entries' href=".url('/item/entries/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-plus'></i></a>";
                     $action.="<a title='Gatepass' class='btn btn-sm text-light bg-warning' href=".url('jobs/print/GP/'.$data->id)."><small>GP</small></a>";
                 }
                 $invoice=InvoicingLedger::where('job_id',$data->id)->get();

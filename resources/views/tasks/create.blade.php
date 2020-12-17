@@ -35,11 +35,11 @@
                 </tr>
                 <tr>
                     <th>Item Description</th>
-                    <td>{{\App\Models\Capabilities::find($job->items->capability)->name}}</td>
+                    <td>{{\App\Models\Capabilities::find($job->item->capability)->name}}</td>
                 </tr>
                 <tr>
                     <th>Parameter</th>
-                    <td>{{\App\Models\Parameter::find($job->items->parameter)->name}}</td>
+                    <td>{{\App\Models\Parameter::find($job->item->parameter)->name}}</td>
                 </tr>
                 <tr>
                     <th>Equipment ID</th>
@@ -60,7 +60,7 @@
 
             <div class="col-12 p-2 border">
                 <div class=" d-sm-flex align-items-center justify-content-between mb-4">
-                    <h3 class="">Assign Task</h3>
+                    <h3 class="border-bottom"><i class="fa fa-tasks"></i> Assign Task</h3>
                 </div>
                 <form class="form-horizontal" action="{{route('tasks.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -187,13 +187,14 @@
                         <div class="row">
                             <label for="capability" class="col-12 text-xs control-label">Capability</label>
                                 <div class="form-group col-12">
-                                    <input class="form-control " type="hidden" id="capability" name="capability" placeholder="capability" value="{{\App\Models\Capabilities::find($job->items->capability)->id}}" autocomplete="off"/>                                   <input class="form-control " placeholder="capability" value="{{\App\Models\Capabilities::find($job->items->capability)->name}}" autocomplete="off" readonly/>
+                                    <input class="form-control " type="hidden" id="capability" name="capability" placeholder="capability" value="{{\App\Models\Capabilities::find($job->item->capability)->id}}" autocomplete="off"/>
+                                    <input class="form-control " placeholder="capability" value="{{\App\Models\Capabilities::find($job->item->capability)->name}}" autocomplete="off" readonly/>
                                 </div>
                         </div>
                         <div class="row">
                             <label for="capability" class="col-12 text-xs control-label">Select Parameter</label>
-                            <div class="form-check col-12" style="width: 100%">
-                                <select class="form-control" id="parameter" name="parameter">
+                            <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="parameter" name="parameter">
                                     <option selected disabled="">Select Parameter</option>
                                     @foreach($parameters as $parameter)
                                         <option value="{{$parameter->id}}">{{$parameter->name}}</option>
@@ -218,6 +219,9 @@
             </div>
         </div>
     </div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script>
         $('#assets').select2({
             placeholder: 'Select/Search Assets'
@@ -236,7 +240,5 @@
         });
     </script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 @endsection
 

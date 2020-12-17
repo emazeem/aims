@@ -7,13 +7,15 @@
             });
         </script>
     @endif
-    <div class="col-12">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h2 class="border-bottom text-dark">Scheduling Jobs</h2>
-        </div>
 
-    </div>
+
     <div class="row">
+        <div class="col-12">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+                <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Scheduling Jobs</h3>
+            </div>
+
+        </div>
         <div class="col-lg-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
 
@@ -179,6 +181,7 @@
             </div>
         </div>
     </div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script>

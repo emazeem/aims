@@ -133,7 +133,7 @@
                             {{ csrf_field() }}
                         </form>
                         <div class="col-12 text-center">
-                            <a class=" btn border btn-sm"  href="{{url('/profile')}}"><i class="fa fa-user-plus"></i></a>
+                            <a class=" btn border btn-sm"  href="{{url('/profile')}}"><i class="fa fa-user"></i></a>
                             <a class=" btn border btn-sm"  href="{{url('/change_password')}}"><i class="fa fa-key fa-sm fa-fw"></i></a>
                             <a class="btn border btn-sm" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"  href="{{route('logout')}}"><i class="fa fa-sign-out"></i></a>
                             <form id="frm-logout" action="http://aimslims.com/logout" method="POST" style="display: none;">

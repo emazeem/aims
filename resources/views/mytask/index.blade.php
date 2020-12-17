@@ -7,9 +7,9 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
 
-        <h2 class="border-bottom text-dark">Lab Tasks</h2>
+        <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Lab Tasks</h3>
 
     </div>
 
@@ -48,8 +48,7 @@
     </div>
     <hr>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">Site Tasks</h2>
-
+        <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Site Tasks</h3>
     </div>
 
     <div class="row">

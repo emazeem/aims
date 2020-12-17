@@ -7,8 +7,16 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">My Task Details</h2>
+    @if(Session::has('failed'))
+        <script>
+            $(document).ready(function () {
+                swal("Sorry!", '{{Session('failed')}}', "error");
+            });
+        </script>
+    @endif
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+        <h3 class="border-bottom"><i class="fa fa-tasks"></i> My Task Details</h3>
         @if($show->status==2)
             <form method="post" action="{{route('mytasks.start')}}">
                 @csrf
@@ -67,11 +75,11 @@
                 </tr>
                 <tr>
                     <th>Capability</th>
-                    <td>{{$show->items->capabilities->name}}</td>
+                    <td>{{$show->item->capabilities->name}}</td>
                 </tr>
                 <tr>
                     <th>Procedure</th>
-                    <td>{{$show->items->capabilities->procedures->name}}</td>
+                    <td>{{$show->item->capabilities->procedures->name}}</td>
                 </tr>
 
                 <tr>

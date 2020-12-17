@@ -96,7 +96,7 @@
                     <tr>
                         <td class="font-11">{{$i}}</td>
                         @php $i++; @endphp
-                        <td class="font-11">{{$labjob->items->capabilities->name}}</td>
+                        <td class="font-11">{{$labjob->item->capabilities->name}}</td>
                         <td class="font-11">{{$labjob->eq_id}}</td>
                         <td class="font-11">{{$labjob->certificate}}</td>
                         <td class="font-11">{{$labjob->accessories}}</td>
@@ -107,7 +107,7 @@
                     <tr>
                         <td class="font-11">{{$i}}</td>
                         @php $i++; @endphp
-                        <td class="font-11">{{$sitejob->items->capabilities->name}}</td>
+                        <td class="font-11">{{$sitejob->item->capabilities->name}}</td>
                         <td class="font-11">{{$sitejob->eq_id}}</td>
                         <td class="font-11">{{$sitejob->certificate}}</td>
                         <td class="font-11">{{$sitejob->accessories}}</td>

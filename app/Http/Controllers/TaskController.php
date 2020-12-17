@@ -21,8 +21,8 @@ class TaskController extends Controller
         $users=User::all();
         $parameters=Parameter::all();
         $assets=Asset::all();
-        $job=Jobitem::with('items')->with('jobs')->find($id);
-        $suggestions=Suggestion::where('capabilities',$job->items->capability)->get();
+        $job=Jobitem::with('item')->with('jobs')->find($id);
+        $suggestions=Suggestion::where('capabilities',$job->item->capability)->get();
         $sug=array();
         foreach ($suggestions as $suggestion){
             $options=explode(',',$suggestion->optional_assets);

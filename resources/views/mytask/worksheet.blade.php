@@ -23,7 +23,7 @@
         <div class="col-7 border-left-right-0 custom-border" >
                 <p class="text-center b font-24" style="margin-top: 10px">Calibration Worksheet
                     <br>
-                    ( {{$job->items->capabilities->parameters->name}} )
+                    ( {{$job->item->capabilities->parameters->name}} )
                 </p>
             </div>
         <div class="col-3 row custom-border font-9 p-0">
@@ -59,7 +59,7 @@
                 </tr>
                 <tr>
                     <th class="font-11">UUC:</th>
-                    <td class="font-11">{{$job->items->capabilities->name}}</td>
+                    <td class="font-11">{{$job->item->capabilities->name}}</td>
                 </tr>
                 <tr>
                     <th class="font-11">Make:</th>
@@ -192,7 +192,7 @@
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <th class="font-11">Calibration Method(s) Used : <span class="font-weight-normal">{{$job->items->capabilities->procedures->name}} <span class="mx-5"></span>{{$job->items->capabilities->procedures->description}}</span></th>
+                    <th class="font-11">Calibration Method(s) Used : <span class="font-weight-normal">{{$job->item->capabilities->procedures->name}} <span class="mx-5"></span>{{$job->item->capabilities->procedures->description}}</span></th>
                 </tr>
                 </tbody>
             </table>

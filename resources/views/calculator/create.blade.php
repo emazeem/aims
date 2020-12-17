@@ -14,15 +14,15 @@
             });
         </script>
     @endif
-    <div class="row">
-        <h2 class="border-bottom text-dark">Calculator</h2>
+    <div class="col-12">
+        <h3 class="border-bottom"><i class="fa fa-tasks"></i> Calculator</h3>
     </div>
     <div class="col-12 mt-5">
         <form class="form-horizontal" action="{{route('data_entry.create')}}" method="post">
             @csrf
             <input type="hidden" value="{{$show->id}}" name="jobtypeid">
             <input type="hidden" value="{{$location}}" name="jobtype">
-            <input type="hidden" value="{{$show->items->capabilities->procedure}}" name="procedure">
+            <input type="hidden" value="{{$show->item->capabilities->procedure}}" name="procedure">
             <div class="form-group row">
                 <label for="assets" class="col-sm-3 control-label">Assets</label>
                 <select class="form-control col-md-9" id="assets" name="assets">

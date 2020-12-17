@@ -141,7 +141,7 @@
                     <tr>
                         <td class="font-md">{{$i}}</td>
                         @php $i++; @endphp
-                        <td class="font-md">{{$sitejob->items->capabilities->name}}</td>
+                        <td class="font-md">{{$sitejob->item->capabilities->name}}</td>
                         <td class="font-md">{{$sitejob->eq_id}}</td>
                         <td class="font-md">{{$sitejob->model}}</td>
                         <td class="font-md">{{date('d M-Y h:i A',strtotime($sitejob->jobs->quotes->turnaround))}}</td>
