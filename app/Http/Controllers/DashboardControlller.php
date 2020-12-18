@@ -22,6 +22,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+use LaravelFullCalendar\Facades\Calendar;
 
 class DashboardControlller extends Controller
 {
@@ -41,7 +42,50 @@ class DashboardControlller extends Controller
         $jobs=Job::all()->count();
         $expense_categories=Expensecategory::all()->count();
         $expenses=Expense::all()->count();
-        return view('dashboard',compact('customers','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $events = [];
+        $data = Parameter::all();
+
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $events[] = Calendar::event(
+                    $value->description.'('.date('d m,Y h:i A',strtotime($value->created_at)).'-'.date('d m,Y h:i A',strtotime($value->updated_at)).')',
+                    true,
+                    new \DateTime($value->start),
+                    new \DateTime($value->end),
+                    null,
+                    // Add color and link on event
+                    [
+                        'color' => '#000',
+                        'url' => url('appointments/show/'.$value->id),
+                    ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($events);
+
+
+
+
+
+
+
+        return view('dashboard',compact('customers','calendar','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations'));
     }
     public function markRead($id)
     {

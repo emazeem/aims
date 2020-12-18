@@ -33,6 +33,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
+        '17d016dc52a631c1e74d2eb8fdd57342' => __DIR__ . '/..' . '/laravel/helpers/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
@@ -134,6 +135,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
             'Laravel\\Ui\\' => 11,
             'Laravel\\Tinker\\' => 15,
             'Laravel\\Sail\\' => 13,
+            'LaravelFullCalendar\\' => 20,
         ),
         'I' => 
         array (
@@ -416,6 +418,10 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
         ),
+        'LaravelFullCalendar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/qlick/laravel-full-calendar/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -528,6 +534,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
+            1 => __DIR__ . '/..' . '/qlick/laravel-full-calendar/app',
         ),
     );
 
@@ -2696,6 +2703,13 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'LaravelFullCalendar\\Calendar' => __DIR__ . '/..' . '/qlick/laravel-full-calendar/src/Calendar.php',
+        'LaravelFullCalendar\\Event' => __DIR__ . '/..' . '/qlick/laravel-full-calendar/src/Event.php',
+        'LaravelFullCalendar\\EventCollection' => __DIR__ . '/..' . '/qlick/laravel-full-calendar/src/EventCollection.php',
+        'LaravelFullCalendar\\Facades\\Calendar' => __DIR__ . '/..' . '/qlick/laravel-full-calendar/src/Facades/Calendar.php',
+        'LaravelFullCalendar\\FullCalendarServiceProvider' => __DIR__ . '/..' . '/qlick/laravel-full-calendar/src/FullCalendarServiceProvider.php',
+        'LaravelFullCalendar\\IdentifiableEvent' => __DIR__ . '/..' . '/qlick/laravel-full-calendar/src/IdentifiableEvent.php',
+        'LaravelFullCalendar\\SimpleEvent' => __DIR__ . '/..' . '/qlick/laravel-full-calendar/src/SimpleEvent.php',
         'Laravel\\Sail\\SailServiceProvider' => __DIR__ . '/..' . '/laravel/sail/src/SailServiceProvider.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',

@@ -59,6 +59,17 @@
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
+  'qlick/laravel-full-calendar' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaravelFullCalendar\\FullCalendarServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Calendar' => 'LaravelFullCalendar\\Facades\\Calendar',
+    ),
+  ),
   'simplesoftwareio/simple-qrcode' => 
   array (
     'providers' => 

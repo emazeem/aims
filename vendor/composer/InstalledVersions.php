@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'a56d1fb8c50a06ada9776f3e4e3bdafea7bab04b',
+    'reference' => 'f025f68b52b456c16365e0d522423e42127b0e3e',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -479,6 +479,15 @@ private static $installed = array (
       ),
       'reference' => 'f5f331cee60f1bbe672503b7eb9ba5b22b2ceacb',
     ),
+    'laravel/helpers' => 
+    array (
+      'pretty_version' => 'v1.4.0',
+      'version' => '1.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cde8ea2427db4f37d67729846b70452499210a21',
+    ),
     'laravel/laravel' => 
     array (
       'pretty_version' => 'dev-main',
@@ -486,7 +495,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'a56d1fb8c50a06ada9776f3e4e3bdafea7bab04b',
+      'reference' => 'f025f68b52b456c16365e0d522423e42127b0e3e',
     ),
     'laravel/sail' => 
     array (
@@ -831,6 +840,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '7c710551d4a2653afa259c544508dc18a9098956',
+    ),
+    'qlick/laravel-full-calendar' => 
+    array (
+      'pretty_version' => 'v1.1.2',
+      'version' => '1.1.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b9d76c14f463c3edc6e91bd071f204c3570e6f8f',
     ),
     'ralouphie/getallheaders' => 
     array (

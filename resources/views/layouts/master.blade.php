@@ -10,7 +10,6 @@
     <link rel="icon" href="{{url('/img/aims-logo.png')}}">
     <link rel="stylesheet" href="{{url('style.css')}}">
     <!-- Bootstrap -->
-
     <link href="{{url('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{url('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -18,7 +17,6 @@
     <link href="{{url('vendors/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- iCheck -->
     <link href="{{url('vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-
     <!-- bootstrap-progressbar -->
     <link href="{{url('vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
     <!-- JQVMap -->
@@ -60,14 +58,12 @@
 <script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
 <script src="{{url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-
 <!-- FastClick -->
 <script src="{{url('vendors/fastclick/lib/fastclick.js')}}"></script>
 <!-- NProgress -->
 <script src="{{url('vendors/nprogress/nprogress.js')}}"></script>
 <!-- Chart.js -->
 <script src="{{url('vendors/Chart.js/dist/Chart.min.js')}}"></script>
-
 <!-- gauge.js -->
 <script src="{{url('vendors/gauge.js/dist/gauge.min.js')}}"></script>
 <!-- bootstrap-progressbar -->
@@ -95,13 +91,16 @@
 <!-- bootstrap-daterangepicker -->
 <script src="{{url('vendors/moment/min/moment.min.js')}}"></script>
 <script src="{{url('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
 <!-- Custom Theme Scripts -->
 <script src="{{url('build/js/custom.min.js')}}"></script>
 <!--   Datatables-->
 <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>
 <!-- extension responsive -->
 <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
 
 </body>
 </html>

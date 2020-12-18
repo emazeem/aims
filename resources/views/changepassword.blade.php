@@ -20,8 +20,8 @@
     @endif
 
     <div class="row">
-        <div class="col-md-12 text-center">
-            <h2 class="border-bottom text-dark pb-2">Change Password</h2>
+        <div class="col-12">
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-key"></i> Change Password</h3>
         </div>
         <div class="col-md-4 col-12"></div>
         <div class="col-md-4 mt-4 col-12">

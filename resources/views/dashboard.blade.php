@@ -79,6 +79,11 @@
                     </div>
                 </div>
             </div>
+
+            {!! $calendar->calendar() !!}
+            {!! $calendar->script() !!}
+
         </div>
     </div>
+
 @endsection
