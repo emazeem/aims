@@ -9,9 +9,9 @@
         </script>
     @endif
 
-    <div class="box box-info">
+    <div class="col-12">
         <div class="box-header with-border">
-            <h3 class="box-title">Add Expense Category or Subcategory</h3>
+            <h3 class="box-title"><i class="fa fa-plus-circle"></i> Add Expense Category or Subcategory</h3>
         </div>
         <form class="form-horizontal" action="{{route('expenses_categories.store')}}" method="post">
             @csrf

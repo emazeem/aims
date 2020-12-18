@@ -17,13 +17,9 @@
         }
 
     </style>
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Edit Roles</h1>
-    </div>
-
     <div class="row pb-3">
+        <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Edit Roles</h3>
         <div class="col-12">
-
             <form class="form-horizontal" action="{{route('roles.update')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" value="{{$edit->id}}" name="id">
@@ -37,24 +33,6 @@
                       </span>
                     @endif
                 </div>
-{{--
-                <div class="form-group col-sm-6">
-                    <ul style="list-style:none">
-                        @foreach($menulist as $menu)
-                            @if(empty($menu->parent_id))
-                                <div class="checkbox">
-                                    <label class="custom-label"><input type="checkbox" value="{{$menu->slug}}" name="menu_arr[]" {{(in_array($menu->slug,$permissions))?"checked":""}}><i class="fa fa-bars text-info left-space"></i> {{$menu->name}}</label>
-                                </div>
-                            @else
-                                <div class="checkbox left-space-2">
-                                    <label class="custom-label"><input type="checkbox" value="{{$menu->slug}}" name="menu_arr[]" {{(in_array($menu->slug,$permissions))?"checked":""}}><i class="fa fa-lock text-danger left-space" ></i> {{$menu->name}}</label>
-                                </div>
-
-                            @endif
-                        @endforeach
-
-                    </ul>
-                </div>--}}
                 <div class="form-group col-sm-6">
                     <ul style="list-style:none">
                         @foreach($menuus as $menu)
@@ -79,19 +57,13 @@
                                 @endforeach
                             @endif
                         @endforeach
-
                     </ul>
+                    <div class="text-right">
+                        <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+
                 </div>
-
-
-
-
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Save</button>
-                </div>
-                <!-- /.box-footer -->
             </form>
         </div>
     </div>

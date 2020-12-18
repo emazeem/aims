@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
-Route::get('cmd', function () {
-    \Artisan::call('config:cache');
+Route::get('optimize', function () {
+    \Artisan::call('optimize');
     dd("Done");
 });
 Route::get('/home', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth');
@@ -358,4 +358,23 @@ Route::group(['prefix'=> 'forms'],function() {
     Route::post('store',[App\Http\Controllers\FormsandformatsController::class, 'store'])->middleware('auth')->name('forms.store');
     Route::post('update',[App\Http\Controllers\FormsandformatsController::class, 'update'])->middleware('auth')->name('forms.update');
     Route::delete('destroy',[App\Http\Controllers\FormsandformatsController::class, 'destroy'])->middleware('auth')->name('forms.destroy');
+});
+Route::group(['prefix'=> 'purchase_indent'],function() {
+    Route::group(['prefix'=> 'item'],function() {
+        Route::get('/create/{indent}',[App\Http\Controllers\PurchaseindentitemController::class, 'create'])->middleware('auth')->name('purchase.indent.items.create');
+        Route::get('/revision/approve/{id}',[App\Http\Controllers\PurchaseindentitemController::class, 'revision_accept'])->middleware('auth')->name('purchase.indent.items.revision_accept');
+        Route::get('/revision/reject/{id}',[App\Http\Controllers\PurchaseindentitemController::class, 'revision_reject'])->middleware('auth')->name('purchase.indent.items.revision_reject');
+        Route::get('/approval/approve/{id}',[App\Http\Controllers\PurchaseindentitemController::class, 'approval_accept'])->middleware('auth')->name('purchase.indent.items.approval_accept');
+        Route::get('/approval/reject/{id}',[App\Http\Controllers\PurchaseindentitemController::class, 'approval_reject'])->middleware('auth')->name('purchase.indent.items.approval_reject');
+        Route::get('/edit/{id}',[App\Http\Controllers\PurchaseindentitemController::class, 'edit'])->middleware('auth')->name('purchase.indent.items.edit');
+        Route::post('/store',[App\Http\Controllers\PurchaseindentitemController::class, 'store'])->middleware('auth')->name('purchase.indent.items.store');
+        Route::post('/update',[App\Http\Controllers\PurchaseindentitemController::class, 'update'])->middleware('auth')->name('purchase.indent.items.update');
+    });
+    Route::get('',[App\Http\Controllers\PurchaseindentController::class, 'index'])->middleware('auth')->name('purchase.indent.index');
+    Route::post('',[App\Http\Controllers\PurchaseindentController::class, 'fetch'])->middleware('auth')->name('purchase.indent.fetch');
+    Route::get('/create',[App\Http\Controllers\PurchaseindentController::class, 'create'])->middleware('auth')->name('purchase.indent.create');
+    Route::post('store',[App\Http\Controllers\PurchaseindentController::class, 'store'])->middleware('auth')->name('purchase.indent.store');
+    Route::post('update',[App\Http\Controllers\PurchaseindentController::class, 'update'])->middleware('auth')->name('purchase.indent.update');
+    Route::get('/edit/{id}',[App\Http\Controllers\PurchaseindentController::class, 'edit'])->middleware('auth')->name('purchase.indent.edit');
+    Route::get('/show/{id}',[App\Http\Controllers\PurchaseindentController::class, 'show'])->middleware('auth')->name('purchase.indent.show');
 });

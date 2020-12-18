@@ -59,6 +59,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->certificates();
         $this->invoicing_ledger();
         $this->settings();
+        $this->purchase();
         //
     }
     public function customers()
@@ -91,6 +92,23 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function purchase()
+    {
+        Gate::define('purchase', function ($user) {
+            if (in_array('purchase',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('indent-index', function ($user) {
+            if (in_array('indent-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+    }
+
     public function procedures()
     {
         Gate::define('procedure-index', function ($user) {

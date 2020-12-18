@@ -61,7 +61,6 @@ class AssetController extends Controller
                 return $status;
 
             })
-
             ->addColumn('make', function ($data) {
                 return $data->make;
             })

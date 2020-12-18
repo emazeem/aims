@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
 
         <h4 class="border-bottom text-dark">All Categories & Subcategories</h4>
 

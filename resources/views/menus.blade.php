@@ -242,7 +242,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="border-bottom text-dark">Add Menu</h4>
+                <h4 class="border-bottom text-dark"><i class="fa fa-plus-circle"></i> Add Menu</h4>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -302,7 +302,7 @@
         <div class="modal-content">
             <div class="modal-header">
 
-                <h4 class="border-bottom text-dark">Edit Menu</h4>
+                <h4 class="border-bottom text-dark"><i class="fa fa-pencil"></i>  Edit Menu</h4>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

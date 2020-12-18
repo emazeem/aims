@@ -16,11 +16,8 @@
             font-size: 30px;
         }
     </style>
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">Add Roles</h2>
-    </div>
-
     <div class="row pb-3">
+        <h3 class="border-bottom text-dark">Add Roles</h3>
         <div class="col-12">
 
             <form class="form-horizontal" action="{{route('roles.store')}}" method="post" enctype="multipart/form-data">

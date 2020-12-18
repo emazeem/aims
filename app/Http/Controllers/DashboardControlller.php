@@ -16,6 +16,8 @@ use App\Models\Jobform;
 use App\Models\Labjob;
 use App\Models\Notification;
 use App\Models\Parameter;
+use App\Models\Purchaseindent;
+use App\Models\Purchaseindentitem;
 use App\Models\Quotes;
 use App\Models\Session;
 use App\Models\User;
@@ -71,7 +73,7 @@ class DashboardControlller extends Controller
                     null,
                     // Add color and link on event
                     [
-                        'color' => '#000',
+                        'color' => '#hoi43',
                         'url' => url('appointments/show/'.$value->id),
                     ]
                 );
@@ -79,13 +81,14 @@ class DashboardControlller extends Controller
         }
         $calendar = Calendar::addEvents($events);
 
+        $indentforrevisions=Purchaseindent::with(["indent_items" => function($q){
+            $q->where('status', 0);
+        }])->where('checked_by',\auth()->user()->id)->get();
+        $indentforapprovals=Purchaseindent::with(["indent_items" => function($q){
+            $q->where('status', 2);
+        }])->where('checked_by',\auth()->user()->id)->get();
 
-
-
-
-
-
-        return view('dashboard',compact('customers','calendar','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations'));
+        return view('dashboard',compact('customers','calendar','indentforrevisions','indentforapprovals','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations'));
     }
     public function markRead($id)
     {
@@ -101,6 +104,5 @@ class DashboardControlller extends Controller
     public function notification(){
         return view('notifications');
     }
-
     //
 }
