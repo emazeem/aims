@@ -29,27 +29,31 @@
 <style>
 
     .font-1{
-        font-size: 100px;
+        font-size: 110px;
     }
     .font-2{
-        font-size: 80px;
+        font-size: 100px;
     }
+    .font-4{
+        font-size: 90px;
+    }
+
     .font-3{
-        font-size: 55px;
+        font-size: 70px;
     }
 
 
 </style>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-8 p-1">
-            <h1 class="text-center font-1">ITEM TAG</h1>
-            <h1 class="font-2">Job No : {{$tag->job_id}}</h1>
-            <h1 class="font-2">Item # : {{$index}} of {{$total}}</h1>
-            <h3 class="p-2 font-3">AIMS-TM-FRM-12 R#01</h3>
+        <div class="col-6 p-0 m-0">
+            <h1 class="font-1 p-0 m-0">ITEM TAG</h1>
+            <h1 class="font-2 p-0 m-0">Job # {{$tag->job_id}}</h1>
+            <h1 class="font-4 p-0 m-0">Item # {{$index}} of {{$total}}</h1>
+            <h3 class="font-3 p-0 m-0">AIMS-TM-FRM-12 R#01</h3>
         </div>
-        <div class="col-4">
-            <span class="float-right py-3">{{QrCode::size(375)->generate(route('checkin.create',[$loc,$tag->id]))}}</span>
+        <div class="col-6 p-0 m-0">
+            {{QrCode::size(500)->generate('Item # 01 , Job # 001 , Asset ID / Serial # 34728934')}}
         </div>
     </div>
 </div>

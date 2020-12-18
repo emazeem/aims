@@ -130,20 +130,11 @@ class JobController extends Controller
         return view('jobs.gatepass',compact('items','assets','sitejobs','job'));
     }
     public function print_jt($loc,$index,$id){
-        if ($loc=='lab'){
-            $tag=Labjob::find($id);
-        }
-        if ($loc=='site'){
-            $tag=Sitejob::find($id);
-        }
-        $total=0;
-        $lab=Labjob::where('job_id',$tag->job_id)->get()->toArray();
-        $site=Sitejob::where('job_id',$tag->job_id)->get()->toArray();
-        $total=count($lab)+count($site);
+            $tag=Jobitem::find($id);
 
+        $total=0;
+        $total=count(Jobitem::where('job_id',$tag->job_id)->get()->toArray());
         return view('jobs.jobtag',compact('tag','index','total','loc'));
     }
-
-
     //
 }
