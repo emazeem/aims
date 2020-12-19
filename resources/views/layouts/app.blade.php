@@ -13,14 +13,12 @@
     <link href="{{url('build/css/custom.min.css')}}" rel="stylesheet">
 
 </head>
-<body class="nav-md bg-white">
+<body class="nav-md" style="background-color: #f4f4f4">
 
 <div class="container">
     @yield('content')
 </div>
         <!-- /footer content -->
-
-</div>
 <link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
 <link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
 <!-- jQuery -->

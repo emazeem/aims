@@ -34,12 +34,14 @@ class AuthServiceProvider extends ServiceProvider
         $this->expenses();
         $this->units();
         $this->department();
+        $this->preferences();
         $this->designation();
         $this->asset();
         $this->capabilities();
         $this->uncertainties();
         $this->quotes();
         $this->columns();
+        $this->material_receiving();
         $this->items();
         $this->mytasks();
         $this->roles();
@@ -117,7 +119,28 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
     }
+    public function preferences()
+    {
+        Gate::define('preferences-index', function ($user) {
+            if (in_array('preferences-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+    public function material_receiving()
+    {
+        Gate::define('material-receiving-index', function ($user) {
+            if (in_array('material-receiving-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
+
     public function document_control()
     {
         Gate::define('document-control', function ($user) {

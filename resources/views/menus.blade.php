@@ -5,14 +5,14 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-12">
-        <h2 class="border-bottom text-dark col-3">All Menus</h2>
-        <div>
-            <a href="{{route('menus.manage')}}" class="btn btn-sm pull-right btn-success shadow-sm"><i class="fa fa-sort"></i> Manage Menus</a>
-            <button type="button" class="btn btn-sm pull-right btn-primary shadow-sm" data-toggle="modal" data-target="#add_menu"><i class="fa fa-plus-circle"></i> Menu</button>
-        </div>
+    <div class="col-12">
+        <h3 class="border-bottom text-dark "><i class="fa fa-tasks"></i> All Menus</h3>
+        <span class="text-right">
+        <a href="{{route('menus.manage')}}" class="btn btn-sm pull-right btn-success shadow-sm"><i class="fa fa-sort"></i> Manage Menus</a>
+        <button type="button" class="btn btn-sm pull-right btn-primary shadow-sm" data-toggle="modal" data-target="#add_menu"><i class="fa fa-plus-circle"></i> Menu</button>
+    </span>
     </div>
-  <div class="col-lg-12">
+    <div class="col-lg-12">
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
 
       <thead>

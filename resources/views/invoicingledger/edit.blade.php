@@ -8,7 +8,9 @@
         </script>
     @endif
     <div class="row pb-3">
-
+        <div class="col-12 ">
+            <h3 class="border-bottom text-primary"><i class="fa fa-refresh"></i> Edit Invoice Ledger Details</h3>
+        </div>
 
         <div class="row">
             <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">
@@ -20,9 +22,7 @@
             <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">Service Tax : <span class="font-weight-light text-dark">{{$tax}} %</span></h5>
             <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">Income Tax Percent : <span class="font-weight-light text-dark">3 %</span></h5>
         </div>
-        <div class="col-12 mt-5">
-            <h1 class="h3 mb-3">Edit Invoice Ledger Details</h1>
-        </div>
+
         <div class="col-12">
             <?php
                 $tax_deducted=0;
@@ -112,9 +112,9 @@
                         <span class="text-danger"><strong>{{ $errors->first('acc_email') }}</strong></span>
                     @endif
                 </div>
-                <div class="box-footer">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Update</button>
+                <div class="col-12 text-right">
+                    <a href="{{ URL::previous() }}" class="btn btn-primary"><i class="fa fa-close"></i> Cancel</a>
+                    <button type="submit" class="btn btn-success float-right"><i class="fa fa-refresh"></i> Update</button>
                 </div>
             </form>
         </div>

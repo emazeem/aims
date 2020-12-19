@@ -378,3 +378,20 @@ Route::group(['prefix'=> 'purchase_indent'],function() {
     Route::get('/edit/{id}',[App\Http\Controllers\PurchaseindentController::class, 'edit'])->middleware('auth')->name('purchase.indent.edit');
     Route::get('/show/{id}',[App\Http\Controllers\PurchaseindentController::class, 'show'])->middleware('auth')->name('purchase.indent.show');
 });
+Route::group(['prefix'=> 'preferences'],function() {
+    Route::get('/',[App\Http\Controllers\PreferenceController::class, 'index'])->middleware('auth')->name('preferences.index');
+    Route::post('',[App\Http\Controllers\PreferenceController::class, 'fetch'])->middleware('auth')->name('preferences.fetch');
+    Route::get('/create',[App\Http\Controllers\PreferenceController::class, 'create'])->middleware('auth')->name('preferences.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\PreferenceController::class, 'edit'])->middleware('auth')->name('preferences.edit');
+    Route::post('store',[App\Http\Controllers\PreferenceController::class, 'store'])->middleware('auth')->name('preferences.store');
+    Route::post('store_category',[App\Http\Controllers\PreferenceController::class, 'store_category'])->middleware('auth')->name('preferences.store_category');
+});
+Route::group(['prefix'=> 'material_receiving'],function() {
+    Route::get('/',[App\Http\Controllers\MaterialreceivingController::class, 'index'])->middleware('auth')->name('material.receiving.index');
+    Route::get('create/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'create'])->middleware('auth')->name('material.receiving.create');
+    Route::get('edit/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'edit'])->middleware('auth')->name('material.receiving.edit');
+    Route::post('store',[App\Http\Controllers\MaterialreceivingController::class, 'store'])->middleware('auth')->name('material.receiving.store');
+    Route::post('update',[App\Http\Controllers\MaterialreceivingController::class, 'update'])->middleware('auth')->name('material.receiving.update');
+    Route::get('show/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'show'])->middleware('auth')->name('material.receiving.show');
+    Route::post('',[App\Http\Controllers\MaterialreceivingController::class, 'fetch'])->middleware('auth')->name('material.receiving.fetch');
+});

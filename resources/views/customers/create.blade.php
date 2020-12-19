@@ -58,11 +58,9 @@
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="region" name="region">
                                 <option selected disabled="">Select Region</option>
-                                <option value="PRA" {{ (collect(old('region'))->contains('PRA')) ? 'selected':'' }} >Punjab-PRA</option>
-                                <option value="SRB" {{ (collect(old('region'))->contains('SRB')) ? 'selected':'' }} >Sindh-SRB</option>
-                                <option value="KPRA" {{ (collect(old('region'))->contains('KPRA')) ? 'selected':'' }} >KPK-KPRA</option>
-                                <option value="BRA" {{ (collect(old('region'))->contains('BRA')) ? 'selected':'' }} >Balochistan-BRA</option>
-                                <option value="IRD" {{ (collect(old('region'))->contains('IRD')) ? 'selected':'' }} >AJK-IRD</option>
+                                @foreach($saletaxes as $saletax)
+                                    <option value="{{$saletax->id}}" {{ (collect(old('region'))->contains($saletax->id)) ? 'selected':'' }} >{{$saletax->name}} -{{$saletax->value}} %</option>
+                                @endforeach
                             </select>
                         </div>
                         @if ($errors->has('pay_type'))

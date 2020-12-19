@@ -7,8 +7,8 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Add Expenses</h1>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+        <h3 class="border-bottom "><i class="fa fa-plus-circle"></i> Add Expenses</h3>
     </div>
 
     <div class="row pb-3">

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\InvoicingLedger;
 use App\Models\Job;
+use App\Models\Jobitem;
 use App\Models\Labjob;
+use App\Models\Preference;
 use App\Models\ReceivingLedger;
 use App\Models\Sitejob;
 use Illuminate\Http\Request;
@@ -343,49 +345,24 @@ class InvoicingLedgerController extends Controller
     public function create($id){
         $job=Job::find($id);
         $customer=Customer::where('id',$job->quotes->customer_id)->first();
-        $tax=0;
-        if($customer->region=="PRA"){
-            $tax=16;
-        }
-        elseif($customer->region=="SRB"){
-            $tax=13;
-        }
-        elseif($customer->region=="KPRA"){
-            $tax=15;
-        }
-        elseif($customer->regio=="IRD"){
-            $tax=16;
-        }else{
-            $tax=0;
-        }
-
-
-
+        $tax=Preference::find($customer->region)->value;
         $service_charges=0;
-        $labjobs=Labjob::where('job_id',$id)->with('items')->get();
-        $sitejobs=Sitejob::where('job_id',$id)->with('items')->get();
-        foreach ($labjobs as $labjob){
-            $service_charges=$service_charges+$labjob->items->price;
+        $jobs=Jobitem::where('job_id',$id)->with('items')->get();
+        foreach ($jobs as $j){
+            $service_charges=$service_charges+$j->item->price;
         }
-        foreach ($sitejobs as $sitejob){
-            $service_charges=$service_charges+$sitejob->items->price;
-        }
-
         return view('invoicingledger.create',compact('job','id','service_charges','tax','customer'));
     }
     public function edit($invoice){
         $invoice_ledger=InvoicingLedger::find($invoice);
-        $id=$invoice_ledger->id;
+        $id=$invoice_ledger->job_id;
         $job=Job::find($id);
+        //dd($invoice);
         $customer=Customer::find($job->quotes->customer_id);
         $service_charges=0;
-        $labjobs=Labjob::where('job_id',$id)->with('items')->get();
-        $sitejobs=Sitejob::where('job_id',$id)->with('items')->get();
-        foreach ($labjobs as $labjob){
-            $service_charges=$service_charges+$labjob->items->price;
-        }
-        foreach ($sitejobs as $sitejob){
-            $service_charges=$service_charges+$sitejob->items->price;
+        $itemjobs=Jobitem::where('job_id',$id)->with('items')->get();
+        foreach ($itemjobs as $itemjob){
+            $service_charges=$service_charges+$itemjob->item->price;
         }
         $tax=0;
         if($job->quotes->customers->region="PRA"){

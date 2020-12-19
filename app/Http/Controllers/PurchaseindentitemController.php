@@ -85,7 +85,7 @@ class PurchaseindentitemController extends Controller
     }
     public function approval_reject($id){
         $approve=Purchaseindentitem::find($id);
-        $approve->status=4;
+        $approve->status=1;
         $approve->save();
         return redirect()->back()->with('success','Rejected Successfully');
     }

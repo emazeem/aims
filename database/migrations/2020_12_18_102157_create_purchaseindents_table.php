@@ -20,6 +20,7 @@ class CreatePurchaseindentsTable extends Migration
             $table->integer('indent_by');
             $table->integer('checked_by');
             $table->integer('approved_by');
+            $table->integer('incharge_store');
             $table->string('indent_type');
             $table->string('deliver_to');
             $table->integer('status');

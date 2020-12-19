@@ -1,12 +1,12 @@
 @extends('layouts.master')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
 
-        <h2 class="border-bottom text-dark">Expenses Details</h2>
+        <h3 class="border-bottom text-dark"> <i class="fa fa-dollar"></i> Expenses Details</h3>
 
         <span>
-        <a href="{{route('expenses_categories')}}" class="mt-1 btn btn-sm btn-warning shadow-sm"><i class="fas fa-eye"></i> Expense Categories & Subcategories</a>
-        <a href="{{route('expenses.create')}}" class="mt-1 btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Add Expenses</a>
+        <a href="{{route('expenses_categories')}}" class="mt-1 btn btn-sm btn-warning shadow-sm"><i class="fa fa-eye"></i> Expense Categories & Subcategories</a>
+        <a href="{{route('expenses.create')}}" class="mt-1 btn btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle"></i> Add Expenses</a>
     </span>
 
     </div>

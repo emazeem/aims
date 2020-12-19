@@ -17,19 +17,16 @@
 
     <div class="row pb-3">
 
-
+        <div class="col-12">
+            <h3 class="border-bottom text-primary"><i class="fa fa-plus-circle"></i> Add Invoice Ledger Details</h3>
+        </div>
         <div class="row">
-            <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">
-                Job # <span class="font-weight-light text-dark">{{$id}}</span>
-            </h5>
+            <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">Job # <span class="font-weight-light text-dark">{{$id}}</span></h5>
             <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">Service Charges : <span class="font-weight-light text-dark">{{$service_charges}}</span></h5>
             <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">Customer : <span class="font-weight-light text-dark">{{$job->quotes->customers->reg_name}}</span></h5>
             <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">Service Tax Type : <span class="font-weight-light text-dark">{{$job->quotes->customers->region}}</span></h5>
             <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">Service Tax : <span class="font-weight-light text-dark">{{$tax}} %</span></h5>
             <h5 class="text-danger border col-md-5 text-center col-12 mx-md-4 bg-white b p-2">Income Tax Percent : <span class="font-weight-light text-dark">3 %</span></h5>
-        </div>
-        <div class="col-12 mt-5">
-            <h1 class="h3 mb-3">Add Invoice Ledger Details</h1>
         </div>
         <div class="col-12">
             <form class="form-horizontal" action="{{route('invoicing_ledger.store')}}" method="post"

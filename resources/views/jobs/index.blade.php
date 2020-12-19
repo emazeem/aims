@@ -16,7 +16,7 @@
     </script>
 @endif
 <div class="d-sm-flex col-12 align-items-center justify-content-between mb-4">
-    <h3 class="border-bottom">All Jobs</h3>
+    <h3 class="border-bottom"><i class="fa fa-tasks"></i> All Jobs</h3>
 </div>
 <div class="row">
 
