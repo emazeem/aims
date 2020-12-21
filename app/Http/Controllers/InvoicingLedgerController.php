@@ -73,7 +73,7 @@ class InvoicingLedgerController extends Controller
             if ($request->taxtype=='service'){
                 if (isset($request->region)){
                     $filter_data['service']=$request->taxby;
-                    $filter_data['region']=$request->region;
+                    $filter_data['region']=Preference::find($request->region)->value;
                 }else{
                     $filter_data['service']=$request->taxby;
                 }
@@ -157,7 +157,7 @@ class InvoicingLedgerController extends Controller
                 return $data->service_charges;
             })
             ->addColumn('services_tax_type', function ($data) {
-                return $data->service_tax_type." (".$data->service_tax_percent."%)";
+                return Preference::find($data->service_tax_type)->name." (".$data->service_tax_percent."%)";
             })
             ->addColumn('services_tax_amount', function ($data) {
                 return $data->service_tax_amount;
@@ -304,7 +304,7 @@ class InvoicingLedgerController extends Controller
         $ledger->service_tax_type=$request->service_tax_type;
         $ledger->service_tax_percent=Preference::find($request->service_tax_type)->value;
         $ledger->service_tax_amount=$service_tax_amount;
-        $ledger->income_tax_percent=$st;
+        $ledger->income_tax_percent=$st->value;
         $ledger->income_tax_amount=$income_tax_amount;
         if ($request->tax_deducted_by==0){
             $ledger->service_tax_deducted="By AIMS";
