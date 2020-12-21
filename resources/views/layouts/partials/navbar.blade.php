@@ -106,7 +106,7 @@
         <nav class="nav navbar-nav">
             <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown"
+                    <a href="javascript:0;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown"
                        data-toggle="dropdown" aria-expanded="false">
                         @if(auth()->user()->profile)
                             <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
@@ -120,10 +120,9 @@
                         <div class="text-center p-4">
                             @if(auth()->user()->profile)
                                 <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
-                                     class="img-fluid rounded-circle"
-                                     style="height: 65px;width: 65px;object-fit: cover;">
+                                     class="img-fluid rounded-circle" style="height: 65px;width: 65px;object-fit: cover;">
                             @else
-                                <i class="fas fa-user-circle fa-3x"></i>
+                                <img src="{{url('img/profile.png')}}" class="img-fluid img-fluid rounded-circle" style="height: 65px;width: 65px;object-fit: cover;">
                             @endif
                             <div class="col-12">
 

@@ -9,9 +9,7 @@
     @endif
     <div class="row">
         <div class="text-right col-12 my-2">
-            <button class="btn btn-sm btn-success float-right" data-toggle="modal" data-target="#changeprofile"><i
-                        class="fa fa-upload"></i> Upload Profile
-            </button>
+            <button class="btn btn-sm btn-success float-right" data-toggle="modal" data-target="#changeprofile"><i class="fa fa-upload"></i> Upload Profile</button>
         </div>
     </div>
     <div class="row">
@@ -25,7 +23,6 @@
                 <p class="text-center mt-4">{{auth()->user()->fname}} {{auth()->user()->lname}}
                     <br>
                     <small>Member since {{date('Y',strtotime(auth()->user()->created_at))}}</small>
-
                 </p>
             </div>
         </div>
