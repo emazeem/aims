@@ -9,9 +9,13 @@
     @endif
     <div class="col-12">
         <div class="d-sm-flex align-items-center justify-content-between mb-4 p-2">
-            <h2 class="border-bottom text-dark">Invoicing Ledger</h2>
+            <h3 class="border-bottom text-dark"><i class="fa fa-dollar"></i> Invoicing Ledger</h3>
 
-            <a href="" class="btn btn-secondary"><i class="fa fa-print"></i></a>
+            <span>
+
+            <a href="" class="btn btn-secondary btn-sm"><i class="fa fa-print"></i></a>
+            {{--<a href="{{route('invoicing_ledger.create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Entry</a>
+            --}}</span>
         </div>
     </div>
     <div class="row">
@@ -24,7 +28,7 @@
             <div class="card shadow mb-4">
 
                 <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                    <h5 class="m-0 font-weight-bold text-primary"> Advance Filter <i class="fa fa-search"></i></h5>
+                    <h6 class="m-0"> Advance Filter <i class="fa fa-search"></i></h6>
                 </a>
                 <div class="collapse" id="collapseCardExample">
                     <div class="card-body">

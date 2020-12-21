@@ -100,7 +100,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="acc_phone_2" class="col-sm-3 control-label">Account Phone 2 (opt.)</label>
-                    <input type="text" class="form-control col-md-9" id="acc_phone_2" name="acc_phone_2" placeholder="Phone (opt.)" autocomplete="off" value="{{old('acc_phone_2',$phones[1])}}">
+                    <input type="text" class="form-control col-md-9" id="acc_phone_2" name="acc_phone_2" placeholder="Phone (opt.)" autocomplete="off" value="{{old('acc_phone_2',$phones[0])}}">
                     @if ($errors->has('acc_phone_2'))
                         <span class="text-danger"><strong>{{ $errors->first('acc_phone_2') }}</strong></span>
                     @endif

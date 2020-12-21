@@ -197,7 +197,7 @@ class InvoicingLedgerController extends Controller
 
     public function store(Request $request){
         //dd($request->all());
-        $count=InvoicingLedger::where('job_id',$request->id)->get();
+        /*$count=InvoicingLedger::where('job_id',$request->id)->get();
         if (count($count)>0){
             return redirect()->back()->with('error','Invoice details already exists, you cant add.');
         }
@@ -229,16 +229,12 @@ class InvoicingLedgerController extends Controller
         $ledger=new InvoicingLedger();
         $ledger->job_id=$request->id;
         $ledger->customer_id=$request->customer;
-
         $ledger->service_charges=$service_charges;
-
         $ledger->service_tax_type=$request->service_tax_type;
         $ledger->service_tax_percent=$request->service_tax_percent;
         $ledger->service_tax_amount=$service_tax_amount;
-
         $ledger->income_tax_percent=$request->income_tax_percent;
         $ledger->income_tax_amount=$income_tax_amount;
-
         if ($request->tax_deducted_by==0){
             $ledger->service_tax_deducted="By AIMS";
             $ledger->income_tax_deducted="By AIMS";
@@ -269,7 +265,69 @@ class InvoicingLedgerController extends Controller
         if ($ledger->save()){
             $account->save();
         }
+        return redirect()->back()->with('success','Invoice Details Added Successfully');*/
+
+        $count=InvoicingLedger::where('job_id',$request->id)->get();
+        if (count($count)>0){
+            return redirect()->back()->with('error','Invoice details already exists, you cant add.');
+        }
+        $this->validate($request,[
+           'customers'=>'required',
+           'service_charges'=>'required',
+           'service_tax_type'=>'required',
+           'tax_deducted_by'=>'required',
+           'created_on'=>'required',
+        ]);
+
+        $service_charges=$request->service_charges;
+        $service_tax_amount=Preference::find($request->service_tax_type)->value/100*$service_charges;
+        $st=Preference::where('slug','income-tax')->first();
+        $income_tax_amount=$st->value/100*($service_charges+$service_tax_amount);
+        $net_receivable=0;
+        $total=$service_charges+$service_tax_amount;
+        //both by aims
+        if ($request->tax_deducted_by==0){
+            $net_receivable=$total;
+        }
+        //both at source
+        if ($request->tax_deducted_by==1){
+            $net_receivable=$total-$service_tax_amount-$income_tax_amount;
+        }
+        //income at source and service tax by aims
+        if ($request->tax_deducted_by==2){
+            $net_receivable=$total-$income_tax_amount;
+        }
+        $ledger=new InvoicingLedger();
+        $ledger->job_id=$request->job;
+        $ledger->customer_id=$request->customers;
+        $ledger->service_charges=$service_charges;
+        $ledger->service_tax_type=$request->service_tax_type;
+        $ledger->service_tax_percent=Preference::find($request->service_tax_type)->value;
+        $ledger->service_tax_amount=$service_tax_amount;
+        $ledger->income_tax_percent=$st;
+        $ledger->income_tax_amount=$income_tax_amount;
+        if ($request->tax_deducted_by==0){
+            $ledger->service_tax_deducted="By AIMS";
+            $ledger->income_tax_deducted="By AIMS";
+        }
+        if ($request->tax_deducted_by==1){
+            $ledger->service_tax_deducted="At Source";
+            $ledger->income_tax_deducted="At Source";
+        }
+        if ($request->tax_deducted_by==2){
+            $ledger->service_tax_deducted="By AIMS";
+            $ledger->income_tax_deducted="At Source";
+        }
+        $ledger->net_receivable=$net_receivable;
+        $ledger->invoice=date('Y-m-d');
+        $ledger->confirmed_by_name='Confirmed By';
+        $ledger->confirmed_by_phone='03001231231';
+        $ledger->created_at=$request->created_on;
+        $ledger->save();
         return redirect()->back()->with('success','Invoice Details Added Successfully');
+
+
+
     }
     public function update($invoice,Request $request){
         $this->validate($request,[
@@ -351,7 +409,11 @@ class InvoicingLedgerController extends Controller
         foreach ($jobs as $j){
             $service_charges=$service_charges+$j->item->price;
         }
-        return view('invoicingledger.create',compact('job','id','service_charges','tax','customer'));
+
+        //for Only previous record;
+        $customers=Customer::all();
+        $service_taxes=Preference::where('category',1)->get();
+        return view('invoicingledger.create',compact('job','id','service_charges','tax','customer','customers','service_taxes'));
     }
     public function edit($invoice){
         $invoice_ledger=InvoicingLedger::find($invoice);
@@ -364,21 +426,7 @@ class InvoicingLedgerController extends Controller
         foreach ($itemjobs as $itemjob){
             $service_charges=$service_charges+$itemjob->item->price;
         }
-        $tax=0;
-        if($job->quotes->customers->region="PRA"){
-            $tax=16;
-        }
-        elseif($job->quotes->customers->region="SRB"){
-            $tax=13;
-        }
-        elseif($job->quotes->customers->region="KPRA"){
-            $tax=15;
-        }
-        elseif($job->quotes->customers->region="IRD"){
-            $tax=16;
-        }else{
-            $tax=0;
-        }
+        $tax=Preference::find($customer->region)->value;
         return view('invoicingledger.edit',compact('job','id','service_charges','tax','customer','invoice_ledger'));
     }
 }

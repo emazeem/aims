@@ -15,10 +15,10 @@ class CreatePreferencesTable extends Migration
     {
         Schema::create('preferences', function (Blueprint $table) {
             $table->id();
-            $table->string('category')->nullable();
-            $table->string('name')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('value')->nullable();
+            $table->string('category');
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('value');
             $table->timestamps();
         });
     }

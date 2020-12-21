@@ -140,8 +140,35 @@ class AssetController extends Controller
             }
         }
         $checklists=Preventivemaintenancerecord::where('asset_id',$id)->get();
+        foreach ($intermediatechecks as $key => $intermediatecheck) {
+            foreach (explode(',', $intermediatecheck->measured_value) as $measured_value) {
+                if ($key == 0) {
+                    $first_columns[] = $measured_value;
+                }
+            }
+        }
+        $average = array_sum($first_columns) / count($first_columns);
 
-        return view('assets.show',compact('parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck','checklists'));
+        $sum_difference_square = 0;
+        $average = array_sum($first_columns) / count($first_columns);
+        foreach ($first_columns as $first_column) {
+            $sum_difference_square = $sum_difference_square + (($first_column - $average) * ($first_column - $average));
+        }
+        $sd = sqrt($sum_difference_square / (count($first_columns) - 1));
+
+        $uwl=$average+(2*$sd);
+        $lwl=$average-(2*$sd);
+        $ual=$average+(3*$sd);
+        $lal=$average-(3*$sd);
+
+        $averages=[
+          0=>$average,
+          1=>10,
+          2=>10.4,
+          3=>10.1,
+        ];
+        return view('assets.show',compact('ual','uwl','lwl','lal','averages',
+            'parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck','checklists'));
     }
 
     public function store(Request $request){

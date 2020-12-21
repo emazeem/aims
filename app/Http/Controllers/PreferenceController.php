@@ -22,16 +22,14 @@ class PreferenceController extends Controller
                 return $data->name;
             })
             ->addColumn('slug', function ($data) {
-                return $data->name;
+                return $data->slug;
             })
             ->addColumn('value', function ($data) {
                 return $data->value;
             })
             ->addColumn('options', function ($data) {
 
-                return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/preferences/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
+                return "&emsp;<a title='Edit' class='btn btn-sm btn-success' href='" . url('/preferences/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
 
             })
             ->rawColumns(['options','status'])
