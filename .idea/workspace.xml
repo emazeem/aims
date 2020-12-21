@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45e74d29-eecd-4738-987d-ce850b535ba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PreferenceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PreferenceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_19_045338_create_preferences_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_19_045338_create_preferences_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/assets/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/assets/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/invoicingledger/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoicingledger/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/invoicingledger/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoicingledger/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,12 +60,12 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="env" value="4" />
-          <entry key="htaccess" value="4" />
+          <entry key="env" value="5" />
+          <entry key="htaccess" value="5" />
           <entry key="html" value="4" />
           <entry key="js" value="1" />
           <entry key="json" value="8" />
-          <entry key="php" value="276" />
+          <entry key="php" value="277" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -85,8 +75,8 @@
           <entry key="HTML" value="4" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="132" />
-          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="PHP" value="133" />
+          <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -94,16 +84,16 @@
           <entry key="css" value="24" />
           <entry key="htaccess" value="1" />
           <entry key="json" value="8" />
-          <entry key="php" value="17896" />
+          <entry key="php" value="17911" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="10575" />
+          <entry key="Blade" value="10584" />
           <entry key="CSS" value="24" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="8" />
-          <entry key="PHP" value="7320" />
+          <entry key="PHP" value="7326" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -114,44 +104,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="249" column="4" selection-start-line="249" selection-start-column="4" selection-end-line="249" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="198" column="8" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+            <state relative-caret-position="239">
+              <caret line="252" column="52" selection-start-line="252" selection-start-column="52" selection-end-line="252" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/invoicingledger/create.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="96" column="37" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/invoicingledger/edit.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="102" column="187" selection-start-line="102" selection-start-column="187" selection-end-line="102" selection-end-column="187" />
+            <state relative-caret-position="446">
+              <caret line="75" column="19" selection-start-line="71" selection-start-column="16" selection-end-line="75" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -160,7 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>js</find>
       <find>moris</find>
       <find>add men</find>
       <find>$asset</find>
@@ -190,6 +152,7 @@
       <find>ms</find>
       <find>show</find>
       <find>[0]</find>
+      <find>invo</find>
     </findStrings>
     <replaceStrings>
       <replace>row pb-2</replace>
@@ -201,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2020_12_18_095413_create_purchaseindents_controller.php" />
         <option value="$PROJECT_DIR$/resources/views/purchase.indent/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/purchaseindent/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/purchaseindent/index.blade.php" />
@@ -250,8 +212,9 @@
         <option value="$PROJECT_DIR$/resources/views/assets/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" />
         <option value="$PROJECT_DIR$/resources/views/invoicingledger/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php" />
         <option value="$PROJECT_DIR$/resources/views/invoicingledger/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/JobController.php" />
       </list>
     </option>
   </component>
@@ -559,18 +522,18 @@
       <workItem from="1608264931916" duration="25330000" />
       <workItem from="1608349302560" duration="13587000" />
       <workItem from="1608367932459" duration="22618000" />
-      <workItem from="1608535820029" duration="8427000" />
+      <workItem from="1608535820029" duration="9905000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117993000" />
+    <option name="totallyTimeSpent" value="119471000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.19969743" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19969743" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -619,23 +582,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/purchaseindent/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/purchaseindent/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Jobitem.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Job.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -928,13 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="249" column="4" selection-start-line="249" selection-start-column="4" selection-end-line="249" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -949,17 +888,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="198" column="8" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/invoicingledger/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
-          <caret line="96" column="37" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
+          <caret line="96" column="149" selection-start-line="96" selection-start-column="149" selection-end-line="96" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="198" column="10" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Downloads/env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Downloads/htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="30" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="252" column="52" selection-start-line="252" selection-start-column="52" selection-end-line="252" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="75" column="19" selection-start-line="71" selection-start-column="16" selection-end-line="75" selection-end-column="19" />
         </state>
       </provider>
     </entry>

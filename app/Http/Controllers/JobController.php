@@ -67,13 +67,13 @@ class JobController extends Controller
                 }
                 $invoice=InvoicingLedger::where('job_id',$data->id)->get();
                 $invoice_exist=count($invoice);
-                if ($invoice_exist==0){
+                //if ($invoice_exist==0){
                     $action.="<a title='Add Invoice Ledger Details' href=".url('/invoicing-ledger/create/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-check'></i></a>";
-                }
+                /*}
                 else{
                     $invoice=InvoicingLedger::where('job_id',$data->id)->first();
                     $action.="<a title='Edit Invoice Ledger Details' href=".url('/invoicing-ledger/edit/'.$invoice->id)." class='btn btn-sm btn-danger'><i class='fa fa-check'></i></a>";
-                }
+                }*/
                 return "&emsp;".$action;
 
             })
