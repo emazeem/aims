@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
     <div class="col-12 font-style ">
         <p class="text-center p-0 m-0" style="margin-top: 10px">M/S AL-MEEZAN INDUSTRIAL METEROLOGY SERVICES</p>
         <p class="text-center p-0 m-0" style="margin-top: 10px">SUPPLY REGISTER</p>
@@ -39,7 +39,7 @@
                     </tr>
                     @foreach($entries as $key=>$entry)
                         <tr>
-                            <td>{{$key}}</td>
+                            <td>{{$key+1}}</td>
                             <td>{{$entry->invoice}}</td>
                             <td>{{$entry->invoice.$key}}</td>
                             <td>{{$entry->customers->ntn}}</td>

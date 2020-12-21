@@ -10,12 +10,9 @@
     <div class="col-12">
         <div class="d-sm-flex align-items-center justify-content-between mb-4 p-2">
             <h3 class="border-bottom text-dark"><i class="fa fa-dollar"></i> Invoicing Ledger</h3>
-
             <span>
-
                 <a href="{{route('pra')}}" class="btn btn-outline-secondary btn-sm"><small><i class="fa fa-print"></i> PRA</small></a>
-            {{--<a href="{{route('invoicing_ledger.create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Entry</a>
-            --}}</span>
+            </span>
         </div>
     </div>
     <div class="row">
@@ -208,7 +205,6 @@
                     { "data": "confirmed_by" },
                     { "data": "invoice" },
                     { "data": "options" ,"orderable":false},
-
                 ]
             });
         }
@@ -234,8 +230,6 @@
                     $('#customer_div').hide();
                     $('#taxtype_div').hide();
                 }
-
-
             });
             $('#taxtype').on('change', function() {
                 if (this.value=='service'){
@@ -244,15 +238,11 @@
                 if (this.value=='income'){
                     $('#service_div').hide();
                 }
-
             });
         });
-
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 @endsection
-
-
