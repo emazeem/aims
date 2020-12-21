@@ -46,7 +46,7 @@
                             <td>{{$entry->service_charges}}</td>
                             <td>{{$entry->service_tax_amount}}</td>
                             <td>{{$entry->net_receivable}}</td>
-                            <td></td>
+                            <td>{{($entry->service_tax_deducted!="At Source")?$entry->service_tax_amount:''}}</td>
                             <td>{{$entry->customers->reg_name}}</td>
                             <td>{{($entry->service_tax_deducted=="At Source")?$entry->service_tax_deducted:''}}</td>
                         </tr>
