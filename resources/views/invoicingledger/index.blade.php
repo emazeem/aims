@@ -13,7 +13,7 @@
 
             <span>
 
-            <a href="" class="btn btn-secondary btn-sm"><i class="fa fa-print"></i></a>
+            <a href="{{route('pra')}}" class="btn btn-secondary btn-sm"><i class="fa fa-print"></i></a>
             {{--<a href="{{route('invoicing_ledger.create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> Add Entry</a>
             --}}</span>
         </div>

@@ -325,9 +325,6 @@ class InvoicingLedgerController extends Controller
         $ledger->invoice=$request->created_on;
         $ledger->save();
         return redirect()->back()->with('success','Invoice Details Added Successfully');
-
-
-
     }
     public function update($invoice,Request $request){
         $this->validate($request,[
