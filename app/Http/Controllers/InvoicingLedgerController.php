@@ -322,7 +322,7 @@ class InvoicingLedgerController extends Controller
         $ledger->invoice=date('Y-m-d');
         $ledger->confirmed_by_name='Confirmed By';
         $ledger->confirmed_by_phone='03001231231';
-        $ledger->created_at=$request->created_on;
+        $ledger->invoice=$request->created_on;
         $ledger->save();
         return redirect()->back()->with('success','Invoice Details Added Successfully');
 

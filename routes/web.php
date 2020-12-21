@@ -24,6 +24,7 @@ Route::get('/review',function (){return view('docs.contractreview');});
 Route::get('/gate-pass',function (){return view('docs.gatepass');});
 Route::get('/calibration-sticker',function (){return view('docs.calibration_sticker');});
 Route::get('/deliverynote',function (){return view('docs.deliverynote');});
+Route::get('/pra',function (){ $entries=\App\Models\InvoicingLedger::all()->where('service_tax_type',2); return view('docs.pra',compact('entries'));});
 Route::get('/masterlistofequipments',function (){ $assets=\App\Models\Asset::all(); return view('docs.masterlistofequipments',compact('assets'));});
 Route::group(['prefix'=> 'customers'],function() {
     Route::get('',[App\Http\Controllers\CustomerController::class, 'index'])->middleware('auth')->name('customers');
