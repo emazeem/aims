@@ -131,6 +131,7 @@ class AssetController extends Controller
         for($x=1;$x<12;$x++){
             $average[$x]=null;
         }
+
         $intermediatechecks = Intermediatechecksofasset::where('equipment_under_test_id', $id)->get();
         $limit_of_intermediatecheck = true;
         if ($show->calibration == '1900-01-01') {
@@ -233,7 +234,15 @@ class AssetController extends Controller
                 array( "y" => $averages[0]),
                 array( "y" => $averages[1]),
                 array( "y" => $averages[2]),
-                array( "y" => $averages[3])
+                array( "y" => $averages[3]),
+                array( "y" => $averages[4]),
+                array( "y" => $averages[5]),
+                array( "y" => $averages[6]),
+                array( "y" => $averages[7]),
+                array( "y" => $averages[8]),
+                array( "y" => $averages[9]),
+                array( "y" => $averages[10]),
+                array( "y" => $averages[11])
             );
             $lwl_points = array(
                 array( "y" => $lwl),
