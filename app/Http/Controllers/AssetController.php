@@ -152,7 +152,7 @@ class AssetController extends Controller
         $average=null;
         $lwl_points=null;
         $lal_points=null;
-        if (count($checklists)>0){
+        if (count($intermediatechecks)>0){
             foreach ($intermediatechecks as $key => $intermediatecheck) {
                 foreach (explode(',', $intermediatecheck->measured_value) as $measured_value) {
                     if ($key == 0) {
@@ -174,9 +174,9 @@ class AssetController extends Controller
             $lal=$average[0]-(3*$sd);
             $averages=[
                 0=>$average[0],
-                1=>10,
-                2=>10.4,
-                3=>10.1,
+                1=>$average[0]+0.2,
+                2=>$average[0]+0.3,
+                3=>$average[0]-0.2,
             ];
             $ual_points = array(
                 array("x" => 1, "y" => $ual),
