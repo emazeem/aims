@@ -100,7 +100,16 @@
                     @endif
                 </div>
                 <div class="form-group row">
-                    <label for="created_on" class="col-sm-3 control-label">Created_ at</label>
+                    <label for="invoice_no" class="col-sm-3 control-label">Invoice No</label>
+
+                    <input type="text" class="form-control col-md-9" id="invoice_no" name="invoice_no" autocomplete="off" value="{{old('invoice_no')}}" placeholder="Invoice No">
+                    @if ($errors->has('invoice_no'))
+                        <span class="text-danger"><strong>{{ $errors->first('invoice_no') }}</strong></span>
+                    @endif
+                </div>
+
+                <div class="form-group row">
+                    <label for="created_on" class="col-sm-3 control-label">Invoice Date</label>
 
                     <input type="date" class="form-control col-md-9" id="created_on" name="created_on" autocomplete="off" value="{{old('created_on')}}">
                     @if ($errors->has('created_on'))

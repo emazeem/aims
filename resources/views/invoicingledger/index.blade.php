@@ -7,15 +7,14 @@
             });
         </script>
     @endif
-    <div class="col-12">
-        <div class="d-sm-flex align-items-center justify-content-between p-2">
-            <h3 class="border-bottom text-dark"><i class="fa fa-dollar"></i> Invoicing Ledger</h3>
-            <span>
-                <a href="{{route('pra')}}" class="btn btn-outline-secondary btn-sm"><small><i class="fa fa-print"></i> PRA</small></a>
+    <div class="row">
+
+        <div class="col-12">
+                <h3 class="border-bottom text-dark pull-left"><i class="fa fa-dollar"></i> Invoicing Ledger</h3>
+                <span>
+                <a href="{{route('pra')}}" class="btn btn-outline-secondary btn-sm float-right mt-2"><small><i class="fa fa-print"></i> PRA</small></a>
             </span>
         </div>
-    </div>
-    <div class="row">
         <div class="col-12">
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
@@ -128,7 +127,7 @@
         <div class="col-lg-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
 
-                <thead class="text-center">
+                <thead>
                 <tr>
                     <th>ID</th>
                     <th>Customer</th>
@@ -136,19 +135,17 @@
                     <th>Services<br> Charges</th>
                     <th>Services<br> Tax Type</th>
                     <th>Services<br> Tax Amount</th>
-                    <th>Income Tax <br>Percent</th>
                     <th>Income Tax<br> Amount</th>
                     <th>Service Tax <br>Payed</th>
                     <th>Income Tax <br>Payed</th>
                     <th>Net <br>Receivable</th>
-                    <th>Confirmed <br>by</th>
                     <th>Invoice <br>Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
-                <tbody class="text-capitalize text-center">
+                <tbody class="text-capitalize">
                 </tbody>
-                <tfoot class="text-center">
+                <tfoot>
                 <tr>
                     <th>ID</th>
                     <th>Customer</th>
@@ -156,12 +153,10 @@
                     <th>Services<br> Charges</th>
                     <th>Services<br> Tax Type</th>
                     <th>Services<br> Tax Amount</th>
-                    <th>Income Tax <br>Percent</th>
                     <th>Income Tax<br> Amount</th>
                     <th>Service Tax <br>Payed</th>
                     <th>Income Tax <br>Payed</th>
                     <th>Net <br>Receivable</th>
-                    <th>Confirmed <br>by</th>
                     <th>Invoice <br>Date</th>
                     <th>Action</th>
                 </tr>
@@ -197,12 +192,10 @@
                     { "data": "service_charges" },
                     { "data": "services_tax_type" },
                     { "data": "services_tax_amount" },
-                    { "data": "income_tax_percent" },
                     { "data": "income_tax_amount" },
                     { "data": "service_tax_deducted" },
                     { "data": "income_tax_deducted" },
                     { "data": "net_receivable" },
-                    { "data": "confirmed_by" },
                     { "data": "invoice" },
                     { "data": "options" ,"orderable":false},
                 ]

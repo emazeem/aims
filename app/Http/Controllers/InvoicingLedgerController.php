@@ -277,6 +277,7 @@ class InvoicingLedgerController extends Controller
            'service_tax_type'=>'required',
            'tax_deducted_by'=>'required',
            'created_on'=>'required',
+           'invoice_no'=>'required',
         ]);
 
         $service_charges=$request->service_charges;
@@ -323,6 +324,7 @@ class InvoicingLedgerController extends Controller
         $ledger->confirmed_by_name='Confirmed By';
         $ledger->confirmed_by_phone='03001231231';
         $ledger->invoice=$request->created_on;
+        $ledger->invoice_no=$request->invoice_no;
         $ledger->created_by=auth()->user()->id;
         $ledger->updated_by=auth()->user()->id;
         $ledger->save();
