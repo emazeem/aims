@@ -153,7 +153,6 @@ class AssetController extends Controller
         $lwl_points=null;
         $lal_points=null;
         if (count($checklists)>0){
-
             foreach ($intermediatechecks as $key => $intermediatecheck) {
                 foreach (explode(',', $intermediatecheck->measured_value) as $measured_value) {
                     if ($key == 0) {

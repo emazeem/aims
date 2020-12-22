@@ -26,10 +26,10 @@
             <a href="{{url('preventive/maintenance/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i
                         class="fa fa-plus-circle"></i> Add Preventive Maintenance</a>
             @if($show->calibration!='1900-01-01')
-                @if($limit_of_intermediatecheck== true)
+                {{--@if($limit_of_intermediatecheck== true)--}}
                     <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i
                                 class="fa fa-plus-circle"></i> Add Intermediate Checks</a>
-                @endif
+                {{--@endif--}}
             @endif
             <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
                     data-target="#add_specification"><i class="fa fa-plus-circle"></i> Add Specifications
@@ -445,9 +445,8 @@
         </script>
     </head>
     <body>
-    @if(count($checklists)>0)
+
     <div id="chartContainer" style="height: 370px;"></div>
-    @endif
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </body>
     </html>
