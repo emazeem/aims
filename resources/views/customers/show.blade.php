@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <th>Customer Type</th>
-                    <td>{{$show->customer_type}}</td>
+                    <td class="text-capitalize">{{$show->customer_type}}</td>
                 </tr>
                 <tr>
                     <th>Payment Terms</th>
@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <th>Region</th>
-                    <td>{{$show->region}}</td>
+                    <td>{{\App\Models\Preference::find($show->region)->name}}</td>
                 </tr>
 
                 <tr>

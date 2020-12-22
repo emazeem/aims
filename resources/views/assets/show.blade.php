@@ -388,10 +388,6 @@
 
         </table>
     @endif
-
-    <?php
-
-    ?>
     <!DOCTYPE HTML>
     <html>
     <head>
@@ -449,7 +445,9 @@
         </script>
     </head>
     <body>
+    @if(count($checklists)>0)
     <div id="chartContainer" style="height: 370px;"></div>
+    @endif
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </body>
     </html>

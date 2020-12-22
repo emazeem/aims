@@ -67,7 +67,6 @@
                                         <span class="text-danger"><strong>{{ $errors->first('remarks') }}</strong></span>
                                     @endif
                                 </div>
-
                                 <button class="btn btn-danger" type="submit"><i class="fa fa-plus"></i> Add</button>
                             </form>
                         </div>
@@ -76,12 +75,12 @@
             </div>
         </div>
     </div>
-    <div class="card mb-4 py-3 border-left-primary">
+    <div class="card mb-4 border-left-primary">
         <div class="card-body">
-            <div class="d-sm-flex mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Invoicing Ledger Details</h1>
+            <div class="d-sm-flex">
+                <h3 class="text-gray-800"><i class="fa fa-eye"></i> Invoicing Ledger Details</h3>
             </div>
-            <table class="table table-bordered table-striped table-sm">
+            <table class="table table-bordered table-hover table-sm">
                 <tr>
                     <th>ID</th>
                     <td>{{$show->id}}</td>
@@ -144,13 +143,12 @@
                     <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
                 </tr>
             </table>
-
         </div>
     </div>
-
+    @if(count($receivings)>0)
     <div class="row pb-3">
-        <div class="d-sm-flex mb-4">
-            <h1 class="h3 mb-0 text-gray-800">All Receiving </h1>
+        <div class="col-12">
+            <h3 class="border-bottom"><i class="fa fa-arrow-circle-o-right"></i> All Receiving </h3>
         </div>
         <div class="col-12">
             <table class="table table-bordered table-striped table-sm">
@@ -177,7 +175,7 @@
                 @endforeach
                 </tbody>
             </table>
-
         </div>
     </div>
+    @endif
 @endsection
