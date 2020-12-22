@@ -229,13 +229,15 @@ class AssetController extends Controller
                 array( "y" => $lal),
                 array( "y" => $lal)
             );
+            $ual_points=array_slice($ual_points,0,$slices);
+            $uwl_points=array_slice($uwl_points,0,$slices);
+            $lwl_points=array_slice($lwl_points,0,$slices);
+            $lal_points=array_slice($lal_points,0,$slices);
+            $averages=array_slice($averages,0,$slices);
         }
 
-        $ual_points=array_slice($ual_points,0,$slices);
-        $uwl_points=array_slice($uwl_points,0,$slices);
-        $lwl_points=array_slice($lwl_points,0,$slices);
-        $lal_points=array_slice($lal_points,0,$slices);
-        $averages=array_slice($averages,0,$slices);
+
+
 
 
         return view('assets.show', compact('ual', 'uwl', 'lwl', 'lal', 'averages', 'ual_points',
