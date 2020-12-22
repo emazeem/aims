@@ -117,6 +117,27 @@
                     @endif
                 </div>
 
+                <div class="form-group  row">
+                    <label for="confirmed_by_name" class="col-sm-3 control-label">Confirmed by : Name</label>
+                    <input type="text" class="form-control col-md-9" id="confirmed_by_name" name="confirmed_by_name"
+                           placeholder="Name" autocomplete="off" value="{{old('confirmed_by_name')}}">
+                    @if ($errors->has('confirmed_by_name'))
+                        <span class="text-danger">
+                          <strong>{{ $errors->first('confirmed_by_name') }}</strong>
+                      </span>
+                    @endif
+                </div>
+                <div class="form-group row">
+                    <label for="confirmed_by_phone" class="col-sm-3 control-label">Confirmed By : Phone</label>
+
+                    <input type="text" class="form-control col-md-9" id="confirmed_by_phone" name="confirmed_by_phone"
+                           placeholder="Phone" autocomplete="off" value="{{old('confirmed_by_phone')}}">
+                    @if ($errors->has('confirmed_by_phone'))
+                        <span class="text-danger">
+                          <strong>{{ $errors->first('confirmed_by_phone') }}</strong>
+                      </span>
+                    @endif
+                </div>
 
                 {{--<div class="form-group  row">
                     <label for="confirmed_by_name" class="col-sm-3 control-label">Confirmed by : Name</label>

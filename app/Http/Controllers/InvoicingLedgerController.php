@@ -322,8 +322,8 @@ class InvoicingLedgerController extends Controller
         }
         $ledger->net_receivable=$net_receivable;
         $ledger->invoice=date('Y-m-d');
-        $ledger->confirmed_by_name='Confirmed By';
-        $ledger->confirmed_by_phone='03001231231';
+        $ledger->confirmed_by_name=$request->confirmed_by_name;
+        $ledger->confirmed_by_phone=$request->confirmed_by_phone;
         $ledger->invoice=$request->created_on;
         $ledger->invoice_no=$request->invoice_no;
         $ledger->created_by=auth()->user()->id;
@@ -461,8 +461,8 @@ class InvoicingLedgerController extends Controller
         }
         $ledger->net_receivable=$net_receivable;
         $ledger->invoice=date('Y-m-d');
-        $ledger->confirmed_by_name='Confirmed By';
-        $ledger->confirmed_by_phone='03001231231';
+        $ledger->confirmed_by_name=$request->confirmed_by_name;
+        $ledger->confirmed_by_phone=$request->confirmed_by_phone;
         $ledger->invoice=$request->created_on;
         $ledger->invoice_no=$request->invoice_no;
         $ledger->created_by=auth()->user()->id;
