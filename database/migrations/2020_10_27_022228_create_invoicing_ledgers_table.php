@@ -30,6 +30,8 @@ class CreateInvoicingLedgersTable extends Migration
             $table->string('confirmed_by_name')->comment('invoice confirmed by');
             $table->string('confirmed_by_phone');
             $table->date('invoice');
+            $table->integer('created_by');
+            $table->integer('updated_by');
             $table->timestamps();
         });
     }
