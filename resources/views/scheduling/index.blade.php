@@ -7,14 +7,10 @@
             });
         </script>
     @endif
-
-
     <div class="row">
-        <div class="col-12">
-            <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-                <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Scheduling Jobs</h3>
-            </div>
 
+        <div class="col-12">
+            <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Scheduling Jobs</h3>
         </div>
         <div class="col-lg-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">

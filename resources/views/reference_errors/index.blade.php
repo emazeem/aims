@@ -1,19 +1,18 @@
 @extends('layouts.master')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
-        <h3 class="border-bottom text-dark">Manage Reference Errors & Uncertainty</h3>
-
-        <span>
-        <a href="{{route('units')}}" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i class="fas fa-eye"></i> Manage Units</a>
-        <a href="{{route('manageref.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Add Errors & Uncertainty</a>
-    </span>
-
-    </div>
 
     <div class="row">
-        <div class="col-lg-12">
-            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
+        <div class="col-12">
+            <h3 class="border-bottom pull-left"><i class="fa fa-tasks"></i> Manage Reference Errors & Uncertainty</h3>
+            <span class="pull-right mt-1">
+            <a href="{{route('units')}}" class="btn btn-sm btn-warning shadow-sm"><i class="fas fa-eye"></i> Manage Units</a>
+            <a href="{{route('manageref.create')}}" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Add Errors & Uncertainty</a>
+        </span>
+        </div>
+        <div class="col-12">
+            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
+                   width="100%">
 
                 <thead>
                 <tr>
@@ -39,7 +38,8 @@
                     <th>Ref</th>
                     <th>Error</th>
                     <th>Uncertainty</th>
-                    <th>Action</th>                </tr>
+                    <th>Action</th>
+                </tr>
                 </tfoot>
             </table>
 

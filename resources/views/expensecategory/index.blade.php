@@ -1,19 +1,14 @@
 @extends('layouts.master')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-
-        <h4 class="border-bottom text-dark">All Categories & Subcategories</h4>
-
-        <span>
-        <a href="{{route('expenses_categories.create')}}" class="btn btn-primary pull-right btn-sm">
-            <span class="fa fa-plus"></span> Add categories
-        </a>
-        </span>
-
-    </div>
-
     <div class="row">
         <div class="col-12">
+
+            <h4 class="border-bottom text-dark pull-left"><i class="fa fa-tasks"></i> All Categories & Subcategories</h4>
+            <span>
+                <a href="{{route('expenses_categories.create')}}" class="btn btn-primary pull-right btn-sm">
+                <span class="fa fa-plus"></span> Add categories
+                </a>
+            </span>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>

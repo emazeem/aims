@@ -32,34 +32,41 @@
 <body class="nav-md">
 <div class="container body">
     <div class="main_container">
-    @include('layouts.partials.sidebar')
-    <!-- top navigation -->
-
-        <!-- /top navigation -->
+        @include('layouts.partials.sidebar')
         @include('layouts.partials.navbar')
-        <!-- page content -->
         <div class="right_col" role="main">
             @yield('content')
         </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
         <footer>
             <div class="text-center">
                 AIMS- Al Meezan Meterology Services <a href="https://colorlib.com">ERP@2020</a>
             </div>
             <div class="clearfix"></div>
         </footer>
-        <!-- /footer content -->
     </div>
 </div>
-<link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
-<link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
-<!-- jQuery -->
 <script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>
-<!-- Bootstrap -->
 <script src="{{url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-<!-- FastClick -->
+@if(Route::currentRouteName()=='customers' or Route::currentRouteName()=='departments'or Route::currentRouteName()=='designations'or Route::currentRouteName()=='users' or Route::currentRouteName()=='parameters'
+or Route::currentRouteName()=='assets' or Route::currentRouteName()=='procedures' or Route::currentRouteName()=='capabilities' or Route::currentRouteName()=='manageref'or Route::currentRouteName()=='units'or Route::currentRouteName()=='quotes.show'
+or Route::currentRouteName()=='uncertainties'or Route::currentRouteName()=='columns'or Route::currentRouteName()=='assets.groups'or Route::currentRouteName()=='quotes'or Route::currentRouteName()=='purchase.indent.index'
+or Route::currentRouteName()=='pendings' or Route::currentRouteName()=='jobs.manage' or Route::currentRouteName()=='jobs'or Route::currentRouteName()=='scheduling'or Route::currentRouteName()=='scheduling'or Route::currentRouteName()=='material.receiving.index'
+or Route::currentRouteName()=='invoicing_ledger' or Route::currentRouteName()=='expenses'or Route::currentRouteName()=='expenses_categories'or Route::currentRouteName()=='menus'or Route::currentRouteName()=='roles'
+or Route::currentRouteName()=='preferences.index' or Route::currentRouteName()=='mytasks' or Route::currentRouteName()=='certificates' or Route::currentRouteName()=='certificates'or Route::currentRouteName()=='sops'or Route::currentRouteName()=='forms.index')
+    <link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
+    <script src="{{url('build/js/custom.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>
+    <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
+@endif
+@if(Route::currentRouteName()=='home')
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+@endif
+</body>
+</html>
+{{--<!-- FastClick -->
 <script src="{{url('vendors/fastclick/lib/fastclick.js')}}"></script>
 <!-- NProgress -->
 <script src="{{url('vendors/nprogress/nprogress.js')}}"></script>
@@ -72,13 +79,14 @@
 <!-- iCheck -->
 <script src="{{url('vendors/iCheck/icheck.min.js')}}"></script>
 <!-- Skycons -->
-<script src="{{url('vendors/skycons/skycons.js')}}"></script>
-<!-- Flot -->
+<script src="{{url('vendors/skycons/skycons.js')}}"></script>--}}
+{{--<!-- Flot -->
 <script src="{{url('vendors/Flot/jquery.flot.js')}}"></script>
 <script src="{{url('vendors/Flot/jquery.flot.pie.js')}}"></script>
 <script src="{{url('vendors/Flot/jquery.flot.time.js')}}"></script>
 <script src="{{url('vendors/Flot/jquery.flot.stack.js')}}"></script>
 <script src="{{url('vendors/Flot/jquery.flot.resize.js')}}"></script>
+
 <!-- Flot plugins -->
 <script src="{{url('vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
 <script src="{{url('vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
@@ -92,16 +100,4 @@
 <!-- bootstrap-daterangepicker -->
 <script src="{{url('vendors/moment/min/moment.min.js')}}"></script>
 <script src="{{url('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="{{url('build/js/custom.min.js')}}"></script>
-<!--   Datatables-->
-<script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>
-<!-- extension responsive -->
-<script src="{{url('js/dataTables.responsive.min.js')}}"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
-
-</body>
-</html>
+    --}}

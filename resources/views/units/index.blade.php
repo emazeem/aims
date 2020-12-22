@@ -1,20 +1,13 @@
 @extends('layouts.master')
 @section('content')
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">All Units</h2>
-
-        <span>
-        <a href="{{route('units.create')}}" class="btn btn-primary pull-right btn-sm">
-            <span class="fa fa-plus"></span> Add Unit
-        </a>
-        </span>
-
-    </div>
-
-    <div class="row">
+        <div class="row">
         <div class="col-12">
-            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
-
+            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> All Units</h3>
+            <a href="{{route('units.create')}}" class="btn btn-primary pull-right btn-sm">
+                <span class="fa fa-plus-circle"></span> Add Unit
+            </a>
+            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
+                   width="100%">
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -36,42 +29,41 @@
                 </tfoot>
             </table>
         </div>
-            <!-- /.col -->
-        </div>
-        <script>
+        <!-- /.col -->
+    </div>
+    <script>
 
-            function InitTable() {
-                $(".loading").fadeIn();
+        function InitTable() {
+            $(".loading").fadeIn();
 
-                $('#example').DataTable({
-                    responsive: true,
-                    "bDestroy": true,
-                    "processing": true,
-                    "serverSide": true,
-                    "Paginate": true,
+            $('#example').DataTable({
+                responsive: true,
+                "bDestroy": true,
+                "processing": true,
+                "serverSide": true,
+                "Paginate": true,
 
-                    "order": [[0, 'desc']],
-                    "pageLength": 25,
-                    "ajax": {
-                        "url": "{{route('units.fetch')}}",
-                        "dataType": "json",
-                        "type": "POST",
-                        "data": {_token: "{{csrf_token()}}"}
-                    },
-                    "columns": [
-                        {"data": "id"},
-                        {"data": "parameter"},
-                        {"data": "unit"},
-                        {"data": "options", "orderable": false},
-                    ]
+                "order": [[0, 'desc']],
+                "pageLength": 25,
+                "ajax": {
+                    "url": "{{route('units.fetch')}}",
+                    "dataType": "json",
+                    "type": "POST",
+                    "data": {_token: "{{csrf_token()}}"}
+                },
+                "columns": [
+                    {"data": "id"},
+                    {"data": "parameter"},
+                    {"data": "unit"},
+                    {"data": "options", "orderable": false},
+                ]
 
-                });
-            }
-            $(document).ready(function () {
-                InitTable();
             });
+        }
 
-        </script>
+        $(document).ready(function () {
+            InitTable();
+        });
+
+    </script>
 @endsection
-
-

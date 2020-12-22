@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> All Roles</h3>
+            <h3 class="border-bottom text-dark pull-left"><i class="fa fa-tasks"></i> All Roles</h3>
             <a href="{{route('roles.create')}}" class="btn float-right btn-sm btn-primary shadow-sm"><i
                         class="fa fa-plus-circle"></i> Roles</a>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">

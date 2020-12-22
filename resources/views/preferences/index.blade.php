@@ -1,17 +1,13 @@
 @extends('layouts.master')
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-
         <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> All Preferences</h3>
-
         <span>
         <a href="{{route('preferences.create')}}" class="btn btn-primary pull-right btn-sm">
             <span class="fa fa-plus-circle"></span> Add Preference
         </a>
         </span>
-
     </div>
-
     <div class="row">
         <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">

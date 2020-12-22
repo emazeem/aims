@@ -8,7 +8,7 @@
         </script>
     @endif
     <div class="col-12">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4 p-2">
+        <div class="d-sm-flex align-items-center justify-content-between p-2">
             <h3 class="border-bottom text-dark"><i class="fa fa-dollar"></i> Invoicing Ledger</h3>
             <span>
                 <a href="{{route('pra')}}" class="btn btn-outline-secondary btn-sm"><small><i class="fa fa-print"></i> PRA</small></a>

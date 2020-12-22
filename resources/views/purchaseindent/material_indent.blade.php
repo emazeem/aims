@@ -114,7 +114,7 @@
             </tr>
             <tr>
                 <th>Position</th>
-                <td colspan="3">{{($indent->status>)$indent->indenter->departments->name}}</td>
+                <td colspan="3">{{$indent->indenter->departments->name}}</td>
                 <td colspan="3">{{$indent->checkedBy->departments->name}}</td>
                 <td colspan="3">{{$indent->approvedBy->departments->name}}</td>
             </tr>
