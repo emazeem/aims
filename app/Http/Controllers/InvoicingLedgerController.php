@@ -408,7 +408,7 @@ class InvoicingLedgerController extends Controller
         }
 
         //for Only previous record;
-        $customers=Customer::all();
+        $customers=Customer::orderBy('reg_name','ASC')->get();
         $service_taxes=Preference::where('category',1)->get();
         return view('invoicingledger.create',compact('job','id','service_charges','tax','customer','customers','service_taxes'));
     }

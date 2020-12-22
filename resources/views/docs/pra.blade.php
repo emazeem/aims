@@ -32,7 +32,7 @@
                     <tr>
                         <td>Sr.</td>
                         <td>Date</td>
-                        <td>INV</td>
+                        <td>Invoice</td>
                         <td>NTN/FTN</td>
                         <td>Value Ex</td>
                         <td>ST 16%</td>
@@ -49,7 +49,7 @@
                             <td width="5">{{$entry->customers->ntn}}</td>
                             <td width="5">{{$entry->service_charges}}</td>
                             <td width="5">{{$entry->service_tax_amount}}</td>
-                            <td width="5">{{$entry->net_receivable}}</td>
+                            <td width="5">{{$entry->service_charges+$entry->service_tax_amount}}</td>
                             <td width="5">{{($entry->service_tax_deducted!="At Source")?$entry->service_tax_amount:''}}</td>
                             <td width="20">{{$entry->customers->reg_name}}-{{$entry->customers->address}}</td>
                             <td width="5">{{($entry->service_tax_deducted=="At Source")?$entry->service_tax_deducted:''}}</td>
