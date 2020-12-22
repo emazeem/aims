@@ -25,6 +25,7 @@
     <link href="{{url('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
     <script type="text/javascript" src="{{url('js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
+
     <!-- Custom Theme Style -->
     <link href="{{url('build/css/custom.min.css')}}" rel="stylesheet">
 </head>
@@ -91,6 +92,7 @@
 <!-- bootstrap-daterangepicker -->
 <script src="{{url('vendors/moment/min/moment.min.js')}}"></script>
 <script src="{{url('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
 <!-- Custom Theme Scripts -->
 <script src="{{url('build/js/custom.min.js')}}"></script>
 <!--   Datatables-->
@@ -100,5 +102,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+
 </body>
 </html>

@@ -2,3 +2,7 @@
     color: white;
     background-color: #4b4b4b !important;
 }
+.close-btn,.close-btn:active,.close-btn:focus{
+    border: none;
+    outline: none;
+}

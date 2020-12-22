@@ -2,17 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Master List of Equipments</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        .font-custom{
-            font-size: 12px;
-        }
-    </style>
+    <style> .font-custom{font-size: 12px;} </style>
 </head>
 <body>
 <div class="container">
@@ -22,7 +17,7 @@
                 <img src="{{url('/img/aims.png')}}" class="mt-2 ml-2" width="100">
             </div>
             <div class="col-7  my-auto py-auto">
-                <h6 class="text-center " style="margin-top: 10px">
+                <h6 class="text-center" style="margin-top: 10px">
                     MASTER LIST OF EQUIPMENT AND CALIBRATION RECORD
                 </h6>
             </div>

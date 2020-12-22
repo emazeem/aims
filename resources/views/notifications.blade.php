@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('content')
-    <div class="col-12">
+    <div class="col-12 row">
         <div class="row">
             <h3 class="border-bottom text-dark"><i class="fa fa-bell-o"></i> All Notifications</h3>
-        </div>
+
         @foreach(Auth::user()->Notifications as $notification)
             <a class="dropdown-item d-flex align-items-center p-1 {{($notification->read_at==null)?"bg-custom-notification-unread":"bg-light"}}" href="{{$notification->data['data']['redirectURL']}}">
                 <div class="row">
@@ -26,5 +26,6 @@
                 </div>
             </a>
         @endforeach
+        </div>
     </div>
 @endsection

@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div class="row">
-
     <div class="col-12">
+
         <h3 class="pull-left border-bottom pb-1"><i class="fa fa-list"></i> All Designations</h3>
         <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2" data-toggle="modal" data-target="#add_designation"><i class="fa fa-plus-circle"></i> Designation</button>
     </div>
@@ -96,6 +96,9 @@
         $("#add_designation_form").on('submit',(function(e) {
 
             e.preventDefault();
+            var self=$(this), button=self.find('input[type="submit"],button');
+            var previous=$(button).html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...');
             $.ajax({
                 url: "{{route('designations.store')}}",
                 type: "POST",
@@ -112,6 +115,7 @@
                 },
                 success: function(data)
                 {
+                    button.attr('disabled',null).html(previous);
                     swal('success',data.success,'success').then((value) => {
                         $('#add_designation').modal('hide');
                         InitTable();
@@ -120,6 +124,7 @@
                 },
                 error: function(xhr)
                 {
+                    button.attr('disabled',null).html(previous);
                     var error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;
@@ -158,13 +163,11 @@
     });
 
 </script>
-
-
 <div class="modal fade" id="add_designation" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus"></i> Add Designation</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Designation</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -183,11 +186,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group col-10  float-left">
+                        <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
-                        <div class="col-2">
-                            <button class="btn btn-primary" type="submit">Save</button>
+                        <div class="col-12 text-right">
+                            <button class="btn btn-primary " type="submit">Save</button>
                         </div>
 
                     </div>
@@ -224,10 +227,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group col-9  float-left">
+                        <div class="form-group col-3  float-left">
                             <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
-                        <div class="col-3">
+                        <div class="col-6">
                             <button class="btn btn-primary" type="submit">Update</button>
                         </div>
 

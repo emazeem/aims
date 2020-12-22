@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/quote',function (){return view('docs.quotation');});
 Route::get('/jobtag',function (){return view('docs.jobtag');});
 Route::get('/certificate',function (){return view('worksheets.certificate');});
+Route::get('/material_indent',function (){return view('docs.material_indent');});
 Route::get('/jobform',function (){return view('docs.jobform');});
 Route::get('/worksheet',function (){return view('worksheets.worksheets');});
 Route::get('/invoice',function (){return view('docs.invoice');});
@@ -377,6 +378,7 @@ Route::group(['prefix'=> 'purchase_indent'],function() {
     Route::post('store',[App\Http\Controllers\PurchaseindentController::class, 'store'])->middleware('auth')->name('purchase.indent.store');
     Route::post('update',[App\Http\Controllers\PurchaseindentController::class, 'update'])->middleware('auth')->name('purchase.indent.update');
     Route::get('/edit/{id}',[App\Http\Controllers\PurchaseindentController::class, 'edit'])->middleware('auth')->name('purchase.indent.edit');
+    Route::get('/print/{id}',[App\Http\Controllers\PurchaseindentController::class, 'print_indent'])->middleware('auth')->name('purchase.indent.print_indent');
     Route::get('/show/{id}',[App\Http\Controllers\PurchaseindentController::class, 'show'])->middleware('auth')->name('purchase.indent.show');
 });
 Route::group(['prefix'=> 'preferences'],function() {

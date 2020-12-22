@@ -53,6 +53,7 @@ class PurchaseindentController extends Controller
             return "&emsp;
                   <a title='Edit' class='btn btn-sm btn-success' href='" . url('/purchase_indent/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
                   <a title='Show' class='btn btn-sm btn-warning' href='" . url('/purchase_indent/show/'. $data->id) . "'><i class='fa fa-eye'></i></a>
+                  <a title='Print' class='btn btn-sm btn-outline-secondary' href='" . url('/purchase_indent/print/'. $data->id) . "'><i class='fa fa-print'></i></a>
                   ";
         })
         ->rawColumns(['options','status'])
@@ -112,6 +113,10 @@ class PurchaseindentController extends Controller
         $show=Purchaseindent::find($id);
         $items=Purchaseindentitem::where('indent_id',$id)->get();
         return view('purchaseindent.show',compact('show','items'));
+    }
+    public function print_indent($id){
+        $items=Purchaseindentitem::where('indent_id',$id)->get();
+        return view('purchaseindent.material_indent',compact('items'));
     }
     //
 }

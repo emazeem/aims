@@ -390,37 +390,7 @@
     @endif
 
     <?php
-    $dataPoints = array(
-        array("x" => 1, "y" => $ual),
-        array("x" => 2, "y" => $ual),
-        array("x" => 3, "y" => $ual),
-        array("x" => 4, "y" => $ual)
-    );
-    $dataPoints2  = array(
-        array("x" => 1, "y" => $uwl),
-        array("x" => 2, "y" => $uwl),
-        array("x" => 3, "y" => $uwl),
-        array("x" => 4, "y" => $uwl)
-    );
-    $average = array(
-        array("x" => 1, "y" => $averages[0]),
-        array("x" => 2, "y" => $averages[1]),
-        array("x" => 3, "y" => $averages[2]),
-        array("x" => 4, "y" => $averages[3])
-    );
 
-    $dataPoints3  = array(
-        array("x" => 1, "y" => $lwl),
-        array("x" => 2, "y" => $lwl),
-        array("x" => 3, "y" => $lwl),
-        array("x" => 4, "y" => $lwl)
-    );
-    $dataPoints4  = array(
-        array("x" => 1, "y" => $lal),
-        array("x" => 2, "y" => $lal),
-        array("x" => 3, "y" => $lal),
-        array("x" => 4, "y" => $lal)
-    );
     ?>
     <!DOCTYPE HTML>
     <html>
@@ -436,50 +406,50 @@
                     axisX: {
                         title: "Checks",
                         //valueFormatString: "DD MMM,YY"
+                        //suffix: "M1Y"
                     },
                     axisY: {
                         title: "Checks",
                         //suffix: " °C"
                     },
                     data: [{
+                        markerType: "square",
                         type: "spline",
                         markerSize: 10,
-
-                        dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                        dataPoints: <?php echo json_encode($ual_points, JSON_NUMERIC_CHECK); ?>
                     },
                         {
                             type: "spline",
+                            markerType: "cross",
                             markerSize: 10,
-                            dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
+                            dataPoints: <?php echo json_encode($uwl_points, JSON_NUMERIC_CHECK); ?>
                         },
                         {
                             type: "spline",
+                            markerType: "triangle",
                             markerSize: 10,
                             dataPoints: <?php echo json_encode($average, JSON_NUMERIC_CHECK); ?>
                         },
 
                         {
                             type: "spline",
+                            markerType: "square",
                             markerSize: 10,
-                            dataPoints: <?php echo json_encode($dataPoints3, JSON_NUMERIC_CHECK); ?>
+                            dataPoints: <?php echo json_encode($lwl_points, JSON_NUMERIC_CHECK); ?>
                         },
                         {
                             type: "spline",
                             markerSize: 10,
-                            dataPoints: <?php echo json_encode($dataPoints4, JSON_NUMERIC_CHECK); ?>
+                            dataPoints: <?php echo json_encode($lal_points, JSON_NUMERIC_CHECK); ?>
                         },
-
-
                     ]
                 });
-
                 chart.render();
-
             }
         </script>
     </head>
     <body>
-    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <div id="chartContainer" style="height: 370px;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </body>
     </html>

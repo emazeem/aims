@@ -139,6 +139,7 @@ class AssetController extends Controller
                 $limit_of_intermediatecheck=true;
             }
         }
+
         $checklists=Preventivemaintenancerecord::where('asset_id',$id)->get();
         foreach ($intermediatechecks as $key => $intermediatecheck) {
             foreach (explode(',', $intermediatecheck->measured_value) as $measured_value) {
@@ -147,28 +148,57 @@ class AssetController extends Controller
                 }
             }
         }
-        $average = array_sum($first_columns) / count($first_columns);
-
+        $average[0] = array_sum($first_columns) / count($first_columns);
         $sum_difference_square = 0;
-        $average = array_sum($first_columns) / count($first_columns);
+        $average[0] = array_sum($first_columns) / count($first_columns);
         foreach ($first_columns as $first_column) {
-            $sum_difference_square = $sum_difference_square + (($first_column - $average) * ($first_column - $average));
+            $sum_difference_square = $sum_difference_square + (($first_column - $average[0]) * ($first_column - $average[0]));
         }
         $sd = sqrt($sum_difference_square / (count($first_columns) - 1));
-
-        $uwl=$average+(2*$sd);
-        $lwl=$average-(2*$sd);
-        $ual=$average+(3*$sd);
-        $lal=$average-(3*$sd);
-
+        $uwl=$average[0]+(2*$sd);
+        $lwl=$average[0]-(2*$sd);
+        $ual=$average[0]+(3*$sd);
+        $lal=$average[0]-(3*$sd);
         $averages=[
-          0=>$average,
+          0=>$average[0],
           1=>10,
           2=>10.4,
           3=>10.1,
         ];
-        return view('assets.show',compact('ual','uwl','lwl','lal','averages',
-            'parameters','show','specifications','mycolumns','duplicate','intermediatechecks','limit_of_intermediatecheck','checklists'));
+        $ual_points = array(
+            array("x" => 1, "y" => $ual),
+            array("x" => 2, "y" => $ual),
+            array("x" => 3, "y" => $ual),
+            array("x" => 4, "y" => $ual)
+        );
+        $uwl_points = array(
+            array("x" => 1, "y" => $uwl),
+            array("x" => 2, "y" => $uwl),
+            array("x" => 3, "y" => $uwl),
+            array("x" => 4, "y" => $uwl)
+        );
+        $average = array(
+            array("x" => 1, "y" => $averages[0]),
+            array("x" => 2, "y" => $averages[1]),
+            array("x" => 3, "y" => $averages[2]),
+            array("x" => 4, "y" => $averages[3])
+        );
+        $lwl_points = array(
+            array("x" => 1, "y" => $lwl),
+            array("x" => 2, "y" => $lwl),
+            array("x" => 3, "y" => $lwl),
+            array("x" => 4, "y" => $lwl)
+        );
+        $lal_points  = array(
+            array("x" => 1, "y" => $lal),
+            array("x" => 2, "y" => $lal),
+            array("x" => 3, "y" => $lal),
+            array("x" => 4, "y" => $lal)
+        );
+        return view('assets.show',compact('ual','uwl','lwl','lal','averages','ual_points',
+            'uwl_points','average','lwl_points','lal_points',
+            'parameters','show','specifications','mycolumns','duplicate','intermediatechecks',
+            'limit_of_intermediatecheck','checklists'));
     }
 
     public function store(Request $request){
