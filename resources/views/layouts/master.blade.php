@@ -47,6 +47,7 @@
 </div>
 <script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('build/js/custom.min.js')}}"></script>
 @if(Route::currentRouteName()=='customers' or Route::currentRouteName()=='departments'or Route::currentRouteName()=='designations'or Route::currentRouteName()=='users' or Route::currentRouteName()=='parameters'
 or Route::currentRouteName()=='assets' or Route::currentRouteName()=='procedures' or Route::currentRouteName()=='capabilities' or Route::currentRouteName()=='manageref'or Route::currentRouteName()=='units'or Route::currentRouteName()=='quotes.show'
 or Route::currentRouteName()=='uncertainties'or Route::currentRouteName()=='columns'or Route::currentRouteName()=='assets.groups'or Route::currentRouteName()=='quotes'or Route::currentRouteName()=='purchase.indent.index'
@@ -55,7 +56,6 @@ or Route::currentRouteName()=='invoicing_ledger' or Route::currentRouteName()=='
 or Route::currentRouteName()=='preferences.index' or Route::currentRouteName()=='mytasks' or Route::currentRouteName()=='certificates' or Route::currentRouteName()=='certificates'or Route::currentRouteName()=='sops'or Route::currentRouteName()=='forms.index')
     <link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
-    <script src="{{url('build/js/custom.min.js')}}"></script>
     <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>
     <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
 @endif
