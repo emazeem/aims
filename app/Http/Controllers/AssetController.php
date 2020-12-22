@@ -128,6 +128,9 @@ class AssetController extends Controller
 
             }
         }
+        for($x=1;$x<12;$x++){
+            $average[$x]=null;
+        }
         $intermediatechecks = Intermediatechecksofasset::where('equipment_under_test_id', $id)->get();
         $limit_of_intermediatecheck = true;
         if ($show->calibration == '1900-01-01') {
@@ -156,15 +159,18 @@ class AssetController extends Controller
         $averages = null;
         $ual_points = null;
         $uwl_points = null;
-        $average = null;
         $lwl_points = null;
         $lal_points = null;
+
         $slices=count($intermediatechecks);
         if (count($intermediatechecks) > 0) {
             foreach ($intermediatechecks as $key => $intermediatecheck) {
                 foreach (explode(',', $intermediatecheck->measured_value) as $measured_value) {
                     if ($key == 0) {
                         $first_columns[] = $measured_value;
+                    }else{
+                       $temp= explode(',',$intermediatecheck->measured_value);
+                       $average[$key]=array_sum($temp)/count($temp);
                     }
                 }
             }
@@ -181,9 +187,17 @@ class AssetController extends Controller
             $lal = $average[0] - (3 * $sd);
             $averages = [
                 0 => $average[0],
-                1 => $average[0],
-                2 => $average[0],
-                3 => $average[0],
+                1 => $average[1],
+                2 => $average[2],
+                3 => $average[3],
+                4 => $average[4],
+                5 => $average[5],
+                6 => $average[6],
+                7 => $average[7],
+                8 => $average[8],
+                9 => $average[9],
+                10 => $average[10],
+                11 => $average[11]
             ];
             $ual_points = array(
                 array( "y" => $ual),
@@ -222,6 +236,7 @@ class AssetController extends Controller
         $lwl_points=array_slice($lwl_points,0,$slices);
         $lal_points=array_slice($lal_points,0,$slices);
         $averages=array_slice($averages,0,$slices);
+
 
         return view('assets.show', compact('ual', 'uwl', 'lwl', 'lal', 'averages', 'ual_points',
             'uwl_points', 'average', 'lwl_points', 'lal_points', 'parameters', 'show', 'specifications', 'mycolumns',
