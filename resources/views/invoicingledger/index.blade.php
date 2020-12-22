@@ -179,7 +179,7 @@
                 "serverSide": true,
                 "Paginate": true,
                 "order": [[0, 'desc']],
-/*                "lengthMenu": [[-1], ["All"]],*/
+                "lengthMenu": [[-1], ["All"]],
                 "ajax":{
                     "url": "{{ route('invoicing_ledger.fetch') }}",
                     "dataType": "json",

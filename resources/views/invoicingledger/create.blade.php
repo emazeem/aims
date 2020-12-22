@@ -14,9 +14,7 @@
             });
         </script>
     @endif
-
     <div class="row pb-3">
-
         <div class="col-12">
             <h3 class="border-bottom text-primary"><i class="fa fa-plus-circle"></i> Add Invoice Ledger Details</h3>
         </div>
@@ -201,7 +199,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 @endsection
 
