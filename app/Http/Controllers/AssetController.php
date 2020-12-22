@@ -16,10 +16,12 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\DocBlock;
 use Yajra\DataTables\DataTables;
+
 class AssetController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         /*$temps=Asset::all();
         foreach ($temps as $temp){
             $asset=Asset::find($temp->id);
@@ -30,11 +32,13 @@ class AssetController extends Controller
         }
         dd('done');*/
 
-        $assets=Asset::all();
-        return view('assets.index',compact('assets'));
+        $assets = Asset::all();
+        return view('assets.index', compact('assets'));
     }
-    public function fetch(){
-        $data=Asset::with('parameters')->get ();
+
+    public function fetch()
+    {
+        $data = Asset::with('parameters')->get();
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -46,17 +50,16 @@ class AssetController extends Controller
             ->addColumn('code', function ($data) {
                 return $data->code;
             })
-
             ->addColumn('parameter', function ($data) {
                 return $data->parameters->name;
             })
             ->addColumn('status', function ($data) {
-                $status=null;
-                if ($data->status==0){
-                    $status.="<span class='badge badge-success'>Available</span>";
+                $status = null;
+                if ($data->status == 0) {
+                    $status .= "<span class='badge badge-success'>Available</span>";
                 }
-                if ($data->status==1){
-                    $status.="<span class='badge badge-danger'>Booked</span>";
+                if ($data->status == 1) {
+                    $status .= "<span class='badge badge-danger'>Booked</span>";
                 }
                 return $status;
 
@@ -82,77 +85,82 @@ class AssetController extends Controller
             ->addColumn('options', function ($data) {
 
                 return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/assets/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  <a title='Show' class='btn btn-sm btn-warning' href='" . url('/assets/show/'. $data->id) . "'><i class='fa fa-eye'></i></a>
+                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/assets/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                  <a title='Show' class='btn btn-sm btn-warning' href='" . url('/assets/show/' . $data->id) . "'><i class='fa fa-eye'></i></a>
                   ";
 
             })
-            ->rawColumns(['options','status'])
+            ->rawColumns(['options', 'status'])
             ->make(true);
 
     }
 
-    public function create(){
-        $parameters=Parameter::all();
-        return view('assets.create',compact('parameters'));
+    public function create()
+    {
+        $parameters = Parameter::all();
+        return view('assets.create', compact('parameters'));
     }
-    public function edit($id){
-        $edit=Asset::find($id);
-        $parameters=Parameter::all();
-        return view('assets.edit',compact('parameters','edit'));
-    }
-    public function show($id){
 
-        $show=Asset::find($id);
-        $parameters=Parameter::all();
-        $specifications=Assetspecification::with('columns')->where('asset_id',$id)->get();
-        $check_duplicate_specifications=Assetspecification::where('asset_id',$id)->get();
-        $duplicate=array();
-        foreach ($check_duplicate_specifications as $check_duplicate_specification){
-            $duplicate[]=$check_duplicate_specification->asset_id;
+    public function edit($id)
+    {
+        $edit = Asset::find($id);
+        $parameters = Parameter::all();
+        return view('assets.edit', compact('parameters', 'edit'));
+    }
+
+    public function show($id)
+    {
+
+        $show = Asset::find($id);
+        $parameters = Parameter::all();
+        $specifications = Assetspecification::with('columns')->where('asset_id', $id)->get();
+        $check_duplicate_specifications = Assetspecification::where('asset_id', $id)->get();
+        $duplicate = array();
+        foreach ($check_duplicate_specifications as $check_duplicate_specification) {
+            $duplicate[] = $check_duplicate_specification->asset_id;
         }
-        $columns=Column::all();
-        $mycolumns=array();
-        foreach ($columns as $column){
-            $assets=explode(',',$column->assets);
-            if (in_array($id,$assets)){
-                $mycolumns[]=$column;
+        $columns = Column::all();
+        $mycolumns = array();
+        foreach ($columns as $column) {
+            $assets = explode(',', $column->assets);
+            if (in_array($id, $assets)) {
+                $mycolumns[] = $column;
 
             }
         }
-        $intermediatechecks=Intermediatechecksofasset::where('equipment_under_test_id',$id)->get();
-        $limit_of_intermediatecheck=true;
-        if ($show->calibration=='1900-01-01'){
-            $limit_of_intermediatecheck=false;
-        }else{
-            $limit_of_intermediatecheck=true;
+        $intermediatechecks = Intermediatechecksofasset::where('equipment_under_test_id', $id)->get();
+        $limit_of_intermediatecheck = true;
+        if ($show->calibration == '1900-01-01') {
+            $limit_of_intermediatecheck = false;
+        } else {
+            $limit_of_intermediatecheck = true;
         }
-        $available=Intermediatechecksofasset::where('equipment_under_test_id',$id)->first();
-        if (isset($available)){
-            $asset=Asset::find($id);
-            $difference=strtotime($asset->due)-strtotime($asset->calibration);
-            $threemonthscheck=60*60*24*91;
-            $repetition=$difference/$threemonthscheck;
-            $repetition=(int)$repetition-1;
-            $count=Intermediatechecksofasset::where('equipment_under_test_id',$id)->count();
-            if ($count==$repetition-1){
-                $limit_of_intermediatecheck=true;
+        $available = Intermediatechecksofasset::where('equipment_under_test_id', $id)->first();
+        if (isset($available)) {
+            $asset = Asset::find($id);
+            $difference = strtotime($asset->due) - strtotime($asset->calibration);
+            $threemonthscheck = 60 * 60 * 24 * 91;
+            $repetition = $difference / $threemonthscheck;
+            $repetition = (int)$repetition - 1;
+            $count = Intermediatechecksofasset::where('equipment_under_test_id', $id)->count();
+            if ($count == $repetition - 1) {
+                $limit_of_intermediatecheck = true;
             }
         }
-
-        $limit_of_intermediatecheck=null;
-        $checklists=Preventivemaintenancerecord::where('asset_id',$id)->get();
-        $ual=null;
-        $uwl=null;
-        $lwl=null;
-        $lal=null;
-        $averages=null;
-        $ual_points=null;
-        $uwl_points=null;
-        $average=null;
-        $lwl_points=null;
-        $lal_points=null;
-        if (count($intermediatechecks)>0){
+        $limit_of_intermediatecheck = null;
+        $checklists = Preventivemaintenancerecord::where('asset_id', $id)->get();
+        $ual = null;
+        $uwl = null;
+        $lwl = null;
+        $lal = null;
+        $averages = null;
+        $ual_points = null;
+        $uwl_points = null;
+        $average = null;
+        $lwl_points = null;
+        $lal_points = null;
+        $slices=count($intermediatechecks);
+        if (count($intermediatechecks) > 0) {
             foreach ($intermediatechecks as $key => $intermediatecheck) {
                 foreach (explode(',', $intermediatecheck->measured_value) as $measured_value) {
                     if ($key == 0) {
@@ -160,7 +168,6 @@ class AssetController extends Controller
                     }
                 }
             }
-
             $average[0] = array_sum($first_columns) / count($first_columns);
             $sum_difference_square = 0;
             $average[0] = array_sum($first_columns) / count($first_columns);
@@ -168,56 +175,61 @@ class AssetController extends Controller
                 $sum_difference_square = $sum_difference_square + (($first_column - $average[0]) * ($first_column - $average[0]));
             }
             $sd = sqrt($sum_difference_square / (count($first_columns) - 1));
-            $uwl=$average[0]+(2*$sd);
-            $lwl=$average[0]-(2*$sd);
-            $ual=$average[0]+(3*$sd);
-            $lal=$average[0]-(3*$sd);
-            $averages=[
-                0=>$average[0],
-                1=>$average[0]+0.2,
-                2=>$average[0]+0.3,
-                3=>$average[0]-0.2,
+            $uwl = $average[0] + (2 * $sd);
+            $lwl = $average[0] - (2 * $sd);
+            $ual = $average[0] + (3 * $sd);
+            $lal = $average[0] - (3 * $sd);
+            $averages = [
+                0 => $average[0],
+                1 => $average[0],
+                2 => $average[0],
+                3 => $average[0],
             ];
             $ual_points = array(
-                array("x" => 1, "y" => $ual),
-                array("x" => 2, "y" => $ual),
-                array("x" => 3, "y" => $ual),
-                array("x" => 4, "y" => $ual)
+                array( "y" => $ual),
+                array( "y" => $ual),
+                array( "y" => $ual),
+                array( "y" => $ual)
             );
             $uwl_points = array(
-                array("x" => 1, "y" => $uwl),
-                array("x" => 2, "y" => $uwl),
-                array("x" => 3, "y" => $uwl),
-                array("x" => 4, "y" => $uwl)
+                array( "y" => $uwl),
+                array( "y" => $uwl),
+                array( "y" => $uwl),
+                array( "y" => $uwl)
             );
             $average = array(
-                array("x" => 1, "y" => $averages[0]),
-                array("x" => 2, "y" => $averages[1]),
-                array("x" => 3, "y" => $averages[2]),
-                array("x" => 4, "y" => $averages[3])
+                array( "y" => $averages[0]),
+                array( "y" => $averages[1]),
+                array( "y" => $averages[2]),
+                array( "y" => $averages[3])
             );
             $lwl_points = array(
-                array("x" => 1, "y" => $lwl),
-                array("x" => 2, "y" => $lwl),
-                array("x" => 3, "y" => $lwl),
-                array("x" => 4, "y" => $lwl)
+                array( "y" => $lwl),
+                array( "y" => $lwl),
+                array( "y" => $lwl),
+                array( "y" => $lwl)
             );
-            $lal_points  = array(
-                array("x" => 1, "y" => $lal),
-                array("x" => 2, "y" => $lal),
-                array("x" => 3, "y" => $lal),
-                array("x" => 4, "y" => $lal)
+            $lal_points = array(
+                array( "y" => $lal),
+                array( "y" => $lal),
+                array( "y" => $lal),
+                array( "y" => $lal)
             );
         }
 
-        return view('assets.show',compact('ual','uwl','lwl','lal','averages','ual_points',
-            'uwl_points','average','lwl_points','lal_points',
-            'parameters','show','specifications','mycolumns','duplicate','intermediatechecks',
-            'limit_of_intermediatecheck','checklists'));
+        $ual_points=array_slice($ual_points,0,$slices);
+        $uwl_points=array_slice($uwl_points,0,$slices);
+        $lwl_points=array_slice($lwl_points,0,$slices);
+        $lal_points=array_slice($lal_points,0,$slices);
+        $averages=array_slice($averages,0,$slices);
+
+        return view('assets.show', compact('ual', 'uwl', 'lwl', 'lal', 'averages', 'ual_points',
+            'uwl_points', 'average', 'lwl_points', 'lal_points', 'parameters', 'show', 'specifications', 'mycolumns',
+            'duplicate', 'intermediatechecks', 'limit_of_intermediatecheck', 'checklists'));
     }
 
-    public function store(Request $request){
-       // dd($request->all());
+    public function store(Request $request)
+    {
         $this->validate(request(), [
             'name' => 'required',
             'parameter' => 'required',
@@ -234,7 +246,7 @@ class AssetController extends Controller
             'certificate' => 'required',
             'status' => 'required',
             'code' => 'required|unique:assets',
-        ],[
+        ], [
             'name.required' => 'Asset name field is required *',
             'parameter.required' => 'Parameter field is required *',
             'make.required' => 'Make field is required *',
@@ -246,36 +258,38 @@ class AssetController extends Controller
             'code.required' => 'Code field is required *',
         ]);
 
-        $asset=new Asset();
-        $asset->name=$request->name;
-        $asset->code=$request->code;
-        $asset->parameter=$request->parameter;
-        $asset->make=$request->make;
-        $asset->model=$request->model;
-        $asset->range=$request->range;
-        $asset->status=$request->status;
-        $asset->resolution=$request->resolution;
-        $asset->accuracy=$request->accuracy;
-        $asset->due=$request->due;
-        $asset->commissioned=$request->commissioned;
-        $asset->calibration_interval=$request->interval;
-        $due=strtotime($request->calibration)+(60*60*24*365)*$request->interval;
-        $asset->due=date('Y-m-d',$due);
-        $asset->calibration=$request->calibration;
-        $asset->certificate_no=$request->certificate;
-        $asset->traceability=$request->traceability;
-        $asset->serial_no=$request->serial;
-        $asset->location=$request->location;
-        if (isset($request->image)){
-            $attachment=time().$request->image->getClientOriginalName();
-            Storage::disk('local')->put('/public/assets/'.$attachment, File::get($request->profile));
-            $asset->image=$attachment;
+        $asset = new Asset();
+        $asset->name = $request->name;
+        $asset->code = $request->code;
+        $asset->parameter = $request->parameter;
+        $asset->make = $request->make;
+        $asset->model = $request->model;
+        $asset->range = $request->range;
+        $asset->status = $request->status;
+        $asset->resolution = $request->resolution;
+        $asset->accuracy = $request->accuracy;
+        $asset->due = $request->due;
+        $asset->commissioned = $request->commissioned;
+        $asset->calibration_interval = $request->interval;
+        $due = strtotime($request->calibration) + (60 * 60 * 24 * 365) * $request->interval;
+        $asset->due = date('Y-m-d', $due);
+        $asset->calibration = $request->calibration;
+        $asset->certificate_no = $request->certificate;
+        $asset->traceability = $request->traceability;
+        $asset->serial_no = $request->serial;
+        $asset->location = $request->location;
+        if (isset($request->image)) {
+            $attachment = time() . $request->image->getClientOriginalName();
+            Storage::disk('local')->put('/public/assets/' . $attachment, File::get($request->profile));
+            $asset->image = $attachment;
         }
         $asset->save();
         return redirect()->back()->with('success', 'Asset added successfully');
 
     }
-    public function update($id,Request $request){
+
+    public function update($id, Request $request)
+    {
         $this->validate(request(), [
             'name' => 'required',
             'parameter' => 'required',
@@ -292,8 +306,8 @@ class AssetController extends Controller
             'certificate' => 'required',
             'status' => 'required',
 
-            'code' => 'required|unique:assets,code,'.$request->id,
-        ],[
+            'code' => 'required|unique:assets,code,' . $request->id,
+        ], [
             'name.required' => 'Asset name field is required *',
             'parameter.required' => 'Parameter field is required *',
             'make.required' => 'Make field is required *',
@@ -305,30 +319,30 @@ class AssetController extends Controller
             'code.required' => 'Code field is required *',
         ]);
 
-        $asset=Asset::find($id);
-        $asset->name=$request->name;
-        $asset->code=$request->code;
-        $asset->parameter=$request->parameter;
-        $asset->make=$request->make;
-        $asset->model=$request->model;
-        $asset->range=$request->range;
-        $asset->status=$request->status;
-        $asset->resolution=$request->resolution;
-        $asset->accuracy=$request->accuracy;
-        $asset->due=$request->due;
-        $asset->commissioned=$request->commissioned;
-        $asset->calibration=$request->calibration;
-        $asset->calibration_interval=$request->interval;
-        $due=strtotime($request->calibration)+(60*60*24*365)*$request->interval;
-        $asset->due=date('Y-m-d',$due);
-        $asset->certificate_no=$request->certificate;
-        $asset->traceability=$request->traceability;
-        $asset->serial_no=$request->serial;
-        $asset->location=$request->location;
-        if (isset($request->image)){
-            $attachment=time().$request->image->getClientOriginalName();
-            Storage::disk('local')->put('/public/assets/'.$attachment, File::get($request->image));
-            $asset->image=$attachment;
+        $asset = Asset::find($id);
+        $asset->name = $request->name;
+        $asset->code = $request->code;
+        $asset->parameter = $request->parameter;
+        $asset->make = $request->make;
+        $asset->model = $request->model;
+        $asset->range = $request->range;
+        $asset->status = $request->status;
+        $asset->resolution = $request->resolution;
+        $asset->accuracy = $request->accuracy;
+        $asset->due = $request->due;
+        $asset->commissioned = $request->commissioned;
+        $asset->calibration = $request->calibration;
+        $asset->calibration_interval = $request->interval;
+        $due = strtotime($request->calibration) + (60 * 60 * 24 * 365) * $request->interval;
+        $asset->due = date('Y-m-d', $due);
+        $asset->certificate_no = $request->certificate;
+        $asset->traceability = $request->traceability;
+        $asset->serial_no = $request->serial;
+        $asset->location = $request->location;
+        if (isset($request->image)) {
+            $attachment = time() . $request->image->getClientOriginalName();
+            Storage::disk('local')->put('/public/assets/' . $attachment, File::get($request->image));
+            $asset->image = $attachment;
         }
         $asset->save();
         return redirect()->back()->with('success', 'Asset updated successfully!');

@@ -15,29 +15,30 @@
             });
         </script>
     @endif
-    <div class="col-12 d-sm-flex align-items-center justify-content-between mb-4">
-        <h3 class="border-bottom">
-            <i class="fa fa-tasks"></i>
-            {{$show->name}}
-            <small>[ {{$show->code}} ]</small>
-        </h3>
-        <span>
+
+
+    <div class="row pb-3">
+        <div class="col-12">
+            <h5 class="border-bottom pull-left">
+                <i class="fa fa-tasks"></i>
+                {{$show->name}}
+                <small>[ {{$show->code}} ]</small>
+            </h5>
+            <span class="pull-right">
 
             <a href="{{url('preventive/maintenance/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i
                         class="fa fa-plus-circle"></i> Add Preventive Maintenance</a>
-            @if($show->calibration!='1900-01-01')
-                {{--@if($limit_of_intermediatecheck== true)--}}
+                @if($show->calibration!='1900-01-01')
+                    {{--@if($limit_of_intermediatecheck== true)--}}
                     <a href="{{url('assets/intermediate-checks/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i
                                 class="fa fa-plus-circle"></i> Add Intermediate Checks</a>
-                {{--@endif--}}
-            @endif
-            <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
-                    data-target="#add_specification"><i class="fa fa-plus-circle"></i> Add Specifications
+                    {{--@endif--}}
+                @endif
+                <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal"
+                        data-target="#add_specification"><i class="fa fa-plus-circle"></i> Add Specifications
         </button>
         </span>
-    </div>
-
-    <div class="row pb-3">
+        </div>
         <div class="col-12">
 
             <table class="table table-hover font-13 table-bordered">
@@ -388,8 +389,6 @@
 
         </table>
     @endif
-    <!DOCTYPE HTML>
-    <html>
     <head>
         <script>
             window.onload = function () {
@@ -444,10 +443,6 @@
             }
         </script>
     </head>
-    <body>
-
     <div id="chartContainer" style="height: 370px;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    </body>
-    </html>
 @endsection
