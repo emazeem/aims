@@ -97,7 +97,7 @@
                 <tr>
                     <th>Service Tax </th>
                     <th>
-                        {{$show->service_tax_type}} ▶
+                        {{\App\Models\Preference::find($show->service_tax_type)->name}} ▶
                         {{$show->service_tax_percent}}% ▶
                         {{$show->service_tax_amount}}
 
