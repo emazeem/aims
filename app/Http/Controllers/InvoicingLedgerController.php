@@ -323,8 +323,8 @@ class InvoicingLedgerController extends Controller
         $ledger->confirmed_by_name='Confirmed By';
         $ledger->confirmed_by_phone='03001231231';
         $ledger->invoice=$request->created_on;
-        $ledger->created_at=auth()->user()->id;
-        $ledger->updated_at=auth()->user()->id;
+        $ledger->created_by=auth()->user()->id;
+        $ledger->updated_by=auth()->user()->id;
         $ledger->save();
         return redirect()->back()->with('success','Invoice Details Added Successfully');
     }
