@@ -12,6 +12,7 @@
         <div class="col-12">
                 <h3 class="border-bottom text-dark pull-left"><i class="fa fa-dollar"></i> Invoicing Ledger</h3>
                 <span>
+                <a href="{{url('invoicing-ledger/create/1')}}" class="btn btn-success btn-sm float-right mt-2"><i class="fa fa-check-circle"></i></a>
                 <a href="{{route('pra')}}" class="btn btn-outline-secondary btn-sm float-right mt-2"><small><i class="fa fa-print"></i> PRA</small></a>
             </span>
         </div>
