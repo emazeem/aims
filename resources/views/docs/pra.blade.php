@@ -45,7 +45,7 @@
                         <tr>
                             <td width="5">{{$key+1}}</td>
                             <td width="5">{{date('d-M-Y',strtotime($entry->invoice))}}</td>
-                            <td width="5">{{date('ymd',strtotime($entry->invoice)).$key}}</td>
+                            <td width="5">{{$entry->invoice_no}}</td>
                             <td width="5">{{$entry->customers->ntn}}</td>
                             <td width="5">{{$entry->service_charges}}</td>
                             <td width="5">{{$entry->service_tax_amount}}</td>

@@ -251,7 +251,7 @@ Route::group(['prefix'=> 'invoicing-ledger'],function() {
     Route::get('/create/{id}',[App\Http\Controllers\InvoicingLedgerController::class, 'create'])->middleware('auth')->name('invoicing_ledger.create');
     Route::get('/edit/{id}',[App\Http\Controllers\InvoicingLedgerController::class, 'edit'])->middleware('auth')->name('invoicing_ledger.edit');
     Route::post('/store',[App\Http\Controllers\InvoicingLedgerController::class, 'store'])->middleware('auth')->name('invoicing_ledger.store');
-    Route::post('/update/{invoice}',[App\Http\Controllers\InvoicingLedgerController::class, 'update'])->middleware('auth')->name('invoicing_ledger.update');
+    Route::post('/update',[App\Http\Controllers\InvoicingLedgerController::class, 'update'])->middleware('auth')->name('invoicing_ledger.update');
     Route::get('/show/{invoice}',[App\Http\Controllers\InvoicingLedgerController::class, 'show'])->middleware('auth')->name('invoicing_ledger.show');
 });
 Route::group(['prefix'=> 'receivable-ledger'],function() {
