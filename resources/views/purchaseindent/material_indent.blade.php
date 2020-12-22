@@ -12,12 +12,12 @@
 <body>
 <div class="container-fluid">
     <div class="col-12 font-style mt-2">
-        <div class="row">
+        <div class="row" style="margin-left: 2px">
             <div class="col-2 text-center custom-border">
                 <img src="{{url('/img/AIMS.png')}}" class="pl-2 pt-2" width="100">
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
-                <p class="text-center b font-24 " style="margin-top: 10px">MATERIAL INDENT FORM</p>
+                <p class="text-center b font-24 mt-4" style="margin-top: 10px">MATERIAL INDENT FORM</p>
             </div>
             <div class="col-3 row custom-border font-9 p-0">
                 <p class="text-center font-11 col-12 my-1">Doc # AIMS-TM-FRM-09</p>
@@ -33,31 +33,32 @@
         </div>
         <table class="table table-bordered mt-3">
             <tr>
-                <td colspan="3">Location / Project No: </td>
-                <td colspan="3">Indent No :</td>
-                <td colspan="3">Indent Type : </td>
+                <td colspan="3">Location / Project No: {{$indent->location}}</td>
+                <td colspan="3" class="text-capitalize">Indent No : {{$indent->id}}</td>
+                <td colspan="3">Indent Type : {{$indent->indent_type}} Purchase</td>
             </tr>
             <tr>
-                <td colspan="3">Indent: </td>
-                <td colspan="3">Chargeable to :</td>
-                <td colspan="3">Indent Date : </td>
+                <td colspan="3">Indenter: {{$indent->indenter->fname}} {{$indent->indenter->lname}}</td>
+                <td colspan="3">Chargeable to : {{$indent->departments->name}}</td>
+                <td colspan="3">Indent Date : {{date('d-M-Y',strtotime($indent->created_at))}}</td>
             </tr>
             <tr>
-                <td colspan="3">Department: </td>
-                <td colspan="3">Deliver to :</td>
-                <td colspan="3">Required Date : </td>
+                <td colspan="3">Department: {{$indent->departments->name}}</td>
+                <td colspan="3">Deliver to : {{$indent->location}}</td>
+                <td colspan="3">Required Date : {{date('d-M-Y',strtotime($indent->required))}}</td>
             </tr>
             <tr>
-                <td>Sr# </td>
-                <td>Item Description </td>
-                <td>Ref Do. </td>
-                <td>Unit </td>
-                <td>Last 6 months consumption </td>
-                <td>Current Stock </td>
-                <td>Qty </td>
-                <td>Purpose /Location of use </td>
+                <th>Sr# </th>
+                <th>Item Code </th>
+                <th>Item Description </th>
+                <th>Ref Do. </th>
+                <th>Unit </th>
+                <th>Last 6 months consumption </th>
+                <th>Current Stock </th>
+                <th>Qty </th>
+                <th>Purpose /Location of use </th>
             </tr>
-            @foreach($items as $key=> $item)
+            @foreach($indent->indent_items as $key=> $item)
             <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$item->item_code}}</td>
@@ -67,40 +68,68 @@
                     <td>{{$item->last_six_months_consumption}}</td>
                     <td>{{$item->current_stock}}</td>
                     <td>{{$item->qty}}</td>
+                    <td>{{$item->purpose}}</td>
             </tr>
             @endforeach
             <tr>
+                <td class="p-3"></td>
                 <td></td>
-                <td colspan="3">Prepared by (Indenter)</td>
-                <td colspan="3">Checked by</td>
-                <td colspan="3">Approved by</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
-                <td>Signature</td>
-                <td colspan="3"></td>
-                <td colspan="3"></td>
-                <td colspan="3"></td>
+                <td class="p-3"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
-            <tr>
-                <td>Name</td>
 
+            <tr class="mt-4">
+                <td></td>
+                <th class="font-italic " colspan="3">Prepared by (Indenter)</th>
+                <th class="font-italic" colspan="3">Checked by</th>
+                <th class="font-italic" colspan="3">Approved by</th>
+            </tr>
+            <tr>
+                <th>Signature</th>
                 <td colspan="3"></td>
                 <td colspan="3"></td>
                 <td colspan="3"></td>
             </tr>
             <tr>
-                <td>Position</td>
-
-                <td colspan="3"></td>
-                <td colspan="3"></td>
-                <td colspan="3"></td>
+                <th>Name</th>
+                <td colspan="3">{{$indent->indenter->fname}} {{$indent->indenter->lname}}</td>
+                <td colspan="3">{{$indent->checkedBy->fname}} {{$indent->checkedBy->lname}}</td>
+                <td colspan="3">{{$indent->approvedBy->fname}} {{$indent->approvedBy->lname}}</td>
             </tr>
+            <tr>
+                <th>Position</th>
+                <td colspan="3">{{($indent->status>)$indent->indenter->departments->name}}</td>
+                <td colspan="3">{{$indent->checkedBy->departments->name}}</td>
+                <td colspan="3">{{$indent->approvedBy->departments->name}}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td colspan="3">{{date('d-M-Y',strtotime($indent->updated_at))}}</td>
+                <td colspan="3">{{date('d-M-Y',strtotime($indent->updated_at))}}</td>
+                <td colspan="3">{{date('d-M-Y',strtotime($indent->updated_at))}}</td>
+            </tr>
+
             <tr>
                 <td colspan="100%">Distribution , procurement store</td>
             </tr>
         </table>
         <table class="table table-bordered mt-3">
-
             <tr>
                 <td colspan="100%" class="text-center">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission of the company.</td>
             </tr>

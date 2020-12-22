@@ -115,8 +115,8 @@ class PurchaseindentController extends Controller
         return view('purchaseindent.show',compact('show','items'));
     }
     public function print_indent($id){
-        $items=Purchaseindentitem::where('indent_id',$id)->get();
-        return view('purchaseindent.material_indent',compact('items'));
+        $indent=Purchaseindent::with('indent_items','indenter','departments','approvedBy','checkedBy')->find($id);
+        return view('purchaseindent.material_indent',compact('indent'));
     }
     //
 }

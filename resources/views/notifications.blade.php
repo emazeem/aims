@@ -3,7 +3,6 @@
     <div class="col-12 row">
         <div class="row">
             <h3 class="border-bottom text-dark"><i class="fa fa-bell-o"></i> All Notifications</h3>
-
         @foreach(Auth::user()->Notifications as $notification)
             <a class="dropdown-item d-flex align-items-center p-1 {{($notification->read_at==null)?"bg-custom-notification-unread":"bg-light"}}" href="{{$notification->data['data']['redirectURL']}}">
                 <div class="row">
@@ -21,7 +20,6 @@
                         <div class="small d-md-block d-none">{{$notification->data['data']['title']}}</div>
                         <span class="{{($notification->read_at==null)?"font-weight-bold":""}}">{{$notification->data['data']['body']}}</span>
                         <div class="small text-right"><i class="fa fa-clock"></i> {{$notification['created_at']->diffForHumans()}}</div>
-
                     </div>
                 </div>
             </a>

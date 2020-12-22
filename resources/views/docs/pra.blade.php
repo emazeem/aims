@@ -22,9 +22,13 @@
         <p class="text-center p-0 m-0" style="margin-top: 10px">Al Meezan NTN No. 7322733-0</p>
         <p class="text-center p-0 m-0" style="margin-top: 10px">SALES TAX REG. NO. 3277876130888</p>
         <p class="text-center p-0 m-0" style="margin-top: 10px">UNDER SECTION 22(1) (A) OF SALES TAX (AMENDEMENT) ACT 1990</p>
-
         <div class="row">
             <table class="table table-stripped mt-4 table-sm table-bordered font-custom">
+                    <tr>
+                        <td colspan="8" style="border:1px solid white"></td>
+                        <td><h5>{{date('F Y')}}</h5></td>
+                        <td  style="border:1px solid white"></td>
+                    </tr>
                     <tr>
                         <td>Sr.</td>
                         <td>Date</td>
@@ -39,16 +43,16 @@
                     </tr>
                     @foreach($entries as $key=>$entry)
                         <tr>
-                            <td>{{$key+1}}</td>
-                            <td>{{$entry->invoice}}</td>
-                            <td>{{$entry->invoice.$key}}</td>
-                            <td>{{$entry->customers->ntn}}</td>
-                            <td>{{$entry->service_charges}}</td>
-                            <td>{{$entry->service_tax_amount}}</td>
-                            <td>{{$entry->net_receivable}}</td>
-                            <td>{{($entry->service_tax_deducted!="At Source")?$entry->service_tax_amount:''}}</td>
-                            <td>{{$entry->customers->reg_name}}</td>
-                            <td>{{($entry->service_tax_deducted=="At Source")?$entry->service_tax_deducted:''}}</td>
+                            <td width="5">{{$key+1}}</td>
+                            <td width="5">{{date('d-M-Y',strtotime($entry->invoice))}}</td>
+                            <td width="5">{{date('ymd',strtotime($entry->invoice)).$key}}</td>
+                            <td width="5">{{$entry->customers->ntn}}</td>
+                            <td width="5">{{$entry->service_charges}}</td>
+                            <td width="5">{{$entry->service_tax_amount}}</td>
+                            <td width="5">{{$entry->net_receivable}}</td>
+                            <td width="5">{{($entry->service_tax_deducted!="At Source")?$entry->service_tax_amount:''}}</td>
+                            <td width="20">{{$entry->customers->reg_name}}-{{$entry->customers->address}}</td>
+                            <td width="5">{{($entry->service_tax_deducted=="At Source")?$entry->service_tax_deducted:''}}</td>
                         </tr>
                     @endforeach
 
