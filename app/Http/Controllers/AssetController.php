@@ -278,7 +278,7 @@ class AssetController extends Controller
             $uwl_points=array_slice($uwl_points,0,$slices);
             $lwl_points=array_slice($lwl_points,0,$slices);
             $lal_points=array_slice($lal_points,0,$slices);
-            $averages=array_slice($averages,0,$slices);
+            $average=array_slice($average,0,$slices);
         }
 
 
