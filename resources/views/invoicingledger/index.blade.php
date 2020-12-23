@@ -141,6 +141,7 @@
                     <th>Income Tax <br>Payed</th>
                     <th>Net <br>Receivable</th>
                     <th>Invoice <br>Date</th>
+                    <th>Created By</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -159,6 +160,7 @@
                     <th>Income Tax <br>Payed</th>
                     <th>Net <br>Receivable</th>
                     <th>Invoice <br>Date</th>
+                    <th>Created By</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -198,6 +200,7 @@
                     { "data": "income_tax_deducted" },
                     { "data": "net_receivable" },
                     { "data": "invoice" },
+                    { "data": "created_by" },
                     { "data": "options" ,"orderable":false},
                 ]
             });

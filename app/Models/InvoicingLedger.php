@@ -11,4 +11,7 @@ class InvoicingLedger extends Model
     public function customers(){
         return $this->belongsTo('App\Models\Customer','customer_id');
     }
+    public function created_user(){
+        return $this->belongsTo('App\Models\User','created_by')->withDefault();
+    }
 }

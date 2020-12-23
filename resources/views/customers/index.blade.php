@@ -72,6 +72,48 @@
             }
             $(document).ready(function () {
                 InitTable();
+                $(document).on('click', '.delete', function (e) {
+                    swal({
+                        title: "Are you sure to delete this customer?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                var id = $(this).attr('data-id');
+                                var token = '{{csrf_token()}}';
+                                e.preventDefault();
+                                var request_method = $("#form" + id).attr("method");
+                                var form_data = $("#form" + id).serialize();
+
+                                $.ajax({
+                                    url: "{{route('customers.destroy')}}",
+                                    type: request_method,
+                                    dataType: "JSON",
+                                    data: form_data,
+                                    statusCode: {
+                                        403: function () {
+                                            swal("Failed", "Permission denied.", "error");
+                                            return false;
+                                        }
+                                    },
+                                    success: function (data) {
+                                        swal('success', data.success, 'success').then((value) => {
+                                            location.reload();
+                                        });
+
+                                    },
+                                    error: function (data) {
+                                        swal("Failed", data.error, "error");
+                                    },
+                                });
+
+                            }
+                        });
+
+                });
+
             });
         </script>
 

@@ -184,10 +184,15 @@ class InvoicingLedgerController extends Controller
             ->addColumn('invoice', function ($data) {
                 return date('d M, Y',strtotime($data->invoice));
             })
+            ->addColumn('created_by', function ($data) {
+                return $data->created_user->fname.''.$data->created_user->lname;
+            })
+
             ->addColumn('options', function ($data) {
+
                 return "&emsp;
-                    <a title='Edit' class='btn btn-sm btn-danger' href='".url('/invoicing-ledger/edit/'.$data->id)."' ><i class='fa fa-pencil'></i></a>
-                    <a title='Show' href='".url('/invoicing-ledger/show/'.$data->id)."' class='btn btn-sm btn-warning'><i class='fa fa-eye'></i></a>
+                   <a title='Edit' class='btn btn-sm btn-danger' href='".url('/invoicing-ledger/edit/'.$data->id)."' ><i class='fa fa-pencil'></i></a>
+                   <a title='Show' href='".url('/invoicing-ledger/show/'.$data->id)."' class='btn btn-sm btn-warning'><i class='fa fa-eye'></i></a>
                   ";
             })
 

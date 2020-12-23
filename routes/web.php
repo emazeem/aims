@@ -35,6 +35,7 @@ Route::group(['prefix'=> 'customers'],function() {
     Route::post('/update/{id}',[App\Http\Controllers\CustomerController::class, 'update'])->middleware('auth')->name('customers.update');
     Route::post('',[App\Http\Controllers\CustomerController::class, 'fetch'])->middleware('auth')->name('customers.fetch');
     Route::post('/store',[App\Http\Controllers\CustomerController::class, 'store'])->middleware('auth')->name('customers.store');
+    Route::delete('delete',[App\Http\Controllers\CustomerController::class, 'destroy'])->middleware('auth')->name('customers.destroy');
 });
 Route::group(['prefix'=> 'users'],function() {
     Route::get('',[App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('users');
