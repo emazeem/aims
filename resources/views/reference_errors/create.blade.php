@@ -7,11 +7,12 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Add Error & Uncertainty</h1>
-    </div>
 
     <div class="row pb-3">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Error & Uncertainty</h3>
+        </div>
+
         <div class="col-12">
 
             <form class="form-horizontal" action="{{route('manageref.store')}}" method="post" enctype="multipart/form-data">
