@@ -96,31 +96,20 @@ class JobController extends Controller
     public function print_DN($id){
         $job=Job::with('quotes')->find($id);
         $labjobs=Jobitem::where('job_id',$id)->get();
-        $sitejobs=Jobitem::where('job_id',$id)->get();
-        return view('jobs.deliverynote',compact('job','labjobs','sitejobs'));
+        return view('jobs.deliverynote',compact('job','labjobs'));
     }
 
     public function print_invoice($id){
         $job=Job::find($id);
-        $items=Jobitem::where('job_id',$job->id)->pluck('item_id');
+        $jobitems=Jobitem::where('job_id',$job->id)->pluck('item_id');
         $unique_lab_items=array();
-        foreach ($items as $item){
+        foreach ($jobitems as $item){
             $unique_lab_items[]=$item;
         }
-        $lab_items=array_unique($unique_lab_items);
-        $lab_items=array_values($lab_items);
-        $labitems=Item::whereIn('id',$lab_items)->get();
-
-        $items=Jobitem::where('job_id',$job->id)->pluck('item_id');
-        $unique_site_items=array();
-        foreach ($items as $item){
-            $unique_site_items[]=$item;
-        }
-        $site_items=array_unique($unique_site_items);
-        $site_items=array_values($site_items);
-        $siteitems=Item::whereIn('id',$site_items)->get();
-        ///dd($siteitems);
-        return view('jobs.invoice',compact('job','labitems','siteitems'));
+        $items=array_unique($unique_lab_items);
+        $items=array_values($items);
+        $labitems=Item::whereIn('id',$items)->get();
+        return view('jobs.invoice',compact('job','labitems'));
     }
     public function print_gp($id){
         $items=Item::with('customers')->find($id);

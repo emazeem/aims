@@ -103,17 +103,6 @@
                         <td class="font-11">{{$labjob->visual_inspection}}</td>
                     </tr>
                 @endforeach
-                @foreach($sitejobs as $sitejob)
-                    <tr>
-                        <td class="font-11">{{$i}}</td>
-                        @php $i++; @endphp
-                        <td class="font-11">{{$sitejob->item->capabilities->name}}</td>
-                        <td class="font-11">{{$sitejob->eq_id}}</td>
-                        <td class="font-11">{{$sitejob->certificate}}</td>
-                        <td class="font-11">{{$sitejob->accessories}}</td>
-                        <td class="font-11">{{$sitejob->visual_inspection}}</td>
-                    </tr>
-                @endforeach
 
                 </tbody>
             </table>
