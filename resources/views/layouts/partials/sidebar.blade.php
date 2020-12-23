@@ -3,21 +3,18 @@
         {{--<div class="navbar nav_title" style="border: 0;">
             <a href="" class="site_title"><i class="fa fa-cog"></i> <span>AIMS</span></a>
         </div>--}}
-
-        <div class="clearfix"></div>
-
         <!-- menu profile quick info -->
         <div class="profile clearfix">
-            <div class="profile_pic ">
+            <div class="profile_pic" >
                 @if(auth()->user()->profile)
-                    <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-circle profile_img">
+                    <img style="object-fit: cover;height: 55px" src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-circle profile_img">
                  @else
                     <img src="{{url('img/profile.png')}}" class="img-circle profile_img">
                 @endif
             </div>
             <div class="profile_info">
-                <p class="p-0 m-0 mt-2"><small>Welcome,</small></p>
-                <p class="p-0 m-0"><small>{{auth()->user()->fname.' '.auth()->user()->lname}}</small></p>
+                <p class="p-0 m-0 mt-2 text-right"><small>Welcome,</small></p>
+                <p class="p-0 m-0 text-right"><small>{{auth()->user()->fname.' '.auth()->user()->lname}}</small></p>
 
             </div>
         </div>
@@ -28,7 +25,7 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                <h3>General</h3>
+                <h3>MENUS</h3>
                 <ul class="nav side-menu">
 
                     @foreach($menus as $menu)

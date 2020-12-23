@@ -125,7 +125,6 @@
                                 <img src="{{url('img/profile.png')}}" class="img-fluid img-fluid rounded-circle" style="height: 65px;width: 65px;object-fit: cover;">
                             @endif
                             <div class="col-12">
-
                                 <span class="text-dark  font-weight-normal small ">{{auth()->user()->fname}} {{auth()->user()->lname}}</span>
                                 <div class="text-xs text-center  text-primary">
                                     Member since {{date('Y',strtotime(auth()->user()->created_at))}}

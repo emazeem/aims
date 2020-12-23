@@ -13,95 +13,54 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="border-left-primary shadow h-100 py-2 p-5 text-center">
+        <div class="col-12 col-md-4">
+            <div class="border-left-primary shadow h-100 p-3 ">
                 @if(auth()->user()->profile)
                     <img src="{{Storage::disk('local')->url('/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}" class="img-fluid">
                 @else
                     <img src="{{url('img/profile.png')}}" class="img-fluid">
                 @endif
-                <p class="text-center mt-4">{{auth()->user()->fname}} {{auth()->user()->lname}}
-                    <br>
-                    <small>Member since {{date('Y',strtotime(auth()->user()->created_at))}}</small>
-                </p>
+                <h4 class="mt-4 text-success text-center border-bottom border-success">{{auth()->user()->fname}} {{auth()->user()->lname}}</h4>
+                    <p><i class="fa fa-map-marker user-profile-icon"></i>  {{auth()->user()->address}}</p>
+                    <p><i class="fa fa-phone"></i> {{auth()->user()->phone}}</p>
+                    <p>
+                        <i class="fa fa-envelope"></i> {{auth()->user()->email}}
+                    </p>
+                    <p><i class="fa fa-briefcase user-profile-icon"></i> {{auth()->user()->designations->name}} - {{auth()->user()->departments->name}}</p>
+                    <p class="text-center"><small class="text-center"> Member since {{date('Y',strtotime(auth()->user()->created_at))}} <i class="fa fa-clock-o"></i></small></p>
+
             </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-8">
 
-            <div class="border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="col-auto ">
-                                <h3 class="text-primary "><i class="fa fa-user"></i> Personal Details</h3>
-                            </div>
-                            <table class="table table-striped table-sm border mt-5 bg-white ">
-                                <tr>
-                                    <th class="text-primary">Name :</th>
-                                    <td>{{auth()->user()->fname}} {{auth()->user()->lname}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-primary">Father Name :</th>
-                                    <td>{{auth()->user()->father_name}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-primary">Phone :</th>
-                                    <td>{{auth()->user()->phone}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-primary">CNIC :</th>
-                                    <td>{{auth()->user()->cnic}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-primary">Email :</th>
-                                    <td>{{auth()->user()->email}}</td>
-                                </tr>
-                            </table>
-                            <table class="table table-striped table-sm border mt-5 bg-white ">
-
-                                <tr>
-                                    <th class="text-primary">Date of Birth :</th>
-                                    <td>{{date('d M, Y',strtotime(auth()->user()->dob))}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-primary">Joining :</th>
-                                    <td>{{date('d M, Y',strtotime(auth()->user()->joining))}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-primary">Address :</th>
-                                    <td>{{auth()->user()->address}}</td>
-                                </tr>
-                            </table>
-                            <table class="table table-striped table-sm border mt-5 bg-white ">
-                            <tr>
-                                    <th class="text-primary">Department :</th>
-                                    <td> {{auth()->user()->departments->name}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-primary">Designation :</th>
-                                    <td> {{auth()->user()->designations->name}}</td>
-                                </tr>
-                                <tr>
-                                    <th class="text-primary">Roles :</th>
-                                    <td> {{auth()->user()->roles->name}}</td>
-                                </tr>
-                            </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h3 class="pull-left"><i class="fa fa-sort"></i> My Profile </h3>
                             @if(auth()->user()->cv)
-                            <div class="border bg-white col-12 mt-5 text-center pt-3">
-                                <p class="fa-2x text-primary">Curriculum Vitae
-                                <a href="{{Storage::disk('local')->url('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)}}" target="_blank" class="btn btn-white btn-sm"> ( {{number_format((Storage::disk('local')->size('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)/1024),2)}}
-                                KBs ) <i class="fa fa-download fa-1x ml-2"></i></a>
-                                </p>
-                            </div>
-                            @endif
+                                <a href="{{Storage::disk('local')->url('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)}}" target="_blank" class="btn btn-app btn-lg pull-right">
+                                    <i class="fa fa-cloud-download"></i>
+                                    Curriculum Vitae ( {{number_format((Storage::disk('local')->size('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)/1024),2)}} KBs )
 
+                                </a>
+                            @endif
+                            <div class="clearfix"></div>
+
+                        </div>
+                        <div class="x_content">
+                            <h3 class="text-danger bg-light p-2"><i class="fa fa-caret-right"></i> {{auth()->user()->roles->name}}</h3>
+                            <h6><i class="fa fa-toggle-right text-danger"></i> Father Name <i class="fa fa-caret-right ml-2"></i>  {{auth()->user()->father_name}}</h6>
+                            <h6><i class="fa fa-info text-danger"></i> CNIC <i class="fa fa-caret-right ml-2"></i>  {{auth()->user()->cnic}}</h6>
+                            <h6><i class="fa fa-calendar text-danger"></i> Date of Birth <i class="fa fa-caret-right ml-2"></i>  {{date('d M Y',strtotime(auth()->user()->dob))}}</h6>
+                            <h6><i class="fa fa-calendar text-danger"></i> Date of Joining <i class="fa fa-caret-right ml-2"></i>  {{date('d M Y',strtotime(auth()->user()->joining))}}</h6>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-    </div>
 
 
     <div class="modal fade" id="changeprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
@@ -132,7 +91,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 @endsection
