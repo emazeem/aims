@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45e74d29-eecd-4738-987d-ce850b535ba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/reference_errors/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reference_errors/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,12 +67,12 @@
           <entry key="js" value="1" />
           <entry key="json" value="8" />
           <entry key="log" value="1" />
-          <entry key="php" value="352" />
+          <entry key="php" value="355" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="204" />
+          <entry key="Blade" value="207" />
           <entry key="CSS" value="2" />
           <entry key="HTML" value="4" />
           <entry key="JSON" value="8" />
@@ -85,12 +86,12 @@
           <entry key="css" value="53" />
           <entry key="htaccess" value="4" />
           <entry key="json" value="8" />
-          <entry key="php" value="23979" />
+          <entry key="php" value="24015" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="14956" />
+          <entry key="Blade" value="14992" />
           <entry key="CSS" value="53" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="8" />
@@ -102,11 +103,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/reference_errors/create.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/quotes/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="204">
+              <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/jobs/invoice.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="140" column="27" selection-start-line="140" selection-start-column="27" selection-end-line="140" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -156,8 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2020_12_18_102157_create_purchaseindents_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
         <option value="$PROJECT_DIR$/resources/views/materialreceivings/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Purchaseindentitem.php" />
         <option value="$PROJECT_DIR$/resources/views/materialreceivings/create.blade.php" />
@@ -207,6 +215,8 @@
         <option value="$PROJECT_DIR$/resources/views/assets/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" />
         <option value="$PROJECT_DIR$/resources/views/reference_errors/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/reference_errors/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" />
       </list>
     </option>
   </component>
@@ -449,7 +459,14 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="reference_errors" type="462c0819:PsiDirectoryNode" />
+              <item name="jobs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="quotes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -506,12 +523,12 @@
       <workItem from="1608349302560" duration="13587000" />
       <workItem from="1608367932459" duration="22618000" />
       <workItem from="1608535820029" duration="20972000" />
-      <workItem from="1608608356149" duration="30872000" />
+      <workItem from="1608608356149" duration="32406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161410000" />
+    <option name="totallyTimeSpent" value="162944000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -530,7 +547,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.39016393" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.21147542" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.31311476" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -566,20 +583,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="124" column="164" selection-start-line="124" selection-start-column="164" selection-end-line="124" selection-end-column="164" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -731,9 +734,6 @@
           <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quotes/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pendings/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -901,10 +901,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/reference_errors/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/reference_errors/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="13" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quotes/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/jobs/invoice.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="140" column="27" selection-start-line="140" selection-start-column="27" selection-end-line="140" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -139,20 +139,6 @@
                 </tr>
                 @php $i++;$subtotal=$subtotal+($labitem->quantity*$labitem->price); @endphp
                 @endforeach
-                @foreach($siteitems as $siteitem)
-                <tr>
-
-                    <td class="font-11">{{$i}}</td>
-                    <td class="font-11 text-left">{{$siteitem->capabilities->name}}</td>
-                    <td class="font-11">{{$siteitem->quantity}}</td>
-                    <td class="font-11">{{$siteitem->price}}</td>
-                    <td class="font-11">{{$siteitem->price*$siteitem->quantity}}</td>
-                </tr>
-                @php $i++;$subtotal=$subtotal+($siteitem->quantity*$siteitem->price); @endphp
-                @endforeach
-
-
-
                 <tr>
                     <th class="font-11 text-right" colspan="4">Invoice Total</th>
                     <td class="font-11">{{$subtotal}}</td>
