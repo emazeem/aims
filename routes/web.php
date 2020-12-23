@@ -284,6 +284,7 @@ Route::group(['prefix'=> 'manage-reference'],function(){
     Route::get('/create',[App\Http\Controllers\ManagereferenceController::class, 'create'])->middleware('auth')->name('manageref.create');
     Route::get('/edit/{id}',[App\Http\Controllers\ManagereferenceController::class, 'edit'])->middleware('auth')->name('manageref.edit');
     Route::post('/store/',[App\Http\Controllers\ManagereferenceController::class, 'store'])->middleware('auth')->name('manageref.store');
+    Route::post('/update/',[App\Http\Controllers\ManagereferenceController::class, 'update'])->middleware('auth')->name('manageref.update');
 });
 Route::group(['prefix'=> 'units'],function(){
     Route::get('',[App\Http\Controllers\UnitController::class, 'index'])->middleware('auth')->name('units');

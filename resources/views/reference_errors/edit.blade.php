@@ -13,7 +13,7 @@
         </div>
         <div class="col-12">
 
-            <form class="form-horizontal" action="{{route('manageref.store')}}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{{route('manageref.update')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
                     <label for="parameter" class="col-2 control-label">Select Parameter</label>
@@ -67,7 +67,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($multiples as $multiple)
+                    @foreach($multiples as $key=>$multiple)
                         <tr>
                             <td>
 
@@ -92,6 +92,10 @@
                             </td>
                             <td >
                                 <a class="deleteRow"></a>
+                                @if($key==0)
+                                    <a href="javascript:void(0)"  id="addrow" class="btn btn-primary btn-sm mt-2 text-lg"><i class="fa fa-plus-circle"></i></a>
+                                @endif
+                                <a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a>
 {{--                                <i  id="addrow" class="fa fa-plus-circle text-primary mt-2 text-lg"></i>--}}
                             </td>
                         </tr>
@@ -239,7 +243,7 @@
                 cols += '<td><input type="text" class="form-control" name="reference[]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="uncertainty[]"/></td>';
 
-                cols += '<td><i class="ibtnDel fa fa-times-circle mt-2 text-lg text-danger"></i></td>';
+                cols += '<td><a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;

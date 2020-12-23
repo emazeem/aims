@@ -93,7 +93,7 @@
                         </td>
                         <td >
                             <a class="deleteRow"></a>
-                            <i  id="addrow" class="fa fa-plus-circle text-primary mt-2 text-lg"></i>
+                            <a href="javascript:void(0)"  id="addrow" class="btn btn-primary btn-sm mt-2 text-lg"><i class="fa fa-plus-circle"></i></a>
                         </td>
                     </tr>
                     </tbody>
@@ -237,7 +237,9 @@
                 cols += '<td><input type="text" class="form-control" name="uuc[]" value="'+$('input[name="uuc[]"]').val()+'"/></td>';
                 cols += '<td><input type="text" class="form-control" name="reference[]" value="'+$('input[name="reference[]"]').val()+'"/></td>';
                 cols += '<td><input type="text" class="form-control" name="uncertainty[]" value="'+$('input[name="uncertainty[]"]').val()+'"/></td>';
-                cols += '<td><i class="ibtnDel fa fa-times-circle mt-2 text-lg text-danger"></i></td>';
+                cols += '<td>' +
+                    '<a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
+
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;

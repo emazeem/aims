@@ -119,5 +119,48 @@ class ManagereferenceController extends Controller
 
         return back()->with('success','Error & uncertainty added successfully');
     }
+    public function update(Request $request){
+        $delentries=Managereference::where('asset',$request->assets)->get();
+
+        $reference=array();
+        $uuc=array();
+        $uncertainty=array();
+        foreach ($request->reference as $item) {
+            $reference[]=$item;
+        }
+        foreach ($request->uuc as $item) {
+            $uuc[]=$item;
+
+        }
+        foreach ($request->uncertainty as $item) {
+            $uncertainty[]=$item;
+        }
+        $this->validate(request(), [
+            'parameter' => 'required',
+            'assets' => 'required',
+            'uuc' => 'required',
+            'units' => 'required',
+            'reference' => 'required',
+            'uncertainty' => 'required',
+        ],[
+            'parameter.required' => 'Parameter name field is required *',
+        ]);
+        for ($i=0;$i<count($reference);$i++){
+            $manageref=new Managereference();
+            $manageref->parameter=$request->parameter;
+            $manageref->asset=$request->assets;
+            $manageref->unit=$request->units;
+            $manageref->uuc=$uuc[$i];
+            $manageref->ref=$reference[$i];
+            $manageref->error=$uuc[$i]-$reference[$i];
+            $manageref->uncertainty=$uncertainty[$i];
+            foreach ($delentries as $delentry){
+                $delentry->delete();
+            }
+            $manageref->save();
+        }
+
+        return redirect('manage-reference')->with('success','Error & uncertainty added successfully');
+    }
 
 }

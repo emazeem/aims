@@ -6,14 +6,12 @@
         <div class="col-12">
             <h3 class="border-bottom pull-left"><i class="fa fa-tasks"></i> Manage Reference Errors & Uncertainty</h3>
             <span class="pull-right mt-1">
-            <a href="{{route('units')}}" class="btn btn-sm btn-warning shadow-sm"><i class="fas fa-eye"></i> Manage Units</a>
-            <a href="{{route('manageref.create')}}" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Add Errors & Uncertainty</a>
+            <a href="{{route('units')}}" class="btn btn-sm btn-warning shadow-sm"><i class="fa fa-eye"></i> Manage Units</a>
+            <a href="{{route('manageref.create')}}" class="btn btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle"></i> Add Errors & Uncertainty</a>
         </span>
         </div>
         <div class="col-12">
-            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
-                   width="100%">
-
+            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th>ID</th>
