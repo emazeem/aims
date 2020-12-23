@@ -14,8 +14,8 @@ class CreateDataentriesTable extends Migration
     public function up()
     {
         Schema::create('dataentries', function (Blueprint $table) {
-
             $table->id();
+
             $table->string('job_type')->nullable();
             $table->integer('asset_id')->nullable();
             $table->integer('job_type_id')->nullable();

@@ -27,8 +27,9 @@ class DataentryController extends Controller
             'x2' => 'required',
         ]);
 
+
 /*        if ($request->jobtype==0){*/
-            $already_exsited=Dataentry::where('job_type',0)->where('asset_id',$request->assets)->where('unit',$request->units)->first();
+            /*$already_exsited=Dataentry::where('job_type',0)->where('asset_id',$request->assets)->where('unit',$request->units)->first();
             if ($already_exsited){
                 $x1=[];$x2=[];$x3=[];$x4=[];$x5=[];$fixed=[];
                 foreach ($request->x1 as $item){$x1[]=$item;}
@@ -50,7 +51,8 @@ class DataentryController extends Controller
                     $item->save();
                 }
                 return redirect()->back()->with('success','Entry added successfully');
-            }
+            }*/
+
             $labjob=Jobitem::find($request->jobtypeid);
             $labjob->accuracy=$request->accuracy;
             $labjob->range=$request->range;

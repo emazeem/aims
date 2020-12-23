@@ -191,7 +191,7 @@ class MytaskController extends Controller
     public function getLabCertificate(Request $request){
 
         if ($request->location==0){
-            $labjob=Labjob::find($request->id);
+            $labjob=Jobitem::find($request->id);
             $labjob->status=5;
             $certificate=new Certificate();
             $certificate->uuc_id=$request->id;
@@ -601,7 +601,7 @@ class MytaskController extends Controller
 
             if (in_array('uncertainty-due-to-resolution-of-uuc',$uncertainties)){
                 if ($entries->job_type==0){
-                    $uncertainty_due_to_resolution_of_uuc=(Labjob::find($entries->job_type_id)->resolution/2)/sqrt(3);
+                    $uncertainty_due_to_resolution_of_uuc=(Jobitem::find($entries->job_type_id)->resolution/2)/sqrt(3);
                 }
             }
             //dd($entries->before_offset);
@@ -615,7 +615,7 @@ class MytaskController extends Controller
             //dd($uncertainty_due_to_offset_of_uuc);
             if (in_array('uncertainty-due-to-accuracy-of-uuc',$uncertainties)){
                 if ($entries->job_type==0){
-                    $uncertainty_due_to_accuracy_of_uuc=(Labjob::find($entries->job_type_id)->accuracy)/sqrt(3);
+                    $uncertainty_due_to_accuracy_of_uuc=(Jobitem::find($entries->job_type_id)->accuracy)/sqrt(3);
                 }
             }
             //dd($uncertainty_due_to_accuracy_of_uuc);
@@ -623,7 +623,7 @@ class MytaskController extends Controller
                 $drift_of_the_standard=$uncertainty_of_reference/sqrt(3);
             }
             if (in_array('uncertainty-due-to-temperature-stability-of-chamber',$uncertainties)){
-                $uncertainty_due_to_temprature_stability_of_chamber=(Labjob::find($entries->job_type_id)->resolution/2)/sqrt(3);
+                $uncertainty_due_to_temprature_stability_of_chamber=(Jobitem::find($entries->job_type_id)->resolution/2)/sqrt(3);
             }
 
             if (in_array('uncertainty-due-to-drift-in-temperature',$uncertainties)){

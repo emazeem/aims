@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45e74d29-eecd-4738-987d-ce850b535ba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customers/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_03_091329_create_dataentries_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,7 +69,7 @@
           <entry key="js" value="1" />
           <entry key="json" value="8" />
           <entry key="log" value="1" />
-          <entry key="php" value="372" />
+          <entry key="php" value="379" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -80,7 +79,7 @@
           <entry key="HTML" value="4" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="154" />
+          <entry key="PHP" value="161" />
           <entry key="PLAIN_TEXT" value="14" />
         </counts>
       </usages-collector>
@@ -89,16 +88,16 @@
           <entry key="css" value="53" />
           <entry key="htaccess" value="4" />
           <entry key="json" value="8" />
-          <entry key="php" value="24755" />
+          <entry key="php" value="24922" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="15341" />
+          <entry key="Blade" value="15354" />
           <entry key="CSS" value="53" />
           <entry key="HTML" value="3" />
           <entry key="JSON" value="8" />
-          <entry key="PHP" value="9411" />
+          <entry key="PHP" value="9565" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -109,17 +108,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+            <state relative-caret-position="150">
+              <caret line="217" column="75" lean-forward="true" selection-start-line="217" selection-start-column="75" selection-end-line="217" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="199" column="42" lean-forward="true" selection-start-line="199" selection-start-column="42" selection-end-line="199" selection-end-column="42" />
+            <state relative-caret-position="-10727">
+              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DataentryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-213">
+              <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -128,8 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$region</find>
-      <find>master</find>
       <find>fname</find>
       <find>profile</find>
       <find>purchase_</find>
@@ -158,6 +164,8 @@
       <find>$intermediatechecks</find>
       <find>manageref</find>
       <find>customer</find>
+      <find>asset</find>
+      <find>print/un</find>
     </findStrings>
     <replaceStrings>
       <replace>row pb-2</replace>
@@ -169,10 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/materialreceivings/show.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_12_19_045338_create_preferences_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PreferenceController.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/partials/navbar.blade.php" />
         <option value="$PROJECT_DIR$/public/style.css" />
         <option value="$PROJECT_DIR$/resources/views/docs/masterlistofequipments.blade.php" />
@@ -202,8 +206,6 @@
         <option value="$PROJECT_DIR$/resources/views/docs/pra.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/invoicingledger/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/invoicingledger/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php" />
         <option value="$PROJECT_DIR$/resources/views/invoicingledger/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customers/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/show.blade.php" />
@@ -220,6 +222,12 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/customers/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
+        <option value="$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Models/InvoicingLedger.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_12_03_091329_create_dataentries_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_12_23_090717_create_dataentries_table.php" />
       </list>
     </option>
   </component>
@@ -427,6 +435,17 @@
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -434,20 +453,6 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="assets_groups" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
@@ -470,6 +475,13 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
               <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="mytask" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
@@ -540,16 +552,15 @@
       <workItem from="1608349302560" duration="13587000" />
       <workItem from="1608367932459" duration="22618000" />
       <workItem from="1608535820029" duration="20972000" />
-      <workItem from="1608608356149" duration="38395000" />
+      <workItem from="1608608356149" duration="40619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168933000" />
+    <option name="totallyTimeSpent" value="171157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20272315" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -564,7 +575,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.21147542" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.1295082" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.31311476" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -579,47 +590,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_10_27_022228_create_invoicing_ledgers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="32" column="39" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/purchaseindent/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/purchaseindent/material_indent.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="116" column="70" selection-start-line="116" selection-start-column="70" selection-end-line="116" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PurchaseindentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="116" column="24" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/xamp/htdocs/erp/resources/views/layouts/partials/footerscripts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="150" column="30" lean-forward="true" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/parameter.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -752,13 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3672">
           <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="91" column="56" selection-start-line="91" selection-start-column="56" selection-end-line="91" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -911,17 +874,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+        <state relative-caret-position="340">
+          <caret line="202" column="45" lean-forward="true" selection-start-line="202" selection-start-column="45" selection-end-line="202" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/invoicingledger/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/InvoicingLedger.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="199" column="42" lean-forward="true" selection-start-line="199" selection-start-column="42" selection-end-line="199" selection-end-column="42" />
+        <state relative-caret-position="204">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoicingLedgerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="187" column="79" selection-start-line="187" selection-start-column="79" selection-end-line="187" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_03_091329_create_dataentries_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_11_12_032631_create_uncertainties_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_23_090717_create_dataentries_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DataentryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-213">
+          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="217" column="75" lean-forward="true" selection-start-line="217" selection-start-column="75" selection-end-line="217" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10727">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
         </state>
       </provider>
     </entry>
