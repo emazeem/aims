@@ -61,15 +61,14 @@ class DashboardControlller extends Controller
 
 
         $events = [];
-        $data = Parameter::all();
-
+        $data = Asset::all();
         if($data->count()) {
             foreach ($data as $key => $value) {
                 $events[] = Calendar::event(
-                    $value->description.'('.date('d m,Y h:i A',strtotime($value->created_at)).'-'.date('d m,Y h:i A',strtotime($value->updated_at)).')',
+                    $value->description.'('.date('d m,Y h:i A',strtotime($value->calibration)).'-'.date('d m,Y h:i A',strtotime($value->calibration)+(60*60*24*365)).')',
                     true,
-                    new \DateTime($value->start),
-                    new \DateTime($value->end),
+                    new \DateTime($value->calibration),
+                    new \DateTime($value->calibration),
                     null,
                     // Add color and link on event
                     [

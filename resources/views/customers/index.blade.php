@@ -46,7 +46,7 @@
 
                 $('#example').DataTable({
                     responsive: true,
-                    "bDestroy": true,
+                        "bDestroy": true,
                     "processing": true,
                     "serverSide": true,
                     "Paginate": true,
