@@ -17,6 +17,9 @@ class CreateUncertaintiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
+            $table->string('formula',225);
+            $table->integer('coefficient_of_sensitivity');
+            $table->string('distribution',225);
             $table->timestamps();
         });
     }

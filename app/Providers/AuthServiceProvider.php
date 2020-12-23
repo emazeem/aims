@@ -84,6 +84,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('	customer-delete', function ($user) {
+            if (in_array('	customer-delete',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
     }
     public function pendings()
     {

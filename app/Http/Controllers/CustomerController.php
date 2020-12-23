@@ -58,9 +58,13 @@ class CustomerController extends Controller
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
-                $action.="<a title='Edit' class='btn btn-sm btn-warning' href='" . url('/customers/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></a>";
-                $action.="<a title='Detail' class='btn btn-sm btn-success' href='" . url('/customers/view/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
-                if (Auth::user()->can('items-delete')){
+                if (Auth::user()->can('customer-edit')) {
+                    $action.="<a title='Edit' class='btn btn-sm btn-warning' href='" . url('/customers/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></a>";
+                }
+                if (Auth::user()->can('customer-view')) {
+                    $action.="<a title='Detail' class='btn btn-sm btn-success' href='" . url('/customers/view/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                }
+                if (Auth::user()->can('customer-delete')){
                     $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
@@ -148,7 +152,6 @@ class CustomerController extends Controller
     }
     public function update($id,Request $request){
         $this->authorize('customer-edit');
-
         $this->validate(request(), [
             'name' => 'required',
             'ntn' => 'required',
@@ -199,6 +202,7 @@ class CustomerController extends Controller
         return redirect()->back()->with('success', 'Customer Updated Successfully');
     }
     public function destroy(Request $request){
+        $this->authorize('customer-delete');
         Customer::find($request->id)->delete();
         return response()->json(['success'=>'Customer Deleted Successfully']);
     }

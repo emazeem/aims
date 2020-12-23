@@ -32,11 +32,22 @@ class UncertaintyController extends Controller
             ->addColumn('slug', function ($data) {
                 return $data->slug;
             })
+            ->addColumn('formula', function ($data) {
+                return $data->formula;
+            })
+            ->addColumn('coefficient_of_sensitivity', function ($data) {
+                return $data->coefficient_of_sensitivity;
+            })
+            ->addColumn('distribution', function ($data) {
+                return $data->distribution;
+            })
+
+
 
             ->addColumn('options', function ($data) {
 
                 return "&emsp;
-                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>
+                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>
                   ";
 
             })
@@ -52,22 +63,20 @@ class UncertaintyController extends Controller
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request){
-        //dd($request->all());
         $this->validate($request,[
             'name'=>'required',
+            'formula'=>'required',
+            'coefficient_of_sensitivity'=>'required',
+            'distribution'=>'required',
         ]);
         $slugify = new Slugify();
         $column=new Uncertainty();
-        $column->slug=$slugify->slugify($request->name);;
+        $column->slug=$slugify->slugify($request->name);
         $column->name=$request->name;
+        $column->formula=$request->formula;
+        $column->coefficient_of_sensitivity=$request->coefficient_of_sensitivity;
+        $column->distribution=$request->distribution;
         $column->save();
         return response()->json(['success'=>'Uncertainty added successfully']);
     }
@@ -110,7 +119,10 @@ class UncertaintyController extends Controller
         ]);
         //$slugify = new Slugify();
         $column=Uncertainty::find($request->id);
-        //$column->slug=$slugify->slugify($request->name);;
+
+        $column->formula=$request->formula;
+        $column->coefficient_of_sensitivity=$request->coefficient_of_sensitivity;
+        $column->distribution=$request->distribution;
         $column->name=$request->name;
         $column->save();
         return response()->json(['success'=>'Uncertainty updated successfully']);
