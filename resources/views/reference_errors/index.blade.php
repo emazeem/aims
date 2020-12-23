@@ -14,7 +14,7 @@
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
+
                     <th>Asset</th>
                     <th>Unit</th>
                     <th>UUC</th>
@@ -29,7 +29,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
+
                     <th>Asset</th>
                     <th>Unit</th>
                     <th>UUC</th>
@@ -64,7 +64,7 @@
                     "data": {_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
+
                     {"data": "asset"},
                     {"data": "unit"},
                     {"data": "uuc"},
