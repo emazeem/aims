@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('content')
     <script src="//cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
-    <script src="https://wiris.net/demo/plugins/app/WIRISplugins.js?viewer=image"></script>
-    <script src="{{url('ckeditor/plugins/ckeditor_wiris')}}"></script>
 <div class="row">
 
     <div class="col-12">
@@ -99,9 +97,9 @@
                     $('#edit_uncertainty').modal('toggle');
                     $('#editid').val(data.id);
                     $('#editname').val(data.name);
-                    $('#editformula').val(data.formula);
                     $('#editdistribution').val(data.distribution);
                     $('#editcoefficient_of_sensitivity').val(data.coefficient_of_sensitivity);
+                    CKEDITOR.instances['editformula'].setData(data.formula);
 
                 },
                 error: function(){},
@@ -239,7 +237,7 @@
                             <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12  float-left">
-                            <input type="text" class="form-control" id="editformula" name="formula" placeholder="Formula" autocomplete="off" value="{{old('formula')}}">
+                            <input type="text" class="form-control" id="editformula" name="editformula" placeholder="Formula" autocomplete="off" value="{{old('formula')}}">
                         </div>
                         <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" id="editdistribution" name="distribution" placeholder="Distribution" autocomplete="off" value="{{old('distribution')}}">
@@ -265,18 +263,14 @@
         </div>
     </div>
 </div>
-    <script src="{{ asset('/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
-
     <script>
         CKEDITOR.replace( 'formula', {
   //          extraPlugins: 'ckeditor_wiris'
         });
-        CKEDITOR.editorConfig = function( config )
-        {
-            // Add[MT]to the integration list
-            config.extraPlugins += (config.extraPlugins.length == 0 ? '' : ',') + 'ckeditor_wiris';
-        };
-        config.allowedContent = true;
+        CKEDITOR.replace( 'editformula', {
+  //          extraPlugins: 'ckeditor_wiris'
+        });
+
     </script>
 @endsection
 

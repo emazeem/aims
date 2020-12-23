@@ -90,6 +90,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('customer-view', function ($user) {
+            if (in_array('customer-view',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
 
     }
     public function pendings()

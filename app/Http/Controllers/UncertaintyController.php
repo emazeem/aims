@@ -112,15 +112,16 @@ class UncertaintyController extends Controller
      */
     public function update(Request $request)
     {
-        //
-        //dd($request->all());
+        dd($request->all());
         $this->validate($request,[
             'name'=>'required',
+            'formula'=>'required',
+            'coefficient_of_sensitivity'=>'required',
+            'distribution'=>'required',
         ]);
         //$slugify = new Slugify();
         $column=Uncertainty::find($request->id);
-
-        $column->formula=$request->formula;
+        $column->formula=$request->editformula;
         $column->coefficient_of_sensitivity=$request->coefficient_of_sensitivity;
         $column->distribution=$request->distribution;
         $column->name=$request->name;

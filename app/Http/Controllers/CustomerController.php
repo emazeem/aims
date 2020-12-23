@@ -28,7 +28,7 @@ class CustomerController extends Controller
     }
 
     public function show($id){
-        //$this->authorize('customer-view');
+        $this->authorize('customer-view');
         $show=Customer::find($id);
         return view('customers.show',compact('show'));
     }
