@@ -51,7 +51,7 @@ class UncertaintyController extends Controller
                   ";
 
             })
-            ->rawColumns(['options'])
+            ->rawColumns(['options','formula'])
             ->make(true);
     }
     /**
@@ -112,10 +112,9 @@ class UncertaintyController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request->all());
         $this->validate($request,[
             'name'=>'required',
-            'formula'=>'required',
+            'editformula'=>'required',
             'coefficient_of_sensitivity'=>'required',
             'distribution'=>'required',
         ]);

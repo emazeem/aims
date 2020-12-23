@@ -118,13 +118,19 @@ class UserController extends Controller
         $user->address=$request->address;
         $user->designation=$request->designation;
         $user->department=$request->department;
-
-        $user->save();
         if (isset($request->cv)){
-            $attachment=time().$request->cv->getClientOriginalName();
+            $attachment=time().'-'.$request->cv->getClientOriginalName();
             Storage::disk('local')->put('/public/cv/'.$user->id.'/'.$attachment, File::get($request->cv));
             $user->cv=$attachment;
         }
+        if (isset($request->signature)){
+            $attachment=time().'-'.$request->signature->getClientOriginalName();
+            Storage::disk('local')->put('/public/signature/'.$user->id.'/'.$attachment, File::get($request->signature));
+            $user->signature=$attachment;
+        }
+
+        $user->save();
+
         return redirect()->back()->with('success', 'Personnel Added Successfully');
     }
     public function update($id,Request $request){
@@ -175,6 +181,17 @@ class UserController extends Controller
         $user->address=$request->address;
         $user->designation=$request->designation;
         $user->department=$request->department;
+        if (isset($request->cv)){
+            $attachment=time().'-'.$request->cv->getClientOriginalName();
+            Storage::disk('local')->put('/public/cv/'.$user->id.'/'.$attachment, File::get($request->cv));
+            $user->cv=$attachment;
+        }
+        if (isset($request->signature)){
+            $attachment=time().'-'.$request->signature->getClientOriginalName();
+            Storage::disk('local')->put('/public/signature/'.$user->id.'/'.$attachment, File::get($request->signature));
+            $user->signature=$attachment;
+        }
+
         $user->save();
         return redirect()->back()->with('success', 'Personnel Updated Successfully');
     }

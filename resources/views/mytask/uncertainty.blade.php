@@ -5,22 +5,33 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JOB FORM</title>
+    <title>CALIBRATION DATA SHEET</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
-
+<style>
+    /*    body{
+            margin-top: 10px;
+            overflow:scroll;
+        }
+        .wrapper{
+            height: 1000px;
+            width: 1000px;
+            transform: rotate(90deg);
+            overflow:scroll;
+        }*/
+</style>
 <body>
 
-<div class="container-fluid">
+<div class="container-fluid wrapper">
     <div class="col-12 font-style mt-2">
         <div class="row">
-            <div class="col-2 text-center custom-border">
+            <div class="col-2 text-center custom-border" style="margin-left: 15px; margin-right: -15px;">
                 <img src="{{url('/img/AIMS.png')}}" class="pl-2 pt-2" width="100">
             </div>
-            <div class="col-7 border-left-right-0 custom-border" >
-                <p class="text-center b font-24" style="margin-top: 10px">
+            <div class="col-7 border-left-right-0 custom-border">
+                <p class="text-center b font-24 mt-4" style="margin-top: 10px">
                     CALIBRATION DATA SHEET
                 </p>
             </div>
@@ -45,18 +56,63 @@
             </tr>
             <tr class="bg-warning">
                 <th>Standard Deviation</th>
-                <th class="text-center"  colspan="100%">Uncertainty Budget</th>
+                <th class="text-center pt-2" colspan="100%">Uncertainty Budget</th>
             </tr>
             <tr class="text-center">
                 @foreach($uncertainties  as $uncertainty)
-                        <?php
-                        $u=\App\Models\Uncertainty::where('slug',$uncertainty)->first();
-                        ?>
-                        <td>{{$u->name}}</td>
+                    <?php
+                    $u = \App\Models\Uncertainty::where('slug', $uncertainty)->first();
+                    ?>
+                    <td>{{$u->name}}</td>
                 @endforeach
                 <td>Combined Uncertainty</td>
                 <td>Expanded Uncertainty</td>
             </tr>
+
+            <tr class="text-center">
+                @foreach($uncertainties  as $key=> $uncertainty)
+                    <?php $u = \App\Models\Uncertainty::where('slug', $uncertainty)->first();?>
+                    @if($key==0)
+                        <td style="font-size: 8px">{!! $u->formula !!}</td>
+                    @else
+                        <td>{!! $u->formula !!}</td>
+                    @endif
+                @endforeach
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr class="text-center">
+                @foreach($uncertainties  as $key=> $uncertainty)
+                    <?php $u = \App\Models\Uncertainty::where('slug', $uncertainty)->first();?>
+                        @if($key==0)
+                            <td></td>
+                        @else
+                            <td>{{$u->coefficient_of_sensitivity}}</td>
+                        @endif
+
+                @endforeach
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr class="text-center">
+                @foreach($uncertainties  as $key=> $uncertainty)
+                    <?php $u = \App\Models\Uncertainty::where('slug', $uncertainty)->first();?>
+                        <td>{{$u->distribution}}</td>
+                @endforeach
+                <td>--</td>
+                <td>--</td>
+            </tr>
+
+
+            <tr class="text-center">
+                @foreach($uncertainties  as $uncertainty)
+                    <td>± ( {{$entries->units->unit}} )</td>
+                @endforeach
+                <td>± ( {{$entries->units->unit}} )</td>
+                <td>± ( {{$entries->units->unit}} )</td>
+
+            </tr>
+
             @foreach($allentries as $entry)
                 <tr class="text-center">
                     @foreach($uncertainties as $uncertainty)

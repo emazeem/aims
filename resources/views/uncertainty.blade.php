@@ -179,7 +179,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Add Uncertainty</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Uncertainty</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -192,7 +192,7 @@
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12  float-left">
-                            <input type="text" class="form-control" id="formula" name="formula" placeholder="Formula" autocomplete="off" value="{{old('formula')}}">
+                            <textarea class="form-control" id="formula" name="formula" placeholder="Formula" autocomplete="off">{{old('formula')}}</textarea>
                         </div>
                         <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" id="distribution" name="distribution" placeholder="Distribution" autocomplete="off" value="{{old('distribution')}}">
@@ -223,7 +223,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Edit department</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-refresh"></i> Edit department</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -237,7 +237,7 @@
                             <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12  float-left">
-                            <input type="text" class="form-control" id="editformula" name="editformula" placeholder="Formula" autocomplete="off" value="{{old('formula')}}">
+                            <textarea class="form-control" id="editformula" name="editformula" placeholder="Formula"></textarea>
                         </div>
                         <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" id="editdistribution" name="distribution" placeholder="Distribution" autocomplete="off" value="{{old('distribution')}}">

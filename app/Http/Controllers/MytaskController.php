@@ -433,7 +433,6 @@ class MytaskController extends Controller
         }
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
         $allentries=Dataentry::where('parent_id',$entries->id)->get();
-
         $procedure = Procedure::find($job->item->capabilities->procedure);
         $uncertainties=explode(',',$procedure->uncertainties);
 

@@ -202,6 +202,37 @@
                     </div>
 
                 </div>
+
+
+                <div class="form-group row">
+                    <label for="cv" class="col-sm-2 control-label">Upload CV</label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="cv" id="cv">
+                            <label class="custom-file-label" for="cv">Choose CV</label>
+                        </div>
+                        @if ($errors->has('cv'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('cv') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="signature" class="col-sm-2 control-label">Signature</label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="signature" id="signature">
+                            <label class="custom-file-label" for="signature">Choose Signature</label>
+                        </div>
+                        @if ($errors->has('signature'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('signature') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+
                 <!-- /.box-body -->
                 <div class="box-footer mt-3">
                     <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>

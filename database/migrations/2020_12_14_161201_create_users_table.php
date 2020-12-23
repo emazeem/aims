@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('dob');
             $table->date('joining');
+            $table->string('signature');
             $table->rememberToken();
             $table->timestamps();
         });
