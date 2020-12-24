@@ -99,7 +99,8 @@
                     $('#editname').val(data.name);
                     $('#editdistribution').val(data.distribution);
                     $('#editcoefficient_of_sensitivity').val(data.coefficient_of_sensitivity);
-                    CKEDITOR.instances['editformula'].setData(data.formula);
+                    $('#editformula').val(data.formula);
+                    //CKEDITOR.instances['editformula'].setData(data.formula);
 
                 },
                 error: function(){},
@@ -192,7 +193,7 @@
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12  float-left">
-                            <textarea class="form-control" id="formula" name="formula" placeholder="Formula" autocomplete="off">{{old('formula')}}</textarea>
+                            <textarea rows="5" class="form-control" id="formula" name="formula" placeholder="Formula" autocomplete="off">{{old('formula')}}</textarea>
                         </div>
                         <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" id="distribution" name="distribution" placeholder="Distribution" autocomplete="off" value="{{old('distribution')}}">
@@ -223,7 +224,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-refresh"></i> Edit department</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-refresh"></i> Edit Uncertainty</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -237,7 +238,7 @@
                             <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12  float-left">
-                            <textarea class="form-control" id="editformula" name="editformula" placeholder="Formula"></textarea>
+                            <textarea rows="5" class="form-control" id="editformula" name="editformula" placeholder="Formula"></textarea>
                         </div>
                         <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" id="editdistribution" name="distribution" placeholder="Distribution" autocomplete="off" value="{{old('distribution')}}">
@@ -263,7 +264,7 @@
         </div>
     </div>
 </div>
-    <script>
+{{--    <script>
         CKEDITOR.replace( 'formula', {
   //          extraPlugins: 'ckeditor_wiris'
         });
@@ -272,6 +273,7 @@
         });
 
     </script>
+    --}}
 @endsection
 
 
