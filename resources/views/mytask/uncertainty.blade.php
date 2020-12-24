@@ -72,14 +72,10 @@
             <tr class="text-center">
                 @foreach($uncertainties  as $key=> $uncertainty)
                     <?php $u = \App\Models\Uncertainty::where('slug', $uncertainty)->first();?>
-                    @if($key==0)
-                        <td style="font-size: 8px">{!! $u->formula !!}</td>
-                    @else
                         <td>{!! $u->formula !!}</td>
-                    @endif
                 @endforeach
-                <td>--</td>
-                <td>--</td>
+                <td>u=sqrt[ (uA)²+ Σ (ubi)² ]</td>
+                <td>U = u x 2</td>
             </tr>
             <tr class="text-center">
                 @foreach($uncertainties  as $key=> $uncertainty)
