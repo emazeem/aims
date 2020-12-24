@@ -36,14 +36,11 @@ class UncertaintyController extends Controller
                 return $data->formula;
             })
             ->addColumn('coefficient_of_sensitivity', function ($data) {
-                return $data->coefficient_of_sensitivity;
+                return ($data->coefficient_of_sensitivity==0)?'--':$data->coefficient_of_sensitivity;
             })
             ->addColumn('distribution', function ($data) {
                 return $data->distribution;
             })
-
-
-
             ->addColumn('options', function ($data) {
 
                 return "&emsp;
