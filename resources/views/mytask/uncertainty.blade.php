@@ -80,8 +80,8 @@
             <tr class="text-center">
                 @foreach($uncertainties  as $key=> $uncertainty)
                     <?php $u = \App\Models\Uncertainty::where('slug', $uncertainty)->first();?>
-                        @if($key==0)
-                            <td></td>
+                        @if($u->coefficient_of_sensitivity==0)
+                            <td>--</td>
                         @else
                             <td>{{$u->coefficient_of_sensitivity}}</td>
                         @endif
@@ -98,17 +98,13 @@
                 <td>--</td>
                 <td>--</td>
             </tr>
-
-
             <tr class="text-center">
                 @foreach($uncertainties  as $uncertainty)
                     <td>± ( {{$entries->units->unit}} )</td>
                 @endforeach
                 <td>± ( {{$entries->units->unit}} )</td>
                 <td>± ( {{$entries->units->unit}} )</td>
-
             </tr>
-
             @foreach($allentries as $entry)
                 <tr class="text-center">
                     @foreach($uncertainties as $uncertainty)
