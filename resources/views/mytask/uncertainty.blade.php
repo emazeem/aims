@@ -93,7 +93,11 @@
             <tr class="text-center">
                 @foreach($uncertainties  as $key=> $uncertainty)
                     <?php $u = \App\Models\Uncertainty::where('slug', $uncertainty)->first();?>
-                        <td>{{$u->distribution}}</td>
+                        @if($key==0)
+                            <td></td>
+                            @else
+                            <td>{{$u->distribution}}</td>
+                            @endif
                 @endforeach
                 <td>--</td>
                 <td>--</td>
