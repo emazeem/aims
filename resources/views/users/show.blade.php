@@ -54,15 +54,17 @@
                     <th>Address</th>
                     <td>{{$show->address}}</td>
                 </tr>
+                @if($show->signature)
                 <tr>
                     <th>Signature</th>
                     <td><img src="{{Storage::disk('local')->url('public/signature/'.$show->id.'/'.$show->signature)}}"   class="img-fluid" width="100"></td>
                 </tr>
+                @endif
 
                 <tr>
                     <th>CV</th>
                     <td>
-                        @if(auth()->user()->cv)
+                        @if($show->cv)
                             <a href="{{Storage::disk('local')->url('public/cv/'.$show->id.'/'.$show->cv)}}" target="_blank" class="btn btn-app btn-lg">
                                 <i class="fa fa-cloud-download"></i>
                                 Curriculum Vitae ( {{number_format((Storage::disk('local')->size('public/cv/'.$show->id.'/'.$show->cv)/1024),2)}} KBs )
@@ -71,7 +73,6 @@
                         @endif
                     </td>
                 </tr>
-
                 <tr>
                     <th>Created on</th>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>

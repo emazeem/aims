@@ -119,18 +119,19 @@ class UserController extends Controller
         $user->designation=$request->designation;
         $user->department=$request->department;
         if (isset($request->cv)){
+            $user=User::find($user->id);
             $attachment=time().'-'.$request->cv->getClientOriginalName();
             Storage::disk('local')->put('/public/cv/'.$user->id.'/'.$attachment, File::get($request->cv));
             $user->cv=$attachment;
+            $user->save();
         }
         if (isset($request->signature)){
+            $user=User::find($user->id);
             $attachment=time().'-'.$request->signature->getClientOriginalName();
             Storage::disk('local')->put('/public/signature/'.$user->id.'/'.$attachment, File::get($request->signature));
             $user->signature=$attachment;
+            $user->save();
         }
-
-        $user->save();
-
         return redirect()->back()->with('success', 'Personnel Added Successfully');
     }
     public function update($id,Request $request){
@@ -181,18 +182,21 @@ class UserController extends Controller
         $user->address=$request->address;
         $user->designation=$request->designation;
         $user->department=$request->department;
+        $user->save();
         if (isset($request->cv)){
+            $user=User::find($user->id);
             $attachment=time().'-'.$request->cv->getClientOriginalName();
             Storage::disk('local')->put('/public/cv/'.$user->id.'/'.$attachment, File::get($request->cv));
             $user->cv=$attachment;
+            $user->save();
         }
         if (isset($request->signature)){
+            $user=User::find($user->id);
             $attachment=time().'-'.$request->signature->getClientOriginalName();
             Storage::disk('local')->put('/public/signature/'.$user->id.'/'.$attachment, File::get($request->signature));
             $user->signature=$attachment;
+            $user->save();
         }
-
-        $user->save();
         return redirect()->back()->with('success', 'Personnel Updated Successfully');
     }
     public function fetchDesignation($id){
@@ -239,13 +243,11 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'password' => 'required|confirmed|min:6'
         ]);
-
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
-
         $user->password = Hash::make($request->get('password'));
         $user->save();
         return redirect()->back()->with('success', "Your password has been changed.");
