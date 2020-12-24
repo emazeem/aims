@@ -56,16 +56,16 @@
                 </tr>
                 <tr>
                     <th>Signature</th>
-                    <td><img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}"   class="img-fluid" width="100"></td>
+                    <td><img src="{{Storage::disk('local')->url('public/signature/'.$show->id.'/'.$show->signature)}}"   class="img-fluid" width="100"></td>
                 </tr>
 
                 <tr>
                     <th>CV</th>
                     <td>
                         @if(auth()->user()->cv)
-                            <a href="{{Storage::disk('local')->url('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)}}" target="_blank" class="btn btn-app btn-lg">
+                            <a href="{{Storage::disk('local')->url('public/cv/'.$show->id.'/'.$show->cv)}}" target="_blank" class="btn btn-app btn-lg">
                                 <i class="fa fa-cloud-download"></i>
-                                Curriculum Vitae ( {{number_format((Storage::disk('local')->size('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)/1024),2)}} KBs )
+                                Curriculum Vitae ( {{number_format((Storage::disk('local')->size('public/cv/'.$show->id.'/'.$show->cv)/1024),2)}} KBs )
 
                             </a>
                         @endif
