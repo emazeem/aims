@@ -21,6 +21,7 @@ class CreateSopsTable extends Migration
             $table->string('rev_no',225)->nullable();
             $table->string('doc_no',225)->nullable();
             $table->string('file',225)->nullable();
+            $table->date('issue')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

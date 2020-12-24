@@ -67,6 +67,17 @@
                     @endif
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="issue_date" class="col-sm-2 control-label">Issue Date</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="issue_date" name="issue_date" type="date">
+                </div>
+                @if ($errors->has('issue_date'))
+                    <span class="text-danger">
+                        <strong>{{ $errors->first('issue_date') }}</strong>
+                    </span>
+                @endif
+            </div>
             <div class="row pb-2">
                 <label for="sops" class="col-sm-2 control-label">Upload Form</label>
                 <div class="col-sm-10 ">

@@ -22,6 +22,7 @@ class CreateFormsandformatsTable extends Migration
             $table->string('rev_no')->nullable();
             $table->string('issue_no')->nullable();
             $table->string('file')->nullable();
+            $table->date('issue')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

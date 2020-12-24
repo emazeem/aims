@@ -329,8 +329,8 @@
                         class="fa fa-print"></i> Certificate</a>
             <a href="{{route('mytasks.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
                         class="fa fa-print"></i> Uncertainty</a>
-            <a href="{{route('mytasks.print_interpolationoferror',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
-                        class="fa fa-print"></i> Interpolation of Error</a>
+            <a href="{{route('mytasks.print_dataentrysheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
+                        class="fa fa-print"></i> Data Entry Sheet</a>
 
         </span>
             <table class="table table-hover table-bordered">

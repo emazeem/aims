@@ -28,6 +28,7 @@
                     <th>Issue #</th>
                     <th>Revision #</th>
                     <th>Doc #</th>
+                    <th>Issue Date</th>
                     <th>File</th>
                     <th>Action</th>
                 </tr>
@@ -36,6 +37,7 @@
                         <td>{{$detail->issue_no}}</td>
                         <td>{{$detail->rev_no}}</td>
                         <td>{{$detail->doc_no}}</td>
+                        <td>{{$detail->issue}}</td>
                         <td>{{$detail->file}}
                             <a href="{{Storage::disk('local')->url('SOPS/'.$show->name.'/'.$detail->file)}}" download
                                class="btn border px-2 p-0 m-0 pull-right">
@@ -106,6 +108,13 @@
                                     <input class="form-control" id="doc" name="doc" placeholder="Doc #">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="issue_date" class="col-sm-2 control-label">Issue Date</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="issue_date" name="issue_date" placeholder="Doc #" type="date">
+                                </div>
+                            </div>
+
                             <div class="row mt-3">
                                 <div class="col-sm-6"></div>
                                 <div class="col-sm-4 custom-file">
@@ -172,6 +181,13 @@
                                 <label for="editdoc" class="col-sm-2 control-label">Doc #</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" id="editdoc" name="doc" placeholder="Doc #">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="issue_date" class="col-sm-2 control-label">Issue Date</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="edit_issue_date" name="issue_date" placeholder="Doc #" type="date">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -291,6 +307,7 @@
                         $('#editdoc').val(data.doc_no);
                         $('#editissue').val(data.issue_no);
                         $('#editrevision').val(data.rev_no);
+                        $('#edit_issue_date').val(data.issue);
                         //Populating Form Data to Edit Ends
                     },
                     error: function () {

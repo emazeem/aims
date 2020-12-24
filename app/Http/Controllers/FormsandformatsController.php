@@ -51,12 +51,14 @@ class FormsandformatsController extends Controller
                 'issue' => 'required',
                 'revision' => 'required',
                 'file' => 'required',
+                'issue_date' => 'required',
             ]);
             $forms=new Formsandformats();
             $forms->parent_id=$request->id;
             $forms->doc_no=$request->doc;
             $forms->rev_no=$request->revision;
             $forms->issue_no=$request->issue;
+            $forms->issue=$request->issue_date;
             $attachment=date('d-m-y').$request->file->getClientOriginalName();
             Storage::disk('local')->put('/public/Forms&Formats/'.$forms->name.'/'.$attachment, File::get($request->file));
             $forms->file=$attachment;
@@ -101,6 +103,7 @@ class FormsandformatsController extends Controller
             $forms->doc_no=$request->doc;
             $forms->rev_no=$request->revision;
             $forms->issue_no=$request->issue;
+            $forms->issue=$request->issue_date;
             if ($request->file){
                 $attachment=date('d-m-y').$request->file->getClientOriginalName();
                 Storage::disk('local')->put('/public/Forms&Formats/'.$forms->name.'/'.$attachment, File::get($request->file));

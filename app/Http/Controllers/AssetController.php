@@ -307,6 +307,7 @@ class AssetController extends Controller
             'serial' => 'required',
             'certificate' => 'required',
             'status' => 'required',
+            'location' => 'required',
             'code' => 'required|unique:assets',
         ], [
             'name.required' => 'Asset name field is required *',
@@ -367,7 +368,7 @@ class AssetController extends Controller
             'serial' => 'required',
             'certificate' => 'required',
             'status' => 'required',
-
+            'location' => 'required',
             'code' => 'required|unique:assets,code,' . $request->id,
         ], [
             'name.required' => 'Asset name field is required *',

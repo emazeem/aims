@@ -43,16 +43,19 @@ class SopsController extends Controller
                 'revision' => 'required',
                 'issue' => 'required',
                 'doc' => 'required',
+                'issue_date' => 'required',
                 'file' => 'required',
             ],[
                 'revision.required' => 'Sop Revision # is required *',
                 'issue.required' => 'Sop Issue # is required *',
                 'doc.required' => 'Sop Document # is required *',
                 'file.required' => 'Sop File is required *',
+                'issue_date.required' => 'Sop Issue is required *',
             ]);
             $sop=new Sops();
             $sop->parent_id=$request->id;
             $sop->issue_no=$request->issue;
+            $sop->issue=$request->issue_date;
             $sop->rev_no=$request->revision;
             $sop->doc_no=$request->doc;
             if (isset($request->file)){
@@ -79,15 +82,18 @@ class SopsController extends Controller
                 'revision' => 'required',
                 'issue' => 'required',
                 'doc' => 'required',
+                'issue_date' => 'required',
             ],[
                 'revision.required' => 'Sop Revision # is required *',
                 'issue.required' => 'Sop Issue # is required *',
                 'doc.required' => 'Sop Document # is required *',
+                'issue_date.required' => 'Issue Document # is required *',
             ]);
             $sop=Sops::find($request->detail_id);
             $sop->issue_no=$request->issue;
             $sop->rev_no=$request->revision;
             $sop->doc_no=$request->doc;
+            $sop->issue=$request->issue_date;
             if (isset($request->file)){
                 $attachment=date('d-m-y').$request->file->getClientOriginalName();
                 Storage::disk('local')->put('/public/SOPS/'.$sop->name.'/'.$attachment, File::get($request->file));

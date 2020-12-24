@@ -45,6 +45,7 @@
                     <th>Doc #</th>
                     <th>Revision #</th>
                     <th>Issue #</th>
+                    <th>Issue Date</th>
                     <th>File</th>
                     <th>Action</th>
                 </tr>
@@ -53,6 +54,7 @@
                         <td>{{$detail->doc_no}}</td>
                         <td>{{$detail->rev_no}}</td>
                         <td>{{$detail->issue_no}}</td>
+                        <td>{{$detail->issue}}</td>
                         <td>{{$detail->file}}
                             <a href="{{Storage::disk('local')->url('SOPS/'.$show->name.'/'.$detail->file)}}" download
                                class="btn border px-2 p-0 m-0 pull-right">

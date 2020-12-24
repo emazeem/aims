@@ -216,7 +216,7 @@ Route::group(['prefix'=> 'mytasks'],function() {
     Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_worksheet'])->middleware('auth')->name('mytasks.print_worksheet');
     Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_certificate'])->middleware('auth')->name('mytasks.print_certificate');
     Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_uncertainty'])->middleware('auth')->name('mytasks.print_uncertainty');
-    Route::get('print/interpolationoferror/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_interpolationoferror'])->middleware('auth')->name('mytasks.print_interpolationoferror');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_dataentrysheet'])->middleware('auth')->name('mytasks.print_dataentrysheet');
     Route::post('/start',[App\Http\Controllers\MytaskController::class, 'start'])->middleware('auth')->name('mytasks.start');
     Route::post('/end',[App\Http\Controllers\MytaskController::class, 'end'])->middleware('auth')->name('mytasks.end');
 });
