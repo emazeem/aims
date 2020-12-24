@@ -55,6 +55,11 @@
                             <h6><i class="fa fa-calendar text-danger"></i> Date of Birth <i class="fa fa-caret-right ml-2"></i>  {{date('d M Y',strtotime(auth()->user()->dob))}}</h6>
                             <h6><i class="fa fa-calendar text-danger"></i> Date of Joining <i class="fa fa-caret-right ml-2"></i>  {{date('d M Y',strtotime(auth()->user()->joining))}}</h6>
 
+                            @if(auth()->user()->signature)
+                                <div class="text-right">
+                                    <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="200" class="img-fluid">
+                                </div>
+                            @endif
                             </div>
                         </div>
                     </div>

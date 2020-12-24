@@ -426,6 +426,21 @@ class MytaskController extends Controller
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
         return view('mytask.worksheet',compact('entries','job','quote','mainjob','assets'));
     }
+    public function print_interpolationoferror($location,$id){
+            $job=Jobitem::find($id);
+            $mainjob=Job::find($job->job_id);
+            $quote=Quotes::find($mainjob->quote_id);
+            if ($location==0){
+                $assets=explode(',',$job->assign_assets);
+            }
+            else{
+                $assets=explode(',',$job->group_assets);
+            }
+
+        $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
+        return view('mytask.interpolationoferror',compact('entries','job','quote','mainjob','assets'));
+    }
+
     public function print_uncertainty($location,$id){
         if ($location==0){
             $job=Jobitem::find($id);

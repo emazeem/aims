@@ -20,7 +20,7 @@
                 <div class="form-group row">
                     <label for="parameter" class="col-2 control-label">Select Parameter</label>
                     <div class="col-10">
-                        <select class="form-control" id="parameter" name="parameter" >
+                        <select class="form-control" id="parameter" name="parameter" required>
                             <option value="" selected disabled>Select Parameter</option>
                             @foreach($parameters as $parameter)
                                 <option value="{{$parameter->id}}">{{$parameter->name}}</option>
@@ -36,7 +36,7 @@
                 <div class="form-group row">
                     <label for="assets" class="col-2 control-label">Select Assets</label>
                     <div class="col-10">
-                        <select class="form-control" id="assets" name="assets" >
+                        <select class="form-control" id="assets" name="assets" required>
                             <option value="" selected disabled>Select Assets</option>
                         </select>
                         @if ($errors->has('assets'))
@@ -49,7 +49,7 @@
                 <div class="form-group row">
                     <label for="units" class="col-2 control-label">Select Units</label>
                     <div class="col-10">
-                        <select class="form-control" id="units" name="units" >
+                        <select class="form-control" id="units" name="units" required>
                             <option value="" selected disabled>Select Units</option>
                         </select>
                         @if ($errors->has('units'))
@@ -218,25 +218,15 @@
             });
 
         });
-
-
-
-
-
-
-
-
-
-
         $(document).ready(function () {
             var counter = 0;
 
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
-                cols += '<td><input type="text" class="form-control" name="uuc[]" value="'+$('input[name="uuc[]"]').val()+'"/></td>';
-                cols += '<td><input type="text" class="form-control" name="reference[]" value="'+$('input[name="reference[]"]').val()+'"/></td>';
-                cols += '<td><input type="text" class="form-control" name="uncertainty[]" value="'+$('input[name="uncertainty[]"]').val()+'"/></td>';
+                cols += '<td><input type="text" class="form-control" name="uuc[]" value=""/></td>';
+                cols += '<td><input type="text" class="form-control" name="reference[]" value=""/></td>';
+                cols += '<td><input type="text" class="form-control" name="uncertainty[]" value=""/></td>';
                 cols += '<td>' +
                     '<a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
 

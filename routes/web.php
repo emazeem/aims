@@ -216,6 +216,7 @@ Route::group(['prefix'=> 'mytasks'],function() {
     Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_worksheet'])->middleware('auth')->name('mytasks.print_worksheet');
     Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_certificate'])->middleware('auth')->name('mytasks.print_certificate');
     Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_uncertainty'])->middleware('auth')->name('mytasks.print_uncertainty');
+    Route::get('print/interpolationoferror/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_interpolationoferror'])->middleware('auth')->name('mytasks.print_interpolationoferror');
     Route::post('/start',[App\Http\Controllers\MytaskController::class, 'start'])->middleware('auth')->name('mytasks.start');
     Route::post('/end',[App\Http\Controllers\MytaskController::class, 'end'])->middleware('auth')->name('mytasks.end');
 });
@@ -384,7 +385,7 @@ Route::group(['prefix'=> 'purchase_indent'],function() {
     Route::get('/show/{id}',[App\Http\Controllers\PurchaseindentController::class, 'show'])->middleware('auth')->name('purchase.indent.show');
 });
 Route::group(['prefix'=> 'preferences'],function() {
-    Route::get('/',[App\Http\Controllers\PreferenceController::class, 'index'])->middleware('auth')->name('preferences.index');
+    Route::get('',[App\Http\Controllers\PreferenceController::class, 'index'])->middleware('auth')->name('preferences.index');
     Route::post('',[App\Http\Controllers\PreferenceController::class, 'fetch'])->middleware('auth')->name('preferences.fetch');
     Route::get('/create',[App\Http\Controllers\PreferenceController::class, 'create'])->middleware('auth')->name('preferences.create');
     Route::get('/edit/{id}',[App\Http\Controllers\PreferenceController::class, 'edit'])->middleware('auth')->name('preferences.edit');

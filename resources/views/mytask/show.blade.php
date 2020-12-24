@@ -47,7 +47,7 @@
         @endif
         @if($show->status==3)
             <a href="{{route('calculator',[$location,$show->id])}}" class="btn btn-sm btn-success"><i
-                        class="fa fa-calculator"></i> Calculator</a>
+                        class="fa fa-calculator"></i> Data Entry for Cal</a>
         @endif
         @if($location==1)
             @if($show->status==1)
@@ -289,8 +289,6 @@
                                        name="visualinspection" placeholder="Visual Inspection" autocomplete="off"
                                        value="">
                             </div>
-
-
                             <div class="col-3">
                                 <button class="btn btn-primary" type="submit">Update</button>
                             </div>
@@ -331,6 +329,9 @@
                         class="fa fa-print"></i> Certificate</a>
             <a href="{{route('mytasks.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
                         class="fa fa-print"></i> Uncertainty</a>
+            <a href="{{route('mytasks.print_interpolationoferror',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
+                        class="fa fa-print"></i> Interpolation of Error</a>
+
         </span>
             <table class="table table-hover table-bordered">
 
