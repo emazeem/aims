@@ -94,7 +94,7 @@
                 @foreach($uncertainties  as $key=> $uncertainty)
                     <?php $u = \App\Models\Uncertainty::where('slug', $uncertainty)->first();?>
                         @if($key==0)
-                            <td></td>
+                            <td>--</td>
                             @else
                             <td>{{$u->distribution}}</td>
                             @endif
