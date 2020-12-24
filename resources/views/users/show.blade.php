@@ -54,24 +54,22 @@
                     <th>Address</th>
                     <td>{{$show->address}}</td>
                 </tr>
+                <tr>
+                    <th>Signature</th>
+                    <td><img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}"   class="img-fluid" width="100"></td>
+                </tr>
 
                 <tr>
                     <th>CV</th>
                     <td>
-                        <div class="border p-2 col-6">
-                            <div class="bg-white p-2">
-                                <?php $name=explode('-',$show->cv); ?>
-                                <a download href="{{Storage::disk('local')->url('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)}}">
-                                    <i class="fa fa-save fa-2x"> {{$name[1]}}</i>
-                                </a>
-                            </div>
+                        @if(auth()->user()->cv)
+                            <a href="{{Storage::disk('local')->url('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)}}" target="_blank" class="btn btn-app btn-lg">
+                                <i class="fa fa-cloud-download"></i>
+                                Curriculum Vitae ( {{number_format((Storage::disk('local')->size('public/cv/'.auth()->user()->id.'/'.auth()->user()->cv)/1024),2)}} KBs )
 
-                        </div>
+                            </a>
+                        @endif
                     </td>
-                </tr>
-                <tr>
-                    <th>Signature</th>
-                    <td><img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}"   class="img-fluid" width="50"></td>
                 </tr>
 
                 <tr>
