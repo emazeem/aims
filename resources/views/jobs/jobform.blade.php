@@ -18,20 +18,30 @@
         }
     }
 
-    .font-md{
+    .font-md {
         font-size: 18px;
     }
+
     .font-sm {
         font-size: 13px;
     }
+
     .font-xs {
         font-size: 12px;
     }
 
 </style>
 <body>
-<button onclick="window.print()" id="printPageButton" class="btn btn-danger btn-sm float-right">Print</button>
-<div class="container p-3">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-2">
+            <button onclick="window.print()" id="printPageButton" class="btn btn-danger btn-sm float-right">Print</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+
     <div class="col-12 font-style mt-2 ">
         <div class="row custom-border">
             <div class="col-2 text-center">
@@ -52,65 +62,66 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="col-12 font-style">
+<div class="container-fluid">
+    <div class="col-12 font-style mt-2">
 
         <div class="row custom-border p-2">
-        <div class="col-3 row my-1 font-md">
-            <div class="col-4">Job#:</div>
-            <div class="col-8 custom-bottom-border text-center">JN/{{date('y',strtotime($job->created_at))}}/{{$job->id}}</div>
-        </div>
-        <div class="col-2 row my-1 font-sm ">
-            <div class="col-3">Date:</div>
-            <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y')}}</div>
-        </div>
-        <div class="col-4 row my-1 font-sm ">
-            <div class="col-7">Work order / Quotation #</div>
-            <div class="col-5 custom-bottom-border  text-center">{{$job->quotes->mode}}</div>
-        </div>
-        <div class="col-3 row my-1 font-md ">
-            <div class="col-3">Dated:</div>
-            <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y',strtotime($job->quotes->approval_date))}}</div>
-        </div>
-        <div class="col-6 row my-1 font-md ">
-            <div class="col-4 font-sm">Customer Name:</div>
-            <div class="col-8 custom-bottom-border">{{$job->quotes->customers->reg_name}}</div>
-        </div>
-        <div class="col-6 row my-1 font-md ">
-            <div class="col-4">Address:</div>
-            <div class="col-8 custom-bottom-border font-sm">{{$job->quotes->customers->address}}</div>
-        </div>
-        <div class="col-12 row my-1 font-md ">
-            <div class="col-2">Contact Person:</div>
-            <div class="col-10 custom-bottom-border">{{$job->quotes->principal}}</div>
-        </div>
-        <div class="col-6 row my-1 font-md ">
-            <div class="col-4">Contact #:</div>
-            <div class="col-8 custom-bottom-border">
-                @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                    {{$job->quotes->customers->prin_phone_1}}
-                @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                    {{$job->quotes->customers->prin_phone_2}}
-                @else
-                    {{$job->quotes->customers->prin_phone_3}}
-                @endif
+            <div class="col-3 row my-1 font-md">
+                <div class="col-4">Job#:</div>
+                <div class="col-8 custom-bottom-border text-center">JN/{{date('y',strtotime($job->created_at))}}
+                    /{{$job->id}}</div>
             </div>
-        </div>
-        <div class="col-6 row my-1 font-md ">
-            <div class="col-4">Email:</div>
-            <div class="col-8 custom-bottom-border">
-                @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                    {{$job->quotes->customers->prin_email_1}}
-                @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                    {{$job->quotes->customers->prin_email_2}}
-                @else
-                    {{$job->quotes->customers->prin_email_3}}
-                @endif
+            <div class="col-2 row my-1 font-sm ">
+                <div class="col-3">Date:</div>
+                <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y')}}</div>
             </div>
-        </div>
-        <div class="col-12 text-center">
-            <p class=" font-14 b mt-3">Items received for calibration</p>
-        </div>
+            <div class="col-4 row my-1 font-sm ">
+                <div class="col-7">Work order / Quotation #</div>
+                <div class="col-5 custom-bottom-border  text-center">{{$job->quotes->mode}}</div>
+            </div>
+            <div class="col-3 row my-1 font-md ">
+                <div class="col-3">Dated:</div>
+                <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y',strtotime($job->quotes->approval_date))}}</div>
+            </div>
+            <div class="col-12 row my-1 font-md ">
+                <div class="col-2">Customer Name:</div>
+                <div class="col-10 custom-bottom-border">{{$job->quotes->customers->reg_name}}</div>
+            </div>
+            <div class="col-12 row my-1 font-md ">
+                <div class="col-2">Address:</div>
+                <div class="col-10 custom-bottom-border">{{$job->quotes->customers->address}}</div>
+            </div>
+            <div class="col-4 row my-1 font-md ">
+                <div class="col-6">Contact Person:</div>
+                <div class="col-6 custom-bottom-border">{{$job->quotes->principal}}</div>
+            </div>
+            <div class="col-4 row my-1 font-md ">
+                <div class="col-5">Contact #:</div>
+                <div class="col-7 custom-bottom-border">
+                    @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
+                        {{$job->quotes->customers->prin_phone_1}}
+                    @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
+                        {{$job->quotes->customers->prin_phone_2}}
+                    @else
+                        {{$job->quotes->customers->prin_phone_3}}
+                    @endif
+                </div>
+            </div>
+            <div class="col-4 row my-1 font-md ">
+                <div class="col-4">Email:</div>
+                <div class="col-8 custom-bottom-border">
+                    @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
+                        {{$job->quotes->customers->prin_email_1}}
+                    @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
+                        {{$job->quotes->customers->prin_email_2}}
+                    @else
+                        {{$job->quotes->customers->prin_email_3}}
+                    @endif
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <p class=" font-14 b mt-3">Items received for calibration</p>
+            </div>
             <table class="table table-bordered font-md">
                 <thead>
                 <tr>
@@ -158,23 +169,34 @@
             <div class="p-0 col-3"><p class="font-md"><input type="checkbox" checked> Normal Job</p></div>
             <div class="p-0 col-4"><p class="font-md"><input type="checkbox"> Accredited Calibration</p></div>
             <div class="p-0 col-3"><p class="font-md"><input type="checkbox"> Non Accredited Calibration</p></div>
-            <div class="p-0 col-5"><p class="font-md"><input type="checkbox" checked> Full Ranges of Items to be calibrated</p>
+            <div class="p-0 col-5"><p class="font-md"><input type="checkbox" checked> Full Ranges of Items to be
+                    calibrated</p>
             </div>
             <div class="p-0 col-7"><p class="font-md"><input type="checkbox"> Partial Ranges to be calibrated as
                     negotiated.</p></div>
-            <div class="p-0 col-5"><p class="font-md"><input type="checkbox" checked> Re-Calibration Interval of 12 months</p>
+            <div class="p-0 col-5"><p class="font-md"><input type="checkbox" checked> Re-Calibration Interval of 12
+                    months</p>
             </div>
             <div class="p-0 col-7"><p class="font-md"><input type="checkbox"> Re-Calibration Interval of 6 months</p>
             </div>
-            <div class="p-0 col-5"><p class="font-md"><input type="checkbox"> Customer Preferred Cal Procedure
+            <div class="p-0 col-5 font-italic"><p class="font-md"><input type="checkbox"> Re-Calibration Interval of 3 months
                 </p></div>
-            <div class="p-0 col-7"><p class="font-md"><input type="checkbox" checked> AIMS's Selected Cal Price</p></div>
+            <div class="p-0 col-7">
+                <p class="font-md font-italic"><input type="checkbox" checked> No Re-Calibration Interval required.</p>
+            </div>
+            <div class="p-0 col-5">
+                <p class="font-md"><input type="checkbox"> Customer Preferred Cal Procedure</p>
+            </div>
+            <div class="p-0 col-7">
+                <p class="font-md"><input type="checkbox" checked> AIMS's Selected Cal Price</p>
+            </div>
             <div class="p-0 col-5">
                 <p class="font-md"><input type="checkbox"> Statement of Conformity required</p>
             </div>
             <div class="col-12 font-md">
                 <p>
-                    ( In case Customer chooses this option then Customer will provide detailed acceptance / specification
+                    ( In case Customer chooses this option then Customer will provide detailed acceptance /
+                    specification
                     limits for each
                     of the equipment above as a separate list.Then AIMS Cal Lab will provide conformity statement
                     according to the
@@ -184,20 +206,23 @@
                 </p>
             </div>
             <div class="p-0 col-5">
-                <p class="font-md"><input type="checkbox" checked> Statement of Conformity Not required</p>
+                <p class="font-md font-italic"><input type="checkbox" checked> Statement of Conformity Not required</p>
             </div>
 
-        <p class="col-12 font-md b">Note:</p>
-        <p class="col-12 font-md ">
-            Dear Customer, you are requested to collect your calibrated equipment within 30 days of the "Return Date" as per
-            this Job Form. After that AIMS CAL Lab shall not be responsible for any damage / loss of above listed equipment. By
-            signing you also agree with the terms and conditions mentioned below or on the reverse side of this Calibration Job
-            Form.
+            <p class="col-12 font-md b font-italic">Note:</p>
+            <p class="col-12 font-md font-italic">
+                Dear Customer, you are requested to collect your calibrated equipment within 30 days of the "Return
+                Date" as per
+                this Job Form. After that AIMS CAL Lab shall not be responsible for any damage / loss of above listed
+                equipment. By
+                signing you also agree with the terms and conditions mentioned below or on the reverse side of this
+                Calibration Job
+                Form.
 
 
-        </p>
+            </p>
 
-        <table class="table table-bordered">
+            <table class="table table-bordered">
                 <thead>
                 <tr class="font-md">
                     <th width="50%" class="text-center">Received for calibration by (AIMS Representative)</th>
@@ -212,7 +237,9 @@
                                 Signature
                             </div>
                             <div class="col-8 text-center custom-bottom-border px-5">
-                                <span class="text-right"></span>
+                                <span class="text-right">
+                                    <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="120" class="img-fluid">
+                                </span>
                             </div>
                             <div class="col-3">
                                 Name
@@ -258,36 +285,41 @@
                 </tr>
                 </tbody>
             </table>
-        <div class="col-12 text-center">
-            <p class="font-md b mt-3">Terms and Conditions</p>
-        </div>
-        <div class="col-12">
-            <p class="font-xs">1. On receipt of equipment, one copy of Calibration Job Form shall be handed over to
-                Customer Representative.<br>
-                2. In case the equipment is received through courier/mail, Calibration Job Form shall be dispatched by
-                mail or through Fax to confirm
-                receipt of equipment.<br>
-                3. Same copy of Calibration Job Form/and or Authority Letter of company’s authorized personnel shall be
-                collected from Customer by
-                hand or by mail, before handing over the equipment to Cusotmer Representative.<br>
-                4. Equipment Delivery by hand: In case the equipment is delivered by hand, Delivery Note shall be duly
-                signed by Customer
-                Representative on receipt of equipment.<br>
-                5. Equipment Delivery by courier: In case the equipment is dispatched through courier, Delivery Note
-                shall be sent along with equipment.<br>
-                Customers are requested to send us Delivery Note duly signed on receipt of equipment.<br>
-                6. Dear customer, you are requested to collect your calibrated equipment within 30 days of the "Return
-                Date" as per this Job Form. After
-                that AIMS Cal Lab shall not be responsible for any damage/loss of above listed equipment.
-            </p>
-        </div>
-    <div class="col-12 text-center font-sm">
-        <p class="custom-border">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or
-            copied without prior written permission of the company.</p>
+            <div class="col-12 text-center">
+                <p class="font-md b mt-3">Terms and Conditions</p>
+            </div>
+            <div class="col-12">
+                <p class="font-xs">1. On receipt of equipment, one copy of Calibration Job Form shall be handed over to
+                    Customer Representative.<br>
+                    2. In case the equipment is received through courier/mail, Calibration Job Form shall be dispatched
+                    by
+                    mail or through Fax to confirm
+                    receipt of equipment.<br>
+                    3. Same copy of Calibration Job Form/and or Authority Letter of company’s authorized personnel shall
+                    be
+                    collected from Customer by
+                    hand or by mail, before handing over the equipment to Cusotmer Representative.<br>
+                    4. Equipment Delivery by hand: In case the equipment is delivered by hand, Delivery Note shall be
+                    duly
+                    signed by Customer
+                    Representative on receipt of equipment.<br>
+                    5. Equipment Delivery by courier: In case the equipment is dispatched through courier, Delivery Note
+                    shall be sent along with equipment.<br>
+                    Customers are requested to send us Delivery Note duly signed on receipt of equipment.<br>
+                    6. Dear customer, you are requested to collect your calibrated equipment within 30 days of the
+                    "Return
+                    Date" as per this Job Form. After
+                    that AIMS Cal Lab shall not be responsible for any damage/loss of above listed equipment.
+                </p>
+            </div>
+            <div class="col-12 text-center font-sm">
+                <p class="custom-border">This document is the property of AIMS Cal Lab. It is not to be retransmitted,
+                    printed or
+                    copied without prior written permission of the company.</p>
 
+            </div>
+        </div>
     </div>
-    </div>
-</div>
 
 </body>
 </html>
