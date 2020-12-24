@@ -66,10 +66,9 @@
     <div class="col-12 font-style mt-2">
 
         <div class="row custom-border p-2">
-            <div class="col-3 row my-1 font-md">
+            <div class="col-3 row my-1 font-sm">
                 <div class="col-4">Job#:</div>
-                <div class="col-8 custom-bottom-border text-center">JN/{{date('y',strtotime($job->created_at))}}
-                    /{{$job->id}}</div>
+                <div class="col-8 custom-bottom-border text-center">JN/{{date('y',strtotime($job->created_at))}}/{{$job->id}}</div>
             </div>
             <div class="col-2 row my-1 font-sm ">
                 <div class="col-3">Date:</div>
@@ -79,23 +78,23 @@
                 <div class="col-7">Work order / Quotation #</div>
                 <div class="col-5 custom-bottom-border  text-center">{{$job->quotes->mode}}</div>
             </div>
-            <div class="col-3 row my-1 font-md ">
+            <div class="col-3 row my-1 font-sm ">
                 <div class="col-3">Dated:</div>
                 <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y',strtotime($job->quotes->approval_date))}}</div>
             </div>
-            <div class="col-12 row my-1 font-md ">
+            <div class="col-12 row my-1 font-sm ">
                 <div class="col-2">Customer Name:</div>
                 <div class="col-10 custom-bottom-border">{{$job->quotes->customers->reg_name}}</div>
             </div>
-            <div class="col-12 row my-1 font-md ">
+            <div class="col-12 row my-1 font-sm ">
                 <div class="col-2">Address:</div>
                 <div class="col-10 custom-bottom-border">{{$job->quotes->customers->address}}</div>
             </div>
-            <div class="col-4 row my-1 font-md ">
-                <div class="col-6">Contact Person:</div>
-                <div class="col-6 custom-bottom-border">{{$job->quotes->principal}}</div>
+            <div class="col-6 row my-1 font-sm ">
+                <div class="col-4">Contact Person:</div>
+                <div class="col-8 custom-bottom-border">{{$job->quotes->principal}}</div>
             </div>
-            <div class="col-4 row my-1 font-md ">
+            <div class="col-3 row my-1 font-sm ">
                 <div class="col-5">Contact #:</div>
                 <div class="col-7 custom-bottom-border">
                     @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
@@ -107,8 +106,8 @@
                     @endif
                 </div>
             </div>
-            <div class="col-4 row my-1 font-md ">
-                <div class="col-4">Email:</div>
+            <div class="col-3 row my-1 font-sm">
+                <div class="col-4">Email :</div>
                 <div class="col-8 custom-bottom-border">
                     @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
                         {{$job->quotes->customers->prin_email_1}}
@@ -165,34 +164,19 @@
                 </tbody>
             </table>
 
-            <div class="p-0 col-2"><p class="font-md"><input type="checkbox"> Urgent Job</p></div>
-            <div class="p-0 col-3"><p class="font-md"><input type="checkbox" checked> Normal Job</p></div>
-            <div class="p-0 col-4"><p class="font-md"><input type="checkbox"> Accredited Calibration</p></div>
-            <div class="p-0 col-3"><p class="font-md"><input type="checkbox"> Non Accredited Calibration</p></div>
-            <div class="p-0 col-5"><p class="font-md"><input type="checkbox" checked> Full Ranges of Items to be
-                    calibrated</p>
-            </div>
-            <div class="p-0 col-7"><p class="font-md"><input type="checkbox"> Partial Ranges to be calibrated as
-                    negotiated.</p></div>
-            <div class="p-0 col-5"><p class="font-md"><input type="checkbox" checked> Re-Calibration Interval of 12
-                    months</p>
-            </div>
-            <div class="p-0 col-7"><p class="font-md"><input type="checkbox"> Re-Calibration Interval of 6 months</p>
-            </div>
-            <div class="p-0 col-5 font-italic"><p class="font-md"><input type="checkbox"> Re-Calibration Interval of 3 months
-                </p></div>
-            <div class="p-0 col-7">
-                <p class="font-md font-italic"><input type="checkbox" checked> No Re-Calibration Interval required.</p>
-            </div>
-            <div class="p-0 col-5">
-                <p class="font-md"><input type="checkbox"> Customer Preferred Cal Procedure</p>
-            </div>
-            <div class="p-0 col-7">
-                <p class="font-md"><input type="checkbox" checked> AIMS's Selected Cal Price</p>
-            </div>
-            <div class="p-0 col-5">
-                <p class="font-md"><input type="checkbox"> Statement of Conformity required</p>
-            </div>
+            <div class="p-0 col-2 m-0"><input type="checkbox"> Urgent Job</div>
+            <div class="p-0 col-3 m-0"><input type="checkbox" checked> Normal Job</div>
+            <div class="p-0 col-4 m-0"><input type="checkbox"> Accredited Calibration</div>
+            <div class="p-0 col-3 m-0"><input type="checkbox"> Non Accredited Calibration</div>
+            <div class="p-0 col-5 m-0"><input type="checkbox" checked> Full Ranges of Items to be calibrated</div>
+            <div class="p-0 col-7 m-0"><input type="checkbox"> Partial Ranges to be calibrated as negotiated.</div>
+            <div class="p-0 col-5 m-0"><input type="checkbox" checked> Re-Calibration Interval of 12 months</div>
+            <div class="p-0 col-7 m-0"><input type="checkbox"> Re-Calibration Interval of 6 months</div>
+            <div class="p-0 col-5 m-0"><input type="checkbox"> Re-Calibration Interval of 3 months</div>
+            <div class="p-0 col-7 m-0"><input type="checkbox" checked> No Re-Calibration Interval required.</div>
+            <div class="p-0 col-5 m-0"><input type="checkbox"> Customer Preferred Cal Procedure</div>
+            <div class="p-0 col-7 m-0"><input type="checkbox" checked> AIMS's Selected Cal Price</div>
+            <div class="p-0 col-5 m-0"><input type="checkbox"> Statement of Conformity required</div>
             <div class="col-12 font-md">
                 <p>
                     ( In case Customer chooses this option then Customer will provide detailed acceptance /
@@ -236,7 +220,7 @@
                             <div class="col-3">
                                 Signature
                             </div>
-                            <div class="col-8 text-center custom-bottom-border px-5">
+                            <div class="col-8 text-center custom-bottom-border px-5" style="height: 40px">
                                 <span class="text-right">
                                     <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="120" class="img-fluid">
                                 </span>
@@ -258,12 +242,12 @@
 
                     </td>
 
-                    <td class="font-sm">
+                    <td class="font-md">
                         <div class="row py-3">
                             <div class="col-3">
                                 Signature
                             </div>
-                            <div class="col-8 text-center custom-bottom-border px-5">
+                            <div class="col-8 text-center custom-bottom-border px-5" style="height: 40px">
                                 <span class="text-right custom-bottom-border "></span>
                             </div>
                             <div class="col-3">
