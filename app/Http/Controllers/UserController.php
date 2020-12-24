@@ -118,6 +118,7 @@ class UserController extends Controller
         $user->address=$request->address;
         $user->designation=$request->designation;
         $user->department=$request->department;
+        $user->save();
         if (isset($request->cv)){
             $user=User::find($user->id);
             $attachment=time().'-'.$request->cv->getClientOriginalName();
