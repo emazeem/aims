@@ -178,14 +178,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-sm-4 custom-file">
-                                    <input type="file" class="custom-file-input" name="file" id="file">
-                                    <label class="custom-file-label" for="file">Upload File</label>
+                            <div class="form-group row">
+                                <label for="file" class="col-sm-2 control-label">File</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check" style="width: 100%">
+                                        <input type="file" class="custom-file-input" name="file" id="file">
+                                        <label class="custom-file-label" for="file">Upload File</label>
+                                    </div>
                                 </div>
-                                <div class="col-sm-2"></div>
+                            </div>
 
-                                <div class="col-sm-2">
+                            <div class="row">
+                                <div class="col-12 form-group text-right">
                                     <button class="btn btn-primary btn-sm" type="submit">Save</button>
                                 </div>
                             </div>
@@ -303,13 +307,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-sm-6"></div>
-                                <div class="col-sm-4 custom-file">
-                                    <input type="file" class="custom-file-input" name="file" id="file">
-                                    <label class="custom-file-label" for="file">Upload File</label>
+                            <div class="form-group row">
+                                <label for="file" class="col-sm-2 control-label">File</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check" style="width: 100%">
+                                        <input type="file" class="custom-file-input" name="file" id="file">
+                                        <label class="custom-file-label" for="file">Upload File</label>
+                                    </div>
                                 </div>
-                                <div class="col-sm-2">
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-12 form-group text-right">
                                     <button class="btn btn-primary btn-sm" type="submit">Update</button>
                                 </div>
                             </div>

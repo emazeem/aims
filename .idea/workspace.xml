@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45e74d29-eecd-4738-987d-ce850b535ba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SopsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SopsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/sop/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sop/show.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,12 +86,12 @@
           <entry key="css" value="57" />
           <entry key="htaccess" value="4" />
           <entry key="json" value="8" />
-          <entry key="php" value="30569" />
+          <entry key="php" value="30636" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="19652" />
+          <entry key="Blade" value="19719" />
           <entry key="CSS" value="57" />
           <entry key="HTML" value="3" />
           <entry key="JSON" value="8" />
@@ -126,13 +124,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/sop/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="426" column="58" selection-start-line="426" selection-start-column="58" selection-end-line="426" selection-end-column="58" />
+            <state relative-caret-position="170">
+              <caret line="190" column="54" lean-forward="true" selection-start-line="190" selection-start-column="54" selection-end-line="190" selection-end-column="54" />
               <folding>
                 <element signature="e#8682#8701#0#HTML" expanded="true" />
                 <element signature="e#9575#9594#0#HTML" expanded="true" />
+                <element signature="e#11168#11187#0#HTML" expanded="true" />
                 <element signature="e#17735#17754#0#HTML" expanded="true" />
                 <element signature="e#18611#18630#0#HTML" expanded="true" />
+                <element signature="e#19599#19618#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -549,12 +549,12 @@
       <workItem from="1608608356149" duration="69783000" />
       <workItem from="1608794006289" duration="19641000" />
       <workItem from="1608828034647" duration="987000" />
-      <workItem from="1608874333576" duration="4347000" />
+      <workItem from="1608874333576" duration="4943000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225296000" />
+    <option name="totallyTimeSpent" value="225892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -573,7 +573,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.16229509" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" visible="true" weight="0.20327869" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.31311476" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -945,13 +945,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/sop/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="426" column="58" selection-start-line="426" selection-start-column="58" selection-end-line="426" selection-end-column="58" />
+        <state relative-caret-position="170">
+          <caret line="190" column="54" lean-forward="true" selection-start-line="190" selection-start-column="54" selection-end-line="190" selection-end-column="54" />
           <folding>
             <element signature="e#8682#8701#0#HTML" expanded="true" />
             <element signature="e#9575#9594#0#HTML" expanded="true" />
+            <element signature="e#11168#11187#0#HTML" expanded="true" />
             <element signature="e#17735#17754#0#HTML" expanded="true" />
             <element signature="e#18611#18630#0#HTML" expanded="true" />
+            <element signature="e#19599#19618#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
