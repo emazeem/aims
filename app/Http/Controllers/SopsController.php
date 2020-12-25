@@ -44,6 +44,11 @@ class SopsController extends Controller
                 'issue' => 'required',
                 'doc' => 'required',
                 'issue_date' => 'required',
+                'location' => 'required',
+                'reviewed_on' => 'required',
+                'reviewed_by' => 'required',
+                'mode_of_storage' => 'required',
+                'status' => 'required',
                 'file' => 'required',
             ],[
                 'revision.required' => 'Sop Revision # is required *',
@@ -58,6 +63,11 @@ class SopsController extends Controller
             $sop->issue=$request->issue_date;
             $sop->rev_no=$request->revision;
             $sop->doc_no=$request->doc;
+            $sop->location=$request->location;
+            $sop->reviewed_by=$request->reviewed_by;
+            $sop->reviewed_on=$request->reviewed_on;
+            $sop->status=$request->status;
+            $sop->mode_of_storage=$request->mode_of_storage;
             if (isset($request->file)){
                 $attachment=date('d-m-y').$request->file->getClientOriginalName();
                 Storage::disk('local')->put('/public/SOPS/'.$sop->name.'/'.$attachment, File::get($request->file));
@@ -119,7 +129,7 @@ class SopsController extends Controller
         return response()->json($edit);
     }
     public function show($id){
-        $show=Sops::find($id);
+        $show=Sops::with('reviewedby')->find($id);
         $details=Sops::where('parent_id',$show->id)->get();
         return view('sop.show',compact('show','details'));
     }

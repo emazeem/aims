@@ -10,4 +10,7 @@ class Sops extends Model
 {
     use SoftDeletes;
     use HasFactory;
+    public function reviewedby(){
+        return $this->belongsTo('App\Models\User','reviewed_by')->withDefault();
+    }
 }

@@ -29,6 +29,11 @@
                     <th>Revision #</th>
                     <th>Doc #</th>
                     <th>Issue Date</th>
+                    <th>Reviewed On</th>
+                    <th>Reviewed By</th>
+                    <th>Status</th>
+                    <th>Mode of Storage</th>
+                    <th>Location</th>
                     <th>File</th>
                     <th>Action</th>
                 </tr>
@@ -38,6 +43,11 @@
                         <td>{{$detail->rev_no}}</td>
                         <td>{{$detail->doc_no}}</td>
                         <td>{{$detail->issue}}</td>
+                        <td>{{$detail->reviewed_on}}</td>
+                        <td>{{$detail->reviewedby->fname}} {{$detail->reviewedby->lname}}</td>
+                        <td>@if($detail->status==0)<span class="badge badge-danger">Inactive</span>@else<span class="badge badge-success">Active</span>@endif</td>
+                        <td>{{$detail->mode_of_storage}}</td>
+                        <td>{{$detail->location}}</td>
                         <td>{{$detail->file}}
                             <a href="{{Storage::disk('local')->url('SOPS/'.$show->name.'/'.$detail->file)}}" download
                                class="btn border px-2 p-0 m-0 pull-right">
@@ -108,19 +118,69 @@
                                     <input class="form-control" id="doc" name="doc" placeholder="Doc #">
                                 </div>
                             </div>
+
+                            <div class="form-group row">
+                                <label for="location" class="col-sm-2 control-label">Location</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="location" name="location" placeholder="Location">
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="issue_date" class="col-sm-2 control-label">Issue Date</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" id="issue_date" name="issue_date" placeholder="Doc #" type="date">
                                 </div>
                             </div>
-
+                            <div class="form-group row">
+                                <label for="reviewed_on" class="col-sm-2 control-label">Reviewed on</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="reviewed_on" name="reviewed_on" placeholder="reviewed_on" type="date">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="reviewed_by" class="col-sm-2 control-label">Reviewed by</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-check-inline" style="width: 100%">
+                                        <select class="form-control" id="reviewed_by" name="reviewed_by">
+                                            <option selected disabled="">Reviewed by</option>
+                                            @foreach(\App\Models\User::all() as $item)
+                                                <option value="{{$item->id}}" {{($item->id==16)?'selected':''}}>{{$item->fname}} {{$item->lname}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="mode_of_storage" class="col-sm-2 control-label">Mode of Storage</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-check-inline" style="width: 100%">
+                                        <select class="form-control" id="mode_of_storage" name="mode_of_storage">
+                                            <option selected disabled="">Mode of Storage</option>
+                                            <option value="hard-copy" selected>Hard Copy</option>
+                                            <option value="soft-copy">Soft Copy</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="status" class="col-sm-2 control-label">Status</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-check-inline" style="width: 100%">
+                                        <select class="form-control" id="status" name="status">
+                                            <option selected disabled="">Select Status</option>
+                                            <option value="1" selected>Active</option>
+                                            <option value="0">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row mt-3">
-                                <div class="col-sm-6"></div>
                                 <div class="col-sm-4 custom-file">
                                     <input type="file" class="custom-file-input" name="file" id="file">
                                     <label class="custom-file-label" for="file">Upload File</label>
                                 </div>
+                                <div class="col-sm-2"></div>
+
                                 <div class="col-sm-2">
                                     <button class="btn btn-primary btn-sm" type="submit">Save</button>
                                 </div>
