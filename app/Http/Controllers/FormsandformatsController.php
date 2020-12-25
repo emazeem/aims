@@ -46,12 +46,18 @@ class FormsandformatsController extends Controller
     public function store(Request $request)
     {
         if ($request->id){
+
             $this->validate(request(), [
                 'doc' => 'required',
                 'issue' => 'required',
                 'revision' => 'required',
                 'file' => 'required',
                 'issue_date' => 'required',
+                'location' => 'required',
+                'reviewed_on' => 'required',
+                'reviewed_by' => 'required',
+                'mode_of_storage' => 'required',
+                'status' => 'required',
             ]);
             $forms=new Formsandformats();
             $forms->parent_id=$request->id;
@@ -59,6 +65,13 @@ class FormsandformatsController extends Controller
             $forms->rev_no=$request->revision;
             $forms->issue_no=$request->issue;
             $forms->issue=$request->issue_date;
+
+            $forms->location=$request->location;
+            $forms->reviewed_by=$request->reviewed_by;
+            $forms->reviewed_on=$request->reviewed_on;
+            $forms->status=$request->status;
+            $forms->mode_of_storage=$request->mode_of_storage;
+
             $attachment=date('d-m-y').$request->file->getClientOriginalName();
             Storage::disk('local')->put('/public/Forms&Formats/'.$forms->name.'/'.$attachment, File::get($request->file));
             $forms->file=$attachment;
@@ -91,19 +104,30 @@ class FormsandformatsController extends Controller
 
     public function update(Request $request)
     {
-
         if ($request->detail_id){
-
            $this->validate(request(), [
                 'doc' => 'required',
                 'issue' => 'required',
                 'revision' => 'required',
+               'issue_date'=>'required',
+               'location' => 'required',
+               'reviewed_on' => 'required',
+               'reviewed_by' => 'required',
+               'mode_of_storage' => 'required',
+               'status' => 'required',
             ]);
             $forms=Formsandformats::find($request->detail_id);
             $forms->doc_no=$request->doc;
             $forms->rev_no=$request->revision;
             $forms->issue_no=$request->issue;
             $forms->issue=$request->issue_date;
+
+            $forms->location=$request->location;
+            $forms->reviewed_by=$request->reviewed_by;
+            $forms->reviewed_on=$request->reviewed_on;
+            $forms->status=$request->status;
+            $forms->mode_of_storage=$request->mode_of_storage;
+
             if ($request->file){
                 $attachment=date('d-m-y').$request->file->getClientOriginalName();
                 Storage::disk('local')->put('/public/Forms&Formats/'.$forms->name.'/'.$attachment, File::get($request->file));
@@ -145,7 +169,5 @@ class FormsandformatsController extends Controller
         $details=Formsandformats::where('parent_id',$id)->get();
         return view('formsandformats.show',compact('show','details'));
     }
-
-
     //
 }
