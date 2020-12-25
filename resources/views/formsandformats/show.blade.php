@@ -46,6 +46,12 @@
                     <th>Revision #</th>
                     <th>Issue #</th>
                     <th>Issue Date</th>
+
+                    <th>Reviewed On</th>
+                    <th>Reviewed By</th>
+                    <th>Status</th>
+                    <th>Mode of Storage</th>
+                    <th>Location</th>
                     <th>File</th>
                     <th>Action</th>
                 </tr>
@@ -55,6 +61,11 @@
                         <td>{{$detail->rev_no}}</td>
                         <td>{{$detail->issue_no}}</td>
                         <td>{{$detail->issue}}</td>
+                        <td>{{$detail->reviewed_on}}</td>
+                        <td>{{$detail->reviewedby->fname}} {{$detail->reviewedby->lname}}</td>
+                        <td>@if($detail->status==0)<span class="badge badge-danger">Inactive</span>@else<span class="badge badge-success">Active</span>@endif</td>
+                        <td>{{$detail->mode_of_storage}}</td>
+                        <td>{{$detail->location}}</td>
                         <td>{{$detail->file}}
                             <a href="{{Storage::disk('local')->url('SOPS/'.$show->name.'/'.$detail->file)}}" download
                                class="btn border px-2 p-0 m-0 pull-right">

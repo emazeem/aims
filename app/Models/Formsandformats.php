@@ -10,4 +10,7 @@ class Formsandformats extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    public function reviewedby(){
+        return $this->belongsTo('App\Models\User','reviewed_by')->withDefault();
+    }
 }

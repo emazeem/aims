@@ -91,7 +91,6 @@
                                     <div class="form-check form-check-inline" style="width: 100%">
                                         <select class="form-control" id="issue" name="issue">
                                             <option selected disabled="">Select Issue #</option>
-                                            <option value="00">00</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
                                             <option value="03">03</option>
@@ -222,7 +221,6 @@
                                     <div class="form-check form-check-inline" style="width: 100%">
                                         <select class="form-control" id="editissue" name="issue">
                                             <option selected disabled="">Select Issue #</option>
-                                            <option value="00">00</option>
                                             <option value="01">01</option>
                                             <option value="02">02</option>
                                             <option value="03">03</option>

@@ -105,6 +105,7 @@ class FormsandformatsController extends Controller
     public function update(Request $request)
     {
         if ($request->detail_id){
+
            $this->validate(request(), [
                 'doc' => 'required',
                 'issue' => 'required',
