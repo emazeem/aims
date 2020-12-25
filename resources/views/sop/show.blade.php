@@ -24,10 +24,11 @@
         </div>
         <div class="col-12">
             <table class="table table-hover font-13 table-bordered">
+                <thead>
                 <tr>
+                    <th>Doc #</th>
                     <th>Issue #</th>
                     <th>Revision #</th>
-                    <th>Doc #</th>
                     <th>Issue Date</th>
                     <th>Reviewed On</th>
                     <th>Reviewed By</th>
@@ -37,11 +38,13 @@
                     <th>File</th>
                     <th>Action</th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach($details as $detail)
                     <tr>
+                        <td>{{$detail->doc_no}}</td>
                         <td>{{$detail->issue_no}}</td>
                         <td>{{$detail->rev_no}}</td>
-                        <td>{{$detail->doc_no}}</td>
                         <td>{{$detail->issue}}</td>
                         <td>{{$detail->reviewed_on}}</td>
                         <td>{{$detail->reviewedby->fname}} {{$detail->reviewedby->lname}}</td>
@@ -65,6 +68,7 @@
                         </td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
         <div class="modal fade" id="add_sop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -245,9 +249,58 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="location" class="col-sm-2 control-label">Location</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="editlocation" name="location" placeholder="Location">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="issue_date" class="col-sm-2 control-label">Issue Date</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" id="edit_issue_date" name="issue_date" placeholder="Doc #" type="date">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="reviewed_on" class="col-sm-2 control-label">Reviewed on</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="edit_reviewed_on" name="reviewed_on" placeholder="reviewed_on" type="date">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="reviewed_by" class="col-sm-2 control-label">Reviewed by</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-check-inline" style="width: 100%">
+                                        <select class="form-control" id="edit_reviewed_by" name="reviewed_by">
+                                            <option selected disabled="">Reviewed by</option>
+                                            @foreach(\App\Models\User::all() as $item)
+                                                <option value="{{$item->id}}" {{($item->id==16)?'selected':''}}>{{$item->fname}} {{$item->lname}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="mode_of_storage" class="col-sm-2 control-label">Mode of Storage</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-check-inline" style="width: 100%">
+                                        <select class="form-control" id="edit_mode_of_storage" name="mode_of_storage">
+                                            <option selected disabled="">Mode of Storage</option>
+                                            <option value="hard-copy">Hard Copy</option>
+                                            <option value="soft-copy">Soft Copy</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="status" class="col-sm-2 control-label">Status</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-check-inline" style="width: 100%">
+                                        <select class="form-control" id="edit_status" name="status">
+                                            <option selected disabled="">Select Status</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -368,6 +421,11 @@
                         $('#editissue').val(data.issue_no);
                         $('#editrevision').val(data.rev_no);
                         $('#edit_issue_date').val(data.issue);
+                        $('#editlocation').val(data.location);
+                        $('#edit_reviewed_by').val(data.reviewed_by);
+                        $('#edit_reviewed_on').val(data.reviewed_on);
+                        $('#edit_status').val(data.status);
+                        $('#edit_mode_of_storage').val(data.mode_of_storage);
                         //Populating Form Data to Edit Ends
                     },
                     error: function () {
