@@ -14,24 +14,31 @@ class ManagereferenceController extends Controller
     //
     public function index(){
 
+        //$multiples=Managereference::whereIn('id',$id)->get();
         $this->authorize('manage-reference-index');
         return view('reference_errors.index');
     }
     public function fetch(){
-        //$data=Managereference::with('units','assets')->get();
-        $ids=Managereference::select('asset')->distinct()->get();
-        $asset_id=array();
-        foreach ($ids as $id){
-            $asset_id[]=$id->asset;
+        $temps=Managereference::get()->unique('asset');
+        $asset_units=array();
+        foreach ($temps as $temp) {
+            $forassets=Managereference::where('asset',$temp->asset)->get();
+            $its_assets=[];
+            foreach ($forassets as $forasset){
+                $its_assets[]=$forasset->unit;
+            }
+            $its_assets=array_unique($its_assets);
+            $its_assets=array_values($its_assets);
+            $asset_units[$temp->asset]=$its_assets;
         }
-        $unique_ids=array();
-        for ($i=0;$i<count($asset_id);$i++){
-            $asset=Managereference::where('asset',$asset_id[$i])->first();
-            $unique_ids[]=$asset->id;
+        $ids=[];
+        foreach ($asset_units as $key=>$unit){
+            foreach ($unit as $item){
+                $rough=Managereference::where('asset',$key)->where('unit',$item)->first();
+                $ids[]=$rough->id;
+            }
         }
-        $data=Managereference::with('units','assets')->whereIn('id',$unique_ids)->get();
-
-
+        $data=Managereference::whereIn('id',$ids)->get();
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -162,6 +169,12 @@ class ManagereferenceController extends Controller
     public function show($id){
         $show=Managereference::find($id);
         $multiples=Managereference::where('asset',$show->asset)->get();
-        return view('reference_errors.show',compact('show','multiples'));
+        $units=array();
+        foreach ($multiples as $multiple){
+            $units[]=$multiple->unit;
+        }
+        $units=array_unique($units);
+        $units=array_values($units);
+        return view('reference_errors.show',compact('show','multiples','units'));
     }
 }

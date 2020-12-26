@@ -19,11 +19,9 @@
                     <th>Assets</th>
                     <td>{{$show->assets->name}}</td>
                 </tr>
-                <tr>
-                    <th>Unit</th>
-                    <td>{{$show->units->unit}}</td>
-                </tr>
             </table>
+            @foreach($units as $unit)
+                <h5 class="float-left text-danger">{{\App\Models\Unit::find($unit)->unit}}</h5>
             <table class="table table-bordered table-hover table-sm">
                 <tr class="bg-light">
                     <th>UUC</th>
@@ -32,15 +30,17 @@
                     <th>Uncertainty</th>
                 </tr>
                 @foreach($multiples as $key=>$multiple)
+                    @if($multiple->unit==$unit)
                     <tr>
                         <td>{{$multiple->uuc}}</td>
                         <td>{{$multiple->ref}}</td>
                         <td>{{$multiple->error}}</td>
                         <td>{{$multiple->uncertainty}}</td>
                     </tr>
+                    @endif
                 @endforeach
-
             </table>
+            @endforeach
         </div>
     </div>
 @endsection
