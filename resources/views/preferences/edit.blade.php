@@ -62,14 +62,14 @@
         <div class="row">
             <h3 class="box-title border-bottom"><i class="fa fa-refresh"></i> Edit Preference</h3>
         </div>
-        <form class="form-horizontal" action="{{route('preferences.store')}}" method="post">
+        <form class="form-horizontal" action="{{route('preferences.update')}}" method="post">
             @csrf
+            <input type="hidden" class="form-control" id="id" name="id" value="{{$edit->id}}">
             <div class="row">
                 <div class="form-group col-12">
                     <label for="name" class="col-sm-2 control-label">Name</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name"
-                               autocomplete="off" value="{{ old('name') }}">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{ old('name',$edit->name) }}">
                         @if ($errors->has('name'))
                             <span class="text-danger"><strong>{{ $errors->first('name') }}</strong></span>
                         @endif
@@ -79,7 +79,7 @@
                     <label for="value" class="col-sm-2 control-label">Value</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="name" name="value" placeholder="Value"
-                               autocomplete="off" value="{{ old('value') }}">
+                               autocomplete="off" value="{{ old('value',$edit->value) }}">
                         @if ($errors->has('value'))
                             <span class="text-danger"><strong>{{ $errors->first('value') }}</strong></span>
                         @endif
@@ -92,7 +92,7 @@
                             <select class="form-control" id="category" name="category">
                                 <option selected disabled>Select Category</option>
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->category}}</option>
+                                    <option value="{{$category->id}}" {{($edit->category==$category->id)?'selected':''}}>{{$category->category}}</option>
                                 @endforeach
                             </select>
                         </div>

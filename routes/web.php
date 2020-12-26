@@ -390,6 +390,7 @@ Route::group(['prefix'=> 'preferences'],function() {
     Route::get('',[App\Http\Controllers\PreferenceController::class, 'index'])->middleware('auth')->name('preferences.index');
     Route::post('',[App\Http\Controllers\PreferenceController::class, 'fetch'])->middleware('auth')->name('preferences.fetch');
     Route::get('/create',[App\Http\Controllers\PreferenceController::class, 'create'])->middleware('auth')->name('preferences.create');
+    Route::post('/update',[App\Http\Controllers\PreferenceController::class, 'update'])->middleware('auth')->name('preferences.update');
     Route::get('/edit/{id}',[App\Http\Controllers\PreferenceController::class, 'edit'])->middleware('auth')->name('preferences.edit');
     Route::post('store',[App\Http\Controllers\PreferenceController::class, 'store'])->middleware('auth')->name('preferences.store');
     Route::post('store_category',[App\Http\Controllers\PreferenceController::class, 'store_category'])->middleware('auth')->name('preferences.store_category');

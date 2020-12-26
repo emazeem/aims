@@ -78,8 +78,25 @@ class PreferenceController extends Controller
         $preferences->category=$request->category;
         $preferences->value=$request->value;
         $preferences->save();
-        return redirect()->back()->with('success','Preference value successfully');
+        return redirect()->back()->with('success','Preference value added successfully');
     }
+    public function update(Request $request){
+        $slugify = new Slugify();
+        $slug=$slugify->slugify($request->name);
+        $this->validate($request,[
+            'name'=>'required',
+            'category'=>'required',
+            'value'=>'required'
+        ]);
+        $preferences=Preference::find($request->id);
+        $preferences->name=$request->name;
+        $preferences->slug=$slug;
+        $preferences->category=$request->category;
+        $preferences->value=$request->value;
+        $preferences->save();
+        return redirect()->back()->with('success','Preference value updated successfully');
+    }
+
 
     //
 }

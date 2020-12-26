@@ -69,8 +69,8 @@ class SopsController extends Controller
             $sop->status=$request->status;
             $sop->mode_of_storage=$request->mode_of_storage;
             if (isset($request->file)){
-                $attachment=date('d-m-y').$request->file->getClientOriginalName();
-                Storage::disk('local')->put('/public/SOPS/'.$sop->name.'/'.$attachment, File::get($request->file));
+                $attachment=time().'-'.$request->file->getClientOriginalName();
+                Storage::disk('local')->put('/public/SOPS/'.$attachment, File::get($request->file));
                 $sop->file=$attachment;
             }
             $sop->save();
@@ -115,9 +115,11 @@ class SopsController extends Controller
             $sop->status=$request->status;
             $sop->mode_of_storage=$request->mode_of_storage;
 
+
             if (isset($request->file)){
-                $attachment=date('d-m-y').$request->file->getClientOriginalName();
-                Storage::disk('local')->put('/public/SOPS/'.$sop->name.'/'.$attachment, File::get($request->file));
+                Storage::disk('local')->delete('/public/SOPS/'.$sop->file);
+                $attachment=time().'-'.$request->file->getClientOriginalName();
+                Storage::disk('local')->put('/public/SOPS/'.$attachment, File::get($request->file));
                 $sop->file=$attachment;
             }
             $sop->save();

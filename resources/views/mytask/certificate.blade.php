@@ -136,7 +136,7 @@
                         <td class="py-3">{{\App\Models\Asset::find($asset)->make}}</td>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->model}}</td>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->code}}</td>
-                        <td class="py-3">-</td>
+                        <td class="py-3">{{\App\Models\Asset::find($asset)->certificate_no}}</td>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->traceability}}</td>
                 </tr>
                 @endforeach
@@ -153,21 +153,21 @@
                     <b>Approved Signatories</b>
                 </div>
                 <div class="col-10">
-                    Imtiaz Ahmed (CEO)
+                    Shahzad Ahmed (GM)
+                </div>
+
+                <div class="col-2">
+                    <input type="checkbox" checked>
+                </div>
+                <div class="col-10">
+                    <i>Ghulam Server (QM)</i>
                 </div>
 
                 <div class="col-2">
                     <input type="checkbox">
                 </div>
                 <div class="col-10">
-                    Shahzad Ahmad (GM)
-                </div>
-
-                <div class="col-2">
-                    <input type="checkbox">
-                </div>
-                <div class="col-10">
-                    <i>Riaz Ahmad (Lab Incharge)</i>
+                    Riaz Ahmad (Lab Incharge)
                 </div>
                 <div class="col-2">
                     <input type="checkbox">
