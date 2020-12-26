@@ -84,5 +84,9 @@ class UnitController extends Controller
         $units=Unit::where('parameter',$asset->parameter)->get();
         return response()->json($units);
     }
+    public function previous_units($id){
+        $units=Unit::where('parameter',$id)->get();
+        return response()->json($units);
+    }
     //
 }

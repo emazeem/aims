@@ -258,10 +258,6 @@
                 }
             });
         });
-
-
     </script>
-
-
 @endsection
 
