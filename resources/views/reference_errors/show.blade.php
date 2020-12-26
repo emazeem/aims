@@ -7,128 +7,40 @@
             });
         </script>
     @endif
-
-    <div class="card mb-4 py-3 border-left-primary">
-
+    <div class="card">
         <div class="card-body">
-            <div class="d-sm-flex mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Customer Details</h1>
-                <div class="col-11 text-right">
-                    <a href="" class="d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Customer Ledger</a>
-                    <a href="" class="d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Receivable Aging Ledger</a>
-                </div>
-            </div>
-            <table class="table table-bordered table-striped table-sm">
+            <h3 class="border-bottom pull-left"><i class="fa fa-eye"></i> Manage Reference Errors & Uncertainty</h3>
+            <table class="table table-bordered table-sm table-hover">
                 <tr>
-                    <th>Registration Name</th>
-                    <td>{{$show->reg_name}}</td>
+                    <th>Parameter</th>
+                    <td>{{$show->parameters->name}}</td>
                 </tr>
                 <tr>
-                    <th>NTN/FTN</th>
-                    <td>{{$show->ntn}}</td>
+                    <th>Assets</th>
+                    <td>{{$show->assets->name}}</td>
                 </tr>
                 <tr>
-                    <th>Physical Address</th>
-                    <td>{{$show->address}}</td>
-                </tr>
-                <tr>
-                    <th>Customer Type</th>
-                    <td>{{$show->customer_type}}</td>
-                </tr>
-                <tr>
-                    <th>Payment Terms</th>
-                    <td>{{$show->pay_terms}}</td>
-                </tr>
-                <tr>
-                    <th>Region</th>
-                    <td>{{$show->region}}</td>
-                </tr>
-
-                <tr>
-                    <th>01-Principal Name</th>
-                    <td>{{$show->prin_name_1}}</td>
-                </tr>
-                <tr>
-                    <th>01-Principal Email</th>
-                    <td>{{$show->prin_email_1}}</td>
-                </tr>
-                <tr>
-                    <th>01-Principal Phone</th>
-                    <td>{{$show->prin_phone_1}}</td>
-                </tr>
-                @if($show->prin_name_2)
-                    <tr>
-                        <th>02-Principal Name</th>
-                        <td>{{$show->prin_name_2}}</td>
-                    </tr>
-                    <tr>
-                        <th>02-Principal Email</th>
-                        <td>{{$show->prin_email_2}}</td>
-                    </tr>
-                    <tr>
-                        <th>02-Principal Phone</th>
-                        <td>{{$show->prin_phone_2}}</td>
-                    </tr>
-                @endif
-                @if($show->prin_name_3)
-                    <tr>
-                        <th>03-Principal Name</th>
-                        <td>{{$show->prin_name_3}}</td>
-                    </tr>
-                    <tr>
-                        <th>03-Principal Email</th>
-                        <td>{{$show->prin_email_3}}</td>
-                    </tr>
-                    <tr>
-                        <th>03-Principal Phone</th>
-                        <td>{{$show->prin_phone_3}}</td>
-                    </tr>
-                @endif
-
-                @if($show->pur_name)
-                    <tr>
-                        <th>Purchase Name</th>
-                        <td>{{$show->pur_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Purchase Email</th>
-                        <td>{{$show->pur_email}}</td>
-                    </tr>
-                    <tr>
-                        <th>Purchase Phone</th>
-                        <td>{{$show->pur_phone}}</td>
-                    </tr>
-                @endif
-                @if($show->acc_name)
-                    <tr>
-                        <th>Account Name</th>
-                        <td>{{$show->acc_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Account Email</th>
-                        <td>{{$show->acc_email}}</td>
-                    </tr>
-                    <tr>
-                        <th>Account Phone</th>
-                        <td>{{$show->acc_phone}}
-                        </td>
-                    </tr>
-                @endif
-                <tr>
-                    <th>Created on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
-                </tr>
-                <tr>
-                    <th>Updated on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
+                    <th>Unit</th>
+                    <td>{{$show->units->unit}}</td>
                 </tr>
             </table>
+            <table class="table table-bordered table-hover table-sm">
+                <tr class="bg-light">
+                    <th>UUC</th>
+                    <th>Ref</th>
+                    <th>Error</th>
+                    <th>Uncertainty</th>
+                </tr>
+                @foreach($multiples as $key=>$multiple)
+                    <tr>
+                        <td>{{$multiple->uuc}}</td>
+                        <td>{{$multiple->ref}}</td>
+                        <td>{{$multiple->error}}</td>
+                        <td>{{$multiple->uncertainty}}</td>
+                    </tr>
+                @endforeach
 
-        </div>
-    </div>
-
-    <div class="row pb-3">
-        <div class="col-12">
+            </table>
         </div>
     </div>
 @endsection

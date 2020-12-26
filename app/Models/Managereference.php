@@ -16,5 +16,10 @@ class Managereference extends Model
         return $this->belongsTo('App\Models\Unit','unit')->withDefault();
         //
     }
+    public function parameters(){
+        return $this->belongsTo('App\Models\Parameter','parameter')->withDefault();
+        //
+    }
+
 
 }

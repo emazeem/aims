@@ -54,9 +54,8 @@ class ManagereferenceController extends Controller
             })
             ->addColumn('options', function ($data) {
 
-                return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/manage-reference/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
+                return "&emsp;<a title='Show' class='btn btn-sm btn-primary' href='" . url('/manage-reference/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
+                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/manage-reference/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
 
             })
             ->rawColumns(['options','status'])
@@ -72,12 +71,10 @@ class ManagereferenceController extends Controller
         return view('reference_errors.create',compact('parameters'));
     }
     public function edit($id){
-        //$units=Unit::all();
         $this->authorize('manage-reference-index');
         $parameters=Parameter::all();
         $edit=Managereference::find($id);
         $multiples=Managereference::where('asset',$edit->asset)->get();
-
         return view('reference_errors.edit',compact('parameters','edit','multiples'));
     }
 
@@ -162,5 +159,9 @@ class ManagereferenceController extends Controller
 
         return redirect('manage-reference')->with('success','Error & uncertainty added successfully');
     }
-
+    public function show($id){
+        $show=Managereference::find($id);
+        $multiples=Managereference::where('asset',$show->asset)->get();
+        return view('reference_errors.show',compact('show','multiples'));
+    }
 }
