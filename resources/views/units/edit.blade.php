@@ -11,6 +11,9 @@
     <div class="row pb-3">
         <div class="col-12">
             <h3 class="border-bottom "><i class="fa fa-pencil"></i> Edit Units</h3>
+            <a href="{{route('units.create')}}" class="btn btn-primary pull-right btn-sm">
+                <span class="fa fa-plus-circle"></span> Add Unit
+            </a>
         </div>
         <div class="col-12">
             <form class="form-horizontal" action="{{route('units.update')}}" method="post">
@@ -47,6 +50,9 @@
                           <strong>{{ $errors->first('unit') }}</strong>
                       </span>
                         @endif
+                        <div class="py-2">
+                            <span id="previous"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="mt-5 pt-3 col-12 text-right">
@@ -56,4 +62,29 @@
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('select[name="parameter"]').on('change', function() {
+                var parameter = $(this).val();
+                if(parameter) {
+                    $.ajax({
+                        url: '/units/fetch/previous_units/'+parameter,
+                        type: "GET",
+                        dataType: "json",
+                        success:function(data) {
+                            $('#previous').empty();
+                            $.each(data, function(key, value) {
+                                $('#previous').append('<a href="/units/edit/'+ value.id +'" class="btn btn-primary btn-sm">'+ value.unit +'</a>');
+                            });
+                        }
+                    });
+                }
+                else{
+                    $('#previous').empty();
+                }
+            });
+        });
+
+
+    </script>
 @endsection
