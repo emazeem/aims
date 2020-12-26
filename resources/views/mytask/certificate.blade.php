@@ -94,9 +94,9 @@
     <div class="row">
         <div class="row col-12">
             <div class="col-3 font-weight-bold">Temperature :</div>
-            <div class="col-9"> 23 C  +    5 C</div>
+            <div class="col-9"> {{($entries->start_temp+$entries->end_temp)/2}} °C  ±  {{abs($entries->start_temp-($entries->start_temp+$entries->end_temp)/2)}}°C </div>
             <div class="col-3 font-weight-bold">Relative Humidity :</div>
-            <div class="col-9">50%RH  +   20%RH</div>
+            <div class="col-9">{{($entries->start_humidity+$entries->end_humidity)/2}} °C  ±  {{abs($entries->start_humidity-($entries->start_humidity+$entries->end_humidity)/2)}}°C</div>
         </div>
     </div>
     <div class="row">
@@ -113,7 +113,7 @@
     </div>
     <div class="row">
         <div class="col-2 font-weight-bold">Traceability:</div>
-        <div class="col-10 font-italic">The measurements made by Al Meezan Industrial Metrology Services, are traceable to physical units of  measurements (SI),
+        <div class="col-10">The measurements made by Al Meezan Industrial Metrology Services, are traceable to physical units of  measurements (SI),
             through its state of the art calibration standards that are controlled and maintained by AIMS. Reference equipment used
             is/are traceable to National / International standards through other prestigious calibration laboratories, details given below:
         </div>
@@ -212,6 +212,7 @@
                 <td width="25%">
                     Uncertainty
                     <br>
+                    <i>U</i>
                     <br>±(	{{\App\Models\Unit::find($entries->unit)->unit}}	)
                 </td>
             </tr>
@@ -275,7 +276,38 @@
 
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 ">
+            <b>Statement of Conformity:</b>
+            <br>
+            <div class="col-12 ml-2 font-italic"><input type="checkbox" class="mr-2"> Statement of Conformity not given in this certificate as process control limits were not conveyed by the customer.</div>
+            <div class="col-12 ml-2 font-italic"><input type="checkbox" class="mr-2"> The equipment complies with the process control limits used as specifications given by customer at the measured
+            point(s), with due allowance having been made for the uncertainty of the measurements. The decision rule deployed
+            in issuing this statement of conformity is taking into account the measurement  uncertainty with zero guard band.
+                <br>
 
+            <span class="ml-4"><input type="checkbox" class="mr-2"> The measured values along with their respective uncertainty bands fall with in the process control limits and
+                thus the unit under calibration conforms to the specifications (process control limits given by customer).</span>
+                <br>
+                <span class="ml-4"><input type="checkbox" class="mr-2"> The measured values along with their respective uncertainty bands do not fall with in the process control limits and
+                    thus the unit under calibration does not conforms to the specifications (process control limits given by customer).</span>
+            </div>
+
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <b>Disclaimer / Remarks</b>
+            <br>
+
+            <span><input type="checkbox" class="mr-2">Values were rounded in computation.</span><br>
+            <span><input type="checkbox" class="mr-2">* Values not covered in accredited scope.</span><br>
+            <span><input type="checkbox" class="mr-2">Over load test was not performed.</span><br>
+            <span><input type="checkbox" class="mr-2">No Accessories were fitted during calibration.</span><br>
+            <span><input type="checkbox" class="mr-2">Others</span>
+
+        </div>
+    </div>
     <div class="col-10 text-right mt-4">
         Calibrated By: 			{{\App\Models\User::find($entries->calibrated_by)->fname .' '. \App\Models\User::find($entries->calibrated_by)->lname}}
     </div>

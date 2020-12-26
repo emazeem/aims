@@ -23,116 +23,139 @@
             <input type="hidden" value="{{$show->id}}" name="jobtypeid">
             <input type="hidden" value="{{$location}}" name="jobtype">
             <input type="hidden" value="{{$show->item->capabilities->procedure}}" name="procedure">
-            <div class="form-group row">
-                <label for="assets" class="col-sm-3 control-label">Assets</label>
-                <select class="form-control col-md-9" id="assets" name="assets">
-                    <option selected disabled>Assets</option>
-                    @foreach($assets as $asset)
-                        <option value="{{$asset->id}}">{{$asset->name}} ({{$asset->code}}) ({{$asset->range}})</option>
-                    @endforeach
-                </select>
-                @if ($errors->has('assets'))
-                    <span class="text-danger"><strong>{{ $errors->first('assets') }}</strong></span>
-                @endif
-            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="assets" class=" control-label">Assets</label>
+                    <select class="form-control" id="assets" name="assets">
+                        <option selected disabled>Assets</option>
+                        @foreach($assets as $asset)
+                            <option value="{{$asset->id}}">{{$asset->name}} ({{$asset->code}}) ({{$asset->range}})</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('assets'))
+                        <span class="text-danger"><strong>{{ $errors->first('assets') }}</strong></span>
+                    @endif
+                </div>
 
-            <div class="form-group row">
-                <label for="units" class="col-sm-3 control-label">Units</label>
-                <select class="form-control col-md-9" id="units" name="units">
-                    <option selected disabled>Select Unit</option>
-                </select>
-                @if ($errors->has('units'))
-                    <span class="text-danger"><strong>{{ $errors->first('units') }}</strong></span>
-                @endif
-            </div>
-            <div class="form-group row">
-                <label for="start_temp" class="col-md-3 col-12 control-label">Start Temperature</label>
-                <input type="text" class="form-control col-md-9 col-12" id="start_temp" name="start_temp"
-                       placeholder="Start Temperature" autocomplete="off" value="{{old('start_temp')}}">
-                @if ($errors->has('start_temp'))
-                    <span class="text-danger">
+                <div class="form-group col-md-6">
+                    <label for="units" class=" control-label">Units</label>
+                    <select class="form-control " id="units" name="units">
+                        <option selected disabled>Select Unit</option>
+                    </select>
+                    @if ($errors->has('units'))
+                        <span class="text-danger"><strong>{{ $errors->first('units') }}</strong></span>
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="start_temp" class="col-md-12 col-12 control-label">Start Temperature</label>
+                    <input type="text" class="form-control col-md-12 col-12" id="start_temp" name="start_temp"
+                           placeholder="Start Temperature" autocomplete="off" value="{{old('start_temp')}}">
+                    @if ($errors->has('start_temp'))
+                        <span class="text-danger">
                                 <strong>{{ $errors->first('start_temp') }}</strong>
                             </span>
-                @endif
-            </div>
-            <div class="form-group row">
-                <label for="end_temp" class="col-md-3 col-12 control-label">End Temperature</label>
-                <input type="text" class="form-control col-md-9 col-12" id="end_temp" name="end_temp"
-                       placeholder="End Temperature" autocomplete="off" value="{{old('end_temp')}}">
-                @if ($errors->has('end_temp'))
-                    <span class="text-danger">
-                                <strong>{{ $errors->first('end_temp') }}</strong>
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="end_temp" class="col-md-12 col-12 control-label">End Temperature</label>
+                    <input type="text" class="form-control col-md-12 col-12" id="end_temp" name="end_temp"
+                           placeholder="End Temperature" autocomplete="off" value="{{old('end_temp')}}">
+                    @if ($errors->has('end_temp'))
+                        <span class="text-danger">
+                        <strong>{{ $errors->first('end_temp') }}</strong>
+                    </span>
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="start_humidity" class="col-md-12 col-12 control-label">Start Humidity</label>
+                    <input type="text" class="form-control col-md-12 col-12" id="start_humidity" name="start_humidity"
+                           placeholder="Start Humidity" autocomplete="off" value="{{old('start_humidity')}}">
+                    @if ($errors->has('start_humidity'))
+                        <span class="text-danger">
+                                <strong>{{ $errors->first('start_humidity') }}</strong>
                             </span>
-                @endif
-            </div>
-
-            <div class="form-group row">
-                <label for="uuc_resolution" class="col-md-3 col-12 control-label">UUC Resolution</label>
-                <input type="text" class="form-control col-md-9 col-12" id="uuc_resolution" name="uuc_resolution"
-                       placeholder="UUC Resolution" autocomplete="off" value="{{old('uuc_resolution')}}">
-                @if ($errors->has('uncertainty'))
-                    <span class="text-danger">
-                                <strong>{{ $errors->first('uuc_resolution') }}</strong>
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="end_humidity" class="col-12 control-label">End Humidity</label>
+                    <input type="text" class="form-control col-12" id="end_humidity" name="end_humidity"
+                           placeholder="End Humidity" autocomplete="off" value="{{old('end_humidity')}}">
+                    @if ($errors->has('end_humidity'))
+                        <span class="text-danger">
+                                <strong>{{ $errors->first('end_humidity') }}</strong>
                             </span>
-                @endif
-            </div>
+                    @endif
+                </div>
 
-            <div class="form-group row">
-                <label for="accuracy" class="col-md-3 col-12 control-label">Accuracy of UUC</label>
-                <input type="text" class="form-control col-md-9 col-12" id="accuracy" name="accuracy"
-                       placeholder="Accuracy of UUC" autocomplete="off" value="">
-                @if ($errors->has('accuracy'))
-                    <span class="text-danger">
+
+                <div class="form-group col-md-6">
+                    <label for="uuc_resolution" class="col-12 control-label">UUC Resolution</label>
+                    <input type="text" class="form-control col-12" id="uuc_resolution" name="uuc_resolution"
+                           placeholder="UUC Resolution" autocomplete="off" value="{{old('uuc_resolution')}}">
+                    @if ($errors->has('uncertainty'))
+                        <span class="text-danger">
+                        <strong>{{ $errors->first('uuc_resolution') }}</strong>
+                    </span>
+                    @endif
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="accuracy" class="col-12 control-label">Accuracy of UUC</label>
+                    <input type="text" class="form-control col-md-12" id="accuracy" name="accuracy"
+                           placeholder="Accuracy of UUC" autocomplete="off" value="">
+                    @if ($errors->has('accuracy'))
+                        <span class="text-danger">
                         <strong>{{ $errors->first('accuracy') }}</strong>
                     </span>
-                @endif
-            </div>
-            <div class="form-group row">
-                <label for="range" class="col-md-3 col-12 control-label">Range of UUC</label>
-                <input type="text" class="form-control col-md-9 col-12" id="range" name="range"
-                       placeholder="Range of UUC" autocomplete="off" value="">
-                @if ($errors->has('range'))
-                    <span class="text-danger">
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="range" class="col-12 control-label">Range of UUC</label>
+                    <input type="text" class="form-control col-12" id="range" name="range"
+                           placeholder="Range of UUC" autocomplete="off" value="">
+                    @if ($errors->has('range'))
+                        <span class="text-danger">
                         <strong>{{ $errors->first('range') }}</strong>
                     </span>
-                @endif
-            </div>
+                    @endif
+                </div>
 
-            <div class="form-group row">
-                <label for="location" class="col-md-3 col-12 control-label">Location of UUC</label>
-                <input type="text" class="form-control col-md-9 col-12" id="location" name="location"
-                       placeholder="Location of UUC" autocomplete="off" value="">
-                @if ($errors->has('location'))
-                    <span class="text-danger">
+                <div class="form-group col-md-6">
+                    <label for="location" class="col-12 control-label">Location of UUC</label>
+                    <input type="text" class="form-control col-12" id="location" name="location"
+                           placeholder="Location of UUC" autocomplete="off" value="">
+                    @if ($errors->has('location'))
+                        <span class="text-danger">
                         <strong>{{ $errors->first('location') }}</strong>
                     </span>
-                @endif
-            </div>
+                    @endif
+                </div>
 
-
-            <div class="form-group row">
-                <label for="before_offset" class="col-md-3 col-12 control-label">Offset of UUC (Before
-                    Adjustment)</label>
-                <input type="text" class="form-control col-md-9 col-12" id="before_offset" name="before_offset"
-                       placeholder="Offset" autocomplete="off" value="0">
-                @if ($errors->has('before_offset'))
-                    <span class="text-danger">
+                <div class="form-group col-md-6">
+                    <label for="before_offset" class="col-12 control-label">Offset of UUC (Before
+                        Adjustment)</label>
+                    <input type="text" class="form-control col-12" id="before_offset" name="before_offset"
+                           placeholder="Offset" autocomplete="off" value="0">
+                    @if ($errors->has('before_offset'))
+                        <span class="text-danger">
                         <strong>{{ $errors->first('before_offset') }}</strong>
                     </span>
-                @endif
-            </div>
+                    @endif
+                </div>
 
-            <div class="form-group row">
-                <label for="after_offset" class="col-md-3 col-12 control-label">Offset of UUC (After Adjustment)</label>
-                <input type="text" class="form-control col-md-9 col-12" id="after_offset" name="after_offset"
-                       placeholder="Offset" autocomplete="off" value="0">
-                @if ($errors->has('after_offset'))
-                    <span class="text-danger">
+                <div class="form-group col-md-6">
+                    <label for="after_offset" class=" col-12 control-label">Offset of UUC (After Adjustment)</label>
+                    <input type="text" class="form-control  col-12" id="after_offset" name="after_offset"
+                           placeholder="Offset" autocomplete="off" value="0">
+                    @if ($errors->has('after_offset'))
+                        <span class="text-danger">
                         <strong>{{ $errors->first('after_offset') }}</strong>
                     </span>
-                @endif
+                    @endif
+                </div>
             </div>
-            <div class="form-group row">
+
+            <div class="form-group col-md-12 mt-3">
                 <label for="fixed" class="col-sm-3 control-label">Single / Fixed Value</label>
                 <select class="form-control col-md-9" id="fixed" name="fixed">
                     <option selected disabled>Single / Fixed Value</option>
@@ -159,7 +182,9 @@
                         <td>X<sub>3</sub></td>
                         <td>X<sub>4</sub></td>
                         <td>X<sub>5</sub></td>
-                        <td><i class="fa fa-plus-circle"></i></td>
+                        <td>
+                            <a href="javascript:void(0)" class="btn btn-primary btn-sm mt-2 text-lg"><i class="fa fa-plus-circle"></i></a>
+                        </td>
                         <td></td>
                     </tr>
                     </thead>
@@ -214,8 +239,7 @@
                             @endif
                         </td>
                         <td>
-                            <a class="deleteRow"></a>
-                            <i id="addrow" class="fa fa-plus-circle text-primary mt-2 text-lg"></i>
+                            <a href="javascript:void(0)"  id="addrow" class="btn btn-primary btn-sm text-lg"><i class="fa fa-plus-circle"></i></a>
                         </td>
                     </tr>
                     </tbody>
@@ -291,7 +315,7 @@
                 cols += '<td><input type="text" class="form-control" name="x3[]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="x4[]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="x5[]"/></td>';
-                cols += '<td><i class="ibtnDel fa fa-times-circle mt-2 text-lg text-danger"></i></td>';
+                cols += '<td><a href="javascript:void(0)" class="btn btn-danger btn-sm ibtnDel"><i class=" fa fa-times-circle"></i></a></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;

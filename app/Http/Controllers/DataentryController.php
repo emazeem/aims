@@ -15,6 +15,9 @@ class DataentryController extends Controller
             'assets' => 'required',
             'units' => 'required',
             'uuc_resolution' => 'required',
+            'start_humidity' => 'required',
+            'end_humidity' => 'required',
+            'location' => 'required',
             'accuracy' => 'required',
             'range' => 'required',
             'start_temp' => 'required',
@@ -64,6 +67,8 @@ class DataentryController extends Controller
             $entry->location=$request->location;
             $entry->start_temp=$request->start_temp;
             $entry->end_temp=$request->end_temp;
+            $entry->start_humidity=$request->start_humidity;
+            $entry->end_humidity=$request->end_humidity;
             $entry->unit=$request->units;
             $entry->fixed_type=$request->fixed;
             $entry->asset_id=$request->assets;
@@ -91,9 +96,6 @@ class DataentryController extends Controller
                 $item->save();
             }
             return redirect()->back()->with('success','Entry added successfully');
-
         /*}*/
-
-
     }
 }

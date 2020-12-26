@@ -322,6 +322,14 @@
             <b>Unit : </b>
             {{\App\Models\Unit::find($dataentries->unit)->unit}}
             <br>
+            <b>Temperature : </b>
+            {{$dataentries->start_temp.'-'.$dataentries->end_temp}}
+            <br>
+            <b>Humidity : </b>
+            {{$dataentries->start_humidity.'-'.$dataentries->end_humidity}}
+            <br>
+
+
             <span class="mb-3">
             <a href="{{route('mytasks.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
                         class="fa fa-print"></i> Worksheet</a>
