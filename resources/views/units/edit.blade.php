@@ -51,7 +51,11 @@
                       </span>
                         @endif
                         <div class="py-2">
-                            <span id="previous"></span>
+                            <span id="previous">
+                                @foreach($previous_units as $unit)
+                                    <a href="{{url('units/edit/'.$unit->id)}}" class="btn btn-primary btn-sm">{{$unit->unit}}</a>
+                                @endforeach
+                            </span>
                         </div>
                     </div>
                 </div>

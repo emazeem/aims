@@ -46,7 +46,8 @@ class UnitController extends Controller
     public function edit($id){
         $parameters=Parameter::all();
         $edit=Unit::find($id);
-        return view('units.edit',compact('parameters','edit'));
+        $previous_units=Unit::where('parameter',$edit->parameter)->get();
+        return view('units.edit',compact('parameters','edit','previous_units'));
     }
 
     public function store(Request $request){
