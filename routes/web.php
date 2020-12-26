@@ -341,10 +341,6 @@ Route::get('/taxes',[App\Http\Controllers\TaxesController::class, 'index'])->mid
 Route::post('/search',[App\Http\Controllers\InvoicingLedgerController::class, 'search'])->middleware('auth')->name('search');
 Route::post('/clear/filter',[App\Http\Controllers\InvoicingLedgerController::class, 'clearfilter'])->middleware('auth')->name('clear.filter');
 Route::post('/calculate',[App\Http\Controllers\MytaskController::class, 'calculate'])->middleware('auth')->name('calculate');
-
-
-
-
 Route::group(['prefix'=> 'sop'],function() {
     Route::get('',[App\Http\Controllers\SopsController::class, 'index'])->middleware('auth')->name('sops');
     Route::post('',[App\Http\Controllers\SopsController::class, 'fetch'])->middleware('auth')->name('sops.fetch');
@@ -397,10 +393,10 @@ Route::group(['prefix'=> 'preferences'],function() {
 });
 Route::group(['prefix'=> 'material_receiving'],function() {
     Route::get('/',[App\Http\Controllers\MaterialreceivingController::class, 'index'])->middleware('auth')->name('material.receiving.index');
+    Route::post('',[App\Http\Controllers\MaterialreceivingController::class, 'fetch'])->middleware('auth')->name('material.receiving.fetch');
     Route::get('create/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'create'])->middleware('auth')->name('material.receiving.create');
     Route::get('edit/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'edit'])->middleware('auth')->name('material.receiving.edit');
     Route::post('store',[App\Http\Controllers\MaterialreceivingController::class, 'store'])->middleware('auth')->name('material.receiving.store');
     Route::post('update',[App\Http\Controllers\MaterialreceivingController::class, 'update'])->middleware('auth')->name('material.receiving.update');
     Route::get('show/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'show'])->middleware('auth')->name('material.receiving.show');
-    Route::post('',[App\Http\Controllers\MaterialreceivingController::class, 'fetch'])->middleware('auth')->name('material.receiving.fetch');
 });

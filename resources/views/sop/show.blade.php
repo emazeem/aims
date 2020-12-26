@@ -52,7 +52,7 @@
                         <td>{{$detail->mode_of_storage}}</td>
                         <td>{{$detail->location}}</td>
                         <td>{{$detail->file}}
-                            <a href="{{Storage::disk('local')->url('SOPS/'.$show->name.'/'.$detail->file)}}" download
+                            <a href="{{Storage::disk('local')->url('SOPS/'.$detail->file)}}" download
                                class="btn border px-2 p-0 m-0 pull-right">
                                 <small>Download <i class="fa fa-download"></i></small>
                             </a>
