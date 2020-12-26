@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
     <div class="row">
-
         <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
             <h1 class="border-bottom"><i class="fa fa-tasks"></i> Jobs for Planing</h1>
         </div>
@@ -95,7 +94,6 @@
             });
             $(document).on('click', '.edit', function() {
                 var id = $(this).attr('data-id');
-
                 $.ajax({
                     "url": "{{url('awaitings/checkin/edit/')}}/"+id,
                     type: "POST",
@@ -256,14 +254,10 @@
                                 <label for="edit_visualinspection">Visual Inspection</label>
                                 <input type="text" class="form-control" id="edit_visualinspection" name="visualinspection" placeholder="Visual Inspection" autocomplete="off" value="">
                             </div>
-
-
                             <div class="col-3">
                                 <button class="btn btn-primary" type="submit">Update</button>
                             </div>
-
                         </div>
-
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -271,7 +265,4 @@
             </div>
         </div>
     </div>
-
 @endsection
-
-

@@ -66,7 +66,6 @@
                 <td class="py-3">{{$job->serial}}</td>
                 <td class="py-3">{{$job->eq_id}}</td>
                 <td class="py-3">{{$job->accuracy}}</td>
-
             </tr>
         </table>
     </div>
@@ -129,17 +128,18 @@
                 <th>Certificate #</th>
                 <th>Traceability</th>
             </tr>
-            <tr>
+
                 <?php $assets=explode(',',$job->assign_assets);?>
                 @foreach($assets as $asset)
+                <tr>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->name}}</td>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->make}}</td>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->model}}</td>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->code}}</td>
                         <td class="py-3">-</td>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->traceability}}</td>
+                </tr>
                 @endforeach
-            </tr>
         </table>
     </div>
     <div class="row">
