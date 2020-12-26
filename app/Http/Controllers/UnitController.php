@@ -52,7 +52,8 @@ class UnitController extends Controller
 
     public function store(Request $request){
         $this->validate(request(), [
-            'unit' => 'required|unique:units',
+/*            'unit' => 'required|unique:units',*/
+            'unit' => 'required',
             'parameter' => 'required',
         ],[
             'unit.required' => 'Unit is required.',
