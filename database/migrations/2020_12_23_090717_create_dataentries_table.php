@@ -35,6 +35,7 @@ class CreateDataentriesTable extends Migration
             $table->string('x5')->nullable();
             $table->string('x6')->nullable();
             $table->string('fixed_value')->nullable();
+            $table->string('data',10000)->nullable();
             $table->timestamps();
         });
     }
