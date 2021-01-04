@@ -46,6 +46,7 @@ class PendingRequestController extends Controller
                 $token=csrf_token();
                 $option=null;
                 if ($data->status==1) {
+                    $option .= "<a title='Checks' class='btn btn-sm btn-success checks'  href='#' data-id='{$data->id}'><i class='fa fa-check'></i></a>";
                     $option .= "<a title='Add' class='btn btn-sm btn-primary' href='" . url('pendings/create/' . $data->id) . "'><i class='fa fa-plus'></i></a>";
                     $option.="<a class='btn btn-danger btn-sm nofacility' href='#' data-id='{$data->id}'><i class='fa fa-ban'></i></a>
                     <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
@@ -110,7 +111,7 @@ class PendingRequestController extends Controller
         }
         return redirect('pendings')->with('success', 'Capability and Quote Sent Successfully');
     }
-    //capapbility create page in pending menu with id of not listed item
+    //capability create page in pending menu with id of not listed item
     public function create($id){
         $edit=Item::find($id);
         $procedures=Procedure::all();
@@ -121,5 +122,32 @@ class PendingRequestController extends Controller
         $print=Item::where('id',$id)->get();
         return view('pendings.reviewform',compact('print'));
     }
+    public function checks(Request $request){
+        //dd($request->all());
+        $array=array();
+        if (isset($request->ref_std)){
+            $array[0]=1;
+        }
+        else{
+            $array[0]=0;
+        }
+        if (isset($request->cal_procedure)){
+            $array[1]=1;
+        }
+        else{
+            $array[1]=0;
+        }
+        if (isset($request->cal_schedule)){
+            $array[2]=1;
+        }
+        else{
+            $array[2]=0;
+        }
+        $items=Item::find($request->id);
+        $items->rf_checks=implode(',',$array);
+        $items->save();
+        return response()->json(['success'=>'Checks added successfully']);
+    }
+
     //
 }

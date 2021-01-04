@@ -36,11 +36,11 @@
         </div>
         <div class="col-4 row my-1 font-11 ">
             <div class="col-5">Inquiry Date:</div>
-            <div class="col-7 custom-bottom-border  text-center" >{{date('d-m-y',strtotime($quotes->created_at))}}</div>
+            <div class="col-7 custom-bottom-border  text-center" >{{date('d-m-Y',strtotime($quotes->created_at))}}</div>
         </div>
         <div class="col-5 row my-1 font-11 ">
             <div class="col-5">Mode of Inquiry # </div>
-            <div class="col-7 custom-bottom-border  text-center" >{{date('d-m-y',strtotime($quotes->created_at))}}</div>
+            <div class="col-7 custom-bottom-border  text-center" >{{date('d-m-Y',strtotime($quotes->created_at))}}</div>
         </div>
         <div class="col-6 row my-1 font-11 ">
             <div class="col-3">Contact #: </div>
@@ -74,18 +74,27 @@
                 <th>Item</th>
                 <th>Ref Std</th>
                 <th>Cal Procedure</th>
-                <th>Schedule</th>
+                <th>Cal Schedule</th>
                 <th>Subcontractor</th>
             </tr>
             </thead>
             <tbody class="text-center">
             @foreach($items as $item)
+                <?php
+                        if ($item->rf_checks){
+
+                            $checks=$item->rf_checks;
+                            $checks=explode(',',$checks);
+                        }else{
+                            $checks=[0,0,0];
+                        }
+                ?>
                 <tr>
                     <td class="text-left">{{$item->not_available}}</td>
-                    <td><input type="checkbox"></td>
-                    <td><input type="checkbox"></td>
-                    <td><input type="checkbox"></td>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[0]==1)?'checked':''}}></td>
+                    <td><input type="checkbox"{{($item->status==2)?'checked':''}} {{($checks[1]==1)?'checked':''}}></td>
+                    <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[2]==1)?'checked':''}}></td>
+                    <td><input type="checkbox" ></td>
                 </tr>
             @endforeach
             </tbody>
@@ -95,7 +104,7 @@
         <div class="col-4 py-2 custom-border border-right-0">
             Review closed on
             <span class="custom-bottom-border px-3 ">
-                {{date('d-m-y',strtotime($quotes->created_at))}}
+                {{date('d-m-Y',strtotime($quotes->created_at))}}
             </span>
         </div>
         <div class="col-4 py-2 custom-border border-right-0">

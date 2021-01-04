@@ -25,6 +25,7 @@ class CreateItemsTable extends Migration
             $table->string('range',191);
             $table->integer('price');
             $table->integer('quantity');
+            $table->string('rf_checks',225)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

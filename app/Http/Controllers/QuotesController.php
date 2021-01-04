@@ -271,10 +271,8 @@ class QuotesController extends Controller
         //$this->authorize('quote-print-details');
         $quotes=Quotes::find($id);
         $items=Item::where('status','>',0)->where('quote_id',$quotes->id)->get();
-
         return view('quotes.review',compact('quotes','items'));
     }
-
     public function approved($id){
         $this->authorize('quote-accept');
         $checktypes=Item::where('quote_id',$id)->get();

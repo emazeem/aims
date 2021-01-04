@@ -26,7 +26,6 @@
                 </tr>
                 </thead>
                 <tbody class="text-capitalize">
-
                 </tbody>
                 <tfoot>
                 <tr>
@@ -121,10 +120,102 @@
 
             });
 
+            $(document).on('click', '.checks', function() {
+                var id = $(this).attr('data-id');
+                $('#id').val(id);
+                $('#add_checks').modal('toggle');
+            });
+
+            $("#add_checks_form").on('submit',(function(e) {
+                e.preventDefault();
+                var self=$(this), button=self.find('input[type="submit"],button');
+                var previous=$(button).html();
+                button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                $.ajax({
+                    url: "{{route('pendings.checks')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    statusCode: {
+                        403: function() {
+                            $(".loading").fadeOut();
+                            swal("Failed", "Access Denied" , "error");
+                            return false;
+                        }
+                    },
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                            $('#add_checks').modal('hide');
+                            InitTable();
+                        });
+
+                    },
+                    error: function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+
 
 
         } );
     </script>
+    <div class="modal fade" id="add_checks" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Checks of items for Review Form</h5>
+                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="add_checks_form">
+                        @csrf
+                        <input type="hidden" value="" name="id" id="id">
+                        <div class="row">
+                            <div class="col-12 mb-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="ref_std" name="ref_std">
+                                    <label class="form-check-label" for="ref_std">Reference Std</label>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="cal_procedure" name="cal_procedure">
+                                    <label class="form-check-label" for="cal_procedure">Cal Procedure</label>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="cal_schedule" name="cal_schedule">
+                                    <label class="form-check-label" for="cal_schedule">Cal Schedule</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-right">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 @endsection
 
