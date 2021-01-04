@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Request Review Form</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
 </head>
-
 <body>
 <div class="container">
     <div class="row font-style mt-2">
@@ -61,48 +58,39 @@
                 @endif
             </div>
         </div>
-
     </div>
     <div class="row text-center custom-border ">
         <p class="col-12 font-14 my-2 b">Scope of Work</p>
     </div>
     <div class="row">
-
-        <div class="col-12 mt-2"><p class="font-11"><input type="checkbox"> Equipment List provided by customer</p>
-        </div>
-        <div class="col-12"><p class="font-11"><input type="checkbox"> Equipment not covered by AIMS Capability List;
-            </p></div>
+        <div class="col-12 mt-2"><p class="font-11"><input type="checkbox"> Equipment List provided by customer</p></div>
+        <div class="col-12"><p class="font-11"><input type="checkbox"> Equipment not covered by AIMS Capability List;</p></div>
     </div>
     <div class="row custom-border">
-        <p class="font-12 col-12 my-2 b">Job Requirement Review by Lab Department</p>
-        @foreach($listed as $list)
-            <div class="font-11 col-12"><li>{{$list->not_available}}</li></div>
-        @endforeach
-
-        <div class="col-6"><p class="font-11"><input type="checkbox" checked> Technical and manpower resources available.</p>
-        </div>
-        <div class="col-6"><p class="font-11"><input type="checkbox" checked> AIMS's Selected Cal Procedure.</p></div>
-        <div class="col-6"><p class="font-11"><input type="checkbox" checked> Subcontracting of the job required.</p></div>
-        <div class="col-6"><p class="font-11"><input type="checkbox" checked> Subcontractor Details</p></div>
-        <div class="col-6"><p class="font-11"><input type="checkbox" checked> Time/Schedule available for job execution</p></div>
-        <div class="col-12 my-1 mb-4 font-11 ">Remarks#:<span class="custom-bottom-border " style="padding-left: 90%"></span></div>
+        <p class="font-12 col-12 my-2 b">Non-Listed Items</p>
+        <table class="table table-bordered m-2">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Ref Std</th>
+                <th>Cal Procedure</th>
+                <th>Schedule</th>
+                <th>Subcontractor</th>
+            </tr>
+            </thead>
+            <tbody class="text-center">
+            @foreach($items as $item)
+                <tr>
+                    <td class="text-left">{{$item->not_available}}</td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
-    <div class="row custom-border mt-3">
-        <p class="font-12 col-12 my-2 b">Non listed items not covered by AIMS</p>
-        @foreach($nonlisted as $list)
-            <div class="font-11 col-12"><li>{{$list->not_available}}</li></div>
-        @endforeach
-
-        <div class="col-6"><p class="font-11"><input type="checkbox"> Technical and manpower resources available.</p>
-        </div>
-        <div class="col-6"><p class="font-11"><input type="checkbox"> AIMS's Selected Cal Procedure.</p></div>
-        <div class="col-6"><p class="font-11"><input type="checkbox"> Subcontracting of the job required.</p></div>
-        <div class="col-6"><p class="font-11"><input type="checkbox"> Subcontractor Details</p></div>
-        <div class="col-6"><p class="font-11"><input type="checkbox"> Time/Schedule available for job execution</p>
-        </div>
-        <div class="col-12 my-1 mb-4 font-11 ">Remarks#:<span class="custom-bottom-border " style="padding-left: 90%"></span></div>
-    </div>
-
     <div class="row mt-3">
         <div class="col-4 py-2 custom-border border-right-0">
             Review closed on
@@ -120,7 +108,6 @@
             Signature <span class="custom-bottom-border " style="padding-left: 60%"></span>
         </div>
     </div>
-
     <div class="row my-3 text-center custom-border">
         <span class="col-12 font-11">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission on the company</span>
     </div>

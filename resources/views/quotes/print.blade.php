@@ -336,7 +336,7 @@
                 </tr>
                 <tr>
                     <?php $total=($subtotal*$tax)+$subtotal; ?>
-                    <th colspan="8"  class="text-capitalize">Total ( {{NumConvert::word($total)}} )</th>
+                    <th colspan="8"  class="text-capitalize">Total ( {{$total}} )</th>
                     <th colspan="2">{{($subtotal*$tax)+$subtotal}}</th>
                 </tr>
                 </tbody>

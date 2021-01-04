@@ -270,9 +270,9 @@ class QuotesController extends Controller
     public function print_rf($id){
         //$this->authorize('quote-print-details');
         $quotes=Quotes::find($id);
-        $listed=Item::where('status',2)->where('quote_id',$quotes->id)->get();
-        $nonlisted=Item::where('status',3)->where('quote_id',$quotes->id)->get();
-        return view('quotes.review',compact('quotes','listed','nonlisted'));
+        $items=Item::where('status','>',0)->where('quote_id',$quotes->id)->get();
+
+        return view('quotes.review',compact('quotes','items'));
     }
 
     public function approved($id){

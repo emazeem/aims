@@ -5,8 +5,291 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_23_090717_create_dataentries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_23_090717_create_dataentries_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/designation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/designation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mytask/certificate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mytask/certificate.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/quotes/print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quotes/print.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/quotes/review.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quotes/review.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/egulias/email-validator/src/Parser/DomainPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/egulias/email-validator/src/Parser/DomainPart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/egulias/email-validator/src/Warning/Warning.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/egulias/email-validator/src/Warning/Warning.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/facade/ignition/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/facade/ignition/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/facade/ignition/config/ignition.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/facade/ignition/config/ignition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/facade/ignition/resources/compiled/ignition.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/facade/ignition/resources/compiled/ignition.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/facade/ignition/src/SolutionProviders/UndefinedVariableSolutionProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/facade/ignition/src/SolutionProviders/UndefinedVariableSolutionProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Calculator/Ean.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Calculator/Ean.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Calculator/Iban.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Calculator/Iban.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Calculator/Inn.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Calculator/Inn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Generator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Generator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/CakePHP/ColumnTypeGuesser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/CakePHP/ColumnTypeGuesser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Doctrine/ColumnTypeGuesser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Doctrine/ColumnTypeGuesser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Doctrine/EntityPopulator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Doctrine/EntityPopulator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Doctrine/Populator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Doctrine/Populator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Mandango/ColumnTypeGuesser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Mandango/ColumnTypeGuesser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Propel/ColumnTypeGuesser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Propel/ColumnTypeGuesser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Propel/EntityPopulator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Propel/EntityPopulator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Propel2/ColumnTypeGuesser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Propel2/ColumnTypeGuesser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Propel2/EntityPopulator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Propel2/EntityPopulator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Spot/ColumnTypeGuesser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Spot/ColumnTypeGuesser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Spot/EntityPopulator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Spot/EntityPopulator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Spot/Populator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/ORM/Spot/Populator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Barcode.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Barcode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Color.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Color.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/DateTime.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/DateTime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/HtmlLorem.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/HtmlLorem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Internet.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Internet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Lorem.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Lorem.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Miscellaneous.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Miscellaneous.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/UserAgent.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/UserAgent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Uuid.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/Uuid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ar_JO/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ar_JO/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ar_JO/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ar_JO/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ar_SA/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ar_SA/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ar_SA/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ar_SA/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/at_AT/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/at_AT/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/bg_BG/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/bg_BG/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/bn_BD/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/bn_BD/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/bn_BD/PhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/bn_BD/PhoneNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/cs_CZ/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/cs_CZ/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/da_DK/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/da_DK/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_AT/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_AT/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_AT/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_AT/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_AT/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_AT/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_CH/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_CH/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_CH/Text.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_CH/Text.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_DE/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_DE/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_DE/Text.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/de_DE/Text.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_CY/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_CY/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_GR/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_GR/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_GR/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_GR/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_GR/PhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_GR/PhoneNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_GR/Text.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/el_GR/Text.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_AU/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_AU/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_CA/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_CA/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_GB/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_GB/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_GB/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_GB/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_HK/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_HK/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_IN/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_IN/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_IN/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_IN/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_NG/Internet.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_NG/Internet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_NG/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_NG/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_NZ/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_NZ/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_PH/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_PH/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_SG/PhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_SG/PhoneNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_UG/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_UG/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_UG/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_UG/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_US/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_US/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_US/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_US/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_US/PhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_US/PhoneNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_ZA/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/en_ZA/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_AR/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_AR/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_ES/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_ES/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_ES/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_ES/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_PE/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_PE/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_PE/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_PE/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_VE/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/es_VE/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/et_EE/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/et_EE/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fa_IR/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fa_IR/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fa_IR/Internet.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fa_IR/Internet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fa_IR/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fa_IR/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fa_IR/PhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fa_IR/PhoneNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fi_FI/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fi_FI/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fi_FI/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fi_FI/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_BE/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_BE/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_BE/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_BE/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_CA/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_CA/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_CH/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_CH/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_CH/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_CH/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_FR/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/fr_FR/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/he_IL/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/he_IL/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/hu_HU/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/hu_HU/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/hy_AM/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/hy_AM/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/hy_AM/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/hy_AM/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/hy_AM/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/hy_AM/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/id_ID/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/id_ID/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/id_ID/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/id_ID/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/is_IS/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/is_IS/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/it_CH/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/it_CH/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/it_IT/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/it_IT/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/it_IT/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/it_IT/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/it_IT/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/it_IT/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ja_JP/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ja_JP/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ka_GE/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ka_GE/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/kk_KZ/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/kk_KZ/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/kk_KZ/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/kk_KZ/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/kk_KZ/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/kk_KZ/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ko_KR/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ko_KR/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/lt_LT/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/lt_LT/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/lt_LT/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/lt_LT/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/lv_LV/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/lv_LV/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/lv_LV/Internet.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/lv_LV/Internet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/me_ME/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/me_ME/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/mn_MN/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/mn_MN/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Miscellaneous.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Miscellaneous.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/PhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ms_MY/PhoneNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nb_NO/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nb_NO/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nb_NO/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nb_NO/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ne_NP/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ne_NP/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nl_BE/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nl_BE/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nl_BE/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nl_BE/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nl_NL/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nl_NL/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nl_NL/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/nl_NL/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pl_PL/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pl_PL/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pl_PL/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pl_PL/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pl_PL/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pl_PL/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pl_PL/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pl_PL/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_BR/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_BR/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_BR/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_BR/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_BR/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_BR/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_BR/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_BR/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_PT/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_PT/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_PT/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_PT/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_PT/PhoneNumber.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/pt_PT/PhoneNumber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ro_MD/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ro_MD/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ro_MD/Text.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ro_MD/Text.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ro_RO/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ro_RO/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ro_RO/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ro_RO/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ru_RU/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ru_RU/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ru_RU/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/ru_RU/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sk_SK/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sk_SK/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sl_SI/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sl_SI/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sl_SI/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sl_SI/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sr_RS/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sr_RS/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sv_SE/Municipality.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sv_SE/Municipality.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sv_SE/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/sv_SE/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/th_TH/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/th_TH/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/th_TH/Color.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/th_TH/Color.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/th_TH/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/th_TH/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/tr_TR/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/tr_TR/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/tr_TR/Internet.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/tr_TR/Internet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/uk_UA/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/uk_UA/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/uk_UA/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/uk_UA/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/vi_VN/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/vi_VN/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/zh_CN/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/zh_CN/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/zh_CN/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/zh_CN/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/zh_TW/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/zh_TW/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/zh_TW/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/fakerphp/faker/src/Faker/Provider/zh_TW/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/CacheLock.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/CacheLock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/CacheManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/CacheManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/DatabaseLock.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/DatabaseLock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/RedisLock.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/RedisLock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Cache/RedisStore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Cache/Lock.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Cache/Lock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/DatabaseServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/DatabaseServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Concerns/InteractsWithPivotTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/Concerns/InteractsWithPivotTable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Mail/Mailable.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Mail/Mailable.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Mail/Mailer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Mail/PendingMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Mail/PendingMail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/NotificationSender.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/NotificationSender.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Route.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Testing/Fakes/MailFake.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Testing/Fakes/MailFake.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Testing/Fakes/PendingMailFake.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Testing/Fakes/PendingMailFake.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Validation/Concerns/ValidatesAttributes.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Validation/Concerns/ValidatesAttributes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Validation/Rules/Dimensions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Validation/Rules/Dimensions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/CarbonInterval.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/CarbonInterval.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/CarbonPeriod.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/CarbonPeriod.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Cli/Invoker.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Cli/Invoker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Doctrine/CarbonTypeConverter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Doctrine/CarbonTypeConverter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Date.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Date.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Difference.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Difference.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Mixin.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Mixin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Rounding.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Rounding.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Serialization.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Serialization.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/grammar/php7.y" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/grammar/php7.y" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Parser/Php7.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/Parser/Php7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/ParserAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/ParserAbstract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/CHANGES.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpspec/prophecy/CHANGES.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpspec/prophecy/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpspec/prophecy/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/ProphecySubjectPatch.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/ProphecySubjectPatch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/ConsoleEvents.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/ConsoleEvents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/DependencyInjection/AddConsoleCommandPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/DependencyInjection/AddConsoleCommandPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Descriptor/ApplicationDescription.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Descriptor/ApplicationDescription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Event/ConsoleCommandEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Event/ConsoleCommandEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Formatter/OutputFormatterStyle.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Formatter/OutputFormatterStyle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Helper/TableCellStyle.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Helper/TableCellStyle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Input/InputArgument.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Input/InputArgument.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Input/InputOption.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Input/InputOption.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Input/StringInput.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Input/StringInput.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Logger/ConsoleLogger.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Logger/ConsoleLogger.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Output/OutputInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Output/OutputInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/console/Style/SymfonyStyle.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/console/Style/SymfonyStyle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/css-selector/Node/Specificity.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/css-selector/Node/Specificity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/css-selector/Parser/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/css-selector/Parser/Token.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/css-selector/XPath/Extension/NodeExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/css-selector/XPath/Extension/NodeExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/finder/Finder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Finder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/FileTypeFilterIterator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/FileTypeFilterIterator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/SortableIterator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Iterator/SortableIterator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Cookie.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Cookie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/HeaderUtils.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/HeaderUtils.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/JsonResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/JsonResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/RateLimiter/AbstractRequestRateLimiter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/RateLimiter/AbstractRequestRateLimiter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/RateLimiter/RequestRateLimiterInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/RateLimiter/RequestRateLimiterInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Response.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/ResponseHeaderBag.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/ResponseHeaderBag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Session/Storage/Handler/PdoSessionHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Session/Storage/Handler/PdoSessionHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Session/Storage/Handler/RedisSessionHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Session/Storage/Handler/RedisSessionHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-foundation/Session/Storage/MetadataBag.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-foundation/Session/Storage/MetadataBag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/DataCollector/DumpDataCollector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/DataCollector/DumpDataCollector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/DataCollector/RequestDataCollector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/DataCollector/RequestDataCollector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/EventListener/AbstractSessionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/EventListener/AbstractSessionListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/HttpKernelInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/HttpKernelInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/KernelEvents.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/KernelEvents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/AbstractHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/AbstractHeader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/ParameterizedHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/ParameterizedHeader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/MimeTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/MimeTypes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/TextPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/TextPart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/process/Exception/ProcessTimedOutException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/process/Exception/ProcessTimedOutException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/process/Pipes/PipesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/process/Pipes/PipesInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/process/Process.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/process/Process.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/UrlGeneratorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/routing/Generator/UrlGeneratorInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Loader/XmlFileLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/routing/Loader/XmlFileLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/TraceableUrlMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/TraceableUrlMatcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/UrlMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/routing/Matcher/UrlMatcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/RouteCompiler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/routing/RouteCompiler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/string/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/string/Inflector/EnglishInflector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/string/Inflector/EnglishInflector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/translation/DataCollectorTranslator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/translation/DataCollectorTranslator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/translation/Extractor/PhpExtractor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Extractor/PhpExtractor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/translation/Loader/MoFileLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Loader/MoFileLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/translation/MessageCatalogueInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/translation/MessageCatalogueInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Caster/Caster.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Caster/Caster.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Caster/ReflectionCaster.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Caster/ReflectionCaster.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Cloner/Cursor.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Cloner/Cursor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Cloner/Stub.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Cloner/Stub.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Dumper/AbstractDumper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Dumper/AbstractDumper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Dumper/CliDumper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Dumper/CliDumper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/var-dumper/Dumper/HtmlDumper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/var-dumper/Dumper/HtmlDumper.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,18 +332,19 @@
     <session id="-1260907338">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.closed" value="14" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.17" value="3" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.21" value="3" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -69,20 +353,22 @@
           <entry key="env" value="5" />
           <entry key="htaccess" value="8" />
           <entry key="html" value="8" />
+          <entry key="ini" value="1" />
           <entry key="js" value="1" />
-          <entry key="json" value="10" />
+          <entry key="json" value="11" />
           <entry key="log" value="1" />
-          <entry key="php" value="530" />
+          <entry key="php" value="541" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="308" />
+          <entry key="Blade" value="313" />
           <entry key="CSS" value="3" />
           <entry key="HTML" value="8" />
-          <entry key="JSON" value="10" />
+          <entry key="Ini" value="1" />
+          <entry key="JSON" value="11" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="222" />
+          <entry key="PHP" value="228" />
           <entry key="PLAIN_TEXT" value="14" />
         </counts>
       </usages-collector>
@@ -90,17 +376,19 @@
         <counts>
           <entry key="css" value="57" />
           <entry key="htaccess" value="4" />
+          <entry key="ini" value="2" />
           <entry key="json" value="8" />
-          <entry key="php" value="35059" />
+          <entry key="php" value="35586" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="21672" />
+          <entry key="Blade" value="21948" />
           <entry key="CSS" value="57" />
           <entry key="HTML" value="4" />
+          <entry key="Ini" value="2" />
           <entry key="JSON" value="8" />
-          <entry key="PHP" value="13383" />
+          <entry key="PHP" value="13634" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -108,20 +396,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="932" column="9" selection-start-line="932" selection-start-column="9" selection-end-line="932" selection-end-column="9" />
+            <state relative-caret-position="205">
+              <caret line="272" column="41" selection-start-line="272" selection-start-column="41" selection-end-line="272" selection-end-column="41" />
+              <folding>
+                <element signature="e#40#64#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/quotes/review.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="114" column="37" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
+            <state relative-caret-position="528">
+              <caret line="115" column="7" lean-forward="true" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -130,14 +421,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print_work</find>
-      <find>calculator</find>
-      <find>6 mot</find>
-      <find>tentative</find>
-      <find>interpola</find>
-      <find>mytask</find>
       <find>entries</find>
-      <find>$x</find>
       <find>entries-&gt;fixed_type</find>
       <find>$reference</find>
       <find>$corrected_value</find>
@@ -160,6 +444,13 @@
       <find>uncerta</find>
       <find>location</find>
       <find>worke</find>
+      <find>$x</find>
+      <find>assets</find>
+      <find>print_uncer</find>
+      <find>prin</find>
+      <find>NumConvert</find>
+      <find>number</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>row pb-2</replace>
@@ -171,12 +462,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
-        <option value="$PROJECT_DIR$/app/Models/Dataentry.php" />
-        <option value="$PROJECT_DIR$/resources/views/users/edit.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_12_14_161201_create_users_table.php" />
-        <option value="$PROJECT_DIR$/public/build/css/custom.css" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customers/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
@@ -216,12 +501,18 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/sop/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mytask/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mytask/certificate.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/calculator/create.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_23_090717_create_dataentries_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" />
         <option value="$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/designation.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DataentryController.php" />
+        <option value="$PROJECT_DIR$/resources/views/mytask/certificate.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/resources/views/quotes/print.blade.php" />
+        <option value="$PROJECT_DIR$/../../php/php.ini" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/quotes/review.blade.php" />
       </list>
     </option>
   </component>
@@ -383,7 +674,7 @@
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -410,43 +701,12 @@
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Console" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Notifications" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aims" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
@@ -464,14 +724,14 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="calculator" type="462c0819:PsiDirectoryNode" />
+              <item name="procedures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mytask" type="462c0819:PsiDirectoryNode" />
+              <item name="quotes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -481,7 +741,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="notifi&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/notifications.blade.php&#10;task&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;cal&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/CalculatorController.php&#10;reference&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/reference_errors&#10;sop&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/SopsController.php&#10;sopcontro&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/SopsController.php&#10;prefere&#9;null&#9;null&#10;sched&#9;null&#9;null&#10;web.php&#9;FILE&#9;file://D:/xampp/htdocs/aims/routes/web.php&#10;profil&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/profile.blade.php&#10;mytask&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;profile&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/profile.blade.php&#10;mytaskcon&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;cust&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/CustomerController.php&#10;auth&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;cus&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/CustomerController.php&#10;web&#9;FILE&#9;file://D:/xampp/htdocs/aims/routes/web.php&#10;purc&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/PurchaseindentController.php&#10;purchas&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/PurchaseindentController.php&#10;layouts&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/layouts&#10;style&#9;FILE&#9;file://D:/xampp/htdocs/aims/public/style.css&#10;inv&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/InvoicingLedgerController.php&#10;invoic&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/InvoicingLedgerController.php&#10;dash&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/dashboard.blade.php&#10;ass&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/AssetController.php&#10;prefer&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_19_045338_create_preferences_table.php&#10;rece&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_19_091832_create_materialreceivings_table.php&#10;material&#9;null&#9;null&#10;mater&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_19_091832_create_materialreceivings_table.php&#10;customer&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/CustomerController.php&#10;das&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/DashboardControlller.php&#10;pur&#9;null&#9;null&#10;mas&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;we&#9;FILE&#9;file://D:/xampp/htdocs/aims/routes/web.php&#10;authser&#9;null&#9;null&#10;compo&#9;FILE&#9;file://D:/xampp/htdocs/aims/composer.json&#10;compos&#9;FILE&#9;file://D:/xampp/htdocs/aims/composer.json&#10;job&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;composer&#9;FILE&#9;file://D:/xampp/htdocs/aims/composer.json&#10;control&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;app.php&#9;FILE&#9;file://D:/xampp/htdocs/aims/config/app.php&#10;forms&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_16_145344_create_formsandformats_table.php&#10;assetcont&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/AssetController.php&#10;form&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_16_145344_create_formsandformats_table.php&#10;asset&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/AssetController.php&#10;rol&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/RoleController.php&#10;rolec&#9;null&#9;null&#10;role&#9;null&#9;null&#10;assets&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/assets&#10;sopcon&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/SopsController.php" />
+    <property name="SearchEverywhereHistoryKey" value="compo&#9;FILE&#9;file://D:/xampp/htdocs/aims/composer.json&#10;notifi&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/notifications.blade.php&#10;task&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;cal&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/CalculatorController.php&#10;reference&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/reference_errors&#10;sop&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/SopsController.php&#10;sopcontro&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/SopsController.php&#10;prefere&#9;null&#9;null&#10;sched&#9;null&#9;null&#10;web.php&#9;FILE&#9;file://D:/xampp/htdocs/aims/routes/web.php&#10;profil&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/profile.blade.php&#10;mytask&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;profile&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/profile.blade.php&#10;mytaskcon&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/MytaskController.php&#10;cust&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/CustomerController.php&#10;auth&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;cus&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/CustomerController.php&#10;web&#9;FILE&#9;file://D:/xampp/htdocs/aims/routes/web.php&#10;purc&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/PurchaseindentController.php&#10;purchas&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/PurchaseindentController.php&#10;layouts&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/layouts&#10;style&#9;FILE&#9;file://D:/xampp/htdocs/aims/public/style.css&#10;inv&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/InvoicingLedgerController.php&#10;invoic&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/InvoicingLedgerController.php&#10;dash&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/dashboard.blade.php&#10;ass&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/AssetController.php&#10;prefer&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_19_045338_create_preferences_table.php&#10;rece&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_19_091832_create_materialreceivings_table.php&#10;material&#9;null&#9;null&#10;mater&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_19_091832_create_materialreceivings_table.php&#10;customer&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/CustomerController.php&#10;das&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/DashboardControlller.php&#10;pur&#9;null&#9;null&#10;mas&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;we&#9;FILE&#9;file://D:/xampp/htdocs/aims/routes/web.php&#10;authser&#9;null&#9;null&#10;compos&#9;FILE&#9;file://D:/xampp/htdocs/aims/composer.json&#10;job&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;composer&#9;FILE&#9;file://D:/xampp/htdocs/aims/composer.json&#10;control&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;app.php&#9;FILE&#9;file://D:/xampp/htdocs/aims/config/app.php&#10;forms&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_16_145344_create_formsandformats_table.php&#10;assetcont&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/AssetController.php&#10;form&#9;FILE&#9;file://D:/xampp/htdocs/aims/database/migrations/2020_12_16_145344_create_formsandformats_table.php&#10;asset&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/AssetController.php&#10;rol&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/RoleController.php&#10;rolec&#9;null&#9;null&#10;role&#9;null&#9;null&#10;assets&#9;FILE&#9;file://D:/xampp/htdocs/aims/resources/views/assets&#10;sopcon&#9;FILE&#9;file://D:/xampp/htdocs/aims/app/Http/Controllers/SopsController.php" />
     <property name="ToolWindowTerminal.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -536,16 +796,21 @@
       <workItem from="1608874333576" duration="7175000" />
       <workItem from="1608962909081" duration="29658000" />
       <workItem from="1609000922624" duration="4104000" />
+      <workItem from="1609046803856" duration="664000" />
+      <workItem from="1609168068136" duration="2044000" />
+      <workItem from="1609339277481" duration="451000" />
+      <workItem from="1609755677857" duration="4742000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261886000" />
+    <option name="totallyTimeSpent" value="269787000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.19440243" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.20045386" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -558,7 +823,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.3409836" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.09836066" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.31311476" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -594,55 +859,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/partials/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AssetController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="370" column="37" selection-start-line="370" selection-start-column="37" selection-end-line="370" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mytask/dataentrysheet.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="40" column="69" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="47" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/users/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/jobs/jobform.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="249" column="105" selection-start-line="249" selection-start-column="105" selection-end-line="249" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/uncertainty.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -661,13 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="12" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -866,24 +1075,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="326" column="16" selection-start-line="326" selection-start-column="16" selection-end-line="326" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/mytask/worksheet.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="212" column="21" lean-forward="true" selection-start-line="212" selection-start-column="21" selection-end-line="212" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mytask/certificate.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="297" column="24" selection-start-line="297" selection-start-column="24" selection-end-line="297" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -908,13 +1103,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DataentryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="398" column="54" selection-start-line="398" selection-start-column="54" selection-end-line="398" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CalculatorController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -931,15 +1119,91 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/mytask/uncertainty.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
+        <state relative-caret-position="320">
           <caret line="114" column="37" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DesignationController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/designation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="100" column="61" selection-start-line="100" selection-start-column="61" selection-end-line="100" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="932" column="9" selection-start-line="932" selection-start-column="9" selection-end-line="932" selection-end-column="9" />
+        <state relative-caret-position="103">
+          <caret line="450" column="49" lean-forward="true" selection-start-line="450" selection-start-column="49" selection-end-line="450" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mytask/certificate.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="129" column="17" selection-start-line="129" selection-start-column="17" selection-end-line="129" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DataentryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="149" column="13" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="326" column="16" selection-start-line="326" selection-start-column="16" selection-end-line="326" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="167" column="61" selection-start-line="167" selection-start-column="61" selection-end-line="167" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../php/php.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quotes/print.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="338" column="77" selection-start-line="338" selection-start-column="77" selection-end-line="338" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="272" column="41" selection-start-line="272" selection-start-column="41" selection-end-line="272" selection-end-column="41" />
+          <folding>
+            <element signature="e#40#64#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quotes/review.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="115" column="7" lean-forward="true" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
         </state>
       </provider>
     </entry>

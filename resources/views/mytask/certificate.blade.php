@@ -129,7 +129,6 @@
                 <th>Traceability</th>
             </tr>
 
-                <?php $assets=explode(',',$job->assign_assets);?>
                 @foreach($assets as $asset)
                 <tr>
                         <td class="py-3">{{\App\Models\Asset::find($asset)->name}}</td>

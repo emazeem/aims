@@ -98,7 +98,7 @@
             e.preventDefault();
             var self=$(this), button=self.find('input[type="submit"],button');
             var previous=$(button).html();
-            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...');
+            button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
             $.ajax({
                 url: "{{route('designations.store')}}",
                 type: "POST",

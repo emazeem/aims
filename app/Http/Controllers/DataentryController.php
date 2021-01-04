@@ -33,7 +33,7 @@ class DataentryController extends Controller
             'x1' => 'required',
             'x2' => 'required',
         ]);
-        if ($request->jobtype==0) {
+        //if ($request->jobtype==0) {
             /*$already_exsited = Dataentry::where('job_type', 0)->where('asset_id', $request->assets)->where('unit', $request->units)->first();
             if ($already_exsited) {
                 $x1 = [];
@@ -81,7 +81,7 @@ class DataentryController extends Controller
             $labjob->resolution = $request->uuc_resolution;
             $labjob->save();
             $entry = new Dataentry();
-            $entry->job_type = 0;
+            $entry->job_type = $request->jobtype;
             $entry->job_type_id = $request->jobtypeid;
             $entry->location = $request->location;
             $entry->start_temp = $request->start_temp;
@@ -133,7 +133,7 @@ class DataentryController extends Controller
                 $item->parent_id = $entry->id;
                 $item->save();
             }
-        }
+        //}
 
 
 
@@ -147,6 +147,7 @@ class DataentryController extends Controller
 
 
         $job=Jobitem::find($request->jobtypeid);
+           // dd($job);
         $entries=Dataentry::where('job_type',$job->type)->where('job_type_id',$request->jobtypeid)->with('child')->first();
         $allentries=Dataentry::where('parent_id',$entries->id)->get();
         $procedure = Procedure::find($job->item->capabilities->procedure);
