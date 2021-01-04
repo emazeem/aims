@@ -94,18 +94,21 @@
     <div class="row mt-3">
         <div class="col-4 py-2 custom-border border-right-0">
             Review closed on
-            <div class="custom-bottom-border ">
+            <span class="custom-bottom-border px-3 ">
                 {{date('d-m-y',strtotime($quotes->created_at))}}
-            </div>
+            </span>
         </div>
         <div class="col-4 py-2 custom-border border-right-0">
             Closed by
-            <div class="custom-bottom-border ">
+            <span class="custom-bottom-border px-3">
                 Technical Manager
-            </div>
+            </span>
         </div>
-        <div class="col-4 py-2  custom-border">
-            Signature <span class="custom-bottom-border " style="padding-left: 60%"></span>
+        <div class="col-4 py-2 custom-border">
+            Signature <span class="custom-bottom-border px-3">
+                <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="120" class="img-fluid">
+
+            </span>
         </div>
     </div>
     <div class="row my-3 text-center custom-border">
