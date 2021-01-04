@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row font-style mt-2">
         <div class="col-2 text-center custom-border">
-            <img src="{{url('/img/aims.png')}}" class="mt-2 ml-2" width="100">
+            <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid p-1">
         </div>
         <div class="col-7 border-left-right-0 custom-border">
             <p class="text-center b font-24" style="margin-top: 10px">Contract Review Sheet <br>for Calibration Job</p>
