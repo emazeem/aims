@@ -215,50 +215,43 @@
                     <br>±(	{{\App\Models\Unit::find($entries->unit)->unit}}	)
                 </td>
             </tr>
-            @foreach($entries->child as $item)
+            @foreach($allentries as $allentry)
                 <tr>
-                    <td>
-                        @if($entries->fixed_type=='UUC')
-                            {{$item->fixed_value}}
-                            <?php
-                                $uuc=$item->fixed_value
-                            ?>
-                        @else
-                            <?php
-                            $n=0;
-                            if ($entries->x1==null){$n++;}
-                            if ($entries->x2==null){$n++;}
-                            if ($entries->x3==null){$n++;}
-                            if ($entries->x4==null){$n++;}
-                            if ($entries->x5==null){$n++;}
-                            $total=$item->x1+$item->x2+$item->x3+$item->x4+$item->x5+$item->x6;
-                            $uuc=$total/$n;
-                            ?>
-                            {{$uuc}}
-                        @endif
-                    </td>
-                    <td>
-                        @if($entries->fixed_type=='UUC')
-                            <?php
-                                $n=0;
-                                if ($entries->x1==null){$n++;}
-                                if ($entries->x2==null){$n++;}
-                                if ($entries->x3==null){$n++;}
-                                if ($entries->x4==null){$n++;}
-                                if ($entries->x5==null){$n++;}
-                                $total=$item->x1+$item->x2+$item->x3+$item->x4+$item->x5+$item->x6;
-                                $reference=$total/$n;
-                            ?>
-                        @else
-                            <?php
-                            $reference=$item->fixed_value                             ;
-                            ?>
-                            {{$reference}}
-                        @endif
-                    </td>
-                    <td>{{$uuc-$reference}}</td>
-                    <td>-</td>
-                </tr>
+                    <?php
+                        $n=0;
+                        $x1=($allentry->x1)?$allentry->x1:null;
+                        $x2=($allentry->x2)?$allentry->x2:null;
+                        $x3=($allentry->x3)?$allentry->x3:null;
+                        $x4=($allentry->x4)?$allentry->x4:null;
+                        $x5=($allentry->x5)?$allentry->x5:null;
+                        if (isset($x1)){$n++;}
+                        if (isset($x2)){$n++;}
+                        if (isset($x3)){$n++;}
+                        if (isset($x4)){$n++;}
+                        if (isset($x5)){$n++;}
+                        $average_repeated_value=($x1+$x2+$x3+$x4+$x5)/$n;
+                    ?>
+                        <td>
+                            @if($allentry->parent->fixed_type=="UUC")
+                                {{$average_repeated_value}}
+                            @else
+                                {{$allentry->fixed_value}}
+                            @endif
+                        </td>
+                        <td>
+                            @if($allentry->parent->fixed_type=="UUC")
+                                {{$allentry->fixed_value}}
+                            @else
+                                {{$average_repeated_value}}
+                            @endif
+                        </td>
+                        <td>
+                            {{$data[$allentry->fixed_value]['final-error']}}
+                        </td>
+                        <td>
+                            {{$data[$allentry->fixed_value]['expanded-uncertainty']}}
+                        </td>
+                    </tr>
             @endforeach
         </table>
     </div>

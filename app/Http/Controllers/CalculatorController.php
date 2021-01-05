@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\Dataentry;
 use App\Models\Jobitem;
-use App\Models\Labjob;
 use App\Models\Parameter;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 
 class CalculatorController extends Controller
 {
@@ -27,8 +25,8 @@ class CalculatorController extends Controller
             $parameters=array_unique($parameters);
             $parameters=Parameter::whereIn('id',$parameters)->get();
             $assets=Asset::whereIn('id',$assets)->get();
-
-        return view('calculator.create',compact('show','location','parameters','assets','location'));
+            $dataentry=Dataentry::where('job_type_id',$id)->first();
+        return view('calculator.create',compact('show','location','parameters','assets','location','dataentry'));
     }
 
     //

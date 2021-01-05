@@ -17,6 +17,7 @@ use App\Models\Procedure;
 use App\Models\Quotes;
 use App\Models\Sitejob;
 use App\Models\Unit;
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 
 use phpDocumentor\Reflection\DocBlock;
@@ -151,9 +152,9 @@ class MytaskController extends Controller
         $parameters=Parameter::whereIn('id',$parameters)->get();
         $assets=Asset::whereIn('id',$assets)->get();
 
-        $dataentries=Dataentry::where('parent_id',null)->where('job_type',0)->where('job_type_id',$id)->with('child')->first();
+        $dataentrie=Dataentry::where('parent_id',null)->where('job_type',0)->where('job_type_id',$id)->with('child')->get();
         //4dd($dataentries);
-        return view('mytask.show',compact('show','location','parameters','assets','dataentries'));
+        return view('mytask.show',compact('show','location','parameters','assets','dataentrie'));
     }
     public function s_show($id){
         $this->authorize('mytask-view');
@@ -225,12 +226,14 @@ class MytaskController extends Controller
                 $assets=explode(',',$job->group_assets);
             }
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
-        return view('mytask.worksheet',compact('entries','job','quote','mainjob','assets'));
+        $allentries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->get();
+        return view('mytask.worksheet',compact('entries','job','quote','mainjob','assets','allentries'));
     }
     public function print_dataentrysheet($location,$id){
         $job=Jobitem::find($id);
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
-        $allentries=Dataentry::where('parent_id',$entries->id)->get();
+        $ids=Dataentry::where('job_type',$location)->where('job_type_id',$id)->pluck('id')->toArray();
+        $allentries=Dataentry::whereIn('parent_id',$ids)->get();
         $procedure = Procedure::find($job->item->capabilities->procedure);
         $uncertainties=explode(',',$procedure->uncertainties);
         $data=array();
@@ -463,9 +466,6 @@ class MytaskController extends Controller
             ];
         }*/
         foreach ($allentries as $allentry){
-
-
-
             $n=0;
             $x1=($allentry->x1)?$allentry->x1:null;
             $x2=($allentry->x2)?$allentry->x2:null;
@@ -480,9 +480,6 @@ class MytaskController extends Controller
             if (isset($x3)){$n++;}
             if (isset($x4)){$n++;}
             if (isset($x5)){$n++;}
-
-            $average_repeated_value=($x1+$x2+$x3+$x4+$x5)/$n;
-
             $average_repeated_value=($x1+$x2+$x3+$x4+$x5)/$n;
             if ($entries->fixed_type=="Ref"){
                 $reference=$allentry->fixed_value;
@@ -593,10 +590,10 @@ class MytaskController extends Controller
     }
 
     public function print_uncertainty($location,$id){
-            $job=Jobitem::find($id);
-
+        $job=Jobitem::find($id);
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
-        $allentries=Dataentry::where('parent_id',$entries->id)->get();
+        $ids=Dataentry::where('job_type',$location)->where('job_type_id',$id)->pluck('id')->toArray();
+        $allentries=Dataentry::whereIn('parent_id',$ids)->get();
         $procedure = Procedure::find($job->item->capabilities->procedure);
         $uncertainties=explode(',',$procedure->uncertainties);
         $data=array();
@@ -620,7 +617,15 @@ class MytaskController extends Controller
             $assets=explode(',',$job->group_assets);
         }
         $entries=Dataentry::where('job_type',$location)->where('job_type_id',$id)->with('child')->first();
-        return view('mytask.certificate',compact('entries','job','quote','mainjob','assets'));
+
+        $ids=Dataentry::where('job_type',$location)->where('job_type_id',$id)->pluck('id')->toArray();
+        $allentries=Dataentry::whereIn('parent_id',$ids)->with('parent')->get();
+        //dd($allentries);
+        $data=array();
+        foreach ($allentries as $allentry){
+            $data[$allentry->fixed_value]=json_decode($allentry->data,true);
+        }
+        return view('mytask.certificate',compact('entries','job','quote','mainjob','assets','allentries','data'));
     }
 
     //

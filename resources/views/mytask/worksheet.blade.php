@@ -250,6 +250,8 @@
                     <td class="font-11" colspan="50"> ({{\App\Models\Unit::find($entries->unit)->unit}}) </td>
                     <td class="font-11" colspan="10" >({{\App\Models\Unit::find($entries->unit)->unit}})</td>
                 </tr>
+
+                @foreach($allentries as $entries)
                 @foreach($entries->child as $entry)
                     <tr>
                         <td class="font-11 text-center" colspan="10">{{$entry->x1}}</td>
@@ -259,6 +261,7 @@
                         <td class="font-11 text-center" colspan="10">{{$entry->x5}}</td>
                         <td class="font-11 text-center" colspan="10">{{$entry->fixed_value}}</td>
                     </tr>
+                @endforeach
                 @endforeach
                 </tbody>
             </table>

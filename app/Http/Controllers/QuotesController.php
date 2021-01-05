@@ -27,7 +27,7 @@ class QuotesController extends Controller
         $data=Quotes::with('customers')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
-                return 'QT/'.date('y').'/'.$data->id;
+                return 'QTN/'.date('y',strtotime($data->created_at)).'/'.$data->id;
             })
             ->addColumn('customer', function ($data) {
                 return $data->customers->reg_name;

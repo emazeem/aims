@@ -11,6 +11,10 @@ class Dataentry extends Model
     public function child(){
         return $this->hasMany( self::class, 'parent_id', 'id' );
     }
+    public function parent(){
+        return $this->belongsTo( self::class, 'parent_id', 'id' );
+    }
+
     public function units(){
         return $this->belongsTo('App\Models\Unit','unit');
     }

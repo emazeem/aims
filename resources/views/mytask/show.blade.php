@@ -303,50 +303,60 @@
         </div>
     </div>
 
-    @if($dataentries)
+    <div class="col-12">
+        <span class="mb-3">
+            <a href="{{route('mytasks.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
+            <a href="{{route('mytasks.print_certificate',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Certificate</a>
+            <a href="{{route('mytasks.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Uncertainty</a>
+            <a href="{{route('mytasks.print_dataentrysheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Data Entry Sheet</a>
+    </span>
+    </div>
+    @if($dataentrie)
+        @foreach($dataentrie as $key=>$dataentries)
         <div class="col-12 table-responsive">
-            <b>Location :</b>
-            @if($dataentries->job_type==0)
-                Lab
-            @else
-                Site
-            @endif
-            <br>
-            <b>Fixed Value : </b>
-            @if($dataentries->fixed_type=='UUC')
-                Reference Standard
-            @else
-                UUC
-            @endif
-            <br>
-            <b>Unit : </b>
-            {{\App\Models\Unit::find($dataentries->unit)->unit}}
-            <br>
+            @if($key==0)
             <b>Temperature : </b>
             {{$dataentries->start_temp.'-'.$dataentries->end_temp}}
             <br>
             <b>Humidity : </b>
             {{$dataentries->start_humidity.'-'.$dataentries->end_humidity}}
+            @endif
             <br>
-
-
-            <span class="mb-3">
-            <a href="{{route('mytasks.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
-                        class="fa fa-print"></i> Worksheet</a>
-            <a href="{{route('mytasks.print_certificate',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
-                        class="fa fa-print"></i> Certificate</a>
-            <a href="{{route('mytasks.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
-                        class="fa fa-print"></i> Uncertainty</a>
-            <a href="{{route('mytasks.print_dataentrysheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i
-                        class="fa fa-print"></i> Data Entry Sheet</a>
-
-        </span>
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered table-sm">
 
                 <tr>
-                    <th>Fixed Value</th>
-                    <th>Repeated Values</th>
+                    <th colspan="2" class="h6">
+                        {{\App\Models\Asset::find($dataentries->asset_id)->name}} {
+                        {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
+                    </th>
                 </tr>
+                <tr class="bg-white text-dark">
+                    <th>Fixed Value
+                        @if($dataentries->fixed_type=='UUC')
+                            .(Ref Std)
+                        @else
+                            .(UUC)
+                        @endif
+
+                    </th>
+                    <th>Repeated Values
+                        @if($dataentries->fixed_type=='UUC')
+                            .(UUC)
+                        @else
+                            .(Ref Std)
+                        @endif
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        {{\App\Models\Unit::find($dataentries->unit)->unit}}
+                    </th>
+                    <th>
+                        {{\App\Models\Unit::find($dataentries->unit)->unit}}
+                    </th>
+                </tr>
+
+
                 @foreach($dataentries->child as $dataentry)
                     <tr>
 
@@ -366,5 +376,6 @@
                 @endforeach
             </table>
         </div>
+        @endforeach
     @endif
 @endsection

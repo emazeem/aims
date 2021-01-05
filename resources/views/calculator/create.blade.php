@@ -49,7 +49,7 @@
                 <div class="form-group col-md-6">
                     <label for="start_temp" class="col-md-12 col-12 control-label">Start Temperature</label>
                     <input type="text" class="form-control col-md-12 col-12" id="start_temp" name="start_temp"
-                           placeholder="Start Temperature" autocomplete="off" value="{{old('start_temp')}}">
+                           placeholder="Start Temperature" autocomplete="off" value="{{old('start_temp',($dataentry)?$dataentry->start_temp : null)}}">
                     @if ($errors->has('start_temp'))
                         <span class="text-danger">
                                 <strong>{{ $errors->first('start_temp') }}</strong>
@@ -59,7 +59,7 @@
                 <div class="form-group col-md-6">
                     <label for="end_temp" class="col-md-12 col-12 control-label">End Temperature</label>
                     <input type="text" class="form-control col-md-12 col-12" id="end_temp" name="end_temp"
-                           placeholder="End Temperature" autocomplete="off" value="{{old('end_temp')}}">
+                           placeholder="End Temperature" autocomplete="off" value="{{old('end_temp',($dataentry)?$dataentry->end_temp : null)}}">
                     @if ($errors->has('end_temp'))
                         <span class="text-danger">
                         <strong>{{ $errors->first('end_temp') }}</strong>
@@ -69,7 +69,7 @@
                 <div class="form-group col-md-6">
                     <label for="start_humidity" class="col-md-12 col-12 control-label">Start Humidity</label>
                     <input type="text" class="form-control col-md-12 col-12" id="start_humidity" name="start_humidity"
-                           placeholder="Start Humidity" autocomplete="off" value="{{old('start_humidity')}}">
+                           placeholder="Start Humidity" autocomplete="off" value="{{old('start_humidity',($dataentry)?$dataentry->start_humidity : null)}}">
                     @if ($errors->has('start_humidity'))
                         <span class="text-danger">
                                 <strong>{{ $errors->first('start_humidity') }}</strong>
@@ -79,7 +79,7 @@
                 <div class="form-group col-md-6">
                     <label for="end_humidity" class="col-12 control-label">End Humidity</label>
                     <input type="text" class="form-control col-12" id="end_humidity" name="end_humidity"
-                           placeholder="End Humidity" autocomplete="off" value="{{old('end_humidity')}}">
+                           placeholder="End Humidity" autocomplete="off" value="{{old('end_humidity',($dataentry)?$dataentry->end_humidity : null)}}">
                     @if ($errors->has('end_humidity'))
                         <span class="text-danger">
                                 <strong>{{ $errors->first('end_humidity') }}</strong>
@@ -91,7 +91,7 @@
                 <div class="form-group col-md-6">
                     <label for="uuc_resolution" class="col-12 control-label">UUC Resolution</label>
                     <input type="text" class="form-control col-12" id="uuc_resolution" name="uuc_resolution"
-                           placeholder="UUC Resolution" autocomplete="off" value="{{old('uuc_resolution')}}">
+                           placeholder="UUC Resolution" autocomplete="off" value="{{old('uuc_resolution',$show->resolution)}}">
                     @if ($errors->has('uncertainty'))
                         <span class="text-danger">
                         <strong>{{ $errors->first('uuc_resolution') }}</strong>
@@ -102,7 +102,7 @@
                 <div class="form-group col-md-6">
                     <label for="accuracy" class="col-12 control-label">Accuracy of UUC</label>
                     <input type="text" class="form-control col-md-12" id="accuracy" name="accuracy"
-                           placeholder="Accuracy of UUC" autocomplete="off" value="">
+                           placeholder="Accuracy of UUC" autocomplete="off" value="{{old('accuracy',$show->accuracy)}}">
                     @if ($errors->has('accuracy'))
                         <span class="text-danger">
                         <strong>{{ $errors->first('accuracy') }}</strong>
@@ -112,7 +112,7 @@
                 <div class="form-group col-md-6">
                     <label for="range" class="col-12 control-label">Range of UUC</label>
                     <input type="text" class="form-control col-12" id="range" name="range"
-                           placeholder="Range of UUC" autocomplete="off" value="">
+                           placeholder="Range of UUC" autocomplete="off" value="{{old('range',$show->range)}}">
                     @if ($errors->has('range'))
                         <span class="text-danger">
                         <strong>{{ $errors->first('range') }}</strong>
@@ -123,7 +123,7 @@
                 <div class="form-group col-md-6">
                     <label for="location" class="col-12 control-label">Location of UUC</label>
                     <input type="text" class="form-control col-12" id="location" name="location"
-                           placeholder="Location of UUC" autocomplete="off" value="">
+                           placeholder="Location of UUC" autocomplete="off" value="{{old('location',($dataentry)?$dataentry->location : null)}}">
                     @if ($errors->has('location'))
                         <span class="text-danger">
                         <strong>{{ $errors->first('location') }}</strong>

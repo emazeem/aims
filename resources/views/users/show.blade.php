@@ -60,6 +60,13 @@
                     <td><img src="{{Storage::disk('local')->url('public/signature/'.$show->id.'/'.$show->signature)}}"   class="img-fluid" width="100"></td>
                 </tr>
                 @endif
+                @if($show->profile)
+                <tr>
+                    <th>Profile</th>
+                    <td><img src="{{Storage::disk('local')->url('public/profile/'.$show->id.'/'.$show->profile)}}"   class="img-fluid" width="100"></td>
+                </tr>
+                @endif
+
 
                 <tr>
                     <th>CV</th>

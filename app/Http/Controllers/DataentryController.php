@@ -14,7 +14,6 @@ class DataentryController extends Controller
 {
     //
     public function store(Request $request){
-        //dd($request->all());
         $this->validate(request(), [
             'assets' => 'required',
             'units' => 'required',
@@ -33,48 +32,51 @@ class DataentryController extends Controller
             'x1' => 'required',
             'x2' => 'required',
         ]);
+
         //if ($request->jobtype==0) {
-            /*$already_exsited = Dataentry::where('job_type', 0)->where('asset_id', $request->assets)->where('unit', $request->units)->first();
-            if ($already_exsited) {
-                $x1 = [];
-                $x2 = [];
-                $x3 = [];
-                $x4 = [];
-                $x5 = [];
-                $fixed = [];
-                foreach ($request->x1 as $item) {
-                    $x1[] = $item;
-                }
-                foreach ($request->x2 as $item) {
-                    $x2[] = $item;
-                }
-                foreach ($request->x3 as $item) {
-                    $x3[] = $item;
-                }
-                foreach ($request->x4 as $item) {
-                    $x4[] = $item;
-                }
-                foreach ($request->x5 as $item) {
-                    $x5[] = $item;
-                }
-                foreach ($request->fixed_value as $item) {
-                    $fixed[] = $item;
-                }
-                for ($i = 0; $i < count($x1); $i++) {
-                    $item = new Dataentry();
-                    $item->fixed_value = $fixed[$i];
-                    $item->x1 = $x1[$i];
-                    $item->x2 = $x2[$i];
-                    $item->x3 = $x3[$i];
-                    $item->x4 = $x4[$i];
-                    $item->x5 = $x4[$i];
-                    $item->x6 = null;
-                    $item->parent_id = $already_exsited->id;
-                    $item->save();
-                }
+            /*
                 return redirect()->back()->with('success', 'Entry added successfully');
             }*/
-
+        $already_exsited = Dataentry::where('job_type', 0)->where('asset_id', $request->assets)->where('unit', $request->units)->first();
+        if ($already_exsited) {
+            $x1 = [];
+            $x2 = [];
+            $x3 = [];
+            $x4 = [];
+            $x5 = [];
+            $fixed = [];
+            foreach ($request->x1 as $item) {
+                $x1[] = $item;
+            }
+            foreach ($request->x2 as $item) {
+                $x2[] = $item;
+            }
+            foreach ($request->x3 as $item) {
+                $x3[] = $item;
+            }
+            foreach ($request->x4 as $item) {
+                $x4[] = $item;
+            }
+            foreach ($request->x5 as $item) {
+                $x5[] = $item;
+            }
+            foreach ($request->fixed_value as $item) {
+                $fixed[] = $item;
+            }
+            for ($i = 0; $i < count($x1); $i++) {
+                $item = new Dataentry();
+                $item->fixed_value = $fixed[$i];
+                $item->x1 = $x1[$i];
+                $item->x2 = $x2[$i];
+                $item->x3 = $x3[$i];
+                $item->x4 = $x4[$i];
+                $item->x5 = $x4[$i];
+                $item->x6 = null;
+                $item->parent_id = $already_exsited->id;
+                $item->save();
+            }
+            $entry = Dataentry::find($already_exsited->id);
+        }else{
             $labjob = Jobitem::find($request->jobtypeid);
             $labjob->accuracy = $request->accuracy;
             $labjob->range = $request->range;
@@ -133,6 +135,8 @@ class DataentryController extends Controller
                 $item->parent_id = $entry->id;
                 $item->save();
             }
+        }
+
         //}
 
 
@@ -148,7 +152,7 @@ class DataentryController extends Controller
 
         $job=Jobitem::find($request->jobtypeid);
            // dd($job);
-        $entries=Dataentry::where('job_type',$job->type)->where('job_type_id',$request->jobtypeid)->with('child')->first();
+        $entries=Dataentry::find($entry->id);
         $allentries=Dataentry::where('parent_id',$entries->id)->get();
         $procedure = Procedure::find($job->item->capabilities->procedure);
         $uncertainties=explode(',',$procedure->uncertainties);
@@ -251,11 +255,8 @@ class DataentryController extends Controller
                     $max=$intervals[$map+1];
                 }
             }
-
             // echo 'Minimum Range ='.$min;
             //echo 'Maximum Range ='.$max;
-
-
             if (isset($map)){
                 foreach ($reference_table as $item) {
                     if ($item->uuc==$intervals[$map]){
@@ -380,6 +381,7 @@ class DataentryController extends Controller
             $expanded_uncertainties=$combined_uncertainty*2;
             $data[$entry->fixed_value]=[
                 'id'=>$entry->id,
+                'final-error'=>$final_error,
                 'standard-deviation'=>$SD,
                 'uncertainty-type-a'=>$uncertainty_Type_A,
                 'combined-uncertainty-of-standard'=>$combined_uncertainty_of_standard,
