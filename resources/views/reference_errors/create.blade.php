@@ -14,7 +14,6 @@
         </div>
 
         <div class="col-12">
-
             <form class="form-horizontal" action="{{route('manageref.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
@@ -59,6 +58,24 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group row channels" style="display: none" >
+                    <label for="channels" class="col-2 control-label">Select Channels</label>
+                    <div class="col-10">
+                        <select class="form-control" id="channels" name="channels" required>
+                            <option value="" selected disabled>Select Channels</option>
+                            @foreach($channels as $channel)
+                                <option value="{{$channel}}">{{$channel}}</option>
+                            @endforeach
+                        </select>
+                        @if ($errors->has('channels'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('channels') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+
                 <table id="myTable" class=" table order-list">
                     <thead>
                     <tr>
@@ -71,9 +88,7 @@
                     <tbody>
                     <tr>
                         <td>
-
                             <input type="text" name="uuc[]"  class="form-control"/>
-
                         </td>
                         <td>
                             <input type="text" name="reference[]"  class="form-control"/>
@@ -206,7 +221,11 @@
                     success: function(data)
                     {
                         $('select[name="units"]').empty();
-
+                        if (data['show_channels']==true){
+                            $('.channels').show();
+                        }else {
+                            $('.channels').hide();
+                        }
                         $.each(data, function(key, value) {
                             $('select[name="units"]').append('<option value="'+ value.id +'">'+ value.unit +'</option>');
                         });

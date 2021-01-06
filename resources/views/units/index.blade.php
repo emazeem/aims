@@ -57,13 +57,10 @@
                     {"data": "unit"},
                     {"data": "options", "orderable": false},
                 ]
-
             });
         }
-
         $(document).ready(function () {
             InitTable();
         });
-
     </script>
 @endsection

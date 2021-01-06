@@ -62,7 +62,9 @@ class UnitController extends Controller
         $unit=new Unit();
         $unit->unit=$request->unit;
         $unit->parameter=$request->parameter;
-
+        $unit->primary_=($request->primary)?$request->primary:null;
+        $unit->factor_multiply=$request->factor_multiply;
+        $unit->factor_add=$request->factor_add;
         $unit->save();
         return  redirect()->back()->with('success', 'Unit has been added successfully.');
     }
@@ -77,6 +79,9 @@ class UnitController extends Controller
         $unit=Unit::find($request->id);
         $unit->unit=$request->unit;
         $unit->parameter=$request->parameter;
+        $unit->primary=($request->primary)?$request->primary:null;
+        $unit->factor_multiply=$request->factor_multiply;
+        $unit->factor_add=$request->factor_add;
         $unit->save();
         return  redirect()->back()->with('success', 'Unit has been added successfully.');
     }
@@ -88,6 +93,7 @@ class UnitController extends Controller
     }
     public function previous_units($id){
         $units=Unit::where('parameter',$id)->get();
+        $units['primary']=Unit::where('primary_',null)->where('parameter',$id)->get();
         return response()->json($units);
     }
     //

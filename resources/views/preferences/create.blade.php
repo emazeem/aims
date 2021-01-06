@@ -12,6 +12,7 @@
     <div class="col-12">
         <div class="row">
             <h3 class="box-title border-bottom"><i class="fa fa-plus-circle"></i> Add Category</h3>
+
         </div>
         <form class="form-horizontal" action="{{route('preferences.store_category')}}" method="post">
             @csrf
@@ -28,6 +29,9 @@
                                      <strong>{{ $errors->first('category') }}</strong>
                                     </span>
                                 @endif
+                                    @foreach(\App\Models\Preference::all()->where('name',null) as $item)
+                                        <span class="badge badge-danger my-1"><b class="h6">{{$item->category}}</b></span>
+                                    @endforeach
                             </div>
                             <div class="col-md-2 text-right mt-2 mt-md-0">
                                 {{--<a href="{!! url(''); !!}" class="btn btn-light border">Cancel</a>--}}

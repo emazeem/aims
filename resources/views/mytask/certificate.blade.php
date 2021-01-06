@@ -36,7 +36,7 @@
             <div class="col-2 font-weight-bold">Request #:</div>
             <div class="col-10">{{$mainjob->quotes->details}}</div>
             <div class="col-2 font-weight-bold">Job #:</div>
-            <div class="col-10">{{$mainjob->id}}</div>
+            <div class="col-10">{{'JN/'.date('y',strtotime($mainjob->created_at)).'/'.$mainjob->id}}</div>
         </div>
         <h5 class="mt-3 custom-bottom-border col-12 p-0 m-0  mb-3 font-weight-bold">DETAILS OF UNIT UNDER CALIBRATION:</h5>
         <div class="row col-12 p-0">
@@ -182,8 +182,9 @@
         <h5 class=" custom-bottom-border col-12 p-0 m-0 mb-3 font-weight-bold">MEASUREMENT CONDITIONS: (Optional) :</h5>
         <h5 class=" custom-bottom-border col-12 p-0 m-0 mb-3 font-weight-bold">CALIBRATION RESULTS:</h5>
     </div>
+    @foreach($p as $i)
     <div class="row">
-        <h6 class=" custom-bottom-border col-12 p-0 m-0 mb-3 font-weight-bold">Measurement Data for Humidity</h6>
+        <h6 class=" custom-bottom-border col-12 p-0 m-0 mb-3 font-weight-bold">Measurement Data for {{\App\Models\Parameter::find($i)->name}}</h6>
             <div class="col-3 font-weight-bold">Calibrated Range :</div>
             <div class="col-9"> {{$job->range}}</div>
             <div class="col-3 font-weight-bold">Resolution : </div>
@@ -216,6 +217,7 @@
                 </td>
             </tr>
             @foreach($allentries as $allentry)
+                @if(\App\Models\Asset::find($allentry->parent->asset_id)->parameter==$i)
                 <tr>
                     <?php
                         $n=0;
@@ -252,9 +254,12 @@
                             {{$data[$allentry->fixed_value]['expanded-uncertainty']}}
                         </td>
                     </tr>
+                @endif
             @endforeach
         </table>
     </div>
+    @endforeach
+
     <div class="row">
         <div class="col-12">
             The reported expanded uncertainty is based on combined standard uncertainty multiplied by a coverage factor k=2, providing a

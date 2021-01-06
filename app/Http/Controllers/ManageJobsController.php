@@ -22,7 +22,7 @@ class ManageJobsController extends Controller
         $data=Quotes::with('customers')->where('status',4)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
-                return $data->id;
+                return 'QTN/'.date('y',strtotime($data->created_at)).'/'.$data->id;
             })
             ->addColumn('customer', function ($data) {
                 return $data->customers->reg_name;

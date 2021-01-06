@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use App\Models\Capabilities;
 use App\Models\Parameter;
+use App\Models\Preference;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -69,6 +70,15 @@ class ParameterControlller extends Controller
     public function view_units(Request $request){
         $assets=Asset::find($request->id);
         $units=Unit::where('parameter',$assets->parameter)->get();
+
+
+        $hasChannels=Preference::where('slug','has-channels')->first();
+        $hasChannels=explode(',',$hasChannels->value);
+
+        $units['show_channels']=false;
+        if (in_array($request->id,$hasChannels)){
+            $units['show_channels']=true;
+        }
         return response()->json($units);
     }
 

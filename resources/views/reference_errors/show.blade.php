@@ -32,7 +32,7 @@
                 @foreach($multiples as $key=>$multiple)
                     @if($multiple->unit==$unit)
                     <tr>
-                        <td>{{$multiple->uuc}}</td>
+                        <td>{{($multiple->channel)?$multiple->channel.' #  ':''}}  {{$multiple->uuc}} </td>
                         <td>{{$multiple->ref}}</td>
                         <td>{{$multiple->error}}</td>
                         <td>{{$multiple->uncertainty}}</td>

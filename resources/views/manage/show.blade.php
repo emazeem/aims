@@ -14,14 +14,14 @@
                 <i class='fa fa-plus'></i> Create Jobs
             </button>
             --}}
-            <h3 class="border-bottom pull-left">{{$show->id}}'s Detail</h3>
+            <h3 class="border-bottom pull-left">QTN/{{date('y',strtotime($show->created_at))}}/{{$show->id}} <small><i class="fa fa-arrow-right"></i></small> Details</h3>
             <a class="btn btn-primary float-right" href="{{url('/jobs/manage/create/'.$show->id)}}">
                 <i class='fa fa-plus'></i> Create Jobs
             </a>
             <table class="table table-hover bg-white table-bordered mt-2">
                 <tr>
                     <td><b>Quote #</b></td>
-                    <td>{{$show->id}}</td>
+                    <td>QTN/{{date('y',strtotime($show->created_at))}}{{$show->id}}</td>
                 </tr>
                 <tr>
                     <td><b>Jobs Created</b></td>
