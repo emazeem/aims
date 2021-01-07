@@ -14,10 +14,11 @@ use Yajra\DataTables\DataTables;
 class ParameterControlller extends Controller
 {
     public function index(){
-        return view('parameter');
+        $parents=Parameter::all()->where('parent',null);
+        return view('parameter',compact('parents'));
     }
     public function fetch(){
-        $data=Parameter::all();
+        $data=Parameter::with('parents')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -25,6 +26,15 @@ class ParameterControlller extends Controller
             ->addColumn('name', function ($data) {
                 return $data->name;
             })
+            ->addColumn('parent', function ($data) {
+                if ($data->parent!==null){
+                    return "<span class='badge badge-danger'>".$data->parents->name."</span>";
+                }
+                else{
+                    return "<i>NULL</i>";
+                }
+            })
+
             ->addColumn('options', function ($data) {
 
                 $action=null;
@@ -33,7 +43,7 @@ class ParameterControlller extends Controller
                 $action.="<button type='button' title='View Capabilities' class='btn view-capabilities btn-sm btn-primary' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-eye'></i> Capabilities</button>";
                 return "&emsp;".$action;
             })
-            ->rawColumns(['options'])
+            ->rawColumns(['options','parent'])
             ->make(true);
     }
     public function store(Request $request){
@@ -44,6 +54,9 @@ class ParameterControlller extends Controller
         ]);
         $parameter=new Parameter();
         $parameter->name=$request->name;
+        if ($request->parent){
+            $parameter->parent=$request->parent;
+        }
         $parameter->save();
         return response()->json(['success'=>'Added successfully']);
     }

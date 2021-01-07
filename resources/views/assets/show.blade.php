@@ -15,8 +15,6 @@
             });
         </script>
     @endif
-
-
     <div class="row pb-3">
         <div class="col-12">
             <h5 class="border-bottom pull-left">
@@ -51,6 +49,18 @@
                     <th>Parameter</th>
                     <td>{{$show->parameters->name}}</td>
                 </tr>
+                <tr>
+                    <th>Other Parameter</th>
+                    <td>
+                        @if($show->other_parameter)
+                            @php $other_parameters=explode(',',$show->other_parameter); @endphp
+                            @foreach($other_parameters as $parameter)
+                                <span class="badge badge-danger">{{\App\Models\Parameter::find($parameter)->name}}</span>
+                            @endforeach
+                        @endif
+                    </td>
+                </tr>
+
                 <tr>
                     <th>Range</th>
                     <td>{{$show->range}}</td>

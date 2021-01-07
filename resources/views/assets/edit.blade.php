@@ -7,17 +7,18 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h2 class="border-bottom text-dark">Edit Asset</h2>
-    </div>
 
     <div class="row pb-3">
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h3 class="border-bottom"><i class="fa fa-refresh"></i> Edit Asset</h3>
+        </div>
         <div class="col-12">
 
             <form class="form-horizontal" action="{{url('/assets/update/'.$edit->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
 
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="name" class="col-sm-2 control-label">Name</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name',$edit->name)}}">
@@ -47,7 +48,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="make" class="col-sm-2 control-label">Make</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="make" name="make" placeholder="Make" autocomplete="off" value="{{old('make',$edit->make)}}">
@@ -58,7 +59,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="model" class="col-sm-2 control-label">Model</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="model" name="model" placeholder="Model" autocomplete="off" value="{{old('model',$edit->model)}}">
@@ -69,7 +70,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="range" class="col-sm-2 control-label">Range</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="range" name="range" placeholder="Range" autocomplete="off" value="{{old('range',$edit->range)}}">
@@ -80,7 +81,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="Resolution" class="col-sm-2 control-label">Resolution</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="resolution" name="resolution" placeholder="Resolution" autocomplete="off" value="{{old('resolution',$edit->resolution)}}">
@@ -91,7 +92,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="accuracy" class="col-sm-2 control-label">Accuracy</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="accuracy" name="accuracy" placeholder="Accuracy" autocomplete="off" value="{{old('accuracy',$edit->accuracy)}}">
@@ -103,7 +104,7 @@
                     </div>
                 </div>
 
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="code" class="col-sm-2 control-label">Code</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="code" name="code" placeholder="Code" autocomplete="off" value="{{old('code',$edit->code)}}">
@@ -114,7 +115,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="certificate" class="col-sm-2 control-label">Certificate #</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="certificate" name="certificate"
@@ -126,7 +127,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="serial" class="col-sm-2 control-label">Serial #</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="serial" name="serial" placeholder="Serial #"
@@ -138,7 +139,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="traceability" class="col-sm-2 control-label">Traceability </label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="traceability" name="traceability" placeholder="Traceability"
@@ -171,7 +172,7 @@
 
 
 
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="calibration" class="col-sm-2 control-label">Calibration Date</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control" id="calibration" name="calibration" placeholder="" autocomplete="off"
@@ -183,7 +184,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="commissioned" class="col-sm-2 control-label">Commissioned Date</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control" id="commissioned" name="commissioned" placeholder="" autocomplete="off"
@@ -201,9 +202,9 @@
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="interval" name="interval">
                                 <option selected disabled>Select Interval</option>
-                                <option value="1">One Year</option>
-                                <option value="2">Two Years</option>
-                                <option value="3">Three Years</option>
+                                <option value="1" {{($edit->calibration_interval==1)?'selected':''}}>One Year</option>
+                                <option value="2" {{($edit->calibration_interval==2)?'selected':''}}>Two Years</option>
+                                <option value="3" {{($edit->calibration_interval==3)?'selected':''}}>Three Years</option>
                             </select>
                         </div>
                         @if ($errors->has('interval'))
@@ -246,6 +247,24 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="other_parameter" class="col-sm-2 control-label">Other Parameter</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="other_parameter" name="other_parameter[]" multiple>
+                                @foreach($parameters as $parameter)
+                                    <option value="{{$parameter->id}}" {{(in_array($parameter->id,explode(',',$edit->other_parameter)))?'selected':''}}>{{$parameter->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @if ($errors->has('other_parameter'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('other_parameter') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+
 
 
 
@@ -259,5 +278,14 @@
             </form>
         </div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $('#other_parameter').select2({
+            placeholder: 'Select Other Parameters'
+        });
+    </script>
 @endsection
 

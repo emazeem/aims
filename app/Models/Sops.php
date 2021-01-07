@@ -13,4 +13,8 @@ class Sops extends Model
     public function reviewedby(){
         return $this->belongsTo('App\Models\User','reviewed_by')->withDefault();
     }
+
+    public function child(){
+        return $this->hasMany( self::class, 'parent_id', 'id' );
+    }
 }

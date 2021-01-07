@@ -14,6 +14,7 @@ class DataentryController extends Controller
 {
     //
     public function store(Request $request){
+        //dd($request->all());
         $this->validate(request(), [
             'assets' => 'required',
             'units' => 'required',
@@ -33,36 +34,62 @@ class DataentryController extends Controller
             'x2' => 'required',
         ]);
 
+        $x1 = [];
+        $x2 = [];
+        $x3 = [];
+        $x4 = [];
+        $x5 = [];
+        $fixed = [];
+        foreach ($request->x1 as $item) {
+            if (isset($request->mulitplying_factor)){
+                $x1[] = $item*$request->mulitplying_factor;
+            }else{
+                $x1[] = $item;
+            }
+        }
+        foreach ($request->x2 as $item) {
+            if (isset($request->mulitplying_factor)){
+                $x2[] = $item*$request->mulitplying_factor;
+            }else{
+                $x2[] = $item;
+            }
+        }
+        foreach ($request->x3 as $item) {
+            if (isset($request->mulitplying_factor)){
+                $x3[] = $item*$request->mulitplying_factor;
+            }else{
+                $x3[] = $item;
+            }
+
+        }
+        foreach ($request->x4 as $item) {
+            if (isset($request->mulitplying_factor)){
+                $x4[] = $item*$request->mulitplying_factor;
+            }else{
+                $x4[] = $item;
+            }
+        }
+        foreach ($request->x5 as $item) {
+            if (isset($request->mulitplying_factor)){
+                $x5[] = $item*$request->mulitplying_factor;
+            }else{
+                $x5[] = $item;
+            }
+
+        }
+        foreach ($request->fixed_value as $item) {
+            if (isset($request->mulitplying_factor)){
+                $fixed[] = $item*$request->mulitplying_factor;
+            }else{
+                $fixed[] = $item;
+            }
+        }
         //if ($request->jobtype==0) {
             /*
                 return redirect()->back()->with('success', 'Entry added successfully');
             }*/
         $already_exsited = Dataentry::where('job_type', 0)->where('asset_id', $request->assets)->where('unit', $request->units)->first();
         if ($already_exsited) {
-            $x1 = [];
-            $x2 = [];
-            $x3 = [];
-            $x4 = [];
-            $x5 = [];
-            $fixed = [];
-            foreach ($request->x1 as $item) {
-                $x1[] = $item;
-            }
-            foreach ($request->x2 as $item) {
-                $x2[] = $item;
-            }
-            foreach ($request->x3 as $item) {
-                $x3[] = $item;
-            }
-            foreach ($request->x4 as $item) {
-                $x4[] = $item;
-            }
-            foreach ($request->x5 as $item) {
-                $x5[] = $item;
-            }
-            foreach ($request->fixed_value as $item) {
-                $fixed[] = $item;
-            }
             for ($i = 0; $i < count($x1); $i++) {
                 $item = new Dataentry();
                 $item->fixed_value = $fixed[$i];
@@ -98,30 +125,6 @@ class DataentryController extends Controller
             $entry->calibrated_by = auth()->user()->id;
             if ($entry->save()) {
                 $labjob->save();
-            }
-            $x1 = [];
-            $x2 = [];
-            $x3 = [];
-            $x4 = [];
-            $x5 = [];
-            $fixed = [];
-            foreach ($request->x1 as $item) {
-                $x1[] = $item;
-            }
-            foreach ($request->x2 as $item) {
-                $x2[] = $item;
-            }
-            foreach ($request->x3 as $item) {
-                $x3[] = $item;
-            }
-            foreach ($request->x4 as $item) {
-                $x4[] = $item;
-            }
-            foreach ($request->x5 as $item) {
-                $x5[] = $item;
-            }
-            foreach ($request->fixed_value as $item) {
-                $fixed[] = $item;
             }
             for ($i = 0; $i < count($x1); $i++) {
                 $item = new Dataentry();

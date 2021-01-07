@@ -3,7 +3,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
 
         <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> All SOP's</h3>
-
+        <a class="btn btn-success btn-sm" href="{{url('sop/master_list_of_documents')}}">Master list of Documents</a>
         <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_sop"><i
                     class="fa fa-plus-circle"></i> SOP
         </button>

@@ -341,6 +341,7 @@ class AssetController extends Controller
         $asset->traceability = $request->traceability;
         $asset->serial_no = $request->serial;
         $asset->location = $request->location;
+        $asset->other_parameter=($request->other_parameter)?implode(',',$request->other_parameter):null;
         if (isset($request->image)) {
             $attachment = time() . $request->image->getClientOriginalName();
             Storage::disk('local')->put('/public/assets/' . $attachment, File::get($request->profile));
@@ -402,6 +403,9 @@ class AssetController extends Controller
         $asset->traceability = $request->traceability;
         $asset->serial_no = $request->serial;
         $asset->location = $request->location;
+        if (isset($request->other_parameter)){
+            $asset->other_parameter=implode(',',$request->other_parameter);
+        }
         if (isset($request->image)) {
             $attachment = time() . $request->image->getClientOriginalName();
             Storage::disk('local')->put('/public/assets/' . $attachment, File::get($request->image));

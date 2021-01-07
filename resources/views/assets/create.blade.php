@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="make" class="col-sm-2 control-label">Make</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="make" name="make" placeholder="Make"
@@ -66,7 +66,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="model" class="col-sm-2 control-label">Model</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="model" name="model" placeholder="Model"
@@ -78,7 +78,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="range" class="col-sm-2 control-label">Range</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="range" name="range" placeholder="Range"
@@ -90,7 +90,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="Resolution" class="col-sm-2 control-label">Resolution</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="resolution" name="resolution"
@@ -114,7 +114,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="code" class="col-sm-2 control-label">Code</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="code" name="code" placeholder="Code"
@@ -126,7 +126,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="certificate" class="col-sm-2 control-label">Certificate #</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="certificate" name="certificate"
@@ -138,7 +138,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="serial" class="col-sm-2 control-label">Serial #</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="serial" name="serial" placeholder="Serial #"
@@ -150,10 +150,11 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="traceability" class="col-sm-2 control-label">Traceability </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="traceability" name="traceability" placeholder="Traceability"
+                        <input type="text" class="form-control" id="traceability" name="traceability"
+                               placeholder="Traceability"
                                autocomplete="off" value="{{old('traceability')}}">
                         @if ($errors->has('traceability'))
                             <span class="text-danger">
@@ -182,11 +183,11 @@
                 </div>
 
 
-
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="calibration" class="col-sm-2 control-label">Calibration Date</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="calibration" name="calibration" placeholder="" autocomplete="off"
+                        <input type="date" class="form-control" id="calibration" name="calibration" placeholder=""
+                               autocomplete="off"
                                value="{{old('calibration')}}">
                         @if ($errors->has('calibration'))
                             <span class="text-danger">
@@ -195,10 +196,11 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="commissioned" class="col-sm-2 control-label">Commissioned Date</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="commissioned" name="commissioned" placeholder="" autocomplete="off"
+                        <input type="date" class="form-control" id="commissioned" name="commissioned" placeholder=""
+                               autocomplete="off"
                                value="{{old('commissioned')}}">
                         @if ($errors->has('commissioned'))
                             <span class="text-danger">
@@ -225,7 +227,8 @@
                       </span>
                         @endif
                     </div>
-                </div><div class="form-group row">
+                </div>
+                <div class="form-group row">
                     <label for="status" class="col-sm-2 control-label">Status</label>
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline" style="width: 100%">
@@ -256,7 +259,23 @@
                         @endif
                     </div>
                 </div>
-
+                <div class="form-group row">
+                    <label for="other_parameter" class="col-sm-2 control-label">Other Parameter</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="other_parameter" name="other_parameter[]" multiple>
+                                @foreach($parameters as $parameter)
+                                    <option value="{{$parameter->id}}">{{$parameter->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @if ($errors->has('other_parameter'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('other_parameter') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
 
                 <!-- /.box-body -->
                 <div class="box-footer">
@@ -267,5 +286,13 @@
             </form>
         </div>
     </div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $('#other_parameter').select2({
+            placeholder: 'Select Other Parameters'
+        });
+    </script>
 @endsection
 

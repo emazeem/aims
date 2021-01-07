@@ -150,5 +150,10 @@ class SopsController extends Controller
         Sops::find($request->id)->delete();
         return response()->json(['success'=>'Deleted successfully']);
     }
+    public function master_list_of_documents(){
+        $documents=Sops::with('child','reviewedby')->where('parent_id',null)->get();
+        dd($documents);
+        return view('docs.masterlistofdocuemnts',compact('documents'));
+    }
     //
 }

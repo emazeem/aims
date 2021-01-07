@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\Managereference;
 use App\Models\Parameter;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\False_;
 use Yajra\DataTables\DataTables;
 
 class UnitController extends Controller
@@ -69,21 +71,23 @@ class UnitController extends Controller
         return  redirect()->back()->with('success', 'Unit has been added successfully.');
     }
     public function update(Request $request){
+        //dd($request->all());
         $this->validate(request(), [
-            'unit' => 'required|unique:units,unit,'.$request->id,
+            'unit' => 'required',
             'parameter' => 'required',
         ],[
-            'unit.required' => 'Unit is requried.',
-            'parameter.required' => 'Parameter is requried.',
+            'unit.required' => 'Unit is required.',
+            'parameter.required' => 'Parameter is required.',
         ]);
-        $unit=Unit::find($request->id);
-        $unit->unit=$request->unit;
-        $unit->parameter=$request->parameter;
-        $unit->primary=($request->primary)?$request->primary:null;
-        $unit->factor_multiply=$request->factor_multiply;
-        $unit->factor_add=$request->factor_add;
-        $unit->save();
-        return  redirect()->back()->with('success', 'Unit has been added successfully.');
+        $u=Unit::find($request->id);
+        //dd($unit);
+        $u->unit=$request->unit;
+        $u->parameter=$request->parameter;
+        $u->primary_=($request->primary)?$request->primary:null;
+        $u->factor_multiply=$request->factor_multiply;
+        $u->factor_add=$request->factor_add;
+        $u->save();
+        return  redirect()->back()->with('success', 'Unit has been updated successfully.');
     }
 
     public function units_of_assets($id){
@@ -96,5 +100,23 @@ class UnitController extends Controller
         $units['primary']=Unit::where('primary_',null)->where('parameter',$id)->get();
         return response()->json($units);
     }
+    public function check_both_units($unit,$asset){
+        $referenceData=Managereference::where('asset',$asset)->pluck('unit')->toArray();
+        $referenceData=array_unique($referenceData);
+        $data=null;
+        if (count($referenceData)>0){
+            $referenceData=$referenceData[0];
+            if ($unit==$referenceData){
+                $data['conversion']=false;
+            }else{
+                $data['conversion']=true;
+            }
+        }else{
+            $data['conversion']=false;
+        }
+        $data['unit']=Unit::find($unit);
+        return response()->json($data);
+    }
+
     //
 }

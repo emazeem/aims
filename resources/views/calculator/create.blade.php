@@ -23,6 +23,10 @@
             <input type="hidden" value="{{$show->id}}" name="jobtypeid">
             <input type="hidden" value="{{$location}}" name="jobtype">
             <input type="hidden" value="{{$show->item->capabilities->procedure}}" name="procedure">
+            <input type="text" value="" id="mulitplying_factor" name="mulitplying_factor">
+            <input type="text" value="" id="adding_factor" name="adding_factor">
+            <input type="text" value="" id="ref_unit" name="ref_unit">
+
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="assets" class=" control-label">Assets</label>
@@ -257,8 +261,8 @@
                 </table>
             </div>
             <div class="box-footer">
-                <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                <button type="submit" class="btn btn-primary float-right">Save</button>
+                <a href="{{ URL::previous() }}" class="btn btn-light border"><i class="fa fa-times"></i> Cancel</a>
+                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save</button>
             </div>
         </form>
     </div>
@@ -274,7 +278,6 @@
                         dataType: "json",
                         success: function (data) {
                             $('select[name="units"]').empty();
-
                             $('select[name="units"]').append('<option disabled selected>Select Respective Units</option>');
                             $.each(data, function (key, value) {
                                 $('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
@@ -285,6 +288,32 @@
                     $('select[name="units"]').empty();
                 }
             });
+            $('select[name="units"]').on('change', function () {
+                var asset = $('#assets').val();
+                var unit = $(this).val();
+                if (unit) {
+                    $.ajax({
+                        url: '/units/check_both_units/' + unit+'/'+asset,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data['conversion']==true){
+
+                                $('#adding_factor').val(data['unit']['factor_add']);
+                                $('#mulitplying_factor').val(data['unit']['factor_multiply']);
+                                $('#ref_unit').val(data['unit']['id']);
+                            }else {
+                                $('#adding_factor').val(0);
+                                $('#mulitplying_factor').val(0);
+                                $('#ref_unit').val('');
+                            }
+                        }
+                    });
+                } else {
+
+                }
+            });
+
             $('select[name="fixed"]').on('change', function () {
                 var fixed = $(this).val();
                 if (fixed == 'UUC') {
@@ -305,16 +334,16 @@
 
         $(document).ready(function () {
             var counter = 0;
-
+            $('#counter').val(counter);
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
-                cols += '<td><input type="text" class="form-control" name="fixed_value[]"/></td>';
-                cols += '<td><input type="text" class="form-control" name="x1[]"/></td>';
-                cols += '<td><input type="text" class="form-control" name="x2[]"/></td>';
-                cols += '<td><input type="text" class="form-control" name="x3[]"/></td>';
-                cols += '<td><input type="text" class="form-control" name="x4[]"/></td>';
-                cols += '<td><input type="text" class="form-control" name="x5[]"/></td>';
+                cols += '<td><input type="text" class="form-control" id="f'+counter+'" name="fixed_value[]"/></td>';
+                cols += '<td><input type="text" class="form-control" id="x1'+counter+'" name="x1[]"/></td>';
+                cols += '<td><input type="text" class="form-control" id="x2'+counter+'" name="x2[]"/></td>';
+                cols += '<td><input type="text" class="form-control" id="x3'+counter+'" name="x3[]"/></td>';
+                cols += '<td><input type="text" class="form-control" id="x4'+counter+'" name="x4[]"/></td>';
+                cols += '<td><input type="text" class="form-control" id="x5'+counter+'" name="x5[]"/></td>';
                 cols += '<td><a href="javascript:void(0)" class="btn btn-danger btn-sm ibtnDel"><i class=" fa fa-times-circle"></i></a></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
@@ -323,11 +352,8 @@
 
 
             $("table.order-list").on("click", ".ibtnDel", function (event) {
-                $(this).closest("tr").remove();
-                counter -= 1
+                counter -= 1;
             });
-
-
         });
 
     </script>

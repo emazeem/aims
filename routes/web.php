@@ -298,8 +298,8 @@ Route::group(['prefix'=> 'units'],function(){
     Route::post('/store/',[App\Http\Controllers\UnitController::class, 'store'])->middleware('auth')->name('units.store');
     Route::post('/update/',[App\Http\Controllers\UnitController::class, 'update'])->middleware('auth')->name('units.update');
     Route::get('/units_of_assets/{id}',[App\Http\Controllers\UnitController::class, 'units_of_assets'])->middleware('auth')->name('units.units_of_assets');
-        Route::get('/fetch/previous_units/{id}',[App\Http\Controllers\UnitController::class, 'previous_units'])->middleware('auth')->name('units.previous_units');
-
+    Route::get('/check_both_units/{unit}/{asset}',[App\Http\Controllers\UnitController::class, 'check_both_units'])->middleware('auth')->name('units.check_both_units');
+    Route::get('/fetch/previous_units/{id}',[App\Http\Controllers\UnitController::class, 'previous_units'])->middleware('auth')->name('units.previous_units');
 });
 Route::group(['prefix'=> 'procedures'],function(){
     Route::get('',[App\Http\Controllers\ProcedureController::class, 'index'])->middleware('auth')->name('procedures');
@@ -344,6 +344,7 @@ Route::post('/clear/filter',[App\Http\Controllers\InvoicingLedgerController::cla
 Route::post('/calculate',[App\Http\Controllers\MytaskController::class, 'calculate'])->middleware('auth')->name('calculate');
 Route::group(['prefix'=> 'sop'],function() {
     Route::get('',[App\Http\Controllers\SopsController::class, 'index'])->middleware('auth')->name('sops');
+    Route::get('master_list_of_documents',[App\Http\Controllers\SopsController::class, 'master_list_of_documents'])->middleware('auth')->name('sops.master_list_of_documents');
     Route::post('',[App\Http\Controllers\SopsController::class, 'fetch'])->middleware('auth')->name('sops.fetch');
     Route::post('/store',[App\Http\Controllers\SopsController::class, 'store'])->middleware('auth')->name('sops.store');
     Route::get('/view/{id}',[App\Http\Controllers\SopsController::class, 'show'])->middleware('auth')->name('sops.show');

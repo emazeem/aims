@@ -15,6 +15,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Parent</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -24,6 +25,7 @@
       <tr>
           <th>ID</th>
           <th>Name</th>
+          <th>Parent</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -53,6 +55,7 @@
             "columns": [
                 { "data": "id" },
                 { "data": "name" },
+                { "data": "parent" },
                 { "data": "options" ,"orderable":false},
             ]
 
@@ -86,6 +89,7 @@
                     $('#edit_parameter').modal('toggle');
                     $('#editid').val(data.id);
                     $('#editname').val(data.name);
+                    $('#editparent').val(data.parent);
                     //Populating Form Data to Edit Ends
                 },
                 error: function(){},
@@ -249,7 +253,19 @@
                         <div class="form-group col-9  float-left">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
-                        <div class="col-3">
+
+                        <div class="col-9">
+                            <div class="form-check form-check-inline" style="width: 100%">
+                                <select class="form-control" id="parent" name="parent" >
+                                    <option disabled selected>Select Parent (if any)</option>
+                                    @foreach($parents as $parent)
+                                        <option value="{{$parent->id}}">{{$parent->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
                             <button class="btn btn-primary" type="submit">Save</button>
                         </div>
 
@@ -280,7 +296,19 @@
                         <div class="form-group col-9  float-left">
                             <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
-                        <div class="col-3">
+
+                        <div class="col-9">
+                            <div class="form-check form-check-inline" style="width: 100%">
+                                <select class="form-control" id="editparent" name="parent" >
+                                    <option disabled selected>Select Parent (if any)</option>
+                                    @foreach($parents as $parent)
+                                        <option value="{{$parent->id}}">{{$parent->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
                             <button class="btn btn-primary" type="submit">Update</button>
                         </div>
 
