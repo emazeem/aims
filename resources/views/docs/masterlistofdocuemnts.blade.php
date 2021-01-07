@@ -17,9 +17,9 @@
                 <img src="{{url('/img/aims.png')}}" class="mt-2 ml-2" width="100">
             </div>
             <div class="col-7  my-auto py-auto">
-                <h6 class="text-center" style="margin-top: 10px">
+                <h3 class="text-center" style="margin-top: 10px">
                     MASTER LIST OF DOCUMENTS
-                </h6>
+                </h3>
             </div>
             <div class="col-3 row custom-border-left font-9 p-0">
                 <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
@@ -36,17 +36,17 @@
         <div class="row">
             <table class="table table-stripped mt-4 table-sm table-bordered font-custom">
                     <tr>
-                        <td>Sr.</td>
-                        <td>Document Description</td>
-                        <td>Document No.</td>
-                        <td>Rev. No. / Issue No.</td>
-                        <td>Issued on</td>
-                        <td>Location of Filled Formats</td>
-                        <td>Reviewed on</td>
-                        <td>Next Review</td>
-                        <td>Reviewed by</td>
-                        <td>Status</td>
-                        <td>Mode of Storage</td>
+                        <th class="text-center" width="10">Sr.</th>
+                        <th class="text-center" width="10">Document Description</th>
+                        <th class="text-center" width="10">Document No.</th>
+                        <th class="text-center" width="10">Rev. No. / Issue No.</th>
+                        <th class="text-center" width="10">Issued on</th>
+                        <th class="text-center" width="10">Location of Filled Formats</th>
+                        <th class="text-center" width="10">Reviewed on</th>
+                        <th class="text-center" width="10">Next Review</th>
+                        <th class="text-center" width="10">Reviewed by</th>
+                        <th class="text-center" width="10">Status</th>
+                        <th class="text-center" width="10">Mode of Storage</th>
                     </tr>
                     @foreach($documents as $key=>$document)
                         <tr>
@@ -56,9 +56,9 @@
                             <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{$item->rev_no}} / {{$item->issue_no}} @endif @endforeach</td>
                             <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{$item->issue}} @endif @endforeach</td>
                             <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{$item->location}} @endif @endforeach</td>
-                            <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{$item->reviewed_on}} @endif @endforeach</td>
-                            <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{$item->reviewed_on}} @endif @endforeach</td>
-                            <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{$item->reviewedby->fname}} {{$item->reviewedby->lname}} @endif @endforeach</td>
+                            <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{date('d-m-Y',strtotime($item->reviewed_on))}} @endif @endforeach</td>
+                            <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{date('d-m-Y',strtotime($item->reviewed_on)+(60*60*24*365))}} @endif @endforeach</td>
+                            <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{$item->reviewedby->designations->name}} @endif @endforeach</td>
                             <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) @if($item->status==1) Active @endif @endif @endforeach</td>
                             <td> @foreach($document->child as $key=>$item) @if(count($document->child)==$key+1) {{$item->mode_of_storage}} @endif @endforeach</td>
 
