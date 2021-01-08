@@ -24,11 +24,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Schema;
 use LaravelFullCalendar\Facades\Calendar;
 
 class DashboardControlller extends Controller
 {
     public function index(){
+        $columns = Schema::getColumnListing('departments');
+        //dd($columns);
 
 
 

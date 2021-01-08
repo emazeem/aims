@@ -108,6 +108,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+
     public function purchase()
     {
         Gate::define('purchase', function ($user) {
@@ -540,12 +541,19 @@ class AuthServiceProvider extends ServiceProvider
 
     public function quotes()
     {
+        Gate::define('rfq', function ($user) {
+            if (in_array('rfq',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
         Gate::define('quote-index', function ($user) {
             if (in_array('quote-index',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
+
         Gate::define('quote-create', function ($user) {
             if (in_array('quote-create',explode(',',$user->roles->permissions))){
                 return true;

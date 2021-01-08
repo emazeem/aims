@@ -7,16 +7,20 @@ use App\Models\Designation;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\DataTables;
 
 class UserController extends Controller
 {
     public function index(){
         $this->authorize('staff-index');
+        //$columns = Schema::getColumnListing('users');
         return view('users.index');
     }
     public function create(){
@@ -75,6 +79,7 @@ class UserController extends Controller
 
     }
     public function store(Request $request){
+
         $this->authorize('staff-create');
         $this->validate(request(), [
             'fname' => 'required',
@@ -119,6 +124,8 @@ class UserController extends Controller
         $user->designation=$request->designation;
         $user->department=$request->department;
         $user->save();
+        $activity = Activity::all()->last();
+        $activity->description;
         if (isset($request->cv)){
             $user=User::find($user->id);
             $attachment=time().'-'.$request->cv->getClientOriginalName();
@@ -198,6 +205,11 @@ class UserController extends Controller
             $user->signature=$attachment;
             $user->save();
         }
+
+
+         Activity::all()->last();
+        //$lastLoggedActivity->description;
+
         return redirect()->back()->with('success', 'Personnel Updated Successfully');
     }
     public function fetchDesignation($id){
@@ -216,6 +228,10 @@ class UserController extends Controller
         Storage::disk('local')->put('/public/profile/'.auth()->user()->id.'/'.$attachment, File::get($request->profile));
         $user->profile=$attachment;
         $user->save();
+
+        $activity = Activity::all()->last();
+        $activity->description;
+
         return redirect()->back()->with('success', 'Profile Updated Successfully');
 
     }
@@ -251,6 +267,9 @@ class UserController extends Controller
         }
         $user->password = Hash::make($request->get('password'));
         $user->save();
+
+        $activity = Activity::all()->last();
+        $activity->description;
         return redirect()->back()->with('success', "Your password has been changed.");
     }
 

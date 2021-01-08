@@ -6,16 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable,LogsActivity;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name',
         'email',
@@ -50,5 +46,29 @@ class User extends Authenticatable
 
     public function roles(){
         return $this->belongsTo('App\Models\Role','user_type');
+    }
+
+
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
+    protected static $logAttributes = ['id', 'fname', 'lname','profile','user.cnic','address'];
+    protected static $logOnlyDirty = true;
+
+
+    protected static $logName = 'system';
+
+    public function getDescriptionForEvent($eventName)
+    {
+        return "This model has been {$eventName}";
+    }
+
+    public function getTableColumns() {
+        return $this->getConnection()->getSchemaBuilder()->getColumnListing($this->getTable());
     }
 }

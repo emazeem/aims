@@ -83,7 +83,7 @@ class QuotesController extends Controller
                 }
                 //Team is working
                 if ($data->status==4){
-                    $status= '<b class="badge badge-danger">Team is working</b>';
+                    $status= '<b class="badge badge-danger">Completed</b>';
                 }
                 return $status;
             })
@@ -111,9 +111,15 @@ class QuotesController extends Controller
         $this->authorize('quote-create');
         $this->validate(request(), [
             'customer' => 'required',
+            'principal' => 'required',
+            'rfq_mode' => 'required',
+            'rfq_mode_details' => 'required',
 
         ],[
             'customer.required' => 'Customer field is required *',
+            'principal.required' => 'Customer field is required *',
+            'rfq_mode.required' => 'Customer field is required *',
+            'rfq_mode_details.required' => 'Customer field is required *',
 
         ]);
         $checks=Quotes::where('customer_id',$request->customer)->get();
@@ -126,28 +132,33 @@ class QuotesController extends Controller
             }
         }
         $session=new Quotes();
-        $session->turnaround=$request->turnaround;
         $session->customer_id=$request->customer;
-        $session->turnaround=$request->turnaround;
         $session->principal=$request->principal;
         $session->tm=$request->tm;
+        $session->rfq_mode=$request->rfq_mode;
+        $session->rfq_mode_details=$request->rfq_mode_details;
         $session->save();
         return response()->json(['success'=>'Added successfully']);
     }
     public function update(Request $request){
         $this->authorize('quote-edit');
-        $this->validate(request(), [
-            'customer' => 'required',
+        $this->validate(request(), [            'customer' => 'required',
+            'principal' => 'required',
+            'rfq_mode' => 'required',
+            'rfq_mode_details' => 'required',
 
         ],[
             'customer.required' => 'Customer field is required *',
+            'principal.required' => 'Customer field is required *',
+            'rfq_mode.required' => 'Customer field is required *',
+            'rfq_mode_details.required' => 'Customer field is required *',
         ]);
         $session=Quotes::find($request->id);
-        $session->turnaround=$request->turnaround;
         $session->customer_id=$request->customer;
-        $session->turnaround=$request->turnaround;
         $session->principal=$request->principal;
         $session->tm=$request->tm;
+        $session->rfq_mode=$request->rfq_mode;
+        $session->rfq_mode_details=$request->rfq_mode_details;
         $session->save();
         return response()->json(['success'=>'Updated successfully']);
     }

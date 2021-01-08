@@ -11,5 +11,8 @@ class Asset extends Model
     public function parameters(){
         return $this->belongsTo('App\Models\Parameter','parameter')->withDefault();
     }
+    protected static $logAttributes = ['id', 'name', 'parameter','make','model'];
+    protected static $logOnlyDirty = true;
+
 
 }

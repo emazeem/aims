@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 Route::get('optimize', function () {
     \Artisan::call('optimize');
+    \Artisan::call('view:clear');
     dd("Done");
 });
 Route::get('/home', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth');
@@ -402,3 +403,6 @@ Route::group(['prefix'=> 'material_receiving'],function() {
     Route::post('update',[App\Http\Controllers\MaterialreceivingController::class, 'update'])->middleware('auth')->name('material.receiving.update');
     Route::get('show/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'show'])->middleware('auth')->name('material.receiving.show');
 });
+
+Route::get('/activitylog',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');
+Route::post('/activitylog',[App\Http\Controllers\ActivityLogController::class, 'fetch'])->middleware('auth')->name('activitylog.fetch');

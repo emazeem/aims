@@ -113,7 +113,7 @@ class MenuController extends Controller
         return response()->json($edit);
     }
     public function manage(){
-        $mens=Menu::all()->where('parent_id',null)->where('status',1);
+        $mens=Menu::orderBy('position','ASC')->where('parent_id',null)->where('status',1)->get();
         $childs=Menu::all()->where('parent_id',!null)->where('status',1)->where('has_child',1);
         return view('manage-menus',compact('mens','childs'));
     }
