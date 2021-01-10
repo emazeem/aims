@@ -18,7 +18,7 @@
             <form class="form-horizontal" action="{{route('pendings.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" value="{{$id}}" name="na_id">
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="name" class="col-sm-2 control-label">Name</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name',$edit->not_available)}}">
@@ -30,11 +30,11 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="category" class="col-sm-2 control-label">Category</label>
+                    <label for="category" class="col-sm-2 control-label">Parameter</label>
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="category" name="category">
-                                <option selected disabled>Select Category</option>
+                                <option selected disabled>Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
                                 @endforeach
@@ -48,7 +48,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="range" class="col-sm-2 control-label">Range</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="range" name="range" placeholder="Range" autocomplete="off" value="{{old('range')}}">
@@ -59,10 +59,17 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
                     <label for="unit" class="col-sm-2 control-label">Unit</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="unit" name="unit" placeholder="Unit" autocomplete="off" value="{{old('unit')}}">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="unit" name="unit">
+                                <option selected disabled>Select Unit</option>
+                                @foreach($units as $unit)
+                                    <option value="{{$unit->id}}">{{$unit->unit}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         @if ($errors->has('unit'))
                             <span class="text-danger">
                           <strong>{{ $errors->first('unit') }}</strong>
@@ -70,7 +77,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="accuracy" class="col-sm-2 control-label">Accuracy</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="accuracy" name="accuracy" placeholder="Accuracy" autocomplete="off" value="{{old('accuracy')}}">
@@ -81,7 +88,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="price" class="col-sm-2 control-label">Price</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="price" name="price" placeholder="Price" autocomplete="off" value="{{old('price')}}">
@@ -128,7 +135,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="remarks" class="col-sm-2 control-label">Remarks</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="remarks" name="remarks" placeholder="Remarks" autocomplete="off" value="{{old('remarks')}}">

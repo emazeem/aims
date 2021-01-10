@@ -9,6 +9,7 @@ use App\Models\Parameter;
 use App\Models\Procedure;
 use App\Models\Quotes;
 use App\Models\Session;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Services\DataTable;
@@ -56,7 +57,8 @@ class PendingRequestController extends Controller
                       </form>";
                 }
                 else{
-                    $option='<span class="badge badge-danger">Closed</span>';
+                    $option .= "<a title='Checks' class='btn btn-sm btn-success checks'  href='#' data-id='{$data->id}'><i class='fa fa-check'></i></a>";
+
                 }
                 return $option."&emsp;";
 
@@ -116,7 +118,8 @@ class PendingRequestController extends Controller
         $edit=Item::find($id);
         $procedures=Procedure::all();
         $parameters=Parameter::all();
-        return view('pendings.create',compact('parameters','id','edit','procedures'));
+        $units=Unit::all();
+        return view('pendings.create',compact('parameters','id','edit','procedures','units'));
     }
     public function print_review($id){
         $print=Item::where('id',$id)->get();

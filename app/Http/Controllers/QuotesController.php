@@ -174,8 +174,14 @@ class QuotesController extends Controller
         $show=Quotes::find($id);
         $tms=User::where('department',3)->get();
         $items=Item::where('quote_id',$id)->get();
+        $noaction=false;
+        foreach ($items as $item){
+            if ($item->status==1){
+                $noaction=true;
+            }
+        }
         $capabilities_groups=Capabilitiesgroup::all();
-        return view('quotes.show',compact('show','id','tms','items','capabilities_groups'));
+        return view('quotes.show',compact('show','id','tms','items','capabilities_groups','noaction'));
     }
 
     public function sendmail($id){
@@ -290,7 +296,29 @@ class QuotesController extends Controller
     public function prints($id){
         //$this->authorize('quote-print-details');
         $session=Quotes::find($id);
-        return view('quotes.print',compact('session'));
+        $items=[];
+        $groups=[];
+        foreach ($session->items as $item){
+            if ($item->group_id==null){
+                $items[]=$item;
+            }else{
+                $groups[]=$item->group_id;
+            }
+        }
+        $groups=array_unique($groups);$groups=array_values($groups);
+        $prices=[];
+        foreach ($groups as $group){
+            $p=0;
+            foreach ($session->items as $item){
+                if ($item->group_id==$group){
+                    $p=$p+$item->price;
+                }
+            }
+            $prices[$group]=$p;
+        }
+
+        //$items=$session->items;
+        return view('quotes.print',compact('session','items','groups','prices'));
     }
     public function print_rf($id){
         //$this->authorize('quote-print-details');

@@ -32,7 +32,7 @@
     <div class="row py-3">
         <div class="col-3 row my-1 font-11 ">
             <div class="col-3">Inquiry#:</div>
-            <div class="col-9 custom-bottom-border  text-center" >{{'QTN/'.date('y',strtotime($quotes->created_at)).'/'.$quotes->id}}</div>
+            <div class="col-9 custom-bottom-border  text-center" >{{'INQ/'.date('y',strtotime($quotes->created_at)).'/'.$quotes->id}}</div>
         </div>
         <div class="col-4 row my-1 font-11 ">
             <div class="col-5">Inquiry Date:</div>

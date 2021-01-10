@@ -82,9 +82,13 @@
                     <td class="font-11">{{$session->principal}}</td>
                     <td class="font-11"></td>
                     <td class="font-11">{{$session->users->fname}} {{$session->users->lname}}</td>
-                    <td class="font-11"></td>
+                    <td class="font-11">
+                        <img src="{{Storage::disk('local')->url('public/signature/'.$session->users->id.'/'.$session->users->signature)}}" width="80" class="img-fluid">
+                    </td>
                     <td class="font-11">{{auth()->user()->fname}} {{auth()->user()->lname}}</td>
-                    <td class="font-11"></td>
+                    <td class="font-11">
+                        <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="80" class="img-fluid">
+                    </td>
                     <td class="font-11 text-center">1</td>
                 </tr>
                 </tbody>
@@ -282,13 +286,11 @@
                 </thead>
                 <tbody>
 
-                @php $i=1; $subtotal=0; $tax=0;@endphp
-                @foreach($session->items as $quote)
+                @php  $subtotal=0; $tax=0;@endphp
+                @foreach($items as $key=> $quote)
                     <tr>
-
-                        <td class="font-11">{{$i}}</td>
+                        <td class="font-11">{{$key}}</td>
                         <td class="font-11">
-
                             @if($quote->not_available)
                                 {{$quote->not_available}}
                             @else
@@ -296,48 +298,60 @@
                             @endif
 
                         <td class="font-11">
-                            @if($quote->not_available)
-                                ---
-                            @else
+                            @if($quote->status==0 or $quote->status==2)
                                 {{$quote->parameters->name}}
+                            @else
+                                ---
                             @endif
-
                         </td>
-                        <td class="font-11">{{$quote->range}}</td>
-                        <td class="font-11">{{$quote->accredited}}</td>
-                        <td class="font-11">{{$quote->location}}</td>
-                        <td class="font-11">{{$quote->price}}</td>
+                        <td class="font-11">
+                            @if($quote->status==0 or $quote->status==2){{$quote->range}}@else --- @endif</td>
+                        <td class="font-11">
+                            @if($quote->status==0 or $quote->status==2){{$quote->accredited}}@else --- @endif</td>
+                        <td class="font-11">
+                            @if($quote->status==0 or $quote->status==2){{$quote->location}}@else --- @endif</td>
+                        <td class="font-11">
+                            @if($quote->status==0 or $quote->status==2){{$quote->price}}@else --- @endif</td>
                         <td class="font-11">{{$quote->quantity}}</td>
                         <td class="font-11">{{$quote->quantity*$quote->price}}</td>
                     </tr>
-                    @php $i++;$subtotal=$subtotal+($quote->quantity*$quote->price); @endphp
-
+                    @php $subtotal=$subtotal+($quote->quantity*$quote->price); @endphp
                 @endforeach
+                @foreach($groups as $group)
+                    @php $key=$key+1; @endphp
+                    <tr>
+                        <td class="font-11">{{$key}}</td>
+                        <td class="font-11">
+                            {{\App\Models\Capabilitiesgroup::find($group)->name}}
 
+                        </td>
+                        <td class="font-11"> Misc</td>
+                        <td class="font-11"> Misc</td>
+                        <td class="font-11"> Misc</td>
+                        <td class="font-11"> Misc</td>
+                           <td class="font-11">{{$prices[$group]}}</td>
+                            <td class="font-11"></td>
+                        <td class="font-11">{{$prices[$group]}}</td>
+                    </tr>
+                        @php $subtotal=$subtotal+$prices[$group]; @endphp
+                @endforeach
                 <tr>
                     <th colspan="8">Total Service Charges</th>
                     <th colspan="2">{{$subtotal}}</th>
                 </tr>
                 <tr>
-                    <th colspan="8">Punjab Revenue Authority Tax  ({{$session->customers->region}})</th>
+                    <th colspan="8">{{\App\Models\Preference::find($session->customers->region)->name}} (                                    <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="200" class="img-fluid">
+                        {{\App\Models\Preference::find($session->customers->region)->value}}%)</th>
                     <th colspan="2">
-                        @if($session->customers->region="PRA")
-                            16% @php $tax=16/100; @endphp
-                        @elseif($session->customers->region="SRB")
-                            13% @php $tax=13/100; @endphp
-                        @elseif($session->customers->region="KPRA")
-                            15% @php $tax=15/100; @endphp
-                        @elseif($session->customers->region="BRA")
-                            15% @php $tax=15/100; @endphp
-                        @elseif($session->customers->region="IRD")
-                            16% @php $tax=16/100; @endphp
-                        @endif
+
+                        @php $tax=$subtotal*(\App\Models\Preference::find($session->customers->region)->value/100);@endphp
+                        {{$tax}}
                     </th>
                 </tr>
                 <tr>
-                    <?php $total=($subtotal*$tax)+$subtotal; ?>
+                    <?php $total=$tax+$subtotal; ?>
                     <th colspan="8"  class="text-capitalize">Total ( {{$total}} )</th>
-                    <th colspan="2">{{($subtotal*$tax)+$subtotal}}</th>
+                    <th colspan="2">{{$total}}</th>
                 </tr>
                 </tbody>
             </table>

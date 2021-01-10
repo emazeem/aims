@@ -107,6 +107,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('pendings-no-facility', function ($user) {
+            if (in_array('pendings-no-facility',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
     }
 
     public function purchase()

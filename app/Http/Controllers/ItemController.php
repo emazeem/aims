@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Capabilities;
+use App\Models\Capabilitiesgroup;
 use App\Models\Item;
 use App\Models\Nofacility;
 use App\Models\Parameter;
@@ -107,6 +108,32 @@ class ItemController extends Controller
     }
     public function store(Request $request){
         $this->authorize('items-create');
+        if (isset($request->idofquote_forgroup)){
+            $this->validate(request(), [
+                'groups' => 'required',
+            ],[
+                'groups.required' => 'Groups field is required *',
+            ]);
+            $group=Capabilitiesgroup::find($request->groups);
+            foreach (explode(',',$group->capabilities) as $capability){
+                $cap=Capabilities::find($capability);
+                $item=new Item();
+                $item->quote_id=$request->idofquote_forgroup;
+                $item->not_available=null;
+                $item->location=$cap->location;
+                $item->accredited=$cap->accredited;
+                $item->parameter=$cap->parameter;
+                $item->capability=$cap->id;
+                $item->range=$cap->range;
+                $item->status=0;
+                $item->price=$cap->price;
+                $item->quantity=1;
+                $item->group_id=$request->groups;
+                $item->save();
+            }
+            return redirect()->back()->with('success','Group Capabilities Items added successfully');
+
+        }
         if (isset($request->name)){
             $this->validate(request(), [
                 'name' => 'required',
@@ -240,6 +267,7 @@ class ItemController extends Controller
         $q->status=3;
         $q->save();
         $nofacility=new Nofacility();
+        $nofacility->item_id=$id;
         $nofacility->capability=$q->not_available;
         $nofacility->save();
         return response()->json(['success'=>'Sent successfully']);

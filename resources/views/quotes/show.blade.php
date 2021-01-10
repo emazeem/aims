@@ -21,9 +21,13 @@
         </form>
         <div class="col-12 text-right">
             @if(count($items)>0)
-                <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-refresh'></i> Revise</a>
-                <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#' data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
-                <a title='Complete' class='btn btn-outline-primary btn-sm complete' href='#' data-id='{{$show->id}}'><i class='fa fa-thumbs-up'></i> Mark as Complete</a>
+                @if($noaction==false)
+                    <a title='Mark as Complete' class='btn btn-outline-primary btn-sm complete' href='#' data-id='{{$show->id}}'><i class='fa fa-thumbs-up'></i> Mark as Complete</a>
+
+                    <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-refresh'></i> Revise</a>
+                    <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#' data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
+
+                @endif
             @endif
         </div>
 
@@ -58,17 +62,11 @@
                 <tr>
                     <td><b>Status</b></td>
                     <td>
-                        @if($show->status===0)
-                            <b class="text-danger">[ Pending ]</b>
-                        @elseif($show->status===1)
-                            <b class="text-danger">[ Awaiting Customer Approval ]</b>
-                        @elseif($show->status===2)
-                            <b class="text-danger">[ Closed ]</b>
-                        @elseif($show->status===3)
-                            <b class="text-muted">[ Approved ]</b>
-                        @elseif($show->status===4)
-                            <b class="text-success">[ Closed ]</b>
-                        @else
+                        @if($show->status==0)
+                            [ <span class="text-success">Pending</span> ]
+                        @endif
+                        @if($noaction==true)
+                            [ <span class="text-danger">Item(s) pending for review</span> ]
                         @endif
                     </td>
                 </tr>
@@ -345,8 +343,7 @@
                 "processing": true,
                 "serverSide": true,
                 "Paginate": true,
-
-                "order": [[0, 'desc']],
+                "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
                     "url": "{{ route('items.fetch') }}",
