@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Capabilitiesgroup;
 use App\Models\Customer;
 use App\Models\Item;
 use App\Models\Quotes;
@@ -173,7 +174,8 @@ class QuotesController extends Controller
         $show=Quotes::find($id);
         $tms=User::where('department',3)->get();
         $items=Item::where('quote_id',$id)->get();
-        return view('quotes.show',compact('show','id','tms','items'));
+        $capabilities_groups=Capabilitiesgroup::all();
+        return view('quotes.show',compact('show','id','tms','items','capabilities_groups'));
     }
 
     public function sendmail($id){
@@ -243,8 +245,21 @@ class QuotesController extends Controller
         //dd($session);
         return response()->json($session);
     }
+    public function purchase_details(Request $request){
+        $this->validate(request(),[
+            'pur_name'=>'required',
+            'pur_phone'=>'required',
+            'pur_email'=>'required',
+        ]);
+        $customer=Customer::find($request->customer);
+        $customer->pur_name=$request->pur_name;
+        $customer->pur_phone=implode('-',$request->pur_phone);
+        $customer->pur_email=$request->pur_email;
+        $customer->save();
+        return redirect()->back()->with('success','Customer purchase details updated successfully');
+    }
     public function approval_details(Request $request){
-        $this->authorize('quote-print-details');
+        //$this->authorize('quote-print-details');
         $session=Quotes::find($request->id);
         if (isset($request->mode)){
             $this->validate(request(),[
@@ -252,12 +267,11 @@ class QuotesController extends Controller
                 'details'=>'required',
                 'approval_date'=>'required',
             ]);
-            $session->mode=($request->mode)?$request->mode:null;
-            $session->details=($request->details)?$request->details:null;
+            $session->approval_mode=($request->mode)?$request->mode:null;
+            $session->approval_mode_details=($request->details)?$request->details:null;
             $session->approval_date=$request->approval_date;
         }
         $session->save();
-
         /*if (isset($request->pur_name)){
             $this->validate(request(),[
                 'pur_name'=>'required',
@@ -274,7 +288,7 @@ class QuotesController extends Controller
     }
 
     public function prints($id){
-        $this->authorize('quote-print-details');
+        //$this->authorize('quote-print-details');
         $session=Quotes::find($id);
         return view('quotes.print',compact('session'));
     }

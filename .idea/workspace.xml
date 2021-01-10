@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45e74d29-eecd-4738-987d-ce850b535ba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aims8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aims8.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/packages.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/quotes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quotes/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/quotes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/quotes/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,14 +66,14 @@
           <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="4" />
+          <entry key="project.open.time.2" value="5" />
           <entry key="project.open.time.21" value="3" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="23" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -151,26 +128,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="153" column="74" selection-start-line="153" selection-start-column="74" selection-end-line="153" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/quotes/show.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="155" column="72" selection-start-line="155" selection-start-column="72" selection-end-line="155" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -591,16 +549,17 @@
       <workItem from="1609940695707" duration="877000" />
       <workItem from="1609941894730" duration="19597000" />
       <workItem from="1610005835588" duration="13499000" />
+      <workItem from="1610276391218" duration="497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346605000" />
+    <option name="totallyTimeSpent" value="347102000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17170954" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17170954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -613,7 +572,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" weight="0.31967214" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49848714" visible="true" weight="0.3737705" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.31311476" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -829,9 +788,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../erp/resources/views/activitylog/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../erp/resources/views/activitylog/index.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/designation.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1071" />
@@ -848,9 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -951,14 +905,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2669">
           <caret line="293" column="99" selection-start-line="293" selection-start-column="99" selection-end-line="293" selection-end-column="99" />
-          <folding>
-            <element signature="e#4976#6154#0#HTML" />
-            <element signature="e#6215#7525#0#HTML" />
-            <element signature="e#9378#9397#0#HTML" expanded="true" />
-            <element signature="e#10728#10747#0#HTML" expanded="true" />
-            <element signature="e#14107#14126#0#HTML" expanded="true" />
-            <element signature="e#14888#14907#0#HTML" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/quotes/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="164" column="51" lean-forward="true" selection-start-line="164" selection-start-column="51" selection-end-line="164" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -966,13 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="153" column="74" selection-start-line="153" selection-start-column="74" selection-end-line="153" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/quotes/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="155" column="72" selection-start-line="155" selection-start-column="72" selection-end-line="155" selection-end-column="72" />
         </state>
       </provider>
     </entry>
