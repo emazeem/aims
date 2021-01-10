@@ -59,6 +59,16 @@ Route::group(['prefix'=> 'capabilities'],function() {
     Route::delete('/delete',[App\Http\Controllers\CapabilitiesController::class, 'delete'])->middleware('auth')->name('capabilities.delete');
     Route::get('/view/{id}',[App\Http\Controllers\CapabilitiesController::class, 'show'])->middleware('auth')->name('capabilities.show');
 });
+
+Route::group(['prefix'=> 'capabilities/group'],function() {
+    Route::get('',[App\Http\Controllers\CapabilitiesgroupController::class, 'index'])->middleware('auth')->name('capabilities.groups');
+    Route::get('/create',[App\Http\Controllers\CapabilitiesgroupController::class, 'create'])->middleware('auth')->name('capabilities.groups.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\CapabilitiesgroupController::class, 'edit'])->middleware('auth')->name('capabilities.groups.edit');
+    Route::get('/show/{id}',[App\Http\Controllers\CapabilitiesgroupController::class, 'show'])->middleware('auth')->name('capabilities.groups.show');
+    Route::post('/update',[App\Http\Controllers\CapabilitiesgroupController::class, 'update'])->middleware('auth')->name('capabilities.groups.update');
+    Route::post('',[App\Http\Controllers\CapabilitiesgroupController::class, 'fetch'])->middleware('auth')->name('capabilities.groups.fetch');
+    Route::post('store',[App\Http\Controllers\CapabilitiesgroupController::class, 'store'])->middleware('auth')->name('capabilities.groups.store');
+});
 Route::group(['prefix'=> 'assets'],function() {
     Route::group(['prefix'=> 'intermediate-checks'],function() {
         Route::get('/create/{asset}',[App\Http\Controllers\IntermediatechecksofassetController::class, 'create'])->middleware('auth')->name('intermediate-checks.create');

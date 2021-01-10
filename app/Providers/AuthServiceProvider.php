@@ -454,6 +454,12 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
+        Gate::define('capabilities-group-index', function ($user) {
+            if (in_array('capabilities-group-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
     }
     public function capabilities()
     {
