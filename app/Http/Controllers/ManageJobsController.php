@@ -19,7 +19,7 @@ class ManageJobsController extends Controller
     }
     public function fetch(){
         $this->authorize('quote-index');
-        $data=Quotes::with('customers')->where('status',4)->get();
+        $data=Quotes::with('customers')->where('status',3)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return 'QTN/'.date('y',strtotime($data->created_at)).'/'.$data->id;

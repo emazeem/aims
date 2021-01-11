@@ -8,7 +8,6 @@
     <title>AIMS-QT-{{date('y')}}-{{$session->id}} {{$session->customers->reg_name}}</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
 </head>
 <style>
     @media print {
@@ -89,7 +88,7 @@
                     <td class="font-11">
                         <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="80" class="img-fluid">
                     </td>
-                    <td class="font-11 text-center">1</td>
+                    <td class="font-11 text-center">{{$session->revision}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -133,14 +132,18 @@
                 </tr>
                 <tr>
                     <td class="font-11 text-center">8</td>
-                    <td class="font-10">Terms and Conditions</td>
+                    <td class="font-10">Tentative Turnaround Time</td>
                 </tr>
                 <tr>
                     <td class="font-11 text-center">9</td>
-                    <td class="font-10">Bank Information</td>
+                    <td class="font-10">Terms and Conditions</td>
                 </tr>
                 <tr>
                     <td class="font-11 text-center">10</td>
+                    <td class="font-10">Bank Information</td>
+                </tr>
+                <tr>
+                    <td class="font-11 text-center">11</td>
                     <td class="font-10">Validity</td>
                 </tr>
 
@@ -182,7 +185,7 @@
             <div class="col-2 font-10 ">Quote#:</div>
             <div class="col-10 font-10  custom-bottom-border">{{'QTN/'.date('y',strtotime($session->created_at)).'/'.$session->id}}</div>
             <div class="col-2 font-10 ">Rev#:</div>
-            <div class="col-10  font-10 custom-bottom-border">1</div>
+            <div class="col-10  font-10 custom-bottom-border">{{$session->revision}}</div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-3 font-10">Subject /Description:</div>
@@ -224,9 +227,7 @@
                         $type.='SPLIT';
                     }
             @endphp
-
             <p class="font-10 line-height col-7"><span class="ml-5 pl-2">2.1 - AIMS Calibration Lab in Lahore</span>.<input type="checkbox" {{($type=="LAB")?"checked":""}} class="float-right"></p>
-
             <div class="col-12"></div>
             <p class="font-10 line-height col-7"><span class="ml-5 pl-2">2.2 - Customer premises as per given address.</span><input type="checkbox" {{($type=="SITE")?"checked":""}} class="float-right"></p>
             <div class="col-12"></div>
@@ -240,8 +241,14 @@
 </span>.</p>
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">4</span>  REMARKS:</p>
 
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">4.1 - Any other necessary information required to be stated here.
-</span>.</p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">4.1 -
+                    @if($session->remarks)
+
+                        {{$session->remarks}}
+                    @else
+                        Any other necessary information required to be stated here.
+                    @endif
+</span></p>
 
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">5</span>  PROVISION BY AIMS:</p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">5.1 - AIMS will execute calibration of required items in safe and sound manner as per agreed schedule.</span></p>
@@ -251,7 +258,6 @@
         </div>
         <div class="row ">
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">6</span>  PROVISION BY CUSTOMER:</p>
-
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.1 - To raise Purchase Request and issue Purchase Order/Work Order in the name of AIMS.</span></p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.2 - To confirm serviceability status of the items before shipping or inviting AIMS team.</span></p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.3 - To confirm job schedule before sending items to AIMS.
@@ -259,7 +265,7 @@
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.5 - In case of courier of customer property, AIMS will not be responsible for any loss/damage in transportation.</span></p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.6 - To arrange boarding/loading, security passes/permits for AIMS team for site job.</span></p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.7 - To arrange payment as per given payment terms and conditions.</span></p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2  py-1">6.8 - To sign visit sign work sheet / time sheet of AIMS in order to confirm completion of site Job.</span></p>
+            <p class="font-10 line-height col-12 ml-5 pl-2"><span class="  py-1">6.8 - To sign visit sign work sheet / time sheet of AIMS in order to confirm completion of site Job.</span></p>
             <p class="font-12  mt-1 col-12 float-left b"><span class="mr-5">7</span>  PRICE PROPOSAL:</p>
             <p class="font-12 text-right col-12 b float-right">Date : <span class="custom-bottom-border">{{date('d-m-Y',time())}}</span></p>
         </div>
@@ -285,11 +291,10 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 @php  $subtotal=0; $tax=0;@endphp
                 @foreach($items as $key=> $quote)
                     <tr>
-                        <td class="font-11">{{$key}}</td>
+                        <td class="font-11">{{$key+1}}</td>
                         <td class="font-11">
                             @if($quote->not_available)
                                 {{$quote->not_available}}
@@ -318,7 +323,12 @@
                     @php $subtotal=$subtotal+($quote->quantity*$quote->price); @endphp
                 @endforeach
                 @foreach($groups as $group)
-                    @php $key=$key+1; @endphp
+                    @php
+                    if (!isset($key)){
+                    $key=0;
+                    }
+                        $key=$key+1;
+                    @endphp
                     <tr>
                         <td class="font-11">{{$key}}</td>
                         <td class="font-11">
@@ -340,8 +350,7 @@
                     <th colspan="2">{{$subtotal}}</th>
                 </tr>
                 <tr>
-                    <th colspan="8">{{\App\Models\Preference::find($session->customers->region)->name}} (                                    <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="200" class="img-fluid">
-                        {{\App\Models\Preference::find($session->customers->region)->value}}%)</th>
+                    <th colspan="8">{{\App\Models\Preference::find($session->customers->region)->name}} ({{\App\Models\Preference::find($session->customers->region)->value}}%)</th>
                     <th colspan="2">
 
                         @php $tax=$subtotal*(\App\Models\Preference::find($session->customers->region)->value/100);@endphp
@@ -349,22 +358,25 @@
                     </th>
                 </tr>
                 <tr>
-                    <?php $total=$tax+$subtotal; ?>
-                    <th colspan="8"  class="text-capitalize">Total ( {{$total}} )</th>
+                    <?php $total=$tax+$subtotal;
+                    $numberToWords = new \NumberToWords\NumberToWords();
+                    $numberTransformer = $numberToWords->getNumberTransformer('en');
+                    ?>
+                    <th colspan="8"  class="text-capitalize">Total ( {{$numberTransformer->toWords($total)}} )</th>
                     <th colspan="2">{{$total}}</th>
                 </tr>
                 </tbody>
             </table>
-            <p class="font-12  mt-1 col-12 b"><span class="mr-5">8</span> TERMS & CONDITIONS:</p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">8.1 -	Price basis is Ex works Pakistan unless otherwise mentioned anywhere in the body of this quote.</span></p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">8.2 -	AIMS prices are applicable for the quoted quantities, in case of any variation, AIMS reserve the rights to change unit prices.</span></p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">8.3 -	For each non-calibrateable item sent by customer, AIMS will charge @ 25% of calibration charges for wasted manhours. Additionally for site job transportation will be charges as per actual.</span></p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">8.4 - Terms of payment:</span></p>
+            <p class="font-12  mt-1 col-12 b"><span class="mr-5">8</span> TENTATIVE TURNAROUND TIME:</p>
+            <p class="font-10 line-height col-12 ml-5 pl-2"><span>{{$session->turnaround}} working days</span></p>
+            <p class="font-12  mt-1 col-12 b"><span class="mr-5">9</span> TERMS & CONDITIONS:</p>
+            <p class="font-10 line-height col-12"><span>9.1 -	Price basis is Ex works Pakistan unless otherwise mentioned anywhere in the body of this quote.</span></p>
+            <p class="font-10 line-height col-12"><span>9.2 -	AIMS prices are applicable for the quoted quantities, in case of any variation, AIMS reserve the rights to change unit prices.</span></p>
+            <p class="font-10 line-height col-12"><span class="">9.3 -	For each non-calibrateable item sent by customer, AIMS will charge @ 25% of calibration charges for wasted manhours. Additionally for site job transportation will be charges as per actual.</span></p>
+            <p class="font-10 line-height col-12"><span>9.4 - Terms of payment:</span></p>
             <div class="ml-5">
-
                 <p class="ml-5 font-10 col-12 pl-2"><input type="checkbox" {{($session->customers->customer_type=="cash" and $session->customers->pay_terms=="advance")?"checked":""}}> Cash/cheque advance  before starting job.</p>
                 <p class="ml-5 font-10 col-12 pl-2"><input type="checkbox" {{($session->customers->customer_type=="cash" and $session->customers->pay_terms=="against delivery")?"checked":""}}> Cash/cheque against delivery of calibration certificates.</p>
-
                 <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="15 days")?"checked":""}}> 15 days from invoice date.</p>
                 <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="30 days")?"checked":""}}> 30 days from invoice date.</p>
                 <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="60 days")?"checked":""}}> 60 days from invoice date.</p>
@@ -373,16 +385,16 @@
             </div>
 
 
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">8.5 -	In case of Bank Transfer to AIMS account, any bank charges  will be borne by customer.</span></p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">8.6 -	Cancellation of order after receipt of your confirmed PO and return of goods are not accepted.</span></p>
-            <p class="font-12  mt-1 col-12 b"><span class="mr-5">9</span> BANK DETAILS:</p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">Account Title:			AI-Meezan Industrial Metrology Services</span></p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">Bank: 			Meezan Bank,   Sabzazaar Branch</span></p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">Account #:  			0256 0102439271</span></p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">IBAN :  			PK97 MEZN 0002 5601 0243 9271</span></p>
+            <p class="font-10 line-height col-12"><span>9.5 -	In case of Bank Transfer to AIMS account, any bank charges  will be borne by customer.</span></p>
+            <p class="font-10 line-height col-12"><span>9.6 -	Cancellation of order after receipt of your confirmed PO and return of goods are not accepted.</span></p>
+            <p class="font-12  mt-1 col-12 b"><span class="mr-5">10</span> BANK DETAILS:</p>
+            <p class="font-10 line-height col-12"><span>Account Title:			AI-Meezan Industrial Metrology Services</span></p>
+            <p class="font-10 line-height col-12"><span>Bank: 			Meezan Bank,   Sabzazaar Branch</span></p>
+            <p class="font-10 line-height col-12"><span>Account #:  			0256 0102439271</span></p>
+            <p class="font-10 line-height col-12"><span>IBAN :  			PK97 MEZN 0002 5601 0243 9271</span></p>
 
-            <p class="font-12  mt-1 col-12 b"><span class="mr-5">10</span> VALIDITY:</p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">10.1 - This quotation is valid thirty (60) calendar days from the date of this offer.</span></p>
+            <p class="font-12  mt-1 col-12 b"><span class="mr-5">11</span> VALIDITY:</p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">11.1 - This quotation is valid thirty (60) calendar days from the date of this offer.</span></p>
             <div class="col-7 ">
                 <p class="font-11 line-height col-12 b mt-4">Al- Meezan Industrial Meterology Services</p>
                 <p class="font-11 line-height col-12 b "><span class="custom-bottom-border">Date :  {{date('d-m-Y',time())}}</span></p>

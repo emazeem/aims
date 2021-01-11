@@ -17,7 +17,7 @@
 
             <form class="form-horizontal" action="{{url('/items/update/'.$edit->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="session" class="col-sm-2 control-label">Session</label>
                     <div class="col-sm-10">
                         <input type="hidden" value="{{$session->id}}" name="session_id">
@@ -29,7 +29,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="customer" class="col-sm-2 control-label">Customer</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="customer" name="customer" placeholder="customer" autocomplete="off" value="{{$session->customers->reg_name}}" disabled>
@@ -76,7 +76,7 @@
                 </div>
 
 
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="range" class="col-sm-2 control-label">Range</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="range" name="range" placeholder="Range" autocomplete="off" value="{{old('range',$edit->range)}}">
@@ -87,7 +87,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="price" class="col-sm-2 control-label">Price</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="price" name="price" placeholder="Price" autocomplete="off" value="{{old('price',$edit->price)}}">
@@ -133,7 +133,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group mt-md-4 row">
+                <div class="form-group  row">
                     <label for="quantity" class="col-sm-2 control-label">Quantity</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" autocomplete="off" value="{{old('quantity',$edit->quantity)}}">

@@ -25,5 +25,7 @@ class Quotes extends Model
         return $this->hasMany('App\Models\Item','quote_id');
         //
     }
-
+    public function logs(){
+        return $this->hasMany('App\Models\Quoterevisionlog','quote_id');
+    }
 }

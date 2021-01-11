@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Capabilitiesgroup;
 use App\Models\Customer;
 use App\Models\Item;
+use App\Models\Quoterevisionlog;
 use App\Models\Quotes;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
 use Yajra\DataTables\DataTables;
-use NumConvert;
+use NumberToWords\NumberToWords;
 class QuotesController extends Controller
 {
     public function index(){
+
+
+
         $this->authorize('quote-index');
         $customers=Customer::orderBY('reg_name')->get();
         $tms=User::where('department',3)->get();
@@ -68,23 +71,17 @@ class QuotesController extends Controller
             ->addColumn('status', function ($data) {
                 //Items are adding
                 if ($data->status==0){
-                    $status= '<b class="badge badge-secondary">Pending</b>';
+                    $status= '<b class="badge badge-secondary">Items being added</b>';
                 }
-                //Session email send, awaiting customer approval
                 if ($data->status==1){
-                    $status= '<b class="badge badge-success">Awaiting Customer Approval</b>';
+                    $status= '<b class="badge badge-success">Quote is closed</b>';
                 }
-                //Session is approved or working.
                 if ($data->status==2){
-                    $status= '<b class="badge badge-success">Closed</b>';
+                    $status= '<b class="badge badge-success">Waiting for Customer Approval</b>';
                 }
                 //Team is working
                 if ($data->status==3){
                     $status= '<b class="badge badge-danger">Approved</b>';
-                }
-                //Team is working
-                if ($data->status==4){
-                    $status= '<b class="badge badge-danger">Completed</b>';
                 }
                 return $status;
             })
@@ -180,8 +177,8 @@ class QuotesController extends Controller
                 $noaction=true;
             }
         }
-        $capabilities_groups=Capabilitiesgroup::all();
-        return view('quotes.show',compact('show','id','tms','items','capabilities_groups','noaction'));
+
+        return view('quotes.show',compact('show','id','tms','items','noaction'));
     }
 
     public function sendmail($id){
@@ -196,7 +193,8 @@ class QuotesController extends Controller
         $session=Quotes::find($id);
         return view('quotes.mail',compact('session'));
     }
-    public function sendtocustomer($id,Request $request){
+
+    /*public function sendtocustomer($id,Request $request){
 
         $this->authorize('quote-send-to-customer');
         $this->validate(request(),[
@@ -245,6 +243,7 @@ class QuotesController extends Controller
 
 
     }
+    */
     public function getprintdetails(Request $request){
         $this->authorize('quote-print-details');
         $session=Quotes::with('customers')->find($request->id);
@@ -318,6 +317,8 @@ class QuotesController extends Controller
         }
 
         //$items=$session->items;
+
+
         return view('quotes.print',compact('session','items','groups','prices'));
     }
     public function print_rf($id){
@@ -349,7 +350,7 @@ class QuotesController extends Controller
             $type .= 'SPLIT';
         }
         $approval=Quotes::findOrFail($id);
-        $approval->status=4;
+        $approval->status=3;
         $approval->type=$type;
         $approval->save();
         return response()->json(['success'=>'Quote approved successfully']);
@@ -358,6 +359,7 @@ class QuotesController extends Controller
         $this->authorize('quote-revised');
         $approval=Quotes::find($id);
         $approval->status=0;
+        $approval->revision=$approval->revision+1;
         $approval->save();
         return response()->json(['success'=>'You can review your quote now']);
     }
@@ -368,6 +370,14 @@ class QuotesController extends Controller
         $approval->save();
         return response()->json(['success'=>'Quote is marked as complete']);
     }
+    public function sendtocustomer(Request $request){
+        $this->authorize('quote-revised');
+        $approval=Quotes::find($request->id);
+        $approval->status=2;
+        $approval->save();
+        return response()->json(['success'=>'Quote is marked as sent to customer']);
+    }
+
     public function discount(Request $request){
         //dd($request->all());
         $items=Item::where('quote_id',$request->id)->get();
@@ -375,9 +385,25 @@ class QuotesController extends Controller
             if ($item->status==0 || $item->status==2){
                 $update=Item::find($item->id);
                 $update->price=$update->price-(($request->discount/100)*$update->price);
-                $update->save();
+                $log=new Quoterevisionlog();
+                $log->quote_id=$item->quote_id;
+                $log->description='QTN/'.date('y',strtotime($item->quotes->created_at)).'/'.$item->quote_id.' ('.$item->id.')'.$request->discount.'% Discount applied with old value of '.$update->price.' and new price is '.($update->price-(($request->discount/100)*$update->price));
+                if ($update->save()){
+                    $log->save();
+                }
             }
         }
         return back()->with('success', 'Discount added successfully');
+    }
+    public function remarks(Request $request){
+        $this->validate(request(),[
+            'turnaround'=>'required',
+        ]);
+
+        $quote=Quotes::find($request->id);
+        $quote->remarks=($request->remarks)?$request->remarks:null;
+        $quote->turnaround=$request->turnaround;
+        $quote->save();
+        return back()->with('success', 'Remarks & Turnaround added successfully');
     }
 }

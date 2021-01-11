@@ -33,6 +33,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->staff();
         $this->expenses();
         $this->units();
+        $this->hr();
         $this->department();
         $this->preferences();
         $this->designation();
@@ -406,6 +407,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function hr()
+    {
+        Gate::define('hr-index', function ($user) {
+            if (in_array('hr-index', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+    }
+
     public function designation()
     {
         Gate::define('designation-index', function ($user) {
