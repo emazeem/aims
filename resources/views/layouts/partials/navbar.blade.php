@@ -6,7 +6,8 @@
         <nav class="nav navbar-nav">
             <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
-                    <a href="javascript:void(0);" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown"
+                    <a href="javascript:void(0);" class="user-profile dropdown-toggle" aria-haspopup="true"
+                       id="navbarDropdown"
                        data-toggle="dropdown" aria-expanded="false">
                         @if(auth()->user()->profile)
                             <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
@@ -20,9 +21,11 @@
                         <div class="text-center p-4">
                             @if(auth()->user()->profile)
                                 <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
-                                     class="img-fluid rounded-circle" style="height: 65px;width: 65px;object-fit: cover;">
+                                     class="img-fluid rounded-circle"
+                                     style="height: 65px;width: 65px;object-fit: cover;">
                             @else
-                                <img src="{{url('img/profile.png')}}" class="img-fluid img-fluid rounded-circle" style="height: 65px;width: 65px;object-fit: cover;">
+                                <img src="{{url('img/profile.png')}}" class="img-fluid img-fluid rounded-circle"
+                                     style="height: 65px;width: 65px;object-fit: cover;">
                             @endif
                             <div class="col-12">
                                 <span class="text-dark  font-weight-normal small ">{{auth()->user()->fname}} {{auth()->user()->lname}}</span>
@@ -53,10 +56,12 @@
                     <a href="javascript:void(0);" class="dropdown-toggle info-number" id="navbarDropdown1"
                        data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-bell-o"></i>
-                        <span class="bg-danger text-light" style="border-radius: 20px;padding: 2px;padding-left: 6px;">
-                        {{auth()->user()->unreadNotifications()->count()}}
-                    </span>
-
+                        @if(auth()->user()->unreadNotifications()->count()>0)
+                            <span class="bg-danger text-light"
+                                  style="border-radius: 20px;padding: 2px;padding-left: 6px;">
+                            {{auth()->user()->unreadNotifications()->count()}}
+                        </span>
+                        @endif
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list mt-4" role="menu" aria-labelledby="navbarDropdown1"
                         style="height: 300px;overflow-y: scroll">
@@ -71,22 +76,25 @@
                                         @endif
                                         <span>
                           <span>{{\App\Models\User::find($notification->data['data']['by'])->fname}} {{\App\Models\User::find($notification->data['data']['by'])->lname}}</span>
-                          <span class="time"><i class="fa fa-clock"></i> {{$notification['created_at']->diffForHumans()}}</span>
+                          <span class="time"><i
+                                      class="fa fa-clock"></i> {{$notification['created_at']->diffForHumans()}}</span>
                         </span><span class="message">
 {{$notification->data['data']['body']}}
                         </span></span>
                                 </a>
                             </li>
                         @endforeach
-                        <li class="nav-item ">
-                            <div class="text-center">
+                        @if(auth()->user()->Notifications()->count()>0)
+                                <li class="nav-item ">
+                                <div class="text-center">
                                 <span class="dropdown-item p-0 m-0">
                                     <a class="dropdown-item text-center" href="{{url('/notifications')}}">
                                         Show All Notifications <i class="fa fa-check-circle"></i>
                                     </a>
                                 </span>
-                            </div>
-                        </li>
+                                </div>
+                            </li>
+                        @endif
                     </ul>
                 </li>
             </ul>

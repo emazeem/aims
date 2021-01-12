@@ -47,7 +47,6 @@ Route::group(['prefix'=> 'users'],function() {
     Route::post('',[App\Http\Controllers\UserController::class, 'fetch'])->middleware('auth')->name('users.fetch');
     Route::post('/store',[App\Http\Controllers\UserController::class, 'store'])->middleware('auth')->name('users.store');
     Route::get('/fetch/designation/{id}',[App\Http\Controllers\UserController::class, 'fetchDesignation'])->middleware('auth')->name('users.fetch.designation');
-
 });
 Route::group(['prefix'=> 'capabilities'],function() {
     Route::get('',[App\Http\Controllers\CapabilitiesController::class, 'index'])->middleware('auth')->name('capabilities');
@@ -59,7 +58,6 @@ Route::group(['prefix'=> 'capabilities'],function() {
     Route::delete('/delete',[App\Http\Controllers\CapabilitiesController::class, 'delete'])->middleware('auth')->name('capabilities.delete');
     Route::get('/view/{id}',[App\Http\Controllers\CapabilitiesController::class, 'show'])->middleware('auth')->name('capabilities.show');
 });
-
 Route::group(['prefix'=> 'capabilities/group'],function() {
     Route::get('',[App\Http\Controllers\CapabilitiesgroupController::class, 'index'])->middleware('auth')->name('capabilities.groups');
     Route::get('/create',[App\Http\Controllers\CapabilitiesgroupController::class, 'create'])->middleware('auth')->name('capabilities.groups.create');
@@ -115,7 +113,6 @@ Route::group(['prefix'=> 'parameters'],function() {
     Route::post('/view_assets',[App\Http\Controllers\ParameterControlller::class, 'view_assets'])->middleware('auth')->name('parameters.view_assets');
     Route::post('/view_units',[App\Http\Controllers\ParameterControlller::class, 'view_units'])->middleware('auth')->name('parameters.view_units');
     Route::post('/view_capabilities',[App\Http\Controllers\ParameterControlller::class, 'view_capabilities'])->middleware('auth')->name('parameters.view_capabilities');
-
 });
 Route::group(['prefix'=> 'departments'],function() {
     Route::get('',[App\Http\Controllers\DepartmentController::class, 'index'])->middleware('auth')->name('departments');
@@ -124,8 +121,6 @@ Route::group(['prefix'=> 'departments'],function() {
     Route::post('/edit',[App\Http\Controllers\DepartmentController::class, 'edit'])->middleware('auth')->name('departments.edit');
     Route::post('/update',[App\Http\Controllers\DepartmentController::class, 'update'])->middleware('auth')->name('departments.update');
 });
-
-
 Route::group(['prefix'=> 'designations'],function() {
     Route::get('',[App\Http\Controllers\DesignationController::class, 'index'])->middleware('auth')->name('designations');
     Route::post('',[App\Http\Controllers\DesignationController::class, 'fetch'])->middleware('auth')->name('designations.fetch');
@@ -210,7 +205,6 @@ Route::group(['prefix'=> 'items'],function() {
     Route::delete('/delete/{id}',[App\Http\Controllers\ItemController::class, 'destroy'])->middleware('auth')->name('items.delete');
     Route::delete('/nofacility/{id}',[App\Http\Controllers\ItemController::class, 'nofacility'])->middleware('auth')->name('items.nofacility');
     Route::post('/editNA/',[App\Http\Controllers\ItemController::class, 'editNA'])->middleware('auth')->name('items.editNA');
-
 });
 Route::group(['prefix'=> 'pendings'],function() {
     Route::get('',[App\Http\Controllers\PendingRequestController::class, 'index'])->middleware('auth')->name('pendings');
@@ -415,9 +409,35 @@ Route::group(['prefix'=> 'material_receiving'],function() {
     Route::post('update',[App\Http\Controllers\MaterialreceivingController::class, 'update'])->middleware('auth')->name('material.receiving.update');
     Route::get('show/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'show'])->middleware('auth')->name('material.receiving.show');
 });
-
 Route::get('/no-facility',[App\Http\Controllers\NofacilityController::class, 'index'])->middleware('auth')->name('nofacility.index');
 Route::post('/no-facility',[App\Http\Controllers\NofacilityController::class, 'fetch'])->middleware('auth')->name('nofacility.fetch');
-
 Route::get('/activitylog',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');
 Route::post('/activitylog',[App\Http\Controllers\ActivityLogController::class, 'fetch'])->middleware('auth')->name('activitylog.fetch');
+Route::group(['prefix'=> 'requisition'],function() {
+    Route::get('/',[App\Http\Controllers\RequisitionController::class, 'index'])->middleware('auth')->name('requisition.index');
+    Route::post('',[App\Http\Controllers\RequisitionController::class, 'fetch'])->middleware('auth')->name('requisition.fetch');
+    Route::get('create',[App\Http\Controllers\RequisitionController::class, 'create'])->middleware('auth')->name('requisition.create');
+    Route::post('store',[App\Http\Controllers\RequisitionController::class, 'store'])->middleware('auth')->name('requisition.store');
+    Route::get('edit/{id}',[App\Http\Controllers\RequisitionController::class, 'edit'])->middleware('auth')->name('requisition.edit');
+    Route::post('update',[App\Http\Controllers\RequisitionController::class, 'update'])->middleware('auth')->name('requisition.update');
+    Route::get('show/{id}',[App\Http\Controllers\RequisitionController::class, 'show'])->middleware('auth')->name('requisition.show');
+});
+Route::group(['prefix'=> 'interview-appraisal'],function() {
+    Route::get('/',[App\Http\Controllers\InterviewappraisalController::class, 'index'])->middleware('auth')->name('interview_appraisal.index');
+    Route::post('',[App\Http\Controllers\InterviewappraisalController::class, 'fetch'])->middleware('auth')->name('interview_appraisal.fetch');
+    Route::get('create',[App\Http\Controllers\InterviewappraisalController::class, 'create'])->middleware('auth')->name('interview_appraisal.create');
+    Route::post('store',[App\Http\Controllers\InterviewappraisalController::class, 'store'])->middleware('auth')->name('interview_appraisal.store');
+    Route::get('edit/{id}',[App\Http\Controllers\InterviewappraisalController::class, 'edit'])->middleware('auth')->name('interview_appraisal.edit');
+    Route::post('update',[App\Http\Controllers\InterviewappraisalController::class, 'update'])->middleware('auth')->name('interview_appraisal.update');
+    Route::get('show/{id}',[App\Http\Controllers\InterviewappraisalController::class, 'show'])->middleware('auth')->name('interview_appraisal.show');
+});
+
+Route::group(['prefix'=> 'emp_contract'],function() {
+    Route::get('/',[App\Http\Controllers\EmpcontractController::class, 'index'])->middleware('auth')->name('emp_contract.index');
+    Route::post('',[App\Http\Controllers\EmpcontractController::class, 'fetch'])->middleware('auth')->name('emp_contract.fetch');
+    Route::get('create',[App\Http\Controllers\EmpcontractController::class, 'create'])->middleware('auth')->name('emp_contract.create');
+    Route::post('store',[App\Http\Controllers\EmpcontractController::class, 'store'])->middleware('auth')->name('emp_contract.store');
+    Route::get('edit/{id}',[App\Http\Controllers\EmpcontractController::class, 'edit'])->middleware('auth')->name('emp_contract.edit');
+    Route::post('update',[App\Http\Controllers\EmpcontractController::class, 'update'])->middleware('auth')->name('emp_contract.update');
+    Route::get('show/{id}',[App\Http\Controllers\EmpcontractController::class, 'show'])->middleware('auth')->name('emp_contract.show');
+});

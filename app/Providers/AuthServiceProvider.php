@@ -30,8 +30,11 @@ class AuthServiceProvider extends ServiceProvider
         View::share('menus',Menu::where('parent_id',null)->where('status',1)->orderBy('position','ASC')->get());
         $this->registerPolicies();
         $this->customers();
+        $this->interview_appraisal();
         $this->staff();
         $this->expenses();
+        $this->empcontract();
+        $this->requisition();
         $this->units();
         $this->hr();
         $this->department();
@@ -162,6 +165,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function interview_appraisal()
+    {
+        Gate::define('interview-appraisal-index', function ($user) {
+            if (in_array('interview-appraisal-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
 
 
     public function document_control()
@@ -190,6 +203,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function empcontract()
+    {
+        Gate::define('emp-contract-index', function ($user) {
+            if (in_array('emp-contract-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
     public function sop()
     {
         Gate::define('sop-index', function ($user) {
@@ -416,6 +439,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function requisition()
+    {
+        Gate::define('requisition-index', function ($user) {
+            if (in_array('requisition-index', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+    }
+
 
     public function designation()
     {

@@ -102,16 +102,16 @@
                                 @foreach($indentforrevisions as $indentforrevision)
                                     @foreach($indentforrevision->indent_items as $item)
                                         <tr>
-                                            <td>{{$item->title}}</td>
-                                            <td>{{$item->item_code}}</td>
-                                            <td>{{$item->purpose}}</td>
-                                            <td>{{$item->item_description}}</td>
-                                            <td>{{$item->ref_code}}</td>
-                                            <td>{{$item->unit}}</td>
-                                            <td>{{$item->last_six_months_consumption}}</td>
-                                            <td>{{$item->current_stock}}</td>
-                                            <td>{{$item->qty}}</td>
-                                            <td>
+                                            <td width="10%">{{$item->title}}</td>
+                                            <td width="10%">{{$item->item_code}}</td>
+                                            <td width="10%">{{$item->purpose}}</td>
+                                            <td width="10%">{{$item->item_description}}</td>
+                                            <td width="10%">{{$item->ref_code}}</td>
+                                            <td width="10%">{{$item->unit}}</td>
+                                            <td width="10%">{{$item->last_six_months_consumption}}</td>
+                                            <td width="10%">{{$item->current_stock}}</td>
+                                            <td width="10%">{{$item->qty}}</td>
+                                            <td width="10%">
                                                 <a href="{{url('purchase_indent/item/revision/reject/'.$item->id)}}"
                                                    title="Reject" class="btn btn-danger btn-sm"><i
                                                             class="fa fa-close"></i></a>
@@ -148,16 +148,16 @@
                                 @foreach($indentforapprovals as $indentforapproval)
                                     @foreach($indentforapproval->indent_items as $item)
                                         <tr>
-                                            <td>{{$item->title}}</td>
-                                            <td>{{$item->item_code}}</td>
-                                            <td>{{$item->purpose}}</td>
-                                            <td>{{$item->item_description}}</td>
-                                            <td>{{$item->ref_code}}</td>
-                                            <td>{{$item->unit}}</td>
-                                            <td>{{$item->last_six_months_consumption}}</td>
-                                            <td>{{$item->current_stock}}</td>
-                                            <td>{{$item->qty}}</td>
-                                            <td>
+                                            <td width="10%">{{$item->title}}</td>
+                                            <td width="10%">{{$item->item_code}}</td>
+                                            <td width="10%">{{$item->purpose}}</td>
+                                            <td width="11%">{{$item->item_description}}</td>
+                                            <td width="10%">{{$item->ref_code}}</td>
+                                            <td width="10%">{{$item->unit}}</td>
+                                            <td width="10%">{{$item->last_six_months_consumption}}</td>
+                                            <td width="10%">{{$item->current_stock}}</td>
+                                            <td width="10%">{{$item->qty}}</td>
+                                            <td width="10%">
                                                 <a href="{{url('purchase_indent/item/approval/reject/'.$item->id)}}"
                                                    title="Reject" class="btn btn-danger btn-sm"><i
                                                             class="fa fa-close"></i></a>

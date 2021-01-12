@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-users"></i> All Assets</h3>
+        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Assets</h3>
         <span class="text-right ">
                 <a href="{{route('assets.create')}}" class="btn float-right mt-1 btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle"></i> Assets</a>
             <a href="{{route('parameters')}}" class="btn float-right mt-1 mx-1 btn-sm btn-success shadow-sm"><i class="fa fa-eye"></i> Parameters</a>
@@ -62,7 +62,7 @@
             "serverSide": true,
             "Paginate": true,
 
-            "order": [[0, 'desc']],
+            "order": [[0, 'asc']],
             "pageLength": 25,
             "ajax":{
                 "url": "{{ route('assets.fetch') }}",

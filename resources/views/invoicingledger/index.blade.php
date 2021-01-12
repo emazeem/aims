@@ -7,6 +7,10 @@
             });
         </script>
     @endif
+
+
+
+
     <div class="row">
 
         <div class="col-12">
@@ -180,7 +184,7 @@
                 "processing": true,
                 "serverSide": true,
                 "Paginate": true,
-                "order": [[0, 'desc']],
+                "order": [[0, 'asc']],
                 "lengthMenu": [[-1], ["All"]],
                 "ajax":{
                     "url": "{{ route('invoicing_ledger.fetch') }}",
@@ -207,12 +211,6 @@
         }
         $(document).ready(function() {
             InitTable();
-
-            $('input[name="daterange"]').daterangepicker({
-                opens: 'left'
-            }, function(start, end, label) {
-                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-            });
             $("input[name$='show']").click(function(){
                 if ($(this).val()=='customer_radio'){
                     $('#customer_div').show();
@@ -236,10 +234,28 @@
                     $('#service_div').hide();
                 }
             });
+
+
+
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            }, function(start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+
         });
+
+
     </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
+
+
+
+
+
+
+
+
+
 @endsection

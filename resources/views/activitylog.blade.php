@@ -48,7 +48,7 @@
             "processing": true,
             "serverSide": true,
             "Paginate": true,
-            "order": [[0, 'desc']],
+            "order": [[0, 'asc']],
             "pageLength": 25,
             "ajax":{
                 "url": "{{ route('activitylog.fetch') }}",
