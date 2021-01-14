@@ -15,7 +15,8 @@
       <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Department Name</th>
+        <th>Department Head</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -24,7 +25,8 @@
       <tfoot>
       <tr>
           <th>ID</th>
-          <th>Name</th>
+          <th>Department Name</th>
+          <th>Department Head</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -54,6 +56,7 @@
             "columns": [
                 { "data": "id" },
                 { "data": "name" },
+                { "data": "head" },
                 { "data": "options" ,"orderable":false},
             ]
 
@@ -87,6 +90,7 @@
                     $('#edit_department').modal('toggle');
                     $('#editid').val(data.id);
                     $('#editname').val(data.name);
+                    $('#edithead').val(data.head);
                     //Populating Form Data to Edit Ends
                 },
                 error: function(){},
@@ -165,28 +169,39 @@
 <div class="modal fade" id="add_department" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-light">
                 <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Department</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span class="fa fa-times-circle"></span>
                 </button>
             </div>
             <div class="modal-body">
                 <form id="add_department_form">
                     @csrf
                     <div class="row">
-                        <div class="form-group col-9  float-left">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
-                        </div>
-                        <div class="col-3">
-                            <button class="btn btn-primary" type="submit">Save</button>
+
+                        <div class="form-group col-12  float-left">
+                            <label for="name">Name of Department</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name of Department" autocomplete="off" value="{{old('name')}}">
                         </div>
 
+                        <div class="col-12 mb-1">
+                            <label for="head">Head of Department</label>
+                            <div class="form-check form-check-inline" style="width: 100%">
+                                <select class="form-control" id="head" name="head">
+                                    <option selected disabled="">Select Head of Department</option>
+                                    @foreach($users as $user)
+                                        <option value="{{$user->id}}">{{$user->fname}} {{$user->lname}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
-
+                    </div>
+                    <div class="modal-footer bg-light p-2">
+                        <button class="btn btn-success btn-sm" type="submit"><i class="fa fa-save"></i> Save</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
             </div>
         </div>
     </div>
@@ -195,10 +210,11 @@
 <div class="modal fade" id="edit_department" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-light">
                 <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-pencil"></i> Edit Department</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span class="fa fa-times-circle"></span>
+
                 </button>
             </div>
             <div class="modal-body">
@@ -206,19 +222,31 @@
                     @csrf
                     <input type="hidden" name="id" id="editid">
                     <div class="row">
-                        <div class="form-group col-9  float-left">
-                            <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
-                        </div>
-                        <div class="col-3">
-                            <button class="btn btn-primary" type="submit">Update</button>
+
+                        <div class="form-group col-12  float-left">
+                            <label for="name">Name of Department</label>
+                            <input type="text" class="form-control" id="editname" name="name" placeholder="Enter Name of Department" autocomplete="off" value="{{old('name')}}">
                         </div>
 
+                        <div class="col-12 mb-1">
+                            <label for="edithead">Head of Department</label>
+                            <div class="form-check form-check-inline" style="width: 100%">
+                                <select class="form-control" id="edithead" name="head">
+                                    <option selected disabled="">Select Head of Department</option>
+                                    @foreach($users as $user)
+                                        <option value="{{$user->id}}">{{$user->fname}} {{$user->lname}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
-
+                    </div>
+                    <div class="modal-footer p-2 bg-light">
+                        <button class="btn btn-success btn-sm" type="submit"><i class="fa fa-refresh"></i> Update</button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-            </div>
+
         </div>
     </div>
 </div>

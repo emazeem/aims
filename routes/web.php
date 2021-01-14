@@ -13,6 +13,7 @@ Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])-
 Route::get('/change_password', [App\Http\Controllers\UserController::class, 'changepw'])->middleware('auth')->name('change-pw');
 Route::post('/change_password', [App\Http\Controllers\UserController::class, 'changepassword'])->middleware('auth')->name('change-password');
 Route::post('/set_profile', [App\Http\Controllers\UserController::class, 'setprofile'])->middleware('auth')->name('setprofile');
+
 Auth::routes();
 Route::get('/quote',function (){return view('docs.quotation');});
 Route::get('/jobtag',function (){return view('docs.jobtag');});
@@ -472,6 +473,10 @@ Route::group(['prefix'=> 'leave-application'],function() {
     Route::get('edit/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'edit'])->middleware('auth')->name('leave_application.edit');
     Route::post('update',[App\Http\Controllers\LeaveApplicationController::class, 'update'])->middleware('auth')->name('leave_application.update');
     Route::get('show/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'show'])->middleware('auth')->name('leave_application.show');
+
+    Route::get('/head/reject/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'head_reject'])->middleware('auth')->name('leave_application.head_reject');
+    Route::get('/head/approve/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'head_approve'])->middleware('auth')->name('leave_application.head_approve');
+
 });
 Route::group(['prefix'=> 'attendance'],function() {
     Route::post('checkin',[App\Http\Controllers\AttendanceController::class, 'checkin'])->middleware('auth')->name('attendance.checkin');

@@ -122,5 +122,12 @@ class LeaveApplicationController extends Controller
             ->rawColumns(['options'])
             ->make(true);
     }
+    public function head_approve($id){
+        $leave=LeaveApplication::find($id);
+        $leave->head_recommendation_status=1;
+        $leave->head_recommendation_date=date('Y-m-d');
+        $leave->save();
+        return redirect()->back()->with('success','Leave Application Approved By Head of Department');
+    }
     //
 }

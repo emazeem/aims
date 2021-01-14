@@ -15,6 +15,7 @@ use App\Models\Item;
 use App\Models\Job;
 use App\Models\Jobform;
 use App\Models\Labjob;
+use App\Models\LeaveApplication;
 use App\Models\Notification;
 use App\Models\Parameter;
 use App\Models\Purchaseindent;
@@ -120,10 +121,9 @@ class DashboardControlller extends Controller
             $checkout_missing_status=1;
         }
 
-
-
-
-        return view('dashboard',compact('customers','calendar','indentforrevisions','indentforapprovals','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status'));
+        $head_applications=LeaveApplication::where('head_recommendation_status',null)->where('head_id',\auth()->user()->id)->get();
+        //dd($head_applications);
+        return view('dashboard',compact('head_applications','customers','calendar','indentforrevisions','indentforapprovals','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status'));
     }
     public function markRead($id)
     {

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     use HasFactory;
+    public function heads(){
+        return $this->belongsTo('App\Models\User','head','id')->withDefault();
+    }
 }
