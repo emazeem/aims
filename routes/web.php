@@ -167,6 +167,8 @@ Route::group(['prefix'=> 'quotes'],function() {
     Route::post('/sendtocustomer/',[App\Http\Controllers\QuotesController::class, 'sendtocustomer'])->middleware('auth')->name('quotes.sendtocustomer');
     Route::post('/approved/{id}',[App\Http\Controllers\QuotesController::class, 'approved'])->middleware('auth')->name('quotes.approved');
     Route::post('/revised/{id}',[App\Http\Controllers\QuotesController::class, 'revised'])->middleware('auth')->name('quotes.revised');
+    Route::post('/purchase_details',[App\Http\Controllers\QuotesController::class, 'purchase_details'])->middleware('auth')->name('quotes.purchase_details');
+
     Route::post('/approval_details',[App\Http\Controllers\QuotesController::class, 'approval_details'])->middleware('auth')->name('quotes.approval_details');
     Route::post('/remarks',[App\Http\Controllers\QuotesController::class, 'remarks'])->middleware('auth')->name('quotes.remarks');
     Route::post('/discount',[App\Http\Controllers\QuotesController::class, 'discount'])->middleware('auth')->name('quotes.discount');
@@ -441,3 +443,35 @@ Route::group(['prefix'=> 'emp_contract'],function() {
     Route::post('update',[App\Http\Controllers\EmpcontractController::class, 'update'])->middleware('auth')->name('emp_contract.update');
     Route::get('show/{id}',[App\Http\Controllers\EmpcontractController::class, 'show'])->middleware('auth')->name('emp_contract.show');
 });
+
+Route::group(['prefix'=> 'emp_joining'],function() {
+    Route::get('/',[App\Http\Controllers\EmpjoiningController::class, 'index'])->middleware('auth')->name('emp_joining.index');
+    Route::post('',[App\Http\Controllers\EmpjoiningController::class, 'fetch'])->middleware('auth')->name('emp_joining.fetch');
+    Route::get('create',[App\Http\Controllers\EmpjoiningController::class, 'create'])->middleware('auth')->name('emp_joining.create');
+    Route::post('store',[App\Http\Controllers\EmpjoiningController::class, 'store'])->middleware('auth')->name('emp_joining.store');
+    Route::get('edit/{id}',[App\Http\Controllers\EmpjoiningController::class, 'edit'])->middleware('auth')->name('emp_joining.edit');
+    Route::post('update',[App\Http\Controllers\EmpjoiningController::class, 'update'])->middleware('auth')->name('emp_joining.update');
+    Route::get('show/{id}',[App\Http\Controllers\EmpjoiningController::class, 'show'])->middleware('auth')->name('emp_joining.show');
+});
+Route::group(['prefix'=> 'emp_orientation'],function() {
+    Route::get('/',[App\Http\Controllers\EmpOrientationController::class, 'index'])->middleware('auth')->name('emp_orientation.index');
+    Route::post('',[App\Http\Controllers\EmpOrientationController::class, 'fetch'])->middleware('auth')->name('emp_orientation.fetch');
+    Route::get('create',[App\Http\Controllers\EmpOrientationController::class, 'create'])->middleware('auth')->name('emp_orientation.create');
+    Route::post('store',[App\Http\Controllers\EmpOrientationController::class, 'store'])->middleware('auth')->name('emp_orientation.store');
+    Route::get('edit/{id}',[App\Http\Controllers\EmpOrientationController::class, 'edit'])->middleware('auth')->name('emp_orientation.edit');
+    Route::post('update',[App\Http\Controllers\EmpOrientationController::class, 'update'])->middleware('auth')->name('emp_orientation.update');
+    Route::get('show/{id}',[App\Http\Controllers\EmpOrientationController::class, 'show'])->middleware('auth')->name('emp_orientation.show');
+});
+
+
+Route::group(['prefix'=> 'leave-application'],function() {
+    Route::get('/',[App\Http\Controllers\LeaveApplicationController::class, 'index'])->middleware('auth')->name('leave_application.index');
+    Route::post('',[App\Http\Controllers\LeaveApplicationController::class, 'fetch'])->middleware('auth')->name('leave_application.fetch');
+    Route::get('create',[App\Http\Controllers\LeaveApplicationController::class, 'create'])->middleware('auth')->name('leave_application.create');
+    Route::post('store',[App\Http\Controllers\LeaveApplicationController::class, 'store'])->middleware('auth')->name('leave_application.store');
+    Route::get('edit/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'edit'])->middleware('auth')->name('leave_application.edit');
+    Route::post('update',[App\Http\Controllers\LeaveApplicationController::class, 'update'])->middleware('auth')->name('leave_application.update');
+    Route::get('show/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'show'])->middleware('auth')->name('leave_application.show');
+});
+
+

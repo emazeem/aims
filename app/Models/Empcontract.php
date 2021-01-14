@@ -11,4 +11,11 @@ class Empcontract extends Model
     public function appraisal(){
         return $this->belongsTo('App\Models\Interviewappraisal','appraisal_id','id');
     }
+    public function designation(){
+        return $this->belongsTo('App\Models\Designation','designations');
+    }
+    public function orientators(){
+        return $this->belongsTo('App\Models\User','orientator');
+    }
+
 }

@@ -50,7 +50,7 @@
             "processing": true,
             "serverSide": true,
             "Paginate": true,
-            "order": [[0, 'asc']],
+            "order": [[0, 'desc']],
             "pageLength": 25,
             "ajax":{
                 "url": "{{ route('menus.fetch') }}",

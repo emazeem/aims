@@ -211,6 +211,27 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('emp-joining-index', function ($user) {
+            if (in_array('emp-joining-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('employee-orientation-index', function ($user) {
+            if (in_array('employee-orientation-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('leave-application-index', function ($user) {
+            if (in_array('leave-application-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
     }
 
     public function sop()

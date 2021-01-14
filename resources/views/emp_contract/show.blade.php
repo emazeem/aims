@@ -17,18 +17,18 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h5 class="border-bottom pull-left">
+            <h3 class="border-bottom pull-left">
                 <i class="fa fa-tasks"></i>
                 Employee Contract
-            </h5>
+            </h3>
         </div>
         <div class="col-12">
 
-            <table class="table table-hover font-13 table-bordered">
+            <table class="table table-hover font-13 table-bordered bg-white">
 
                 <tr>
                     <th>Appraisal ID</th>
-                    <td>{{$show->appraisal_id}}</td>
+                    <td>{{$show->appraisal->fname}} {{$show->appraisal->lname}}</td>
                 </tr>
                 <tr>
                     <th>CNIC</th>
@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                     <th>Designations</th>
-                    <td class="text-capitalize">{{$show->designations}} </td>
+                    <td class="text-capitalize">{{$show->designation->name}} </td>
                 </tr>
                 <tr>
                     <th>Place of Work</th>
@@ -64,20 +64,13 @@
                     <td class="text-capitalize">{{date('d-m-Y',strtotime($show->commencement))}} </td>
                 </tr>
 
-
-
-
-
-
-
-
                 <tr>
                     <th>Created on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
+                    <td>{{date('d-m-Y - h:i',strtotime($show->created_at))}}</td>
                 </tr>
                 <tr>
                     <th>Updated on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
+                    <td>{{date('d-m-Y - h:i',strtotime($show->updated_at))}}</td>
                 </tr>
             </table>
         </div>

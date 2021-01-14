@@ -23,12 +23,18 @@ class CreateEmpcontractsTable extends Migration
             $table->string('place_of_work');
             $table->integer('salary');
             $table->integer('allowances');
-            $table->integer('cnic');
-            $table->integer('signature')->nullable();
-            $table->integer('hr_user_id')->nullable();
-            $table->date('joining')->nullable();
+            $table->string('cnic');
             $table->integer('representative');
             $table->date('commencement');
+            $table->integer('status')->default(0);
+            //joining form columns
+            $table->string('signature')->nullable();
+            $table->integer('hr_user_id')->nullable();
+            $table->date('joining')->nullable();
+            //emp orientation columns
+            $table->longText('o_area');
+            $table->string('remarks');
+            $table->integer('orientator');
             $table->timestamps();
         });
     }
