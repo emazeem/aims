@@ -12,6 +12,32 @@
     <div class="row">
         <div class="col-12">
             <h3 class="pull-left border-bottom pb-1"><i class="fa fa-home"></i> Dashboard</h3>
+            @if($check==0)
+                @if($checkout_missing_status==0)
+                    <button type="submit" class="btn btn-success pull-right btn-flat checkin">
+                        <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
+                    </button>
+                    <form method="post" id="check_form">
+                        <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                    </form>
+                @else
+                    <button type="submit" class="btn btn-danger pull-right btn-flat checkout">
+                        <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
+                    </button>
+                    <form method="post" id="checkout_form">
+                        <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                    </form>
+                @endif
+            @elseif($check==1)
+                <button type="submit" class="btn btn-danger pull-right btn-flat checkout">
+                    <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
+                </button>
+                <form method="post" id="checkout_form">
+                    <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                </form>
+            @else
+            @endif
+
         </div>
         <div class="col-12">
             <div class="x_content">
@@ -199,6 +225,107 @@
             $('#example').DataTable({
 
             });
+        });
+    </script>
+    <script>
+
+        $(document).ready(function (e) {
+            $(document).on('click', '.checkin', function(e)
+            {
+                swal({
+                    title: "Are you sure to check in?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var token= '{{csrf_token()}}';
+                            e.preventDefault();
+                            var request_method = $("#check_form").attr("method");
+                            var form_data = $("#check_form").serialize();
+                            //e.preventDefault();
+                            $.ajax({
+                                url: "{{route('attendance.checkin')}}",
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
+                                statusCode: {
+                                    403: function() {
+                                        $(".loading").fadeOut();
+                                        swal("Failed", "Permission denied for this action." , "error");
+                                        return false;
+                                    }
+                                },
+                                success: function(data)
+                                {
+                                    swal("Success", "You are Checked in successfully.", "success");
+                                    setTimeout(function() {
+                                        window.location.reload();
+                                    }, 3000);
+                                },
+                                error: function(){
+                                    $(".loading").fadeOut();
+                                    swal("Failed", "Unable to check in." , "error");
+                                },
+                            });
+
+                        }
+                    });
+
+            });
+            $(document).on('click', '.checkout', function(e)
+            {
+                swal({
+                    title: "Are you sure to check out?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var token= '{{csrf_token()}}';
+                            e.preventDefault();
+                            var request_method = $("#checkout_form").attr("method");
+                            var form_data = $("#checkout_form").serialize();
+                            //e.preventDefault();
+                            $.ajax({
+                                url: "{{route('attendance.checkout')}}",
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
+                                statusCode: {
+                                    403: function() {
+                                        $(".loading").fadeOut();
+                                        swal("Failed", "Permission denied for this action." , "error");
+                                        return false;
+                                    }
+                                },
+                                success: function(data)
+                                {
+                                    swal("Success", "You are Checked out successfully.", "success");
+                                    setTimeout(function() {
+                                        window.location.reload();
+                                    }, 3000);
+                                },
+                                error: function(){
+                                    $(".loading").fadeOut();
+                                    swal("Failed", "Unable to check out." , "error");
+                                },
+                            });
+
+                        }
+                    });
+
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            setInterval(function(){
+                document.getElementById("current_time").innerText = moment().format('MMM D YYYY, h:mm:ss A');
+            },1000)
         });
     </script>
 @endsection

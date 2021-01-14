@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Asset;
+use App\Models\Attendance;
 use App\Models\Capabilities;
 use App\Models\Customer;
 use App\Models\Department;
@@ -90,7 +91,39 @@ class DashboardControlller extends Controller
             $q->where('status', 2);
         }])->where('checked_by',\auth()->user()->id)->get();
 
-        return view('dashboard',compact('customers','calendar','indentforrevisions','indentforapprovals','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations'));
+
+
+
+
+
+
+
+        $check=0;
+        $current_date=date('Y-m-d',time());
+        $current_day_attendance=Attendance::where('user_id',auth()->user()->id)->where('check_in_date',$current_date)->first();
+        //show check in
+        if (!empty($current_day_attendance)){
+            //show checkout and status gone 1
+            $check=1;
+            //dd('show check out');
+            if ($current_day_attendance->status===1){
+                $check=2;
+            }
+        }
+        else{
+            $check=0;
+            //dd('show check in');
+        }
+        $checkout_missing_status=0;
+        $checkout_missing=Attendance::where('user_id',auth()->user()->id)->where('status',0)->first();
+        if (isset($checkout_missing)){
+            $checkout_missing_status=1;
+        }
+
+
+
+
+        return view('dashboard',compact('customers','calendar','indentforrevisions','indentforapprovals','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status'));
     }
     public function markRead($id)
     {

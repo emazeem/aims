@@ -473,5 +473,10 @@ Route::group(['prefix'=> 'leave-application'],function() {
     Route::post('update',[App\Http\Controllers\LeaveApplicationController::class, 'update'])->middleware('auth')->name('leave_application.update');
     Route::get('show/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'show'])->middleware('auth')->name('leave_application.show');
 });
+Route::group(['prefix'=> 'attendance'],function() {
+    Route::post('checkin',[App\Http\Controllers\AttendanceController::class, 'checkin'])->middleware('auth')->name('attendance.checkin');
+    Route::post('checkout',[App\Http\Controllers\AttendanceController::class, 'checkout'])->middleware('auth')->name('attendance.checkout');
+});
+
 
 

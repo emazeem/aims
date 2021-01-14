@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attendance;
 use App\Models\Department;
 use App\Models\Designation;
 use App\Models\Role;
@@ -236,7 +237,9 @@ class UserController extends Controller
 
     }
     public function profile(){
-        return view('profile');
+        $attendances=Attendance::where('user_id',auth()->user()->id)->get();
+        //dd($attendances);
+        return view('profile',compact('attendances'));
     }
     public function changepw(){
         return view('changepassword');

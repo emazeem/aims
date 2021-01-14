@@ -16,7 +16,7 @@ class CreateLeaveApplicationsTable extends Migration
         Schema::create('leave_applications', function (Blueprint $table) {
             $table->id();
             $table->integer('appraisal_id');
-            $table->integer('nature_of_leave');
+            $table->string('nature_of_leave');
             $table->integer('type_of_leave');
             $table->integer('type_time')->nullable();
             $table->date('from');
