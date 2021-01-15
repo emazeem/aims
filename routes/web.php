@@ -41,6 +41,7 @@ Route::group(['prefix'=> 'customers'],function() {
 });
 Route::group(['prefix'=> 'users'],function() {
     Route::get('',[App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('users');
+    Route::get('/attendances',[App\Http\Controllers\UserController::class, 'attendances'])->middleware('auth')->name('users.attendances');
     Route::get('/create',[App\Http\Controllers\UserController::class, 'create'])->middleware('auth')->name('users.create');
     Route::get('/view/{id}',[App\Http\Controllers\UserController::class, 'show'])->middleware('auth')->name('users.show');
     Route::get('/edit/{id}',[App\Http\Controllers\UserController::class, 'edit'])->middleware('auth')->name('users.edit');

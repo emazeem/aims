@@ -24,6 +24,30 @@ class UserController extends Controller
         //$columns = Schema::getColumnListing('users');
         return view('users.index');
     }
+    public function attendances(){
+        $this->authorize('staff-index');
+
+        $year=date('Y',time());
+        $month=date('m',time());
+
+        $dates=array();
+        for ($date=0;$date<=31;$date++){
+            if (checkdate($month,$date,$year)==true){
+                $dates[]=array($date,date_format(date_create($year.'-'.$month.'-'.$date),"D"));
+            }
+        }
+        $users=User::all();
+        $all=Attendance::all();
+        $monthCurrentIDs=[];
+        foreach ($all as $attendance){
+            if (date('m',time())==date('m',strtotime($attendance->check_in_date))){
+                $monthCurrentIDs[]=$attendance->id;
+            }
+        }
+        $attendances=Attendance::whereIn('id',$monthCurrentIDs)->get();
+        return view('users.attendances',compact('dates','users','attendances','attendances'));
+    }
+
     public function create(){
         //$this->authorize('staff-create');
         $roles=Role::all();
