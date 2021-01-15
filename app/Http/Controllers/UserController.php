@@ -36,7 +36,6 @@ class UserController extends Controller
                 $dates[]=array($date,date_format(date_create($year.'-'.$month.'-'.$date),"D"));
             }
         }
-        $users=User::all();
         $all=Attendance::all();
         $monthCurrentIDs=[];
         foreach ($all as $attendance){
@@ -45,6 +44,8 @@ class UserController extends Controller
             }
         }
         $attendances=Attendance::whereIn('id',$monthCurrentIDs)->get();
+        $users = Attendance::select('user_id')->distinct()->get();
+        //dd($users);
         return view('users.attendances',compact('dates','users','attendances','attendances'));
     }
 

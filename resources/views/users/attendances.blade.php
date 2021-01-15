@@ -25,7 +25,7 @@
             <table class="table table-bordered table-responsive table-hover table-sm bg-white text-center">
                 <thead>
                 <tr>
-                    <td>Users</td>
+                    <th>Users</th>
                     @foreach($dates as $date)
                         <td>
                             {{$date[0]}}<br>
@@ -37,9 +37,18 @@
                 <tbody>
                 @foreach($users as $user)
                     <tr>
-                        <td>{{$user->fname.' '.$user->lname}}</td>
+                        <th>{{$user->user->fname.' '.$user->user->lname}}</th>
                         @foreach($dates as $date)
-                            <td>{{$date[0]}}</td>
+                            @php
+                                $p=\App\Models\Attendance::where('user_id',$user->user_id)->where('check_in_date',date_format(date_create(date('Y')."-".date('m')."-".$date[0]),"Y-m-d"))->first();
+                            @endphp
+                            <td>
+                                @if(!empty($p))
+                                P
+                                @else
+                                    A
+                                @endif
+                            </td>
                         @endforeach
                     </tr>
                 @endforeach
