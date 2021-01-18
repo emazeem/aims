@@ -343,7 +343,7 @@
                             <label for="parent">Parent</label>
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control" id="edit_parent" name="parent">
-                                    <option>None</option>
+                                    <option value="">None</option>
                                     @foreach($parents as $parent)
                                         <option value="{{$parent->id}}">{{$parent->name}}</option>
                                     @endforeach
