@@ -10,7 +10,7 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i>Add Employee Joining</h3>
+            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Orientation Joining</h3>
         </div>
         <div class="col-md-8 col-12">
             <form action="{{route('emp_orientation.store')}}" method="post" enctype="multipart/form-data">

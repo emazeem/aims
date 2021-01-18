@@ -13,6 +13,10 @@ class EmpcontractController extends Controller
     public function index(){
         return view('emp_contract.index');
     }
+    public function prints($id){
+        $show=Empcontract::find($id);
+        return view('emp_contract.print',compact('show'));
+    }
     public function fetch(){
         $data=Empcontract::with('appraisal')->get();
         //dd($data);

@@ -21,11 +21,13 @@
                 <i class="fa fa-tasks"></i>
                 HR Requisition
             </h5>
+            <span class="float-right">
+            <a href="{{route('requisition.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i></a>
+            </span>
         </div>
         <div class="col-12">
 
             <table class="table table-hover font-13 table-bordered">
-
                 <tr>
                     <th>Requisition Designation</th>
                     <td>{{$show->designation->name}}</td>

@@ -9,11 +9,11 @@
     @endif
     <style>
         input[type='checkbox']{
-            height: 25px;
-            width: 25px;
+            height: 20px;
+            width: 20px;
         }
         .custom-label{
-            font-size: 30px;
+            font-size: 20px;
         }
 
     </style>
@@ -33,7 +33,7 @@
                       </span>
                     @endif
                 </div>
-                <div class="form-group col-sm-6">
+                <div class="form-group col-12">
                     <ul style="list-style:none">
                         @foreach($menuus as $menu)
                             @if($menu->parent_id==null)
@@ -59,8 +59,8 @@
                         @endforeach
                     </ul>
                     <div class="text-right">
-                        <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="{{ URL::previous() }}" class="btn border btn-light btn-sm"> <i class="fa fa-times"> </i> Cancel</a>
+                        <button type="submit" class="btn btn-primary btn-sm"> <i class="fa fa-save"> </i> Update</button>
                     </div>
 
                 </div>

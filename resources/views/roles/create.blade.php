@@ -9,15 +9,16 @@
     @endif
     <style>
         input[type='checkbox']{
-            height: 25px;
-            width: 25px;
+            height: 20px;
+            width: 20px;
         }
         .custom-label{
-            font-size: 30px;
+            font-size: 20px;
         }
+
     </style>
     <div class="row pb-3">
-        <h3 class="border-bottom text-dark">Add Roles</h3>
+        <h3 class="border-bottom text-dark"> <i class="fa fa-plus-circle"></i> Add Roles</h3>
         <div class="col-12">
 
             <form class="form-horizontal" action="{{route('roles.store')}}" method="post" enctype="multipart/form-data">
@@ -44,7 +45,7 @@
                             @else
                                 <div class="checkbox left-space-2">
                                     <label class="custom-label"><input type="checkbox" value="{{$menu->slug}}" name="menu_arr[]"><i class="fa fa-lock text-danger left-space"></i> {{$menu->name}}</label>
-                                </div>
+                                </div>/
 
                             @endif
                         @endforeach
@@ -75,14 +76,10 @@
                     </ul>
                 </div>
 
-
-
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Save</button>
+                <div class="text-right">
+                    <a href="{{ URL::previous() }}" class="btn border btn-light btn-sm"> <i class="fa fa-times"> </i> Cancel</a>
+                    <button type="submit" class="btn btn-primary btn-sm"> <i class="fa fa-save"> </i> Save</button>
                 </div>
-                <!-- /.box-footer -->
             </form>
         </div>
     </div>

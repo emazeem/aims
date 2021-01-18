@@ -1,9 +1,11 @@
 @extends('layouts.master')
 @section('content')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-
-</div>
-
+    <style>
+        label{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 <div class="row">
     <div class="col-12">
         <h3 class="border-bottom text-dark pull-left"><i class="fa fa-tasks"></i> All Menus</h3>
@@ -102,8 +104,10 @@
                     if (data.parent_id){
                         $('#edit_parent').val(data.parent_id);
                     }
-                    if(data.has_child==0){
+                    if(data.has_child==1){
                         $("#edit_has_child").prop('checked', true);
+                    }else {
+                        $("#edit_has_child").prop('checked', false);
                     }
                     //Populating Form Data to Edit Ends
                 },
@@ -240,36 +244,37 @@
 
 <div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="border-bottom text-dark"><i class="fa fa-plus-circle"></i> Add Menu</h4>
+        <div class="modal-content bg-light">
+            <div class="modal-header pt-2 pb-0">
+                <h4><i class="fa fa-plus-circle"></i> Add Menu</h4>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span class="fa fa-times-circle"></span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-white">
                 <form id="add_menu_form">
                     @csrf
 
                     <div class="row">
                         <div class="form-group col-12">
+                            <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12">
+                            <label for="slug">Slug</label>
                             <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" autocomplete="off" value="{{old('slug')}}">
                         </div>
                         <div class="form-group col-12">
+                            <label for="url">Url</label>
                             <input type="text" class="form-control" id="url" name="url" placeholder="Url" autocomplete="off" value="#">
                         </div>
 
                         <div class="form-group col-12">
+                            <label for="icon">Icon</label>
                             <input type="text" class="form-control" id="icon" name="icon" placeholder="icon" autocomplete="off" value="{{old('icon')}}">
                         </div>
-
-
-
-
                         <div class="col-12 mb-1">
+                            <label for="parent">Parent</label>
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control" id="parent" name="parent">
                                     <option selected disabled="">Select Parent</option>
@@ -279,19 +284,22 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-12 form-check">
-                            <div class="text-right">
-                                <input type="checkbox" class="form-check-input"  name="has_child" id="has_child">
-                                <label class="form-check-label" for="has_child">Has/Is Child</label>
-                            </div>
-                        </div>
-                        <div class="col-12 text-right">
-                            <button class="btn btn-primary" type="submit">Save</button>
+                        <div class="col-12 form-check text-right mt-2">
+                            <div class="btn btn-sm btn-success px-5">
+                                    <label class="form-check-label" for="has_child">
+                                        <input type="checkbox" class="form-check-input"  name="has_child" id="has_child">
+
+                                        Has/Is Child
+                                    </label>
+                                </div>
                         </div>
                     </div>
+                    </div>
+                    <div class="modal-footer p-2">
+                        <button class="btn btn-primary btn-sm" type="submit">Save</button>
+
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
             </div>
         </div>
     </div>
@@ -300,11 +308,10 @@
 <div class="modal fade" id="edit_menu" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-
-                <h4 class="border-bottom text-dark"><i class="fa fa-pencil"></i>  Edit Menu</h4>
+            <div class="modal-header bg-light pt-2 pb-0">
+                <h4 class="text-dark"><i class="fa fa-refresh"></i>  Edit Menu</h4>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span class="fa fa-times-circle"></span>
                 </button>
             </div>
             <div class="modal-body">
@@ -313,23 +320,24 @@
                     <input type="hidden" value="" id="edit_id" name="id">
                     <div class="row">
                         <div class="form-group col-12">
+                            <label for="name">Name</label>
                             <input type="text" class="form-control" id="edit_name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12">
+                            <label for="slug">Slug</label>
                             <input type="text" class="form-control" id="edit_slug" name="slug" placeholder="Slug" autocomplete="off" value="{{old('slug')}}">
                         </div>
                         <div class="form-group col-12">
+                            <label for="url">Url</label>
                             <input type="text" class="form-control" id="edit_url" name="url" placeholder="url" autocomplete="off" value="{{old('url')}}">
                         </div>
 
                         <div class="form-group col-12">
+                            <label for="icon">Icon</label>
                             <input type="text" class="form-control" id="edit_icon" name="icon" placeholder="icon" autocomplete="off" value="fa fa-">
                         </div>
-
-
-
-
                         <div class="col-12 mb-1">
+                            <label for="parent">Parent</label>
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control" id="edit_parent" name="parent">
                                     <option selected disabled="">Select Parent</option>
@@ -339,17 +347,24 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="text-right">
-                            <input type="checkbox" class="form-check-input"  name="has_child" id="edit_has_child">
-                            <label class="form-check-label" for="has_child">Has/Is Child</label>
+                        <div class="col-12 form-check text-right mt-2">
+                            <div class="btn btn-sm btn-success px-5">
+                                <label class="form-check-label" for="has_child">
+                                    <input type="checkbox" class="form-check-input"  name="has_child" id="edit_has_child">
+                                    Has/Is Child
+                                </label>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Update</button>
+
+                    </div>
+                    </div>
+
+                    <div class="modal-footer bg-light p-2">
+                        <div class="col-12 text-right">
+                            <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-refresh"></i> Update</button>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
             </div>
         </div>
     </div>

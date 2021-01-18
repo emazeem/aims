@@ -17,5 +17,10 @@ class Empcontract extends Model
     public function orientators(){
         return $this->belongsTo('App\Models\User','orientator');
     }
+    public function hr(){
+        return $this->belongsTo('App\Models\User','hr_user_id');
+    }
+
+    protected $dates=['commencement','joining'];
 
 }

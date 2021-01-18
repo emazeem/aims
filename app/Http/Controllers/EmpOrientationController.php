@@ -17,6 +17,14 @@ class EmpOrientationController extends Controller
         $orientors=User::all();
         return view('emp_orientation.create',compact('employees','orientors'));
     }
+    public function show($id){
+        $show=Empcontract::find($id);
+        return view('emp_orientation.show',compact('show'));
+    }
+    public function prints($id){
+        $show=Empcontract::find($id);
+        return view('emp_orientation.print',compact('show'));
+    }
 
     public function edit($id){
         $edit=Empcontract::find($id);
@@ -46,7 +54,9 @@ class EmpOrientationController extends Controller
             ->addColumn('options', function ($data) {
                 $action=null;
                 return "&emsp;                                
-                <a title='Edit' class='btn btn-sm btn-success' href='" . url('/emp_orientation/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                <a title='Edit' class='btn btn-sm btn-success' href='" . url('/emp_orientation/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                <a title='Show' class='btn btn-sm btn-warning' href='" . url('/emp_orientation/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
+                ";
             })
             ->rawColumns(['options'])
             ->make(true);

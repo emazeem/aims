@@ -21,6 +21,9 @@
                 <i class="fa fa-tasks"></i>
                 Leave Application
             </h3>
+            <span class="float-right">
+                <a href="{{route('leave_application.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i></a>
+            </span>
         </div>
         <div class="col-12">
 
@@ -74,3 +77,4 @@
     </div>
 
 @endsection
+

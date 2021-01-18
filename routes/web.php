@@ -312,6 +312,7 @@ Route::group(['prefix'=> 'units'],function(){
     Route::get('/check_both_units/{unit}/{asset}',[App\Http\Controllers\UnitController::class, 'check_both_units'])->middleware('auth')->name('units.check_both_units');
     Route::get('/fetch/previous_units/{id}',[App\Http\Controllers\UnitController::class, 'previous_units'])->middleware('auth')->name('units.previous_units');
 });
+
 Route::group(['prefix'=> 'procedures'],function(){
     Route::get('',[App\Http\Controllers\ProcedureController::class, 'index'])->middleware('auth')->name('procedures');
     Route::post('',[App\Http\Controllers\ProcedureController::class, 'fetch'])->middleware('auth')->name('procedures.fetch');
@@ -425,6 +426,7 @@ Route::group(['prefix'=> 'requisition'],function() {
     Route::get('edit/{id}',[App\Http\Controllers\RequisitionController::class, 'edit'])->middleware('auth')->name('requisition.edit');
     Route::post('update',[App\Http\Controllers\RequisitionController::class, 'update'])->middleware('auth')->name('requisition.update');
     Route::get('show/{id}',[App\Http\Controllers\RequisitionController::class, 'show'])->middleware('auth')->name('requisition.show');
+    Route::get('print/{id}',[App\Http\Controllers\RequisitionController::class, 'prints'])->middleware('auth')->name('requisition.print');
 });
 Route::group(['prefix'=> 'interview-appraisal'],function() {
     Route::get('/',[App\Http\Controllers\InterviewappraisalController::class, 'index'])->middleware('auth')->name('interview_appraisal.index');
@@ -434,6 +436,8 @@ Route::group(['prefix'=> 'interview-appraisal'],function() {
     Route::get('edit/{id}',[App\Http\Controllers\InterviewappraisalController::class, 'edit'])->middleware('auth')->name('interview_appraisal.edit');
     Route::post('update',[App\Http\Controllers\InterviewappraisalController::class, 'update'])->middleware('auth')->name('interview_appraisal.update');
     Route::get('show/{id}',[App\Http\Controllers\InterviewappraisalController::class, 'show'])->middleware('auth')->name('interview_appraisal.show');
+    Route::get('print/{id}',[App\Http\Controllers\InterviewappraisalController::class, 'prints'])->middleware('auth')->name('interview_appraisal.print');
+
 });
 
 Route::group(['prefix'=> 'emp_contract'],function() {
@@ -444,6 +448,7 @@ Route::group(['prefix'=> 'emp_contract'],function() {
     Route::get('edit/{id}',[App\Http\Controllers\EmpcontractController::class, 'edit'])->middleware('auth')->name('emp_contract.edit');
     Route::post('update',[App\Http\Controllers\EmpcontractController::class, 'update'])->middleware('auth')->name('emp_contract.update');
     Route::get('show/{id}',[App\Http\Controllers\EmpcontractController::class, 'show'])->middleware('auth')->name('emp_contract.show');
+    Route::get('print/{id}',[App\Http\Controllers\EmpcontractController::class, 'prints'])->middleware('auth')->name('emp_contract.print');
 });
 
 Route::group(['prefix'=> 'emp_joining'],function() {
@@ -454,6 +459,7 @@ Route::group(['prefix'=> 'emp_joining'],function() {
     Route::get('edit/{id}',[App\Http\Controllers\EmpjoiningController::class, 'edit'])->middleware('auth')->name('emp_joining.edit');
     Route::post('update',[App\Http\Controllers\EmpjoiningController::class, 'update'])->middleware('auth')->name('emp_joining.update');
     Route::get('show/{id}',[App\Http\Controllers\EmpjoiningController::class, 'show'])->middleware('auth')->name('emp_joining.show');
+    Route::get('print/{id}',[App\Http\Controllers\EmpjoiningController::class, 'prints'])->middleware('auth')->name('emp_joining.print');
 });
 Route::group(['prefix'=> 'emp_orientation'],function() {
     Route::get('/',[App\Http\Controllers\EmpOrientationController::class, 'index'])->middleware('auth')->name('emp_orientation.index');
@@ -463,6 +469,7 @@ Route::group(['prefix'=> 'emp_orientation'],function() {
     Route::get('edit/{id}',[App\Http\Controllers\EmpOrientationController::class, 'edit'])->middleware('auth')->name('emp_orientation.edit');
     Route::post('update',[App\Http\Controllers\EmpOrientationController::class, 'update'])->middleware('auth')->name('emp_orientation.update');
     Route::get('show/{id}',[App\Http\Controllers\EmpOrientationController::class, 'show'])->middleware('auth')->name('emp_orientation.show');
+    Route::get('print/{id}',[App\Http\Controllers\EmpOrientationController::class, 'prints'])->middleware('auth')->name('emp_orientation.print');
 });
 
 
@@ -474,6 +481,7 @@ Route::group(['prefix'=> 'leave-application'],function() {
     Route::get('edit/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'edit'])->middleware('auth')->name('leave_application.edit');
     Route::post('update',[App\Http\Controllers\LeaveApplicationController::class, 'update'])->middleware('auth')->name('leave_application.update');
     Route::get('show/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'show'])->middleware('auth')->name('leave_application.show');
+    Route::get('print/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'prints'])->middleware('auth')->name('leave_application.print');
 
     Route::get('/head/reject/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'head_reject'])->middleware('auth')->name('leave_application.head_reject');
     Route::get('/head/approve/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'head_approve'])->middleware('auth')->name('leave_application.head_approve');
@@ -483,6 +491,35 @@ Route::group(['prefix'=> 'attendance'],function() {
     Route::post('checkin',[App\Http\Controllers\AttendanceController::class, 'checkin'])->middleware('auth')->name('attendance.checkin');
     Route::post('checkout',[App\Http\Controllers\AttendanceController::class, 'checkout'])->middleware('auth')->name('attendance.checkout');
 });
-
-
-
+Route::group(['prefix'=> 'acc_level_one'],function(){
+    Route::get('',[App\Http\Controllers\AccLevelOneController::class, 'index'])->middleware('auth')->name('acc_level_one');
+    Route::post('',[App\Http\Controllers\AccLevelOneController::class, 'fetch'])->middleware('auth')->name('acc_level_one.fetch');
+    Route::get('/create',[App\Http\Controllers\AccLevelOneController::class, 'create'])->middleware('auth')->name('acc_level_one.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\AccLevelOneController::class, 'edit'])->middleware('auth')->name('acc_level_one.edit');
+    Route::post('/store/',[App\Http\Controllers\AccLevelOneController::class, 'store'])->middleware('auth')->name('acc_level_one.store');
+    Route::post('/update/',[App\Http\Controllers\AccLevelOneController::class, 'update'])->middleware('auth')->name('acc_level_one.update');
+});
+Route::group(['prefix'=> 'acc_level_two'],function(){
+    Route::get('',[App\Http\Controllers\AccLevelTwoController::class, 'index'])->middleware('auth')->name('acc_level_two');
+    Route::post('',[App\Http\Controllers\AccLevelTwoController::class, 'fetch'])->middleware('auth')->name('acc_level_two.fetch');
+    Route::get('/create',[App\Http\Controllers\AccLevelTwoController::class, 'create'])->middleware('auth')->name('acc_level_two.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\AccLevelTwoController::class, 'edit'])->middleware('auth')->name('acc_level_two.edit');
+    Route::post('/store/',[App\Http\Controllers\AccLevelTwoController::class, 'store'])->middleware('auth')->name('acc_level_two.store');
+    Route::post('/update/',[App\Http\Controllers\AccLevelTwoController::class, 'update'])->middleware('auth')->name('acc_level_two.update');
+});
+Route::group(['prefix'=> 'acc_level_three'],function(){
+    Route::get('',[App\Http\Controllers\AccLevelThreeController::class, 'index'])->middleware('auth')->name('acc_level_three');
+    Route::post('',[App\Http\Controllers\AccLevelThreeController::class, 'fetch'])->middleware('auth')->name('acc_level_three.fetch');
+    Route::get('/create',[App\Http\Controllers\AccLevelThreeController::class, 'create'])->middleware('auth')->name('acc_level_three.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\AccLevelThreeController::class, 'edit'])->middleware('auth')->name('acc_level_three.edit');
+    Route::post('/store/',[App\Http\Controllers\AccLevelThreeController::class, 'store'])->middleware('auth')->name('acc_level_three.store');
+    Route::post('/update/',[App\Http\Controllers\AccLevelThreeController::class, 'update'])->middleware('auth')->name('acc_level_three.update');
+});
+Route::group(['prefix'=> 'acc_level_four'],function(){
+    Route::get('',[App\Http\Controllers\AccLevelFourController::class, 'index'])->middleware('auth')->name('acc_level_four');
+    Route::post('',[App\Http\Controllers\AccLevelFourController::class, 'fetch'])->middleware('auth')->name('acc_level_four.fetch');
+    Route::get('/create',[App\Http\Controllers\AccLevelFourController::class, 'create'])->middleware('auth')->name('acc_level_four.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\AccLevelFourController::class, 'edit'])->middleware('auth')->name('acc_level_four.edit');
+    Route::post('/store/',[App\Http\Controllers\AccLevelFourController::class, 'store'])->middleware('auth')->name('acc_level_four.store');
+    Route::post('/update/',[App\Http\Controllers\AccLevelFourController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
+});

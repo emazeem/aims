@@ -66,8 +66,50 @@ class AuthServiceProvider extends ServiceProvider
         $this->invoicing_ledger();
         $this->settings();
         $this->purchase();
+        $this->acclevelone();
+        $this->accleveltwo();
+        $this->acclevelthree();
+        $this->acclevelfour();
         //
     }
+    public function acclevelone()
+    {
+        Gate::define('acc-level-one-index', function ($user) {
+            if (in_array('acc-level-one-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+    public function accleveltwo()
+    {
+        Gate::define('acc-level-two-index', function ($user) {
+            if (in_array('acc-level-two-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+    public function acclevelthree()
+    {
+        Gate::define('acc-level-three-index', function ($user) {
+            if (in_array('acc-level-three-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+    public function acclevelfour()
+    {
+        Gate::define('acc-level-four-index', function ($user) {
+            if (in_array('acc-level-four-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
+
     public function customers()
     {
         Gate::define('customer-index', function ($user) {
@@ -103,6 +145,7 @@ class AuthServiceProvider extends ServiceProvider
 
 
     }
+
     public function pendings()
     {
         Gate::define('pending-index', function ($user) {

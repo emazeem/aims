@@ -41,8 +41,6 @@
                         </div>
                         @php $i++; @endphp
                     @endforeach
-
-
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">

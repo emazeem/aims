@@ -12,6 +12,11 @@ class RequisitionController extends Controller
     public function index(){
         return view('requisition.index');
     }
+    public function prints($id){
+        $show=Requisition::find($id);
+        return view('requisition.print',compact('show'));
+    }
+
     public function fetch(){
         $data=Requisition::all();
         //dd($data);

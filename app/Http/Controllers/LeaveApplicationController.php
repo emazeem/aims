@@ -13,6 +13,7 @@ class LeaveApplicationController extends Controller
     public function index(){
         return view('leave_application.index');
     }
+
     public function create(){
         $employees=Empcontract::all()->where('status',2);
         $natures=Preference::where('category',14)->get();
@@ -23,6 +24,10 @@ class LeaveApplicationController extends Controller
         $employees=Empcontract::all()->where('status',2);
         $natures=Preference::where('category',14)->get();
         return view('leave_application.edit',compact('employees','natures','edit'));
+
+    }public function prints($id){
+        $show=LeaveApplication::find($id);
+        return view('leave_application.print',compact('show'));
     }
     public function show($id){
         $show=LeaveApplication::find($id);

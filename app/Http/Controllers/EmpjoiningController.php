@@ -17,11 +17,21 @@ class EmpjoiningController extends Controller
         $employees=Empcontract::all();
         return view('emp_joining.create',compact('employees'));
     }
+
     public function edit($id){
         $edit=Empcontract::find($id);
         $employees=Empcontract::all();
         return view('emp_joining.edit',compact('employees','edit'));
     }
+    public function show($id){
+        $show=Empcontract::find($id);
+        return view('emp_joining.show',compact('show'));
+    }
+    public function prints($id){
+        $show=Empcontract::find($id);
+        return view('emp_joining.print',compact('show'));
+    }
+
     public function fetch(){
         $data=Empcontract::all()->where('status',1);
         return DataTables::of($data)
@@ -40,7 +50,9 @@ class EmpjoiningController extends Controller
             ->addColumn('options', function ($data) {
                 $action=null;
                 return "&emsp;                                
-                <a title='Edit' class='btn btn-sm btn-success' href='" . url('/emp_joining/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                <a title='Edit' class='btn btn-sm btn-success' href='" . url('/emp_joining/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                <a title='Show' class='btn btn-sm btn-warning' href='" . url('/emp_joining/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
+                ";
             })
             ->rawColumns(['options','signature'])
             ->make(true);

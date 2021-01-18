@@ -10,6 +10,11 @@ class InterviewappraisalController extends Controller
     public function index(){
         return view('interview_appraisal.index');
     }
+
+    public function prints($id){
+        $show=Interviewappraisal::find($id);
+        return view('interview_appraisal.print',compact('show'));
+    }
     public function fetch(){
         $data=Interviewappraisal::all();
         //dd($data);

@@ -21,6 +21,9 @@
                 <i class="fa fa-tasks"></i>
                 Employee Contract
             </h3>
+            <span class="float-right">
+            <a href="{{route('emp_contract.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i></a>
+            </span>
         </div>
         <div class="col-12">
 
