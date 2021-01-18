@@ -23,6 +23,7 @@
         <th>Name</th>
         <th>Slug</th>
         <th>Icon</th>
+        <th>Status</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -34,6 +35,7 @@
           <th>Name</th>
           <th>Slug</th>
           <th>Icon</th>
+          <th>Status</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -65,6 +67,7 @@
                 { "data": "name" },
                 { "data": "slug" },
                 { "data": "icon" },
+                { "data": "status" },
                 { "data": "options" ,"orderable":false},
             ]
 
@@ -340,7 +343,7 @@
                             <label for="parent">Parent</label>
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control" id="edit_parent" name="parent">
-                                    <option>Select Parent</option>
+                                    <option>None</option>
                                     @foreach($parents as $parent)
                                         <option value="{{$parent->id}}">{{$parent->name}}</option>
                                     @endforeach

@@ -30,6 +30,14 @@ class MenuController extends Controller
             ->addColumn('icon', function ($data) {
                 return "<i class='".$data->icon."'></i> ".$data->icon;
             })
+            ->addColumn('status', function ($data) {
+                if ($data->status==0){
+                    return "<span class='badge badge-danger'>Inactive</span>";
+                }
+                else
+                    return "<span class='badge badge-success'>Active</span>";
+            })
+
 
             ->addColumn('createdat', function ($data) {
                 return date('h:i A d M,Y',strtotime($data->created_at));
@@ -56,7 +64,7 @@ class MenuController extends Controller
                 return "&emsp;".$action;
 
             })
-            ->rawColumns(['options','icon'])
+            ->rawColumns(['options','icon','status'])
             ->make(true);
     }
 
