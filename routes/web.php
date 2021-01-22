@@ -514,6 +514,8 @@ Route::group(['prefix'=> 'acc_level_three'],function(){
     Route::get('/edit/{id}',[App\Http\Controllers\AccLevelThreeController::class, 'edit'])->middleware('auth')->name('acc_level_three.edit');
     Route::post('/store/',[App\Http\Controllers\AccLevelThreeController::class, 'store'])->middleware('auth')->name('acc_level_three.store');
     Route::post('/update/',[App\Http\Controllers\AccLevelThreeController::class, 'update'])->middleware('auth')->name('acc_level_three.update');
+    Route::get('/get_level2/{id}',[App\Http\Controllers\AccLevelThreeController::class, 'get_level2'])->middleware('auth')->name('acc_level_three.get_level2');
+    Route::get('/get_level3/{id}',[App\Http\Controllers\AccLevelThreeController::class, 'get_level3'])->middleware('auth')->name('acc_level_three.get_level3');
 });
 Route::group(['prefix'=> 'acc_level_four'],function(){
     Route::get('',[App\Http\Controllers\AccLevelFourController::class, 'index'])->middleware('auth')->name('acc_level_four');

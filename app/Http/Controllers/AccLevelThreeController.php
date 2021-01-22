@@ -22,16 +22,16 @@ class AccLevelThreeController extends Controller
             ->addColumn('id', function ($data) {
                 return $data->id;
             })
-            ->addColumn('code2', function ($data) {
-                return $data->codetwo->code2;
+            ->addColumn('code3', function ($data) {
+                return $data->codeone->code1.$data->codetwo->code2.$data->code3;
             })
-            ->addColumn('code1', function ($data) {
-                return $data->codeone->code1;
-            })
-
             ->addColumn('title', function ($data) {
                 return $data->title;
             })
+            ->addColumn('parent', function ($data) {
+                return '<b class="text-danger">'.$data->codeone->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-primary">'.$data->codetwo->title.'</b>';
+            })
+
             ->addColumn('options', function ($data) {
 
                 return "&emsp;
@@ -39,7 +39,7 @@ class AccLevelThreeController extends Controller
                   ";
 
             })
-            ->rawColumns(['options','status'])
+            ->rawColumns(['options','parent'])
             ->make(true);
 
     }
@@ -51,21 +51,30 @@ class AccLevelThreeController extends Controller
     public function store(Request $request){
         $this->validate(request(), [
             'title' => 'required',
-            'level1' => 'required',
-            'level2' => 'required',
+            'level1of3' => 'required',
+            'level2of3' => 'required',
         ],[
             'title.required' => 'Title is required.',
-            'level1.required' => 'Level one is required.',
-            'level2.required' => 'Level two is required.',
+            'level1of3.required' => 'Level one is required.',
+            'level2of3.required' => 'Level two is required.',
         ]);
         $acc=new AccLevelThree();
-        $acc->code2=$request->level2;
-        $acc->code1=$request->level1;
+        $acc->code2=$request->level2of3;
+        $acc->code1=$request->level1of3;
         $acc->title=$request->title;
         $acc->save();
-        $acc->code3=str_pad($acc->id-1, 2, '0', STR_PAD_LEFT);
+        $acc->code3=str_pad($acc->id, 2, '0', STR_PAD_LEFT);
         $acc->save();
         return  redirect()->back()->with('success', 'Level 3 has added successfully.');
     }
+    public function get_level2($id){
+        $level2=AccLevelTwo::where('code1',$id)->get();
+        return response()->json($level2);
+    }
+    public function get_level3($id){
+        $level3=AccLevelThree::where('code2',$id)->get();
+        return response()->json($level3);
+    }
+
     //
 }

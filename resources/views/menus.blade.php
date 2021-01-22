@@ -15,7 +15,7 @@
     </span>
     </div>
     <div class="col-lg-12">
-      <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
+      <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white text-dark" cellspacing="0" width="100%">
 
       <thead>
       <tr>
@@ -120,7 +120,6 @@
 
 
         $("#add_menu_form").on('submit',(function(e) {
-
             e.preventDefault();
             $.ajax({
                 url: "{{route('menus.store')}}",
@@ -141,18 +140,19 @@
 
                     if(!data.errors)
                     {
+                        button.attr('disabled',null).html(previous);
                         $('#add_menu').modal('toggle');
                         swal('success',data.success,'success').then((value) => {
-                            InitTable();
+                            location.reload();
+
                         });
 
                     }
                 },
                 error: function(xhr, status, error)
                 {
-
-                    var error;
-                    error=null;
+                    button.attr('disabled',null).html(previous);
+                    var error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;
                     });
@@ -173,7 +173,7 @@
                 {
                     $('#edit_menu').modal('hide');
                     swal('success',data.success,'success').then((value) => {
-                        InitTable();
+                        location.reload();
                     });
 
                 },
@@ -181,7 +181,7 @@
                 {
 
                     var error;
-                    error=null;
+                    error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;
                     });

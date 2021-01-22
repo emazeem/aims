@@ -16,7 +16,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Level One</h3>
+            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Accounting Level One</h3>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
                 <thead>
@@ -75,47 +75,5 @@
             InitTable();
         });
     </script>
-    <div class="row mt-4">
-        <div class="col-12">
 
-            <div class="card shadow">
-                <!-- Card Header - Accordion -->
-                <a href="#approval_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                   aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary">Add Level 1</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="approval_card">
-                    <div class="card-body">
-                        <div class="col-12">
-                            <form class="form-horizontal" action="{{route('acc_level_one.store')}}" method="post">
-                                @csrf
-                                <div class="form-group row">
-                                    <label for="unit" class="col-sm-2 control-label">Title</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="title" name="title"
-                                               placeholder="Title" autocomplete="off" value="{{old('title')}}">
-                                        @if ($errors->has('title'))
-                                            <span class="text-danger">
-                          <strong>{{ $errors->first('title') }}</strong>
-                      </span>
-                                        @endif
-                                        <div class="py-2">
-                                            <span id="previous"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 text-right">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
 @endsection

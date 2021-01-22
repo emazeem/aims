@@ -70,7 +70,17 @@ class AuthServiceProvider extends ServiceProvider
         $this->accleveltwo();
         $this->acclevelthree();
         $this->acclevelfour();
+        $this->vouchers();
         //
+    }
+    public function vouchers()
+    {
+        Gate::define('vouchers-index', function ($user) {
+            if (in_array('vouchers-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
     }
     public function acclevelone()
     {
@@ -81,6 +91,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+
     public function accleveltwo()
     {
         Gate::define('acc-level-two-index', function ($user) {

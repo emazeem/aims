@@ -1,9 +1,33 @@
 .dataTables_paginate a.page-link{
     color: white;
-    background-color: #4b4b4b !important;
+    background-color: #818181 !important;
+}
+#example_previous .page-link ,#example_next .page-link {
+    color: #e4e4e4;
 }
 .close-btn,.close-btn:active,.close-btn:focus{
     border: none;
     outline: none;
 }
+.dataTables_length label .form-control{
+    border: 1px solid #615e5e;
+    color: #615e5e;
+    font-weight: bold;
+}
+.dataTables_length label {
+    color: #615e5e;
+    font-weight: bold;
+}
+.dataTables_filter label .form-control{
+    border: 1px solid #615e5e;
+    color: #615e5e;
+}
+.dataTables_filter label {
+    color: #615e5e;
+}
+@media (max-width: 400px) {
 
+    .dataTables_length label .form-control{
+       margin: 5px;
+    }
+}

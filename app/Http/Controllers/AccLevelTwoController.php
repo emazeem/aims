@@ -21,10 +21,10 @@ class AccLevelTwoController extends Controller
                 return $data->id;
             })
             ->addColumn('code2', function ($data) {
-                return $data->code2;
+                return $data->codeone->code1.$data->code2;
             })
-            ->addColumn('code1', function ($data) {
-                return $data->codeone->code1;
+            ->addColumn('parent', function ($data) {
+                return $data->codeone->title;
             })
 
             ->addColumn('title', function ($data) {
@@ -58,7 +58,8 @@ class AccLevelTwoController extends Controller
         $acc->code1=$request->level1;
         $acc->title=$request->title;
         $acc->save();
-        $acc->code2=str_pad($acc->id-1, 2, '0', STR_PAD_LEFT);
+        $reserved=AccLevelTwo::where('code1',$request->level1)->count();
+        $acc->code2=str_pad($reserved, 2, '0', STR_PAD_LEFT);
         $acc->save();
         return  redirect()->back()->with('success', 'Level 2 has added successfully.');
     }
