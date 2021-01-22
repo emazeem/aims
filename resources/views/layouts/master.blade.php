@@ -57,7 +57,7 @@ or Route::currentRouteName()=='invoicing_ledger' or Route::currentRouteName()=='
 or Route::currentRouteName()=='preferences.index' or Route::currentRouteName()=='mytasks' or Route::currentRouteName()=='certificates' or Route::currentRouteName()=='certificates'or Route::currentRouteName()=='sops'or Route::currentRouteName()=='forms.index'
 or Route::currentRouteName()=='activitylog.index' or Route::currentRouteName()=='nofacility.index' or Route::currentRouteName()=='capabilities.groups' or Route::currentRouteName()=='emp_contract.index' or Route::currentRouteName()=='requisition.index'
 or Route::currentRouteName()=='interview_appraisal.index' or Route::currentRouteName()=='emp_joining.index' or Route::currentRouteName()=='emp_orientation.index' or Route::currentRouteName()=='leave_application.index' or Route::currentRouteName()=='acc_level_one'
-or Route::currentRouteName()=='acc_level_two'or Route::currentRouteName()=='acc_level_three'or Route::currentRouteName()=='acc_level_four')
+or Route::currentRouteName()=='acc_level_two'or Route::currentRouteName()=='acc_level_three'or Route::currentRouteName()=='acc_level_four'or Route::currentRouteName()=='vouchers')
     <link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
     <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>

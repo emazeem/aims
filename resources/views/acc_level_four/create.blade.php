@@ -339,7 +339,7 @@
                         dataType: "json",
                         success:function(data) {
                             $('select[name="level3of4"]').empty();
-                            $('select[name="level3of4"]').append('<option disabled selected>Select Level 2</option>');
+                            $('select[name="level3of4"]').append('<option disabled selected>Select Level 3</option>');
                             $.each(data, function(key, value) {
                                 $('select[name="level3of4"]').append('<option value="'+ value.id +'">'+ value.title +'</option>');
                             });

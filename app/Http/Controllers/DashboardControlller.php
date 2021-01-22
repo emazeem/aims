@@ -47,15 +47,6 @@ class DashboardControlller extends Controller
         $parameters=Parameter::all()->count();
         $quotes=Quotes::all()->count();
         $jobs=Job::all()->count();
-        $expense_categories=Expensecategory::all()->count();
-        $expenses=Expense::all()->count();
-
-
-
-
-
-
-
 
 
 
@@ -124,7 +115,7 @@ class DashboardControlller extends Controller
         $head_applications=LeaveApplication::where('head_recommendation_status',null)->where('head_id',\auth()->user()->id)->get();
         //dd($head_applications);
 
-        return view('dashboard',compact('head_applications','customers','calendar','indentforrevisions','indentforapprovals','expense_categories','expenses','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status'));
+        return view('dashboard',compact('head_applications','customers','calendar','indentforrevisions','indentforapprovals','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status'));
     }
     public function markRead($id)
     {

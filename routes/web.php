@@ -525,3 +525,13 @@ Route::group(['prefix'=> 'acc_level_four'],function(){
     Route::post('/store/',[App\Http\Controllers\AccLevelFourController::class, 'store'])->middleware('auth')->name('acc_level_four.store');
     Route::post('/update/',[App\Http\Controllers\AccLevelFourController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
 });
+Route::group(['prefix'=> 'vouchers'],function(){
+    Route::get('',[App\Http\Controllers\VoucherController::class, 'index'])->middleware('auth')->name('vouchers');
+    Route::post('',[App\Http\Controllers\VoucherController::class, 'fetch'])->middleware('auth')->name('vouchers.fetch');
+    Route::get('/create',[App\Http\Controllers\VoucherController::class, 'create'])->middleware('auth')->name('vouchers.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\VoucherController::class, 'edit'])->middleware('auth')->name('vouchers.edit');
+    Route::get('/show/{id}',[App\Http\Controllers\VoucherController::class, 'show'])->middleware('auth')->name('vouchers.show');
+    Route::get('/print/{id}',[App\Http\Controllers\VoucherController::class, 'prints'])->middleware('auth')->name('vouchers.print');
+    Route::post('/store/',[App\Http\Controllers\VoucherController::class, 'store'])->middleware('auth')->name('vouchers.store');
+    Route::post('/update/',[App\Http\Controllers\VoucherController::class, 'update'])->middleware('auth')->name('vouchers.update');
+});
