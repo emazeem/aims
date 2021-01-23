@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <div class="col-12">
+    <div class="col-12 p-0 m-0">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Activity Log <small></small></h2>
@@ -25,15 +25,15 @@
                             </div>
                             <div class="block_content">
                                 <h2 class="title text-primary">
-                                    <a class="h5">{{$activity->subject_type}}</a>
+                                    <a class="h6">{{$activity->subject_type}}</a>
                                 </h2>
                                 <div class="byline text-danger">
-                                    <span >{{$activity['created_at']->diffForHumans()}}</span> by <a>{{$activity->performedBy->fname.' '.$activity->performedBy->lname}}</a>
+                                    <small >{{$activity['created_at']->diffForHumans()}} by{{$activity->performedBy->fname.' '.$activity->performedBy->lname}}</small>
                                 </div>
                                 <div class="excerpt">
 
-                                    <div class="col-12 p-0 text-info h6">Subject ⟹ {{$activity->subject_id}}</div>
-                                    <div class="col-12 p-0">New Values</div>
+                                    <div class="col-12 p-0 text-info">Subject ⟹ {{$activity->subject_id}}</div>
+                                    <div class="col-12 p-0 small">New Values</div>
                                     @php $properties=json_decode($activity->properties,true); @endphp
                                     @foreach($properties['attributes'] as $k=>$property)
                                         <div class="col-12 p-0 ml-4">
@@ -41,10 +41,10 @@
                                         </div>
                                     @endforeach
                                     @if(isset($properties['old']))
-                                    <div class="col-12 p-0">Old Values</div>
+                                    <div class="col-12 p-0 small">Old Values</div>
                                     @foreach($properties['old'] as $k=>$property)
                                         <div class="col-12 p-0 ml-4">
-                                            ↳ <span class="bg-danger text-light px-2">{{$k}}</span> <span class="text-danger">{{$property}}</span>
+                                            ↳ <span class="bg-danger text-light px-2">{{$k}}</span> ⟹ <span class="text-danger">{{$property}}</span>
                                         </div>
                                     @endforeach
                                     @endif
