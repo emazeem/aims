@@ -10,13 +10,12 @@ use Yajra\DataTables\Facades\DataTables;
 class ActivityLogController extends Controller
 {
     public function index(){
-
-
-
-
-        return view('activitylog');
+        return view('activitylog.index');
     }
-
+    public function show(){
+        $activities = Activity::orderBy('id','DESC')->get();
+        return view('activitylog.show',compact('activities'));
+    }
     public function fetch(){
         $data=Activity::with('performedBy')->get();
         return DataTables::of($data)

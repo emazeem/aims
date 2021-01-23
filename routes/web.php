@@ -416,8 +416,6 @@ Route::group(['prefix'=> 'material_receiving'],function() {
 });
 Route::get('/no-facility',[App\Http\Controllers\NofacilityController::class, 'index'])->middleware('auth')->name('nofacility.index');
 Route::post('/no-facility',[App\Http\Controllers\NofacilityController::class, 'fetch'])->middleware('auth')->name('nofacility.fetch');
-Route::get('/activity-log',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');
-Route::post('/activitylog',[App\Http\Controllers\ActivityLogController::class, 'fetch'])->middleware('auth')->name('activitylog.fetch');
 Route::group(['prefix'=> 'requisition'],function() {
     Route::get('/',[App\Http\Controllers\RequisitionController::class, 'index'])->middleware('auth')->name('requisition.index');
     Route::post('',[App\Http\Controllers\RequisitionController::class, 'fetch'])->middleware('auth')->name('requisition.fetch');
@@ -534,4 +532,9 @@ Route::group(['prefix'=> 'vouchers'],function(){
     Route::get('/print/{id}',[App\Http\Controllers\VoucherController::class, 'prints'])->middleware('auth')->name('vouchers.print');
     Route::post('/store/',[App\Http\Controllers\VoucherController::class, 'store'])->middleware('auth')->name('vouchers.store');
     Route::post('/update/',[App\Http\Controllers\VoucherController::class, 'update'])->middleware('auth')->name('vouchers.update');
+});
+Route::group(['prefix'=> 'activity-log'],function(){
+    Route::get('/',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');
+    Route::get('/show',[App\Http\Controllers\ActivityLogController::class, 'show'])->middleware('auth')->name('activitylog.show');
+    Route::post('/',[App\Http\Controllers\ActivityLogController::class, 'fetch'])->middleware('auth')->name('activitylog.fetch');
 });

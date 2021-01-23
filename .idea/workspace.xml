@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45e74d29-eecd-4738-987d-ce850b535ba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,24 +94,24 @@
           <entry key="css" value="10" />
           <entry key="env" value="6" />
           <entry key="htaccess" value="9" />
-          <entry key="html" value="9" />
+          <entry key="html" value="11" />
           <entry key="ini" value="1" />
           <entry key="js" value="1" />
           <entry key="json" value="11" />
           <entry key="log" value="1" />
-          <entry key="php" value="1104" />
+          <entry key="php" value="1113" />
           <entry key="sql" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="575" />
+          <entry key="Blade" value="582" />
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="9" />
+          <entry key="HTML" value="11" />
           <entry key="Ini" value="1" />
           <entry key="JSON" value="11" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="529" />
+          <entry key="PHP" value="531" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="SQL" value="24" />
         </counts>
@@ -121,18 +123,18 @@
           <entry key="htaccess" value="4" />
           <entry key="ini" value="2" />
           <entry key="json" value="8" />
-          <entry key="php" value="80417" />
+          <entry key="php" value="81155" />
           <entry key="sql" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="49922" />
+          <entry key="Blade" value="50554" />
           <entry key="CSS" value="325" />
           <entry key="HTML" value="16" />
           <entry key="Ini" value="2" />
           <entry key="JSON" value="8" />
-          <entry key="PHP" value="30478" />
+          <entry key="PHP" value="30584" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="SQL" value="14" />
         </counts>
@@ -141,41 +143,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/activitylog/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="537" column="127" selection-start-line="537" selection-start-column="127" selection-end-line="537" selection-end-column="127" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/activitylog/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-              <folding>
-                <element signature="e#41#62#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="26" column="64" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Materialreceiving.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/LeaveApplication.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Empjoining.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+            <state relative-caret-position="86">
+              <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -184,9 +183,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>allow</find>
-      <find>hr</find>
-      <find>signat</find>
       <find>desing</find>
       <find>leave</find>
       <find>table</find>
@@ -214,6 +210,9 @@
       <find>acti</find>
       <find>$description = $model-&gt;getDescriptionForEvent($eventName);</find>
       <find>ALTER TABLE `parameters` ADD `parent` INT NULL AFTER `name`;</find>
+      <find>Daily active users</find>
+      <find>activity</find>
+      <find>dif</find>
     </findStrings>
     <replaceStrings>
       <replace>row pb-2</replace>
@@ -233,18 +232,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/voucher/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/voucher/print.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VoucherController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_01_07_074202_create_activity_log_table.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/vendor/spatie/laravel-activitylog/src/Models/Activity.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php" />
         <option value="$PROJECT_DIR$/resources/views/activitylog.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php" />
         <option value="$PROJECT_DIR$/app/Models/AccLevelFour.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ChartofaccountController.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/app/Models/Designation.php" />
         <option value="$PROJECT_DIR$/app/Models/Customer.php" />
@@ -284,6 +278,11 @@
         <option value="$PROJECT_DIR$/app/Models/Materialreceiving.php" />
         <option value="$PROJECT_DIR$/app/Models/LeaveApplication.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/activitylog/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/notifications.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php" />
+        <option value="$PROJECT_DIR$/resources/views/activitylog/show.blade.php" />
       </list>
     </option>
   </component>
@@ -454,13 +453,13 @@
     <option name="height" value="733" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <showMembers ProjectPane="false" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
           <expand>
             <path>
               <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -471,11 +470,33 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
             <path>
               <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -526,7 +547,14 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="emp_joining" type="462c0819:PsiDirectoryNode" />
+              <item name="activitylog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
@@ -550,11 +578,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\aims\resources\views\voucher" />
+      <recent name="D:\xampp\htdocs\aims\resources\views\activitylog" />
       <recent name="D:\xampp\htdocs\aims\resources\views" />
+      <recent name="D:\xampp\htdocs\aims\resources\views\voucher" />
       <recent name="D:\xampp\htdocs\aims\resources\views\acc_level_four" />
       <recent name="D:\xampp\htdocs\aims\resources\views\leave_application" />
-      <recent name="D:\xampp\htdocs\aims\resources\views\emp_orientation" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -639,18 +667,18 @@
       <workItem from="1611305518886" duration="3721000" />
       <workItem from="1611322185157" duration="77000" />
       <workItem from="1611327135851" duration="6333000" />
-      <workItem from="1611377089142" duration="586000" />
+      <workItem from="1611377089142" duration="3036000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="527437000" />
+    <option name="totallyTimeSpent" value="529887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24810892" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24810892" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -689,46 +717,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/spatie/laravel-activitylog/src/Models/Activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/AccLevelFour.php" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CertificateController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccLevelFourController.php" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartofaccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DesignationController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -788,13 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="527" column="48" lean-forward="true" selection-start-line="527" selection-start-column="48" selection-end-line="527" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -994,17 +975,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding>
+            <element signature="e#41#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Materialreceiving.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Empjoining.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1015,13 +999,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Empjoining.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        <state relative-caret-position="204">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/activitylog/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="537" column="127" selection-start-line="537" selection-start-column="127" selection-end-line="537" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/assets/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Downloads/gentelella-master/production/general_elements.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="767" selection-start-line="767" selection-end-line="850" />
           <folding>
-            <element signature="e#41#62#0#PHP" expanded="true" />
+            <element signature="n#div#5;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/notifications.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="32" column="128" lean-forward="true" selection-start-line="32" selection-start-column="84" selection-end-line="32" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/activitylog/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="26" column="64" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
         </state>
       </provider>
     </entry>
