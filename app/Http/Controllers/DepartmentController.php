@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\Facades\DataTables;
 
 class DepartmentController extends Controller

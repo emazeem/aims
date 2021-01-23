@@ -55,21 +55,6 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class);
     }
-
-
     protected static $logAttributes = ['id', 'fname', 'lname','profile','user.cnic','address'];
     protected static $logOnlyDirty = true;
-
-
-    protected static $logName = 'system';
-
-    public function getDescriptionForEvent($eventName)
-    {
-        return "This model has been {$eventName}";
-    }
-
-    public function getTableColumns() {
-        return $this->getConnection()->getSchemaBuilder()->getColumnListing($this->getTable());
-    }
-
 }

@@ -11,10 +11,10 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>Description</th>
-            <th>Record Id</th>
-            <th>Section</th>
             <th>Performed By</th>
+            <th>Section</th>
+            <th>Record Id</th>
+            <th>Description</th>
             <th>Details</th>
             <th>On</th>
         </tr>
@@ -25,10 +25,10 @@
         <tfoot>
         <tr>
             <th>Id</th>
-            <th>Description</th>
-            <th>Record Id</th>
-            <th>Section</th>
             <th>Performed By</th>
+            <th>Section</th>
+            <th>Record Id</th>
+            <th>Description</th>
             <th>Details</th>
             <th>On</th>
         </tr>
@@ -58,10 +58,10 @@
             },
             "columns": [
                 { "data": "id" },
-                { "data": "description" },
-                { "data": "subject_id" },
-                { "data": "subject_type" },
                 { "data": "causer_id" },
+                { "data": "subject_type" },
+                { "data": "subject_id" },
+                { "data": "description" },
                 { "data": "properties" },
                 { "data": "created_at" },
             ]

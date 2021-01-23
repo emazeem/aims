@@ -4,10 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
-class AccLevelFour extends Model
+class Chartofaccount extends Model
 {
     use HasFactory;
+    use LogsActivity;
+    protected static $logAttributes = ['code1','code2','code3','acc_code','title'];
+    protected static $logOnlyDirty = true;
+
+    protected $table='acc_level_fours';
     public function codeone(){
         return $this->belongsTo('App\Models\AccLevelOne','code1');
     }
@@ -17,5 +23,4 @@ class AccLevelFour extends Model
     public function codethree(){
         return $this->belongsTo('App\Models\AccLevelThree','code3');
     }
-
 }

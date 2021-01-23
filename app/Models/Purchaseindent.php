@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Purchaseindent extends Model
 {
@@ -26,5 +27,8 @@ class Purchaseindent extends Model
 
 
 
-
+    use LogsActivity;
+    protected static $logAttributes = ["location","department","indent_by","checked_by","approved_by","indent_type","deliver_to","status","required"];
+    protected static $logOnlyDirty = true;
 }
+

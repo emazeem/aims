@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Quotes extends Model
 {
-    use HasFactory;
+    use HasFactory,LogsActivity;
     public function customers(){
         return $this->belongsTo('App\Models\Customer','customer_id')->withDefault();
         //
@@ -28,4 +29,7 @@ class Quotes extends Model
     public function logs(){
         return $this->hasMany('App\Models\Quoterevisionlog','quote_id');
     }
+    protected static $logAttributes = ["customer_id","type","rfq_mode","rfq_mode_details","approval_mode","approval_mode_details","approval_date","status","turnaround", "remarks", "tm", "principal", "revision"];
+    protected static $logOnlyDirty = true;
+
 }

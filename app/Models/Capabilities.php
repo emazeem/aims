@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Capabilities extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,LogsActivity;
     use HasFactory;
     public function parameters(){
         return $this->belongsTo('App\Models\Parameter','parameter')->withDefault();
@@ -20,4 +21,6 @@ class Capabilities extends Model
     public function units(){
         return $this->belongsTo('App\Models\Unit','unit')->withDefault();
     }
+    protected static $logAttributes = ["name","parameter","procedure","range","price","accuracy","unit","remarks","location","accredited"];
+    protected static $logOnlyDirty = true;
 }

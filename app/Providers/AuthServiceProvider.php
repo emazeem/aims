@@ -71,6 +71,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->acclevelthree();
         $this->acclevelfour();
         $this->vouchers();
+        $this->activitylog();
         //
     }
     public function vouchers()
@@ -82,6 +83,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function activitylog()
+    {
+        Gate::define('activity-log-index', function ($user) {
+            if (in_array('activity-log-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
     public function acclevelone()
     {
         Gate::define('acc-level-one-index', function ($user) {
@@ -101,6 +112,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+
     public function acclevelthree()
     {
         Gate::define('acc-level-three-index', function ($user) {

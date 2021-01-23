@@ -9,11 +9,8 @@ use App\Models\Capabilities;
 use App\Models\Customer;
 use App\Models\Department;
 use App\Models\Designation;
-use App\Models\Expense;
-use App\Models\Expensecategory;
 use App\Models\Item;
 use App\Models\Job;
-use App\Models\Jobform;
 use App\Models\Labjob;
 use App\Models\LeaveApplication;
 use App\Models\Notification;
@@ -21,7 +18,6 @@ use App\Models\Parameter;
 use App\Models\Purchaseindent;
 use App\Models\Purchaseindentitem;
 use App\Models\Quotes;
-use App\Models\Session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,10 +28,8 @@ use LaravelFullCalendar\Facades\Calendar;
 class DashboardControlller extends Controller
 {
     public function index(){
-        $columns = Schema::getColumnListing('departments');
-        //dd($columns);
-
-
+        $columns = Schema::getColumnListing('leave_applications');
+        dd($columns);
 
         $departments=Department::all()->count();
         $designations=Designation::all()->count();
@@ -47,14 +41,6 @@ class DashboardControlller extends Controller
         $parameters=Parameter::all()->count();
         $quotes=Quotes::all()->count();
         $jobs=Job::all()->count();
-
-
-
-
-
-
-
-
 
         $events = [];
         $data = Asset::all();

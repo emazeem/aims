@@ -416,7 +416,7 @@ Route::group(['prefix'=> 'material_receiving'],function() {
 });
 Route::get('/no-facility',[App\Http\Controllers\NofacilityController::class, 'index'])->middleware('auth')->name('nofacility.index');
 Route::post('/no-facility',[App\Http\Controllers\NofacilityController::class, 'fetch'])->middleware('auth')->name('nofacility.fetch');
-Route::get('/activitylog',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');
+Route::get('/activity-log',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');
 Route::post('/activitylog',[App\Http\Controllers\ActivityLogController::class, 'fetch'])->middleware('auth')->name('activitylog.fetch');
 Route::group(['prefix'=> 'requisition'],function() {
     Route::get('/',[App\Http\Controllers\RequisitionController::class, 'index'])->middleware('auth')->name('requisition.index');
@@ -518,12 +518,12 @@ Route::group(['prefix'=> 'acc_level_three'],function(){
     Route::get('/get_level3/{id}',[App\Http\Controllers\AccLevelThreeController::class, 'get_level3'])->middleware('auth')->name('acc_level_three.get_level3');
 });
 Route::group(['prefix'=> 'acc_level_four'],function(){
-    Route::get('',[App\Http\Controllers\AccLevelFourController::class, 'index'])->middleware('auth')->name('acc_level_four');
-    Route::post('',[App\Http\Controllers\AccLevelFourController::class, 'fetch'])->middleware('auth')->name('acc_level_four.fetch');
-    Route::get('/create',[App\Http\Controllers\AccLevelFourController::class, 'create'])->middleware('auth')->name('acc_level_four.create');
-    Route::get('/edit/{id}',[App\Http\Controllers\AccLevelFourController::class, 'edit'])->middleware('auth')->name('acc_level_four.edit');
-    Route::post('/store/',[App\Http\Controllers\AccLevelFourController::class, 'store'])->middleware('auth')->name('acc_level_four.store');
-    Route::post('/update/',[App\Http\Controllers\AccLevelFourController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
+    Route::get('',[App\Http\Controllers\ChartofaccountController::class, 'index'])->middleware('auth')->name('acc_level_four');
+    Route::post('',[App\Http\Controllers\ChartofaccountController::class, 'fetch'])->middleware('auth')->name('acc_level_four.fetch');
+    Route::get('/create',[App\Http\Controllers\ChartofaccountController::class, 'create'])->middleware('auth')->name('acc_level_four.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\ChartofaccountController::class, 'edit'])->middleware('auth')->name('acc_level_four.edit');
+    Route::post('/store/',[App\Http\Controllers\ChartofaccountController::class, 'store'])->middleware('auth')->name('acc_level_four.store');
+    Route::post('/update/',[App\Http\Controllers\ChartofaccountController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
 });
 Route::group(['prefix'=> 'vouchers'],function(){
     Route::get('',[App\Http\Controllers\VoucherController::class, 'index'])->middleware('auth')->name('vouchers');

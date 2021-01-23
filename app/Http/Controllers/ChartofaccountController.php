@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AccLevelFour;
 use App\Models\AccLevelOne;
 use App\Models\AccLevelThree;
 use App\Models\AccLevelTwo;
+use App\Models\Chartofaccount;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class AccLevelFourController extends Controller
+class ChartofaccountController extends Controller
 {
     public function index(){
         $ones=AccLevelOne::all();
@@ -18,7 +18,7 @@ class AccLevelFourController extends Controller
         return view('acc_level_four.index',compact('ones','twos','threes'));
     }
     public function fetch(){
-        $data=AccLevelFour::with('codeone','codetwo','codethree')->get();
+        $data=Chartofaccount::with('codeone','codetwo','codethree')->get();
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -70,7 +70,7 @@ class AccLevelFourController extends Controller
             'level2of4.required' => 'Level two is required.',
             'level3of4.required' => 'Level two is required.',
         ]);
-        $acc=new AccLevelFour();
+        $acc=new Chartofaccount();
         $acc->code3=$request->level3of4;
         $acc->code2=$request->level2of4;
         $acc->code1=$request->level1of4;
@@ -78,7 +78,7 @@ class AccLevelFourController extends Controller
         $acc->save();
         $acc->code4=str_pad($acc->id, 3, '0', STR_PAD_LEFT);
         $acc->save();
-        $four=AccLevelFour::find($acc->id);
+        $four=Chartofaccount::find($acc->id);
         $four->acc_code=$four->codeone->code1.$four->codetwo->code2.$four->codethree->code3.$four->code4;
         $four->save();
         return  redirect()->back()->with('success', 'Level 4 has added successfully.');
