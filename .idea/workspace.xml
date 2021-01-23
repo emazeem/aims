@@ -5,53 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45e74d29-eecd-4738-987d-ce850b535ba3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccLevelFourController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/AccLevelFour.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/AccLevelOne.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AccLevelOne.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/AccLevelThree.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AccLevelThree.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/AccLevelTwo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AccLevelTwo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Assetgroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Assetgroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Attendance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Attendance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Capabilities.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Capabilities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Department.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Department.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Designation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Designation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/EmpOrientation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/EmpOrientation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Empcontract.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Empcontract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Empjoining.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Empjoining.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Formsandformats.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Formsandformats.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Interviewappraisal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Interviewappraisal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Job.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Jobitem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Jobitem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/LeaveApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LeaveApplication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Managereference.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Managereference.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Materialreceiving.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Materialreceiving.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Nofacility.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Nofacility.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Parameter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Parameter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Preference.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Preference.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Procedure.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Procedure.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Purchaseindent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchaseindent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Purchaseindentitem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchaseindentitem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Quotes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Quotes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Requisition.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Requisition.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Sops.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sops.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Uncertainty.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Uncertainty.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Unit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Unit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Voucher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Voucher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/activitylog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/activitylog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/spatie/laravel-activitylog/src/Models/Activity.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/spatie/laravel-activitylog/src/Models/Activity.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,6 +68,7 @@
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="2" />
@@ -129,7 +84,7 @@
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="49" />
+          <entry key="project.opened" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -166,7 +121,7 @@
           <entry key="htaccess" value="4" />
           <entry key="ini" value="2" />
           <entry key="json" value="8" />
-          <entry key="php" value="80415" />
+          <entry key="php" value="80417" />
           <entry key="sql" value="14" />
         </counts>
       </usages-collector>
@@ -177,7 +132,7 @@
           <entry key="HTML" value="16" />
           <entry key="Ini" value="2" />
           <entry key="JSON" value="8" />
-          <entry key="PHP" value="30476" />
+          <entry key="PHP" value="30478" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="SQL" value="14" />
         </counts>
@@ -186,11 +141,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+            <state relative-caret-position="136">
+              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding>
                 <element signature="e#41#62#0#PHP" expanded="true" />
               </folding>
@@ -207,11 +162,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/LeaveApplication.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="392">
-              <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+              <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -327,8 +282,8 @@
         <option value="$PROJECT_DIR$/app/Models/EmpOrientation.php" />
         <option value="$PROJECT_DIR$/app/Models/Empjoining.php" />
         <option value="$PROJECT_DIR$/app/Models/Materialreceiving.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
         <option value="$PROJECT_DIR$/app/Models/LeaveApplication.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
       </list>
     </option>
   </component>
@@ -504,6 +459,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -555,28 +532,6 @@
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="aims" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -684,16 +639,18 @@
       <workItem from="1611305518886" duration="3721000" />
       <workItem from="1611322185157" duration="77000" />
       <workItem from="1611327135851" duration="6333000" />
+      <workItem from="1611377089142" duration="586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="526851000" />
+    <option name="totallyTimeSpent" value="527437000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24432677" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24810892" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -743,9 +700,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-          <folding>
-            <element signature="e#40#65#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -756,13 +710,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/AccLevelFour.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/AccLevelFour.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CertificateController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -770,20 +718,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccLevelFourController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="84" column="5" selection-start-line="13" selection-start-column="4" selection-end-line="84" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccLevelFourController.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartofaccountController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-187">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="35" />
-          <folding>
-            <element signature="e#40#67#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1055,13 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Empjoining.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Materialreceiving.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1069,20 +1001,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Empjoining.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
-          <folding>
-            <element signature="e#41#62#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/LeaveApplication.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
-          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding>
+            <element signature="e#41#62#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
