@@ -7,19 +7,76 @@
         }
     </style>
 <div class="row">
+
+
     <div class="col-12">
-        <h3 class="border-bottom text-dark pull-left"><i class="fa fa-tasks"></i> All Menus</h3>
+        <h3 class="border-bottom pull-left"><i class="fa fa-tasks"></i> All Menus</h3>
         <span class="text-right">
-        <a href="{{route('menus.manage')}}" class="btn btn-sm pull-right btn-success shadow-sm"><i class="fa fa-sort"></i> Manage Menus</a>
         <button type="button" class="btn btn-sm pull-right btn-primary shadow-sm" data-toggle="modal" data-target="#add_menu"><i class="fa fa-plus-circle"></i> Menu</button>
     </span>
     </div>
+
+    <div class="col-12 mb-2">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="text-danger font-weight-bold">{{$error}}</div>
+            @endforeach
+        @endif
+        <div class="card shadow ">
+
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0"> Advance Filter <i class="fa fa-search"></i></h6>
+            </a>
+            <div class="collapse" id="collapseCardExample">
+                <div class="card-body">
+                    <div class="col-12 text-right">
+
+                    </div>
+                    <form method="post" action="{{route('menus.search')}}" role="form">
+                        @csrf
+                        <div id="service_div">
+                            <div class="form-group row">
+                                <label for="type" class="col-2 mt-2 text-right">Select Type</label>
+                                <div class="col-sm-6">
+                                    <div class="form-check form-check-inline" style="width: 100%">
+                                        <select class="form-control" id="type" name="type">
+                                            <option selected disabled>Select Type</option>
+                                            <option value="parent">Parent Menu</option>
+                                            <option value="child">Child Menu</option>
+                                            <option value="other">Other Menu</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn btn-success" type="submit"><i class="fa fa-search"></i> Search</button>
+                                </div>
+                    </form>
+
+                    <div class="col-2 text-right">
+
+                        <form action="{{route('clear.filter')}}" method="post">
+                            @csrf
+                            <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Clear Filter</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+    </div>
+
     <div class="col-lg-12">
       <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white text-dark" cellspacing="0" width="100%">
 
       <thead>
       <tr>
         <th>ID</th>
+          <th>Position</th>
         <th>Name</th>
         <th>Slug</th>
         <th>Icon</th>
@@ -32,6 +89,7 @@
       <tfoot>
       <tr>
           <th>ID</th>
+          <th>Position</th>
           <th>Name</th>
           <th>Slug</th>
           <th>Icon</th>
@@ -64,6 +122,7 @@
             },
             "columns": [
                 { "data": "id" },
+                { "data": "position" },
                 { "data": "name" },
                 { "data": "slug" },
                 { "data": "icon" },
@@ -104,6 +163,7 @@
                     $('#edit_slug').val(data.slug);
                     $('#edit_icon').val(data.icon);
                     $('#edit_url').val(data.url);
+                    $('#edit_position').val(data.position);
                     if (data.parent_id){
                         $('#edit_parent').val(data.parent_id);
                     }
@@ -173,7 +233,7 @@
                 {
                     $('#edit_menu').modal('hide');
                     swal('success',data.success,'success').then((value) => {
-                        location.reload();
+                        InitTable();
                     });
 
                 },
@@ -276,6 +336,11 @@
                             <label for="icon">Icon</label>
                             <input type="text" class="form-control" id="icon" name="icon" placeholder="icon" autocomplete="off" value="{{old('icon')}}">
                         </div>
+                        <div class="form-group col-12">
+                            <label for="position">Position</label>
+                            <input type="text" class="form-control" id="position" name="position" placeholder="Position" autocomplete="off" value="{{old('position',0)}}">
+                        </div>
+
                         <div class="col-12 mb-1">
                             <label for="parent">Parent</label>
                             <div class="form-check form-check-inline" style="width: 100%">
@@ -338,6 +403,11 @@
                         <div class="form-group col-12">
                             <label for="icon">Icon</label>
                             <input type="text" class="form-control" id="edit_icon" name="icon" placeholder="icon" autocomplete="off" value="fa fa-">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label for="edit_position">Position</label>
+                            <input type="text" class="form-control" id="edit_position" name="position" placeholder="Position" autocomplete="off" value="{{old('position',0)}}">
                         </div>
                         <div class="col-12 mb-1">
                             <label for="parent">Parent</label>

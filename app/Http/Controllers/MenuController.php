@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 
 class MenuController extends Controller
@@ -16,7 +17,21 @@ class MenuController extends Controller
         return view('menus',compact('parents'));
     }
     public function fetch(){
-        $data=Menu::all();
+        $check=Session::get('filter_data');
+        if (empty($check)){
+            $data=Menu::all();
+        }else{
+            if ($check['type']=='parent'){
+                $data=Menu::all()->where('parent_id',null);
+            }
+            if ($check['type']=='child'){
+                $data=Menu::all()->where('has_child',1);
+            }
+            if ($check['type']=='other'){
+                $data=Menu::all()->where('has_child',0)->where('parent_id',!null);
+            }
+
+        }
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -73,12 +88,15 @@ class MenuController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'slug' => 'required',
+            'position' => 'required',
         ],[
             'name.required' => 'Menu name is required *',
             'slug.required' => 'Menu slug is required *',
+            'position.required' => 'Menu position is required *',
         ]);
         $menus=new Menu();
 
+        $menus->position=$request->position;
         $menus->name=$request->name;
         $menus->slug=$request->slug;
         $menus->url=($request->url)?$request->url:'#';
@@ -99,6 +117,7 @@ class MenuController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'slug' => 'required',
+            'position' => 'required',
         ],[
             'name.required' => 'Menu name is required *',
             'slug.required' => 'Menu slug is required *',
@@ -106,6 +125,7 @@ class MenuController extends Controller
         $menus=Menu::find($request->id);
         $menus->name=$request->name;
         $menus->slug=$request->slug;
+        $menus->position=$request->position;
         $menus->url=($request->url)?$request->url:'#';
         $menus->parent_id=($request->parent)?$request->parent:null;
         $menus->has_child=($request->has_child)?1:0;
@@ -120,37 +140,20 @@ class MenuController extends Controller
 
         return response()->json($edit);
     }
-    public function manage(){
-        $mens=Menu::orderBy('position','ASC')->where('parent_id',null)->where('status',1)->get();
-        $childs=Menu::all()->where('parent_id',!null)->where('status',1)->where('has_child',1);
-        return view('manage-menus',compact('mens','childs'));
-    }
-    public function manage_store(Request $request){
-        //dd($request->all());
-        $mens=Menu::all()->where('parent_id',null)->where('status',1);
-        $i=0;
-        foreach ($mens as $men) {
-            $change=Menu::find($men->id);
-            $change->position=$request->menu[$i];
-            $change->save();
-            $i++;
-        }
-        $childs=Menu::all()->where('parent_id',!null)->where('status',1)->where('has_child',1);
-        foreach ($childs as $men) {
-            $change=Menu::find($men->id);
-            $change->position=$request->menu[$i];
-            $change->save();
-            $i++;
-        }
-
-
-        return redirect()->back()->with('success','Ordered successfully');
-
-    }
     public function destroy(Request $request){
 
         Menu::find($request->id)->delete();
         return response()->json(['success'=>'Deleted successfully']);
+    }
+    public function search(Request $request){
+        $request->session()->forget('filter_data');
+        $this->validate($request,[
+            'type'=>'required',
+        ]);
+        $filter_data['type']=$request->type;
+        Session::put('filter_data', $filter_data);
+//        dd($request->session()->get('filter_data'));
+        return back();
     }
 
 

@@ -137,8 +137,8 @@ Route::group(['prefix'=> 'menus'],function() {
     Route::post('/edit',[App\Http\Controllers\MenuController::class, 'edit'])->middleware('auth')->name('menus.edit');
     Route::delete('/delete',[App\Http\Controllers\MenuController::class, 'destroy'])->middleware('auth')->name('menus.destroy');
     Route::post('/update',[App\Http\Controllers\MenuController::class, 'update'])->middleware('auth')->name('menus.update');
-    Route::get('/manage',[App\Http\Controllers\MenuController::class, 'manage'])->middleware('auth')->name('menus.manage');
-    Route::post('/manage',[App\Http\Controllers\MenuController::class, 'manage_store'])->middleware('auth')->name('menus.manage.store');
+    Route::post('/search',[App\Http\Controllers\MenuController::class, 'search'])->middleware('auth')->name('menus.search');
+
 });
 Route::group(['prefix'=> 'roles'],function() {
     Route::get('',[App\Http\Controllers\RoleController::class, 'index'])->middleware('auth')->name('roles');
