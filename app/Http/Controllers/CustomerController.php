@@ -13,48 +13,6 @@ class CustomerController extends Controller
 {
     public function index(){
         $this->authorize('customer-index');
-
-        $customers=Customer::all();
-        foreach ($customers as $customer) {
-
-
-            $prin_name=$customer->prin_name_1;
-            if (isset($customer->prin_name_2)){
-                $prin_name.=','.$customer->prin_name_2;
-            }
-            if (isset($customer->prin_name_3)){
-                $prin_name.=','.$customer->prin_name_3;
-            }
-            $customer->prin_name_1=$prin_name;
-
-            $customer->prin_name_2=null;
-            $customer->prin_name_2=null;
-            $prin_email=$customer->prin_email_1;
-            if (isset($customer->prin_email_2)){
-                $prin_email.=','.$customer->prin_email_2;
-            }
-            if (isset($customer->prin_email_3)){
-                $prin_email.=','.$customer->prin_email_3;
-            }
-            $customer->prin_email_1=$prin_email;
-
-            $customer->prin_email_2=null;
-            $customer->prin_email_2=null;
-            $prin_phone=$customer->prin_phone_1;
-            if (isset($customer->prin_phone_2)){
-                $prin_phone.=','.$customer->prin_phone_2;
-            }
-            if (isset($customer->prin_phone_3)){
-                $prin_phone.=','.$customer->prin_phone_3;
-            }
-            $customer->prin_phone_1=$prin_phone;
-
-            $customer->prin_phone_2=null;
-            $customer->prin_phone_2=null;
-
-            $customer->save();
-        }
-
         return view('customers.index');
     }
     public function create(){
