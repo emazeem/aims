@@ -13,6 +13,48 @@ class CustomerController extends Controller
 {
     public function index(){
         $this->authorize('customer-index');
+
+        $customers=Customer::all();
+        foreach ($customers as $customer) {
+
+
+            $prin_name=$customer->prin_name_1;
+            if (isset($customer->prin_name_2)){
+                $prin_name.=','.$customer->prin_name_2;
+            }
+            if (isset($customer->prin_name_3)){
+                $prin_name.=','.$customer->prin_name_3;
+            }
+            $customer->prin_name_1=$prin_name;
+
+            $customer->prin_name_2=null;
+            $customer->prin_name_2=null;
+            $prin_email=$customer->prin_email_1;
+            if (isset($customer->prin_email_2)){
+                $prin_email.=','.$customer->prin_email_2;
+            }
+            if (isset($customer->prin_email_3)){
+                $prin_email.=','.$customer->prin_email_3;
+            }
+            $customer->prin_email_1=$prin_email;
+
+            $customer->prin_email_2=null;
+            $customer->prin_email_2=null;
+            $prin_phone=$customer->prin_phone_1;
+            if (isset($customer->prin_phone_2)){
+                $prin_phone.=','.$customer->prin_phone_2;
+            }
+            if (isset($customer->prin_phone_3)){
+                $prin_phone.=','.$customer->prin_phone_3;
+            }
+            $customer->prin_phone_1=$prin_phone;
+
+            $customer->prin_phone_2=null;
+            $customer->prin_phone_2=null;
+
+            $customer->save();
+        }
+
         return view('customers.index');
     }
     public function create(){
@@ -46,14 +88,20 @@ class CustomerController extends Controller
                 return $data->address;
             })
             ->addColumn('prin_name', function ($data) {
-                return $data->prin_name_1.",".$data->prin_name_2.",".$data->prin_name_3;
+                $colors=['badge-primary','badge-dark','badge-warning'];
+                $principals=null;
+                foreach (explode(',',$data->prin_name_1) as $key=>$item) {
+                    $principals.='<span class="badge '.$colors[$key].'">'.$item.'</span>';
+                }
+                return $principals;
             })
             ->addColumn('prin_phone', function ($data) {
-                $phone=null;
-                $phone.=$data->prin_phone_1;
-                $phone.=($data->prin_phone_2)?"-".$data->prin_phone_2:"";
-                $phone.=($data->prin_phone_3)?"-".$data->prin_phone_3:"";
-                return $phone;
+                $colors=['badge-primary','badge-dark','badge-warning','badge-warning'];
+                $phones=null;
+                foreach (explode(',',$data->prin_phone_1) as $k=>$item) {
+                    $phones.='<span class="badge '.$colors[$k].'">'.$item.'</span>';
+                }
+                return $phones;
             })
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
@@ -75,7 +123,7 @@ class CustomerController extends Controller
                 return $action;
 
             })
-            ->rawColumns(['options'])
+            ->rawColumns(['options','prin_name','prin_phone'])
             ->make(true);
 
     }
@@ -88,10 +136,9 @@ class CustomerController extends Controller
             'pay_type' => 'required',
             'pay_way' => 'required',
             'region' => 'required',
-            'prin_name_1' => 'required',
-            'prin_phone_1' => 'required',
-            'prin_email_1' => 'required',
-
+            'prin_name.0' => 'required',
+            'prin_phone.0' => 'required',
+            'prin_email.0' => 'required',
         ],[
             'name.required' => 'Company Name field is required *',
             'region.required' => 'Region field is required *',
@@ -99,10 +146,23 @@ class CustomerController extends Controller
             'address.required' => 'Company Address field is required *',
             'pay_type.required' => 'Payment Type field is required *',
             'pay_way.required' => 'Payment Way field is required *',
-            'prin_name_1.required' => 'Principal Name field is required *',
-            'prin_phone_1.required' => 'Principal Phone field is required *',
-            'prin_email_1.required' => 'Principal Email field is required *',
+            'prin_name.0.required' => 'Principal Name field is required *',
+            'prin_email.0.required' => 'Principal Email field is required *',
+            'prin_phone.0.required' => 'Principal Phone field is required *',
         ]);
+        if ($request->prin_name[1]!=null or $request->prin_email[1]!=null or $request->prin_phone[1]!=null ){
+            $this->validate(request(), [
+                'prin_name.1' => 'required',
+                'prin_phone.1' => 'required',
+                'prin_email.1' => 'required',
+            ],[
+
+                'prin_name.1.required' => 'Principal Name field is required *',
+                'prin_email.1.required' => 'Principal Email field is required *',
+                'prin_phone.1.required' => 'Principal Phone field is required *',
+            ]);
+        }
+
         $customer=new Customer();
         $customer->reg_name=$request->name;
         $customer->ntn=$request->ntn;
@@ -111,43 +171,43 @@ class CustomerController extends Controller
         $customer->region=$request->region;
         $customer->pay_terms=$request->pay_way;
         $customer->credit_limit=0;
-        $customer->prin_name_1=$request->prin_name_1;
-        $customer->prin_phone_1=$request->prin_phone_1;
-        $customer->prin_email_1=$request->prin_email_1;
-        $customer->prin_name_2=($request->prin_name_2)?$request->prin_name_2:null;
-        $customer->prin_phone_2=($request->prin_phone_2)?$request->prin_phone_2:null;
-        $customer->prin_email_2=($request->prin_email_2)?$request->prin_email_2:null;
-        $customer->prin_name_3=($request->prin_name_3)?$request->prin_name_3:null;
-        $customer->prin_phone_3=($request->prin_phone_3)?$request->prin_phone_3:null;
-        $customer->prin_email_3=($request->prin_email_3)?$request->prin_email_3:null;
-        $customer->pur_name=($request->pur_name)?$request->pur_name:null;
-        $purchase_phone=null;
-        $account_phone=null;
-        if ($request->pur_phone_1){
-            if ($request->pur_phone_2) {
-                $purchase_phone=$request->pur_phone_1.','.$request->pur_phone_2;
-            }else{
-                $purchase_phone=$request->pur_phone_1;
-            }
+        $customer->prin_name=implode(',',$request->prin_name);
+        $customer->prin_phone=implode(',',$request->prin_phone);
+        $customer->prin_email=implode(',',$request->prin_email);
+
+        if ($request->pur_name or $request->pur_phone[0] or $request->pur_phone[1] or $request->pur_email ){
+            $this->validate(request(), [
+                'pur_name' => 'required',
+                'pur_email' => 'required',
+            ],[
+                'pur_name.required' => 'Purchase Name field is required *',
+                'pur_email.required' => 'Purchase Email field is required *',
+            ]);
+            $customer->pur_name=$request->pur_name;
+            $customer->pur_phone=implode(',',$request->pur_phone);
+            $customer->pur_email=$request->pur_email;
         }
-        $customer->pur_phone=($purchase_phone)?$purchase_phone:null;
-        $customer->pur_email=($request->pur_email)?$request->pur_email:null;
-        $customer->acc_name=($request->acc_name)?$request->acc_name:null;
-        if ($request->acc_phone_1){
-            if ($request->acc_phone_2) {
-                $account_phone=$request->acc_phone_1.','.$request->acc_phone_2;
-            }else{
-                $account_phone=$request->acc_phone_1;
-            }
+        if ($request->acc_name or $request->acc_phone[0] or $request->acc_phone[1] or $request->acc_email ){
+            $this->validate(request(), [
+                'acc_name' => 'required',
+                'acc_email' => 'required',
+
+            ],[
+                'acc_name.required' => 'Account Name field is required *',
+                'acc_email.required' => 'Account Email field is required *',
+            ]);
+
+            $customer->acc_name=$request->acc_name;
+            $customer->acc_phone=implode(',',$request->acc_phone);
+            $customer->acc_email=$request->acc_email;
         }
-        $customer->acc_phone=$account_phone;
-        $customer->acc_email=($request->acc_email)?$request->acc_email:null;
         $customer->save();
         $users = User::where('user_type', 1)->get();
         $url = '/customers/view/'.$customer->id;
         $creator = auth()->user()->fname . ' ' . auth()->user()->lname;
         $message = collect(['title' => 'New customer added','by'=>auth()->user()->id, 'body' => 'A new customer ( '.$customer->reg_name.' ) has been added.', 'redirectURL' => $url]);
         Notification::send($users, new CustomerNotification($message));
+
         return redirect()->back()->with('success', 'Customer added successfully');
     }
     public function update($id,Request $request){
@@ -158,53 +218,78 @@ class CustomerController extends Controller
             'address' => 'required',
             'pay_type' => 'required',
             'pay_way' => 'required',
-            'prin_name_1' => 'required',
-            'prin_phone_1' => 'required',
-            'prin_email_1' => 'required',
             'region' => 'required',
+            'prin_name.0' => 'required',
+            'prin_phone.0' => 'required',
+            'prin_email.0' => 'required',
         ],[
             'name.required' => 'Company Name field is required *',
+            'region.required' => 'Region field is required *',
             'ntn.required' => 'NTN / FTN field is required *',
             'address.required' => 'Company Address field is required *',
             'pay_type.required' => 'Payment Type field is required *',
             'pay_way.required' => 'Payment Way field is required *',
-            'prin_name_1.required' => 'Principal Name field is required *',
-            'prin_phone_1.required' => 'Principal Phone field is required *',
-            'prin_email_1.required' => 'Principal Email field is required *',
-            'region.required' => 'Region field is required *',
+            'prin_name.0.required' => 'Principal Name field is required *',
+            'prin_email.0.required' => 'Principal Email field is required *',
+            'prin_phone.0.required' => 'Principal Phone field is required *',
         ]);
+        if ($request->prin_name[1]!=null or $request->prin_email[1]!=null or $request->prin_phone[1]!=null ){
+            $this->validate(request(), [
+                'prin_name.1' => 'required',
+                'prin_phone.1' => 'required',
+                'prin_email.1' => 'required',
+            ],[
+
+                'prin_name.1.required' => 'Principal Name field is required *',
+                'prin_email.1.required' => 'Principal Email field is required *',
+                'prin_phone.1.required' => 'Principal Phone field is required *',
+            ]);
+        }
 
         $customer=Customer::find($id);
         $customer->reg_name=$request->name;
         $customer->ntn=$request->ntn;
         $customer->address=$request->address;
         $customer->customer_type=$request->pay_type;
+        $customer->region=$request->region;
         $customer->pay_terms=$request->pay_way;
         $customer->credit_limit=0;
-        $customer->region=$request->region;
-        $customer->prin_name_1=$request->prin_name_1;
-        $customer->prin_phone_1=$request->prin_phone_1;
-        $customer->prin_email_1=$request->prin_email_1;
-        $customer->prin_name_2=($request->prin_name_2)?$request->prin_name_2:null;
-        $customer->prin_phone_2=($request->prin_phone_2)?$request->prin_phone_2:null;
-        $customer->prin_email_2=($request->prin_email_2)?$request->prin_email_2:null;
-        $customer->prin_name_3=($request->prin_name_3)?$request->prin_name_3:null;
-        $customer->prin_phone_3=($request->prin_phone_3)?$request->prin_phone_3:null;
-        $customer->prin_email_3=($request->prin_email_3)?$request->prin_email_3:null;
+        $customer->prin_name=implode(',',$request->prin_name);
+        $customer->prin_phone=implode(',',$request->prin_phone);
+        $customer->prin_email=implode(',',$request->prin_email);
 
-        $customer->pur_name=($request->pur_name)?$request->pur_name:null;
-        //$customer->pur_phone=($request->pur_phone_1)?$request->pur_phone_1:null.",".($request->pur_phone_2)?$request->pur_phone_2:null;
-        $customer->pur_email=($request->pur_email)?$request->pur_email:null;
-        $customer->acc_name=($request->acc_name)?$request->acc_name:null;
-        //$customer->acc_phone=($request->acc_phone_1)?$request->acc_phone_1:null.",".($request->acc_phone_2)?$request->acc_phone_2:null;
-        $customer->acc_email=($request->acc_email)?$request->acc_email:null;
+        if ($request->pur_name or $request->pur_phone[0] or $request->pur_phone[1] or $request->pur_email ){
+            $this->validate(request(), [
+                'pur_name' => 'required',
+                'pur_email' => 'required',
+            ],[
+                'pur_name.required' => 'Purchase Name field is required *',
+                'pur_email.required' => 'Purchase Email field is required *',
+            ]);
+            $customer->pur_name=$request->pur_name;
+            $customer->pur_phone=implode(',',$request->pur_phone);
+            $customer->pur_email=$request->pur_email;
+        }
+        if ($request->acc_name or $request->acc_phone[0] or $request->acc_phone[1] or $request->acc_email ){
+            $this->validate(request(), [
+                'acc_name' => 'required',
+                'acc_email' => 'required',
+
+            ],[
+                'acc_name.required' => 'Account Name field is required *',
+                'acc_email.required' => 'Account Email field is required *',
+            ]);
+
+            $customer->acc_name=$request->acc_name;
+            $customer->acc_phone=implode(',',$request->acc_phone);
+            $customer->acc_email=$request->acc_email;
+        }
         $customer->save();
-        return redirect()->back()->with('success', 'Customer Updated Successfully');
+        return redirect()->back()->with('success', 'Customer updated successfully');
     }
     public function destroy(Request $request){
         $this->authorize('customer-delete');
         Customer::find($request->id)->delete();
-        return response()->json(['success'=>'Customer Deleted Successfully']);
+        return response()->json(['success'=>'Customer deleted successfully']);
     }
-    //
 }

@@ -45,15 +45,27 @@
 
                 <tr>
                     <th>01-Principal Name</th>
-                    <td>{{$show->prin_name_1}}</td>
+                    <td>
+                        @foreach(explode(',',$show->prin_name) as $item)
+                            <span class="badge badge-success">{{$item}}</span>
+                        @endforeach
+                    </td>
                 </tr>
                 <tr>
                     <th>01-Principal Email</th>
-                    <td>{{$show->prin_email_1}}</td>
+                    <td>
+                        @foreach(explode(',',$show->prin_email) as $item)
+                            <span class="badge badge-success">{{$item}}</span>
+                        @endforeach
+                    </td>
                 </tr>
                 <tr>
                     <th>01-Principal Phone</th>
-                    <td>{{$show->prin_phone_1}}</td>
+                    <td>
+                        @foreach(explode(',',$show->prin_phone) as $item)
+                            <span class="badge badge-success">{{$item}}</span>
+                        @endforeach
+                    </td>
                 </tr>
                 @if($show->prin_name_2)
                     <tr>

@@ -112,38 +112,38 @@
                     </div>
 
                 </div>
+                @php $pnames=explode(',',$edit->prin_name); @endphp
+                @php $pphones=explode(',',$edit->prin_phone); @endphp
+                @php $pemails=explode(',',$edit->prin_email); @endphp
                 <div class="col-12">
                     <div class="row">
                         <div class="col-md-4 col-12 bg-white border">
                             <label for="principal" class="col-form-label">Principal Contact</label>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_name_1"
-                                       placeholder="Name" autocomplete="off"
-                                       value="{{old('prin_name_1',$edit->prin_name_1)}}">
-                                @if ($errors->has('prin_name_1'))
+                                <input type="text" class="form-control" id="principal" name="prin_name[]"
+                                       placeholder="Name" autocomplete="off" value="{{old('prin_name.0',$pnames[0])}}">
+                                @if ($errors->has('prin_name.0'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_name_1') }}</strong>
+                          <strong>{{ $errors->first('prin_name.0') }}</strong>
                       </span>
                                 @endif
 
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_phone_1"
-                                       placeholder="Phone" autocomplete="off"
-                                       value="{{old('prin_phone_1',$edit->prin_phone_1)}}">
-                                @if ($errors->has('prin_phone_1'))
+                                <input type="text" class="form-control" id="principal" name="prin_phone[]"
+                                       placeholder="Phone" autocomplete="off" value="{{old('prin_phone.0',$pphones[0])}}">
+                                @if ($errors->has('prin_phone.0'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_phone_1') }}</strong>
+                          <strong>{{ $errors->first('prin_phone.0') }}</strong>
                       </span>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_email_1"
-                                       placeholder="Email" autocomplete="off"
-                                       value="{{old('prin_email_1',$edit->prin_email_1)}}">
-                                @if ($errors->has('prin_email_1'))
+                                <input type="text" class="form-control" id="principal" name="prin_email[]"
+                                       placeholder="Email" autocomplete="off" value="{{old('prin_email.0',$pemails[0])}}">
+                                @if ($errors->has('prin_email.0'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_email_1') }}</strong>
+                          <strong>{{ $errors->first('prin_email.0') }}</strong>
                       </span>
                                 @endif
 
@@ -154,33 +154,30 @@
                         <div class="col-md-4 col-12 bg-white border">
                             <label for="principal" class="col-form-label">Principal Contact</label>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_name_2"
-                                       placeholder="Name" autocomplete="off"
-                                       value="{{old('prin_name_2',$edit->prin_name_2)}}">
-                                @if ($errors->has('prin_name_2'))
+                                <input type="text" class="form-control" id="principal" name="prin_name[]"
+                                       placeholder="Name" autocomplete="off" value="{{old('prin_name.1',$pnames[1])}}">
+                                @if ($errors->has('prin_name.1'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_name_2') }}</strong>
+                          <strong>{{ $errors->first('prin_name.1') }}</strong>
                       </span>
                                 @endif
 
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_phone_2"
-                                       placeholder="Phone" autocomplete="off"
-                                       value="{{old('prin_phone_2',$edit->prin_phone_2)}}">
-                                @if ($errors->has('prin_phone_2'))
+                                <input type="text" class="form-control" id="principal" name="prin_phone[]"
+                                       placeholder="Phone" autocomplete="off" value="{{old('prin_phone.1',$pphones[1])}}">
+                                @if ($errors->has('prin_phone.1'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_phone_2') }}</strong>
+                          <strong>{{ $errors->first('prin_phone.1') }}</strong>
                       </span>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_email_2"
-                                       placeholder="Email" autocomplete="off"
-                                       value="{{old('prin_email_2',$edit->prin_email_2)}}">
-                                @if ($errors->has('prin_email_2'))
+                                <input type="text" class="form-control" id="principal" name="prin_email[]"
+                                       placeholder="Email" autocomplete="off" value="{{old('prin_email.1',$pemails[1])}}">
+                                @if ($errors->has('prin_email.1'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_email_2') }}</strong>
+                          <strong>{{ $errors->first('prin_email.1') }}</strong>
                       </span>
                                 @endif
 
@@ -191,40 +188,36 @@
                         <div class="col-md-4 col-12 bg-white border">
                             <label for="principal" class="col-form-label">Principal Contact</label>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_name_3"
-                                       placeholder="Name" autocomplete="off"
-                                       value="{{old('prin_name_3',$edit->prin_name_3)}}">
-                                @if ($errors->has('prin_name_3'))
+                                <input type="text" class="form-control" id="principal" name="prin_name[]"
+                                       placeholder="Name" autocomplete="off" value="{{old('prin_name.2',$pnames[2])}}">
+                                @if ($errors->has('prin_name.2'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_name_3') }}</strong>
+                          <strong>{{ $errors->first('prin_name.2') }}</strong>
                       </span>
                                 @endif
 
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_phone_3"
-                                       placeholder="Phone" autocomplete="off"
-                                       value="{{old('prin_phone_3',$edit->prin_phone_3)}}">
-                                @if ($errors->has('prin_phone_3'))
+                                <input type="text" class="form-control" id="principal" name="prin_phone[]"
+                                       placeholder="Phone" autocomplete="off" value="{{old('prin_phone.2',$pphones[2])}}">
+                                @if ($errors->has('prin_phone.2'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_phone_3') }}</strong>
+                          <strong>{{ $errors->first('prin_phone.2') }}</strong>
                       </span>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="principal" name="prin_email_3"
-                                       placeholder="Email" autocomplete="off"
-                                       value="{{old('prin_email_3',$edit->prin_email_3)}}">
-                                @if ($errors->has('prin_email_3'))
+                                <input type="text" class="form-control" id="principal" name="prin_email[]"
+                                       placeholder="Email" autocomplete="off" value="{{old('prin_email.2',$pemails[2])}}">
+                                @if ($errors->has('prin_email.2'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('prin_email_3') }}</strong>
+                          <strong>{{ $errors->first('prin_email.2') }}</strong>
                       </span>
                                 @endif
 
                             </div>
-
-
                         </div>
+
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6 col-12 bg-white border ">
@@ -240,34 +233,30 @@
                                 @endif
 
                             </div>
-
+                            @php $aphones=explode(',',$edit->acc_phone); @endphp
                             <div class="form-group">
-                                <input type="text" class="form-control" id="purchase" name="pur_phone_1"
-                                       placeholder="Phone" autocomplete="off"
-                                       value="{{old('pur_phone_1',$edit->pur_phone)}}">
-                                @if ($errors->has('pur_phone_1'))
+                                <input type="text" class="form-control" id="purchase" name="pur_phone[]"
+                                       placeholder="Phone" autocomplete="off" value="{{old('pur_phone.0',$aphones[0])}}">
+                                @if ($errors->has('pur_phone.0'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('pur_phone_1') }}</strong>
+                          <strong>{{ $errors->first('pur_phone.0') }}</strong>
                       </span>
                                 @endif
-
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="purchase" name="pur_phone_2"
-                                       placeholder="Phone (opt)" autocomplete="off"
-                                       value="{{old('pur_phone_2',$edit->pur_phone)}}">
-                                @if ($errors->has('pur_phone_2'))
+                                <input type="text" class="form-control" id="purchase" name="pur_phone[]"
+                                       placeholder="Phone" autocomplete="off" value="{{old('pur_phone.1',$aphones[1])}}">
+                                @if ($errors->has('pur_phone.1'))
                                     <span class="text-danger">
-                          <strong>{{ $errors->first('pur_phone_2') }}</strong>
+                          <strong>{{ $errors->first('pur_phone.1') }}</strong>
                       </span>
                                 @endif
-
                             </div>
+
 
                             <div class="form-group">
                                 <input type="text" class="form-control" id="purchase" name="pur_email"
-                                       placeholder="Email" autocomplete="off"
-                                       value="{{old('pur_email',$edit->pur_email)}}">
+                                       placeholder="Email" autocomplete="off" value="{{old('pur_email',$edit->acc_email)}}">
                                 @if ($errors->has('pur_email'))
                                     <span class="text-danger">
                           <strong>{{ $errors->first('pur_email') }}</strong>
@@ -288,31 +277,29 @@
                                 @endif
 
                             </div>
+                            @php $accphones=explode(',',$edit->acc_phone); @endphp
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="account" name="acc_phone[]"
+                                       placeholder="Phone" autocomplete="off" value="{{old('acc_phone.0',$accphones[0])}}">
+                                @if ($errors->has('acc_phone.0'))
+                                    <span class="text-danger">
+            <strong>{{ $errors->first('acc_phone[]') }}</strong>
+        </span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="account" name="acc_phone[]"
+                                       placeholder="Phone" autocomplete="off" value="{{old('acc_phone.1',$accphones[1])}}">
+                                @if ($errors->has('acc_phone.1'))
+                                    <span class="text-danger">
+            <strong>{{ $errors->first('acc_phone[]') }}</strong>
+        </span>
+                                @endif
+                            </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" id="account" name="acc_phone_1"
-                                       placeholder="Phone" autocomplete="off"
-                                       value="{{old('acc_phone_1',$edit->acc_phone)}}">
-                                @if ($errors->has('acc_phone_1'))
-                                    <span class="text-danger">
-            <strong>{{ $errors->first('acc_phone_1') }}</strong>
-        </span>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="account" name="acc_phone_2"
-                                       placeholder="Phone (opt.)" autocomplete="off"
-                                       value="{{old('acc_phone_2',$edit->acc_phone)}}">
-                                @if ($errors->has('acc_phone_2'))
-                                    <span class="text-danger">
-            <strong>{{ $errors->first('acc_phone_2') }}</strong>
-        </span>
-                                @endif
-                            </div>
-                            <div class="form-group">
                                 <input type="text" class="form-control" id="account" name="acc_email"
-                                       placeholder="Email" autocomplete="off"
-                                       value="{{old('acc_email',$edit->acc_email)}}">
+                                       placeholder="Email" autocomplete="off" value="{{old('acc_email',$edit->acc_email)}}">
                                 @if ($errors->has('acc_email'))
                                     <span class="text-danger">
                           <strong>{{ $errors->first('acc_email') }}</strong>
@@ -326,6 +313,7 @@
 
                     </div>
                 </div>
+
 
 
                 <!-- /.box-body -->
