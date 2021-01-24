@@ -48,7 +48,7 @@ class CustomerController extends Controller
             ->addColumn('prin_name', function ($data) {
                 $colors=['badge-primary','badge-dark','badge-warning'];
                 $principals=null;
-                foreach (explode(',',$data->prin_name_1) as $key=>$item) {
+                foreach (explode(',',$data->prin_name) as $key=>$item) {
                     $principals.='<span class="badge '.$colors[$key].'">'.$item.'</span>';
                 }
                 return $principals;
@@ -56,7 +56,7 @@ class CustomerController extends Controller
             ->addColumn('prin_phone', function ($data) {
                 $colors=['badge-primary','badge-dark','badge-warning','badge-warning'];
                 $phones=null;
-                foreach (explode(',',$data->prin_phone_1) as $k=>$item) {
+                foreach (explode(',',$data->prin_phone) as $k=>$item) {
                     $phones.='<span class="badge '.$colors[$k].'">'.$item.'</span>';
                 }
                 return $phones;
