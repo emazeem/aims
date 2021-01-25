@@ -103,8 +103,6 @@ class MenuController extends Controller
         if (isset($request->is_nav)){
             $menus->status=1;
         }
-        $max=Menu::max('position');
-        $menus->position=$max+1;
         $menus->has_child=($request->has_child)?1:0;
         $menus->parent_id=($request->parent)?$request->parent:null;
         $menus->icon=($request->icon)?$request->icon:"fa fa-";

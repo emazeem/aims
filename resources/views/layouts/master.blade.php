@@ -50,14 +50,14 @@
 <script src="{{url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('build/js/custom.min.js')}}"></script>
 @if(Route::currentRouteName()=='home' or Route::currentRouteName()=='customers' or Route::currentRouteName()=='departments'or Route::currentRouteName()=='designations'or Route::currentRouteName()=='users' or Route::currentRouteName()=='parameters'
-or Route::currentRouteName()=='assets' or Route::currentRouteName()=='procedures' or Route::currentRouteName()=='capabilities' or Route::currentRouteName()=='manageref'or Route::currentRouteName()=='units'or Route::currentRouteName()=='quotes.show'
+or Route::currentRouteName()=='assets' or Route::currentRouteName()=='procedures' or Route::currentRouteName()=='capabilities' or Route::currentRouteName()=='manageref'or Route::currentRouteName()=='units'or Route::currentRouteName()=='quotes.show' or Route::currentRouteName()=='generaterequests.show'
 or Route::currentRouteName()=='uncertainties'or Route::currentRouteName()=='columns'or Route::currentRouteName()=='assets.groups'or Route::currentRouteName()=='quotes'or Route::currentRouteName()=='purchase.indent.index'
 or Route::currentRouteName()=='pendings' or Route::currentRouteName()=='jobs.manage' or Route::currentRouteName()=='jobs'or Route::currentRouteName()=='scheduling'or Route::currentRouteName()=='scheduling'or Route::currentRouteName()=='material.receiving.index'
 or Route::currentRouteName()=='invoicing_ledger' or Route::currentRouteName()=='expenses'or Route::currentRouteName()=='expenses_categories'or Route::currentRouteName()=='menus'or Route::currentRouteName()=='roles'
 or Route::currentRouteName()=='preferences.index' or Route::currentRouteName()=='mytasks' or Route::currentRouteName()=='certificates' or Route::currentRouteName()=='certificates'or Route::currentRouteName()=='sops'or Route::currentRouteName()=='forms.index'
 or Route::currentRouteName()=='activitylog.index' or Route::currentRouteName()=='nofacility.index' or Route::currentRouteName()=='capabilities.groups' or Route::currentRouteName()=='emp_contract.index' or Route::currentRouteName()=='requisition.index'
 or Route::currentRouteName()=='interview_appraisal.index' or Route::currentRouteName()=='emp_joining.index' or Route::currentRouteName()=='emp_orientation.index' or Route::currentRouteName()=='leave_application.index' or Route::currentRouteName()=='acc_level_one'
-or Route::currentRouteName()=='acc_level_two'or Route::currentRouteName()=='acc_level_three'or Route::currentRouteName()=='acc_level_four'or Route::currentRouteName()=='vouchers')
+or Route::currentRouteName()=='acc_level_two'or Route::currentRouteName()=='acc_level_three'or Route::currentRouteName()=='acc_level_four'or Route::currentRouteName()=='vouchers' or Route::currentRouteName()=='generaterequests')
     <link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
     <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>

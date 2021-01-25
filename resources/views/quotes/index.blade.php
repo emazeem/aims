@@ -17,9 +17,10 @@
 <div class="row">
     <div class="col-12">
         <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Quotes</h3>
-        <span class="">
+        {{--<span class="">
             <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-circle"></i> Quote</button>
         </span>
+        --}}
     </div>
 
     <div class="col-lg-12">
@@ -96,15 +97,16 @@
                     dataType: "json",
                     success:function(data) {
                         $('select[name="principal"]').empty();
-                        if (data.prin_name_1!=null){
-                            $('select[name="principal"]').append('<option value="'+ data.prin_name_1 +'">'+ data.prin_name_1 +'</option>');
+                        if (data.prin_name[0]!=null){
+                            $('select[name="principal"]').append('<option value="'+ data.prin_name[0] +'">'+ data.prin_name[0] +'</option>');
                         }
-                        if (data.prin_name_2!=null){
-                            $('select[name="principal"]').append('<option value="'+ data.prin_name_2 +'">'+ data.prin_name_2 +'</option>');
+                        if (data.prin_name[1]!=null){
+                            $('select[name="principal"]').append('<option value="'+ data.prin_name[1] +'">'+ data.prin_name[1] +'</option>');
                         }
-                        if (data.prin_name_3!=null){
-                            $('select[name="principal"]').append('<option value="'+ data.prin_name_3 +'">'+ data.prin_name_3 +'</option>');
+                        if (data.prin_name[2]!=null){
+                            $('select[name="principal"]').append('<option value="'+ data.prin_name[2] +'">'+ data.prin_name[2] +'</option>');
                         }
+
                     }
                 });
             }else{
@@ -179,6 +181,46 @@
                 }
             });
         }));
+        $(document).on('click', '.sendtocustomer', function (e) {
+            swal({
+                title: "Are you sure that you sent quote to customer?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var id = $(this).attr('data-id');
+                        e.preventDefault();
+                        $.ajax({
+                            url: "{{route('quotes.sendtocustomer')}}",
+                            type: 'POST',
+                            dataType: "JSON",
+                            data: {
+                                "_token": "{{ csrf_token() }}",
+                                "id": id
+                            },
+                            statusCode: {
+                                403: function () {
+                                    swal("Failed", "Permission denied.", "error");
+                                    return false;
+                                }
+                            },
+                            success: function (data) {
+                                swal('success', data.success, 'success').then((value) => {
+                                    location.reload();
+                                });
+                            },
+                            error: function () {
+                                swal("Failed", "Please try again later", "error");
+                            },
+                        });
+
+                    }
+                });
+
+        });
+
         $("#edit_session_form").on('submit',(function(e) {
             e.preventDefault();
             $.ajax({
@@ -280,8 +322,8 @@
                             <label for="tm" class="p-0 m-0"><small>Select TM</small></label>
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control col-12" id="tm" name="tm">
+                                    <option selected disabled="">Select Technical Manager</option>
                                     @foreach($tms as $tm)
-                                        <option selected disabled="">Select Technical Manager</option>
                                         <option value="{{$tm->id}}">{{$tm->fname}} {{$tm->lname}}</option>
                                     @endforeach
                                 </select>

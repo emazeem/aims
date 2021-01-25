@@ -170,11 +170,20 @@ Route::group(['prefix'=> 'quotes'],function() {
     Route::post('/approved/{id}',[App\Http\Controllers\QuotesController::class, 'approved'])->middleware('auth')->name('quotes.approved');
     Route::post('/revised/{id}',[App\Http\Controllers\QuotesController::class, 'revised'])->middleware('auth')->name('quotes.revised');
     Route::post('/purchase_details',[App\Http\Controllers\QuotesController::class, 'purchase_details'])->middleware('auth')->name('quotes.purchase_details');
-
     Route::post('/approval_details',[App\Http\Controllers\QuotesController::class, 'approval_details'])->middleware('auth')->name('quotes.approval_details');
     Route::post('/remarks',[App\Http\Controllers\QuotesController::class, 'remarks'])->middleware('auth')->name('quotes.remarks');
     Route::post('/discount',[App\Http\Controllers\QuotesController::class, 'discount'])->middleware('auth')->name('quotes.discount');
 });
+Route::group(['prefix'=> 'generate-requests'],function() {
+    Route::get('',[App\Http\Controllers\GenerateRequestsController::class, 'index'])->middleware('auth')->name('generaterequests');
+    Route::post('',[App\Http\Controllers\GenerateRequestsController::class, 'fetch'])->middleware('auth')->name('generaterequests.fetch');
+    Route::post('/store',[App\Http\Controllers\GenerateRequestsController::class, 'store'])->middleware('auth')->name('generaterequests.store');
+    Route::post('/edit',[App\Http\Controllers\GenerateRequestsController::class, 'edit'])->middleware('auth')->name('generaterequests.edit');
+    Route::post('/update',[App\Http\Controllers\GenerateRequestsController::class, 'update'])->middleware('auth')->name('generaterequests.update');
+    Route::get('/view/{id}',[App\Http\Controllers\GenerateRequestsController::class, 'show'])->middleware('auth')->name('generaterequests.show');
+    Route::post('/complete/',[App\Http\Controllers\GenerateRequestsController::class, 'complete'])->middleware('auth')->name('generaterequests.complete');
+});
+
 Route::group(['prefix'=> '/item/entries'],function() {
     Route::get('/{id}',[App\Http\Controllers\ItemEntriesController::class, 'index'])->name('checkin');
     Route::get('create/{type}/{id}',[App\Http\Controllers\ItemEntriesController::class, 'create'])->name('checkin.create');

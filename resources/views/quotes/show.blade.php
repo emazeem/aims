@@ -22,33 +22,16 @@
         </form>
         <div class="col-12 text-right">
 
-            @if(count($items)>0)
-                @if($noaction==false)
-
-                    @if($show->status==0)
-                        <a title='Mark as Complete' class='btn btn-outline-primary btn-sm complete' href='#'
-                           data-id='{{$show->id}}'><i class='fa fa-thumbs-up'></i> Mark as Complete</a>
-                    @endif
-                    @if($show->status==1)
-                        <a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href='#'
+            <a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href='#'
                            data-id='{{$show->id}}'><i class='fa fa-send'></i> Send to Customer</a>
-                        @endif
-                        @if($show->status>0)
+
                         <a href="{{url('/quotes/print/'.$show->id)}}" title='Print'
                            class='btn btn-sm btn-outline-danger'><i class="fa fa-print"></i> Save QF</a>
-                    @endif
-                    @if($show->status==2)
                         <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i
                                     class='fa fa-refresh'></i> Revise</a>
                         <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#'
                            data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
-                    @endif
-
-                @endif
-            @endif
         </div>
-
-
     </div>
     <div class="row">
         <div class="col-12">

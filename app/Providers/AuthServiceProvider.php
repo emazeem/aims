@@ -697,6 +697,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('generate-requests-index', function ($user) {
+            if (in_array('generate-requests-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
 
         Gate::define('quote-create', function ($user) {
             if (in_array('quote-create',explode(',',$user->roles->permissions))){

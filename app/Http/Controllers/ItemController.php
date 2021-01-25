@@ -76,24 +76,25 @@ class ItemController extends Controller
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
-                if ($data->not_available==null){
-                    $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/items/edit/'. $data->quote_id.'/'.$data->id) . "'><i class='fa fa-edit'></i></a>";
-                } else{
-                    $action.="<a title='Edit' class='btn btn-sm btn-success edit' href='#' data-id='$data->id'><i class='fa fa-edit'></i></a>";
-                }
-                if (Auth::user()->can('items-delete')){
-                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                if ($data->quotes->status==0){
+                    if ($data->not_available==null){
+                        $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/items/edit/'. $data->quote_id.'/'.$data->id) . "'><i class='fa fa-edit'></i></a>";
+                    } else{
+                        $action.="<a title='Edit' class='btn btn-sm btn-success edit' href='#' data-id='$data->id'><i class='fa fa-edit'></i></a>";
+                    }
+                    if (Auth::user()->can('items-delete')){
+                        $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
                       </form>";
+                        return "&emsp;".$action;
 
+                    }
+                }else{
+                    return "<span class='badge'>Not Allowed</span>";
                 }
-                if ($data->quotes->status>2){
-                    $action="Calibrating";
-                }
-                return "&emsp;".$action;
             })
             ->rawColumns(['options','parameter','status'])
             ->make(true);
