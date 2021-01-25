@@ -9,6 +9,6 @@ class Voucherdetails extends Model
 {
     use HasFactory;
     public function account(){
-        return $this->belongsTo('App\Models\AccLevelFour','acc_code','acc_code');
+        return $this->belongsTo('App\Models\Chartofaccount','acc_code','acc_code');
     }
 }

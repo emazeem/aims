@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AccLevelFour;
+use App\Models\Chartofaccount;
 use App\Models\Voucher;
 use App\Models\Voucherdetails;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class VoucherController extends Controller
         return view('voucher.show',compact('show'));
     }
     public function edit($id){
-        $accounts=AccLevelFour::all();
+        $accounts=Chartofaccount::all();
         $edit=Voucher::find($id);
         return view('voucher.edit',compact('edit','accounts'));
     }
@@ -58,7 +59,7 @@ class VoucherController extends Controller
 
     }
     public function create(){
-        $accounts=AccLevelFour::all();
+        $accounts=Chartofaccount::all();
         return view('voucher.create',compact('accounts'));
     }
     public function store(Request $request){

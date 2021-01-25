@@ -65,7 +65,7 @@
                 </tr>
                 @foreach($show->details as $detail)
                     <tr>
-                        <td>{{$detail->account->acc_code}}</td>
+                        <td>{{$detail->acc_code}}</td>
                         <td>{{$detail->account->title}}</td>
                         <td>{{$detail->narration}}</td>
                         <td>{{$detail->dr}}</td>
