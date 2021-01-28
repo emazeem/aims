@@ -76,7 +76,7 @@ class ChartofaccountController extends Controller
         $acc->code1=$request->level1of4;
         $acc->title=$request->title;
         $acc->save();
-        $acc->code4=str_pad($acc->id, 3, '0', STR_PAD_LEFT);
+        $acc->code4=str_pad($acc->id, 4, '0', STR_PAD_LEFT);
         $acc->save();
         $four=Chartofaccount::find($acc->id);
         $four->acc_code=$four->codeone->code1.$four->codetwo->code2.$four->codethree->code3.$four->code4;
