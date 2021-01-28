@@ -49,9 +49,10 @@ class AccLevelOneController extends Controller
         $acc=new AccLevelOne();
         $acc->title=$request->title;
         $acc->save();
-        $acc->code1=str_pad($acc->id, 1, '0', STR_PAD_LEFT);
+        $reserved=AccLevelOne::get()->count();
+        $acc->code1=str_pad($reserved, 1, '0', STR_PAD_LEFT);
         $acc->save();
-        return  redirect()->back()->with('success', 'Level1 has been added successfully.');
+        return  redirect()->back()->with('success', 'Level 1 has been added successfully.');
     }
     //
 }
