@@ -81,7 +81,7 @@ class ChartofaccountController extends Controller
         $four=Chartofaccount::find($acc->id);
         $four->acc_code=$four->codeone->code1.$four->codetwo->code2.$four->codethree->code3.$four->code4;
         $four->save();
-        return  redirect()->back()->with('success', 'Level 4 has added successfully.');
+        return  redirect()->back()->with('success', 'Chart of Account has added successfully.');
     }
     //
 }
