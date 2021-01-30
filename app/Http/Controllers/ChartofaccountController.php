@@ -25,13 +25,13 @@ class ChartofaccountController extends Controller
                 return $data->id;
             })
             ->addColumn('acc_code', function ($data) {
-                $code='<span class="border-bottom font-weight-bold">'.str_pad($data->code1, 9, '0', STR_PAD_RIGHT).'</span><br>';
+                $code='<div class="bg-dark text-light font-weight-bold">'.str_pad($data->code1, 9, '0', STR_PAD_RIGHT).'</div>';
                 foreach ($data->leveltwo as $item) {
-                    $code = $code . '&emsp;<span class="text-primary border-bottom font-weight-bold">' . str_pad($data->code1 . $item->code2, 9, '0', STR_PAD_RIGHT) . '</span><br>';
+                    $code = $code . '<div class="bg-primary text-light font-weight-bold ml-5">' . str_pad($data->code1 . $item->code2, 9, '0', STR_PAD_RIGHT) . '</div>';
                     foreach ($item->levelthree as $value) {
-                        $code = $code .'<span class="text-warning border-bottom font-weight-bold"> &emsp;&emsp;' . str_pad($data->code1 . $item->code2 . $value->code3, 9, '0', STR_PAD_RIGHT) . '</span><br>';
+                        $code = $code .'<div class="font-weight-bold ml-5"><div class="bg-warning ml-5">' . str_pad($data->code1 . $item->code2 . $value->code3, 9, '0', STR_PAD_RIGHT) . '</div></div>';
                         foreach ($value->levelfour as $chart) {
-                            $code = $code . ' &emsp;&emsp;&emsp;<span class="text-danger border-bottom font-weight-bold">' . $chart->acc_code . '</span><br>';
+                            $code = $code . '<div class="font-weight-bold ml-5"><div class=" ml-5"><div class="bg-danger ml-5">' . $chart->acc_code . '</div></div></div>';
                         }
                     }
 
@@ -39,13 +39,13 @@ class ChartofaccountController extends Controller
                 return $code;
             })
             ->addColumn('title', function ($data) {
-                $title='<span class="border-bottom font-weight-bold">'.$data->title.'</span><br>';
+                $title='<div class="bg-dark text-light font-weight-bold m-0">'.$data->title.'</div>';
                 foreach ($data->leveltwo as $item){
-                    $title=$title.' &emsp;<span class="text-primary border-bottom font-weight-bold">'.$item->title.'</span><br>';
+                    $title=$title.'<div class="bg-primary text-light font-weight-bold ml-5">'.$item->title.'</div>';
                     foreach ($item->levelthree as $value) {
-                        $title = $title . ' &emsp;&emsp;<span class="text-warning border-bottom font-weight-bold">' .$value->title. '</span><br>';
+                        $title = $title . '<div class="ml-5 font-weight-bold"><div class="bg-warning ml-5">' .$value->title. '</div></div>';
                         foreach ($value->levelfour as $chart) {
-                            $title = $title . ' &emsp;&emsp;&emsp;<span class="text-danger border-bottom font-weight-bold">' . $chart->title . '</span><br>';
+                            $title = $title . '<div class="ml-5 font-weight-bold"><div class=" ml-5"><div class="bg-danger ml-5">' . $chart->title . '</div></div></div>';
                         }
                     }
                 }
