@@ -80,7 +80,7 @@
             </p>
         </div>
         <div class="row">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-sm font-9">
                 <thead>
                 <tr>
                     <th class="text-xs">Sr#</th>

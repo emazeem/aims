@@ -53,17 +53,30 @@ class JobController extends Controller
                 return $status;
             })
             ->addColumn('options', function ($data) {
+                $ifassigned=Jobitem::where('job_id',$data->id)->where('type',1)->where('group_assets',!null)->get();
                 $check=Jobitem::where('job_id',$data->id)->where('type',0)->count();
                 $token=csrf_token();
                 $action=null;
 
                 $action.="<a title='view' href=".url('/jobs/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
-                $action.="<a title='Job Form' href=".url('/jobs/print/jobform/'.$data->id)." class='btn btn-sm btn-danger'><small>JN</small></a>";
-                $action.="<a title='Invoice' href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-dollar'></i></a>";
-                $action.="<a title='Invoice' href=".url('/jobs/print/DN/'.$data->id)." class='btn btn-sm btn-info'><small>DN</small></a>";
+                $action.="<a title='Job Form'
+                onclick=\"window.open('".url('/jobs/print/jobform/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
+                 href=".url('/jobs/print/jobform/'.$data->id)." 
+                 class='btn btn-sm btn-danger'><small>JN</small></a>";
+                $action.="<a title='Invoice' 
+                onclick=\"window.open('".url('/jobs/print/invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
+                href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-dollar'></i></a>";
+                $action.="<a 
+                onclick=\"window.open('".url('/jobs/print/DN/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
+                title='Invoice' href=".url('/jobs/print/DN/'.$data->id)." class='btn btn-sm btn-info'><small>DN</small></a>";
                 if ($check>0){
+                    if ($ifassigned){
+                        $action.="<a title='Gatepass'
+                    onclick=\"window.open('".url('/jobs/print/GP/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
+                     class='btn btn-sm text-light bg-warning' href=".url('jobs/print/GP/'.$data->id)."><small>GP</small></a>";
+                    }
                     $action.="<a title='Item Entries' href=".url('/item/entries/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-plus'></i></a>";
-                    $action.="<a title='Gatepass' class='btn btn-sm text-light bg-warning' href=".url('jobs/print/GP/'.$data->id)."><small>GP</small></a>";
+
                 }
                 $invoice=InvoicingLedger::where('job_id',$data->id)->get();
                 $invoice_exist=count($invoice);
@@ -119,8 +132,7 @@ class JobController extends Controller
         return view('jobs.gatepass',compact('items','assets','sitejobs','job'));
     }
     public function print_jt($loc,$index,$id){
-            $tag=Jobitem::find($id);
-
+        $tag=Jobitem::find($id);
         $total=0;
         $total=count(Jobitem::where('job_id',$tag->job_id)->get()->toArray());
         return view('jobs.jobtag',compact('tag','index','total','loc'));

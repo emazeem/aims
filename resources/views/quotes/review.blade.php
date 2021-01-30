@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
+<style>
+    @media print {
+        #printPageButton {
+            display: none;
+        }
+    }
+</style>
 <body>
+<button onclick="window.print()" id="printPageButton" class="btn btn-danger btn-sm float-right">Print</button>
 <div class="container">
     <div class="row font-style mt-2">
         <div class="col-2 text-center custom-border">

@@ -1,11 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Journal;
-use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
-
 class JournalController extends Controller
 {
     public function index(){
