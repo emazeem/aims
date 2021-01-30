@@ -22,7 +22,7 @@
                 <a class="btn btn-info btn-sm" href="{{route('acc_level_three')}}">Level Three</a>
                 <a class="btn btn-success btn-sm" href="{{route('acc_level_four')}}">Level Four</a>
             </div>
-            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
+            <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" cellspacing="0"
                    width="100%">
                 <thead>
                 <tr>

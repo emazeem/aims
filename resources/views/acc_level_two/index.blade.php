@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-12">
             <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Accounting Level Two</h3>
-            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
+            <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" cellspacing="0"
                    width="100%">
                 <thead>
                 <tr>
