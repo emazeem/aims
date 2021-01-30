@@ -547,3 +547,7 @@ Route::group(['prefix'=> 'activity-log'],function(){
     Route::get('/show',[App\Http\Controllers\ActivityLogController::class, 'show'])->middleware('auth')->name('activitylog.show');
     Route::post('/',[App\Http\Controllers\ActivityLogController::class, 'fetch'])->middleware('auth')->name('activitylog.fetch');
 });
+Route::group(['prefix'=> 'journal'],function(){
+    Route::get('/',[App\Http\Controllers\JournalController::class, 'index'])->middleware('auth')->name('journal.index');
+    Route::post('/',[App\Http\Controllers\JournalController::class, 'fetch'])->middleware('auth')->name('journal.fetch');
+});

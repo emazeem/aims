@@ -8,18 +8,24 @@
         </script>
     @endif
 
+    @if(Session::has('failed'))
+        <script>
+            $(document).ready(function () {
+                swal("Sorry!", '{{Session('failed')}}', "error");
+            });
+        </script>
+    @endif
     <div class="row pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Voucher</h3>
         </div>
-
         <div class="col-12">
-            <form class="form-horizontal" action="{{route('vouchers.store')}}" method="post" enctype="multipart/form-data">
+            <form id="add_voucher_form">
                 @csrf
                 <div class="form-group row">
                     <label for="v_type" class="col-2 control-label">Select Voucher Type</label>
                     <div class="col-10">
-                        <select class="form-control" id="v_type" name="v_type" required>
+                        <select class="form-control" id="v_type" name="v_type" >
                             <option value="" selected disabled>Select Voucher Type</option>
                             <option value="journal">Journal Voucher</option>
                             <option value="sale">Sales Voucher</option>
@@ -47,8 +53,6 @@
                         @endif
                     </div>
                 </div>
-
-
                 <table id="myTable" class=" table order-list">
                     <thead>
                     <tr>
@@ -62,8 +66,8 @@
                     <tbody>
                     <tr>
                         <td>
-                            <select name="account[]"  class="form-control" id="account" required>
-                                <option disabled selected>Select Account</option>
+                            <select name="account[]"  class="form-control" id="account" >
+                                <option value="" selected>Select Account</option>
                                 @foreach($accounts as $account)
                                     <option value="{{$account->acc_code}}">{{$account->title}}</option>
                                 @endforeach
@@ -76,7 +80,7 @@
                         </td>
 
                         <td>
-                            <textarea name="narration[]" rows="1" placeholder="Narration" class="form-control" required>{{old('narration')}}</textarea>
+                            <textarea name="narration[]" rows="1" placeholder="Narration" class="form-control" >{{old('narration')}}</textarea>
                             @if ($errors->has('narration'))
                                 <span class="text-danger">
                                     <strong>{{ $errors->first('narration') }}</strong>
@@ -84,8 +88,8 @@
                             @endif
                         </td>
                         <td>
-                            <select name="type[]"  class="form-control" id="type" required>
-                                <option disabled selected>Select Type</option>
+                            <select name="type[]"  class="form-control" id="type" >
+                                <option selected value="">Select Type</option>
                                 <option value="debit">Debit</option>
                                 <option value="credit">Credit</option>
                             </select>
@@ -96,7 +100,7 @@
                             @endif
                         </td>
                         <td>
-                            <input type="text" name="price[]"  class="form-control" placeholder="Enter Dr. / Cr. Amount" value="{{old('price')}}" required/>
+                            <input type="text" name="price[]"  class="form-control" placeholder="Enter Dr. / Cr. Amount" value="{{old('price')}}" />
                             @if ($errors->has('price'))
                                 <span class="text-danger">
                                     <strong>{{ $errors->first('price') }}</strong>
@@ -127,29 +131,56 @@
             </form>
         </div>
     </div>
-
     <script type="text/javascript">
         $(document).ready(function () {
             var counter = 0;
-
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
-                cols += '<td><select name="account[]" required class="form-control" id="account"><option disabled selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->acc_code.'">'.$account->title.'</option>';}  @endphp</td>';
-                cols += '<td><textarea rows="1" required class="form-control" name="narration[]" placeholder="Narration"/></td>';
-                cols += '<td><select name="type[]" required  class="form-control" id="type"><option disabled selected>Select Type</option><option value="debit">Debit</option><option value="credit">Credit</option></td>';
-                cols += '<td><input type="text" required name="price[]"  class="form-control" id="price" placeholder="Enter Dr. / Cr. Amount"></td>';
+                cols += '<td><select name="account[]"  class="form-control" id="account"><option value="" selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->acc_code.'">'.$account->title.'</option>';}  @endphp</td>';
+                cols += '<td><textarea rows="1"  class="form-control" name="narration[]" placeholder="Narration"/></td>';
+                cols += '<td><select name="type[]"   class="form-control" id="type"><option selected value="">Select Type</option><option value="debit">Debit</option><option value="credit">Credit</option></td>';
+                cols += '<td><input type="text"  name="price[]"  class="form-control" id="price" placeholder="Enter Dr. / Cr. Amount"></td>';
                 cols += '<td>' +
                     '<a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;
             });
-
             $("table.order-list").on("click", ".ibtnDel", function (event) {
                 $(this).closest("tr").remove();
                 counter -= 1
             });
+            $("#add_voucher_form").on('submit',(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('vouchers.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        swal('success',data.success,'success');
+                    },
+                    error: function(xhr)
+                    {
+                        if (xhr.responseJSON.error){
+                            swal("Failed", xhr.responseJSON.error, "error").then((value) => {
+                                location.reload();
+                            });
+                        }else {
+                            var error='';
+                            $.each(xhr.responseJSON.errors, function (key, item) {
+                                error+=item;
+                            });
+                            swal("Failed", error, "error");
+                        }
+
+                    }
+                });
+            }));
         });
     </script>
 @endsection

@@ -35,7 +35,7 @@ class AccLevelThreeController extends Controller
             ->addColumn('options', function ($data) {
 
                 return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/units/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_three/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
                   ";
 
             })
@@ -67,6 +67,23 @@ class AccLevelThreeController extends Controller
         $acc->save();
         return  redirect()->back()->with('success', 'Level 3 has added successfully.');
     }
+    public function update(Request $request){
+        $this->validate(request(), [
+            'title' => 'required',
+            'level1of3' => 'required',
+            'level2of3' => 'required',
+        ],[
+            'title.required' => 'Title is required.',
+            'level1of3.required' => 'Level one is required.',
+            'level2of3.required' => 'Level two is required.',
+        ]);
+        $acc=AccLevelThree::find($request->id);
+        $acc->code2=$request->level2of3;
+        $acc->code1=$request->level1of3;
+        $acc->title=$request->title;
+        $acc->save();
+        return  redirect()->back()->with('success', 'Level 3 has updated successfully.');
+    }
     public function get_level2($id){
         $level2=AccLevelTwo::where('code1',$id)->get();
         return response()->json($level2);
@@ -74,6 +91,15 @@ class AccLevelThreeController extends Controller
     public function get_level3($id){
         $level3=AccLevelThree::where('code2',$id)->get();
         return response()->json($level3);
+    }
+
+    public function edit($id){
+        $level=3;
+        $edit=AccLevelThree::find($id);
+        $ones=AccLevelOne::all();
+        $twos=AccLevelTwo::all();
+        $threes=AccLevelThree::all();
+        return view('acc_level_four.edit',compact('edit','level','ones','twos','threes'));
     }
 
     //

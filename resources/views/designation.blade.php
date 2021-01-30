@@ -7,7 +7,7 @@
         <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2" data-toggle="modal" data-target="#add_designation"><i class="fa fa-plus-circle"></i> Designation</button>
     </div>
   <div class="col-lg-12">
-    <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
+    <table id="example" class="table table-bordered bg-white table-hover table-sm display nowrap" cellspacing="0" width="100%">
       <thead>
       <tr>
         <th>ID</th>

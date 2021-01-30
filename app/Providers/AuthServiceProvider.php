@@ -72,7 +72,18 @@ class AuthServiceProvider extends ServiceProvider
         $this->acclevelfour();
         $this->vouchers();
         $this->activitylog();
+        $this->journal();
         //
+    }
+    public function journal()
+    {
+        Gate::define('journal-index', function ($user) {
+            if (in_array('journal-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
     }
     public function vouchers()
     {
@@ -82,7 +93,9 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
     }
+
     public function activitylog()
     {
         Gate::define('activity-log-index', function ($user) {

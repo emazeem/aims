@@ -10,11 +10,11 @@
 
     <div class="row pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Voucher</h3>
+            <h3 class="border-bottom"><i class="fa fa-refresh"></i> Edit Voucher</h3>
         </div>
 
         <div class="col-12">
-            <form class="form-horizontal" action="{{route('vouchers.update')}}" method="post" enctype="multipart/form-data">
+            <form id="edit_voucher_form">
                 @csrf
                 <input type="hidden" value="{{$edit->id}}" name="id" id="id">
                 <div class="form-group row">
@@ -62,8 +62,8 @@
                     @foreach($edit->details as $k=>$detail)
                     <tr>
                         <td>
-                            <select name="account[]"  class="form-control" id="account" required>
-                                <option disabled selected>Select Account</option>
+                            <select name="account[]"  class="form-control" id="account" >
+                                <option disabled value="">Select Account</option>
                                 @foreach($accounts as $account)
                                     <option value="{{$account->acc_code}}" {{$detail->acc_code==$account->acc_code?'selected':''}}>{{$account->title}}</option>
                                 @endforeach
@@ -84,8 +84,8 @@
                             @endif
                         </td>
                         <td>
-                            <select name="type[]"  class="form-control" id="type" required>
-                                <option disabled selected>Select Type</option>
+                            <select name="type[]"  class="form-control" id="type" >
+                                <option value="" selected>Select Type</option>
                                 <option value="debit" {{$detail->dr?'selected':''}}>Debit</option>
                                 <option value="credit" {{$detail->cr?'selected':''}}>Credit</option>
                             </select>
@@ -128,7 +128,7 @@
                 </table>
 
                 <a href="{{ URL::previous() }}" class="btn btn-light border"> <i class="fa fa-angle-left"></i> Back</a>
-                <button type="submit" class="btn btn-primary float-right">Save</button>
+                <button type="submit" class="btn btn-primary float-right"> <i class="fa fa-refresh"></i> Update</button>
             </form>
         </div>
     </div>
@@ -136,25 +136,53 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var counter = 0;
-
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
-                cols += '<td><select name="account[]" required class="form-control" id="account"><option disabled selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->acc_code.'">'.$account->title.'</option>';}  @endphp</td>';
-                cols += '<td><textarea rows="1" required class="form-control" name="narration[]" placeholder="Narration"/></td>';
-                cols += '<td><select name="type[]" required  class="form-control" id="type"><option disabled selected>Select Type</option><option value="debit">Debit</option><option value="credit">Credit</option></td>';
-                cols += '<td><input type="text" required name="price[]"  class="form-control" id="price" placeholder="Enter Dr. / Cr. Amount"></td>';
+                cols += '<td><select name="account[]"  class="form-control" id="account"><option value="" selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->acc_code.'">'.$account->title.'</option>';}  @endphp</td>';
+                cols += '<td><textarea rows="1"  class="form-control" name="narration[]" placeholder="Narration"/></td>';
+                cols += '<td><select name="type[]"   class="form-control" id="type"><option selected value="">Select Type</option><option value="debit">Debit</option><option value="credit">Credit</option></td>';
+                cols += '<td><input type="text"  name="price[]"  class="form-control" id="price" placeholder="Enter Dr. / Cr. Amount"></td>';
                 cols += '<td>' +
                     '<a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;
             });
-
             $("table.order-list").on("click", ".ibtnDel", function (event) {
                 $(this).closest("tr").remove();
                 counter -= 1
             });
+            $("#edit_voucher_form").on('submit',(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('vouchers.update')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        swal('success',data.success,'success');
+                    },
+                    error: function(xhr)
+                    {
+                        if (xhr.responseJSON.error){
+                            swal("Failed", xhr.responseJSON.error, "error").then((value) => {
+                                location.reload();
+                            });
+                        }else {
+                            var error='';
+                            $.each(xhr.responseJSON.errors, function (key, item) {
+                                error+=item;
+                            });
+                            swal("Failed", error, "error");
+                        }
+
+                    }
+                });
+            }));
         });
     </script>
 @endsection

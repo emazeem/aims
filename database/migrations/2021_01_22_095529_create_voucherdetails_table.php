@@ -18,8 +18,8 @@ class CreateVoucherdetailsTable extends Migration
             $table->integer('v_id');
             $table->string('acc_code');
             $table->longText('narration');
-            $table->integer('dr')->nullable();
-            $table->integer('cr')->nullable();
+            $table->float('dr')->nullable();
+            $table->float('cr')->nullable();
             $table->timestamps();
         });
     }

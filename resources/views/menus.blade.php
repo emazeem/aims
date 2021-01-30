@@ -200,7 +200,7 @@
 
                     if(!data.errors)
                     {
-                        button.attr('disabled',null).html(previous);
+
                         $('#add_menu').modal('toggle');
                         swal('success',data.success,'success').then((value) => {
                             location.reload();
