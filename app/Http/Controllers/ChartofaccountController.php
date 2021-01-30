@@ -31,7 +31,7 @@ class ChartofaccountController extends Controller
                     foreach ($item->levelthree as $value) {
                         $code = $code .'<div class="font-weight-bold ml-5"><div class="bg-warning ml-5">' . str_pad($data->code1 . $item->code2 . $value->code3, 9, '0', STR_PAD_RIGHT) . '</div></div>';
                         foreach ($value->levelfour as $chart) {
-                            $code = $code . '<div class="font-weight-bold ml-5"><div class=" ml-5"><div class="bg-danger ml-5">' . $chart->acc_code . '</div></div></div>';
+                            $code = $code . '<div class="font-weight-bold ml-5 text-light"><div class=" ml-5"><div class="bg-danger ml-5">' . $chart->acc_code . '</div></div></div>';
                         }
                     }
 
@@ -45,7 +45,7 @@ class ChartofaccountController extends Controller
                     foreach ($item->levelthree as $value) {
                         $title = $title . '<div class="ml-5 font-weight-bold"><div class="bg-warning ml-5">' .$value->title. '</div></div>';
                         foreach ($value->levelfour as $chart) {
-                            $title = $title . '<div class="ml-5 font-weight-bold"><div class=" ml-5"><div class="bg-danger ml-5">' . $chart->title . '</div></div></div>';
+                            $title = $title . '<div class="ml-5 font-weight-bold text-light"><div class=" ml-5"><div class="bg-danger ml-5">' . $chart->title . '</div></div></div>';
                         }
                     }
                 }
