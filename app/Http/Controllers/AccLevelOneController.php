@@ -13,7 +13,6 @@ class AccLevelOneController extends Controller
     }
     public function fetch(){
         $data=AccLevelOne::all();
-        //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;

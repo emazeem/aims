@@ -8,6 +8,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class AccLevelThree extends Model
 {
+    public function levelfour(){
+        return $this->hasMany('App\Models\Chartofaccount', 'code3');
+    }
     use HasFactory,LogsActivity;
     protected static $logAttributes = ['code1','code2','title'];
     protected static $logOnlyDirty = true;

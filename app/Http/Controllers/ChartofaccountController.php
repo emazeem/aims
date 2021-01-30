@@ -18,6 +18,53 @@ class ChartofaccountController extends Controller
         return view('acc_level_four.index',compact('ones','twos','threes'));
     }
     public function fetch(){
+        $data=AccLevelOne::with('leveltwo')->get();
+        //dd($data);
+        return DataTables::of($data)
+            ->addColumn('id', function ($data) {
+                return $data->id;
+            })
+            ->addColumn('acc_code', function ($data) {
+                $code='<span class="border-bottom font-weight-bold">'.str_pad($data->code1, 9, '0', STR_PAD_RIGHT).'</span><br>';
+                foreach ($data->leveltwo as $item) {
+                    $code = $code . '&emsp;<span class="text-primary border-bottom font-weight-bold">' . str_pad($data->code1 . $item->code2, 9, '0', STR_PAD_RIGHT) . '</span><br>';
+                    foreach ($item->levelthree as $value) {
+                        $code = $code .'<span class="text-warning border-bottom font-weight-bold"> &emsp;&emsp;' . str_pad($data->code1 . $item->code2 . $value->code3, 9, '0', STR_PAD_RIGHT) . '</span><br>';
+                        foreach ($value->levelfour as $chart) {
+                            $code = $code . ' &emsp;&emsp;&emsp;<span class="text-danger border-bottom font-weight-bold">' . $chart->acc_code . '</span><br>';
+                        }
+                    }
+
+                    }
+                return $code;
+            })
+            ->addColumn('title', function ($data) {
+                $title='<span class="border-bottom font-weight-bold">'.$data->title.'</span><br>';
+                foreach ($data->leveltwo as $item){
+                    $title=$title.' &emsp;<span class="text-primary border-bottom font-weight-bold">'.$item->title.'</span><br>';
+                    foreach ($item->levelthree as $value) {
+                        $title = $title . ' &emsp;&emsp;<span class="text-warning border-bottom font-weight-bold">' .$value->title. '</span><br>';
+                        foreach ($value->levelfour as $chart) {
+                            $title = $title . ' &emsp;&emsp;&emsp;<span class="text-danger border-bottom font-weight-bold">' . $chart->title . '</span><br>';
+                        }
+                    }
+                }
+                return $title;
+            })
+            ->addColumn('parent', function ($data) {
+                return $data->title;
+            })
+
+            ->addColumn('options', function ($data) {
+
+                return "&emsp;
+                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_four/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                  ";
+            })
+            ->rawColumns(['options','title','acc_code'])
+            ->make(true);
+    }
+    /*public function fetch(){
         $data=Chartofaccount::with('codeone','codetwo','codethree')->get();
         //dd($data);
         return DataTables::of($data)
@@ -43,6 +90,7 @@ class ChartofaccountController extends Controller
             ->rawColumns(['options','parent'])
             ->make(true);
     }
+    */
     public function create(){
         $ones=AccLevelOne::all();
         $twos=AccLevelTwo::all();
