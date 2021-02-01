@@ -155,5 +155,24 @@ class MenuController extends Controller
     }
 
 
+    public function manage(){
+        $mens=Menu::where('parent_id',null)->where('status',1)->orderBy('position','ASC')->get();
+        //$childs=Menu::all()->where('parent_id',!null)->where('status',1)->where('has_child',1);
+        return view('manage-menus',compact('mens'));
+    }
+    public function store_position(Request $request){
+        $menus=Menu::find($request->id);
+        $menus->position=$request->position;
+        $menus->save();
+    }
+    public function remove_position(Request $request){
+        $menus=Menu::find($request->id);
+        $menus->position=0;
+        $menus->save();
+        return response()->json(['success'=>'Position removed successfully']);
+    }
+
+
+
     //
 }

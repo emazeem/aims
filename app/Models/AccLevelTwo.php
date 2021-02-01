@@ -14,6 +14,7 @@ class AccLevelTwo extends Model
     use HasFactory,LogsActivity;
     protected static $logAttributes = ['code1','title'];
     protected static $logOnlyDirty = true;
+
     public function codeone(){
         return $this->belongsTo('App\Models\AccLevelOne','code1');
     }

@@ -28,8 +28,8 @@ use LaravelFullCalendar\Facades\Calendar;
 class DashboardControlller extends Controller
 {
     public function index(){
-        $columns = Schema::getColumnListing('leave_applications');
-        //dd($columns);
+        $columns = Schema::getColumnListing('journals');
+        dd($columns);
 
         $departments=Department::all()->count();
         $designations=Designation::all()->count();

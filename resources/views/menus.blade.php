@@ -12,6 +12,8 @@
     <div class="col-12">
         <h3 class="border-bottom pull-left"><i class="fa fa-tasks"></i> All Menus</h3>
         <span class="text-right">
+                        <a href="{{route('menus.manage')}}" class="btn btn-sm pull-right btn-success shadow-sm"><i class="fa fa-sort"></i> Manage Menus</a>
+
         <button type="button" class="btn btn-sm pull-right btn-primary shadow-sm" data-toggle="modal" data-target="#add_menu"><i class="fa fa-plus-circle"></i> Menu</button>
     </span>
     </div>

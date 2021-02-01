@@ -139,6 +139,9 @@ Route::group(['prefix'=> 'menus'],function() {
     Route::post('/update',[App\Http\Controllers\MenuController::class, 'update'])->middleware('auth')->name('menus.update');
     Route::post('/search',[App\Http\Controllers\MenuController::class, 'search'])->middleware('auth')->name('menus.search');
 
+    Route::get('/manage',[App\Http\Controllers\MenuController::class, 'manage'])->middleware('auth')->name('menus.manage');
+    Route::post('/store_position',[App\Http\Controllers\MenuController::class, 'store_position'])->middleware('auth')->name('menus.store_position');
+    Route::post('/remove_position',[App\Http\Controllers\MenuController::class, 'remove_position'])->middleware('auth')->name('menus.remove_position');
 });
 Route::group(['prefix'=> 'roles'],function() {
     Route::get('',[App\Http\Controllers\RoleController::class, 'index'])->middleware('auth')->name('roles');
