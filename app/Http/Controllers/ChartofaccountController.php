@@ -27,7 +27,7 @@ class ChartofaccountController extends Controller
             ->addColumn('id', function ($data) {
                 return $data->id;
             })
-            ->addColumn('acc_code', function ($data) {
+            ->editColumn('acc_code', function ($data) {
                 $code = '<div class="bg-dark text-light font-weight-bold">' . str_pad($data->code1, 9, '0', STR_PAD_RIGHT) . '</div>';
                 foreach ($data->leveltwo as $item) {
                     $code = $code . '<div class="bg-primary text-light font-weight-bold ml-5">' . str_pad($data->code1 . $item->code2, 9, '0', STR_PAD_RIGHT) . '</div>';
@@ -56,6 +56,7 @@ class ChartofaccountController extends Controller
             ->addColumn('parent', function ($data) {
                 return $data->title;
             })
+
             ->addColumn('options', function ($data) {
 
                 return "&emsp;

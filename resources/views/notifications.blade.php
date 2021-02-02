@@ -11,8 +11,9 @@
             background-color: #C4C4FF;
         }
     </style>
-    <div class="col-12">
-        <h3 class="border-bottom text-dark"><i class="fa fa-bell-o"></i> All Notifications</h3>
+
+    <div class="row">
+        <h3 class="border-bottom"><i class="fa fa-bell-o"></i> All Notifications</h3>
         @foreach(Auth::user()->Notifications as $notification)
             <a class="col-12 m-0" href="{{empty($notification->read_at)?'notification/markasread/'.$notification->id:$notification->data['data']['redirectURL']}}">
                 <div class="row border hover-notification {{empty($notification->read_at)?"bg-custom-unread-notification ":''}}">

@@ -29,7 +29,7 @@ class DashboardControlller extends Controller
 {
     public function index(){
         $columns = Schema::getColumnListing('journals');
-        dd($columns);
+        //dd($columns);
 
         $departments=Department::all()->count();
         $designations=Designation::all()->count();
