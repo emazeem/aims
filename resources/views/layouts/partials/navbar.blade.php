@@ -53,14 +53,16 @@
                 </li>
                 <li role="presentation" class="nav-item dropdown open p-md-2 p-0 mt-2 mt-md-0">
 
-                    <a href="javascript:void(0);" class="dropdown-toggle info-number" id="navbarDropdown1"
+                    <a href="javascript:void(0);" class="dropdown-togge" id="navbarDropdown1"
                        data-toggle="dropdown" aria-expanded="false">
+
+
                         <i class="fa fa-bell-o"></i>
                         @if(auth()->user()->unreadNotifications()->count()>0)
-                            <span class="bg-danger text-light"
-                                  style="border-radius: 20px;padding: 2px;padding-left: 6px;">
+                            <b class="text-danger"
+                                  style="font-size: 10px">
                             {{auth()->user()->unreadNotifications()->count()}}
-                        </span>
+                        </b>
                         @endif
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list mt-4" role="menu" aria-labelledby="navbarDropdown1"
