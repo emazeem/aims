@@ -14,7 +14,7 @@ class DataentryController extends Controller
 {
     //
     public function store(Request $request){
-        //dd($request->all());
+        // dd($request->all());
         $this->validate(request(), [
             'assets' => 'required',
             'units' => 'required',
@@ -41,21 +41,23 @@ class DataentryController extends Controller
         $x5 = [];
         $fixed = [];
         foreach ($request->x1 as $item) {
-            if (isset($request->mulitplying_factor)){
+            if (isset($request->mulitplying_factor) and $request->mulitplying_factor!=0){
                 $x1[] = $item*$request->mulitplying_factor;
             }else{
                 $x1[] = $item;
             }
         }
+
+
         foreach ($request->x2 as $item) {
-            if (isset($request->mulitplying_factor)){
+            if (isset($request->mulitplying_factor)  and $request->multiplying_factor!=0){
                 $x2[] = $item*$request->mulitplying_factor;
             }else{
                 $x2[] = $item;
             }
         }
         foreach ($request->x3 as $item) {
-            if (isset($request->mulitplying_factor)){
+            if (isset($request->mulitplying_factor)  and $request->multiplying_factor!=0){
                 $x3[] = $item*$request->mulitplying_factor;
             }else{
                 $x3[] = $item;
@@ -63,14 +65,14 @@ class DataentryController extends Controller
 
         }
         foreach ($request->x4 as $item) {
-            if (isset($request->mulitplying_factor)){
+            if (isset($request->mulitplying_factor)  and $request->multiplying_factor!=0){
                 $x4[] = $item*$request->mulitplying_factor;
             }else{
                 $x4[] = $item;
             }
         }
         foreach ($request->x5 as $item) {
-            if (isset($request->mulitplying_factor)){
+            if (isset($request->mulitplying_factor)  or $request->multiplying_factor!=0){
                 $x5[] = $item*$request->mulitplying_factor;
             }else{
                 $x5[] = $item;
@@ -78,18 +80,23 @@ class DataentryController extends Controller
 
         }
         foreach ($request->fixed_value as $item) {
-            if (isset($request->mulitplying_factor)){
+            if (isset($request->mulitplying_factor) and $request->multiplying_factor!=0){
                 $fixed[] = $item*$request->mulitplying_factor;
             }else{
                 $fixed[] = $item;
             }
         }
+
         //if ($request->jobtype==0) {
             /*
                 return redirect()->back()->with('success', 'Entry added successfully');
             }*/
-        $already_exsited = Dataentry::where('job_type', 0)->where('asset_id', $request->assets)->where('unit', $request->units)->first();
+
+
+        $already_exsited = Dataentry::where('job_type', $request->jobtype)->where('asset_id', $request->assets)->where('unit', $request->units)->first();
+
         if ($already_exsited) {
+            dd(0);
             for ($i = 0; $i < count($x1); $i++) {
                 $item = new Dataentry();
                 $item->fixed_value = $fixed[$i];
@@ -104,6 +111,7 @@ class DataentryController extends Controller
             }
             $entry = Dataentry::find($already_exsited->id);
         }else{
+
             $labjob = Jobitem::find($request->jobtypeid);
             $labjob->accuracy = $request->accuracy;
             $labjob->range = $request->range;
@@ -126,6 +134,7 @@ class DataentryController extends Controller
             if ($entry->save()) {
                 $labjob->save();
             }
+
             for ($i = 0; $i < count($x1); $i++) {
                 $item = new Dataentry();
                 $item->fixed_value = $fixed[$i];

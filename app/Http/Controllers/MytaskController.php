@@ -158,6 +158,7 @@ class MytaskController extends Controller
     }
     public function s_show($id){
         $this->authorize('mytask-view');
+        $location=1;
         $show=Jobitem::find($id);
         $parameters=[];
         $assets=explode(',',$show->group_assets);
@@ -167,10 +168,10 @@ class MytaskController extends Controller
         $parameters=array_unique($parameters);
         $parameters=Parameter::whereIn('id',$parameters)->get();
         $assets=Asset::whereIn('id',$assets)->get();
-        $assets=Asset::whereIn('id',$assets)->get();
-        $location=1;
-        $dataentries=Dataentry::where('parent_id',null)->where('job_type',1)->where('job_type_id',$id)->with('child')->first();
-        return view('mytask.show',compact('show','location','assets','dataentries'));
+
+        $dataentrie=Dataentry::where('parent_id',null)->where('job_type',1)->where('job_type_id',$id)->with('child')->get();
+        //4dd($dataentries);
+        return view('mytask.show',compact('show','location','parameters','assets','dataentrie'));
     }
     public function start(Request $request){
         $this->authorize('start-mytask');
