@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col-2 font-10 ">Time Frame</div>
             <div class="col-2 font-10 custom-bottom-border">
-                {{$show->time_frame}}
+                {{ucfirst(str_replace('-', ' ', $show->time_frame))}}
             </div>
         </div>
         <div class="row">

@@ -10,7 +10,7 @@ class LeaveApplication extends Model
 {
     use HasFactory;
     public function appraisal(){
-        return $this->belongsTo('App\Models\Interviewappraisal','appraisal_id','id');
+        return $this->belongsTo('App\Models\User','appraisal_id','id');
     }
     public function nature(){
         return $this->belongsTo('App\Models\Preference','nature_of_leave','slug');

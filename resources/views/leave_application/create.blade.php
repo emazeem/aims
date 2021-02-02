@@ -22,7 +22,7 @@
                             <select class="form-control" id="employee" name="employee">
                                 <option selected disabled="">Select Employee</option>
                                 @foreach($employees as $employee)
-                                    <option value="{{$employee->id}}">{{$employee->appraisal->fname}} {{$employee->appraisal->lname}}</option>
+                                    <option value="{{$employee->id}}">{{$employee->fname}} {{$employee->lname}}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('employee'))

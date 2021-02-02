@@ -28,7 +28,7 @@ class RequisitionController extends Controller
                 return $data->reason;
             })
             ->addColumn('designation', function ($data) {
-                return $data->requisition_designation;
+                return $data->designation->name;
             })
             ->addColumn('qualification', function ($data) {
                 return $data->qualification;

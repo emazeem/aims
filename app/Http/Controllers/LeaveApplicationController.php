@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Empcontract;
 use App\Models\LeaveApplication;
 use App\Models\Preference;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -15,13 +16,13 @@ class LeaveApplicationController extends Controller
     }
 
     public function create(){
-        $employees=Empcontract::all()->where('status',2);
+        $employees=User::all();
         $natures=Preference::where('category',14)->get();
         return view('leave_application.create',compact('employees','natures'));
     }
     public function edit($id){
         $edit=LeaveApplication::find($id);
-        $employees=Empcontract::all()->where('status',2);
+        $employees=User::all();
         $natures=Preference::where('category',14)->get();
         return view('leave_application.edit',compact('employees','natures','edit'));
 

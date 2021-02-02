@@ -58,8 +58,8 @@
                 <tr>
                     <td>{{$show->appraisal->fname.' '.$show->appraisal->lname}}</td>
                     <td>E-{{$show->appraisal_id}}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$show->appraisal->departments->name}}</td>
+                    <td>{{$show->appraisal->designations->name}}</td>
                 </tr>
             </table>
         </div>

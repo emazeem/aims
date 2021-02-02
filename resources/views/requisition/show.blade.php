@@ -50,11 +50,11 @@
                 </tr>
                 <tr>
                     <th>Time Frame</th>
-                    <td>{{$show->time_frame}}</td>
+                    <td>{{ucfirst(str_replace('-', ' ', $show->time_frame))}}</td>
                 </tr>
                 <tr>
                     <th>HRD Review</th>
-                    <td>{{$show->hrd_review}}</td>
+                    <td class="text-capitalize">{{str_replace('-', ' ', $show->hrd_review)}}</td>
                 </tr>
                 <tr>
                     <th>Approved By</th>

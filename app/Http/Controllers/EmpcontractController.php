@@ -15,6 +15,9 @@ class EmpcontractController extends Controller
     }
     public function prints($id){
         $show=Empcontract::find($id);
+        if ($show->orientator==0){
+            return  redirect()->back()->with('failed', 'No orientor is mentioned yet.');
+        }
         return view('emp_contract.print',compact('show'));
     }
     public function fetch(){
