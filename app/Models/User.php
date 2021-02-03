@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     public function departments(){
-        return $this->belongsTo('App\Models\Department','department');
+        return $this->belongsTo('App\Models\Department','department')->withDefault();
     }
     public function designations(){
         return $this->belongsTo('App\Models\Designation','designation')->withDefault();
