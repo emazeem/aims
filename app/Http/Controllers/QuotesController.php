@@ -14,9 +14,6 @@ use NumberToWords\NumberToWords;
 class QuotesController extends Controller
 {
     public function index(){
-
-
-
         $this->authorize('quote-index');
         $customers=Customer::orderBY('reg_name')->get();
         $tms=User::where('department',3)->get();
@@ -41,35 +38,9 @@ class QuotesController extends Controller
                 return ucfirst($data->location);
             })
             ->addColumn('type', function ($data) {
-                $checktypes=Item::where('quote_id',$data->id)->get();
-                $totalrecords=$checktypes->count();
-                $incrementforsite=0;
-                $incrementforlab=0;
-                foreach($checktypes as $checktype){
-                    if ($checktype->location=='lab'){
-                        $incrementforlab++;
-                    }
-                    if ($checktype->location=='site'){
-                        $incrementforsite++;
-                    }
-                }
-                $type=null;
-                if($totalrecords==0){
-                    $type.='-----';
-                }else{
-                    if ($incrementforlab==$totalrecords){
-                        $type.="LAB";
-                    }
-                    else if ($incrementforsite==$totalrecords){
-                        $type.="SITE";
-                    }
-                    else{
-                        $type.='SPLIT';
-                    }
-                }
-                return $type;
+                return $data->type;
             })
-            ->addColumn('status', function ($data) {
+                ->addColumn('status', function ($data) {
                 //Items are adding
                 if ($data->status==0){
                     $status= '<b class="badge badge-secondary">Items being added</b>';
@@ -106,6 +77,14 @@ class QuotesController extends Controller
                 $action.="<a onclick=\"window.open('".url('/print_rf/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
                 href=".url('print_rf/'.$data->id)." 
                 title='Print' class='btn btn-sm btn-info'><b>RF</b></a>";
+
+                $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+
                 return "&emsp;".$action;
             })
             ->rawColumns(['options','status'])
@@ -184,7 +163,6 @@ class QuotesController extends Controller
                 $noaction=true;
             }
         }
-
         return view('quotes.show',compact('show','id','tms','items','noaction'));
     }
 
@@ -384,7 +362,6 @@ class QuotesController extends Controller
         $approval->save();
         return response()->json(['success'=>'Quote is marked as sent to customer']);
     }
-
     public function discount(Request $request){
         //dd($request->all());
         $items=Item::where('quote_id',$request->id)->get();
@@ -400,17 +377,24 @@ class QuotesController extends Controller
                 }
             }
         }
+        $revision=Quotes::find($request->id);
+        $revision->revision=$revision->revision+1;
+        $revision->save();
         return back()->with('success', 'Discount added successfully');
     }
     public function remarks(Request $request){
         $this->validate(request(),[
             'turnaround'=>'required',
         ]);
-
         $quote=Quotes::find($request->id);
         $quote->remarks=($request->remarks)?$request->remarks:null;
         $quote->turnaround=$request->turnaround;
         $quote->save();
         return back()->with('success', 'Remarks & Turnaround added successfully');
+    }
+    public function destroy(Request $request){
+        Item::where('quote_id',$request->id)->delete();
+        Quotes::find($request->id)->delete();
+        return response()->json(['success'=>'Quote Deleted successfully']);
     }
 }

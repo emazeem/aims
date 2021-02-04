@@ -43,7 +43,7 @@ class SchedulingController extends Controller
                 return $status;
             })
             ->addColumn('turnaround', function ($data) {
-                $turnaround=date('d M, Y',strtotime($data->quotes->turnaround));
+                $turnaround=date('d M Y',(strtotime($data->quotes->created_at)+($data->quotes->turnaround*(86400))));
                 return $turnaround;
             })
             ->addColumn('type', function ($data) {

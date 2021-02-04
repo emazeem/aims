@@ -152,22 +152,24 @@
             <div class="col-10 font-10  custom-bottom-border">{{$session->customers->address}}</div>
             <div class="col-2 font-10 ">Phone:</div>
             <div class="col-10  font-10 custom-bottom-border">
-                @if($session->principal==$session->customers->prin_name_1)
-                    {{$session->customers->prin_phone_1}}
-                @elseif($session->principal==$session->customers->prin_name_2)
-                    {{$session->customers->prin_phone_2}}
+                @php $principals=explode(',',$session->customers->prin_name);$pphones=explode(',',$session->customers->prin_phone); @endphp
+                @if($session->principal==$principals[0])
+                    {{$pphones[0]}}
+                @elseif($session->principal==$principals[1])
+                    {{$pphones[1]}}
                 @else
-                    {{$session->customers->prin_phone_3}}
+                    {{$pphones[2]}}
                 @endif
             </div>
             <div class="col-2 font-10 ">Email</div>
             <div class="col-10  font-10 custom-bottom-border">
-                @if($session->principal==$session->customers->prin_name_1)
-                    {{$session->customers->prin_email_1}}
-                @elseif($session->principal==$session->customers->prin_name_2)
-                    {{$session->customers->prin_email_2}}
+                @php $principals=explode(',',$session->customers->prin_name);$pemails=explode(',',$session->customers->prin_email); @endphp
+                @if($session->principal==$principals[0])
+                    {{$pemails[0]}}
+                @elseif($session->principal==$principals[1])
+                    {{$pemails[1]}}
                 @else
-                    {{$session->customers->prin_email_3}}
+                    {{$pemails[2]}}
                 @endif
             </div>
 
@@ -179,8 +181,6 @@
             <div class="col-10 font-10  custom-bottom-border">{{auth()->user()->phone}}</div>
             <div class="col-2 font-10 ">Quote#:</div>
             <div class="col-10 font-10  custom-bottom-border">{{'QTN/'.date('y',strtotime($session->created_at)).'/'.$session->id}}</div>
-            <div class="col-2 font-10 ">Rev#:</div>
-            <div class="col-10  font-10 custom-bottom-border">{{$session->revision}}</div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-3 font-10">Subject /Description:</div>
@@ -226,7 +226,6 @@
             <div class="col-12"></div>
             <p class="font-10 line-height col-7"><span class="ml-5 pl-2">2.2 - Customer premises as per given address.</span><input type="checkbox" {{($type=="SITE")?"checked":""}} class="float-right"></p>
             <div class="col-12"></div>
-
             <p class="font-10 line-height col-7"><span class="ml-5 pl-2">2.3 - Partially at site and partially in AIMS Lab.</span><input type="checkbox" {{($type=="SPLIT")?"checked":""}} class="float-right"></p>
             <div class="col-12"></div>
 
@@ -260,7 +259,7 @@
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.5 - In case of courier of customer property, AIMS will not be responsible for any loss/damage in transportation.</span></p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.6 - To arrange boarding/loading, security passes/permits for AIMS team for site job.</span></p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.7 - To arrange payment as per given payment terms and conditions.</span></p>
-            <p class="font-10 line-height col-12 ml-5 pl-2"><span class="  py-1">6.8 - To sign visit sign work sheet / time sheet of AIMS in order to confirm completion of site Job.</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.8 - To sign visit sign work sheet / time sheet of AIMS in order to confirm completion of site Job.</span></p>
             <p class="font-12  mt-1 col-12 float-left b"><span class="mr-5">7</span>  PRICE PROPOSAL:</p>
             <p class="font-12 text-right col-12 b float-right">Date : <span class="custom-bottom-border">{{date('d-m-Y',time())}}</span></p>
         </div>

@@ -13,26 +13,57 @@
             <form method="post" action="{{route('jobs.manage.store')}}">
                 @csrf
                 <input type="hidden" value="{{$id}}" id="quote_id" name="id">
-                @foreach($items as $item)
-                    @if(!in_array($item->id,$assigned_items))
-                    <div class="form-check h5">
-                        <input type="checkbox" name="items[]" value="{{$item->id}}" class="form-check-input" id="{{$item->id}}">
-                        <label class="form-check-label text-lg ml-2 border-bottom" for="{{$item->id}}">{{$item->capabilities->name .' -'.$item->quantity }}</label>
-                    </div>
-                        @else
-                        <div class="form-check h5">
-                            <input type="checkbox" name="items[]" value="{{$item->id}}" class="form-check-input" id="{{$item->id}}" disabled checked>
-                            <label class="form-check-label text-lg ml-2 border-bottom" for="{{$item->id}}">{{$item->capabilities->name.' -'.$item->quantity }}</label>
-                        </div>
-                    @endif
-                        @if ($errors->has('items'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('items') }}</strong>
-                      </span>
+                <table class="table table-sm table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Capability</th>
+                        <th>Parameter</th>
+                        <th>Qty</th>
+                        <th>Range</th>
+                        <th>Location</th>
+                        <th>Accredited</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-capitalize">
+                    @foreach($items as $item)
+                        @if($item->status!=3)
+                            <tr>
+                                <td>
+                                    @if(!in_array($item->id,$assigned_items))
+                                            <input type="checkbox" name="items[]" value="{{$item->id}}" id="{{$item->id}}" >
+                                    @else
+                                         <input type="checkbox" name="items[]" value="{{$item->id}}" id="{{$item->id}}" disabled checked>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if(!in_array($item->id,$assigned_items))
+                                        <label class="form-check-label" for="{{$item->id}}">{{$item->capabilities->name}}</label>
+                                    @else
+                                        <label class="form-check-label" for="{{$item->id}}">{{$item->capabilities->name}}</label>
+                                    @endif
+                                </td>
+                                <td>{{$item->parameters->name}}</td>
+                                <td>{{$item->quantity}}</td>
+                                <td>{{$item->range}}</td>
+                                <td>{{$item->location}}</td>
+
+                                <td>{{$item->accredited}}</td>
+                            </tr>
+
                         @endif
-                @endforeach
-                <br>
-                <button class="btn btn-primary" type="submit">Create</button>
+                    @endforeach
+
+                    @if ($errors->has('items'))
+                        <script>
+                            $(document).ready(function () {
+                                swal("Failed", "{{$errors->first('items') }}", "error");
+                            });
+                        </script>
+                    @endif
+                    </tbody>
+                </table>
+                <button class="btn btn-primary pull-right btn-sm" type="submit"> <i class="fa fa-save"></i> Create</button>
             </form>
         </div>
     </div>

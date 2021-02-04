@@ -33,10 +33,10 @@
                         if(!data.errors)
                         {
 
-                            swal("Success", "Added successfully", "success");
                             $('#add_na').modal('hide');
-                            location.reload();
-                            InitTable();
+                            swal('success', data.success, 'success').then((value) => {
+                                location.reload();
+                            });
                         }
                     },
                     error: function()

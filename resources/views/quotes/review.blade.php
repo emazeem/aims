@@ -39,30 +39,31 @@
     </div>
     <div class="row py-3">
         <div class="col-3 row my-1 font-11 ">
-            <div class="col-3">Inquiry#:</div>
-            <div class="col-9 custom-bottom-border  text-center" >{{'INQ/'.date('y',strtotime($quotes->created_at)).'/'.$quotes->id}}</div>
+            <div class="col-4">Inquiry#:</div>
+            <div class="col-8 custom-bottom-border" >{{'INQ/'.date('y',strtotime($quotes->created_at)).'/'.$quotes->id}}</div>
         </div>
         <div class="col-4 row my-1 font-11 ">
             <div class="col-5">Inquiry Date:</div>
-            <div class="col-7 custom-bottom-border  text-center" >{{date('d-m-Y',strtotime($quotes->created_at))}}</div>
+            <div class="col-7 custom-bottom-border " >{{date('d-m-Y',strtotime($quotes->created_at))}}</div>
         </div>
         <div class="col-5 row my-1 font-11 ">
             <div class="col-5">Mode of Inquiry # </div>
-            <div class="col-7 custom-bottom-border  text-center" >{{date('d-m-Y',strtotime($quotes->created_at))}}</div>
+            <div class="col-7 custom-bottom-border " >{{date('d-m-Y',strtotime($quotes->created_at))}}</div>
         </div>
         <div class="col-6 row my-1 font-11 ">
             <div class="col-3">Contact #: </div>
-            <div class="col-9 custom-bottom-border  text-center" >{{$quotes->customers->reg_name}}</div>
+            <div class="col-9 custom-bottom-border" >{{$quotes->customers->reg_name}}</div>
         </div>
         <div class="col-6 row my-1 font-11 ">
             <div class="col-2"> Email : </div>
-            <div class="col-10 custom-bottom-border  text-center" >
-                @if($quotes->principal==$quotes->customers->prin_name_1)
-                    {{$quotes->customers->prin_email_1}}
-                @elseif($quotes->principal==$quotes->customers->prin_name_2)
-                    {{$quotes->customers->prin_email_2}}
+            <div class="col-10 custom-bottom-border " >
+                @php $principals=explode(',',$quotes->customers->prin_name);$pemails=explode(',',$quotes->customers->prin_email); @endphp
+                @if($quotes->principal==$principals[0])
+                    {{$pemails[0]}}
+                @elseif($session->principal==$principals[1])
+                    {{$pemails[1]}}
                 @else
-                    {{$quotes->customers->prin_email_3}}
+                    {{$pemails[2]}}
                 @endif
             </div>
         </div>
@@ -71,8 +72,8 @@
         <p class="col-12 font-14 my-2 b">Scope of Work</p>
     </div>
     <div class="row">
-        <div class="col-12 mt-2"><p class="font-11"><input type="checkbox"> Equipment List provided by customer</p></div>
-        <div class="col-12"><p class="font-11"><input type="checkbox"> Equipment not covered by AIMS Capability List;</p></div>
+        <div class="col-12 mt-2"><p class="font-11"><input type="checkbox" checked> Equipment List provided by customer</p></div>
+        <div class="col-12"><p class="font-11"><input type="checkbox" checked> Equipment not covered by AIMS Capability List;</p></div>
     </div>
     <div class="row custom-border">
         <p class="font-12 col-12 my-2 b">Non-Listed Items</p>
@@ -90,7 +91,6 @@
             @foreach($items as $item)
                 <?php
                         if ($item->rf_checks){
-
                             $checks=$item->rf_checks;
                             $checks=explode(',',$checks);
                         }else{
@@ -98,7 +98,7 @@
                         }
                 ?>
                 <tr>
-                    <td class="text-left">{{$item->not_available}}</td>
+                    <td class="text-left">{{($item->not_available)?$item->not_available:$item->capabilities->name}}</td>
                     <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[0]==1)?'checked':''}}></td>
                     <td><input type="checkbox"{{($item->status==2)?'checked':''}} {{($checks[1]==1)?'checked':''}}></td>
                     <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[2]==1)?'checked':''}}></td>

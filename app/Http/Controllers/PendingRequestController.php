@@ -20,7 +20,7 @@ class PendingRequestController extends Controller
         $this->authorize('pending-index');
         return view('pendings.index');
     }
-    public function fetch(){
+    /*public function fetch(){
         $data=Item::with('quotes')->where('not_available','!=',null)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -67,6 +67,50 @@ class PendingRequestController extends Controller
             ->make(true);
 
     }
+    */
+    public function fetch(){
+        $this->authorize('quote-index');
+        $data=Quotes::with('customers')->get();
+        return DataTables::of($data)
+            ->addColumn('id', function ($data) {
+                return 'RFQ/'.date('y',strtotime($data->created_at)).'/'.$data->id;
+            })
+            ->addColumn('customer', function ($data) {
+                return $data->customers->reg_name;
+            })
+            ->addColumn('type', function ($data) {
+                return $data->type;
+            })
+            ->addColumn('status', function ($data) {
+                //Items are adding
+                if ($data->status==0){
+                    $status= '<b class="badge badge-secondary">Items being added</b>';
+                }
+                if ($data->status==1){
+                    $status= '<b class="badge badge-success">New Quote Generated</b>';
+                }
+                if ($data->status==2){
+                    $status= '<b class="badge badge-success">Waiting for Customer Approval</b>';
+                }
+                if ($data->status==3){
+                    $status= '<b class="badge badge-danger">Approved</b>';
+                }
+                return $status;
+            })
+            ->addColumn('total', function ($data) {
+                $total=Item::where('quote_id',$data->id)->where('status',1)->count();
+                return $total;
+            })
+            ->addColumn('options', function ($data) {
+                $action=null;
+                $action.="<a title='view' href=".url('/pendings/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
+                return "&emsp;".$action;
+            })
+            ->rawColumns(['options','status'])
+            ->make(true);
+    }
+
+
     //adding capabilities & quote by technical manager for pending requests
     public function store(Request $request){
         $this->validate(request(), [
@@ -105,13 +149,13 @@ class PendingRequestController extends Controller
             $quotes=Item::find($request->na_id);
             $quotes->parameter=$request->category;
             $quotes->capability=$capabilities->id;
-            //$quotes->not_available=null;
+            $quotes->not_available=null;
             $quotes->status=2;
             $quotes->range=$request->range;
             $quotes->price=$request->price;
             $quotes->save();
         }
-        return redirect('pendings')->with('success', 'Capability and Quote Sent Successfully');
+        return back()->with('success', 'Capability added successfully');
     }
     //capability create page in pending menu with id of not listed item
     public function create($id){
@@ -121,6 +165,11 @@ class PendingRequestController extends Controller
         $units=Unit::all();
         return view('pendings.create',compact('parameters','id','edit','procedures','units'));
     }
+    public function show($id){
+        $quote=Quotes::find($id);
+        return view('pendings.show',compact('quote'));
+    }
+
     public function print_review($id){
         $print=Item::where('id',$id)->get();
         return view('pendings.reviewform',compact('print'));

@@ -27,42 +27,13 @@ class GenerateRequestsController extends Controller
         $data=Quotes::with('customers')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
-                return 'QTN/'.date('y',strtotime($data->created_at)).'/'.$data->id;
+                return 'RFQ/'.date('y',strtotime($data->created_at)).'/'.$data->id;
             })
             ->addColumn('customer', function ($data) {
                 return $data->customers->reg_name;
             })
-            ->addColumn('location', function ($data) {
-                return ucfirst($data->location);
-            })
             ->addColumn('type', function ($data) {
-                $checktypes=Item::where('quote_id',$data->id)->get();
-                $totalrecords=$checktypes->count();
-                $incrementforsite=0;
-                $incrementforlab=0;
-                foreach($checktypes as $checktype){
-                    if ($checktype->location=='lab'){
-                        $incrementforlab++;
-                    }
-                    if ($checktype->location=='site'){
-                        $incrementforsite++;
-                    }
-                }
-                $type=null;
-                if($totalrecords==0){
-                    $type.='-----';
-                }else{
-                    if ($incrementforlab==$totalrecords){
-                        $type.="LAB";
-                    }
-                    else if ($incrementforsite==$totalrecords){
-                        $type.="SITE";
-                    }
-                    else{
-                        $type.='SPLIT';
-                    }
-                }
-                return $type;
+                return $data->type;
             })
             ->addColumn('status', function ($data) {
                 //Items are adding
@@ -70,12 +41,11 @@ class GenerateRequestsController extends Controller
                     $status= '<b class="badge badge-secondary">Items being added</b>';
                 }
                 if ($data->status==1){
-                    $status= '<b class="badge badge-success">Quote is closed</b>';
+                    $status= '<b class="badge badge-success">New Quote Generated</b>';
                 }
                 if ($data->status==2){
                     $status= '<b class="badge badge-success">Waiting for Customer Approval</b>';
                 }
-                //Team is working
                 if ($data->status==3){
                     $status= '<b class="badge badge-danger">Approved</b>';
                 }
@@ -123,6 +93,7 @@ class GenerateRequestsController extends Controller
                 return response()->json(['errors'=>'Already in progress']);
             }
         }
+
         $session=new Quotes();
         $session->customer_id=$request->customer;
         $session->principal=$request->principal;
@@ -130,6 +101,7 @@ class GenerateRequestsController extends Controller
         $session->rfq_mode=$request->rfq_mode;
         $session->rfq_mode_details=$request->rfq_mode_details;
         $session->save();
+
         return response()->json(['success'=>'Added successfully']);
     }
     public function update(Request $request){
@@ -171,7 +143,6 @@ class GenerateRequestsController extends Controller
                 $noaction=true;
             }
         }
-
         return view('generate_requests.show',compact('show','id','tms','items','noaction'));
     }
 

@@ -45,12 +45,8 @@ class User extends Authenticatable
     }
 
     public function roles(){
-        return $this->belongsTo('App\Models\Role','user_type');
+        return $this->belongsTo('App\Models\Role','user_type')->withDefault();
     }
-
-
-
-
     public function user()
     {
         return $this->belongsTo(User::class);

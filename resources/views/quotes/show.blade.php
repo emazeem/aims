@@ -22,11 +22,12 @@
         </form>
         <div class="col-12 text-right">
 
+{{--
             <a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href='#'
                            data-id='{{$show->id}}'><i class='fa fa-send'></i> Send to Customer</a>
-
-                        <a href="{{url('/quotes/print/'.$show->id)}}" title='Print'
+                                      <a href="{{url('/quotes/print/'.$show->id)}}" title='Print'
                            class='btn btn-sm btn-outline-danger'><i class="fa fa-print"></i> Save QF</a>
+            --}}
                         <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i
                                     class='fa fa-refresh'></i> Revise</a>
                         <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#'
@@ -120,12 +121,8 @@
                 </tr>
             </table>
         </div>
-
         <div class="col-12">
-            @if(count($show->items)>0)
-                @if($show->status<3)
-
-                    <div class="card shadow">
+            <div class="card shadow">
                         <!-- Card Header - Accordion -->
                         <a href="#discount_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
                            aria-expanded="true" aria-controls="collapseCardExample">
@@ -153,7 +150,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card shadow">
+            <div class="card shadow">
                         <!-- Card Header - Accordion -->
                         <a href="#purchase_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
                            aria-expanded="true" aria-controls="collapseCardExample">
@@ -233,9 +230,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
-                @if($show->status==3)
-                    <div class="card shadow">
+            <div class="card shadow">
                         <!-- Card Header - Accordion -->
                         <a href="#approval_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
                            aria-expanded="true" aria-controls="collapseCardExample">
@@ -301,13 +296,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
-            @endif
-
-                @if($show->status<1)
-                    @if($noaction==false)
-                        @if(count($show->items)>0)
-                            <div class="card shadow">
+            <div class="card shadow">
                                 <!-- Card Header - Accordion -->
                                 <a href="#remarks_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
                                    aria-expanded="true" aria-controls="collapseCardExample">
@@ -361,10 +350,6 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
-                    @endif
-                @endif
-
         </div>
     </div>
 

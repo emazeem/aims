@@ -243,12 +243,8 @@
                         <div class="row">
                             <input type="hidden" value="" id="add_id" name="id">
                             <div class="form-group col-12  float-left">
-                                <label for="eq_id">Equipment ID</label>
-                                <input type="text" class="form-control" id="eq_id" name="eq_id" placeholder="Equipment ID" autocomplete="off" value="">
-                            </div>
-                            <div class="form-group col-12  float-left">
-                                <label for="serial">Serial #</label>
-                                <input type="text" class="form-control" id="serial" name="serial" placeholder="Serial #" autocomplete="off" value="">
+                                <label for="make">Make</label>
+                                <input type="text" class="form-control" id="make" name="make" placeholder="make" autocomplete="off" value="">
                             </div>
 
                             <div class="form-group col-12  float-left">
@@ -256,8 +252,12 @@
                                 <input type="text" class="form-control" id="model" name="model" placeholder="Model" autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
-                                <label for="make">Make</label>
-                                <input type="text" class="form-control" id="make" name="make" placeholder="make" autocomplete="off" value="">
+                                <label for="serial">Serial #</label>
+                                <input type="text" class="form-control" id="serial" name="serial" placeholder="Serial #" autocomplete="off" value="">
+                            </div>
+                            <div class="form-group col-12  float-left">
+                                <label for="eq_id">Equipment ID</label>
+                                <input type="text" class="form-control" id="eq_id" name="eq_id" placeholder="Equipment ID" autocomplete="off" value="">
                             </div>
 
                             <div class="form-group col-12  float-left">
@@ -268,8 +268,6 @@
                                 <label for="visualinspection">Visual Inspection</label>
                                 <input type="text" class="form-control" id="visualinspection" name="visualinspection" placeholder="Visual Inspection" autocomplete="off" value="OK">
                             </div>
-
-
                             <div class="col-3">
                                 <button class="btn btn-primary" type="submit">Save</button>
                             </div>

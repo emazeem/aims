@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Capabilities;
-use App\Models\Capabilitiesgroup;
 use App\Models\Item;
 use App\Models\Nofacility;
 use App\Models\Parameter;
 use App\Models\Quotes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 
 class ItemController extends Controller
@@ -45,16 +43,34 @@ class ItemController extends Controller
                 return $data->capabilities->name;
             })
             ->addColumn('range', function ($data) {
+                if (isset($data->not_available)){
+                    return '';
+                }
                 return $data->range;
             })
-            ->addColumn('uprice', function ($data) {
+            ->addColumn('location', function ($data) {
+                if (isset($data->not_available)){
+                    return '';
+                }
+                return $data->location;
+            })
 
+            ->addColumn('uprice', function ($data) {
+                if (isset($data->not_available)){
+                    return '';
+                }
                 return $data->price;
             })
             ->addColumn('quantity', function ($data) {
+                if (isset($data->not_available)){
+                    return '';
+                }
                 return $data->quantity;
             })
             ->addColumn('sprice', function ($data) {
+                if (isset($data->not_available)){
+                    return '';
+                }
                 return ($data->price*$data->quantity);
             })
             ->addColumn('status', function ($data) {
@@ -69,7 +85,7 @@ class ItemController extends Controller
                     $status= "<b class=\"text-info\">New Entry</b>";
                 }
                 if ($data->status==3){
-                    $status= "<b class=\"text-danger\">No Facility</b>";
+                    $status= "<b class=\"text-dark\">No Facility</b>";
                 }
                 return $status;
             })
@@ -109,32 +125,7 @@ class ItemController extends Controller
     }
     public function store(Request $request){
         $this->authorize('items-create');
-        if (isset($request->idofquote_forgroup)){
-            $this->validate(request(), [
-                'groups' => 'required',
-            ],[
-                'groups.required' => 'Groups field is required *',
-            ]);
-            $group=Capabilitiesgroup::find($request->groups);
-            foreach (explode(',',$group->capabilities) as $capability){
-                $cap=Capabilities::find($capability);
-                $item=new Item();
-                $item->quote_id=$request->idofquote_forgroup;
-                $item->not_available=null;
-                $item->location=$cap->location;
-                $item->accredited=$cap->accredited;
-                $item->parameter=$cap->parameter;
-                $item->capability=$cap->id;
-                $item->range=$cap->range;
-                $item->status=0;
-                $item->price=$cap->price;
-                $item->quantity=1;
-                $item->group_id=$request->groups;
-                $item->save();
-            }
-            return redirect()->back()->with('success','Group Capabilities Items added successfully');
-
-        }
+        //non-listed
         if (isset($request->name)){
             $this->validate(request(), [
                 'name' => 'required',
@@ -159,6 +150,7 @@ class ItemController extends Controller
             return response()->json(['success'=>'Added successfully']);
 
         }
+        //listed items
         $this->validate(request(), [
             'parameter' => 'required',
             'capability' => 'required',
@@ -189,9 +181,26 @@ class ItemController extends Controller
         $item->price=$request->price;
         $item->quantity=$request->quantity;
         $item->save();
-        Session::Flash('success', 'Item added successfully');
-        return redirect()->back();
-        //return redirect()->back()->with('success', 'Item added successfully');
+        $items=Item::where('quote_id',$request->session_id)->where('status',0)->get();
+        $lab=0;$site=0;
+        foreach($items as $value){
+            if ($value->location=='site'){$site=1;}
+            if ($value->location=='lab'){$lab=1;}
+        }
+        if ($lab==1 and $site==1){
+            $q=Quotes::find($request->session_id);
+            $q->type='BOTH';
+            $q->save();
+        }if ($lab==1 and $site==0){
+            $q=Quotes::find($request->session_id);
+            $q->type='LAB';
+            $q->save();
+        }if ($site==1 and $lab==0){
+            $q=Quotes::find($request->session_id);
+            $q->type='SITE';
+            $q->save();
+        }else{}
+        return redirect()->back()->with('success', 'Item added successfully');
     }
     public function update($id,Request $request){
 
@@ -224,6 +233,25 @@ class ItemController extends Controller
         $item->quantity=$request->quantity;
         //dd($item);
         $item->save();
+        $items=Item::where('quote_id',$request->session_id)->where('status',0)->get();
+        $lab=0;$site=0;
+        foreach($items as $value){
+            if ($value->location=='site'){$site=1;}
+            if ($value->location=='lab'){$lab=1;}
+        }
+        if ($lab==1 and $site==1){
+            $q=Quotes::find($request->session_id);
+            $q->type='BOTH';
+            $q->save();
+        }if ($lab==1 and $site==0){
+            $q=Quotes::find($request->session_id);
+            $q->type='LAB';
+            $q->save();
+        }if ($site==1 and $lab==0){
+            $q=Quotes::find($request->session_id);
+            $q->type='SITE';
+            $q->save();
+        }else{}
         return redirect()->back()->with('success', 'Item updated successfully');
     }
     public function updateNA(Request $request){
@@ -271,7 +299,7 @@ class ItemController extends Controller
         $nofacility->item_id=$id;
         $nofacility->capability=$q->not_available;
         $nofacility->save();
-        return response()->json(['success'=>'Sent successfully']);
+        return response()->json(['success'=>'Sent with no facility']);
     }
     //
 }

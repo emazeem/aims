@@ -21,7 +21,6 @@
             <input name='id' type='hidden' value='{{$show->id}}'>
         </form>
         <div class="col-12 text-right">
-
             @if(count($items)>0)
                 @if($noaction==false)
                     @if($show->status==0)
@@ -305,10 +304,10 @@
                     success: function (data) {
 
                         if (!data.errors) {
+                            swal('success', data.success, 'success').then((value) => {
+                                location.reload();
+                            });
 
-                            swal("Success", "Updated successfully", "success");
-                            $('#add_na').modal('hide');
-                            location.reload();
                             InitTable();
                         }
                     },

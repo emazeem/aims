@@ -257,14 +257,9 @@
                         <div class="row">
                             <input type="hidden" value="" id="edit_id" name="id">
                             <div class="form-group col-12  float-left">
-                                <label for="edit_eq_id">Equipment ID</label>
-                                <input type="text" class="form-control" id="edit_eq_id" name="eq_id"
-                                       placeholder="Equipment ID" autocomplete="off" value="">
-                            </div>
-                            <div class="form-group col-12  float-left">
-                                <label for="serial">Serial #</label>
-                                <input type="text" class="form-control" id="edit_serial" name="serial"
-                                       placeholder="Serial #" autocomplete="off" value="">
+                                <label for="make">Make</label>
+                                <input type="text" class="form-control" id="edit_make" name="make" placeholder="make"
+                                       autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
                                 <label for="edit_model">Model</label>
@@ -272,12 +267,17 @@
                                        autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
-                                <label for="make">Make</label>
-                                <input type="text" class="form-control" id="edit_make" name="make" placeholder="make"
-                                       autocomplete="off" value="">
+                                <label for="serial">Serial #</label>
+                                <input type="text" class="form-control" id="edit_serial" name="serial"
+                                       placeholder="Serial #" autocomplete="off" value="">
                             </div>
 
 
+                            <div class="form-group col-12  float-left">
+                                <label for="edit_eq_id">Equipment ID</label>
+                                <input type="text" class="form-control" id="edit_eq_id" name="eq_id"
+                                       placeholder="Equipment ID" autocomplete="off" value="">
+                            </div>
                             <div class="form-group col-12  float-left">
                                 <label for="edit_accessories">Accessories</label>
                                 <input type="text" class="form-control" id="edit_accessories" name="accessories"

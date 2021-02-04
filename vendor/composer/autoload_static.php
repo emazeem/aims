@@ -116,6 +116,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'O' => 
         array (
@@ -390,6 +391,10 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'Opis\\Closure\\' => 
         array (
             0 => __DIR__ . '/..' . '/opis/closure/src',
@@ -565,9 +570,9 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\QuoteReminder' => __DIR__ . '/../..' . '/app/Console/Commands/QuoteReminder.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\Http\\Controllers\\AccLevelFourController' => __DIR__ . '/../..' . '/app/Http/Controllers/AccLevelFourController.php',
         'App\\Http\\Controllers\\AccLevelOneController' => __DIR__ . '/../..' . '/app/Http/Controllers/AccLevelOneController.php',
         'App\\Http\\Controllers\\AccLevelThreeController' => __DIR__ . '/../..' . '/app/Http/Controllers/AccLevelThreeController.php',
         'App\\Http\\Controllers\\AccLevelTwoController' => __DIR__ . '/../..' . '/app/Http/Controllers/AccLevelTwoController.php',
@@ -585,6 +590,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\Http\\Controllers\\CalculatorController' => __DIR__ . '/../..' . '/app/Http/Controllers/CalculatorController.php',
         'App\\Http\\Controllers\\CapabilitiesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CapabilitiesController.php',
         'App\\Http\\Controllers\\CertificateController' => __DIR__ . '/../..' . '/app/Http/Controllers/CertificateController.php',
+        'App\\Http\\Controllers\\ChartofaccountController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChartofaccountController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerController.php',
         'App\\Http\\Controllers\\DashboardControlller' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardControlller.php',
@@ -595,6 +601,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\Http\\Controllers\\EmpcontractController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpcontractController.php',
         'App\\Http\\Controllers\\EmpjoiningController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpjoiningController.php',
         'App\\Http\\Controllers\\FormsandformatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FormsandformatsController.php',
+        'App\\Http\\Controllers\\GenerateRequestsController' => __DIR__ . '/../..' . '/app/Http/Controllers/GenerateRequestsController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\IntermediatechecksofassetController' => __DIR__ . '/../..' . '/app/Http/Controllers/IntermediatechecksofassetController.php',
         'App\\Http\\Controllers\\InterviewappraisalController' => __DIR__ . '/../..' . '/app/Http/Controllers/InterviewappraisalController.php',
@@ -603,6 +610,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\Http\\Controllers\\ItemEntriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ItemEntriesController.php',
         'App\\Http\\Controllers\\JobController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobController.php',
         'App\\Http\\Controllers\\JobitemController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobitemController.php',
+        'App\\Http\\Controllers\\JournalController' => __DIR__ . '/../..' . '/app/Http/Controllers/JournalController.php',
         'App\\Http\\Controllers\\LabjobsController' => __DIR__ . '/../..' . '/app/Http/Controllers/LabjobsController.php',
         'App\\Http\\Controllers\\LeaveApplicationController' => __DIR__ . '/../..' . '/app/Http/Controllers/LeaveApplicationController.php',
         'App\\Http\\Controllers\\ManageJobsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManageJobsController.php',
@@ -634,6 +642,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\Http\\Controllers\\UnitController' => __DIR__ . '/../..' . '/app/Http/Controllers/UnitController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\VoucherController' => __DIR__ . '/../..' . '/app/Http/Controllers/VoucherController.php',
+        'App\\Http\\Controllers\\VoucherdetailsController' => __DIR__ . '/../..' . '/app/Http/Controllers/VoucherdetailsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -643,7 +652,6 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Models\\AccLevelFour' => __DIR__ . '/../..' . '/app/Models/AccLevelFour.php',
         'App\\Models\\AccLevelOne' => __DIR__ . '/../..' . '/app/Models/AccLevelOne.php',
         'App\\Models\\AccLevelThree' => __DIR__ . '/../..' . '/app/Models/AccLevelThree.php',
         'App\\Models\\AccLevelTwo' => __DIR__ . '/../..' . '/app/Models/AccLevelTwo.php',
@@ -654,6 +662,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\Models\\Awaiting' => __DIR__ . '/../..' . '/app/Models/Awaiting.php',
         'App\\Models\\Capabilities' => __DIR__ . '/../..' . '/app/Models/Capabilities.php',
         'App\\Models\\Certificate' => __DIR__ . '/../..' . '/app/Models/Certificate.php',
+        'App\\Models\\Chartofaccount' => __DIR__ . '/../..' . '/app/Models/Chartofaccount.php',
         'App\\Models\\Customer' => __DIR__ . '/../..' . '/app/Models/Customer.php',
         'App\\Models\\Dataentry' => __DIR__ . '/../..' . '/app/Models/Dataentry.php',
         'App\\Models\\Department' => __DIR__ . '/../..' . '/app/Models/Department.php',
@@ -668,6 +677,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\Models\\Item' => __DIR__ . '/../..' . '/app/Models/Item.php',
         'App\\Models\\Job' => __DIR__ . '/../..' . '/app/Models/Job.php',
         'App\\Models\\Jobitem' => __DIR__ . '/../..' . '/app/Models/Jobitem.php',
+        'App\\Models\\Journal' => __DIR__ . '/../..' . '/app/Models/Journal.php',
         'App\\Models\\Labjob' => __DIR__ . '/../..' . '/app/Models/Labjob.php',
         'App\\Models\\LeaveApplication' => __DIR__ . '/../..' . '/app/Models/LeaveApplication.php',
         'App\\Models\\Managereference' => __DIR__ . '/../..' . '/app/Models/Managereference.php',
@@ -3409,6 +3419,11 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'Opis\\Closure\\SecurityProvider' => __DIR__ . '/..' . '/opis/closure/src/SecurityProvider.php',
         'Opis\\Closure\\SelfReference' => __DIR__ . '/..' . '/opis/closure/src/SelfReference.php',
         'Opis\\Closure\\SerializableClosure' => __DIR__ . '/..' . '/opis/closure/src/SerializableClosure.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',

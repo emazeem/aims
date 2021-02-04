@@ -176,6 +176,7 @@ Route::group(['prefix'=> 'quotes'],function() {
     Route::post('/approval_details',[App\Http\Controllers\QuotesController::class, 'approval_details'])->middleware('auth')->name('quotes.approval_details');
     Route::post('/remarks',[App\Http\Controllers\QuotesController::class, 'remarks'])->middleware('auth')->name('quotes.remarks');
     Route::post('/discount',[App\Http\Controllers\QuotesController::class, 'discount'])->middleware('auth')->name('quotes.discount');
+    Route::delete('/destroy',[App\Http\Controllers\QuotesController::class, 'destroy'])->middleware('auth')->name('quotes.destroy');
 });
 Route::group(['prefix'=> 'generate-requests'],function() {
     Route::get('',[App\Http\Controllers\GenerateRequestsController::class, 'index'])->middleware('auth')->name('generaterequests');
@@ -229,6 +230,7 @@ Route::group(['prefix'=> 'pendings'],function() {
     Route::post('/checks',[App\Http\Controllers\PendingRequestController::class, 'checks'])->middleware('auth')->name('pendings.checks');
     Route::get('/create/{id}',[App\Http\Controllers\PendingRequestController::class, 'create'])->middleware('auth')->name('pendings.create');
     Route::post('/store',[App\Http\Controllers\PendingRequestController::class, 'store'])->middleware('auth')->name('pendings.store');
+    Route::get('/view/{id}',[App\Http\Controllers\PendingRequestController::class, 'show'])->middleware('auth')->name('pendings.show');
 });
 Route::group(['prefix'=> 'mytasks'],function() {
     Route::get('',[App\Http\Controllers\MytaskController::class, 'index'])->middleware('auth')->name('mytasks');

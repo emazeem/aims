@@ -18,7 +18,7 @@
     <div class="col-12">
         <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Requests</h3>
         <span class="">
-            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-circle"></i> Quote</button>
+            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-circle"></i> Request</button>
         </span>
     </div>
 
@@ -30,7 +30,7 @@
         <th>Customer</th>
         <th>Status</th>
         <th>Total Items</th>
-        <th>Type</th>
+        <th>Location</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -42,7 +42,7 @@
           <th>Customer</th>
           <th>Status</th>
           <th>Total Items</th>
-          <th>Type</th>
+          <th>Location</th>
           <th>Action</th>
       </tr>
       </tfoot>
