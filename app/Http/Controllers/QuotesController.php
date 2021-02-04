@@ -363,10 +363,21 @@ class QuotesController extends Controller
     }
     public function complete(Request $request){
         $this->authorize('quote-revised');
-        $approval=Quotes::find($request->id);
-        $approval->status=1;
-        $approval->save();
-        return response()->json(['success'=>'Quote is marked as complete']);
+        $complete=true;
+        $items = Item::where('quote_id',$request->id)->get();
+        foreach ($items as $item){
+            if ($item->status==1){
+                $complete=false;
+            }
+        }
+        if ($complete==false) {
+            return response()->json(['success'=>'Items are in review, Cant completed']);
+        }else{
+            $approval=Quotes::find($request->id);
+            $approval->status=1;
+            $approval->save();
+            return response()->json(['success'=>'Quote is marked as complete']);
+        }
     }
     public function sendtocustomer(Request $request){
         $this->authorize('quote-revised');

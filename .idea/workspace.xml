@@ -126,7 +126,7 @@
           <entry key="htaccess" value="4" />
           <entry key="ini" value="2" />
           <entry key="json" value="8" />
-          <entry key="php" value="92723" />
+          <entry key="php" value="92871" />
           <entry key="sql" value="21" />
         </counts>
       </usages-collector>
@@ -137,7 +137,7 @@
           <entry key="HTML" value="25" />
           <entry key="Ini" value="2" />
           <entry key="JSON" value="8" />
-          <entry key="PHP" value="37286" />
+          <entry key="PHP" value="37434" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="SQL" value="21" />
         </counts>
@@ -167,8 +167,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="90" column="73" selection-start-line="90" selection-start-column="73" selection-end-line="90" selection-end-column="73" />
+            <state relative-caret-position="331">
+              <caret line="379" column="9" selection-start-line="379" selection-start-column="9" selection-end-line="379" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -247,7 +247,6 @@
       <find>swal(</find>
       <find>checks</find>
       <find>init</find>
-      <find>complete</find>
       <find>location</find>
       <find>pending</find>
       <find>sent</find>
@@ -264,6 +263,7 @@
       <find>success: function (data) {</find>
       <find>swal\(\'success\'\, data\.success\, \'success\'\)\.then\(\(value\) \=\&gt; \{\n                                    location\.reload\(\)\;\n                                \}\)\;</find>
       <find>error: function</find>
+      <find>complete</find>
     </findStrings>
     <replaceStrings>
       <replace>row pb-2</replace>
@@ -865,12 +865,12 @@
       <workItem from="1612272743153" duration="40000" />
       <workItem from="1612273113417" duration="1850000" />
       <workItem from="1612335460589" duration="15810000" />
-      <workItem from="1612410549287" duration="5052000" />
+      <workItem from="1612410549287" duration="5371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="641068000" />
+    <option name="totallyTimeSpent" value="641387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1224,17 +1224,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GenerateRequestsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="36" column="14" selection-start-line="34" selection-start-column="12" selection-end-line="36" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="38" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GenerateRequestsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="36" column="14" selection-start-line="34" selection-start-column="12" selection-end-line="36" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1247,8 +1247,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="90" column="73" selection-start-line="90" selection-start-column="73" selection-end-line="90" selection-end-column="73" />
+        <state relative-caret-position="331">
+          <caret line="379" column="9" selection-start-line="379" selection-start-column="9" selection-end-line="379" selection-end-column="9" />
         </state>
       </provider>
     </entry>
