@@ -72,13 +72,24 @@ class QuotesController extends Controller
                     $action.="<a title='send to customer' data-id='".$data->id."' class='btn btn-sm btn-success sendtocustomer'><i class='fa fa-send'></i></a>";
                 }
                 /*$action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
-                */$action.="<a 
-                onclick=\"window.open('".url('/quotes/print/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
-                 href=".url('/quotes/print/'.$data->id)." 
+                */
+
+                $action.="<a onclick=\"window.open('".url('/quotes/print/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
+                href=".url('/quotes/print/'.$data->id)." 
                 class='btn btn-sm btn-danger'><b>QF</b></a>";
-                $action.="<a onclick=\"window.open('".url('/print_rf/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
+
+                $items=Item::where('quote_id',$data->id)->get();
+                $show=false;
+                foreach ($items as $item){
+                    if ($item->status>0){
+                        $show=true;
+                    }
+                }
+                if ($show==true){
+                    $action.="<a onclick=\"window.open('".url('/print_rf/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
                 href=".url('print_rf/'.$data->id)." 
                 title='Print' class='btn btn-sm btn-info'><b>RF</b></a>";
+                }
 
                 $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
