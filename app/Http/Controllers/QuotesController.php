@@ -8,9 +8,7 @@ use App\Models\Quoterevisionlog;
 use App\Models\Quotes;
 use App\Models\User;
 use Illuminate\Http\Request;
-use PHPMailer\PHPMailer\PHPMailer;
 use Yajra\DataTables\DataTables;
-use NumberToWords\NumberToWords;
 class QuotesController extends Controller
 {
     public function index(){
@@ -383,6 +381,7 @@ class QuotesController extends Controller
         $this->authorize('quote-revised');
         $approval=Quotes::find($request->id);
         $approval->status=2;
+        $approval->sendtocustomer_date=date('Y-m-d');
         $approval->save();
         return response()->json(['success'=>'Quote is marked as sent to customer']);
     }
