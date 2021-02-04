@@ -68,7 +68,9 @@ class QuotesController extends Controller
                 $token=csrf_token();
                 $action=null;
                 $action.="<a title='view' href=".url('/quotes/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
-                $action.="<a title='send to customer' data-id='".$data->id."' class='btn btn-sm btn-success sendtocustomer'><i class='fa fa-send'></i></a>";
+                if ($data->status==1){
+                    $action.="<a title='send to customer' data-id='".$data->id."' class='btn btn-sm btn-success sendtocustomer'><i class='fa fa-send'></i></a>";
+                }
                 /*$action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
                 */$action.="<a 
                 onclick=\"window.open('".url('/quotes/print/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
