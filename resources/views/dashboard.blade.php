@@ -17,9 +17,15 @@
         <div class="col-12">
             <h3 class="pull-left border-bottom pb-1"><i class="fa fa-home"></i> Dashboard</h3>
             @if($check==0)
-                <button type="submit" class="btn btn-success pull-right btn-flat checkin">
-                    <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
-                </button>
+                @if($checkout_missing_status==1)
+                    <button type="submit" class="btn btn-danger pull-right btn-flat checkout">
+                        <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
+                    </button>
+                @else
+                    <button type="submit" class="btn btn-success pull-right btn-flat checkin">
+                        <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
+                    </button>
+                @endif
 
             @elseif($check==1)
                 <button type="submit" class="btn btn-danger pull-right btn-flat checkout">
