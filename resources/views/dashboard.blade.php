@@ -11,28 +11,23 @@
     @endif
     <div class="row">
 
-        <form method="post" id="checkout_form">
+        <form method="post" id="check_form">
             <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}"/>
         </form>
         <div class="col-12">
             <h3 class="pull-left border-bottom pb-1"><i class="fa fa-home"></i> Dashboard</h3>
             @if($check==0)
-                @if($checkout_missing_status==0)
-                    <button type="submit" class="btn btn-success pull-right btn-flat checkin">
-                        <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
-                    </button>
-                @else
-                    <button type="submit" class="btn btn-danger pull-right btn-flat checkout">
-                        <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
-                    </button>
-                @endif
+                <button type="submit" class="btn btn-success pull-right btn-flat checkin">
+                    <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
+                </button>
+
             @elseif($check==1)
                 <button type="submit" class="btn btn-danger pull-right btn-flat checkout">
                     <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
                 </button>
-            @else
-            @endif
+                @else
 
+            @endif
         </div>
         <div class="col-12">
             <div class="x_content">
@@ -315,8 +310,8 @@
                         if (willDelete) {
                             var token = '{{csrf_token()}}';
                             e.preventDefault();
-                            var request_method = $("#checkout_form").attr("method");
-                            var form_data = $("#checkout_form").serialize();
+                            var request_method = $("#check_form").attr("method");
+                            var form_data = $("#check_form").serialize();
                             //e.preventDefault();
                             $.ajax({
                                 url: "{{route('attendance.checkout')}}",

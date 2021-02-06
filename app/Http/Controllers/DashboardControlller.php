@@ -70,27 +70,18 @@ class DashboardControlller extends Controller
         }])->where('checked_by',\auth()->user()->id)->get();
 
 
-
-
-
-
-
-
         $check=0;
         $current_date=date('Y-m-d',time());
         $current_day_attendance=Attendance::where('user_id',auth()->user()->id)->where('check_in_date',$current_date)->first();
+        //dd($current_day_attendance);
         //show check in
         if (isset($current_day_attendance)){
             //show checkout and status gone 1
             $check=1;
             //dd('show check out');
-            if ($current_day_attendance->status===1){
+            if ($current_day_attendance->status==1){
                 $check=2;
             }
-        }
-        else{
-            $check=0;
-            //dd('show check in');
         }
         $checkout_missing_status=0;
         $checkout_missing=Attendance::where('user_id',auth()->user()->id)->where('status',0)->first();
