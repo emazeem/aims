@@ -80,7 +80,7 @@ class DashboardControlller extends Controller
         $current_date=date('Y-m-d',time());
         $current_day_attendance=Attendance::where('user_id',auth()->user()->id)->where('check_in_date',$current_date)->first();
         //show check in
-        if (!empty($current_day_attendance)){
+        if (isset($current_day_attendance)){
             //show checkout and status gone 1
             $check=1;
             //dd('show check out');
