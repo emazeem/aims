@@ -14,7 +14,8 @@
     <div class="col-12 font-style mt-2">
         <div class="row custom-border">
             <div class="col-2 text-center custom-border-right">
-                <img src="{{url('/img/aims.png')}}" class="mt-2 ml-2" width="100">
+                <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid p-1">
+
             </div>
             <div class="col-7  my-auto py-auto">
                 <h6 class="text-center" style="margin-top: 10px">

@@ -134,13 +134,13 @@
           <entry key="htaccess" value="4" />
           <entry key="ini" value="2" />
           <entry key="json" value="8" />
-          <entry key="php" value="94151" />
+          <entry key="php" value="94175" />
           <entry key="sql" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="55758" />
+          <entry key="Blade" value="55782" />
           <entry key="CSS" value="339" />
           <entry key="HTML" value="25" />
           <entry key="Ini" value="2" />
@@ -185,7 +185,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/users/listofemployees.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="348">
-              <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+              <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -842,12 +842,12 @@
       <workItem from="1612410549287" duration="11087000" />
       <workItem from="1612423553502" duration="1320000" />
       <workItem from="1612432463128" duration="1205000" />
-      <workItem from="1612536728901" duration="3976000" />
+      <workItem from="1612536728901" duration="4605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="653604000" />
+    <option name="totallyTimeSpent" value="654233000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1227,7 +1227,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/users/listofemployees.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
-          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
         </state>
       </provider>
     </entry>
