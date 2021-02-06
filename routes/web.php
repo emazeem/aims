@@ -49,6 +49,7 @@ Route::group(['prefix'=> 'users'],function() {
     Route::post('',[App\Http\Controllers\UserController::class, 'fetch'])->middleware('auth')->name('users.fetch');
     Route::post('/store',[App\Http\Controllers\UserController::class, 'store'])->middleware('auth')->name('users.store');
     Route::get('/fetch/designation/{id}',[App\Http\Controllers\UserController::class, 'fetchDesignation'])->middleware('auth')->name('users.fetch.designation');
+    Route::get('/list/of/employment',[App\Http\Controllers\UserController::class, 'list_of_employees'])->middleware('auth')->name('users.list.of.employees');
 });
 Route::group(['prefix'=> 'capabilities'],function() {
     Route::get('',[App\Http\Controllers\CapabilitiesController::class, 'index'])->middleware('auth')->name('capabilities');

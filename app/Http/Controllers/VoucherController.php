@@ -105,7 +105,6 @@ class VoucherController extends Controller
                 $details->dr=$request->price[$k];
             }
             $details->save();
-
             $journal=new Journal();
             $journal->date=$voucher->v_date;
             $journal->type=$voucher->v_type;
@@ -120,6 +119,8 @@ class VoucherController extends Controller
             if ($request->type[$k]=='debit'){
                 $journal->dr=$request->price[$k];
             }
+            $journal->reference='vouchers';
+            $journal->reference_id=$details->id;
             $journal->save();
             $journal->customize_id=$journal->id.date('dmy');
             $journal->save();
@@ -127,7 +128,6 @@ class VoucherController extends Controller
         return response()->json(['success'=>'Voucher added Successfully']);
     }
     public function update(Request $request){
-        //dd($request->all());
         $this->validate(request(), [
             'v_type' => 'required',
             'v_date' => 'required',
@@ -154,37 +154,34 @@ class VoucherController extends Controller
         $voucher->created_by=auth()->user()->id;
         $voucher->updated_by=auth()->user()->id;
         $voucher->save();
-        $voucher->customize_id=$voucher->id.date('dmy');
-        $voucher->save();
-        foreach ($request->account as $k=>$item){
-            $details=new Voucherdetails();
+        foreach ($request->details_id as $k=>$item){
+            $details=Voucherdetails::find($item);
             $details->v_id=$voucher->id;
             $details->acc_code=$request->account[$k];
             $details->narration=$request->narration[$k];
             if ($request->type[$k]=='credit'){
                 $details->cr=$request->price[$k];
+                $details->dr=null;
             }
             if ($request->type[$k]=='debit'){
                 $details->dr=$request->price[$k];
+                $details->cr=null;
             }
             $details->save();
-
-            $journal=new Journal();
+            $journal=Journal::where('reference','vouchers')->where('reference_id',$item)->first();
             $journal->date=$voucher->v_date;
             $journal->type=$voucher->v_type;
-            $journal->created_by=auth()->user()->id;
             $journal->updated_by=auth()->user()->id;
-
             $journal->acc_code=$request->account[$k];
             $journal->narration=$request->narration[$k];
             if ($request->type[$k]=='credit'){
                 $journal->cr=$request->price[$k];
+                $journal->dr=null;
             }
             if ($request->type[$k]=='debit'){
                 $journal->dr=$request->price[$k];
+                $journal->cr=null;
             }
-            $journal->save();
-            $journal->customize_id=$journal->id.date('dmy');
             $journal->save();
         }
         return response()->json(['success'=>'Voucher updated Successfully']);

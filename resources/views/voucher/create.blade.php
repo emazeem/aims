@@ -168,7 +168,7 @@
                     {
                         if (xhr.responseJSON.error){
                             swal("Failed", xhr.responseJSON.error, "error").then((value) => {
-                                location.reload();
+
                             });
                         }else {
                             var error='';

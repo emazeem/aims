@@ -300,7 +300,9 @@ class UserController extends Controller
         $activity->description;
         return redirect()->back()->with('success', "Your password has been changed.");
     }
-
-
+    public function list_of_employees(){
+        $users=User::all();
+        return view('users.listofemployees',compact('users'));
+    }
     //
 }

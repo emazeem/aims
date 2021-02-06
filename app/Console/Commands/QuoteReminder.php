@@ -46,7 +46,9 @@ class QuoteReminder extends Command
             ];
             $created=strtotime($quote->sendtocustomer_date);
             $send= date('Y-m-d',$created+($data[$quote->reminder]*86400));
-            if ($data[$quote->reminder]!=0) {
+            if ($data[$quote->reminder]==0) {
+                //change status of quote from 2 to dormant customer status;
+            }else{
                 if ($send == date('Y-m-d')) {
                     $mail = new PHPMailer(true);
                     $mail->SMTPDebug = 4;

@@ -60,7 +60,8 @@
                     </thead>
                     <tbody>
                     @foreach($edit->details as $k=>$detail)
-                    <tr>
+                        <input type="hidden" name="details_id[]"  class="form-control" id="details_id" value="{{$detail->id}}">
+                        <tr>
                         <td>
                             <select name="account[]"  class="form-control" id="account" >
                                 <option disabled value="">Select Account</option>
@@ -104,12 +105,13 @@
                             @endif
                         </td>
                         <td >
-                            <a class="deleteRow"></a>
+                            {{--<a class="deleteRow"></a>
                             @if($k==0)
                                 <a href="javascript:void(0)"  id="addrow" class="btn btn-primary btn-sm mt-2 text-lg"><i class="fa fa-plus-circle"></i></a>
                             @else
                                 <a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a>
                             @endif
+                            --}}
                         </td>
                     </tr>
                     @endforeach
@@ -135,7 +137,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var counter = 0;
+            /*var counter = 0;
             $("#addrow").on("click", function () {
                 var newRow = $("<tr>");
                 var cols = "";
@@ -153,6 +155,7 @@
                 $(this).closest("tr").remove();
                 counter -= 1
             });
+            */
             $("#edit_voucher_form").on('submit',(function(e) {
                 e.preventDefault();
                 $.ajax({
