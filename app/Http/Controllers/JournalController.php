@@ -66,9 +66,41 @@ class JournalController extends Controller
         $account=Chartofaccount::where('acc_code',$request->account)->first();
         return view('journal.ledger',compact('entries','account','dates'));
     }
-    public function income(){
-        $entries=Journal::all();
-        return view('journal.income',compact('entries'));
+    public function income(Request $request){
+        $validator = Validator::make($request->all(), [
+            'daterange' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return  redirect()->back()->with('failed', 'Please select date range');
+        }
+        $dates=explode('-',$request->daterange);
+        $dates[0]=date('Y-m-d',strtotime($dates[0]));
+        $dates[1]=date('Y-m-d',strtotime($dates[1]));
+        $accounts=AccLevelOne::with('leveltwo')
+            ->whereIn('code1',[2,1])
+            ->get();
+        foreach ($accounts as $account){
+            foreach ($account->leveltwo as $value){
+                foreach ($value->levelthree as $item) {
+                    $chartofaccounts= Chartofaccount::where('code3',$item->id)->get();
+                    $dr=0;$cr=0;
+                    foreach ($chartofaccounts as $chartofaccount){
+                        $journals=Journal::where('acc_code',$chartofaccount->acc_code)->get();
+                        foreach ($journals as $journal){
+                            if ($journal->dr){
+                                $dr=$dr+$journal->dr;
+                            }
+                            if ($journal->cr){
+                                $cr=$cr+$journal->cr;
+                            }
+                        }
+                    }
+                    $three[$item->id]=$dr-$cr;
+                }
+            }
+        }
+
+        return view('journal.income',compact('accounts','three'));
     }
     public function trail_balance(Request $request){
         $validator = Validator::make($request->all(), [

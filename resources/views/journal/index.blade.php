@@ -20,8 +20,8 @@
             <span class="float-right mt-1">
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#general-ledger">General Ledger</button>
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#trial-balance">Trail Balance</button>
+                <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#income-statement">Profit & Loss Statement</button>
                 <a href="{{route('journal.ledger')}}" class="btn btn-sm btn-success">General Journal</a>
-                <a href="{{route('journal.income')}}" class="btn btn-sm btn-success">Profit and Loss Statement</a>
             </span>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
@@ -161,6 +161,34 @@
                 </div>
                 </form>
 
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="income-statement" tabindex="-1" role="dialog" aria-labelledby="income-statement" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title"><i class="fa fa-money"></i> Profit & Loss / Income Statement</h5>
+                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                        <small><i class="fa fa-times-circle"></i></small>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('journal.income')}}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="daterange" class="p-0 m-0"><small>Select Date Range</small></label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="daterange" id="daterange" value="" />
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer text-right bg-light">
+                    <button class="btn btn-primary btn-sm btn-block" type="submit"><i class="fa fa-eye"></i> Show</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>

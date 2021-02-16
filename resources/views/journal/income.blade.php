@@ -47,27 +47,29 @@
             <p class=" font-14 b mt-3"></p>
         </div>
         <div class="row">
-            <table class="table table-bordered">
+            <table class="table table-sm table-striped">
                 <thead>
                 <tr>
-                    <th class="text-center">Date</th>
-                    <th class="text-xs">Account Code</th>
-                    <th class="text-xs">Narration</th>
-                    <th class="text-xs">Dr.</th>
-                    <th class="text-xs">Cr.</th>
-                    <th class="text-xs">Balance</th>
+                    <th>Account</th>
+                    <th class="text-xs"></th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($entries as $entry)
+                @foreach($accounts as $account)
                     <tr>
-                        <td class="text-center">{{$entry->date}}</td>
-                        <td class="text-xs">{{$entry->acc_code}}</td>
-                        <td class="text-xs">{{$entry->narration}}</td>
-                        <td class="text-xs">{{$entry->dr}}</td>
-                        <td class="text-xs">{{$entry->cr}}</td>
-                        <td class="text-xs">-</td>
+                        <th>{{$account->title}}</th>
                     </tr>
+                    @foreach($account->leveltwo as $value)
+                        <tr>
+                            <th class="pl-5">{{$value->title}}</th>
+                        </tr>
+                            @foreach($value->levelthree as $item)
+                            <tr>
+                                <td class="pl-5"> <i class="pl-5"></i>{{$item->title}}</td>
+                                <td class="pl-5"> <i class="pl-5"></i>{{$three[$item->id]}}</td>
+                            </tr>
+                        @endforeach
+                    @endforeach
                 @endforeach
                 </tbody>
             </table>
