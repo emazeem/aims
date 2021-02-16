@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-users"></i> Capabilities & Prices</h3>
+        <h3 class="pull-left pb-1"><i class="fa fa-users"></i> Capabilities & Prices</h3>
         <span class="text-right ">
                 <a  class="btn float-right btn-sm btn-primary mt-2 shadow-sm" href="#" data-toggle="modal" data-target="#add_capabilities"><i class="fas fa-plus"></i> Capabilities & Prices</a>
             <a href="{{route('parameters')}}" class="btn mt-2 float-right mx-1 btn-sm btn-success shadow-sm"><i class="fas fa-eye"></i> Parameters</a>

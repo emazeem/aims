@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-list"></i> All Departments</h3>
+        <h3 class="pull-left pb-1"><i class="fa fa-list"></i> All Departments</h3>
         <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_department"><i class="fa fa-plus-circle"></i> Department</button>
     </div>
   <div class="col-lg-12">

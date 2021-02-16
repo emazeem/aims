@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="col-12">
-            <table class="table table-bordered table-responsive-sm table-hover font-13">
+            <table class="table table-sm bg-white table-bordered table-responsive-sm table-hover font-13">
                 <tr>
                     <th>Registration Name</th>
                     <td>{{$show->reg_name}}</td>

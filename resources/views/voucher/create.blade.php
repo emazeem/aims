@@ -67,7 +67,7 @@
                     <tr>
                         <td>
                             <select name="account[]"  class="form-control" id="account" >
-                                <option value="" selected>Select Account</option>
+                                <option value="" selected >Select Account</option>
                                 @foreach($accounts as $account)
                                     <option value="{{$account->acc_code}}">{{$account->title}}</option>
                                 @endforeach
@@ -77,6 +77,7 @@
                                     <strong>{{ $errors->first('account') }}</strong>
                                 </span>
                             @endif
+
                         </td>
 
                         <td>
@@ -177,7 +178,6 @@
                             });
                             swal("Failed", error, "error");
                         }
-
                     }
                 });
             }));

@@ -3,10 +3,6 @@
     <div class="row">
         <div class="col-12">
             <h3 class="pull-left border-bottom pb-1"><i class="fa fa-paper-plane"></i> Material Receiving</h3>
-            <span class="text-right">
-            <a href="{{route('purchase.indent.create')}}" class="btn float-right mt-1 btn-sm btn-primary shadow-sm"><i
-                        class="fa fa-plus-circle"></i> Add Purchase Indent</a>
-        </span>
         </div>
         <div class="col-lg-12">
             <table id="example" class="table table-hover table-sm display nowrap" cellspacing="0" width="100%">

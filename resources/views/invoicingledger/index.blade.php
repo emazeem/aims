@@ -22,7 +22,6 @@
                 @endforeach
             @endif
             <div class="card shadow mb-4">
-
                 <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
                     <h6 class="m-0"> Advance Filter <i class="fa fa-search"></i></h6>
                 </a>
@@ -206,6 +205,7 @@
         }
         $(document).ready(function() {
             InitTable();
+
             $("input[name$='show']").click(function(){
                 if ($(this).val()=='customer_radio'){
                     $('#customer_div').show();
@@ -229,28 +229,19 @@
                     $('#service_div').hide();
                 }
             });
-
-
-
             $('input[name="daterange"]').daterangepicker({
                 opens: 'left'
             }, function(start, end, label) {
                 console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
             });
-
         });
-
-
     </script>
-
-
-
-
-
-
-
-
-
-
-
+    <div class="form-group row">
+        <label for="daterange" class="col-sm-2 control-label">Select date range</label>
+        <div class="col-sm-10">
+            <div class="form-group">
+                <input type="text" class="form-control" name="daterange" id="daterange" value="{{$oldest}} - {{$latest}}" />
+            </div>
+        </div>
+    </div>
 @endsection

@@ -15,5 +15,8 @@ class Journal extends Model
     public function createdby(){
         return $this->belongsTo('App\Models\User','created_by')->withDefault();
     }
+    public function chartofaccount(){
+        return $this->belongsTo('App\Models\Chartofaccount','acc_code','acc_code');
+    }
     use HasFactory;
 }

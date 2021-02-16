@@ -4,8 +4,8 @@
 
         <div class="row">
             <div class="col-12">
-                <h3 class="pull-left border-bottom pb-1"><i class="fa fa-users"></i> Customers</h3>
-                <a href="{{route('customers.create')}}" class="btn btn-sm btn-primary shadow-sm pull-right"><i class="fa fa-plus-circle"></i> Customer</a>
+                <h3 class="pull-left pb-1"><i class="fa fa-users"></i> Customers</h3>
+                <a href="{{route('customers.create')}}" class="btn btn-sm btn-primary shadow-sm pull-right mt-2"><i class="fa fa-plus-circle"></i> Customer</a>
             </div>
             <div class="col-lg-12">
                 <table id="example" class="table table-bordered table-hover display nowrap" width="100%">

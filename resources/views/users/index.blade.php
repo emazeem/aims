@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-users"></i> Personnel Details</h3>
+        <h3 class="pull-left pb-1"><i class="fa fa-users"></i> Personnel Details</h3>
         <a href="{{route('users.create')}}" class="btn btn-sm btn-primary shadow-sm pull-right mt-2"><i class="fa fa-plus-circle"></i> Personnel</a>
         <a href="{{route('users.attendances')}}" class="btn btn-sm btn-success shadow-sm pull-right mt-2"><i class="fa fa-clock-o"></i> Attendances</a>
         <a href="{{route('users.list.of.employees')}}" class="btn btn-sm btn-warning shadow-sm pull-right mt-2"><i class="fa fa-tasks"></i> List of Employees</a>

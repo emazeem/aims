@@ -27,6 +27,13 @@
     <script type="text/javascript" src="{{url('js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
 
+
+    @if(Route::currentRouteName()=='journal.index' or Route::currentRouteName()=='vouchers.create' )
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    @endif
+
     <!-- Custom Theme Style -->
     <link href="{{url('build/css/custom.min.css')}}" rel="stylesheet">
 </head>
@@ -40,7 +47,7 @@
         </div>
         <footer>
             <div class="text-center">
-                AIMS- Al Meezan Meterology Services <a href="https://colorlib.com">ERP@2020</a>
+                AIMS- Al Meezan Meterology Services <a href="/">ERP @ {{date('Y')}}</a>
             </div>
             <div class="clearfix"></div>
         </footer>
@@ -68,7 +75,7 @@ or Route::currentRouteName()=='acc_level_two'or Route::currentRouteName()=='acc_
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 @endif
-@if(Route::currentRouteName()=='invoicing_ledger')
+@if(Route::currentRouteName()=='invoicing_ledger' or Route::currentRouteName()=='journal.index')
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />

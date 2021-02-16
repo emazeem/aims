@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
     <div class="col-12">
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Parameters</h3>
+        <h3 class="pull-left pb-1"><i class="fa fa-tasks"></i> All Parameters</h3>
         <span class="pull-right">
     <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_parameter"><i class="fa fa-plus-circle"></i> Parameter</button>
 

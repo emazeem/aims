@@ -2,8 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-list"></i> All Designations</h3>
+        <h3 class="pull-left pb-1"><i class="fa fa-list"></i> All Designations</h3>
         <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2" data-toggle="modal" data-target="#add_designation"><i class="fa fa-plus-circle"></i> Designation</button>
     </div>
   <div class="col-lg-12">

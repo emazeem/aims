@@ -28,9 +28,6 @@ class VoucherController extends Controller
         $show=Voucher::find($id);
         return view('voucher.print',compact('show'));
     }
-
-
-
     public function fetch(){
         $data=Voucher::with('createdby')->get();
         //dd($data);
@@ -107,7 +104,7 @@ class VoucherController extends Controller
             $details->save();
             $journal=new Journal();
             $journal->date=$voucher->v_date;
-            $journal->type=$voucher->v_type;
+            $journal->type=$voucher->v_type.' voucher';
             $journal->created_by=auth()->user()->id;
             $journal->updated_by=auth()->user()->id;
 
@@ -170,8 +167,9 @@ class VoucherController extends Controller
             $details->save();
             $journal=Journal::where('reference','vouchers')->where('reference_id',$item)->first();
             $journal->date=$voucher->v_date;
-            $journal->type=$voucher->v_type;
+            $journal->type=$voucher->v_type.' voucher';
             $journal->updated_by=auth()->user()->id;
+            $journal->reference='vouchers';
             $journal->acc_code=$request->account[$k];
             $journal->narration=$request->narration[$k];
             if ($request->type[$k]=='credit'){
@@ -186,7 +184,5 @@ class VoucherController extends Controller
         }
         return response()->json(['success'=>'Voucher updated Successfully']);
     }
-
-
     //
 }

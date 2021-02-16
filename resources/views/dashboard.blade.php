@@ -10,25 +10,24 @@
         @php Session::forget('success') @endphp
     @endif
     <div class="row">
-
         <form method="post" id="check_form">
             <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}"/>
         </form>
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-home"></i> Dashboard</h3>
+            <h4 class="pull-left"><i class="fa fa-home"></i> Dashboard</h4>
             @if($check==0)
                 @if($checkout_missing_status==1)
-                    <button type="submit" class="btn btn-danger pull-right btn-flat checkout">
+                    <button type="submit" class="btn btn-sm btn-danger pull-right btn-flat checkout">
                         <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
                     </button>
                 @else
-                    <button type="submit" class="btn btn-success pull-right btn-flat checkin">
+                    <button type="submit" class="btn btn-sm btn-success pull-right btn-flat checkin">
                         <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
                     </button>
                 @endif
 
             @elseif($check==1)
-                <button type="submit" class="btn btn-danger pull-right btn-flat checkout">
+                <button type="submit" class="btn btn-sm btn-danger pull-right btn-flat checkout">
                     <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
                 </button>
                 @else
@@ -257,6 +256,7 @@
     </div>
     <script>
         $(document).ready(function () {
+
             $('#example').DataTable({});
         });
     </script>
@@ -293,7 +293,7 @@
                                     swal("Success", "You are Checked in successfully.", "success");
                                     setTimeout(function () {
                                         window.location.reload();
-                                    }, 3000);
+                                    }, 1000);
                                 },
                                 error: function () {
                                     $(".loading").fadeOut();
@@ -335,7 +335,7 @@
                                     swal("Success", "You are Checked out successfully.", "success");
                                     setTimeout(function () {
                                         window.location.reload();
-                                    }, 3000);
+                                    }, 1000);
                                 },
                                 error: function () {
                                     $(".loading").fadeOut();
@@ -352,9 +352,11 @@
     </script>
     <script>
         $(document).ready(function () {
+
             setInterval(function () {
                 document.getElementById("current_time").innerText = moment().format('MMM D YYYY, h:mm:ss A');
-            }, 1000)
+            }, 1000);
+
         });
     </script>
 @endsection

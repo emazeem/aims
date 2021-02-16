@@ -556,4 +556,7 @@ Route::group(['prefix'=> 'activity-log'],function(){
 Route::group(['prefix'=> 'journal'],function(){
     Route::get('/',[App\Http\Controllers\JournalController::class, 'index'])->middleware('auth')->name('journal.index');
     Route::post('/',[App\Http\Controllers\JournalController::class, 'fetch'])->middleware('auth')->name('journal.fetch');
+    Route::post('/ledger',[App\Http\Controllers\JournalController::class, 'ledger'])->middleware('auth')->name('journal.ledger');
+    Route::post('/trail_balance',[App\Http\Controllers\JournalController::class, 'trail_balance'])->middleware('auth')->name('trail.balance');
+    Route::get('/income',[App\Http\Controllers\JournalController::class, 'income'])->middleware('auth')->name('journal.income');
 });
