@@ -7,14 +7,13 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-
-        <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Lab Tasks</h3>
-
-    </div>
-
     <div class="row">
-        <div class="col-lg-12">
+        <ol class="breadcrumb col-12">
+            <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{url('/mytasks')}}">My Tasks</a></li>
+        </ol>
+        <h4><i class="fa fa-tasks"></i> Lab Tasks</h4>
+        <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
 
                 <thead>
@@ -47,13 +46,10 @@
         </div>
     </div>
     <hr>
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Site Tasks</h3>
-    </div>
-
     <div class="row">
-        <div class="col-lg-12">
-            <table id="example2" class="table table-bordered  display nowrap" cellspacing="0" width="100%">
+        <h4><i class="fa fa-tasks"></i> Site Tasks</h4>
+        <div class="col-12">
+            <table id="example2" class="table table-bordered bg-white text-dark table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th>ID</th>

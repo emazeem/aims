@@ -143,7 +143,7 @@
                     </td>
                 </tr>
 
-                @if(count($specifications)>0)
+                {{--@if(count($specifications)>0)
                     <tr>
                         <th colspan="2" class="text-center bg-primary"><h6 class="font-weight-bold text-white">
                                 Specifications</h6></th>
@@ -159,9 +159,11 @@
                         </tr>
                     @endforeach
                 @endif
+                --}}
             </table>
         </div>
     </div>
+{{--
     <div class="modal fade" id="add_specification" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -234,6 +236,7 @@
             </div>
         </div>
     </div>
+--}}
 
 
     <script>

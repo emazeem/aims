@@ -2,9 +2,9 @@
 use Illuminate\Support\Facades\Route;
 Route::get('optimize', function () {
     \Artisan::call('optimize');
-    \Artisan::call('view:clear');
     dd("Done");
 });
+
 Route::get('/home', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth');
 Route::get('/', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth')->name('home');
 Route::get('notifications', [App\Http\Controllers\DashboardControlller::class, 'notification'])->middleware('auth')->name('notification');
@@ -240,10 +240,6 @@ Route::group(['prefix'=> 'mytasks'],function() {
     Route::post('site',[App\Http\Controllers\MytaskController::class, 's_fetch'])->middleware('auth')->name('s_mytasks.fetch');
     Route::get('view/{id}',[App\Http\Controllers\MytaskController::class, 'show'])->middleware('auth')->name('mytasks.show');
     Route::get('s_view/{id}',[App\Http\Controllers\MytaskController::class, 's_show'])->middleware('auth')->name('mytasks.s_show');
-    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_worksheet'])->middleware('auth')->name('mytasks.print_worksheet');
-    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_certificate'])->middleware('auth')->name('mytasks.print_certificate');
-    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_uncertainty'])->middleware('auth')->name('mytasks.print_uncertainty');
-    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\MytaskController::class, 'print_dataentrysheet'])->middleware('auth')->name('mytasks.print_dataentrysheet');
     Route::post('/start',[App\Http\Controllers\MytaskController::class, 'start'])->middleware('auth')->name('mytasks.start');
     Route::post('/end',[App\Http\Controllers\MytaskController::class, 'end'])->middleware('auth')->name('mytasks.end');
 });
@@ -345,25 +341,20 @@ Route::group(['prefix'=> 'specifications'],function(){
     Route::post('/update/',[App\Http\Controllers\AssetspecificationController::class, 'update'])->middleware('auth')->name('specifications.update');
     Route::post('/edit',[App\Http\Controllers\AssetspecificationController::class, 'edit'])->middleware('auth')->name('specifications.edit');
 });
-Route::group(['prefix'=> 'columns'],function(){
+/*Route::group(['prefix'=> 'columns'],function(){
     Route::get('',[App\Http\Controllers\ColumnController::class, 'index'])->middleware('auth')->name('columns');
     Route::post('',[App\Http\Controllers\ColumnController::class, 'fetch'])->middleware('auth')->name('columns.fetch');
     Route::post('/store/',[App\Http\Controllers\ColumnController::class, 'store'])->middleware('auth')->name('columns.store');
     Route::post('/update/',[App\Http\Controllers\ColumnController::class, 'update'])->middleware('auth')->name('columns.update');
     Route::post('/edit',[App\Http\Controllers\ColumnController::class, 'edit'])->middleware('auth')->name('columns.edit');
-});
+});*/
+
 Route::group(['prefix'=> 'uncertainties'],function() {
     Route::get('',[App\Http\Controllers\UncertaintyController::class, 'index'])->middleware('auth')->name('uncertainties');
     Route::post('',[App\Http\Controllers\UncertaintyController::class, 'fetch'])->middleware('auth')->name('uncertainties.fetch');
     Route::post('/store',[App\Http\Controllers\UncertaintyController::class, 'store'])->middleware('auth')->name('uncertainties.store');
     Route::post('/edit',[App\Http\Controllers\UncertaintyController::class, 'edit'])->middleware('auth')->name('uncertainties.edit');
     Route::post('/update',[App\Http\Controllers\UncertaintyController::class, 'update'])->middleware('auth')->name('uncertainties.update');
-});
-Route::group(['prefix'=> 'calculator'],function() {
-    Route::get('{loc}/{id}',[App\Http\Controllers\CalculatorController::class, 'index'])->middleware('auth')->name('calculator');
-});
-Route::group(['prefix'=> 'data_entry'],function() {
-    Route::post('store',[App\Http\Controllers\DataentryController::class, 'store'])->middleware('auth')->name('data_entry.create');
 });
 Route::get('/taxes',[App\Http\Controllers\TaxesController::class, 'index'])->middleware('auth')->name('taxes');
 Route::post('/search',[App\Http\Controllers\InvoicingLedgerController::class, 'search'])->middleware('auth')->name('search');
@@ -559,4 +550,38 @@ Route::group(['prefix'=> 'journal'],function(){
     Route::post('/ledger',[App\Http\Controllers\JournalController::class, 'ledger'])->middleware('auth')->name('journal.ledger');
     Route::post('/trail_balance',[App\Http\Controllers\JournalController::class, 'trail_balance'])->middleware('auth')->name('trail.balance');
     Route::post('/income',[App\Http\Controllers\JournalController::class, 'income'])->middleware('auth')->name('journal.income');
+});
+Route::group(['prefix'=> 'general-calculator'],function() {
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\GeneralCalculatorController::class, 'print_worksheet'])->middleware('auth')->name('general.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\GeneralCalculatorController::class, 'print_certificate'])->middleware('auth')->name('general.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\GeneralCalculatorController::class, 'print_uncertainty'])->middleware('auth')->name('general.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\GeneralCalculatorController::class, 'print_dataentrysheet'])->middleware('auth')->name('general.calculator.print_dataentrysheet');
+    Route::get('{id}',[App\Http\Controllers\Calculator\GeneralCalculatorController::class, 'create'])->middleware('auth')->name('general.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\GeneralCalculatorController::class, 'store'])->middleware('auth')->name('general.calculator.data.entry.store');
+
+});
+Route::group(['prefix'=> 'balance-calculator'],function() {
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\BalanceCalculatorController::class, 'print_worksheet'])->middleware('auth')->name('balance.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\BalanceCalculatorController::class, 'print_certificate'])->middleware('auth')->name('balance.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\BalanceCalculatorController::class, 'print_uncertainty'])->middleware('auth')->name('balance.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\BalanceCalculatorController::class, 'print_dataentrysheet'])->middleware('auth')->name('balance.calculator.print_dataentrysheet');
+    Route::get('{id}',[App\Http\Controllers\Calculator\BalanceCalculatorController::class, 'create'])->middleware('auth')->name('balance.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\BalanceCalculatorController::class, 'store'])->middleware('auth')->name('balance.calculator.data.entry.store');
+});
+Route::group(['prefix'=> 'incubator-calculator'],function() {
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\IncubatorController::class, 'print_worksheet'])->middleware('auth')->name('incubator.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\IncubatorController::class, 'print_certificate'])->middleware('auth')->name('incubator.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\IncubatorController::class, 'print_uncertainty'])->middleware('auth')->name('incubator.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\IncubatorController::class, 'print_dataentrysheet'])->middleware('auth')->name('incubator.calculator.print_dataentrysheet');
+    Route::get('{id}',[App\Http\Controllers\Calculator\IncubatorController::class, 'create'])->middleware('auth')->name('incubator.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\IncubatorController::class, 'store'])->middleware('auth')->name('incubator.calculator.data.entry.store');
+});
+
+Route::group(['prefix'=> 'calculator-entry'],function() {
+    Route::get('create/{loc}/{id}',[App\Http\Controllers\CalclulatorentriesController::class, 'create'])->middleware('auth')->name('calculator.data.entry.create');
+    Route::post('store',[App\Http\Controllers\CalclulatorentriesController::class, 'store'])->middleware('auth')->name('calculator.data.entry.store');
+});
+Route::group(['prefix'=> 'mass-reference'],function() {
+    Route::post('edit/{id}',[App\Http\Controllers\MassreferenceController::class, 'edit'])->middleware('auth')->name('mass.reference.edit');
+    Route::post('store',[App\Http\Controllers\MassreferenceController::class, 'store'])->middleware('auth')->name('mass.reference.store');
 });

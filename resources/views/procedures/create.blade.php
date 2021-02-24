@@ -72,40 +72,41 @@
         </div>
     </div>
     <script>
-        $("#add_procedure_form").on('submit',(function(e) {
+        $(document).ready(function () {
+            $("#add_procedure_form").on('submit',(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('procedures.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    statusCode: {
+                        403: function() {
+                            $(".loading").fadeOut();
+                            swal("Failed", "Access Denied" , "error");
+                            return false;
+                        }
+                    },
+                    success: function(data)
+                    {
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
 
-            e.preventDefault();
-            $.ajax({
-                url: "{{route('procedures.store')}}",
-                type: "POST",
-                data:  new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false,
-                statusCode: {
-                    403: function() {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Access Denied" , "error");
-                        return false;
+                    },
+                    error: function(xhr, status, error)
+                    {
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
                     }
-                },
-                success: function(data)
-                {
-                    swal('success',data.success,'success').then((value) => {
-                        location.reload();
-                    });
-
-                },
-                error: function(xhr, status, error)
-                {
-                    var error='';
-                    $.each(xhr.responseJSON.errors, function (key, item) {
-                        error+=item;
-                    });
-                    swal("Failed", error, "error");
-                }
-            });
-        }));
+                });
+            }));
+        });
 
     </script>
 @endsection

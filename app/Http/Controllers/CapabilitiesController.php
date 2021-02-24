@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Capabilities;
 use App\Models\Parameter;
+use App\Models\Preference;
 use App\Models\Procedure;
 use App\Models\Suggestion;
 use App\Models\Unit;
@@ -18,7 +19,10 @@ class CapabilitiesController extends Controller
         $procedures=Procedure::all();
         $parameters=DB::table('parameters')->get();
         $units=Unit::all();
-        return view('capabilities.index',compact('parameters','procedures','units'));
+        $parent=Preference::where('slug','calculators')->first();
+        $calculators=Preference::where('category',$parent->id)->get();
+
+        return view('capabilities.index',compact('parameters','procedures','units','calculators'));
     }
     public function create(){
         $procedures=Procedure::all();
@@ -60,7 +64,9 @@ class CapabilitiesController extends Controller
             ->addColumn('procedure', function ($data) {
                 return $data->procedures->name;
             })
-
+            ->addColumn('calculator', function ($data) {
+                return $data->calculators->name;
+            })
             ->addColumn('options', function ($data) {
 
                 $action=null;
@@ -92,6 +98,7 @@ class CapabilitiesController extends Controller
             'remarks' => 'required',
             'location' => 'required',
             'procedure' => 'required',
+            'calculator' => 'required',
         ],[
             'name.required' => 'Name field is required *',
             'category.required' => 'Category field is required *',
@@ -102,12 +109,14 @@ class CapabilitiesController extends Controller
             'remarks.required' => 'Remarks field is required *',
             'location.required' => 'Location field is required *',
             'procedure.required' => 'Procedure field is required *',
+            'calculator.required' => 'Procedure field is required *',
         ]);
         $capabilities=new Capabilities();
         $capabilities->name=$request->name;
         $capabilities->parameter=$request->category;
         $capabilities->range=$request->range;
         $capabilities->unit=$request->unit;
+        $capabilities->calculator=$request->calculator;
         $capabilities->accuracy=$request->accuracy;
         $capabilities->location=$request->location;
         $capabilities->accredited=($request->accredited)?"yes":"no";
@@ -153,6 +162,7 @@ class CapabilitiesController extends Controller
         $capabilities->price=$request->price;
         $capabilities->remarks=$request->remarks;
         $capabilities->procedure=$request->procedure;
+        $capabilities->calculator=$request->calculator;
         $capabilities->save();
         return response()->json(['success'=> 'Capability updated successfully']);
 

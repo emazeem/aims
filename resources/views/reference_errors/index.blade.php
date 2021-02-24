@@ -15,6 +15,7 @@
                 <thead>
                 <tr>
 
+                    <th>#</th>
                     <th>Asset</th>
                     <th>Unit</th>
                     <th>UUC</th>
@@ -30,6 +31,7 @@
                 <tfoot>
                 <tr>
 
+                    <th>#</th>
                     <th>Asset</th>
                     <th>Unit</th>
                     <th>UUC</th>
@@ -65,6 +67,7 @@
                 },
                 "columns": [
 
+                    {"data": "id"},
                     {"data": "asset"},
                     {"data": "unit"},
                     {"data": "uuc"},

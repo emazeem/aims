@@ -10,7 +10,7 @@
 
     <div class="row pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Error & Uncertainty</h3>
+            <h3><i class="fa fa-plus-circle"></i> Add Error & Uncertainty</h3>
         </div>
 
         <div class="col-12">
@@ -63,9 +63,10 @@
                     <div class="col-10">
                         <select class="form-control" id="channels" name="channels" required>
                             <option value="" selected disabled>Select Channels</option>
-                            @foreach($channels as $channel)
-                                <option value="{{$channel}}">{{$channel}}</option>
-                            @endforeach
+                            @for($k=1;$k<=10;$k++)
+                                <option value="{{$k}}">Channel # {{$k}}</option>
+                            @endfor
+
                         </select>
                         @if ($errors->has('channels'))
                             <span class="text-danger">
@@ -74,8 +75,6 @@
                         @endif
                     </div>
                 </div>
-
-
                 <table id="myTable" class=" table order-list">
                     <thead>
                     <tr>

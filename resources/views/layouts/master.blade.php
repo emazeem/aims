@@ -47,7 +47,7 @@
         </div>
         <footer>
             <div class="text-center">
-                AIMS- Al Meezan Meterology Services <a href="/">ERP @ {{date('Y')}}</a>
+                AIMS- Al Meezan Meterology Services <a href="/">ERP ® {{date('Y')}}</a>
             </div>
             <div class="clearfix"></div>
         </footer>

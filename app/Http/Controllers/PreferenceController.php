@@ -13,13 +13,13 @@ class PreferenceController extends Controller
          return view('preferences.index');
     }
     public function fetch(){
-        $data=Preference::all()->where('name',!null);
+        $data=Preference::all();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
             })
             ->addColumn('name', function ($data) {
-                return $data->name;
+                return $data->name?$data->name:$data->category;
             })
             ->addColumn('slug', function ($data) {
                 return $data->slug;
@@ -37,12 +37,12 @@ class PreferenceController extends Controller
 
     }
     public function create(){
-        $categories=Preference::where('name',null)->where('slug',null)->get();
+        $categories=Preference::where('name',null)->get();
         return view('preferences.create',compact('categories'));
     }
     public function edit($id){
         $edit=Preference::find($id);
-        $categories=Preference::where('name',null)->where('slug',null)->get();
+        $categories=Preference::where('name',null)->get();
         return view('preferences.edit',compact('categories','edit'));
     }
 
@@ -51,7 +51,11 @@ class PreferenceController extends Controller
             $this->validate($request,[
                 'category'=>'required'
             ]);
+
+            $slugify = new Slugify();
+            $slug=$slugify->slugify($request->category);
             $preferences=Preference::find($request->edit_category);
+            $preferences->slug=$slug;
             $preferences->category=$request->category;
             $preferences->save();
             return redirect()->back()->with('success','Category updated successfully');
@@ -59,8 +63,11 @@ class PreferenceController extends Controller
         $this->validate($request,[
             'category'=>'required'
         ]);
+        $slugify = new Slugify();
+        $slug=$slugify->slugify($request->category);
         $preferences=new Preference;
         $preferences->category=$request->category;
+        $preferences->slug=$slug;
         $preferences->save();
         return redirect()->back()->with('success','Category added successfully');
     }

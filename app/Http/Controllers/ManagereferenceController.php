@@ -76,17 +76,13 @@ class ManagereferenceController extends Controller
         //$units=Unit::all();
         $this->authorize('manage-reference-index');
         $parameters=Parameter::all();
-        $channels=Preference::where('slug','channels')->first();
-        $channels=explode(',',$channels->value);
-        return view('reference_errors.create',compact('parameters','channels'));
+        return view('reference_errors.create',compact('parameters'));
     }
     public function edit($id){
         $this->authorize('manage-reference-index');
         $parameters=Parameter::all();
         $edit=Managereference::find($id);
         $multiples=Managereference::where('asset',$edit->asset)->get();
-
-
         $hasChannels=Preference::where('slug','has-channels')->first();
         $hasChannels=explode(',',$hasChannels->value);
 
@@ -96,8 +92,6 @@ class ManagereferenceController extends Controller
         }
         $channels=Preference::where('slug','channels')->first();
         $channels=explode(',',$channels->value);
-
-
         return view('reference_errors.edit',compact('parameters','edit','multiples','show_channels','channels'));
     }
 
@@ -128,7 +122,6 @@ class ManagereferenceController extends Controller
 
         $hasChannels=Preference::where('slug','has-channels')->first();
         $hasChannels=explode(',',$hasChannels->value);
-
 
         for ($i=0;$i<count($reference);$i++){
             $manageref=new Managereference();

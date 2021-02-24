@@ -9,6 +9,7 @@ use App\Models\Jobitem;
 use App\Models\Labjob;
 use App\Models\Sitejob;
 use Illuminate\Http\Request;
+use PDF;
 use Yajra\DataTables\Facades\DataTables;
 
 class JobController extends Controller
@@ -135,6 +136,12 @@ class JobController extends Controller
         $tag=Jobitem::find($id);
         $total=0;
         $total=count(Jobitem::where('job_id',$tag->job_id)->get()->toArray());
+        $data = [
+            'tag' =>$tag,
+            'index' =>$index,
+            'loc' =>$loc,
+            'total' =>$total,
+        ];
         return view('jobs.jobtag',compact('tag','index','total','loc'));
     }
     //

@@ -21,6 +21,10 @@ class Capabilities extends Model
     public function units(){
         return $this->belongsTo('App\Models\Unit','unit')->withDefault();
     }
+    public function calculators(){
+        return $this->belongsTo('App\Models\Preference','calculator','slug');
+    }
+
     protected static $logAttributes = ["name","parameter","procedure","range","price","accuracy","unit","remarks","location","accredited"];
     protected static $logOnlyDirty = true;
 }

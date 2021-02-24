@@ -88,7 +88,6 @@ class AssetController extends Controller
                   <a title='Edit' class='btn btn-sm btn-success' href='" . url('/assets/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
                   <a title='Show' class='btn btn-sm btn-warning' href='" . url('/assets/show/' . $data->id) . "'><i class='fa fa-eye'></i></a>
                   ";
-
             })
             ->rawColumns(['options', 'status'])
             ->make(true);
@@ -118,15 +117,6 @@ class AssetController extends Controller
         $duplicate = array();
         foreach ($check_duplicate_specifications as $check_duplicate_specification) {
             $duplicate[] = $check_duplicate_specification->asset_id;
-        }
-        $columns = Column::all();
-        $mycolumns = array();
-        foreach ($columns as $column) {
-            $assets = explode(',', $column->assets);
-            if (in_array($id, $assets)) {
-                $mycolumns[] = $column;
-
-            }
         }
         for($x=1;$x<12;$x++){
             $average[$x]=null;
@@ -286,7 +276,7 @@ class AssetController extends Controller
 
 
         return view('assets.show', compact('ual', 'uwl', 'lwl', 'lal', 'averages', 'ual_points',
-            'uwl_points', 'average', 'lwl_points', 'lal_points', 'parameters', 'show', 'specifications', 'mycolumns',
+            'uwl_points', 'average', 'lwl_points', 'lal_points', 'parameters', 'show', 'specifications',
             'duplicate', 'intermediatechecks', 'limit_of_intermediatecheck', 'checklists'));
     }
 

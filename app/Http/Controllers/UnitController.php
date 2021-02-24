@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use App\Models\Managereference;
 use App\Models\Parameter;
+use App\Models\Preference;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\False_;
@@ -83,7 +84,7 @@ class UnitController extends Controller
         //dd($unit);
         $u->unit=$request->unit;
         $u->parameter=$request->parameter;
-        $u->primary_=($request->primary)?$request->primary:null;
+        //$u->primary=($request->primary)?$request->primary:null;
         $u->factor_multiply=$request->factor_multiply;
         $u->factor_add=$request->factor_add;
         $u->save();
@@ -92,7 +93,13 @@ class UnitController extends Controller
 
     public function units_of_assets($id){
         $asset=Asset::find($id);
-        $units=Unit::where('parameter',$asset->parameter)->get();
+        $units['units']=Unit::where('parameter',$asset->parameter)->get();
+        $hasChannels=Preference::where('slug','has-channels')->first();
+        $hasChannels=explode(',',$hasChannels->value);
+        $units['show_channels']=false;
+        if (in_array($id,$hasChannels)){
+            $units['show_channels']=true;
+        }
         return response()->json($units);
     }
     public function previous_units($id){
@@ -101,6 +108,7 @@ class UnitController extends Controller
         return response()->json($units);
     }
     public function check_both_units($unit,$asset){
+
         $referenceData=Managereference::where('asset',$asset)->pluck('unit')->toArray();
         $referenceData=array_unique($referenceData);
         $data=null;
@@ -115,6 +123,11 @@ class UnitController extends Controller
             $data['conversion']=false;
         }
         $data['unit']=Unit::find($unit);
+
+        $assetdetails=Asset::find($asset);
+        if ($assetdetails->parameter=='13'){
+            $data['nominalmasses']=Managereference::where('asset',$asset)->get();
+        }
         return response()->json($data);
     }
 

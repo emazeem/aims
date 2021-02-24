@@ -15,13 +15,14 @@ class CreateDataentriesTable extends Migration
     {
         Schema::create('dataentries', function (Blueprint $table) {
             $table->id();
-
             $table->string('job_type')->nullable();
             $table->integer('asset_id')->nullable();
             $table->integer('job_type_id')->nullable();
             $table->string('unit')->nullable();
             $table->string('start_temp')->nullable();
             $table->string('end_temp')->nullable();
+            $table->string('start_humidity')->nullable();
+            $table->string('end_humidity')->nullable();
             $table->string('location')->nullable();
             $table->string('fixed_type')->nullable();
             $table->string('before_offset')->nullable();

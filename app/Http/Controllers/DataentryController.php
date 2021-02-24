@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dataentry;
+use App\Models\Calculatorentries;
+use App\Models\Generaldataentries;
 use App\Models\Jobitem;
 use App\Models\Labjob;
 use App\Models\Managereference;
@@ -33,7 +34,6 @@ class DataentryController extends Controller
             'x1' => 'required',
             'x2' => 'required',
         ]);
-
         $x1 = [];
         $x2 = [];
         $x3 = [];
@@ -93,12 +93,12 @@ class DataentryController extends Controller
             }*/
 
 
-        $already_exsited = Dataentry::where('job_type', $request->jobtype)->where('asset_id', $request->assets)->where('unit', $request->units)->first();
+        $already_exsited = Calculatorentries::where('job_type', $request->jobtype)->where('asset_id', $request->assets)->where('unit', $request->units)->first();
 
         if ($already_exsited) {
             dd(0);
             for ($i = 0; $i < count($x1); $i++) {
-                $item = new Dataentry();
+                $item = new Generaldataentries();
                 $item->fixed_value = $fixed[$i];
                 $item->x1 = $x1[$i];
                 $item->x2 = $x2[$i];
@@ -109,7 +109,7 @@ class DataentryController extends Controller
                 $item->parent_id = $already_exsited->id;
                 $item->save();
             }
-            $entry = Dataentry::find($already_exsited->id);
+            $entry = Generaldataentries::find($already_exsited->id);
         }else{
 
             $labjob = Jobitem::find($request->jobtypeid);
@@ -117,7 +117,8 @@ class DataentryController extends Controller
             $labjob->range = $request->range;
             $labjob->resolution = $request->uuc_resolution;
             $labjob->save();
-            $entry = new Dataentry();
+            $entry = new Calculatorentries();
+            $entry->calculator = 'general-calculator';
             $entry->job_type = $request->jobtype;
             $entry->job_type_id = $request->jobtypeid;
             $entry->location = $request->location;
@@ -134,9 +135,8 @@ class DataentryController extends Controller
             if ($entry->save()) {
                 $labjob->save();
             }
-
             for ($i = 0; $i < count($x1); $i++) {
-                $item = new Dataentry();
+                $item = new Generaldataentries();
                 $item->fixed_value = $fixed[$i];
                 $item->x1 = $x1[$i];
                 $item->x2 = $x2[$i];
@@ -148,7 +148,6 @@ class DataentryController extends Controller
                 $item->save();
             }
         }
-
         //}
 
 
@@ -164,8 +163,8 @@ class DataentryController extends Controller
 
         $job=Jobitem::find($request->jobtypeid);
            // dd($job);
-        $entries=Dataentry::find($entry->id);
-        $allentries=Dataentry::where('parent_id',$entries->id)->get();
+        $entries=Calculatorentries::find($entry->id);
+        $allentries=Generaldataentries::where('parent_id',$entries->id)->get();
         $procedure = Procedure::find($job->item->capabilities->procedure);
         $uncertainties=explode(',',$procedure->uncertainties);
         $data=array();
@@ -410,7 +409,7 @@ class DataentryController extends Controller
                 'combined-uncertainty'=>$combined_uncertainty,
                 'expanded-uncertainty'=>$expanded_uncertainties,
             ];
-            $save_data=Dataentry::find($entry->id);
+            $save_data=Generaldataentries::find($entry->id);
             $save_data->data=$data[$entry->fixed_value];
             $save_data->save();
         }

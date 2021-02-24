@@ -10,24 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body class="main">
-{{--
 <style>
-    .container {
-        height: 100vh;
-        position: relative;
-    }
-
-    .vertical-center {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-</style>
---}}
-<style>
-
     .font-1{
         font-size: 110px;
     }
@@ -41,8 +24,6 @@
     .font-3{
         font-size: 70px;
     }
-
-
 </style>
 <div class="container-fluid">
     <div class="row">

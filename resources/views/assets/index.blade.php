@@ -94,6 +94,7 @@
 
 </script>
 
+{{--
     <script>
         $(document).ready(function() {
             $("#add_columns_form").on('submit',(function(e) {
@@ -242,9 +243,8 @@
         $('#assets').select2({
             placeholder: 'Select an option'
         });
-
-
     </script>
+--}}
 
 
 @endsection

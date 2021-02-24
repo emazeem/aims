@@ -15,16 +15,25 @@
         </script>
     @endif
 
-    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-        <h3 class="border-bottom"><i class="fa fa-tasks"></i> My Task Details</h3>
+    <div class="col-12">
+        <ol class="breadcrumb col-12">
+            <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{url('/mytasks')}}">My Tasks</a></li>
+            @if($location==0)
+                <li class="breadcrumb-item"><a href="{{url('mytasks/view/'.$show->id)}}">Task Detail</a></li>
+            @endif
+            @if($location==1)
+                <li class="breadcrumb-item"><a href="{{url('mytasks/s_view/'.$show->id)}}">Task Detail</a></li>
+            @endif
+        </ol>
+
+        <h4><i class="fa fa-eye"></i> My Task Details</h4>
         @if($show->status==2)
             <form method="post" action="{{route('mytasks.start')}}">
                 @csrf
                 <input type="hidden" name="id" value="{{$show->id}}">
                 <input type="hidden" name="location" value="{{$location}}">
-                <button class="btn btn-success btn-sm " type="submit"><i class="fa fa-hourglass-start"
-                                                                                    aria-hidden="true"></i> Start
-                </button>
+                <button class="btn btn-success btn-sm " type="submit"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Start</button>
             </form>
         @endif
         @if($show->status==4)
@@ -46,13 +55,11 @@
         </form>
         @endif
         @if($show->status==3)
-            <a href="{{route('calculator',[$location,$show->id])}}" class="btn btn-sm btn-success"><i
-                        class="fa fa-calculator"></i> Data Entry for Cal</a>
+             <a href="{{route('calculator.data.entry.create',[$location,$show->id])}}" class="btn btn-sm btn-success"><i class="fa fa-calculator"></i> Data Entry for Cal</a>
         @endif
         @if($location==1)
             @if($show->status==1)
-                <a href="#" data-id="{{$show->id}}" class="btn add btn-danger btn-sm"><i class="fa fa-plus"></i> Add
-                    Detail</a>
+                <a href="#" data-id="{{$show->id}}" class="btn add btn-danger btn-sm"><i class="fa fa-plus"></i> Add Detail</a>
             @endif
         @endif
     </div>
@@ -68,14 +75,14 @@
             </h5>
         </div>
         <div class="col-12">
-            <table class="table table-bordered table-sm table-hover">
-                <tr>
-                    <th>ID</th>
-                    <td>{{$show->id}}</td>
+            <table class="table table-bordered table-sm table-hover bg-white    ">
+                <tr >
+                    <th  width="50%">ID</th>
+                    <td  width="50%">{{$show->id}}</td>
                 </tr>
                 <tr>
                     <th>Capability</th>
-                    <td>{{$show->item->capabilities->name}}</td>
+                    <td>{{$show->item->capabilities->name.' '.$show->item->capabilities->range}}</td>
                 </tr>
                 <tr>
                     <th>Procedure</th>
@@ -99,6 +106,11 @@
                     <th>End</th>
                     <td>{{$show->end}}</td>
                 </tr>
+                <tr>
+                    <th>Calculator</th>
+                    <td>{{$show->item->capabilities->calculators->name}}</td>
+                </tr>
+
                 @if($show->assign_assets)
                     <tr>
                         <th>Assign Assets</th>
@@ -142,43 +154,160 @@
                 </tr>
 
             </table>
-        </div>
 
+            @if($show->general)
+                <h4><i class="fa fa-eye"></i> General Entry</h4>
+            @if($show->item->capabilities->calculator=='incubator-calculator')
+                    <a href="{{route('incubator.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Entries</a>
+            @endif
+                <table class="table table-bordered table-sm table-hover bg-white    ">
+                    <tr>
+                        <th width="50%">Start Temperature</th>
+                        <td width="50%">{{$show->general->start_temp}}°C</td>
+                    </tr>
+                    <tr>
+                        <th>End Temperature</th>
+                        <td>{{$show->general->end_temp}}°C</td>
+                    </tr>
+                    <tr>
+                        <th>Start Humidity</th>
+                        <td>{{$show->general->start_humidity}}%RH</td>
+                    </tr>
+                    <tr>
+                        <th>End Humidity</th>
+                        <td>{{$show->general->end_humidity}}%RH</td>
+                    </tr>
+
+                    <tr>
+                        <th>Start Atmospheric Pressure</th>
+                        <td>{{$show->general->start_atmospheric_pressure}}hPa</td>
+                    </tr>
+                    <tr>
+                        <th>End Atmospheric Pressure</th>
+                        <td>{{$show->general->end_atmospheric_pressure}}hPa</td>
+                    </tr>
+                </table>
+            @endif
+        </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
-            $(document).on('click', '.add', function () {
-                var id = $(this).attr('data-id');
-                $('#add_id').val(id);
-                $('#add_details').modal('toggle');
-            });
-            $("#add_details_form").on('submit', (function (e) {
-                e.preventDefault();
-                $.ajax({
-                    url: "{{route('checkin.storesite')}}",
-                    type: "POST",
-                    data: new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function (data) {
+     {{--for general calculator--}}
+    @if($show->item->capabilities->calculator=='general-calculator')
+    @if(count($dataentrie)>0)
+        <span class="mb-3">
+            <a href="{{route('general.calculator.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
+            <a href="{{route('general.calculator.print_certificate',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Certificate</a>
+            <a href="{{route('general.calculator.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Uncertainty</a>
+            <a href="{{route('general.calculator.print_dataentrysheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Data Entry Sheet</a>
+    </span>
+        @foreach($dataentrie as $key=>$dataentries)
+        <div class="col-12 table-responsive">
+            <table class="table table-hover table-bordered table-sm bg-white">
+                <tr>
+                    <th colspan="2" class="h6">
+                        {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} {
+                        {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
+                        --}}
+                        <a href="{{route('general.calculator',[$dataentries->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                    </th>
+                </tr>
+                @foreach($dataentries->child as $dataentry)
+                    <tr>
 
-                        if (!data.errors) {
-                            $('#add_details').modal('toggle');
-                            swal("Success", "Item checked in successfully", "success");
-                            location.reload();
+                        <td>
+                            {{$dataentry->fixed_value}}
+                        </td>
+                        <th>
+                            <span class="badge badge-dark p-2">{{$dataentry->x1}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x2}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x3}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x4}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
+                        </th>
 
-                        }
-                    },
-                    error: function (e) {
-                        swal("Failed", "Fields Required. Try again.", "error");
+                    </tr>
+                @endforeach
 
-                    }
-                });
-            }));
-        });
-    </script>
+            </table>
+        </div>
+        @endforeach
+    @endif
+    @endif
+
+    {{--for balance calculator--}}
+
+    @if($show->item->capabilities->calculator=='balance-calculator')
+    @if($show->status==3)
+        <div class="col-12">
+        <span class="mb-3">
+            <a href="{{route('balance.calculator.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
+        </span>
+    </div>
+    @endif
+    @if($dataentrie)
+        @foreach($dataentrie as $key=>$dataentries)
+        <div class="col-12 table-responsive">
+            <table class="table table-hover table-bordered table-sm bg-white">
+
+                <tr>
+                    <th colspan="2" class="h6">
+                        {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} { {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
+                        --}}
+                        <form method="get" action="{{route('balance.calculator',[$dataentries->id])}}">
+                            {{--@csrf--}}
+                            <div class="form-group col-md-6">
+                                <label for="assets" class="control-label">Assets</label>
+                                <select class="form-control" id="assets" name="assets">
+                                    <option selected disabled>Assets</option>
+                                    @foreach($assets as $asset)
+                                        <option value="{{$asset->id}}">{{$asset->name}} ({{$asset->code}}) ({{$asset->range}})
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('assets'))
+                                    <span class="text-danger"><strong>{{ $errors->first('assets') }}</strong></span>
+                                @endif
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="units" class=" control-label">Units</label>
+                                <select class="form-control " id="units" name="units">
+                                    <option selected disabled>Select Unit</option>
+                                </select>
+                                @if ($errors->has('units'))
+                                    <span class="text-danger"><strong>{{ $errors->first('units') }}</strong></span>
+                                @endif
+                            </div>
+                            {{--<input type="text" value="" id="mulitplying_factor" name="mulitplying_factor">
+                            <input type="text" value="" id="adding_factor" name="adding_factor">
+                            <input type="text" value="" id="ref_unit" name="ref_unit">--}}
+                            <button type="submit" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></button>
+                        </form>
+                    </th>
+                </tr>
+                @foreach($dataentries->child as $dataentry)
+                    <tr>
+                        <td>
+                            {{$dataentry->fixed_value}}
+                        </td>
+                        <th>
+                            <span class="badge badge-dark p-2">{{$dataentry->x1}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x2}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x3}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x4}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
+                            <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
+                        </th>
+
+                    </tr>
+                @endforeach
+
+            </table>
+        </div>
+        @endforeach
+    @endif
+    @endif
+
     <div class="modal fade" id="add_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -258,18 +387,15 @@
                             <input type="hidden" value="" id="edit_id" name="id">
                             <div class="form-group col-12  float-left">
                                 <label for="make">Make</label>
-                                <input type="text" class="form-control" id="edit_make" name="make" placeholder="make"
-                                       autocomplete="off" value="">
+                                <input type="text" class="form-control" id="edit_make" name="make" placeholder="make" autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
                                 <label for="edit_model">Model</label>
-                                <input type="text" class="form-control" id="edit_model" name="model" placeholder="Model"
-                                       autocomplete="off" value="">
+                                <input type="text" class="form-control" id="edit_model" name="model" placeholder="Model" autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
                                 <label for="serial">Serial #</label>
-                                <input type="text" class="form-control" id="edit_serial" name="serial"
-                                       placeholder="Serial #" autocomplete="off" value="">
+                                <input type="text" class="form-control" id="edit_serial" name="serial" placeholder="Serial #" autocomplete="off" value="">
                             </div>
 
 
@@ -302,80 +428,57 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.add', function () {
+                var id = $(this).attr('data-id');
+                $('#add_id').val(id);
+                $('#add_details').modal('toggle');
+            });
+            $("#add_details_form").on('submit', (function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('checkin.storesite')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
 
-    <div class="col-12">
-        <span class="mb-3">
-            <a href="{{route('mytasks.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
-            <a href="{{route('mytasks.print_certificate',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Certificate</a>
-            <a href="{{route('mytasks.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Uncertainty</a>
-            <a href="{{route('mytasks.print_dataentrysheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Data Entry Sheet</a>
-    </span>
-    </div>
-    @if($dataentrie)
-        @foreach($dataentrie as $key=>$dataentries)
-        <div class="col-12 table-responsive">
-            @if($key==0)
-            <b>Temperature : </b>
-            {{$dataentries->start_temp.'-'.$dataentries->end_temp}}
-            <br>
-            <b>Humidity : </b>
-            {{$dataentries->start_humidity.'-'.$dataentries->end_humidity}}
-            @endif
-            <br>
-            <table class="table table-hover table-bordered table-sm">
+                        console.log(data);
+                        if (!data.errors) {
+                            $('#add_details').modal('toggle');
+                            swal("Success", "Item checked in successfully", "success");
+                            location.reload();
 
-                <tr>
-                    <th colspan="2" class="h6">
-                        {{\App\Models\Asset::find($dataentries->asset_id)->name}} {
-                        {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
-                    </th>
-                </tr>
-                <tr class="bg-white text-dark">
-                    <th>Fixed Value
-                        @if($dataentries->fixed_type=='UUC')
-                            .(Ref Std)
-                        @else
-                            .(UUC)
-                        @endif
+                        }
+                    },
+                    error: function (e) {
+                        console.log(e);
 
-                    </th>
-                    <th>Repeated Values
-                        @if($dataentries->fixed_type=='UUC')
-                            .(UUC)
-                        @else
-                            .(Ref Std)
-                        @endif
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        {{\App\Models\Unit::find($dataentries->unit)->unit}}
-                    </th>
-                    <th>
-                        {{\App\Models\Unit::find($dataentries->unit)->unit}}
-                    </th>
-                </tr>
-
-
-                @foreach($dataentries->child as $dataentry)
-                    <tr>
-
-                        <td>
-                            {{$dataentry->fixed_value}}
-                        </td>
-                        <th>
-                            <span class="badge badge-dark p-2">{{$dataentry->x1}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x2}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x3}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x4}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
-                        </th>
-
-                    </tr>
-                @endforeach
-            </table>
-        </div>
-        @endforeach
-    @endif
+                    }
+                });
+            }));
+            $('select[name="assets"]').on('change', function () {
+                var parameter = $(this).val();
+                if (parameter) {
+                    $.ajax({
+                        url: '/units/units_of_assets/' + parameter,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="units"]').empty();
+                            $('select[name="units"]').append('<option disabled selected>Select Respective Units</option>');
+                            $.each(data, function (key, value) {
+                                $('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('select[name="units"]').empty();
+                }
+            });
+        });
+    </script>
 @endsection

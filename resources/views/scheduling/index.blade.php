@@ -187,7 +187,6 @@
         $('#user').select2({
             placeholder: 'Select users'
         });
-
     </script>
 @endsection
 
