@@ -187,6 +187,74 @@
                         <td>{{$show->general->end_atmospheric_pressure}}hPa</td>
                     </tr>
                 </table>
+            @if($show->general->incubatorentries)
+                <table class="table table-bordered table-sm table-hover bg-white">
+                    <tr>
+                        <th>x1</th>
+                        <th>x2</th>
+                        <th>x3</th>
+                        <th>Set Value</th>
+                        <th>UUC Indication</th>
+                    </tr>
+                    @foreach($show->general->incubatorentries as $k=>$mapping)
+                        @if($k==0)
+                            ASSET : {{\App\Models\Asset::find($mapping->asset_id)->name}}<br>
+                            UNIT : {{\App\Models\Unit::find($mapping->unit)->unit}}<br>
+                        @endif
+                        <tr>
+                            <td>{{$mapping->x1}}</td>
+                            <td>{{$mapping->x2}}</td>
+                            <td>{{$mapping->x3}}</td>
+                            <td>{{$mapping->set_value}}</td>
+                            <td>{{$mapping->uuc_indication}}</td>
+                        </tr>
+                    @endforeach
+                </table>
+                @endif
+            @if($show->general->mappings)
+                <table class="table table-bordered table-sm table-hover bg-white    ">
+                    <tr>
+                        <th>Interval</th>
+                        <th>UUC</th>
+                        <th>Ch#1</th>
+                        <th>Ch#2</th>
+                        <th>Ch#3</th>
+                        <th>Ch#4</th>
+                        <th>Ch#5</th>
+                        <th>Ch#6</th>
+                        <th>Ch#7</th>
+                        <th>Ch#8</th>
+                        <th>Ch#9</th>
+                        <th>Ch#10</th>
+                    </tr>
+                    @foreach($show->general->mappings as $mapping)
+                        @if($mapping->time_interval==0)
+
+                            @php $data=json_decode($mapping->data,true); @endphp
+                            START TIME : {{$data['start_time']}}<br>
+                            END TIME : {{$data['end_time']}}<br>
+                            NORMAL CENTRAL PROB : {{$data['end_time']}}<br>
+                            BLACK CENTRAL PROB : {{$data['end_time']}}
+                            @else
+                            <tr>
+                                <td>{{$mapping->time_interval}}</td>
+                                <td>{{$mapping->uuc_reading}}</td>
+                                <td>{{$mapping->channel_1}}</td>
+                                <td>{{$mapping->channel_2}}</td>
+                                <td>{{$mapping->channel_3}}</td>
+                                <td>{{$mapping->channel_4}}</td>
+                                <td>{{$mapping->channel_5}}</td>
+                                <td>{{$mapping->channel_6}}</td>
+                                <td>{{$mapping->channel_7}}</td>
+                                <td>{{$mapping->channel_8}}</td>
+                                <td>{{$mapping->channel_9}}</td>
+                                <td>{{$mapping->channel_10}}</td>
+                            </tr>
+                        @endif
+
+                    @endforeach
+                </table>
+                @endif
             @endif
         </div>
     </div>
@@ -208,7 +276,14 @@
                         {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} {
                         {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
                         --}}
-                        <a href="{{route('general.calculator',[$dataentries->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                        @if($show->item->capabilities->procedures->name=='ASTM E2847-11')
+                            <a href="{{route('ir.calculator',[$dataentries->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                        @elseif($show->item->capabilities->procedures->name=='ASTM E77')
+                            <a href="{{route('lig.calculator',[$dataentries->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                        @else
+                            <a href="{{route('general.calculator',[$dataentries->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                        @endif
+
                     </th>
                 </tr>
                 @foreach($dataentries->child as $dataentry)

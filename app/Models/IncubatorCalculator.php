@@ -9,4 +9,5 @@ class IncubatorCalculator extends Model
 {
     use HasFactory;
     protected $table='incubatordataentries';
+
 }

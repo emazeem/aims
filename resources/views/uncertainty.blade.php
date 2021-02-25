@@ -196,7 +196,7 @@
                             <textarea rows="5" class="form-control" id="formula" name="formula" placeholder="Formula" autocomplete="off">{{old('formula')}}</textarea>
                         </div>
                         <div class="form-group col-12  float-left">
-                            <input type="text" class="form-control" id="distribution" name="distribution" placeholder="Distribution" autocomplete="off" value="{{old('distribution')}}">
+                            <input type="text" class="form-control" id="distribution" name="distribution" placeholder="Distribution" autocomplete="off" value="Rectangular">
                         </div>
                         <div class="form-group col-12  float-left">
                             <select class="form-control" id="coefficient_of_sensitivity" name="coefficient_of_sensitivity">

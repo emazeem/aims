@@ -68,34 +68,18 @@
                 type: "POST",
                 data: {'id': id,_token: '{{csrf_token()}}'},
                 dataType : "json",
-                beforeSend : function()
-                {
-                    $(".loading").fadeIn();
-                },
-                statusCode: {
-                    403: function() {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Permission deneid for this action." , "error");
-                        return false;
-                    }
-                },
                 success: function(data)
                 {
                     $('#edit_designation').modal('toggle');
                     $('#editid').val(data.id);
                     $('#edit_department').val(data.department_id);
                     $('#editname').val(data.name);
-                    //Populating Form Data to Edit Ends
-                },
-                error: function(){},
+                }
             });
         });
-
-
         $("#add_designation_form").on('submit',(function(e) {
-
             e.preventDefault();
-            var self=$(this), button=self.find('input[type="submit"],button');
+            var button=$(this).find('input[type="submit"],button');
             var previous=$(button).html();
             button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
             $.ajax({
@@ -105,13 +89,6 @@
                 contentType: false,
                 cache: false,
                 processData:false,
-                statusCode: {
-                    403: function() {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Access Denied" , "error");
-                        return false;
-                    }
-                },
                 success: function(data)
                 {
                     button.attr('disabled',null).html(previous);
@@ -151,10 +128,13 @@
                         InitTable();
                     }
                 },
-                error: function(e)
+                error: function(xhr)
                 {
-                    swal("Failed", "Fields Required. Try again.", "error");
-
+                    var error='';
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
                 }
             });
         }));

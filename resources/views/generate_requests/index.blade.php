@@ -15,6 +15,7 @@
     </script>
 @endif
 <div class="row">
+    <div class="loader"></div>
     <div class="col-12">
         <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Requests</h3>
         <span class="">
@@ -85,6 +86,7 @@
 
     }
     $(document).ready(function() {
+        $('.loader').hide();
         InitTable();
         $('select[name="customer"]').on('change', function() {
             var customer = $(this).val();
@@ -154,18 +156,13 @@
                 contentType: false,
                 cache: false,
                 processData:false,
-                statusCode: {
-                    403: function() {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Access Denied" , "error");
-                        return false;
-                    }
-                },
                 success: function(data)
                 {
 
                     if(!data.errors)
                     {
+                        //$(".loading").();
+                        $('button').attr('disabled',false);
                         $('#add_session').modal('hide');
                         swal('success',data.success,'success').then((value) => {
                             location.reload();
@@ -174,9 +171,14 @@
                         swal("Warning", data.errors, "warning");
                     }
                 },
-                error: function()
+                error: function(xhr)
                 {
-                    swal("Failed", "Fields Required. Try again.", "error");
+                    $('button').attr('disabled',false);
+                    var error='';
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
                 }
             });
         }));
@@ -213,10 +215,14 @@
                         });
                     }
                 },
-                error: function(e)
+                error: function(xhr)
                 {
-                    swal("Failed", "Fields Required. Try again.", "error");
-
+                    button.attr('disabled',null).html(previous);
+                    var error='';
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
                 }
             });
         }));
@@ -229,7 +235,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title" id="add_session"><i class="fa fa-plus-circle"></i> Create Quote</h5>
+                <h5 class="modal-title" id="add_session"><i class="fa fa-plus-circle"></i> Create Request</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <small><i class="fa fa-times-circle"></i></small>
                 </button>
@@ -304,7 +310,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title" id="edit_session"> <i class="fa fa-refresh"></i> Edit Quote</h5>
+                <h5 class="modal-title" id="edit_session"> <i class="fa fa-refresh"></i> Edit Request</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <i class="fa fa-times-circle"></i>
                 </button>
@@ -368,7 +374,7 @@
             </div>
 
                     <div class="modal-footer text-right bg-light">
-                        <button class="btn btn-primary btn-sm btn-block" type="submit"><i class="fa fa-refresh"></i> Update</button>
+{{--                        <button class="btn btn-primary btn-sm btn-block" type="submit"><i class="fa fa-refresh"></i> Update</button>--}}
                     </div>
 
                 </form>

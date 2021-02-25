@@ -576,7 +576,9 @@ Route::group(['prefix'=> 'incubator-calculator'],function() {
     Route::get('{id}',[App\Http\Controllers\Calculator\IncubatorController::class, 'create'])->middleware('auth')->name('incubator.calculator');
     Route::post('store',[App\Http\Controllers\Calculator\IncubatorController::class, 'store'])->middleware('auth')->name('incubator.calculator.data.entry.store');
 });
-
+Route::group(['prefix'=> 'thermal-mapping'],function() {
+    Route::post('store',[App\Http\Controllers\Calculator\IncubatormappingController::class, 'store'])->middleware('auth')->name('incubator.mapping.data.entry.store');
+});
 Route::group(['prefix'=> 'calculator-entry'],function() {
     Route::get('create/{loc}/{id}',[App\Http\Controllers\CalclulatorentriesController::class, 'create'])->middleware('auth')->name('calculator.data.entry.create');
     Route::post('store',[App\Http\Controllers\CalclulatorentriesController::class, 'store'])->middleware('auth')->name('calculator.data.entry.store');
@@ -584,4 +586,20 @@ Route::group(['prefix'=> 'calculator-entry'],function() {
 Route::group(['prefix'=> 'mass-reference'],function() {
     Route::post('edit/{id}',[App\Http\Controllers\MassreferenceController::class, 'edit'])->middleware('auth')->name('mass.reference.edit');
     Route::post('store',[App\Http\Controllers\MassreferenceController::class, 'store'])->middleware('auth')->name('mass.reference.store');
+});
+Route::group(['prefix'=> 'ir-thermometer'],function() {
+    Route::get('{id}',[App\Http\Controllers\Calculator\IRController::class, 'create'])->middleware('auth')->name('ir.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\IRController::class, 'store'])->middleware('auth')->name('ir.calculator.data.entry.store');
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\IRController::class, 'print_worksheet'])->middleware('auth')->name('ir.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\IRController::class, 'print_certificate'])->middleware('auth')->name('ir.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\IRController::class, 'print_uncertainty'])->middleware('auth')->name('ir.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\IRController::class, 'print_dataentrysheet'])->middleware('auth')->name('ir.calculator.print_dataentrysheet');
+});
+Route::group(['prefix'=> 'lig-thermometer'],function() {
+    Route::get('{id}',[App\Http\Controllers\Calculator\LIGController::class, 'create'])->middleware('auth')->name('lig.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\LIGController::class, 'store'])->middleware('auth')->name('lig.calculator.data.entry.store');
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\LIGController::class, 'print_worksheet'])->middleware('auth')->name('lig.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\LIGController::class, 'print_certificate'])->middleware('auth')->name('lig.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\LIGController::class, 'print_uncertainty'])->middleware('auth')->name('lig.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\LIGController::class, 'print_dataentrysheet'])->middleware('auth')->name('lig.calculator.print_dataentrysheet');
 });

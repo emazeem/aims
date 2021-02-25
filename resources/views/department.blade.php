@@ -99,8 +99,8 @@
 
 
         $("#add_department_form").on('submit',(function(e) {
-
             e.preventDefault();
+            $('button').attr('disabled',true);
             $.ajax({
                 url: "{{route('departments.store')}}",
                 type: "POST",
@@ -117,6 +117,7 @@
                 },
                 success: function(data)
                 {
+                    $('button').attr('disabled',false);
                     swal('success',data.success,'success').then((value) => {
                         $('#add_department').modal('hide');
                         InitTable();
@@ -125,6 +126,7 @@
                 },
                 error: function(xhr)
                 {
+                    $('button').attr('disabled',false);
                     var error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;

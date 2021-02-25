@@ -12,6 +12,7 @@ class Calculatorentries extends Model
         return $this->belongsTo( 'App\Models\Generaldataentries', 'id', 'parent_id' );
     }
     public function child(){
+
         return $this->hasMany( 'App\Models\Generaldataentries', 'parent_id','id'  );
     }
 
@@ -20,6 +21,20 @@ class Calculatorentries extends Model
     }
     public function parent(){
         return $this->belongsTo('App\Models\Jobitem','job_type_id');
+    }
+
+    public function mappings()
+    {
+        return $this->hasMany('App\Models\Incubatormapping', 'parent_id','id');
+    }
+
+    public function incubatorentries()
+    {
+        return $this->hasMany('App\Models\IncubatorCalculator', 'parent_id','id');
+    }
+    public function incubatorentry()
+    {
+        return $this->belongsTo('App\Models\IncubatorCalculator', 'id','parent_id');
     }
 
 }

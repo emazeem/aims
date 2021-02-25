@@ -198,7 +198,7 @@
                         success: function (data) {
                             $('select[name="units"]').empty();
                             $('select[name="units"]').append('<option disabled selected>Select Respective Units</option>');
-                            $.each(data, function (key, value) {
+                            $.each(data['units'], function (key, value) {
                                 $('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
                             });
                         }

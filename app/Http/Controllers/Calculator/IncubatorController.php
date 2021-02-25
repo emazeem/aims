@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Asset;
 use App\Models\Calculatorentries;
 use App\Models\IncubatorCalculator;
+use App\Models\Incubatormapping;
 use App\Models\Jobitem;
 use App\Models\Managereference;
 use App\Models\Massreference;
@@ -30,6 +31,7 @@ class IncubatorController extends Controller
             $parameters[]=Asset::find($asset)->parameter;
         }
         $assets=Asset::whereIn('id',$assets)->get();
+
         return view('calculator.incubator.create',compact('id','labs','parent','assets'));
     }
     public function store(Request $request){
@@ -121,7 +123,7 @@ class IncubatorController extends Controller
         $allentries=IncubatorCalculator::where('parent_id',$entries->id)->get();
         $procedure = Procedure::find($job->item->capabilities->procedure);
         $uncertainties=explode(',',$procedure->uncertainties);
-        //dd($uncertainties);
+        dd($uncertainties);
         $data=array();
         foreach ($allentries as $entry){
             //all uncertainties declaration
@@ -218,7 +220,6 @@ class IncubatorController extends Controller
                 $reference=$reference+$error;
                 $final_error=$reference-$uuc;
             }
-
             $square_sum=0;
             $all_repeated_values=[$x1,$x2,$x3];
             for($i=0;$i<$n;$i++){
@@ -253,111 +254,31 @@ class IncubatorController extends Controller
                 }
             }
 
-            //dd($entries->before_offset);
-            if (in_array('uncertainty-due-to-offset-of-uuc',$uncertainties)){
-                $uncertainty_due_to_offset_of_uuc=$entries->before_offset/sqrt(3);
-            }
-            if (in_array('uncertainty-due-to-function-generator',$uncertainties)){
-                $uncertainty_due_to_function_generator=0;
-            }
-
-            //dd($uncertainty_due_to_offset_of_uuc);
-            if (in_array('uncertainty-due-to-accuracy-of-uuc',$uncertainties)){
-                if ($entries->job_type==0){
-                    $uncertainty_due_to_accuracy_of_uuc=(Jobitem::find($entries->job_type_id)->accuracy)/sqrt(3);
-                }
-            }
-            //dd($uncertainty_due_to_accuracy_of_uuc);
-            if (in_array('drift-of-the-standard',$uncertainties)){
-                $drift_of_the_standard=$uncertainty_of_reference/sqrt(3);
-                //dd($drift_of_the_standard,1);
-            }
-            if (in_array('uncertainty-due-to-temperature-stability-of-chamber',$uncertainties)){
-                $uncertainty_due_to_temprature_stability_of_chamber=(Jobitem::find($entries->job_type_id)->resolution/2)/sqrt(3);
-            }
-
-            if (in_array('uncertainty-due-to-drift-in-temperature',$uncertainties)){
-                //dd($entries->start_temp-$entries->end_temp);
-                $uncertainty_due_to_drift_in_temprature=((($entries->start_temp+$entries->end_temp)/2)-23)*(0.0004/1000)/sqrt(3);
-                //dd($uncertainty_due_to_drift_in_temprature);
-            }
-            dd($uncertainties);
-            if (in_array('uncertainty-due-to-repeatability-of-indication-of-uuc-u6',$uncertainties)){
-                $uncertainty_due_to_repeatability_of_indication_of_uuc_u6=0;
-                dd(1);
-            }
-            if (in_array('uncertainty-due-to-temp-instability-of-uuc-u8',$uncertainties)){
-                dd(1);
-            }
-            if (in_array('uncertainty-due-to-radiation-effect-u9',$uncertainties)){
-                dd(1);
-            }
-            if (in_array('uncertainty-due-to-loading-effect-u10',$uncertainties)){
-                dd(1);
-            }
-
-
-
-
-
-            //dd($drift_of_the_standard);
-            if (in_array('uncertainty-due-to-hysteresis-uuc',$uncertainties)){
-
-                $odd=0;$even=0;
-                $odd_n=0;$even_n=0;
-                for($i=1;$i<=$n;$i++){
-                    if ($i%2!=0){
-                        $odd=$odd+$all_repeated_values[$i-1];
-                        $odd_n++;
-                    }else{
-                        $even=$even+$all_repeated_values[$i-1];
-                        $even_n++;
-                    }
-                }
-                $odd_avg=$odd/$odd_n;
-                $even_avg=$even/$even_n;
-                $del_x=$odd_avg-$even_avg;
-                $uncertainty_of_hysterisis=($del_x/2)/sqrt(3);
-
-            }
             //dd($uncertainty_of_reference);
-            if (in_array('combined-uncertainty-of-standard',$uncertainties)) {
-                $combined_uncertainty_of_standard=$uncertainty_of_reference/2;
-                dd($combined_uncertainty_of_standard);
-            }
-            if (in_array('uncertainty-of-standard-obtained-from-cert-of-ph-buffer',$uncertainties)) {
-                $uncertainty_of_standard_obtained_from_cert_of_ph_buffer=$uncertainty_of_reference/2;
-            }
+            $combined_uncertainty_of_standard=$uncertainty_of_reference/2;
+
+
 
             //dd($combined_uncertainty_of_standard);
             //dd($drift_of_the_standard);
             $squresum=(pow($uncertainty_Type_A,2)+pow($combined_uncertainty_of_standard,2)+
-                pow($uncertainty_due_to_resolution_of_uuc,2)+pow($uncertainty_due_to_accuracy_of_uuc,2)+pow($uncertainty_due_to_temprature_stability_of_chamber,2)+
-                pow($drift_of_the_standard,2)+pow($uncertainty_due_to_offset_of_uuc,2)+pow($uncertainty_of_hysterisis,2)+pow($uncertainty_due_to_function_generator,2)+
-                pow($uncertainty_due_to_drift_in_temprature,2)+pow($uncertainty_due_to_resolution_of_std,2));
-            $combined_uncertainty=sqrt($squresum);
+                pow($uncertainty_due_to_resolution_of_uuc,2)+pow($uncertainty_due_to_resolution_of_std,2));
+
+            $combined_uncertainty=sqrt(1.19203);
             $expanded_uncertainties=$combined_uncertainty*2;
-            $data[$entry->fixed_value]=[
+            $data=[
                 'id'=>$entry->id,
                 'final-error'=>$final_error,
                 'standard-deviation'=>$SD,
                 'uncertainty-type-a'=>$uncertainty_Type_A,
                 'combined-uncertainty-of-standard'=>$combined_uncertainty_of_standard,
                 'uncertainty-due-to-resolution-of-uuc'=>$uncertainty_due_to_resolution_of_uuc,
-                'uncertainty-due-to-accuracy-of-uuc'=>$uncertainty_due_to_accuracy_of_uuc,
-                'drift-of-the-standard'=>$drift_of_the_standard,
-                'uncertainty-due-to-offset-of-uuc'=>$uncertainty_due_to_offset_of_uuc,
-                'uncertainty-due-to-hysteresis-uuc'=>$uncertainty_of_hysterisis,
-                'uncertainty-due-to-drift-in-temperature'=>$uncertainty_due_to_drift_in_temprature,
-                'uncertainty-due-to-resolution-of-std'=>$uncertainty_due_to_resolution_of_std,
-                'uncertainty-due-to-temperature-stability-of-chamber'=>$uncertainty_due_to_temprature_stability_of_chamber,
-                'uncertainty-due-to-function-generator'=>$uncertainty_due_to_function_generator,
-                'uncertainty-of-standard-obtained-from-cert-of-ph-buffer'=>$uncertainty_of_standard_obtained_from_cert_of_ph_buffer,
                 'combined-uncertainty'=>$combined_uncertainty,
                 'expanded-uncertainty'=>$expanded_uncertainties,
             ];
-            $save_data=Generaldataentries::find($entry->id);
-            $save_data->data=$data[$entry->fixed_value];
+
+            $save_data=IncubatorCalculator::find($entry->id);
+            $save_data->data=$data;
             $save_data->save();
         }
 

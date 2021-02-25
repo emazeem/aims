@@ -154,77 +154,148 @@
                 <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save</button>
             </div>
         </form>
-        <form class="form-horizontal row" action="{{route('incubator.calculator.data.entry.store')}}" method="post">
+        <h4><i class="fa fa-arrow-circle-o-down mt-5"></i>Thermal Mapping Data Entries</h4>
+        <form class="form-horizontal row" action="{{route('incubator.mapping.data.entry.store')}}" method="post">
             @csrf
             <input type="hidden" value="{{$parent->id}}" name="parent_id">
-            <div class="form-group col-3">
-                <label for="uuc_readings" class="col-12 control-label">UUC Readings</label>
-                <input type="text" class="form-control" id="uuc_readings" name="uuc_readings" placeholder="UUC Readings" autocomplete="off" value="{{old('uuc_readings')}}">
+            <input type="hidden" value="other" name="other">
+            <div class="form-group col-md-6">
+                <label for="normal" class="control-label">Normal Central Prob</label>
+                <select class="form-control" id="normal" name="normal">
+                    <option selected disabled>Normal Central Prob</option>
+                    @for($k=1;$k<=10;$k++)
+                        <option value="{{$k}}">Channel # {{$k}}</option>
+                    @endfor
+                </select>
+                @if ($errors->has('normal'))
+                    <span class="text-danger"><strong>{{ $errors->first('normal') }}</strong></span>
+                @endif
+            </div>
+            <div class="form-group col-md-6">
+                <label for="black" class="control-label">Black Central Prob</label>
+                <select class="form-control" id="black" name="black">
+                    <option selected disabled>Black Central Prob</option>
+                    @for($k=1;$k<=10;$k++)
+                        <option value="{{$k}}">Channel # {{$k}}</option>
+                    @endfor
+                </select>
+                @if ($errors->has('black'))
+                    <span class="text-danger"><strong>{{ $errors->first('black') }}</strong></span>
+                @endif
+            </div>
+            <div class="form-group col-md-6">
+                <label for="start" class="control-label">Start Time</label>
+                <input type="time" class="form-control" id="start" name="start" autocomplete="off" value="{{old('start')}}">
+                @if ($errors->has('start'))
+                    <span class="text-danger">
+                          <strong>{{ $errors->first('start') }}</strong>
+                      </span>
+                @endif
+            </div>
+            <div class="form-group col-md-6">
+                <label for="end" class="control-label">End Time</label>
+                <input type="time" class="form-control" id="end" name="end" autocomplete="off" value="{{old('end')}}">
+                @if ($errors->has('end'))
+                    <span class="text-danger">
+                          <strong>{{ $errors->first('end') }}</strong>
+                      </span>
+                @endif
+            </div>
+            <div class="form-group col-12 text-right px-0">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+
+        </form>
+        @for($x=1;$x<=30;$x++)
+            @php $mapping=\App\Models\Incubatormapping::where('parent_id',$parent->id)->where('time_interval',$x)->first(); @endphp
+        <form class="form-horizontal row" action="{{route('incubator.mapping.data.entry.store')}}" method="post">
+            @csrf
+            <input type="hidden" value="{{$parent->id}}" name="parent_id">
+            <input type="hidden" value="{{$x}}" name="time_interval" id="time_interval">
+            <div class="form-group col-1">
+                @if($x==1)
+                    <label for="uuc_readings" class="col-12 control-label"> <span class="h6"></span> UUC</label>
+                @endif
+                <span class="pull-left">{{$x}}</span>
+                    <input type="text" class="form-control pull-right col-10" id="uuc_readings" name="uuc_readings" placeholder="UUC" autocomplete="off" value="{{old('uuc_readings',$mapping?$mapping->uuc_reading:'')}}">
                 @if ($errors->has('uuc_readings'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('uuc_readings') }}</strong>
                       </span>
                 @endif
             </div>
-            <div class="col-9"></div>
-            <div class="form-group col-2">
-                <label for="channel_1" class="col-12 control-label">Channel 1</label>
-                <input type="text" class="form-control" id="channel_1" name="channel_1" placeholder="Channel 1" autocomplete="off" value="{{old('channel_1')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_1" class="col-12 control-label"><small> Channel 1</small></label>
+                @endif
+                <input type="text" class="form-control" id="channel_1" name="channel_1" placeholder="# 1" autocomplete="off" value="{{old('channel_1',$mapping?$mapping->channel_1:'')}}">
                 @if ($errors->has('channel_1'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_1') }}</strong>
                       </span>
                 @endif
             </div>
-            <div class="form-group col-2">
-                <label for="channel_2" class="col-12 control-label">Channel 2</label>
-                <input type="text" class="form-control" id="channel_2" name="channel_2" placeholder="Channel 2" autocomplete="off" value="{{old('channel_2')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_2" class="col-12 control-label"><small> Channel 2</small></label>
+                @endif
+                <input type="text" class="form-control" id="channel_2" name="channel_2" placeholder="# 2" autocomplete="off" value="{{old('channel_2',$mapping?$mapping->channel_2:'')}}">
                 @if ($errors->has('channel_2'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_2') }}</strong>
                       </span>
                 @endif
             </div>
-            <div class="form-group col-2">
-                <label for="channel_3" class="col-12 control-label">Channel 3</label>
-                <input type="text" class="form-control" id="channel_3" name="channel_3" placeholder="Channel 3" autocomplete="off" value="{{old('channel_3')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                    <label for="channel_3" class="col-12 control-label"><small> Channel 3</small></label>
+                @endif
+
+                <input type="text" class="form-control" id="channel_3" name="channel_3" placeholder="# 3" autocomplete="off" value="{{old('channel_3',$mapping?$mapping->channel_3:'')}}">
                 @if ($errors->has('channel_3'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_3') }}</strong>
                       </span>
                 @endif
             </div>
-            <div class="form-group col-2">
-                <label for="channel_4" class="col-12 control-label">Channel 4</label>
-                <input type="text" class="form-control" id="channel_4" name="channel_4" placeholder="Channel 4" autocomplete="off" value="{{old('channel_4')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_4" class="col-12 control-label"><small> Channel 4</small></label>
+                    @endif
+                    <input type="text" class="form-control" id="channel_4" name="channel_4" placeholder="# 4" autocomplete="off" value="{{old('channel_4',$mapping?$mapping->channel_4:'')}}">
                 @if ($errors->has('channel_4'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_4') }}</strong>
                       </span>
                 @endif
             </div>
-            <div class="form-group col-2">
-                <label for="channel_5" class="col-12 control-label">Channel 5</label>
-                <input type="text" class="form-control" id="channel_5" name="channel_5" placeholder="Channel 5" autocomplete="off" value="{{old('channel_5')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_5" class="col-12 control-label"><small> Channel 5</small></label>
+                @endif
+                <input type="text" class="form-control" id="channel_5" name="channel_5" placeholder="# 5" autocomplete="off" value="{{old('channel_5',$mapping?$mapping->channel_5:'')}}">
                 @if ($errors->has('channel_5'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_5') }}</strong>
                       </span>
                 @endif
             </div>
-            <div class="col-2"></div>
-            <div class="form-group col-2">
-                <label for="channel_6" class="col-12 control-label">Channel 6</label>
-                <input type="text" class="form-control" id="channel_6" name="channel_6" placeholder="Channel 6" autocomplete="off" value="{{old('channel_6')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_6" class="col-12 control-label"><small> Channel 6</small></label>
+                @endif
+                <input type="text" class="form-control" id="channel_6" name="channel_6" placeholder="# 6" autocomplete="off" value="{{old('channel_6',$mapping?$mapping->channel_6:'')}}">
                 @if ($errors->has('channel_6'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_6') }}</strong>
                       </span>
                 @endif
             </div>
-            <div class="form-group col-2">
-                <label for="channel_7" class="col-12 control-label">Channel 7</label>
-                <input type="text" class="form-control" id="channel_7" name="channel_7" placeholder="Channel 7" autocomplete="off" value="{{old('channel_7')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_7" class="col-12 control-label"><small> Channel 7</small></label>
+                @endif
+                <input type="text" class="form-control" id="channel_7" name="channel_7" placeholder="# 7" autocomplete="off" value="{{old('channel_7',$mapping?$mapping->channel_7:'')}}">
                 @if ($errors->has('channel_7'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_7') }}</strong>
@@ -232,9 +303,11 @@
                 @endif
             </div>
 
-            <div class="form-group col-2">
-                <label for="channel_8" class="col-12 control-label">Channel 8</label>
-                <input type="text" class="form-control" id="channel_8" name="channel_8" placeholder="Channel 8" autocomplete="off" value="{{old('channel_8')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_8" class="col-12 control-label"><small> Channel 8</small></label>
+                @endif
+                <input type="text" class="form-control" id="channel_8" name="channel_8" placeholder="# 8" autocomplete="off" value="{{old('channel_8',$mapping?$mapping->channel_8:'')}}">
                 @if ($errors->has('channel_8'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_8') }}</strong>
@@ -242,9 +315,11 @@
                 @endif
             </div>
 
-            <div class="form-group col-2">
-                <label for="channel_9" class="col-12 control-label">Channel 9</label>
-                <input type="text" class="form-control" id="channel_9" name="channel_9" placeholder="Channel 9" autocomplete="off" value="{{old('channel_9')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_9" class="col-12 control-label"><small> Channel 9</small></label>
+                @endif
+                <input type="text" class="form-control" id="channel_9" name="channel_9" placeholder="# 9" autocomplete="off" value="{{old('channel_9',$mapping?$mapping->channel_9:'')}}">
                 @if ($errors->has('channel_9'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_9') }}</strong>
@@ -252,23 +327,31 @@
                 @endif
             </div>
 
-            <div class="form-group col-2">
-                <label for="channel_10" class="col-12 control-label">Channel 10</label>
-                <input type="text" class="form-control" id="channel_10" name="channel_10" placeholder="Channel 10" autocomplete="off" value="{{old('channel_10')}}">
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_10" class="col-12 control-label"><small> Channel 10</small></label>
+                @endif
+                <input type="text" class="form-control" id="channel_10" name="channel_10" placeholder="# 10" autocomplete="off" value="{{old('channel_10',$mapping?$mapping->channel_10:'')}}">
                 @if ($errors->has('channel_10'))
                     <span class="text-danger">
                           <strong>{{ $errors->first('channel_10') }}</strong>
                       </span>
                 @endif
             </div>
-            <div class="form-group col-2">
-            </div>
-            <div class='col-12'>
-                <a href="{{ URL::previous() }}" class="btn btn-light border"><i class="fa fa-times"></i> Cancel</a>
-                <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save</button>
+            <div class="form-group col-1">
+                @if($x==1)
+                <label for="channel_10" class="col-12 control-label">Action</label>
+                @endif
+                @if($mapping)
+                        <button type="submit" class="btn btn-warning">Update</button>
+                    @else
+                        <button type="submit" class="btn btn-success">Save</button>
+                    @endif
             </div>
 
+
         </form>
+        @endfor
     </div>
     <script>
         $(document).ready(function () {
@@ -282,7 +365,6 @@
                     dataType: "json",
                     success: function (data) {
                         if (data['conversion']==true){
-
                             $('#adding_factor').val(data['unit']['factor_add']);
                             $('#mulitplying_factor').val(data['unit']['factor_multiply']);
                             $('#ref_unit').val(data['unit']['id']);
