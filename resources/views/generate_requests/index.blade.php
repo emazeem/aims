@@ -15,7 +15,6 @@
     </script>
 @endif
 <div class="row">
-    <div class="loader"></div>
     <div class="col-12">
         <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Requests</h3>
         <span class="">
@@ -57,8 +56,6 @@
 <script>
 
     function InitTable() {
-        $(".loading").fadeIn();
-
         $('#example').DataTable({
             responsive: true,
             "bDestroy": true,
@@ -86,7 +83,6 @@
 
     }
     $(document).ready(function() {
-        $('.loader').hide();
         InitTable();
         $('select[name="customer"]').on('change', function() {
             var customer = $(this).val();

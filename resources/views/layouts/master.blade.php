@@ -39,6 +39,7 @@
 </head>
 <body class="nav-md">
 <div class="container body">
+    <div class="loader"></div>
     <div class="main_container">
         @include('layouts.partials.sidebar')
         @include('layouts.partials.navbar')
@@ -53,6 +54,11 @@
         </footer>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('.loader').hide();
+    });
+</script>
 <script src="{{url('vendors/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{url('vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{url('build/js/custom.min.js')}}"></script>

@@ -79,10 +79,10 @@
         });
 
     </script>
-
+{{--
     <script>
         $(document).ready(function () {
-            $("#add_columns_form").on('submit', (function (e) {
+            /*$("#add_columns_form").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
                     url: "{{route('columns.store')}}",
@@ -152,7 +152,7 @@
 
                 });
             }));
-
+*/
             $(document).on('click', '.edit', function () {
                 var id = $(this).attr('data-id');
                 $.ajax({
@@ -182,4 +182,5 @@
 
         });
     </script>
+    --}}
 @endsection
