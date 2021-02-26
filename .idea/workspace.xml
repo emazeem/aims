@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/generate_requests/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/generate_requests/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/materialreceivings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/materialreceivings/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/purchaseindent/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/purchaseindent/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
@@ -106,13 +107,13 @@
           <entry key="js" value="1" />
           <entry key="json" value="12" />
           <entry key="log" value="1" />
-          <entry key="php" value="1696" />
+          <entry key="php" value="1697" />
           <entry key="sql" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="839" />
+          <entry key="Blade" value="840" />
           <entry key="CSS" value="21" />
           <entry key="HTML" value="11" />
           <entry key="Ini" value="1" />
@@ -130,13 +131,13 @@
           <entry key="htaccess" value="4" />
           <entry key="ini" value="2" />
           <entry key="json" value="8" />
-          <entry key="php" value="122752" />
+          <entry key="php" value="122753" />
           <entry key="sql" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="67327" />
+          <entry key="Blade" value="67328" />
           <entry key="CSS" value="566" />
           <entry key="HTML" value="25" />
           <entry key="Ini" value="2" />
@@ -177,13 +178,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/purchaseindent/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="409">
               <caret line="188" selection-start-line="84" selection-end-line="189" />
               <folding>
                 <element signature="e#2697#6471#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/materialreceivings/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="81" column="4" selection-start-line="81" selection-end-line="184" selection-end-column="8" />
+              <folding>
+                <element signature="e#2614#6388#0#HTML" />
+                <element signature="e#4025#5260#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -243,7 +257,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" />
         <option value="$PROJECT_DIR$/app/Models/Jobitem.php" />
         <option value="$PROJECT_DIR$/../pdf/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/../new/app/Http/Controllers/HomeController.php" />
@@ -294,6 +307,7 @@
         <option value="$PROJECT_DIR$/resources/views/generate_requests/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/purchaseindent/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/materialreceivings/index.blade.php" />
       </list>
     </option>
   </component>
@@ -463,7 +477,7 @@
       <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -523,6 +537,13 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="generate_requests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="materialreceivings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
@@ -692,15 +713,16 @@
       <workItem from="1614169301522" duration="5098000" />
       <workItem from="1614190453581" duration="648000" />
       <workItem from="1614225834895" duration="17734000" />
-      <workItem from="1614313341879" duration="1104000" />
+      <workItem from="1614313341879" duration="1741000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="853352000" />
+    <option name="totallyTimeSpent" value="853989000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49836066" visible="true" weight="0.20347957" />
       <window_info id="Structure" order="1" sideWeight="0.50163937" side_tool="true" weight="0.15204236" />
@@ -730,13 +752,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DataentryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="88" selection-start-line="42" selection-start-column="8" selection-end-line="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/calculator/general/worksheet.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -1087,6 +1102,17 @@
           <caret line="188" selection-start-line="84" selection-end-line="189" />
           <folding>
             <element signature="e#2697#6471#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/materialreceivings/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="81" column="4" selection-start-line="81" selection-end-line="184" selection-end-column="8" />
+          <folding>
+            <element signature="e#2614#6388#0#HTML" />
+            <element signature="e#4025#5260#0#HTML" />
           </folding>
         </state>
       </provider>
