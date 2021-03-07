@@ -65,7 +65,7 @@ class UnitController extends Controller
         $unit=new Unit();
         $unit->unit=$request->unit;
         $unit->parameter=$request->parameter;
-        $unit->primary_=($request->primary)?$request->primary:null;
+        //$unit->primary_=($request->primary)?$request->primary:null;
         $unit->factor_multiply=$request->factor_multiply;
         $unit->factor_add=$request->factor_add;
         $unit->save();

@@ -15,15 +15,10 @@
 
         </script>
     @endif
-
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{$show->name}}</h1>
-
-    </div>
-
     <div class="row pb-3">
         <div class="col-12">
-            <table class="table table-bordered table-responsive-sm table-hover font-13">
+            <h4>{{$show->name}}</h4>
+            <table class="table table-bordered table-responsive-sm table-sm bg-white table-hover font-13">
             <tr>
                     <th>Name</th>
                     <td>{{$show->name}}</td>
@@ -36,9 +31,9 @@
                     <th>Uncertainties</th>
                     <td>
                         @foreach(explode(',',$show->uncertainties) as $uncertainty)
-                            <span class="badge badge-danger h3">
+                            <div class="badge badge-danger">
                                 {{\App\Models\Uncertainty::where('slug',$uncertainty)->first()->name}}
-                            </span>
+                            </div>
                         @endforeach
                     </td>
                 </tr>
