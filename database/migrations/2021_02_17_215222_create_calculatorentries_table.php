@@ -38,6 +38,13 @@ class CreateCalculatorentriesTable extends Migration
             $table->string('ref_temp')->nullable();
             //end for balance only
             $table->integer('calibrated_by')->nullable();
+            //for volume only
+            $table->string('tolerance')->nullable();
+            $table->string('class')->nullable();
+            $table->string('balance_id')->nullable();
+            $table->string('balance_values')->nullable();
+            $table->string('temp_id')->nullable();
+            $table->string('temp_values')->nullable();
             $table->timestamps();
         });
     }

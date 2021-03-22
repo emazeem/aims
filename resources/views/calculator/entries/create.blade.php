@@ -102,8 +102,7 @@
                     @endif
                 </div>
 
-                @if($show->item->capabilities->calculator=='balance-calculator')
-
+                @if($show->item->capabilities->calculator=='balance-calculator' or $show->item->capabilities->calculator=='volume-calculator')
                 <div class="form-group col-md-6">
                     <label for="start_atmospheric_pressure" class="col-md-12 col-12 control-label">Start Atmospheric
                         Pressure</label>
@@ -350,7 +349,111 @@
                 @endif
 
             @endif
+            @if($show->item->capabilities->calculator=='volume-calculator')
+                <div class="form-group col-md-12">
+                    <label for="tolerance" class="col-md-12 col-12 control-label">Tolerance</label>
+                    <input type="text" class="form-control col-md-12 col-12" id="tolerance" name="tolerance"
+                           placeholder="Tolerance" autocomplete="off" value="{{old('tolerance')}}">
+                    @if ($errors->has('tolerance'))
+                        <span class="text-danger">
+                        <strong>{{ $errors->first('tolerance') }}</strong>
+                    </span>
+                    @endif
+                </div>
 
+                <div class="form-group col-md-12">
+                    <label for="class" class=" control-label">Class</label>
+                    <select class="form-control " id="class" name="class">
+                        <option selected disabled>Select class</option>
+                        <option value="a">Class A</option>
+                        <option value="b">Class B</option>
+                        <option value="c">Class C (Unclassified)</option>
+                    </select>
+                    @if ($errors->has('class'))
+                        <span class="text-danger"><strong>{{ $errors->first('class') }}</strong></span>
+                    @endif
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="class" class="control-label">Balance Calibration Check with Traceable Std. Masses</label>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="balance_id" class="col-md-12 col-12 control-label">Balance ID</label>
+                    <input type="text" class="form-control col-md-12 col-12" id="balance_id" name="balance_id"
+                           placeholder="Balance ID" autocomplete="off" value="{{old('balance_id')}}">
+                    @if ($errors->has('balance_id'))
+                        <span class="text-danger">
+                        <strong>{{ $errors->first('balance_id') }}</strong>
+                    </span>
+                    @endif
+                </div>
+
+                <div class="row">
+                    <label for="balance_values" class="col-md-12 col-12 control-label">Balance Values</label>
+
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="balance_values" name="balance_values[]" placeholder="Balance Values" autocomplete="off" value="{{old('balance_values')}}">
+                    </div>
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="balance_values" name="balance_values[]" placeholder="Balance Values" autocomplete="off" value="{{old('balance_values')}}">
+                    </div>
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="balance_values" name="balance_values[]" placeholder="Balance Values" autocomplete="off" value="{{old('balance_values')}}">
+                    </div>
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="balance_values" name="balance_values[]" placeholder="Balance Values" autocomplete="off" value="{{old('balance_values')}}">
+                    </div>
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="balance_values" name="balance_values[]" placeholder="Balance Values" autocomplete="off" value="{{old('balance_values')}}">
+                    </div>
+
+                    @if ($errors->has('balance_values'))
+                        <span class="text-danger">
+                            <strong>{{ $errors->first('balance_values') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="class" class="control-label">Temperature of Water used for Calibration</label>
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="temp_id" class="col-md-12 col-12 control-label">Temp_ ID</label>
+                    <input type="text" class="form-control col-md-12 col-12" id="temp_id" name="temp_id"
+                           placeholder="Temp_ ID" autocomplete="off" value="{{old('temp_id')}}">
+                    @if ($errors->has('temp_id'))
+                        <span class="text-danger">
+                        <strong>{{ $errors->first('temp_id') }}</strong>
+                    </span>
+                    @endif
+                </div>
+
+                <div class="row">
+                    <label for="temp_values" class="col-md-12 col-12 control-label">Temp_ Values</label>
+
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="temp_values" name="temp_values[]" placeholder="Temp Values" autocomplete="off" value="{{old('temp_values')}}">
+                    </div>
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="temp_values" name="temp_values[]" placeholder="Temp Values" autocomplete="off" value="{{old('temp_values')}}">
+                    </div>
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="temp_values" name="temp_values[]" placeholder="Temp Values" autocomplete="off" value="{{old('temp_values')}}">
+                    </div>
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="temp_values" name="temp_values[]" placeholder="Temp Values" autocomplete="off" value="{{old('temp_values')}}">
+                    </div>
+                    <div class="form-group col-md-2 col-6">
+                        <input type="text" class="form-control col-12" id="temp_values" name="temp_values[]" placeholder="Temp Values" autocomplete="off" value="{{old('temp_values')}}">
+                    </div>
+                    @if ($errors->has('temp_values'))
+                        <span class="text-danger">
+                            <strong>{{ $errors->first('temp_values') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            @endif
             <div class="row">
                 <div class="col-12 p-2">
                     <a href="{{ URL::previous() }}" class="btn btn-light border"><i class="fa fa-times"></i> Cancel</a>

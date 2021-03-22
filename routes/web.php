@@ -576,6 +576,15 @@ Route::group(['prefix'=> 'incubator-calculator'],function() {
     Route::get('{id}',[App\Http\Controllers\Calculator\IncubatorController::class, 'create'])->middleware('auth')->name('incubator.calculator');
     Route::post('store',[App\Http\Controllers\Calculator\IncubatorController::class, 'store'])->middleware('auth')->name('incubator.calculator.data.entry.store');
 });
+Route::group(['prefix'=> 'volume-calculator'],function() {
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\VolumeController::class, 'print_worksheet'])->middleware('auth')->name('volume.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\VolumeController::class, 'print_certificate'])->middleware('auth')->name('volume.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\VolumeController::class, 'print_uncertainty'])->middleware('auth')->name('volume.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\VolumeController::class, 'print_dataentrysheet'])->middleware('auth')->name('volume.calculator.print_dataentrysheet');
+    Route::get('{id}',[App\Http\Controllers\Calculator\VolumeController::class, 'create'])->middleware('auth')->name('volume.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\VolumeController::class, 'store'])->middleware('auth')->name('volume.calculator.data.entry.store');
+});
+
 Route::group(['prefix'=> 'thermal-mapping'],function() {
     Route::post('store',[App\Http\Controllers\Calculator\IncubatormappingController::class, 'store'])->middleware('auth')->name('incubator.mapping.data.entry.store');
 });

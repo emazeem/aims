@@ -8,7 +8,6 @@ use App\Models\Jobitem;
 use App\Models\Parameter;
 use App\Models\Preference;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 
 class CalclulatorentriesController extends Controller
 {
@@ -37,7 +36,7 @@ class CalclulatorentriesController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request->all());
+        //dd($request->all());
         $this->validate(request(), [
             'uuc_resolution' => 'required',
             'start_humidity' => 'required',
@@ -57,10 +56,22 @@ class CalclulatorentriesController extends Controller
                 'end_atmospheric_pressure' => 'required',
             ]);
         }
+        if ($labjob->item->capabilities->calculator  == 'volume-calculator') {
+            $this->validate(request(), [
+                'class' => 'required',
+                'tolerance' => 'required',
+            ]);
+        }
+
         $labjob->accuracy = $request->accuracy;
         $labjob->range = implode(',', $request->range);
         $labjob->resolution = $request->uuc_resolution;
-        $entry = new Calculatorentries();
+        $exist=Calculatorentries::where('job_type_id',$request->jobtypeid)->get()->count();
+        if ($exist>0){
+            $entry=Calculatorentries::where('job_type_id',$request->jobtypeid)->first();
+        }else{
+            $entry = new Calculatorentries();
+        }
         $entry->job_type_id = $request->jobtypeid;
         $entry->start_temp = $request->start_temp;
         $entry->end_temp = $request->end_temp;
@@ -71,7 +82,22 @@ class CalclulatorentriesController extends Controller
         $entry->after_offset = $request->after_offset;
         $entry->location=$request->location;
         $entry->calibrated_by = auth()->user()->id;
+        //for volume only
+        if ($labjob->item->capabilities->calculator == 'volume-calculator') {
+
+
+            $entry->class = $request->class;
+            $entry->tolerance = $request->tolerance;
+            $entry->balance_id = $request->balance_id;
+            $entry->temp_id = $request->temp_id;
+            $entry->balance_values = implode(',',$request->balance_values);
+            $entry->temp_values = implode(',',$request->temp_values);
+            $entry->start_atmospheric_pressure = $request->start_atmospheric_pressure;
+            $entry->end_atmospheric_pressure = $request->end_atmospheric_pressure;
+
+        }
         //for balance only
+
         if ($labjob->item->capabilities->calculator == 'balance-calculator') {
             $entry->start_atmospheric_pressure = $request->start_atmospheric_pressure;
             $entry->end_atmospheric_pressure = $request->end_atmospheric_pressure;
@@ -94,8 +120,6 @@ class CalclulatorentriesController extends Controller
         if ($entry->save()) {
             $labjob->save();
         }
-
-
         return redirect()->back()->with('success', 'Worksheet data added successfully');
     }
     //

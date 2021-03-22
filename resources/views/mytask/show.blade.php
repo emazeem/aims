@@ -158,8 +158,10 @@
             @if($show->general)
                 <h4><i class="fa fa-eye"></i> General Entry</h4>
             @if($show->item->capabilities->calculator=='incubator-calculator')
-                    <a href="{{route('incubator.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Entries</a>
-            @endif
+                    <a href="{{route('incubator.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Incubator Entries</a>
+                    @elseif($show->item->capabilities->calculator=='volume-calculator')
+                    <a href="{{route('volume.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Volume Entries</a>
+                @endif
                 <table class="table table-bordered table-sm table-hover bg-white    ">
                     <tr>
                         <th width="50%">Start Temperature</th>
@@ -186,8 +188,35 @@
                         <th>End Atmospheric Pressure</th>
                         <td>{{$show->general->end_atmospheric_pressure}}hPa</td>
                     </tr>
+                    @if($show->item->capabilities->calculator=='volume-calculator')
+                        <tr>
+                            <th>Class</th>
+                            <td class="text-capitalize">Class {{$show->general->class}}</td>
+                        </tr>
+                        <tr>
+                            <th>Tolerance</th>
+                            <td>{{$show->general->tolerance}}</td>
+                        </tr>
+                        <tr>
+                            <th>Temp_ID</th>
+                            <td>{{$show->general->temp_id}}</td>
+                        </tr>
+                        <tr>
+                            <th>Temp_ Values</th>
+                            <td>{{$show->general->temp_values}}</td>
+                        </tr>
+                        <tr>
+                            <th>Balance_ID</th>
+                            <td>{{$show->general->balance_id}}</td>
+                        </tr>
+                        <tr>
+                            <th>Balance_ Values</th>
+                            <td>{{$show->general->balance_values}}</td>
+                        </tr>
+                    @endif
                 </table>
-            @if($show->general->incubatorentries)
+
+            @if(count($show->general->incubatorentries)>0)
                 <table class="table table-bordered table-sm table-hover bg-white">
                     <tr>
                         <th>x1</th>
@@ -211,7 +240,7 @@
                     @endforeach
                 </table>
                 @endif
-            @if($show->general->mappings)
+            @if(count($show->general->mappings)>0)
                 <table class="table table-bordered table-sm table-hover bg-white    ">
                     <tr>
                         <th>Interval</th>
