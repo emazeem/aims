@@ -133,13 +133,13 @@
           <entry key="htaccess" value="4" />
           <entry key="ini" value="2" />
           <entry key="json" value="8" />
-          <entry key="php" value="124566" />
+          <entry key="php" value="124616" />
           <entry key="sql" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="68167" />
+          <entry key="Blade" value="68217" />
           <entry key="CSS" value="572" />
           <entry key="HTML" value="25" />
           <entry key="Ini" value="2" />
@@ -213,8 +213,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/customers/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="248" column="130" selection-start-line="248" selection-start-column="130" selection-end-line="248" selection-end-column="130" />
+            <state relative-caret-position="-112">
+              <caret line="259" column="113" selection-start-line="259" selection-start-column="113" selection-end-line="259" selection-end-column="113" />
+              <folding>
+                <element signature="e#6193#8158#0#HTML" />
+                <element signature="e#8183#10148#0#HTML" />
+                <element signature="e#10173#12136#0#HTML" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -241,7 +246,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>general-cal</find>
       <find>$parent</find>
       <find>uncertainties</find>
       <find>drift-of-the-standard</find>
@@ -271,6 +275,7 @@
       <find>range</find>
       <find>$pnames</find>
       <find>aphone</find>
+      <find>pphone</find>
     </findStrings>
     <replaceStrings>
       <replace>row pb-2</replace>
@@ -786,16 +791,15 @@
       <workItem from="1614869401540" duration="1148000" />
       <workItem from="1614938289778" duration="600000" />
       <workItem from="1616390939178" duration="347000" />
-      <workItem from="1616395684782" duration="11076000" />
+      <workItem from="1616395684782" duration="11354000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="870619000" />
+    <option name="totallyTimeSpent" value="870897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49836066" weight="0.21255673" />
       <window_info id="Structure" order="1" sideWeight="0.50163937" side_tool="true" weight="0.15204236" />
@@ -810,7 +814,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3295082" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.494705" weight="0.43442622" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.494705" visible="true" weight="0.43442622" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.505295" side_tool="true" weight="0.39836067" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1175,8 +1179,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customers/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="248" column="130" selection-start-line="248" selection-start-column="130" selection-end-line="248" selection-end-column="130" />
+        <state relative-caret-position="-112">
+          <caret line="259" column="113" selection-start-line="259" selection-start-column="113" selection-end-line="259" selection-end-column="113" />
+          <folding>
+            <element signature="e#6193#8158#0#HTML" />
+            <element signature="e#8183#10148#0#HTML" />
+            <element signature="e#10173#12136#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>

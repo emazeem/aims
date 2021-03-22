@@ -234,7 +234,7 @@
                                 @endif
 
                             </div>
-                            @php $aphones=explode('-',$edit->pur_phone); @endphp
+                            @php $aphones=explode(',',$edit->pur_phone); @endphp
                             <div class="form-group">
                                 <input type="text" class="form-control" id="purchase" name="pur_phone[]"
                                        placeholder="Phone" autocomplete="off" value="{{old('pur_phone.0',isset($aphones[0])?$aphones[0]:null)}}">
