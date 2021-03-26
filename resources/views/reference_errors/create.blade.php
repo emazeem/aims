@@ -246,7 +246,9 @@
                             $('.channels').hide();
                         }
                         $.each(data, function(key, value) {
-                            $('select[name="units"]').append('<option value="'+ value.id +'">'+ value.unit +'</option>');
+                            if (key!='show_channels'){
+                                $('select[name="units"]').append('<option value="'+ value.id +'">'+ value.unit +'</option>');
+                            }
                         });
                     },
                     error: function(){
