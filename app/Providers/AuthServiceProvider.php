@@ -73,6 +73,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->vouchers();
         $this->activitylog();
         $this->journal();
+        $this->inventory();
         //
     }
     public function journal()
@@ -83,8 +84,31 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+    }
+    public function inventory()
+    {
+        Gate::define('inventory-index', function ($user) {
+            if (in_array('inventory-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('inventory-categories-index', function ($user) {
+            if (in_array('inventory-categories-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('inventories-index', function ($user) {
+            if (in_array('inventories-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
 
     }
+
     public function vouchers()
     {
         Gate::define('vouchers-index', function ($user) {

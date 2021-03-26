@@ -55,8 +55,6 @@
                     <span class="text-danger"><strong>{{ $errors->first('units') }}</strong></span>
                 @endif
             </div>
-
-
             <div class="row cal-inputs">
                 <div class="col-md-3 col-12">
                     <h6 id="left"></h6>

@@ -612,3 +612,17 @@ Route::group(['prefix'=> 'lig-thermometer'],function() {
     Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\LIGController::class, 'print_uncertainty'])->middleware('auth')->name('lig.calculator.print_uncertainty');
     Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\LIGController::class, 'print_dataentrysheet'])->middleware('auth')->name('lig.calculator.print_dataentrysheet');
 });
+Route::group(['prefix'=> 'inventory-categories'],function() {
+    Route::get('',[App\Http\Controllers\InventoryCategoryController::class, 'index'])->middleware('auth')->name('inventory.category.index');
+    Route::post('',[App\Http\Controllers\InventoryCategoryController::class, 'fetch'])->middleware('auth')->name('inventory.category.fetch');
+    Route::post('/store',[App\Http\Controllers\InventoryCategoryController::class, 'store'])->middleware('auth')->name('inventory.category.store');
+    Route::post('/edit',[App\Http\Controllers\InventoryCategoryController::class, 'edit'])->middleware('auth')->name('inventory.category.edit');
+});
+Route::group(['prefix'=> 'inventories'],function() {
+    Route::get('',[App\Http\Controllers\InventoriesController::class, 'index'])->middleware('auth')->name('inventory.index');
+    Route::get('view/{id}',[App\Http\Controllers\InventoriesController::class, 'view'])->middleware('auth')->name('inventory.view');
+    Route::post('',[App\Http\Controllers\InventoriesController::class, 'fetch'])->middleware('auth')->name('inventory.fetch');
+    Route::post('/store',[App\Http\Controllers\InventoriesController::class, 'store'])->middleware('auth')->name('inventory.store');
+    Route::post('/edit',[App\Http\Controllers\InventoriesController::class, 'edit'])->middleware('auth')->name('inventory.edit');
+});
+

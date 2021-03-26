@@ -38,28 +38,6 @@
             --}}
 
             <div class="row">
-{{--                <div class="form-group col-md-6">
-                    <label for="assets" class="control-label">Assets</label>
-                    <select class="form-control" id="assets" name="assets">
-                        <option selected disabled>Assets</option>
-                        @foreach($assets as $asset)
-                            <option value="{{$asset->id}}">{{$asset->name}} ({{$asset->code}}) ({{$asset->range}})</option>
-                        @endforeach
-                    </select>
-                    @if ($errors->has('assets'))
-                        <span class="text-danger"><strong>{{ $errors->first('assets') }}</strong></span>
-                    @endif
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="units" class=" control-label">Units</label>
-                    <select class="form-control " id="units" name="units">
-                        <option selected disabled>Select Unit</option>
-                    </select>
-                    @if ($errors->has('units'))
-                        <span class="text-danger"><strong>{{ $errors->first('units') }}</strong></span>
-                    @endif
-                </div>--}}
 
                 <div class="form-group col-md-6">
                     <label for="start_temp" class="col-md-12 col-12 control-label">Start Temperature</label>
@@ -350,6 +328,32 @@
 
             @endif
             @if($show->item->capabilities->calculator=='volume-calculator')
+
+                <div class="form-group col-md-6">
+                    <label for="assets" class="control-label">Balance Asset</label>
+                    <select class="form-control" id="balance_id" name="balance_id">
+                        <option selected disabled>Assets</option>
+                        @foreach($assets as $asset)
+                            <option value="{{$asset->id}}">{{$asset->name}} ({{$asset->code}}) ({{$asset->range}})</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('balance_id'))
+                        <span class="text-danger"><strong>{{ $errors->first('balance_id') }}</strong></span>
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="assets" class="control-label">Temp Asset</label>
+                    <select class="form-control" id="temp_id" name="temp_id">
+                        <option selected disabled>Assets</option>
+                        @foreach($assets as $asset)
+                            <option value="{{$asset->id}}">{{$asset->name}} ({{$asset->code}}) ({{$asset->range}})</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('temp_id'))
+                        <span class="text-danger"><strong>{{ $errors->first('temp_id') }}</strong></span>
+                    @endif
+                </div>
+
                 <div class="form-group col-md-12">
                     <label for="tolerance" class="col-md-12 col-12 control-label">Tolerance</label>
                     <input type="text" class="form-control col-md-12 col-12" id="tolerance" name="tolerance"
@@ -378,16 +382,8 @@
                     <label for="class" class="control-label">Balance Calibration Check with Traceable Std. Masses</label>
                 </div>
 
-                <div class="form-group col-md-12">
-                    <label for="balance_id" class="col-md-12 col-12 control-label">Balance ID</label>
-                    <input type="text" class="form-control col-md-12 col-12" id="balance_id" name="balance_id"
-                           placeholder="Balance ID" autocomplete="off" value="{{old('balance_id')}}">
-                    @if ($errors->has('balance_id'))
-                        <span class="text-danger">
-                        <strong>{{ $errors->first('balance_id') }}</strong>
-                    </span>
-                    @endif
-                </div>
+
+
 
                 <div class="row">
                     <label for="balance_values" class="col-md-12 col-12 control-label">Balance Values</label>
@@ -418,16 +414,7 @@
                     <label for="class" class="control-label">Temperature of Water used for Calibration</label>
                 </div>
 
-                <div class="form-group col-md-12">
-                    <label for="temp_id" class="col-md-12 col-12 control-label">Temp_ ID</label>
-                    <input type="text" class="form-control col-md-12 col-12" id="temp_id" name="temp_id"
-                           placeholder="Temp_ ID" autocomplete="off" value="{{old('temp_id')}}">
-                    @if ($errors->has('temp_id'))
-                        <span class="text-danger">
-                        <strong>{{ $errors->first('temp_id') }}</strong>
-                    </span>
-                    @endif
-                </div>
+
 
                 <div class="row">
                     <label for="temp_values" class="col-md-12 col-12 control-label">Temp_ Values</label>
