@@ -74,7 +74,25 @@
                             @endif
                         </div>
                     </div>
-
+                @endif
+                @if($show_filtertype==true)
+                <div class="form-group row filtertype">
+                    <label for="filtertype" class="col-2 control-label">Select Filter Type</label>
+                    <div class="col-10">
+                        <select class="form-control" id="filtertype" name="filtertype">
+                            <option value="" selected disabled>Select Filter Type</option>
+                            <option value="N2" {{$edit->channel=='N2'?'selected':''}}>N2</option>
+                            <option value="N3" {{$edit->channel=='N3'?'selected':''}}>N3</option>
+                            <option value="N4" {{$edit->channel=='N4'?'selected':''}}>N4</option>
+                            <option value="H1" {{$edit->channel=='H1'?'selected':''}}>H1</option>
+                        </select>
+                        @if ($errors->has('filtertype'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('filtertype') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
                 @endif
                 <table id="myTable" class=" table order-list">
                     <thead>

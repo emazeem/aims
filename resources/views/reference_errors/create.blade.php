@@ -61,7 +61,7 @@
                 <div class="form-group row channels" style="display: none" >
                     <label for="channels" class="col-2 control-label">Select Channels</label>
                     <div class="col-10">
-                        <select class="form-control" id="channels" name="channels" required>
+                        <select class="form-control" id="channels" name="channels">
                             <option value="" selected disabled>Select Channels</option>
                             @for($k=1;$k<=10;$k++)
                                 <option value="{{$k}}">Channel # {{$k}}</option>
@@ -75,6 +75,24 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group row filtertype" style="display: none" >
+                    <label for="filtertype" class="col-2 control-label">Select Filter Type</label>
+                    <div class="col-10">
+                        <select class="form-control" id="filtertype" name="filtertype">
+                            <option value="" selected disabled>Select Filter Type</option>
+                            <option value="N2">N2</option>
+                            <option value="N3">N3</option>
+                            <option value="N4">N4</option>
+                            <option value="H1">H1</option>
+                        </select>
+                        @if ($errors->has('filtertype'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('filtertype') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
                 <table id="myTable" class=" table order-list">
                     <thead>
                     <tr>
@@ -160,12 +178,9 @@
                 </div>
 --}}
 
-                <!-- /.box-body -->
-                <div class="box-footer mt-3">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Save</button>
-                </div>
-                <!-- /.box-footer -->
+                <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
+                <button type="submit" class="btn btn-primary float-right">Save</button>
+
             </form>
         </div>
     </div>
@@ -203,6 +218,11 @@
             });
             $('select[name="assets"]').on('change', function() {
                 var id = $(this).val();
+                if (id==180){
+                    $('.filtertype').show();
+                }else {
+                    $('.filtertype').hide();
+                }
                 $.ajax({
                     "url": "{{url('/parameters/view_units')}}",
                     type: "POST",
@@ -262,14 +282,10 @@
 
 
         });
-
-
-
         function calculateRow(row) {
             var price = +row.find('input[name^="price"]').val();
 
         }
-
         function calculateGrandTotal() {
             var grandTotal = 0;
             $("table.order-list").find('input[name^="price"]').each(function () {

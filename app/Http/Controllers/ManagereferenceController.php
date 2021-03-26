@@ -91,8 +91,14 @@ class ManagereferenceController extends Controller
             $show_channels=true;
         }
         $channels=Preference::where('slug','channels')->first();
-        $channels=explode(',',$channels->value);
-        return view('reference_errors.edit',compact('parameters','edit','multiples','show_channels','channels'));
+        if ($channels){
+            $channels=explode(',',$channels->value);
+        }
+        $show_filtertype=false;
+        if ($edit->asset==180){
+            $show_filtertype=true;
+        }
+        return view('reference_errors.edit',compact('parameters','edit','multiples','show_channels','channels','show_filtertype'));
     }
 
     public function store(Request $request){
@@ -134,6 +140,14 @@ class ManagereferenceController extends Controller
                     'channels.required'=>'Channels field is required *',
                 ]);
                 $manageref->channel=$request->channels;
+            }
+            if ($request->assets==180){
+                $this->validate(request(), [
+                    'filtertype' => 'required',
+                ],[
+                    'filtertype.required'=>'Filter type field is required *',
+                ]);
+                $manageref->channel=$request->filtertype;
             }
             $manageref->unit=$request->units;
             $manageref->uuc=$uuc[$i];
@@ -189,7 +203,14 @@ class ManagereferenceController extends Controller
                 ]);
                 $manageref->channel=$request->channels;
             }
-
+            if ($request->assets==180){
+                $this->validate(request(), [
+                    'filtertype' => 'required',
+                ],[
+                    'filtertype.required'=>'Filter type field is required *',
+                ]);
+                $manageref->channel=$request->filtertype;
+            }
             $manageref->unit=$request->units;
             $manageref->uuc=$uuc[$i];
             $manageref->ref=$reference[$i];
