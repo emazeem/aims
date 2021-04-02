@@ -36,9 +36,7 @@
             <input type="hidden" value="" id="adding_factor" name="adding_factor">
             <input type="hidden" value="" id="ref_unit" name="ref_unit">
             --}}
-
             <div class="row">
-
                 <div class="form-group col-md-6">
                     <label for="start_temp" class="col-md-12 col-12 control-label">Start Temperature</label>
                     <input type="text" class="form-control col-md-12 col-12" id="start_temp" name="start_temp"
@@ -107,29 +105,65 @@
                     @endif
                 </div>
                 @endif
-
+                @if($spectrophotometer==false)
                 <div class="form-group col-md-6">
                     <label for="uuc_resolution" class="col-12 control-label">UUC Resolution</label>
                     <input type="text" class="form-control col-12" id="uuc_resolution" name="uuc_resolution"
                            placeholder="UUC Resolution" autocomplete="off" value="{{old('uuc_resolution',$show->resolution)}}">
-                    @if ($errors->has('uncertainty'))
+                    @if ($errors->has('uuc_resolution'))
                         <span class="text-danger">
                         <strong>{{ $errors->first('uuc_resolution') }}</strong>
                     </span>
                     @endif
                 </div>
 
-                <div class="form-group col-md-6">
-                    <label for="accuracy" class="col-12 control-label">Accuracy of UUC</label>
-                    <input type="text" class="form-control col-md-12" id="accuracy" name="accuracy"
-                           placeholder="Accuracy of UUC" autocomplete="off" value="{{old('accuracy',$show->accuracy)}}">
-                    @if ($errors->has('accuracy'))
-                        <span class="text-danger">
+                @else
+                    <div class="form-group col-md-6">
+                        <label for="t_uuc_resolution" class="col-12 control-label">Transmittance UUC Resolution</label>
+                        <input type="text" class="form-control col-12" id="t_uuc_resolution" name="t_uuc_resolution"
+                               placeholder="Transmittance UUC Resolution" autocomplete="off" value="{{old('t_uuc_resolution',$show->resolution)}}">
+                        @if ($errors->has('t_uuc_resolution'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('t_uuc_resolution') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="a_uuc_resolution" class="col-12 control-label">Absorbance UUC Resolution</label>
+                        <input type="text" class="form-control col-12" id="a_uuc_resolution" name="a_uuc_resolution"
+                               placeholder="Absorbance UUC Resolution" autocomplete="off" value="{{old('a_uuc_resolution',$show->resolution)}}">
+                        @if ($errors->has('a_uuc_resolution'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('a_uuc_resolution') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="w_uuc_resolution" class="col-12 control-label">Wavelength UUC Resolution</label>
+                        <input type="text" class="form-control col-12" id="w_uuc_resolution" name="w_uuc_resolution"
+                               placeholder="Wavelength UUC Resolution" autocomplete="off" value="{{old('w_uuc_resolution',$show->resolution)}}">
+                        @if ($errors->has('w_uuc_resolution'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('w_uuc_resolution') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+
+                @endif
+                @if($spectrophotometer==false)
+
+                    <div class="form-group col-md-6">
+                        <label for="accuracy" class="col-12 control-label">Accuracy of UUC</label>
+                        <input type="text" class="form-control col-md-12" id="accuracy" name="accuracy"
+                               placeholder="Accuracy of UUC" autocomplete="off" value="{{old('accuracy',$show->accuracy)}}">
+                        @if ($errors->has('accuracy'))
+                            <span class="text-danger">
                         <strong>{{ $errors->first('accuracy') }}</strong>
                     </span>
-                    @endif
-                </div>
-                @php if ($show->range){$range=explode(',',$show->range);}else{$range=[null,null];} @endphp
+                        @endif
+                    </div>
+
+                    @php if ($show->range){$range=explode(',',$show->range);}else{$range=[null,null];} @endphp
                 <div class="form-group col-md-6">
                     <label for="range" class="col-12 control-label">Range of UUC (Min)</label>
                     <input type="text" class="form-control col-12" id="range" name="range[]"
@@ -150,6 +184,227 @@
                     </span>
                     @endif
                 </div>
+
+                @else
+                    <div class="form-group col-md-6">
+                        <label for="t_range" class="col-12 control-label">Transmittance Range of UUC (Min)</label>
+                        <input type="text" class="form-control col-12" id="t_range" name="t_range[]"
+                               placeholder="Transmittance Range of UUC" autocomplete="off" value="{{old('t_range')}}">
+                        @if ($errors->has('t_range'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('t_range') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="t_range" class="col-12 control-label">Transmittance Range of UUC (Max)</label>
+                        <input type="text" class="form-control col-12" id="t_range" name="t_range[]"
+                               placeholder="Transmittance Range of UUC" autocomplete="off" value="{{old('t_range')}}">
+                        @if ($errors->has('t_range'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('t_range') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="a_range" class="col-12 control-label">Absorbance Range of UUC (Min)</label>
+                        <input type="text" class="form-control col-12" id="a_range" name="a_range[]"
+                               placeholder="Absorbance Range of UUC" autocomplete="off" value="{{old('a_range')}}">
+                        @if ($errors->has('a_range'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('a_range') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="a_range" class="col-12 control-label">Absorbance Range of UUC (Max)</label>
+                        <input type="text" class="form-control col-12" id="a_range" name="a_range[]"
+                               placeholder="Absorbance Range of UUC" autocomplete="off" value="{{old('a_range')}}">
+                        @if ($errors->has('a_range'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('a_range') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="w_range" class="col-12 control-label">Wavelength Range of UUC (Min)</label>
+                        <input type="text" class="form-control col-12" id="w_range" name="w_range[]"
+                               placeholder="Wavelength Range of UUC" autocomplete="off" value="{{old('w_range')}}">
+                        @if ($errors->has('w_range'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('w_range') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="w_range" class="col-12 control-label">Wavelength Range of UUC (Max)</label>
+                        <input type="text" class="form-control col-12" id="w_range" name="w_range[]"
+                               placeholder="Wavelength Range of UUC" autocomplete="off" value="{{old('w_range')}}">
+                        @if ($errors->has('w_range'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('w_range') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="t_noise" class="col-12 control-label">Transmittance Photometery Noise</label>
+                        <input type="text" class="form-control col-12" id="t_noise" name="t_noise"
+                               placeholder="Transmittance Photometery Noise" autocomplete="off" value="{{old('t_noise')}}">
+                        @if ($errors->has('t_noise'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('t_noise') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="a_noise" class="col-12 control-label">Absorbance Photometery Noise</label>
+                        <input type="text" class="form-control col-12" id="a_noise" name="a_noise"
+                               placeholder="Absorbance Photometery Noise" autocomplete="off" value="{{old('a_noise')}}">
+                        @if ($errors->has('a_noise'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('a_noise') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="w_noise" class="col-12 control-label">Wavelength Photometery Noise</label>
+                        <input type="text" class="form-control col-12" id="w_noise" name="w_noise"
+                               placeholder="Wavelength Photometery Noise" autocomplete="off" value="{{old('w_noise')}}">
+                        @if ($errors->has('w_noise'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('w_noise') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="t_reproducability" class="col-12 control-label">Transmittance Photometery Reproducability</label>
+                        <input type="text" class="form-control col-12" id="t_reproducability" name="t_reproducability"
+                               placeholder="Transmittance Photometery Reproducability" autocomplete="off" value="{{old('t_reproducability')}}">
+                        @if ($errors->has('t_reproducability'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('t_reproducability') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="a_reproducability" class="col-12 control-label">Absorbance Photometery Reproducability</label>
+                        <input type="text" class="form-control col-12" id="a_reproducability" name="a_reproducability"
+                               placeholder="Absorbance Photometery Reproducability" autocomplete="off" value="{{old('a_reproducability')}}">
+                        @if ($errors->has('a_reproducability'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('a_reproducability') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="w_reproducability" class="col-12 control-label">Wavelength Photometery Reproducability</label>
+                        <input type="text" class="form-control col-12" id="w_reproducability" name="w_reproducability"
+                               placeholder="Wavelength Photometery Reproducability" autocomplete="off" value="{{old('w_reproducability')}}">
+                        @if ($errors->has('w_reproducability'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('w_reproducability') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="t_stablitity" class="col-12 control-label">Transmittance Photometery Stability</label>
+                        <input type="text" class="form-control col-12" id="t_stablitity" name="t_stablitity"
+                               placeholder="Transmittance Photometery Stability" autocomplete="off" value="{{old('t_stablitity')}}">
+                        @if ($errors->has('t_stablitity'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('t_stablitity') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="a_stablitity" class="col-12 control-label">Absorbance Photometery Stability</label>
+                        <input type="text" class="form-control col-12" id="a_stablitity" name="a_stablitity"
+                               placeholder="Absorbance Photometery Stability" autocomplete="off" value="{{old('a_stablitity')}}">
+                        @if ($errors->has('a_stablitity'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('a_stablitity') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="w_stablitity" class="col-12 control-label">Wavelength Photometery Stability</label>
+                        <input type="text" class="form-control col-12" id="w_stablitity" name="w_stablitity"
+                               placeholder="Wavelength Photometery Stability" autocomplete="off" value="{{old('w_stablitity')}}">
+                        @if ($errors->has('w_stablitity'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('w_stablitity') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="t_baseline_flateness" class="col-12 control-label">Transmittance Baseline Flateness</label>
+                        <input type="text" class="form-control col-12" id="t_baseline_flateness" name="t_baseline_flateness"
+                               placeholder="Transmittance Baseline Flateness" autocomplete="off" value="{{old('t_baseline_flateness')}}">
+                        @if ($errors->has('t_baseline_flateness'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('t_baseline_flateness') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="a_baseline_flateness" class="col-12 control-label">Absorbance Baseline Flateness</label>
+                        <input type="text" class="form-control col-12" id="a_baseline_flateness" name="a_baseline_flateness"
+                               placeholder="Absorbance Baseline Flateness" autocomplete="off" value="{{old('a_baseline_flateness')}}">
+                        @if ($errors->has('a_baseline_flateness'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('a_baseline_flateness') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="w_baseline_flateness" class="col-12 control-label">Wavelength Baseline Flateness</label>
+                        <input type="text" class="form-control col-12" id="w_baseline_flateness" name="w_baseline_flateness"
+                               placeholder="Wavelength Baseline Flateness" autocomplete="off" value="{{old('w_baseline_flateness')}}">
+                        @if ($errors->has('w_baseline_flateness'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('w_baseline_flateness') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="accuracy" class="col-12 control-label">Transmittance Accuracy of UUC</label>
+                        <input type="text" class="form-control col-12" id="accuracy" name="accuracy[]"
+                               placeholder="Transmittance Accuracy of UUC" autocomplete="off" value="{{old('accuracy')}}">
+                        @if ($errors->has('accuracy'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('accuracy') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="accuracy" class="col-12 control-label">Absorbance Accuracy of UUC</label>
+                        <input type="text" class="form-control col-12" id="accuracy" name="accuracy[]"
+                               placeholder="Absorbance Accuracy of UUC" autocomplete="off" value="{{old('accuracy')}}">
+                        @if ($errors->has('accuracy'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('accuracy') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="w_accuracy_uuc" class="col-12 control-label">Wavelength Accuracy of UUC</label>
+                        <input type="text" class="form-control col-12" id="accuracy" name="accuracy[]"
+                               placeholder="Wavelength Accuracy of UUC" autocomplete="off" value="{{old('accuracy')}}">
+                        @if ($errors->has('accuracy'))
+                            <span class="text-danger">
+                        <strong>{{ $errors->first('accuracy') }}</strong>
+                    </span>
+                        @endif
+                    </div>
+
+
+
+                @endif
                 <div class="form-group col-md-6">
                     <label for="before_offset" class="col-12 control-label">Offset of UUC (Before
                         Adjustment)</label>
@@ -189,6 +444,7 @@
                     @endif
                 </div>
             </div>
+
             @if($show->item->capabilities->calculator=='balance-calculator')
                 <div class="form-group col-12">
                     <div class="control-label">Pan Position Check for Balance Under Calibration Check with Ref. Std. > or = 33 % of Max Range</div>
@@ -441,12 +697,123 @@
                     @endif
                 </div>
             @endif
+            @if($show->item->capabilities->calculator=='vernier-caliper-calculator')
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="uuc_temp" class="col-12 control-label">UUC Temperature (Start)</label>
+                        <input type="text" class="form-control col-12" id="uuc_temp" name="uuc_temp[]" placeholder="UUC Temperature (Start)"
+                               autocomplete="off" value="{{old('uuc_temp')}}">
+                        @if ($errors->has('uuc_temp'))<span class="text-danger">
+                            <strong>{{ $errors->first('uuc_temp') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="uuc_temp" class="col-12 control-label">UUC Temperature (End)</label>
+                        <input type="text" class="form-control col-12" id="uuc_temp" name="uuc_temp[]" placeholder="UUC Temperature (End)"
+                               autocomplete="off" value="{{old('uuc_temp')}}">
+                        @if ($errors->has('uuc_temp'))<span class="text-danger">
+                            <strong>{{ $errors->first('uuc_temp') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ref_temp" class="col-12 control-label">Ref Temperature (Start)</label>
+                        <input type="text" class="form-control col-12" id="ref_temp" name="ref_temp[]" placeholder="Ref Temperature (Start)"
+                               autocomplete="off" value="{{old('ref_temp')}}">
+                        @if ($errors->has('ref_temp'))<span class="text-danger">
+                            <strong>{{ $errors->first('ref_temp') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ref_temp" class="col-12 control-label">Ref Temperature (End)</label>
+                        <input type="text" class="form-control col-12" id="ref_temp" name="ref_temp[]" placeholder="Ref Temperature (End)"
+                               autocomplete="off" value="{{old('ref_temp')}}">
+                        @if ($errors->has('ref_temp'))<span class="text-danger">
+                            <strong>{{ $errors->first('ref_temp') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-12"> Parallelism of Measuring Faces:(30mm Guage Placed in faces)</div>
+                    <div class="form-group col-md-6">
+                        <label for="anti_parallelism" class="col-12 control-label"> Near Vernier Scale Jaw</label>
+                        <input type="text" class="form-control col-12" id="anti_parallelism" name="anti_parallelism[]" placeholder="Anti Parallelism"
+                               autocomplete="off" value="{{old('anti_parallelism')}}">
+                        @if ($errors->has('anti_parallelism'))<span class="text-danger">
+                            <strong>{{ $errors->first('anti_parallelism') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="anti_parallelism" class="col-12 control-label"> In b/w VS & Center</label>
+                        <input type="text" class="form-control col-12" id="anti_parallelism" name="anti_parallelism[]" placeholder="Anti Parallelism"
+                               autocomplete="off" value="{{old('anti_parallelism')}}">
+                        @if ($errors->has('anti_parallelism'))<span class="text-danger">
+                            <strong>{{ $errors->first('anti_parallelism') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="anti_parallelism" class="col-12 control-label"> Center</label>
+                        <input type="text" class="form-control col-12" id="anti_parallelism" name="anti_parallelism[]" placeholder="Anti Parallelism"
+                               autocomplete="off" value="{{old('anti_parallelism')}}">
+                        @if ($errors->has('anti_parallelism'))<span class="text-danger">
+                            <strong>{{ $errors->first('anti_parallelism') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="anti_parallelism" class="col-12 control-label"> In b/w Fixed Jaw & Center</label>
+                        <input type="text" class="form-control col-12" id="anti_parallelism" name="anti_parallelism[]" placeholder="Anti Parallelism"
+                               autocomplete="off" value="{{old('anti_parallelism')}}">
+                        @if ($errors->has('anti_parallelism'))<span class="text-danger">
+                            <strong>{{ $errors->first('anti_parallelism') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="anti_parallelism" class="col-12 control-label"> Near Fixed Jaw</label>
+                        <input type="text" class="form-control col-12" id="anti_parallelism" name="anti_parallelism[]" placeholder="Anti Parallelism"
+                               autocomplete="off" value="{{old('anti_parallelism')}}">
+                        @if ($errors->has('anti_parallelism'))<span class="text-danger">
+                            <strong>{{ $errors->first('anti_parallelism') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <label for="zero_err" class="col-12 control-label">Zero Check (before adjustment)</label>
+                        <input type="text" class="form-control col-12" id="zero_err" name="zero_err[]" placeholder="Zero Check (before adjustment)"
+                               autocomplete="off" value="{{old('zero_err')}}">
+                        @if ($errors->has('zero_err'))
+                            <span class="text-danger">
+                            <strong>{{ $errors->first('zero_err') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="zero_err" class="col-12 control-label">Zero Check (after adjustment)</label>
+                        <input type="text" class="form-control col-12" id="zero_err" name="zero_err[]" placeholder="Zero Check (after adjustment)"
+                               autocomplete="off" value="{{old('zero_err')}}">
+                        @if ($errors->has('zero_err'))
+                            <span class="text-danger">
+                            <strong>{{ $errors->first('zero_err') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+
+                </div>
+             @endif
             <div class="row">
                 <div class="col-12 p-2">
                     <a href="{{ URL::previous() }}" class="btn btn-light border"><i class="fa fa-times"></i> Cancel</a>
                     <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save</button>
                 </div>
             </div>
+
         </form>
     </div>
     <script>

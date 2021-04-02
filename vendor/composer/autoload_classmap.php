@@ -161,6 +161,7 @@ return array(
     'App\\Models\\Volumeentries' => $baseDir . '/app/Models/Volumeentries.php',
     'App\\Models\\Voucher' => $baseDir . '/app/Models/Voucher.php',
     'App\\Models\\Voucherdetails' => $baseDir . '/app/Models/Voucherdetails.php',
+    'App\\Models\\Zvalues' => $baseDir . '/app/Models/Zvalues.php',
     'App\\Notifications\\CustomerNotification' => $baseDir . '/app/Notifications/CustomerNotification.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

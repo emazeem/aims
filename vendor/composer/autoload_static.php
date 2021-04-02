@@ -752,6 +752,7 @@ class ComposerStaticInit30cbb8046d715c02828f66a2f41c07d0
         'App\\Models\\Volumeentries' => __DIR__ . '/../..' . '/app/Models/Volumeentries.php',
         'App\\Models\\Voucher' => __DIR__ . '/../..' . '/app/Models/Voucher.php',
         'App\\Models\\Voucherdetails' => __DIR__ . '/../..' . '/app/Models/Voucherdetails.php',
+        'App\\Models\\Zvalues' => __DIR__ . '/../..' . '/app/Models/Zvalues.php',
         'App\\Notifications\\CustomerNotification' => __DIR__ . '/../..' . '/app/Notifications/CustomerNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

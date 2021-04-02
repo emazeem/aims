@@ -612,6 +612,7 @@ Route::group(['prefix'=> 'lig-thermometer'],function() {
     Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\LIGController::class, 'print_uncertainty'])->middleware('auth')->name('lig.calculator.print_uncertainty');
     Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\LIGController::class, 'print_dataentrysheet'])->middleware('auth')->name('lig.calculator.print_dataentrysheet');
 });
+
 Route::group(['prefix'=> 'inventory-categories'],function() {
     Route::get('',[App\Http\Controllers\InventoryCategoryController::class, 'index'])->middleware('auth')->name('inventory.category.index');
     Route::post('',[App\Http\Controllers\InventoryCategoryController::class, 'fetch'])->middleware('auth')->name('inventory.category.fetch');
@@ -626,3 +627,19 @@ Route::group(['prefix'=> 'inventories'],function() {
     Route::post('/edit',[App\Http\Controllers\InventoriesController::class, 'edit'])->middleware('auth')->name('inventory.edit');
 });
 
+Route::group(['prefix'=> 'spectro'],function() {
+    Route::get('{id}',[App\Http\Controllers\Calculator\SpectrophotometerentriesController::class, 'create'])->middleware('auth')->name('spectro.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\SpectrophotometerentriesController::class, 'store'])->middleware('auth')->name('spectro.calculator.data.entry.store');
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\SpectrophotometerentriesController::class, 'print_worksheet'])->middleware('auth')->name('spectro.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\SpectrophotometerentriesController::class, 'print_certificate'])->middleware('auth')->name('spectro.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\SpectrophotometerentriesController::class, 'print_uncertainty'])->middleware('auth')->name('spectro.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\SpectrophotometerentriesController::class, 'print_dataentrysheet'])->middleware('auth')->name('spectro.calculator.print_dataentrysheet');
+});
+Route::group(['prefix'=> 'vernier'],function() {
+    Route::get('{id}',[App\Http\Controllers\Calculator\VernierentriesController::class, 'create'])->middleware('auth')->name('vernier.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\VernierentriesController::class, 'store'])->middleware('auth')->name('vernier.calculator.data.entry.store');
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\VernierentriesController::class, 'print_worksheet'])->middleware('auth')->name('vernier.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\VernierentriesController::class, 'print_certificate'])->middleware('auth')->name('vernier.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\VernierentriesController::class, 'print_uncertainty'])->middleware('auth')->name('vernier.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\VernierentriesController::class, 'print_dataentrysheet'])->middleware('auth')->name('vernier.calculator.print_dataentrysheet');
+});

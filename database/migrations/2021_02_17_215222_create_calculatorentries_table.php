@@ -45,6 +45,14 @@ class CreateCalculatorentriesTable extends Migration
             $table->string('balance_values')->nullable();
             $table->string('temp_id')->nullable();
             $table->string('temp_values')->nullable();
+            //for spectrophotometer
+            $table->string('noise')->nullable();
+            $table->string('reproducibility')->nullable();
+            $table->string('stability')->nullable();
+            $table->string('baseline')->nullable();
+            //vernier entries
+            $table->string('anti_parallelism')->nullable();
+            $table->string('zero_error')->nullable();
             $table->timestamps();
         });
     }

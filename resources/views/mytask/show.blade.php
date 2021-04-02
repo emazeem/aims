@@ -161,6 +161,11 @@
                     <a href="{{route('incubator.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Incubator Entries</a>
                     @elseif($show->item->capabilities->calculator=='volume-calculator')
                     <a href="{{route('volume.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Volume Entries</a>
+                    @elseif($show->item->capabilities->calculator=='spectrophotometer-calculator')
+                    <a href="{{route('spectro.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Spectrophotometer Entries</a>
+                @elseif($show->item->capabilities->calculator=='vernier-caliper-calculator')
+                    <a href="{{route('vernier.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Vernier Calliper Entries</a>
+
                 @endif
                 <table class="table table-bordered table-sm table-hover bg-white    ">
                     <tr>
@@ -212,6 +217,24 @@
                         <tr>
                             <th>Balance_ Values</th>
                             <td>{{$show->general->balance_values}}</td>
+                        </tr>
+                    @endif
+                    @if($show->item->capabilities->calculator=='vernier-caliper-calculator')
+                        <tr>
+                            <th>UUC Temp</th>
+                            <td>{{$show->general->uuc_temp}}</td>
+                        </tr>
+                        <tr>
+                            <th>Ref Temp</th>
+                            <td>{{$show->general->ref_temp}}</td>
+                        </tr>
+                        <tr>
+                            <th>Anti Parallelism</th>
+                            <td>{{$show->general->anti_parallelism}}</td>
+                        </tr>
+                        <tr>
+                            <th>Zero Error</th>
+                            <td>{{$show->general->zero_error}}</td>
                         </tr>
                     @endif
                 </table>

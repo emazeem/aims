@@ -35,6 +35,7 @@ class GeneralCalculatorController extends Controller
         $assets=Asset::whereIn('id',$assets)->get();
         return view('calculator.general.create',compact('id','labs','parent','assets'));
     }
+
     public function print_worksheet($location,$id){
         $job=Jobitem::find($id);
         $mainjob=Job::find($job->job_id);
