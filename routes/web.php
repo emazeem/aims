@@ -643,3 +643,19 @@ Route::group(['prefix'=> 'vernier'],function() {
     Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\VernierentriesController::class, 'print_uncertainty'])->middleware('auth')->name('vernier.calculator.print_uncertainty');
     Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\VernierentriesController::class, 'print_dataentrysheet'])->middleware('auth')->name('vernier.calculator.print_dataentrysheet');
 });
+Route::group(['prefix'=> 'micrometer'],function() {
+    Route::get('{id}',[App\Http\Controllers\Calculator\MicrometerCalculator::class, 'create'])->middleware('auth')->name('micrometer.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\MicrometerCalculator::class, 'store'])->middleware('auth')->name('micrometer.calculator.data.entry.store');
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\MicrometerCalculator::class, 'print_worksheet'])->middleware('auth')->name('micrometer.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\MicrometerCalculator::class, 'print_certificate'])->middleware('auth')->name('micrometer.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\MicrometerCalculator::class, 'print_uncertainty'])->middleware('auth')->name('micrometer.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\MicrometerCalculator::class, 'print_dataentrysheet'])->middleware('auth')->name('micrometer.calculator.print_dataentrysheet');
+});
+Route::group(['prefix'=> 'dialgauge'],function() {
+    Route::get('{id}',[App\Http\Controllers\Calculator\DialguageController::class, 'create'])->middleware('auth')->name('dialgauge.calculator');
+    Route::post('store',[App\Http\Controllers\Calculator\DialguageController::class, 'store'])->middleware('auth')->name('dialgauge.calculator.data.entry.store');
+    Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\DialguageController::class, 'print_worksheet'])->middleware('auth')->name('dialgauge.calculator.print_worksheet');
+    Route::get('print/certificate/{loc}/{id}',[App\Http\Controllers\Calculator\DialguageController::class, 'print_certificate'])->middleware('auth')->name('dialgauge.calculator.print_certificate');
+    Route::get('print/uncertainty/{loc}/{id}',[App\Http\Controllers\Calculator\DialguageController::class, 'print_uncertainty'])->middleware('auth')->name('dialgauge.calculator.print_uncertainty');
+    Route::get('print/dataentrysheet/{loc}/{id}',[App\Http\Controllers\Calculator\DialguageController::class, 'print_dataentrysheet'])->middleware('auth')->name('dialgauge.calculator.print_dataentrysheet');
+});

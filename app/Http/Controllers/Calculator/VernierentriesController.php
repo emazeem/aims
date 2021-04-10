@@ -80,7 +80,6 @@ class VernierentriesController extends Controller
             $item->unit=$request->units;
         //    $item->save();
         }
-        //dd('saced');
         $parent=Calculatorentries::find($request->parent_id);
         $parent->fixed_type=$request->fixed;
         $parent->save();
@@ -91,58 +90,77 @@ class VernierentriesController extends Controller
         $uncertainties=explode(',',$procedure->uncertainties);
         $data=array();
         foreach ($allentries as $entry){
+            $formula=[];
+            $formula['Ii']=array_sum([$entry->x1,$entry->x2,$entry->x3])/count([$entry->x1,$entry->x2,$entry->x3]);
+            $formula['αm']=0.0000115;
+            $uuc_temp=explode(',',$entries->uuc_temp);
+            $uuc_temp=array_sum($uuc_temp)/count($uuc_temp);
+            $formula['θm']=$uuc_temp-20;
+            $formula['Ie']=$entry->ref;
+            $formula['αe']=0.0000115;
+            $ref_temp=explode(',',$entries->ref_temp);
+            $ref_temp=array_sum($ref_temp)/count($ref_temp);
+            $formula['θe']=$ref_temp-20;
+            $formula['dF']=0;
+            $formula['dθ']=$formula['θm']-$formula['θe'];
+            $formula['dα']=$formula['αm']-$formula['αe'];
+            $comp1=($formula['Ii']*(1+($formula['αm']*$formula['θe'])+($formula['αm']*$formula['dθ'])));
+            $comp2=($formula['Ie']*(1+($formula['αm']*$formula['θe'])-($formula['dα']*$formula['θe'])));
+            $UUC_readings_after_compensations=$comp1*$comp2;
 
-            $square_sum=0;
-            $all_repeated_values=[$entry->x1,$entry->x2,$entry->x3];
-            $average_repeated_value=array_sum($all_repeated_values)/count($all_repeated_values);
-            for($i=0;$i<count($all_repeated_values);$i++){
-                $temp=$average_repeated_value-$all_repeated_values[$i];
-                $square_sum=$square_sum+($temp*$temp);
-            }
-            //dd($n);
-            $temp=$square_sum/(count($all_repeated_values)-1);
-            if (in_array('standard-deviation',$uncertainties)){
+            if (in_array('uncertainty-of-repeatability-ua',$uncertainties)){
+                $square_sum=0;
+                $all_repeated_values=[$entry->x1,$entry->x2,$entry->x3];
+                $average_repeated_value=array_sum($all_repeated_values)/count($all_repeated_values);
+                for($i=0;$i<count($all_repeated_values);$i++){
+                    $temp=$average_repeated_value-$all_repeated_values[$i];
+                    $square_sum=$square_sum+($temp*$temp);
+                }
+                $temp=$square_sum/(count($all_repeated_values)-1);
                 $SD=sqrt($temp);
-                //dd($SD);
+                $uncertainty_of_repeatability_ua=$SD*1000/sqrt(3);
+                //dd($uncertainty_of_repeatability_ua);
             }
-            if (in_array('uncertainty-type-a',$uncertainties)){
-                $uncertainty_Type_A=$SD/sqrt(count($all_repeated_values));
+            if (in_array('uncertainty-of-reading-of-the-result-max-permissible-error-of-uuc-u-li-1mm-for-digital-or-2-mm-for-classical',$uncertainties)){
+                $uncertainty_of_reading_of_the_result_max_permissible_error_of_uuc= 5/sqrt(3);
+                //dd($uncertainty_of_reading_of_the_result_max_permissible_error_of_uuc);
             }
-            if (in_array('combined-uncertainty-of-standard',$uncertainties)) {
-                $combined_uncertainty_of_standard=$uncertainty_of_reference/2;
+            if (in_array('uncertainty-of-thermal-expansion-coefficient-u-a-m',$uncertainties)){
+                $uncertainty_of_thermal_expansion_coefficient_uam=100*(0.0000115)/sqrt(3);
+            }
+            if (in_array('uncertainty-of-guage-block-temp-difference-u-the',$uncertainties)){
+                $uncertainty_of_guage_block_temp_difference_u_the=($formula['θe']/2)*$formula['αm']*(($formula['Ii']*100)-($formula['Ie']*1000));
+            }
+            if (in_array('uncertainty-of-temp-diff-b-w-ref-and-uuc-u-d-th',$uncertainties)){
+                $uncertainty_of_temp_diff_bw_ref_and_uuc_udth=($formula['dθ']/2)*($formula['Ii']*1000)*$formula['αm'];
+            }
+            if (in_array('uncertainty-of-calibration-of-standard-u-le',$uncertainties)){
+                $uncertainty_of_calibration_of_standard_ule=['interpolation_required'];
+            }
+            if (in_array('uncertainty-of-thermal-expansion-co-efficient-difference-u-da',$uncertainties)){
+                $uncertainty_of_thermal_expansion_co_efficient_difference_uda=(0.0000021/1.732)*($formula['Ii']*100*$formula['θe']);
+            }
+            if (in_array('uncertaintyof-assumed-difference-b-w-deformations-caused-by-measurement-force-u-df',$uncertainties)){
+                $uncertaintyof_assumed_difference_bw_deformations_caused_by_measurement_force_udf=3/sqrt(3);
             }
             if (in_array('uncertainty-due-to-resolution-of-uuc',$uncertainties)){
-                if ($entries->job_type==0){
-                    $uncertainty_due_to_resolution_of_uuc=(Jobitem::find($entries->job_type_id)->resolution/2)/sqrt(3);
-                }
+                $uncertainty_due_to_resolution_of_uuc=5/sqrt(3);
             }
-            if (in_array('uncertainty-due-to-accuracy-of-uuc',$uncertainties)){
-                if ($entries->job_type==0){
-                    $uncertainty_due_to_accuracy_of_uuc=(Jobitem::find($entries->job_type_id)->accuracy)/sqrt(3);
-                }
-            }
-            $reproducibility=explode(',',$entries->reproducibility);
-            $noise=explode(',',$entries->noise);
-            $baseline=explode(',',$entries->baseline);
-            $stability=explode(',',$entries->stability);
-            if ($entry->unit==58){
-                $uncertainty_due_to_reproducibility=$reproducibility[0]/sqrt(10);
-                $uncertainty_due_to_noise=$noise[0]/sqrt(3);
-                $uncertainty_due_to_baseline=$baseline[0]/sqrt(3);
-                $uncertainty_due_to_stability=$stability[0]/2/sqrt(3);
-            }
-            if ($entry->unit==57){
-                $uncertainty_due_to_reproducibility=$reproducibility[1]/sqrt(10);
-                $uncertainty_due_to_noise=$noise[1]/sqrt(3);
-                $uncertainty_due_to_baseline=$baseline[1]/sqrt(3);
-                $uncertainty_due_to_stability=$stability[1]/2/sqrt(3);
-            }
-            if ($entry->unit==56){
-                $uncertainty_due_to_reproducibility=$reproducibility[2]/sqrt(10);
-                $uncertainty_due_to_noise=$noise[2]/sqrt(3);
-                $uncertainty_due_to_baseline=$baseline[2]/sqrt(3);
-                $uncertainty_due_to_stability=$stability[2]/2/sqrt(3);
-            }
+            $data=[
+                "uncertainty-due-to-resolution-of-uuc"=>$uncertainty_due_to_resolution_of_uuc,
+                "uncertainty-of-repeatability-ua"=>$uncertainty_of_repeatability_ua,
+                "uncertainty-of-reading-of-the-result-max-permissible-error-of-uuc-u-li-1mm-for-digital-or-2-mm-for-classical"=>$uncertainty_of_reading_of_the_result_max_permissible_error_of_uuc,
+                "uncertainty-of-thermal-expansion-coefficient-u-a-m"=>$uncertainty_of_thermal_expansion_coefficient_uam,
+                "uncertainty-of-guage-block-temp-difference-u-the"=>$uncertainty_of_guage_block_temp_difference_u_the,
+                "uncertainty-of-temp-diff-b-w-ref-and-uuc-u-d-th"=>$uncertainty_of_temp_diff_bw_ref_and_uuc_udth,
+                "uncertainty-of-calibration-of-standard-u-le"=>$uncertainty_of_calibration_of_standard_ule,
+                "uncertainty-of-thermal-expansion-co-efficient-difference-u-da"=>$uncertainty_of_thermal_expansion_co_efficient_difference_uda,
+                "uncertaintyof-assumed-difference-b-w-deformations-caused-by-measurement-force-u-df"=>$uncertaintyof_assumed_difference_bw_deformations_caused_by_measurement_force_udf,
+            ];
+
+            dd($uncertainties);
+            dd($formula);
+
         }
 
         return redirect()->back()->with('success','Entry added successfully');

@@ -165,6 +165,10 @@
                     <a href="{{route('spectro.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Spectrophotometer Entries</a>
                 @elseif($show->item->capabilities->calculator=='vernier-caliper-calculator')
                     <a href="{{route('vernier.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Vernier Calliper Entries</a>
+                @elseif($show->item->capabilities->calculator=='micrometer-calculator')
+                    <a href="{{route('micrometer.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Micrometer Entries</a>
+                @elseif($show->item->capabilities->calculator=='dial-gauge-calculator')
+                    <a href="{{route('dialgauge.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Dial Gauge Entries</a>
 
                 @endif
                 <table class="table table-bordered table-sm table-hover bg-white    ">
@@ -219,7 +223,7 @@
                             <td>{{$show->general->balance_values}}</td>
                         </tr>
                     @endif
-                    @if($show->item->capabilities->calculator=='vernier-caliper-calculator')
+                    @if($show->item->capabilities->calculator=='vernier-caliper-calculator' or $show->item->capabilities->calculator=='micrometer-calculator')
                         <tr>
                             <th>UUC Temp</th>
                             <td>{{$show->general->uuc_temp}}</td>
@@ -229,13 +233,18 @@
                             <td>{{$show->general->ref_temp}}</td>
                         </tr>
                         <tr>
-                            <th>Anti Parallelism</th>
-                            <td>{{$show->general->anti_parallelism}}</td>
+                            <th>Measuring Faces</th>
+                            <td>{{$show->general->measuring_faces}}</td>
                         </tr>
                         <tr>
                             <th>Zero Error</th>
                             <td>{{$show->general->zero_error}}</td>
                         </tr>
+                        <tr>
+                            <th>UUC Type</th>
+                            <td>{{$show->general->uuc_type}}</td>
+                        </tr>
+
                     @endif
                 </table>
 

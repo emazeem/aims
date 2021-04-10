@@ -79,6 +79,8 @@
                 </div>
 
                 @if($show->item->capabilities->calculator=='balance-calculator' or $show->item->capabilities->calculator=='volume-calculator')
+
+
                 <div class="form-group col-md-6">
                     <label for="start_atmospheric_pressure" class="col-md-12 col-12 control-label">Start Atmospheric
                         Pressure</label>
@@ -697,8 +699,20 @@
                     @endif
                 </div>
             @endif
-            @if($show->item->capabilities->calculator=='vernier-caliper-calculator')
+            @if($show->item->capabilities->calculator=='vernier-caliper-calculator' or $show->item->capabilities->calculator=='micrometer-calculator' or $show->item->capabilities->calculator=='dial-gauge-calculator' )
                 <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="uuc_type" class="control-label">Type of UUC</label>
+                        <select class="form-control" id="uuc_type" name="uuc_type">
+                            <option selected disabled>Type of UUC</option>
+                            <option value="analogue">Analogue</option>
+                            <option value="digital">Digital</option>
+                        </select>
+                        @if ($errors->has('uuc_type'))
+                            <span class="text-danger"><strong>{{ $errors->first('uuc_type') }}</strong></span>
+                        @endif
+                    </div>
+
                     <div class="form-group col-md-6">
                         <label for="uuc_temp" class="col-12 control-label">UUC Temperature (Start)</label>
                         <input type="text" class="form-control col-12" id="uuc_temp" name="uuc_temp[]" placeholder="UUC Temperature (Start)"
@@ -735,6 +749,7 @@
                         </span>
                         @endif
                     </div>
+                    @if($show->item->capabilities->calculator=='vernier-caliper-calculator')
                     <div class="form-group col-md-12"> Parallelism of Measuring Faces:(30mm Guage Placed in faces)</div>
                     <div class="form-group col-md-6">
                         <label for="anti_parallelism" class="col-12 control-label"> Near Vernier Scale Jaw</label>
@@ -781,69 +796,116 @@
                         </span>
                         @endif
                     </div>
-                </div>
-                <div class="row">
-
+                        @endif
+                    @if($show->item->capabilities->calculator=='micrometer-calculator')
+                    <div class="form-group col-md-12"> Parallelism of Measuring Faces:</div>
                     <div class="form-group col-md-6">
-                        <label for="zero_err" class="col-12 control-label">Zero Check (before adjustment)</label>
-                        <input type="text" class="form-control col-12" id="zero_err" name="zero_err[]" placeholder="Zero Check (before adjustment)"
-                               autocomplete="off" value="{{old('zero_err')}}">
-                        @if ($errors->has('zero_err'))
-                            <span class="text-danger">
-                            <strong>{{ $errors->first('zero_err') }}</strong>
+                        <label for="p_anvil" class="col-12 control-label"> Parallelism anvil</label>
+                        <input type="text" class="form-control col-12" id="p_anvil" name="p_anvil" placeholder="Parallelism anvil"
+                               autocomplete="off" value="{{old('p_anvil')}}">
+                        @if ($errors->has('p_anvil'))<span class="text-danger">
+                            <strong>{{ $errors->first('p_anvil') }}</strong>
                         </span>
                         @endif
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="zero_err" class="col-12 control-label">Zero Check (after adjustment)</label>
-                        <input type="text" class="form-control col-12" id="zero_err" name="zero_err[]" placeholder="Zero Check (after adjustment)"
-                               autocomplete="off" value="{{old('zero_err')}}">
-                        @if ($errors->has('zero_err'))
-                            <span class="text-danger">
-                            <strong>{{ $errors->first('zero_err') }}</strong>
+                        <label for="p_spindle" class="col-12 control-label"> Parallelism spindle</label>
+                        <input type="text" class="form-control col-12" id="p_spindle" name="p_spindle" placeholder="Parallelism _spindle"
+                               autocomplete="off" value="{{old('p_spindle')}}">
+                        @if ($errors->has('p_spindle'))<span class="text-danger">
+                            <strong>{{ $errors->first('p_spindle') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                        <div class="form-group col-md-12"> Flatness of Measuring Faces:</div>
+                    <div class="form-group col-md-6">
+                        <label for="f_anvil" class="col-12 control-label">Flatness anvil</label>
+                        <input type="text" class="form-control col-12" id="f_anvil" name="f_anvil" placeholder="Flatness _anvil"
+                               autocomplete="off" value="{{old('f_anvil')}}">
+                        @if ($errors->has('f_anvil'))<span class="text-danger">
+                            <strong>{{ $errors->first('f_anvil') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="f_spindle" class="col-12 control-label"> Flatness _spindle</label>
+                        <input type="text" class="form-control col-12" id="p_spindle" name="f_spindle" placeholder="Flatness spindle"
+                               autocomplete="off" value="{{old('f_spindle')}}">
+                        @if ($errors->has('f_spindle'))<span class="text-danger">
+                            <strong>{{ $errors->first('f_spindle') }}</strong>
                         </span>
                         @endif
                     </div>
 
-                </div>
-             @endif
-            <div class="row">
-                <div class="col-12 p-2">
-                    <a href="{{ URL::previous() }}" class="btn btn-light border"><i class="fa fa-times"></i> Cancel</a>
-                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save</button>
-                </div>
-            </div>
+                    @endif
 
-        </form>
+
+
+</div>
+<div class="row">
+
+    <div class="form-group col-md-6">
+        <label for="zero_err" class="col-12 control-label">Zero Check (before adjustment)</label>
+        <input type="text" class="form-control col-12" id="zero_err" name="zero_err[]" placeholder="Zero Check (before adjustment)"
+               autocomplete="off" value="{{old('zero_err')}}">
+        @if ($errors->has('zero_err'))
+            <span class="text-danger">
+            <strong>{{ $errors->first('zero_err') }}</strong>
+        </span>
+        @endif
     </div>
-    <script>
-        $(document).ready(function () {
+    <div class="form-group col-md-6">
+        <label for="zero_err" class="col-12 control-label">Zero Check (after adjustment)</label>
+        <input type="text" class="form-control col-12" id="zero_err" name="zero_err[]" placeholder="Zero Check (after adjustment)"
+               autocomplete="off" value="{{old('zero_err')}}">
+        @if ($errors->has('zero_err'))
+            <span class="text-danger">
+            <strong>{{ $errors->first('zero_err') }}</strong>
+        </span>
+        @endif
+    </div>
+</div>
+                @if($show->item->capabilities->calculator=='dial-gauge-calculator')
+                    DIAL GAUGE ENTRY
+                @endif
+@endif
+<div class="row">
+<div class="col-12 p-2">
+    <a href="{{ URL::previous() }}" class="btn btn-light border"><i class="fa fa-times"></i> Cancel</a>
+    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save</button>
+</div>
+</div>
 
-            $('select[name="assets"]').on('change', function () {
-                var parameter = $(this).val();
-                if (parameter) {
-                    $.ajax({
-                        url: '/units/units_of_assets/' + parameter,
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
-                            $('select[name="units"]').empty();
-                            $('select[name="units"]').append('<option disabled selected>Select Respective Units</option>');
-                            $.each(data, function (key, value) {
-                                $('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
-                            });
-                        }
-                    });
-                } else {
-                    $('select[name="units"]').empty();
-                }
-            });
-            $('.labs').on('click', function (e) {
-                e.preventDefault();
-                var lab = $(this).attr('data-id');
-                $('#location').val(lab);
-            });
-        });
+</form>
+</div>
+<script>
+$(document).ready(function () {
 
-    </script>
+$('select[name="assets"]').on('change', function () {
+var parameter = $(this).val();
+if (parameter) {
+    $.ajax({
+        url: '/units/units_of_assets/' + parameter,
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            $('select[name="units"]').empty();
+            $('select[name="units"]').append('<option disabled selected>Select Respective Units</option>');
+            $.each(data, function (key, value) {
+                $('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
+            });
+        }
+    });
+} else {
+    $('select[name="units"]').empty();
+}
+});
+$('.labs').on('click', function (e) {
+e.preventDefault();
+var lab = $(this).attr('data-id');
+$('#location').val(lab);
+});
+});
+
+</script>
 @endsection

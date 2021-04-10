@@ -53,6 +53,10 @@ class CreateCalculatorentriesTable extends Migration
             //vernier entries
             $table->string('anti_parallelism')->nullable();
             $table->string('zero_error')->nullable();
+            //for micrometer
+            $table->string('measuring_faces')->nullable();
+            //for micrometer, vernier and dial guage
+            $table->string('uuc_type')->nullable();
             $table->timestamps();
         });
     }

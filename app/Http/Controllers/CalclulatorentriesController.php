@@ -42,7 +42,6 @@ class CalclulatorentriesController extends Controller
     public function store(Request $request)
     {
 
-        //dd($request->all());
         $show = Jobitem::find($request->jobtypeid);
         if ($show ->type== 0) {
             $assets = explode(',', $show->assign_assets);
@@ -109,8 +108,31 @@ class CalclulatorentriesController extends Controller
                 'ref_temp' => 'required',
                 'anti_parallelism' => 'required',
                 'zero_err' => 'required',
+                'uuc_type' => 'required',
             ]);
         }
+        if ($labjob->item->capabilities->calculator == 'dial-gauge-calculator') {
+            $this->validate(request(), [
+                'uuc_temp' => 'required',
+                'ref_temp' => 'required',
+                'zero_err' => 'required',
+                'uuc_type' => 'required',
+            ]);
+        }
+
+        if ($labjob->item->capabilities->calculator == 'micrometer-calculator') {
+            $this->validate(request(), [
+                'uuc_temp' => 'required',
+                'ref_temp' => 'required',
+                'p_anvil' => 'required',
+                'p_spindle' => 'required',
+                'f_spindle' => 'required',
+                'f_anvil' => 'required',
+                'zero_err' => 'required',
+                'uuc_type' => 'required',
+            ]);
+        }
+
         if (in_array(180,$assets)) {
             $labjob->accuracy = implode(',',$request->accuracy);
             $labjob->resolution = $request->t_uuc_resolution.','.$request->a_uuc_resolution.','.$request->w_uuc_resolution;
@@ -191,7 +213,28 @@ class CalclulatorentriesController extends Controller
             );
             $entry->anti_parallelism =json_encode($antiparallelism);
             $entry->zero_error = implode(',',$request->zero_err);
+            $entry->uuc_type =$request->uuc_type;
         }
+        if ($labjob->item->capabilities->calculator == 'micrometer-calculator') {
+            $entry->uuc_temp = implode(',',$request->uuc_temp);
+            $entry->ref_temp = implode(',',$request->ref_temp);
+            $measuring_faces = array(
+                'p_spindle' => $request->p_spindle,
+                'p_anvil' => $request->p_anvil,
+                'f_spindle' => $request->f_spindle,
+                'f_anvil' => $request->f_anvil,
+            );
+            $entry->measuring_faces =json_encode($measuring_faces);
+            $entry->zero_error = implode(',',$request->zero_err);
+            $entry->uuc_type =$request->uuc_type;
+        }
+        if ($labjob->item->capabilities->calculator == 'micrometer-calculator') {
+            $entry->uuc_temp = implode(',',$request->uuc_temp);
+            $entry->ref_temp = implode(',',$request->ref_temp);
+            $entry->zero_error = implode(',',$request->zero_err);
+            $entry->uuc_type =$request->uuc_type;
+        }
+
         if ($entry->save()) {
             $labjob->save();
         }
