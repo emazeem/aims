@@ -29,7 +29,7 @@
             <input type="text" value="{{$units}}" id="units" name="units">
             <div class="form-group col-md-6">
                 <label for="nominal_mass" class="control-label">Nominal Masses</label>
-                <select class="form-control" id="nominal_mass" name="nominal_mass" multiple>
+                <select class="form-control" id="nominal_mass" name="nominal_mass[]" multiple>
                     @foreach($nominal_masses as $mass)
                         <option value="{{$mass->id}}">{{$mass->ref}} </option>
                     @endforeach

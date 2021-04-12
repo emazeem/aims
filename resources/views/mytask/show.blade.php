@@ -188,15 +188,38 @@
                         <th>End Humidity</th>
                         <td>{{$show->general->end_humidity}}%RH</td>
                     </tr>
-
+                    @if($show->general->start_atmospheric_pressure)
                     <tr>
                         <th>Start Atmospheric Pressure</th>
-                        <td>{{$show->general->start_atmospheric_pressure}}hPa</td>
+                        <td>{{$show->general->start_atmospheric_pressure}} hPa</td>
                     </tr>
+                    @endif
+                    @if($show->general->end_atmospheric_pressure)
                     <tr>
                         <th>End Atmospheric Pressure</th>
-                        <td>{{$show->general->end_atmospheric_pressure}}hPa</td>
+                        <td>{{$show->general->end_atmospheric_pressure}} hPa</td>
                     </tr>
+                    @endif
+                    @if($show->item->capabilities->calculator=='balance-calculator')
+                        <tr>
+                            <th>Pan Position</th>
+                            <td>{{$show->general->pan_position}}</td>
+                        </tr>
+                        <tr>
+                            <th>Repeatability</th>
+                            <td>{{$show->general->repeatability}}</td>
+                        </tr>
+                        <tr>
+                            <th>Temp. Diff UUC</th>
+                            <td>{{$show->general->uuc_temp}}</td>
+                        </tr>
+                        <tr>
+                            <th>Temp. Diff Ref</th>
+                            <td>{{$show->general->ref_temp}}</td>
+                        </tr>
+
+
+                    @endif
                     @if($show->item->capabilities->calculator=='volume-calculator')
                         <tr>
                             <th>Class</th>
@@ -320,34 +343,36 @@
         </div>
     </div>
 
+
      {{--for general calculator--}}
     @if($show->item->capabilities->calculator=='general-calculator')
-    @if(count($dataentrie)>0)
-        <span class="mb-3">
+        @if($dataentrie)
+            @if(count($dataentrie->child)>0)
+            <div class="col-12">
             <a href="{{route('general.calculator.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
             <a href="{{route('general.calculator.print_certificate',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Certificate</a>
             <a href="{{route('general.calculator.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Uncertainty</a>
             <a href="{{route('general.calculator.print_dataentrysheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Data Entry Sheet</a>
-    </span>
-        @foreach($dataentrie as $key=>$dataentries)
-        <div class="col-12 table-responsive">
+            </div>
+            @endif
+            <div class="col-12 table-responsive">
             <table class="table table-hover table-bordered table-sm bg-white">
                 <tr>
-                    <th colspan="2" class="h6">
+                    <th colspan="2">
                         {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} {
                         {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
                         --}}
                         @if($show->item->capabilities->procedures->name=='ASTM E2847-11')
-                            <a href="{{route('ir.calculator',[$dataentries->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                            <a href="{{route('ir.calculator',[$dataentrie->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
                         @elseif($show->item->capabilities->procedures->name=='ASTM E77')
-                            <a href="{{route('lig.calculator',[$dataentries->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                            <a href="{{route('lig.calculator',[$dataentrie->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
                         @else
-                            <a href="{{route('general.calculator',[$dataentries->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                            <a href="{{route('general.calculator',[$dataentrie->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
                         @endif
 
                     </th>
                 </tr>
-                @foreach($dataentries->child as $dataentry)
+                @foreach($dataentrie->child as $dataentry)
                     <tr>
 
                         <td>
@@ -367,22 +392,15 @@
 
             </table>
         </div>
-        @endforeach
-    @endif
+        @endif
     @endif
 
     {{--for balance calculator--}}
 
     @if($show->item->capabilities->calculator=='balance-calculator')
-    @if($show->status==3)
-        <div class="col-12">
-        <span class="mb-3">
-            <a href="{{route('balance.calculator.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
-        </span>
-    </div>
-    @endif
+
     @if($dataentrie)
-        @foreach($dataentrie as $key=>$dataentries)
+
         <div class="col-12 table-responsive">
             <table class="table table-hover table-bordered table-sm bg-white">
 
@@ -390,7 +408,7 @@
                     <th colspan="2" class="h6">
                         {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} { {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
                         --}}
-                        <form method="get" action="{{route('balance.calculator',[$dataentries->id])}}">
+                        <form method="get" action="{{route('balance.calculator',[$dataentrie->id])}}">
                             {{--@csrf--}}
                             <div class="form-group col-md-6">
                                 <label for="assets" class="control-label">Assets</label>
@@ -421,7 +439,7 @@
                         </form>
                     </th>
                 </tr>
-                @foreach($dataentries->child as $dataentry)
+                @foreach($dataentrie->child as $dataentry)
                     <tr>
                         <td>
                             {{$dataentry->fixed_value}}
@@ -440,7 +458,7 @@
 
             </table>
         </div>
-        @endforeach
+
     @endif
     @endif
 
@@ -592,7 +610,6 @@
                     },
                     error: function (e) {
                         console.log(e);
-
                     }
                 });
             }));
@@ -606,8 +623,12 @@
                         success: function (data) {
                             $('select[name="units"]').empty();
                             $('select[name="units"]').append('<option disabled selected>Select Respective Units</option>');
-                            $.each(data, function (key, value) {
-                                $('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
+                            $.each(data['units'], function (key, value) {
+                                if (key!='show_channels'){
+                                    $('select[name="units"]').append('<option value="'+ value.id +'">'+ value.unit +'</option>');
+                                }
+                                //$('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
+
                             });
                         }
                     });

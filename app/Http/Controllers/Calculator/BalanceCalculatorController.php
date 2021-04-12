@@ -22,7 +22,6 @@ use phpDocumentor\Reflection\DocBlock;
 class BalanceCalculatorController extends Controller
 {
     public function create($id,Request $request){
-        //dd($request->all());
         $this->validate(request(), [
             'assets' => 'required',
             'units' => 'required',
@@ -36,14 +35,13 @@ class BalanceCalculatorController extends Controller
         return view('calculator.balance.create',compact('id','labs','parent','assets','units','nominal_masses'));
     }
     public function store(Request $request){
-        //dd($request->all());
-       $parent=Calculatorentries::find($request->parent_id);
-       $reference_table=Managereference::where('asset',$parent->asset_id)->get();
-        if (count($reference_table)==0){
+        $parent=Calculatorentries::find($request->parent_id);
+       /*$reference_table=Managereference::where('asset',$parent->asset_id)->get();
+       if (count($reference_table)==0){
             return redirect()->back()->with('failed','Reference data is not available');
-        }
-        //dd($request->all());
-        $this->validate(request(), [
+        }*/
+
+       $this->validate(request(), [
             'nominal_mass' => 'required',
             'x1' => 'required',
             'x2' => 'required',
@@ -57,7 +55,7 @@ class BalanceCalculatorController extends Controller
         $item->x3 = $request->x3;
         $item->x4 = $request->x4;
         $item->parent_id = $request->parent_id;
-        $item->save();
+        //$item->save();
         dd('saved');
         $item=Generaldataentries::find($item->id);
         $avg_temp=($parent->start_temp+$parent->end_temp)/2;
@@ -138,6 +136,24 @@ class BalanceCalculatorController extends Controller
 
         $uncertaintyduetoeccentricityofload=($pp_error*1000)/(2*sqrt(3));
         $uncertaintyduetosensitivityshiftofbalance=(0.0000015*$dev_temp*$nominal_mass*1000)/sqrt(3);
+
+
+        $data=[
+            'air-density'=>$pa,
+            'uncertainty-in-temp-measurement'=>$u_temp,
+            'uncertainty-in-pressure-measurement'=>$u_ap,
+            'uncertainty-in-rh-measurement'=>$u_humidity,
+            'relative-uncertainty-in-air-density'=>$relative_u,
+            'standard-uncertainty-in-air-density'=>$standard_u_in_air_density,
+            'total-weight-density'=>$totalweightdensity,
+            'conventional-density'=>$conventionaldensity,
+            'air-buyoncy-correction'=>$airbuyoncycorrection,
+            'standard-uncertainty-for-air-bouyancy'=>$stduncertaintyforairbuyoncycorrection,
+            'relative-uncertainty-for-air-bouyancy'=>$relativeuncertaintyforairbuyoncycorrection
+            'pan-position-error'=>$pp_error,
+            'type-a-repeatability'=>$typeA_repeatability
+
+        ];
 
         return redirect()->back()->with('success','Data entered successfully');
     }

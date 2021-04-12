@@ -157,8 +157,8 @@ class MytaskController extends Controller
         $parameters=array_unique($parameters);
         $parameters=Parameter::whereIn('id',$parameters)->get();
         $assets=Asset::whereIn('id',$assets)->get();
-        $dataentrie=Calculatorentries::where('job_type_id',$id)->with('child')->get();
-        //dd($dataentries);
+        $dataentrie=Calculatorentries::where('job_type_id',$id)->with('child')->first();
+
         return view('mytask.show',compact('show','location','parameters','assets','dataentrie'));
     }
     public function start(Request $request){

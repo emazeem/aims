@@ -68,7 +68,6 @@
                 <tr>
                     <th>Date</th>
                     <th>Day</th>
-                    <th>Worked Hours</th>
                     <th>Check-in</th>
                     <th>Check-out</th>
                 </tr>
@@ -78,9 +77,8 @@
                     <tr>
                         <td>{{$attendence->check_in_date}}</td>
                         <td>{{$attendence->day}}</td>
-                        <td>{{$attendence->worked_hours}}</td>
-                        <td>{{date('h:i A',strtotime($attendence->check_in))}}</td>
-                        <td>{{date('h:i A',strtotime($attendence->check_out))}}</td>
+                        <td>{{$attendence->check_in_date}} {{date('h:i A',strtotime($attendence->check_in))}}</td>
+                        <td>{{$attendence->check_out_date}} {{date('h:i A',strtotime($attendence->check_out))}}</td>
                     </tr>
                 @endforeach
                 </tbody>
