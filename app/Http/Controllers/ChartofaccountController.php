@@ -154,5 +154,10 @@ class ChartofaccountController extends Controller
         Chartofaccount::find($request->id)->delete();
         return response()->json(['success'=>'Chart of Account deleted successfully']);
     }
+    public function show(){
+        $accounts =AccLevelOne::all();
+        return view('acc_level_four.show',compact('accounts'));
+    }
+
     //
 }

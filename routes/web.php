@@ -531,6 +531,7 @@ Route::group(['prefix'=> 'acc_level_four'],function(){
     Route::get('',[App\Http\Controllers\ChartofaccountController::class, 'index'])->middleware('auth')->name('acc_level_four');
     Route::post('',[App\Http\Controllers\ChartofaccountController::class, 'fetch'])->middleware('auth')->name('acc_level_four.fetch');
     Route::get('/create',[App\Http\Controllers\ChartofaccountController::class, 'create'])->middleware('auth')->name('acc_level_four.create');
+    Route::get('/show',[App\Http\Controllers\ChartofaccountController::class, 'show'])->middleware('auth')->name('acc_level_four.show');
     Route::get('/edit/{id}',[App\Http\Controllers\ChartofaccountController::class, 'edit'])->middleware('auth')->name('acc_level_four.edit');
     Route::post('/store/',[App\Http\Controllers\ChartofaccountController::class, 'store'])->middleware('auth')->name('acc_level_four.store');
     Route::post('/update/',[App\Http\Controllers\ChartofaccountController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
