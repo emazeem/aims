@@ -7,6 +7,7 @@ use App\Models\AccLevelThree;
 use App\Models\AccLevelTwo;
 use App\Models\Chartofaccount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class ChartofaccountController extends Controller
@@ -22,7 +23,6 @@ class ChartofaccountController extends Controller
     public function fetch()
     {
         $data = Chartofaccount::with('codeone','codetwo','codethree');
-        //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -38,11 +38,21 @@ class ChartofaccountController extends Controller
             })
             ->addColumn('options', function ($data) {
 
-                return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_four/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
+
+                $action=null;
+                $token=csrf_token();
+                $action="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_four/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                if (Auth ::user()->can('customer-delete')){
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method='post' role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+                }
+                return $action;
             })
-            ->rawColumns(['options',])
+            ->rawColumns(['options'])
             ->make(true);
     }
 
@@ -139,6 +149,10 @@ class ChartofaccountController extends Controller
         $acc->title = $request->title;
         $acc->save();
         return redirect()->back()->with('success', 'Chart of Account has updated successfully.');
+    }
+    public function destroy(Request $request){
+        Chartofaccount::find($request->id)->delete();
+        return response()->json(['success'=>'Chart of Account deleted successfully']);
     }
     //
 }

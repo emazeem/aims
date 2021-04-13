@@ -82,6 +82,42 @@
 
         $(document).ready(function () {
             InitTable();
+            $(document).on('click', '.delete', function (e) {
+                swal({
+                    title: "Are you sure to delete this chart of account?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var id = $(this).attr('data-id');
+                            var token = '{{csrf_token()}}';
+                            e.preventDefault();
+                            var request_method = $("#form" + id).attr("method");
+                            var form_data = $("#form" + id).serialize();
+
+                            $.ajax({
+                                url: "{{route('acc_level_four.destroy')}}",
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
+                                success: function (data) {
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                    });
+
+                                },
+                                error: function (data) {
+                                    swal("Failed", data.error, "error");
+                                },
+                            });
+
+                        }
+                    });
+
+            });
+
         });
     </script>
 @endsection

@@ -6,6 +6,7 @@ use App\Models\AccLevelOne;
 use App\Models\AccLevelThree;
 use App\Models\AccLevelTwo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class AccLevelThreeController extends Controller
@@ -34,9 +35,18 @@ class AccLevelThreeController extends Controller
 
             ->addColumn('options', function ($data) {
 
-                return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_three/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
+                $action=null;
+                $token=csrf_token();
+                $action="<a title='Edit' class='btn btn-sm btn-success edit' href='#' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                if (Auth ::user()->can('customer-delete')){
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method='post' role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+                }
+                return $action;
 
             })
             ->rawColumns(['options','parent'])
@@ -51,7 +61,7 @@ class AccLevelThreeController extends Controller
     public function store(Request $request){
         $this->validate(request(), [
             'title' => 'required',
-            'level1of3' => 'required',
+            'level1' => 'required',
             'level2of3' => 'required',
         ],[
             'title.required' => 'Title is required.',
@@ -60,17 +70,18 @@ class AccLevelThreeController extends Controller
         ]);
         $acc=new AccLevelThree();
         $acc->code2=$request->level2of3;
-        $acc->code1=$request->level1of3;
+        $acc->code1=$request->level1;
         $acc->title=$request->title;
         $acc->save();
         $acc->code3=str_pad($acc->id, 2, '0', STR_PAD_LEFT);
         $acc->save();
-        return  redirect()->back()->with('success', 'Level 3 has added successfully.');
+        return  response()->json(['success'=>'Level 3 added successfully.']);
+
     }
     public function update(Request $request){
         $this->validate(request(), [
             'title' => 'required',
-            'level1of3' => 'required',
+            'level1' => 'required',
             'level2of3' => 'required',
         ],[
             'title.required' => 'Title is required.',
@@ -79,10 +90,11 @@ class AccLevelThreeController extends Controller
         ]);
         $acc=AccLevelThree::find($request->id);
         $acc->code2=$request->level2of3;
-        $acc->code1=$request->level1of3;
+        $acc->code1=$request->level1;
         $acc->title=$request->title;
         $acc->save();
-        return  redirect()->back()->with('success', 'Level 3 has updated successfully.');
+        return  response()->json(['success'=>'Level 3 updated successfully.']);
+
     }
     public function get_level2($id){
         $level2=AccLevelTwo::where('code1',$id)->get();
@@ -94,13 +106,13 @@ class AccLevelThreeController extends Controller
     }
 
     public function edit($id){
-        $level=3;
         $edit=AccLevelThree::find($id);
-        $ones=AccLevelOne::all();
-        $twos=AccLevelTwo::all();
-        $threes=AccLevelThree::all();
-        return view('acc_level_four.edit',compact('edit','level','ones','twos','threes'));
+        $edit['code2_title']=AccLevelTwo::find($edit->code2)->title;
+        return response()->json($edit);
     }
-
+    public function destroy(Request $request){
+        AccLevelThree::find($request->id)->delete();
+        return response()->json(['success'=>'Acc. deleted successfully']);
+    }
     //
 }

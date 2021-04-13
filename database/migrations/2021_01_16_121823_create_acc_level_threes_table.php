@@ -20,6 +20,7 @@ class CreateAccLevelThreesTable extends Migration
             $table->integer('code2');
             $table->char('code3',2);
             $table->string('title');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

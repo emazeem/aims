@@ -17,6 +17,7 @@ class CreateAccLevelOnesTable extends Migration
             $table->id();
             $table->char('code1',2);
             $table->string('title');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

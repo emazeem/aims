@@ -18,6 +18,7 @@ class CreateAccLevelTwosTable extends Migration
             $table->integer('code1');
             $table->char('code2',2);
             $table->string('title');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

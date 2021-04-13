@@ -6,6 +6,7 @@ use App\Models\AccLevelOne;
 use App\Models\AccLevelThree;
 use App\Models\AccLevelTwo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class AccLevelTwoController extends Controller
@@ -34,10 +35,18 @@ class AccLevelTwoController extends Controller
             })
             ->addColumn('options', function ($data) {
 
-                return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_two/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
-
+                $action=null;
+                $token=csrf_token();
+                $action="<a title='Edit' class='btn btn-sm btn-success edit' href='#' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                if (Auth ::user()->can('customer-delete')){
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method='post' role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+                }
+                return $action;
             })
             ->rawColumns(['options','parent'])
             ->make(true);
@@ -63,7 +72,8 @@ class AccLevelTwoController extends Controller
         $reserved=AccLevelTwo::where('code1',$request->level1)->count();
         $acc->code2=str_pad($reserved, 2, '0', STR_PAD_LEFT);
         $acc->save();
-        return  redirect()->back()->with('success', 'Level 2 has added successfully.');
+        return  response()->json(['success'=>'Level 2 added successfully.']);
+
     }
     public function update(Request $request){
         $this->validate(request(), [
@@ -77,13 +87,16 @@ class AccLevelTwoController extends Controller
         $acc->code1=$request->level1;
         $acc->title=$request->title;
         $acc->save();
-        return  redirect()->back()->with('success', 'Level 2 has updated successfully.');
+        return  response()->json(['success'=>'Level 2 updated successfully.']);
+
     }
     public function edit($id){
-        $level=2;
         $edit=AccLevelTwo::find($id);
-        $ones=AccLevelOne::all();
-        return view('acc_level_four.edit',compact('edit','level','ones'));
+        return response()->json($edit);
+    }
+    public function destroy(Request $request){
+        AccLevelTwo::find($request->id)->delete();
+        return response()->json(['success'=>'Acc. deleted successfully']);
     }
     //
 }

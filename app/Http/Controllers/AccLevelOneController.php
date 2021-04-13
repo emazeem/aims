@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AccLevelOne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class AccLevelOneController extends Controller
@@ -24,18 +25,25 @@ class AccLevelOneController extends Controller
                 return $data->title;
             })
             ->addColumn('options', function ($data) {
-                return "&emsp;<a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_one/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                $action=null;
+                $token=csrf_token();
+                $action="<a title='Edit' class='btn btn-sm btn-success edit' href='#' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                if (Auth::user()->can('customer-delete')){
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method='post' role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+                }
+                return $action;
             })
             ->rawColumns(['options','status'])
             ->make(true);
     }
-    public function create(){
-        return view('acc_level_one.create');
-    }
     public function edit($id){
-        $level=1;
         $edit=AccLevelOne::find($id);
-        return view('acc_level_four.edit',compact('edit','level'));
+        return response()->json($edit);
     }
     public function store(Request $request){
         $this->validate(request(), [
@@ -49,7 +57,7 @@ class AccLevelOneController extends Controller
         $reserved=AccLevelOne::get()->count();
         $acc->code1=str_pad($reserved, 1, '0', STR_PAD_LEFT);
         $acc->save();
-        return  redirect()->back()->with('success', 'Level 1 has added successfully.');
+        return  response()->json(['success'=>'Level 1 has added successfully.']);
     }
     public function update(Request $request){
         $this->validate(request(), [
@@ -60,7 +68,12 @@ class AccLevelOneController extends Controller
         $acc=AccLevelOne::find($request->id);
         $acc->title=$request->title;
         $acc->save();
-        return  redirect()->back()->with('success', 'Level 1 has updated successfully.');
+        return  response()->json(['success'=>'Level 1 has updated successfully.']);
+
+    }
+    public function destroy(Request $request){
+        AccLevelOne::find($request->id)->delete();
+        return response()->json(['success'=>'Acc. deleted successfully']);
     }
     //
 }

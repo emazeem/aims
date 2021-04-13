@@ -22,6 +22,7 @@ class CreateAccLevelFoursTable extends Migration
             $table->char('code4',3);
             $table->char('acc_code',9);
             $table->string('title');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
