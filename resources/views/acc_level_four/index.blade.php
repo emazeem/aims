@@ -29,9 +29,9 @@
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Parent</th>
                     <th>Account Code</th>
                     <th>Title</th>
-                    <th>Parent</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -41,9 +41,9 @@
                 <tfoot>
                 <tr>
                     <th>ID</th>
+                    <th>Parent</th>
                     <th>Account Code</th>
                     <th>Title</th>
-                    <th>Parent</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -73,9 +73,9 @@
                 },
                 "columns": [
                     {"data": "id"},
+                    {"data": "parent"},
                     {"data": "acc_code"},
                     {"data": "title"},
-                    {"data": "parent"},
                     {"data": "options", "orderable": false},
                 ]
             });

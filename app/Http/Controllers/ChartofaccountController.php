@@ -34,7 +34,7 @@ class ChartofaccountController extends Controller
                 return $data->title;
             })
             ->addColumn('parent', function ($data) {
-                return '<b class="text-danger">'.$data->codeone->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-primary">'.$data->codetwo->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-warning">'.$data->codethree->title.'</b> <i class="fa fa-angle-right"></i> '.$data->codethree->codetwo->codeone->title;
+                return '<b class="text-danger">'.$data->codeone->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-primary">'.$data->codetwo->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-warning">'.$data->codethree->title.'</b>';
             })
             ->addColumn('options', function ($data) {
 
