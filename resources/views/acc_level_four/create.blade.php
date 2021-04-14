@@ -30,7 +30,7 @@
                 <div class="collapse show" id="levels4">
                     <div class="card-body">
                         <div class="col-12">
-                            <form class="form-horizontal" action="{{route('acc_level_four.store')}}" method="post">
+                            <form class="form-horizontal" id="add_level_form" method="post">
                                 @csrf
 
                                 <div class="form-group mt-md-4 row">
@@ -148,6 +148,34 @@
                     $('select[name="level3of4"]').empty();
                 }
             });
+
+            $("#add_level_form").on('submit',(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('acc_level_four.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        swal('success',data.success,'success').then((value) => {
+                            //
+                        });
+
+                    },
+                    error: function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
 
         });
     </script>

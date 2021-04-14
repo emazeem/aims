@@ -127,7 +127,7 @@ class ChartofaccountController extends Controller
         $four->code4 = str_pad($code4, 4, '0', STR_PAD_LEFT);
         $four->acc_code = $four->codeone->code1 . $four->codetwo->code2 . $four->codethree->code3 . str_pad($code4, 4, '0', STR_PAD_LEFT);;
         $four->save();
-        return redirect()->back()->with('success', 'Chart of Account has added successfully.');
+        return response()->json(['success'=> 'Chart of Account has added successfully.']);
     }
     public function update(Request $request)
     {
