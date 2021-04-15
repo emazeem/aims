@@ -14,15 +14,13 @@
             });
         </script>
     @endif
-
-
     <div class="row ">
         <h1 class="border-bottom pull-left"><i class="fa fa-money"></i> Chart of Account</h1>
         <div class="col-12">
             <ul>
                 @foreach($accounts as $account)
                     <li class="level-1">{{$account->title}}</li>
-                        <ul>
+                        <ul >
                             @foreach($account->leveltwo as $leveltwo)
                                 <li class="level-2">{{$leveltwo->title}}</li>
                                     <ul class="nested">
@@ -45,22 +43,28 @@
         .level-1{
             font-size: 22px;
             font-weight: bolder;
-            color: black;
+            color: rgb(223, 10, 17);
+            list-style-type: circle;
         }
         .level-2{
             font-size: 20px;
             font-weight: bold;
-            color: rgb(0, 8, 122);
+            color: black;
+
+            list-style-type: disc;
         }
         .level-3{
             font-size: 20px;
             font-weight: normal;
-            color: rgb(0, 8, 167);
+            color: rgb(223, 10, 17);
+            list-style-type: circle;
         }
         .level-4{
             font-size: 18px;
             font-weight: normal;
-            color: rgb(27, 121, 255);
+            color: black;
+
+            list-style-type: disc;
         }
     </style>
 @endsection

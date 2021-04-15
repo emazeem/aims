@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
+use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(Request $request)
     {
+        Passport::routes();
         //View::share('notifications',Notification::all());
         View::share('menus',Menu::where('parent_id',null)->where('status',1)->orderBy('position','ASC')->get());
         $this->registerPolicies();
