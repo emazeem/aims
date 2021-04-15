@@ -56,11 +56,11 @@
                 <table id="myTable" class=" table order-list">
                     <thead>
                     <tr>
-                        <td>Account</td>
-                        <td>Narration</td>
-                        <td>Type</td>
-                        <td>Dr. / Cr.</td>
-                        <td>Action</td>
+                        <td width="10">Account</td>
+                        <td width="20">Narration</td>
+                        <td width="10">Dr.</td>
+                        <td width="10">Cr.</td>
+                        <td width="10">Action</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -89,22 +89,18 @@
                             @endif
                         </td>
                         <td>
-                            <select name="type[]"  class="form-control" id="type" >
-                                <option selected value="">Select Type</option>
-                                <option value="debit">Debit</option>
-                                <option value="credit">Credit</option>
-                            </select>
-                            @if ($errors->has('type'))
+                            <input type="text" name="dr[]"  class="form-control" placeholder="Dr." value="{{old('dr')}}" />
+                            @if ($errors->has('dr'))
                                 <span class="text-danger">
-                                    <strong>{{ $errors->first('type') }}</strong>
+                                    <strong>{{ $errors->first('dr') }}</strong>
                                 </span>
                             @endif
                         </td>
                         <td>
-                            <input type="text" name="price[]"  class="form-control" placeholder="Enter Dr. / Cr. Amount" value="{{old('price')}}" />
-                            @if ($errors->has('price'))
+                            <input type="text" name="cr[]"  class="form-control" placeholder="Cr." value="{{old('cr')}}" />
+                            @if ($errors->has('cr'))
                                 <span class="text-danger">
-                                    <strong>{{ $errors->first('price') }}</strong>
+                                    <strong>{{ $errors->first('cr') }}</strong>
                                 </span>
                             @endif
                         </td>
@@ -115,16 +111,6 @@
                     </tr>
                     </tbody>
                     <tfoot>
-                    <tr>
-                        <td>@if ($errors->has('uuc'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('uuc') }}</strong>
-                            </span>
-                            @endif
-                        </td>
-
-                    </tr>
-                    </tfoot>
                 </table>
 
                 <a href="{{ URL::previous() }}" class="btn btn-light border"> <i class="fa fa-angle-left"></i> Back</a>
@@ -140,8 +126,8 @@
                 var cols = "";
                 cols += '<td><select name="account[]"  class="form-control" id="account"><option value="" selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->acc_code.'">'.$account->title.'</option>';}  @endphp</td>';
                 cols += '<td><textarea rows="1"  class="form-control" name="narration[]" placeholder="Narration"/></td>';
-                cols += '<td><select name="type[]"   class="form-control" id="type"><option selected value="">Select Type</option><option value="debit">Debit</option><option value="credit">Credit</option></td>';
-                cols += '<td><input type="text"  name="price[]"  class="form-control" id="price" placeholder="Enter Dr. / Cr. Amount"></td>';
+                cols += '<td><input type="text"  name="dr[]"  class="form-control" id="dr" placeholder="Dr."></td>';
+                cols += '<td><input type="text"  name="cr[]"  class="form-control" id="cr" placeholder="Cr."></td>';
                 cols += '<td>' +
                     '<a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
                 newRow.append(cols);

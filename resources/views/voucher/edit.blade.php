@@ -22,13 +22,13 @@
                     <div class="col-10">
                         <select class="form-control" id="v_type" name="v_type" required>
                             <option value="" selected disabled>Select Voucher Type</option>
-                            <option value="journal" {{$edit->v_type=='journal'?'selected':''}}>Journal Voucher</option>
-                            <option value="sale" {{$edit->v_type=='sale'?'selected':''}}>Sales Voucher</option>
-                            <option value="purchase" {{$edit->v_type=='purchase'?'selected':''}}>Purchase Voucher</option>
-                            <option value="cash-payment" {{$edit->v_type=='cash-payment'?'selected':''}}>Cash Payment Voucher</option>
-                            <option value="cash-receipt" {{$edit->v_type=='cash-receipt'?'selected':''}}>Cash Receipt Voucher</option>
-                            <option value="bank-payment" {{$edit->v_type=='bank-payment'?'selected':''}}>Bank Payment Voucher</option>
-                            <option value="bank-receipt" {{$edit->v_type=='bank-receipt'?'selected':''}}>Bank Receipt Voucher</option>
+                            <option value="journal" {{$edit->type=='journal voucher'?'selected':''}}>Journal Voucher</option>
+                            <option value="sale" {{$edit->type=='sale voucher'?'selected':''}}>Sales Voucher</option>
+                            <option value="purchase" {{$edit->type=='purchase voucher'?'selected':''}}>Purchase Voucher</option>
+                            <option value="cash-payment" {{$edit->type=='cash-payment voucher'?'selected':''}}>Cash Payment Voucher</option>
+                            <option value="cash-receipt" {{$edit->type=='cash-receipt voucher'?'selected':''}}>Cash Receipt Voucher</option>
+                            <option value="bank-payment" {{$edit->type=='bank-payment voucher'?'selected':''}}>Bank Payment Voucher</option>
+                            <option value="bank-receipt" {{$edit->type=='bank-receipt voucher'?'selected':''}}>Bank Receipt Voucher</option>
                         </select>
                         @if ($errors->has('v_type'))
                             <span class="text-danger">
@@ -53,8 +53,8 @@
                     <tr>
                         <td>Account</td>
                         <td>Narration</td>
-                        <td>Type</td>
-                        <td>Dr. / Cr.</td>
+                        <td>Dr.</td>
+                        <td>Cr.</td>
                         <td>Action</td>
                     </tr>
                     </thead>
@@ -85,48 +85,26 @@
                             @endif
                         </td>
                         <td>
-                            <select name="type[]"  class="form-control" id="type" >
-                                <option value="" selected>Select Type</option>
-                                <option value="debit" {{$detail->dr?'selected':''}}>Debit</option>
-                                <option value="credit" {{$detail->cr?'selected':''}}>Credit</option>
-                            </select>
-                            @if ($errors->has('type'))
+                            <input type="text" name="dr[]"  class="form-control" placeholder="Dr" value="{{old('price',$detail->dr)}}"/>
+                            @if ($errors->has('dr'))
                                 <span class="text-danger">
-                                    <strong>{{ $errors->first('type') }}</strong>
+                                    <strong>{{ $errors->first('dr') }}</strong>
                                 </span>
                             @endif
                         </td>
                         <td>
-                            <input type="text" name="price[]"  class="form-control" placeholder="Enter Dr. / Cr. Amount" value="{{old('price',$detail->cr?$detail->cr:$detail->dr)}}" required/>
-                            @if ($errors->has('price'))
+                            <input type="text" name="cr[]"  class="form-control" placeholder="Dr" value="{{old('price',$detail->cr)}}"/>
+                            @if ($errors->has('cr'))
                                 <span class="text-danger">
-                                    <strong>{{ $errors->first('price') }}</strong>
+                                    <strong>{{ $errors->first('cr') }}</strong>
                                 </span>
                             @endif
                         </td>
-                        <td >
-                            {{--<a class="deleteRow"></a>
-                            @if($k==0)
-                                <a href="javascript:void(0)"  id="addrow" class="btn btn-primary btn-sm mt-2 text-lg"><i class="fa fa-plus-circle"></i></a>
-                            @else
-                                <a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a>
-                            @endif
-                            --}}
-                        </td>
+
+
                     </tr>
                     @endforeach
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <td>@if ($errors->has('uuc'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('uuc') }}</strong>
-                            </span>
-                            @endif
-                        </td>
-
-                    </tr>
-                    </tfoot>
                 </table>
 
                 <a href="{{ URL::previous() }}" class="btn btn-light border"> <i class="fa fa-angle-left"></i> Back</a>
@@ -137,25 +115,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            /*var counter = 0;
-            $("#addrow").on("click", function () {
-                var newRow = $("<tr>");
-                var cols = "";
-                cols += '<td><select name="account[]"  class="form-control" id="account"><option value="" selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->acc_code.'">'.$account->title.'</option>';}  @endphp</td>';
-                cols += '<td><textarea rows="1"  class="form-control" name="narration[]" placeholder="Narration"/></td>';
-                cols += '<td><select name="type[]"   class="form-control" id="type"><option selected value="">Select Type</option><option value="debit">Debit</option><option value="credit">Credit</option></td>';
-                cols += '<td><input type="text"  name="price[]"  class="form-control" id="price" placeholder="Enter Dr. / Cr. Amount"></td>';
-                cols += '<td>' +
-                    '<a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
-                newRow.append(cols);
-                $("table.order-list").append(newRow);
-                counter++;
-            });
-            $("table.order-list").on("click", ".ibtnDel", function (event) {
-                $(this).closest("tr").remove();
-                counter -= 1
-            });
-            */
             $("#edit_voucher_form").on('submit',(function(e) {
                 e.preventDefault();
                 $.ajax({

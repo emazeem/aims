@@ -22,7 +22,7 @@
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
                 <p class="text-center b font-14 mt-5 text-capitalize">
-                    {{str_replace('-',' ',$show->v_type)}} Voucher
+                    {{str_replace('-',' ',$show->type)}} Voucher
                 </p>
             </div>
             <div class="col-3 row custom-border font-9 p-0">
@@ -40,7 +40,7 @@
         </div>
         <div class="row py-3">
             <div class="col-6 my-1 font-11 ">Voucher # : <span class="custom-bottom-border px-5">{{$show->customize_id}}</span></div>
-            <div class="col-6 my-1 font-11 ">Date : <span class="custom-bottom-border px-5">{{$show->v_date->format('d-m-Y')}}</span></div>
+            <div class="col-6 my-1 font-11 ">Date : <span class="custom-bottom-border px-5">{{$show->date->format('d-m-Y')}}</span></div>
         </div>
         <div class="col-12 text-center">
             <p class=" font-14 b mt-3">Equipment Description

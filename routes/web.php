@@ -124,6 +124,14 @@ Route::group(['prefix'=> 'departments'],function() {
     Route::post('/edit',[App\Http\Controllers\DepartmentController::class, 'edit'])->middleware('auth')->name('departments.edit');
     Route::post('/update',[App\Http\Controllers\DepartmentController::class, 'update'])->middleware('auth')->name('departments.update');
 });
+Route::group(['prefix'=> 'business-lines'],function() {
+    Route::get('',[App\Http\Controllers\BusinessLineController::class, 'index'])->middleware('auth')->name('business.line');
+    Route::post('',[App\Http\Controllers\BusinessLineController::class, 'fetch'])->middleware('auth')->name('business.line.fetch');
+    Route::post('/store',[App\Http\Controllers\BusinessLineController::class, 'store'])->middleware('auth')->name('business.line.store');
+    Route::post('/edit',[App\Http\Controllers\BusinessLineController::class, 'edit'])->middleware('auth')->name('business.line.edit');
+    Route::post('/update',[App\Http\Controllers\BusinessLineController::class, 'update'])->middleware('auth')->name('business.line.update');
+});
+
 Route::group(['prefix'=> 'designations'],function() {
     Route::get('',[App\Http\Controllers\DesignationController::class, 'index'])->middleware('auth')->name('designations');
     Route::post('',[App\Http\Controllers\DesignationController::class, 'fetch'])->middleware('auth')->name('designations.fetch');
@@ -537,6 +545,8 @@ Route::group(['prefix'=> 'acc_level_four'],function(){
     Route::post('/update/',[App\Http\Controllers\ChartofaccountController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
     Route::delete('delete',[App\Http\Controllers\ChartofaccountController::class, 'destroy'])->middleware('auth')->name('acc_level_four.destroy');
 });
+
+
 Route::group(['prefix'=> 'vouchers'],function(){
     Route::get('',[App\Http\Controllers\VoucherController::class, 'index'])->middleware('auth')->name('vouchers');
     Route::post('',[App\Http\Controllers\VoucherController::class, 'fetch'])->middleware('auth')->name('vouchers.fetch');

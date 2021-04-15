@@ -38,11 +38,11 @@
                 </tr>
                 <tr>
                     <th>Voucher Type</th>
-                    <td class="text-capitalize"> {{str_replace('-',' ',$show->v_type)}} Voucher</td>
+                    <td class="text-capitalize"> {{str_replace('-',' ',$show->type)}}</td>
                 </tr>
                 <tr>
                     <th>Voucher Date</th>
-                    <td>{{$show->v_date->format('d-m-Y')}}</td>
+                    <td>{{$show->date->format('d-m-Y')}}</td>
                 </tr>
                 <tr>
                     <th>Created By</th>

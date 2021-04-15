@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\AccLevelOne;
 use App\Models\Chartofaccount;
 use App\Models\Journal;
+use App\Models\JournalDetails;
 use     Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
@@ -14,14 +15,14 @@ class JournalController extends Controller
     }
 
     public function fetch(){
-        $data=Journal::with('createdby')->get();
+        $data=JournalDetails::with('parent')->get();
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
             })
             ->addColumn('customize_id', function ($data) {
-                return $data->customize_id;
+                return $data->parent->customize_id;
             })
             ->addColumn('acc_id', function ($data) {
                 return $data->acc_code;
@@ -31,11 +32,11 @@ class JournalController extends Controller
                 return $account->title;
             })
             ->addColumn('type', function ($data) {
-                return ucwords(str_replace('-',' ',$data->v_type)).' Voucher';
+                return ucwords(str_replace('-',' ',$data->parent->type));
             })
 
             ->addColumn('date', function ($data) {
-                return $data->date;
+                return $data->parent->date->format('d-M-Y');
                 //return $data->v_date->format('d-M-Y');
             })
             ->addColumn('dr', function ($data) {
@@ -45,7 +46,7 @@ class JournalController extends Controller
                 return $data->cr;
             })
             ->addColumn('created_by', function ($data) {
-                return $data->createdby->fname.' '.$data->createdby->lname;
+                return $data->parent->createdby->fname.' '.$data->parent->createdby->lname;
             })->make(true);
     }
     public function ledger(Request $request){

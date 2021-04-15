@@ -74,8 +74,29 @@ class AuthServiceProvider extends ServiceProvider
         $this->activitylog();
         $this->journal();
         $this->inventory();
+        $this->businessLine();
         //
     }
+    public function expenses()
+    {
+        Gate::define('finance-accounts', function ($user) {
+            if (in_array('finance-accounts',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+    }
+    public function businessLine()
+    {
+        Gate::define('business-line', function ($user) {
+            if (in_array('business-line',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
     public function journal()
     {
         Gate::define('journal-index', function ($user) {
@@ -85,6 +106,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+
     public function inventory()
     {
         Gate::define('inventory-index', function ($user) {
@@ -397,30 +419,6 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-
-    }
-    public function expenses()
-    {
-        Gate::define('finance-accounts', function ($user) {
-            if (in_array('finance-accounts',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
-        Gate::define('expenses-index', function ($user) {
-            if (in_array('expenses-index',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
-
-        Gate::define('expense-categories', function ($user) {
-            if (in_array('expense-categories',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
-
 
     }
 

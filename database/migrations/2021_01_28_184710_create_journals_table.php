@@ -15,15 +15,11 @@ class CreateJournalsTable extends Migration
     {
         Schema::create('journals', function (Blueprint $table) {
             $table->id();
+            $table->integer('business_line');
             $table->string('customize_id');
-            $table->date('date');
             $table->string('type');
             $table->integer('created_by');
-            $table->integer('updated_by');
-            $table->string('acc_code');
-            $table->longText('narration');
-            $table->integer('dr')->nullable();
-            $table->integer('cr')->nullable();
+            $table->date('date');
             $table->timestamps();
         });
     }
