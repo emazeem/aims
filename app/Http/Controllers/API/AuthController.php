@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use phpseclib3\Crypt\Hash;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -32,7 +32,6 @@ class AuthController extends Controller
         $user->designation=0;
         $user->department=0;
         $user->save();
-
         $accessToken=$user->createToken('authToken')->accessToken;
         return response(['user'=>$user,'token'=>$accessToken]);
     }
