@@ -211,11 +211,12 @@ class QueryDataTable extends DataTableAbstract
     public function count()
     {
         $builder = $this->prepareCountQuery();
-        $table   = $this->connection->raw('(' . $builder->toSql() . ') count_row_table');
+
+        $table = $this->connection->raw('('.$builder->toSql().') count_row_table');
 
         return $this->connection->table($table)
-                                ->setBindings($builder->getBindings())
-                                ->count();
+            ->setBindings($builder->getBindings())
+            ->count();
     }
 
     /**
@@ -309,7 +310,7 @@ class QueryDataTable extends DataTableAbstract
             }
 
             if ($this->hasFilterColumn($column)) {
-                $keyword = $this->getColumnSearchKeyword($index, $raw = true);
+                $keyword = $this->getColumnSearchKeyword($index, true);
                 $this->applyFilterColumn($this->getBaseQueryBuilder(), $column, $keyword);
             } else {
                 $column  = $this->resolveRelationColumn($column);
@@ -572,7 +573,7 @@ class QueryDataTable extends DataTableAbstract
      * Override default column ordering.
      *
      * @param string $column
-     * @param string $sql
+     * @param string|\Closure $sql
      * @param array  $bindings
      * @return $this
      * @internal string $1 Special variable that returns the requested order direction of the column.
@@ -766,7 +767,7 @@ class QueryDataTable extends DataTableAbstract
     protected function showDebugger(array $output)
     {
         $query_log = $this->connection->getQueryLog();
-        array_walk_recursive($query_log, function (&$item, $key) {
+        array_walk_recursive($query_log, function (&$item) {
             $item = utf8_encode($item);
         });
 

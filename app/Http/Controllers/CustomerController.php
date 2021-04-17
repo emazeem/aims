@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Chartofaccount;
 use App\Models\Customer;
 use App\Models\Preference;
 use App\Models\User;
@@ -12,6 +13,8 @@ use Yajra\DataTables\DataTables;
 class CustomerController extends Controller
 {
     public function index(){
+
+
         $this->authorize('customer-index');
         return view('customers.index');
     }
@@ -159,7 +162,27 @@ class CustomerController extends Controller
             $customer->acc_phone=implode(',',$request->acc_phone);
             $customer->acc_email=$request->acc_email;
         }
+
+
+
+
+        $acc = new Chartofaccount();
+        $acc->code4 = 000;
+        $acc->code3 = 4;
+        $acc->code2 = 1;
+        $acc->code1 = 1;
+        $acc->title = $customer->reg_name;
+        $acc->save();
+
+        $code4=(Chartofaccount::where('code3',4)->count());
+        $four = Chartofaccount::find($acc->id);
+        $four->code4 = str_pad($code4, 4, '0', STR_PAD_LEFT);
+        $four->acc_code = 10104 .str_pad($code4, 4, '0', STR_PAD_LEFT);;
+        $four->save();
+
+        $customer->acc_code=$four->acc_code;
         $customer->save();
+
         $users = User::where('user_type', 1)->get();
         $url = '/customers/view/'.$customer->id;
         $creator = auth()->user()->fname . ' ' . auth()->user()->lname;

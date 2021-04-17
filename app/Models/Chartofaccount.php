@@ -23,4 +23,8 @@ class Chartofaccount extends Model
     public function codethree(){
         return $this->belongsTo('App\Models\AccLevelThree','code3');
     }
+    public function cc(){
+        return $this->hasMany('App\Models\CostCenter','parent_id','id');
+    }
+
 }

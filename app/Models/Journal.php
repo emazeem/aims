@@ -21,5 +21,12 @@ class Journal extends Model
     public function details(){
         return $this->hasMany('App\Models\JournalDetails','parent_id','id');
     }
+    public function businessLine(){
+        return $this->belongsTo('App\Models\BusinessLine','business_line','id');
+    }
+    public function attachments(){
+        return $this->hasMany('App\Models\Journalassets','voucher_id','id');
+    }
+
     use HasFactory;
 }

@@ -6,6 +6,7 @@ use App\Models\AccLevelOne;
 use App\Models\AccLevelThree;
 use App\Models\AccLevelTwo;
 use App\Models\Chartofaccount;
+use App\Models\CostCenter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
@@ -22,7 +23,7 @@ class ChartofaccountController extends Controller
 
     public function fetch()
     {
-        $data = Chartofaccount::with('codeone','codetwo','codethree');
+        $data = Chartofaccount::with('codeone','codetwo','codethree','cc');
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -36,12 +37,17 @@ class ChartofaccountController extends Controller
             ->addColumn('parent', function ($data) {
                 return '<b class="text-danger">'.$data->codeone->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-primary">'.$data->codetwo->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-warning">'.$data->codethree->title.'</b>';
             })
+            ->addColumn('cost.center', function ($data) {
+                $action=null;
+                $action.="<a title='Show Cost Center' href='' class='btn btn-warning btn-sm view-cc' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                $action.="<a title='Add Cost Center' href='' class='btn btn-primary btn-sm add-cc' data-id='" . $data->id . "'><i class='fa fa-plus-circle'></i></a>";
+                return $action;
+            })
+
             ->addColumn('options', function ($data) {
-
-
                 $action=null;
                 $token=csrf_token();
-                $action="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_four/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_four/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
                 if (Auth ::user()->can('customer-delete')){
                     $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
@@ -52,7 +58,7 @@ class ChartofaccountController extends Controller
                 }
                 return $action;
             })
-            ->rawColumns(['options','parent'])
+            ->rawColumns(['options','parent','cost.center'])
             ->make(true);
     }
 
@@ -158,6 +164,10 @@ class ChartofaccountController extends Controller
         $accounts =AccLevelOne::all();
         return view('acc_level_four.show',compact('accounts'));
     }
-
+    public function mycc($acc){
+        $account=Chartofaccount::where('acc_code',$acc)->first();
+        $cc=CostCenter::where('parent_id',$account->id)->get();
+        return response()->json($cc);
+    }
     //
 }

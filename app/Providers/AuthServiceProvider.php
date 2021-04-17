@@ -141,8 +141,15 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('sales-voucher', function ($user) {
+            if (in_array('sales-voucher',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
 
     }
+
 
     public function activitylog()
     {

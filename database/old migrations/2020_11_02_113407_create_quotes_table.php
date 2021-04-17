@@ -24,9 +24,10 @@ class CreateQuotesTable extends Migration
             $table->date('approval_date')->nullable();
             $table->integer('status')->default(0);
             $table->string('turnaround');
-            $table->string('remarks');
+            $table->string('remarks')->nullable();
             $table->integer('tm')->nullable();
             $table->string('principal')->nullable();
+            $table->integer('revision')->default(0);
             $table->timestamps();
         });
     }

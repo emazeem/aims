@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BusinessLine;
 use App\Models\Chartofaccount;
 use App\Models\Journal;
+use App\Models\Journalassets;
 use App\Models\JournalDetails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
 
 class VoucherController extends Controller
@@ -55,10 +59,11 @@ class VoucherController extends Controller
     }
     public function create(){
         $accounts=Chartofaccount::all();
-        return view('voucher.create',compact('accounts'));
+        $blines=BusinessLine::all();
+        return view('voucher.create',compact('accounts','blines'));
     }
     public function store(Request $request){
-
+        //dd($request->all());
         $c_id=[];
         foreach (Journal::all() as $voucher) {
             $date=substr($voucher->customize_id, 2, 4);
@@ -66,7 +71,6 @@ class VoucherController extends Controller
                 $c_id[]=$voucher->id;
             }
         }
-
         //dd($request->all());
         $this->validate(request(), [
             'v_type' => 'required',
@@ -84,25 +88,36 @@ class VoucherController extends Controller
             return response()->json(['error'=>'Please verify that credit and debit amounts are equal'],422);
         }
         $journal=new Journal();
-        $journal->business_line=1;
+        $journal->business_line=$request->business_line;
         $journal->date=$request->v_date;
         $journal->type=$request->v_type.' voucher';
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();
-        $journal->customize_id=date('dmy').(str_pad(count($c_id)+1, 2, '0', STR_PAD_LEFT));
+        $journal->customize_id=date('dmy').(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
 
         foreach ($request->account as $k=>$item){
 
             $details=new JournalDetails();
             $details->parent_id=$journal->id;
+            $details->cost_center=$request->costcenter[$k];
             $details->acc_code=$request->account[$k];
             $details->narration=$request->narration[$k];
             $details->cr=$request->cr[$k];
             $details->dr=$request->dr[$k];
             $details->save();
         }
+        foreach ($request->attachments as $files) {
+
+            $attachment=$journal->id.$files->getClientOriginalName();
+            Storage::disk('local')->put('/public/vouchers/'.$journal->id.'/'.$attachment, File::get($files));
+            $assets=new Journalassets();
+            $assets->voucher_id=$journal->id;
+            $assets->attachment=$attachment;
+            $assets->save();
+        }
+
         return response()->json(['success'=>'Voucher added Successfully']);
     }
     public function update(Request $request){
@@ -133,6 +148,7 @@ class VoucherController extends Controller
             $details=JournalDetails::find($request->details_id[$k]);
             $details->parent_id=$journal->id;
             $details->acc_code=$request->account[$k];
+            $details->cost_center=$request->costcenter[$k];
             $details->narration=$request->narration[$k];
             $details->cr=$request->cr[$k];
             $details->dr=$request->dr[$k];

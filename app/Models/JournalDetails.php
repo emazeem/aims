@@ -15,4 +15,7 @@ class JournalDetails extends Model
         return $this->belongsTo('App\Models\Journal','parent_id','id');
     }
 
+    public function cc(){
+        return $this->belongsTo('App\Models\CostCenter','cost_center','id')->withDefault();
+    }
 }

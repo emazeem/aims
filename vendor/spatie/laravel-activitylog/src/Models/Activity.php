@@ -12,9 +12,7 @@ use Spatie\Activitylog\Contracts\Activity as ActivityContract;
 class Activity extends Model implements ActivityContract
 {
     public $guarded = [];
-    public function performedBy(){
-        return $this->belongsTo('App\Models\User','causer_id')->withDefault();
-    }
+
     protected $casts = [
         'properties' => 'collection',
     ];

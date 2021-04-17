@@ -32,6 +32,7 @@
                     <th>Parent</th>
                     <th>Account Code</th>
                     <th>Title</th>
+                    <th>Cost Center</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -44,6 +45,7 @@
                     <th>Parent</th>
                     <th>Account Code</th>
                     <th>Title</th>
+                    <th>Cost Center</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -76,6 +78,7 @@
                     {"data": "parent"},
                     {"data": "acc_code"},
                     {"data": "title"},
+                    {"data": "cost.center"},
                     {"data": "options", "orderable": false},
                 ]
             });
@@ -106,8 +109,40 @@
                                 success: function (data) {
                                     swal('success', data.success, 'success').then((value) => {
                                         location.reload();
+                                        InitTable();
                                     });
+                                },
+                                error: function (data) {
+                                    swal("Failed", data.error, "error");
+                                },
+                            });
 
+                        }
+                    });
+
+            });
+            $(document).on('click', '.remove-cc', function (e) {
+                swal({
+                    title: "Are you sure to delete this cost center?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var id = $(this).attr('data-id');
+                            var token = '{{csrf_token()}}';
+                            e.preventDefault();
+                            $.ajax({
+                                url: "{{route('cost.center.destroy')}}",
+                                type: "POST",
+                                dataType: "JSON",
+                                data: {id:id,_token:token},
+                                success: function (data) {
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                        InitTable();
+                                    });
                                 },
                                 error: function (data) {
                                     swal("Failed", data.error, "error");
@@ -119,6 +154,116 @@
 
             });
 
+            $(document).on('click', '.add-cc', function(e) {
+                e.preventDefault();
+                var id=$(this).attr('data-id');
+                $('#parent').val(id);
+                $('#add-cc-modal').modal('show');
+            });
+            $(document).on('click', '.view-cc', function(e) {
+                e.preventDefault();
+                var id=$(this).attr('data-id');
+                e.preventDefault();
+                $.ajax({
+                    url: "{{url('cost-center/show')}}/"+id,
+                    type: "GET",
+                    success: function(data)
+                    {
+                        $('#view-cc-modal').modal('show');
+                        $('.show-cc-list').empty();
+                        $.each(data,function(index,item){
+                            $('.show-cc-list').append(
+                                "<tr>" +
+                                    "<td>" + item.title + " <i class='remove-cc fa fa-trash text-danger text-right' data-id='"+item.id+"'></i> </td>" +
+                                "</tr>"
+                            );
+                        });
+                    },
+                    error: function(xhr)
+                    {
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            });
+
+            $("#add_cc_form").on('submit',(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('cost.center.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        swal('success',data.success,'success').then((value) => {
+                            $('#add-cc-modal').modal('hide');
+                        });
+                    },
+                    error: function(xhr)
+                    {
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
         });
     </script>
+
+    <div class="modal fade" id="add-cc-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Cost Center</h5>
+                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="add_cc_form">
+                        @csrf
+                        <div class="row">
+                            <input type="hidden" name="parent" id="parent">
+                            <div class="form-group col-12  float-left">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Title of Cost Center" autocomplete="off" value="{{old('title')}}">
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer bg-light p-1">
+                    <div class="col-12 text-right">
+                        <button class="btn btn-primary " type="submit">Save</button>
+                    </div>
+
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="view-cc-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Cost Center</h5>
+                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered show-cc-list">
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 @endsection

@@ -14,6 +14,8 @@
             });
         </script>
     @endif
+
+
     <div class="row ">
         <h1 class="border-bottom pull-left"><i class="fa fa-money"></i> Chart of Account</h1>
         <div class="col-12">
@@ -28,7 +30,9 @@
                                             <li class="level-3">{{$levelthree->title}}</li>
                                             <ul>
                                             @foreach($levelthree->levelfour as $chart)
-                                                    <li class="level-4">{{$chart->title}}</li>
+                                                    <li class="level-4">
+                                                        {{$chart->title}}
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         @endforeach
@@ -67,4 +71,5 @@
             list-style-type: disc;
         }
     </style>
+
 @endsection

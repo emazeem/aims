@@ -12,26 +12,24 @@ class AuthController extends Controller
     public function register(Request $request){
         $validatedData=$request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
-        $validatedData['password'] = Hash::make($validatedData['password']);
-
         $user=new User();
         $user->user_type=0;
-        $user->user_type=$request->roles;
+        $user->user_type=0;
         $user->fname=$request->fname;
         $user->lname=$request->lname;
-        $user->father_name=$request->fathername;
+        $user->father_name='null';
         $user->email=$request->email;
-        $user->phone=$request->phone;
-        $user->dob=$request->dob;
-        $user->joining=$request->joining;
-        $user->cnic=$request->cnic;
+        $user->phone='null';
+        $user->dob=date('Y-m-d');
+        $user->joining=date('Y-m-d');
+        $user->cnic=00000;
         $user->password=Hash::make($request->get('password'));
-        $user->address=$request->address;
-        $user->designation=$request->designation;
-        $user->department=$request->department;
+        $user->address='address';
+        $user->designation=0;
+        $user->department=0;
         $user->save();
 
         $accessToken=$user->createToken('authToken')->accessToken;

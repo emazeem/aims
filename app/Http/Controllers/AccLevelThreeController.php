@@ -32,6 +32,22 @@ class AccLevelThreeController extends Controller
             ->addColumn('parent', function ($data) {
                 return '<b class="text-danger">'.$data->codeone->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-primary">'.$data->codetwo->title.'</b>';
             })
+            ->addColumn('cost-center', function ($data) {
+
+                $action=null;
+                $token=csrf_token();
+                $action="<a title='Edit' class='btn btn-sm btn-success edit' href='#' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                if (Auth ::user()->can('customer-delete')){
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method='post' role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+                }
+                return $action;
+
+            })
 
             ->addColumn('options', function ($data) {
 
@@ -49,7 +65,7 @@ class AccLevelThreeController extends Controller
                 return $action;
 
             })
-            ->rawColumns(['options','parent'])
+            ->rawColumns(['options','parent','cost-center'])
             ->make(true);
 
     }

@@ -544,6 +544,13 @@ Route::group(['prefix'=> 'acc_level_four'],function(){
     Route::post('/store/',[App\Http\Controllers\ChartofaccountController::class, 'store'])->middleware('auth')->name('acc_level_four.store');
     Route::post('/update/',[App\Http\Controllers\ChartofaccountController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
     Route::delete('delete',[App\Http\Controllers\ChartofaccountController::class, 'destroy'])->middleware('auth')->name('acc_level_four.destroy');
+    Route::get('/my-cc/{id}',[App\Http\Controllers\ChartofaccountController::class, 'mycc'])->middleware('auth')->name('acc_level_four.my-cc');
+});
+
+Route::group(['prefix'=> 'cost-center'],function(){
+    Route::post('/store',[App\Http\Controllers\CostCenterController::class, 'store'])->middleware('auth')->name('cost.center.store');
+    Route::get('/show/{id}',[App\Http\Controllers\CostCenterController::class, 'show'])->middleware('auth')->name('cost.center.show');
+    Route::post('destroy',[App\Http\Controllers\CostCenterController::class, 'destroy'])->middleware('auth')->name('cost.center.destroy');
 });
 
 
@@ -557,6 +564,17 @@ Route::group(['prefix'=> 'vouchers'],function(){
     Route::post('/store/',[App\Http\Controllers\VoucherController::class, 'store'])->middleware('auth')->name('vouchers.store');
     Route::post('/update/',[App\Http\Controllers\VoucherController::class, 'update'])->middleware('auth')->name('vouchers.update');
 });
+Route::group(['prefix'=> 'sales-voucher'],function(){
+    Route::get('',[App\Http\Controllers\SaleVocuherController::class, 'index'])->middleware('auth')->name('sales.vouchers');
+    Route::post('',[App\Http\Controllers\SaleVocuherController::class, 'fetch'])->middleware('auth')->name('sales.vouchers.fetch');
+    Route::get('/create',[App\Http\Controllers\SaleVocuherController::class, 'create'])->middleware('auth')->name('sales.vouchers.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\SaleVocuherController::class, 'edit'])->middleware('auth')->name('sales.vouchers.edit');
+    Route::get('/show/{id}',[App\Http\Controllers\SaleVocuherController::class, 'show'])->middleware('auth')->name('sales.vouchers.show');
+    Route::get('/print/{id}',[App\Http\Controllers\SaleVocuherController::class, 'prints'])->middleware('auth')->name('sales.vouchers.print');
+    Route::post('/store/',[App\Http\Controllers\SaleVocuherController::class, 'store'])->middleware('auth')->name('sales.vouchers.store');
+    Route::post('/update/',[App\Http\Controllers\SaleVocuherController::class, 'update'])->middleware('auth')->name('sales.vouchers.update');
+});
+
 Route::group(['prefix'=> 'activity-log'],function(){
     Route::get('/',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');
     Route::get('/show',[App\Http\Controllers\ActivityLogController::class, 'show'])->middleware('auth')->name('activitylog.show');
