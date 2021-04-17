@@ -10,22 +10,23 @@ use phpseclib3\Crypt\Hash;
 class AuthController extends Controller
 {
     public function register(Request $request){
-        $validatedData=$request->validate([
-            'name' => ['required', 'string', 'max:255'],
+        $request->validate([
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
         $user=new User();
         $user->user_type=0;
         $user->user_type=0;
-        $user->fname=$request->fname;
-        $user->lname=$request->lname;
         $user->father_name='null';
-        $user->email=$request->email;
         $user->phone='null';
         $user->dob=date('Y-m-d');
         $user->joining=date('Y-m-d');
         $user->cnic=00000;
+        $user->fname=$request->fname;
+        $user->lname=$request->lname;
+        $user->email=$request->email;
         $user->password=Hash::make($request->get('password'));
         $user->address='address';
         $user->designation=0;
