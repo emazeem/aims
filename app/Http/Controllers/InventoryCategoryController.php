@@ -53,7 +53,7 @@ class InventoryCategoryController extends Controller
                 }
             })
             ->addColumn('options',function($data){
-                if($data->status=='Active'){
+                /*if($data->status=='Active'){
                     return "&emsp;<a class='btn btn-success btn-sm edit'
                                      href='#' data-id='".$data->id."'><i class='fa fa-edit'></i></a>
                                      <a data-toggle='tooltip' data-placement='bottom' title='Disable' class='btn btn-sm btn-danger disable' data-original-title='Disable' href='#' data-id='".$data->id."'><i class='fa fa-close'></i></a>
@@ -63,7 +63,7 @@ class InventoryCategoryController extends Controller
                                      href='#' data-id='".$data->id."'><i class='fa fa-edit'></i></a>
                                      <a data-toggle='tooltip' data-placement='bottom' title='Active' class='btn btn-sm btn-success active' data-original-title='Active' href='#' data-id='".$data->id."'><i class='fa fa-check'></i></a>
                                      ";
-                }
+                }*/
             })->rawColumns(['created_at', 'status','options'])
             ->make(true);
     }
