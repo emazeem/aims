@@ -127,12 +127,10 @@ class ChartofaccountController extends Controller
         $acc->code2 = $request->level2of4;
         $acc->code1 = $request->level1of4;
         $acc->title = $request->title;
-        $acc->save();
         $code4=(Chartofaccount::where('code3',$request->level3of4)->count());
-        $four = Chartofaccount::find($acc->id);
-        $four->code4 = str_pad($code4, 4, '0', STR_PAD_LEFT);
-        $four->acc_code = $four->codeone->code1 . $four->codetwo->code2 . $four->codethree->code3 . str_pad($code4, 4, '0', STR_PAD_LEFT);;
-        $four->save();
+        $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
+        $acc->acc_code = $acc->codeone->code1 . $acc->codetwo->code2 . $acc->codethree->code3 . str_pad($code4+1, 4, '0', STR_PAD_LEFT);;
+        $acc->save();
         return response()->json(['success'=> 'Chart of Account has added successfully.']);
     }
     public function update(Request $request)

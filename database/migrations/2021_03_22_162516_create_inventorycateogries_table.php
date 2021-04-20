@@ -16,8 +16,10 @@ class CreateInventorycateogriesTable extends Migration
         Schema::create('inventorycategories', function (Blueprint $table) {
             $table->id();
             $table->string('category_name');
+            $table->integer('parent_id')->nullable();
             $table->string('status');
             $table->integer('user_id');
+            $table->integer('acc_id');
             $table->softDeletes();
             $table->timestamps();
         });

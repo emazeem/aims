@@ -88,10 +88,8 @@ class AccLevelThreeController extends Controller
         $acc->code2=$request->level2of3;
         $acc->code1=$request->level1;
         $acc->title=$request->title;
-        $acc->save();
         $reserved=AccLevelThree::where('code1',$request->level1)->where('code2',$request->level2of3)->count();
-        $acc->code3=str_pad($reserved, 2, '0', STR_PAD_LEFT);
-        $acc->save();
+        $acc->code3=str_pad($reserved+1, 2, '0', STR_PAD_LEFT);        $acc->save();
         return  response()->json(['success'=>'Level 3 added successfully.']);
 
     }

@@ -54,7 +54,6 @@ class InventoriesController extends Controller
     }
     public function store(Request $request)
     {
-
         $this->validate(request(), [
             'title' => 'required',
             'category' => 'required',
@@ -80,6 +79,7 @@ class InventoriesController extends Controller
         $data->consumable = $request->consumable?$request->consumable:null;
         $data->status     = $request->status;
         $data->save();
+
         for ($i=0;$i<$quantity;$i++){
             $inventoryQty=new InventoriesQuantity();
             $inventoryQty->inventory_id=$data->id;
@@ -96,7 +96,6 @@ class InventoriesController extends Controller
 
     public function view($id){
         $show=Inventories::find($id);
-        
         return view('inventories.show',compact('show'));
     }
     //

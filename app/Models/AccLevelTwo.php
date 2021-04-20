@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class AccLevelTwo extends Model
 {
+    use SoftDeletes;
     public function levelthree(){
         return $this->hasMany('App\Models\AccLevelThree', 'code2');
     }

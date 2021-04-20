@@ -172,15 +172,13 @@ class CustomerController extends Controller
         $acc->code2 = 1;
         $acc->code1 = 1;
         $acc->title = $customer->reg_name;
+        $code4=(Chartofaccount::where('code3',4)->count());
+
+        $acc->acc_code = 10104 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
+        $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
         $acc->save();
 
-        $code4=(Chartofaccount::where('code3',4)->count());
-        $four = Chartofaccount::find($acc->id);
-        $four->code4 = str_pad($code4, 4, '0', STR_PAD_LEFT);
-        $four->acc_code = 10104 .str_pad($code4, 4, '0', STR_PAD_LEFT);;
-        $four->save();
-
-        $customer->acc_code=$four->acc_code;
+        $customer->acc_code=$acc->acc_code;
         $customer->save();
 
         $users = User::where('user_type', 1)->get();
