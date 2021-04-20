@@ -30,7 +30,7 @@ class InventoryCategoryController extends Controller
             })
             ->addColumn('account',function($data){
                 if ($data->parent_id){
-                    return $data->parent_id;
+                    return $data->account4->acc_code;
                 }else{
                     return $data->account3->codeone->code1.$data->account3->codetwo->code2.$data->account3->code3;
                 }
