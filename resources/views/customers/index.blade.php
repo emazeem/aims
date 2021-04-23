@@ -16,6 +16,7 @@
                         <th>Physical Address</th>
                         <th>Principal Name</th>
                         <th>Principal Phone</th>
+                        <th>Acc Code</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -28,6 +29,7 @@
                         <th>Physical Address</th>
                         <th>Principal Name</th>
                         <th>Principal Phone</th>
+                        <th>Acc Code</th>
                         <th>Action</th>
                     </tr>
                     </tfoot>
@@ -64,6 +66,7 @@
                         { "data": "address" },
                         { "data": "prin_name" },
                         { "data": "prin_phone" },
+                        { "data": "acc_code" },
                         { "data": "options" ,"orderable":false},
                     ]
 

@@ -1,6 +1,7 @@
 .dataTables_paginate a.page-link{
     color: white;
-    background-color: #818181 !important;
+    border: 2px solid white;
+    background-color: #136bf7 !important;
 }
 #example_previous .page-link ,#example_next .page-link {
     color: #e4e4e4;
@@ -89,3 +90,17 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
     background-color: #007bff !important;
     margin-top: -5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,7 @@ use Yajra\DataTables\DataTables;
 class CapabilitiesController extends Controller
 {
     public function index(){
-        dd(date('Y-m-d'));
+
         $procedures=Procedure::all();
         $parameters=DB::table('parameters')->get();
         $units=Unit::all();

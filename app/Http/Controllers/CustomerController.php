@@ -14,7 +14,6 @@ class CustomerController extends Controller
 {
     public function index(){
 
-
         $this->authorize('customer-index');
         return view('customers.index');
     }
@@ -48,6 +47,10 @@ class CustomerController extends Controller
             ->addColumn('address', function ($data) {
                 return $data->address;
             })
+            ->addColumn('acc_code', function ($data) {
+                return $data->acc_code;
+            })
+
             ->addColumn('prin_name', function ($data) {
                 $colors=['badge-primary','badge-dark','badge-warning'];
                 $principals=null;
@@ -172,8 +175,7 @@ class CustomerController extends Controller
         $acc->code2 = 1;
         $acc->code1 = 1;
         $acc->title = $customer->reg_name;
-        $code4=(Chartofaccount::where('code3',4)->count());
-
+        $code4=(Chartofaccount::withTrashed()->where('code3',4)->count());
         $acc->acc_code = 10104 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
         $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
         $acc->save();

@@ -567,13 +567,19 @@ Route::group(['prefix'=> 'vouchers'],function(){
 Route::group(['prefix'=> 'sales-voucher'],function(){
     Route::get('',[App\Http\Controllers\SaleVocuherController::class, 'index'])->middleware('auth')->name('sales.vouchers');
     Route::post('',[App\Http\Controllers\SaleVocuherController::class, 'fetch'])->middleware('auth')->name('sales.vouchers.fetch');
-    Route::get('/create',[App\Http\Controllers\SaleVocuherController::class, 'create'])->middleware('auth')->name('sales.vouchers.create');
-    Route::get('/edit/{id}',[App\Http\Controllers\SaleVocuherController::class, 'edit'])->middleware('auth')->name('sales.vouchers.edit');
-    Route::get('/show/{id}',[App\Http\Controllers\SaleVocuherController::class, 'show'])->middleware('auth')->name('sales.vouchers.show');
-    Route::get('/print/{id}',[App\Http\Controllers\SaleVocuherController::class, 'prints'])->middleware('auth')->name('sales.vouchers.print');
-    Route::post('/store/',[App\Http\Controllers\SaleVocuherController::class, 'store'])->middleware('auth')->name('sales.vouchers.store');
-    Route::post('/update/',[App\Http\Controllers\SaleVocuherController::class, 'update'])->middleware('auth')->name('sales.vouchers.update');
 });
+Route::group(['prefix'=> 'sales-receipt-voucher'],function(){
+    Route::get('',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'index'])->middleware('auth')->name('sales.receipt.vouchers');
+    Route::post('',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'fetch'])->middleware('auth')->name('sales.receipt.vouchers.fetch');
+    Route::get('/create',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'create'])->middleware('auth')->name('sales.receipt.vouchers.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'edit'])->middleware('auth')->name('sales.receipt.vouchers.edit');
+    Route::get('/show/{id}',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'show'])->middleware('auth')->name('sales.receipt.vouchers.show');
+    Route::get('/print/{id}',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'prints'])->middleware('auth')->name('sales.receipt.vouchers.print');
+    Route::post('/store/',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'store'])->middleware('auth')->name('sales.receipt.vouchers.store');
+    Route::post('/update/',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'update'])->middleware('auth')->name('sales.receipt.vouchers.update');
+    Route::get('get-inv/{customer}',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'get_inv'])->middleware('auth')->name('sales.receipt.vouchers.get_inv');
+});
+
 
 Route::group(['prefix'=> 'activity-log'],function(){
     Route::get('/',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');

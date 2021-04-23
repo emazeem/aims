@@ -12,6 +12,7 @@ use Yajra\DataTables\DataTables;
 class AccLevelTwoController extends Controller
 {
     public function index(){
+
         $ones=AccLevelOne::all();
         return view('acc_level_two.index',compact('ones'));
     }
@@ -23,7 +24,7 @@ class AccLevelTwoController extends Controller
                 return $data->id;
             })
             ->addColumn('code2', function ($data) {
-                return $data->codeone->code1.$data->code2;
+                return $data->codeone->code1.'.'.$data->code2.'.00.000';
             })
             ->addColumn('parent', function ($data) {
                 return '<b class="text-danger">'.$data->codeone->title.'</b>';
@@ -68,7 +69,7 @@ class AccLevelTwoController extends Controller
         $acc=new AccLevelTwo();
         $acc->code1=$request->level1;
         $acc->title=$request->title;
-        $reserved=AccLevelTwo::where('code1',$request->level1)->count();
+        $reserved=AccLevelTwo::withTrashed()->where('code1',$request->level1)->count();
         $acc->code2=str_pad($reserved+1, 2, '0', STR_PAD_LEFT);
         $acc->save();
         return  response()->json(['success'=>'Level 2 added successfully.']);

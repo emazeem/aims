@@ -102,14 +102,14 @@ class InventoryCategoryController extends Controller
                     $acc->code2 =2;
                     $acc->code1 =1;
                     $acc->title = $request->category_name;
-                    $code4=(Chartofaccount::where('code3',$levelthree->id)->count());
+                    $code4=(Chartofaccount::withTrashed()->where('code3',$levelthree->id)->count());
                     $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
                     $acc->acc_code = $acc->codeone->code1 . $acc->codetwo->code2 . $acc->codethree->code3 . str_pad($code4+1, 4, '0', STR_PAD_LEFT);;
                 }else{
                     $acc=new AccLevelThree();
                     $acc->code1=1;
                     $acc->code2=2;
-                    $reserved=AccLevelThree::where('code1',1)->where('code2',2)->count();
+                    $reserved=AccLevelThree::withTrashed()->where('code2',2)->count();
                     $acc->code3=str_pad($reserved+1, 2, '0', STR_PAD_LEFT);
                     $acc->title=$request->category_name;
                 }

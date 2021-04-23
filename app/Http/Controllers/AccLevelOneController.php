@@ -19,7 +19,7 @@ class AccLevelOneController extends Controller
                 return $data->id;
             })
             ->addColumn('code', function ($data) {
-                return $data->code1;
+                return $data->code1.'.00.'.'00.'.'000';
             })
             ->addColumn('title', function ($data) {
                 return $data->title;

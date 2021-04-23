@@ -2,33 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BusinessLine;
+use Illuminate\Http\Request;
+use  App\Models\BusinessLine;
 use App\Models\Chartofaccount;
+use App\Models\Customer;
+use App\Models\Job;
 use App\Models\Journal;
 use App\Models\Journalassets;
 use App\Models\JournalDetails;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
 
-class VoucherController extends Controller
+class SalesReceiptVouhcerController extends Controller
 {
     public function index(){
-        return view('voucher.index');
+        return view('salesreceiptvoucher.index');
     }
     public function show($id){
         $show=Journal::find($id);
-        return view('voucher.show',compact('show'));
+        return view('salesreceiptvoucher.show',compact('show'));
     }
     public function edit($id){
         $accounts=Chartofaccount::all();
         $edit=Journal::find($id);
-        return view('voucher.edit',compact('edit','accounts'));
+        return view('salesreceiptvoucher.edit',compact('edit','accounts'));
     }
     public function prints($id){
         $show=Journal::find($id);
-        return view('voucher.print',compact('show'));
+        return view('salesreceiptvoucher.print',compact('show'));
     }
     public function fetch(){
         $data=Journal::with('createdby')->get();
@@ -51,19 +53,29 @@ class VoucherController extends Controller
             })
             ->addColumn('options', function ($data) {
                 return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/vouchers/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  <a title='Show' class='btn btn-sm btn-primary' href='" . url('/vouchers/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
+                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/sales-voucher/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                  <a title='Show' class='btn btn-sm btn-primary' href='" . url('/sales-voucher/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
                   ";
             })->rawColumns(['options'])->make(true);
 
     }
     public function create(){
-        $accounts=Chartofaccount::all();
-        foreach ($accounts as $customer){
-            $customer->title=str_replace("'","",$customer->title);
-        }
+
         $blines=BusinessLine::all();
-        return view('voucher.create',compact('accounts','blines'));
+        $customers=Chartofaccount::where('code3',4)->orderBy('title','asc')->get();
+        $servicetaxes=Chartofaccount::where('code3',5)->get();
+        $incometaxes=Chartofaccount::where('code3',45)->get();
+        foreach ($customers as $item){
+            $item->title=str_replace("'","",$item->title);
+        }
+        foreach ($servicetaxes as $item){
+            $item->title=str_replace("'","",$item->title);
+        }
+        foreach ($incometaxes as $item){
+            $item->title=str_replace("'","",$item->title);
+        }
+
+        return view('salesreceiptvoucher.create',compact('blines','customers','servicetaxes','incometaxes'));
     }
     public function store(Request $request){
         //dd($request->all());
@@ -112,7 +124,6 @@ class VoucherController extends Controller
             $details->save();
         }
         foreach ($request->attachments as $files) {
-
             $attachment=$journal->id.$files->getClientOriginalName();
             Storage::disk('local')->put('/public/vouchers/'.$journal->id.'/'.$attachment, File::get($files));
             $assets=new Journalassets();
@@ -158,6 +169,21 @@ class VoucherController extends Controller
             $details->save();
         }
         return response()->json(['success'=>'Voucher updated Successfully']);
+    }
+
+    public function get_inv($id){
+        $customer=Customer::where('acc_code',$id)->first();
+        $jobs=Job::all();
+        $jids=[];
+        foreach ($jobs as $job){
+            if ($job->quotes->customer_id==$customer->id){
+                $jids[]=$job->id;
+            }
+        }
+        $jobs=Job::whereIn('id',$jids)->get();
+
+        return response()->json($jobs);
+
     }
     //
 }

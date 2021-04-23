@@ -24,7 +24,7 @@ class AccLevelThreeController extends Controller
                 return $data->id;
             })
             ->addColumn('code3', function ($data) {
-                return $data->codeone->code1.$data->codetwo->code2.$data->code3;
+                return $data->codeone->code1.'.'.$data->codetwo->code2.'.'.$data->code3.'.000';
             })
             ->addColumn('title', function ($data) {
                 return $data->title;
@@ -88,8 +88,9 @@ class AccLevelThreeController extends Controller
         $acc->code2=$request->level2of3;
         $acc->code1=$request->level1;
         $acc->title=$request->title;
-        $reserved=AccLevelThree::where('code1',$request->level1)->where('code2',$request->level2of3)->count();
-        $acc->code3=str_pad($reserved+1, 2, '0', STR_PAD_LEFT);        $acc->save();
+        $reserved=AccLevelThree::withTrashed()->where('code2',$request->level2of3)->count();
+        $acc->code3=str_pad($reserved+1, 2, '0', STR_PAD_LEFT);
+        $acc->save();
         return  response()->json(['success'=>'Level 3 added successfully.']);
 
     }

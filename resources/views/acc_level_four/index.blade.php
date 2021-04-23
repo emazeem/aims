@@ -22,7 +22,7 @@
                 <a class="btn btn-success btn-sm" href="{{route('acc_level_one')}}">Level One</a>
                 <a class="btn btn-primary btn-sm" href="{{route('acc_level_two')}}">Level Two</a>
                 <a class="btn btn-info btn-sm" href="{{route('acc_level_three')}}">Level Three</a>
-                <a class="btn btn-primary btn-sm" href="{{route('acc_level_four.create')}}"> <i class="fa fa-plus-circle"></i> Add Levels</a>
+                <a class="btn btn-primary btn-sm" href="{{route('acc_level_four.create')}}"> <i class="fa fa-plus-circle"></i> CoA</a>
             </div>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" cellspacing="0"
                    width="100%">
