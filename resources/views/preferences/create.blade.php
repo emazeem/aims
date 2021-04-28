@@ -5,7 +5,6 @@
             $(document).ready(function () {
                 swal("Success", "{{session('success')}}", "success");
             });
-
         </script>
     @endif
 

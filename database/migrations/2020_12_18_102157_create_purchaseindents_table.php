@@ -16,15 +16,18 @@ class CreatePurchaseindentsTable extends Migration
         Schema::create('purchaseindents', function (Blueprint $table) {
             $table->id();
             $table->string('location',225);
-            $table->integer('department');
-            $table->integer('indent_by');
-            $table->integer('checked_by');
-            $table->integer('approved_by');
+            $table->integer('department_id');
             $table->integer('incharge_store');
+            $table->string('chargeable_to');
             $table->string('indent_type');
-            $table->string('deliver_to');
+            $table->integer('deliver_to');
+            $table->integer('selected_vendor')->nullable();
             $table->integer('status');
             $table->date('required');
+            $table->integer('indenter');
+            $table->integer('prepared_by');
+            $table->integer('checked_by');
+            $table->integer('approved_by');
             $table->timestamps();
         });
     }

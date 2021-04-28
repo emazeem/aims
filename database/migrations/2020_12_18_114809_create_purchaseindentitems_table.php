@@ -21,8 +21,8 @@ class CreatePurchaseindentitemsTable extends Migration
             $table->string('ref_code');
             $table->string('unit');
             $table->string('last_six_months_consumption');
-            $table->string('current_stock');
-            $table->string('qty');
+            $table->integer('current_stock');
+            $table->integer('qty');
             $table->string('purpose',1000);
             $table->string('title',225);
             $table->integer('status')->default(0);

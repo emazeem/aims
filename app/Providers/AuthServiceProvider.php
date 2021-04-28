@@ -31,6 +31,7 @@ class AuthServiceProvider extends ServiceProvider
         //View::share('notifications',Notification::all());
         View::share('menus',Menu::where('parent_id',null)->where('status',1)->orderBy('position','ASC')->get());
         $this->registerPolicies();
+        $this->vendors();
         $this->customers();
         $this->interview_appraisal();
         $this->staff();
@@ -77,8 +78,51 @@ class AuthServiceProvider extends ServiceProvider
         $this->journal();
         $this->inventory();
         $this->businessLine();
+        $this->vendor_evaluation();
+        $this->po();
+        $this->cir();
+        $this->asset_requisition();
         //
     }
+    public function asset_requisition()
+    {
+        Gate::define('asset-requisition', function ($user) {
+            if (in_array('asset-requisition',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+    public function cir()
+    {
+        Gate::define('cir', function ($user) {
+            if (in_array('cir',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
+    public function po()
+    {
+        Gate::define('purchase-order', function ($user) {
+            if (in_array('purchase-order',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
+    public function vendor_evaluation()
+    {
+        Gate::define('vendor-evaluation', function ($user) {
+            if (in_array('vendor-evaluation',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
     public function expenses()
     {
         Gate::define('finance-accounts', function ($user) {
@@ -89,6 +133,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
     }
+
     public function businessLine()
     {
         Gate::define('business-line', function ($user) {
@@ -141,14 +186,14 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-        Gate::define('sales-voucher', function ($user) {
-            if (in_array('sales-voucher',explode(',',$user->roles->permissions))){
+        Gate::define('sales-invoice', function ($user) {
+            if (in_array('sales-invoice',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
-        Gate::define('sales-receipt-voucher', function ($user) {
-            if (in_array('sales-receipt-voucher',explode(',',$user->roles->permissions))){
+        Gate::define('receipt-voucher', function ($user) {
+            if (in_array('receipt-voucher',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
@@ -284,6 +329,17 @@ class AuthServiceProvider extends ServiceProvider
         });
 
     }
+    public function vendors()
+    {
+        Gate::define('vendors-index', function ($user) {
+            if (in_array('vendors-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+    }
+
     public function preferences()
     {
         Gate::define('preferences-index', function ($user) {

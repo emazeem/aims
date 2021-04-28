@@ -12,8 +12,7 @@
         <div class="col-12">
             <h3 class="pull-left border-bottom pb-1"><i class="fa fa-plus-circle"></i> Add Asset</h3>
             <span class="text-right ">
-                 <a href="{{route('capabilities.store')}}" class="pull-right btn btn-sm btn-primary shadow-sm mt-2  "><i
-                             class="fa fa-plus-circle"></i> Add Parameters</a>
+                 <a href="{{route('capabilities.store')}}" class="pull-right btn btn-sm btn-primary shadow-sm mt-2  "><i class="fa fa-plus-circle"></i> Add Parameters</a>
         </span>
         </div>
         <div class="col-12">

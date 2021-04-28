@@ -16,6 +16,7 @@
             <form class="form-horizontal" action="{{route('purchase.indent.store')}}" method="post"
                   enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" value="{{URL::previous()}}" name="url">
                 <div class="form-group row">
                     <label for="indent_type" class="col-sm-2 control-label">Indent Type</label>
                     <div class="col-sm-10">
@@ -35,19 +36,13 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="department" class="col-sm-2 control-label">Department / Chargeable to</label>
+                    <label for="chargeable_to" class="col-sm-2 control-label">Chargeable To</label>
                     <div class="col-sm-10">
-                        <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="department" name="department">
-                                <option selected disabled>Select Department</option>
-                                @foreach($departments as $department)
-                                    <option value="{{$department->id}}">{{$department->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        @if ($errors->has('department'))
+                        <input type="text" class="form-control" id="chargeable_to" name="chargeable_to" placeholder="Chargeable To"
+                               autocomplete="off" value="{{old('chargeable_to')}}">
+                        @if ($errors->has('chargeable_to'))
                             <span class="text-danger">
-                                <strong>{{ $errors->first('department') }}</strong>
+                                <strong>{{ $errors->first('chargeable_to') }}</strong>
                              </span>
                         @endif
                     </div>
@@ -70,6 +65,25 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="department_id" class="col-sm-2 control-label">Department</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="department_id" name="department_id">
+                                <option selected disabled>Select Department</option>
+                                @foreach($departments as $department)
+                                    <option value="{{$department->id}}">{{$department->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @if ($errors->has('department_id'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('department_id') }}</strong>
+                             </span>
+                        @endif
+                    </div>
+                </div>
+
 
                 <div class="form-group row">
                     <label for="location" class="col-sm-2 control-label">Location</label>
@@ -95,24 +109,27 @@
                         @endif
                     </div>
                 </div>
-{{--                <div class="form-group row">
-                    <label for="image" class="col-sm-2 control-label">Image</label>
+                <div class="form-group row">
+                    <label for="indenter" class="col-sm-2 control-label">Indenter</label>
                     <div class="col-sm-10">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="image" id="image">
-                            <label class="custom-file-label" for="cv">Image (opt)</label>
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="indenter" name="indenter">
+                                <option selected disabled>Select Indenter</option>
+                                @foreach(\App\Models\User::all() as $user)
+                                    <option value="{{$user->id}}">{{$user->fname}} {{$user->lname}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        @if ($errors->has('image'))
+                        @if ($errors->has('indenter'))
                             <span class="text-danger">
-                          <strong>{{ $errors->first('image') }}</strong>
-                      </span>
+                                <strong>{{ $errors->first('indenter') }}</strong>
+                             </span>
                         @endif
                     </div>
-                </div>--}}
-
+                </div>
                 <!-- /.box-body -->
                 <div class="text-right">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary"><i class="fa fa-close"></i> Cancel</a>
+                    <a href="{{ URL::previous() }}" class="btn btn-light border"><i class="fa fa-angle-left"></i> Cancel</a>
                     <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
                 </div>
                 <!-- /.box-footer -->

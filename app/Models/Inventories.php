@@ -11,6 +11,10 @@ class Inventories extends Model
     public function category(){
         return $this->belongsTo('App\Models\Inventorycategory','category_id','id');
     }
+    public function subcategory(){
+        return $this->belongsTo('App\Models\Inventorycategory','subcategory_id','id');
+    }
+
     public function departments(){
         return $this->belongsTo('App\Models\Department','department_id')->withDefault();
     }

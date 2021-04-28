@@ -83,8 +83,8 @@
                     {"data": "acc_title"},
                     {"data": "type"},
                     {"data": "date"},
-                    {"data": "cr"},
                     {"data": "dr"},
+                    {"data": "cr"},
                     {"data": "created_by"},
 
                 ]

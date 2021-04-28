@@ -17,7 +17,12 @@
 
 
     <div class="row ">
-        <h1 class="border-bottom pull-left"><i class="fa fa-money"></i> Chart of Account</h1>
+        <div class="col-12">
+            <h1 class="border-bottom pull-left"><i class="fa fa-money"></i> Chart of Account</h1>
+            <div class="pull-right">
+                <a class="btn btn-info btn-sm" href="{{route('acc_level_four.print')}}"><i class="fa fa-print"></i> Print COA </a>
+            </div>
+        </div>
         <div class="col-12">
             <ul>
                 @foreach($accounts as $account)
@@ -31,7 +36,7 @@
                                             <ul>
                                             @foreach($levelthree->levelfour as $chart)
                                                     <li class="level-4">
-                                                        {{$chart->title}}
+                                                        {{$chart->acc_code}}-{{$chart->title}}
                                                     </li>
                                                 @endforeach
                                             </ul>

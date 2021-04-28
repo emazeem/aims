@@ -13,7 +13,7 @@ use Yajra\DataTables\DataTables;
 class InventoriesController extends Controller
 {
     public function index(){
-        $categories=InventoryCategory::all();
+        $categories=InventoryCategory::all()->where('parent_id',null);
         $departments=Department::all();
         return view('inventories.index',compact('categories','departments'));
     }
@@ -38,8 +38,8 @@ class InventoriesController extends Controller
             ->addColumn('price', function ($data) {
                 return $data->price;
             })
-            ->addColumn('status', function ($data) {
-                return $data->status;
+            ->addColumn('subcategory', function ($data) {
+                return $data->subcategory->category_name;
             })
             ->addColumn('options', function ($data) {
 
@@ -57,6 +57,7 @@ class InventoriesController extends Controller
         $this->validate(request(), [
             'title' => 'required',
             'category' => 'required',
+            'subcategory' => 'required',
             'model' => 'required',
             'quantity' => 'required',
             'price' => 'required',
@@ -64,7 +65,6 @@ class InventoriesController extends Controller
             'depreciation_duration' => 'required',
             'department' => 'required',
             'description' => 'required',
-            'status' => 'required',
         ]);
         $user_id = Auth::user()->id;
         $quantity = $request->quantity;
@@ -74,10 +74,10 @@ class InventoriesController extends Controller
         $data->model = $request->model;
         $data->department_id = $request->department;
         $data->category_id = $request->category;
+        $data->subcategory_id = $request->subcategory;
         $data->price = $request->price;
         $data->description = $request->description;
         $data->consumable = $request->consumable?$request->consumable:null;
-        $data->status     = $request->status;
         $data->save();
 
         for ($i=0;$i<$quantity;$i++){
@@ -98,6 +98,11 @@ class InventoriesController extends Controller
         $show=Inventories::find($id);
         return view('inventories.show',compact('show'));
     }
+    public function get_subcategories($id){
+        $data=InventoryCategory::where('parent_id',$id)->get();
+        return response()->json($data);
+    }
+
     //
 
 }

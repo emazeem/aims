@@ -32,6 +32,19 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label for="description" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Description"
+                               autocomplete="off" value="{{old('description')}}">
+                        @if ($errors->has('description'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('description') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="purpose" class="col-sm-2 control-label">Purpose</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="purpose" name="purpose" placeholder="Purpose" autocomplete="off" value="{{old('purpose')}}">
@@ -56,19 +69,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="description" class="col-sm-2 control-label">Item Description</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="description" name="description" placeholder="description"
-                               autocomplete="off" value="{{old('description')}}">
-                        @if ($errors->has('description'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('description') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="ref_code" class="col-sm-2 control-label">Reference Code</label>
+                    <label for="ref_code" class="col-sm-2 control-label">Reference Doc</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="ref_code" name="ref_code" placeholder="Reference Code" autocomplete="off" value="{{old('ref_code')}}">
                         @if ($errors->has('ref_code'))

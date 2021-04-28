@@ -38,7 +38,7 @@
                 <td colspan="3">Indent Type : {{$indent->indent_type}} Purchase</td>
             </tr>
             <tr>
-                <td colspan="3">Indenter: {{$indent->indenter->fname}} {{$indent->indenter->lname}}</td>
+                <td colspan="3">Indenter: {{$indent->indenters->fname}} {{$indent->indenters->lname}}</td>
                 <td colspan="3">Chargeable to : {{$indent->departments->name}}</td>
                 <td colspan="3">Indent Date : {{date('d-M-Y',strtotime($indent->created_at))}}</td>
             </tr>
@@ -108,13 +108,13 @@
             </tr>
             <tr>
                 <th>Name</th>
-                <td colspan="3">{{$indent->indenter->fname}} {{$indent->indenter->lname}}</td>
+                <td colspan="3">{{$indent->indenters->fname}} {{$indent->indenters->lname}}</td>
                 <td colspan="3">{{$indent->checkedBy->fname}} {{$indent->checkedBy->lname}}</td>
                 <td colspan="3">{{$indent->approvedBy->fname}} {{$indent->approvedBy->lname}}</td>
             </tr>
             <tr>
                 <th>Position</th>
-                <td colspan="3">{{$indent->indenter->departments->name}}</td>
+                <td colspan="3">{{$indent->indenters->departments->name}}</td>
                 <td colspan="3">{{$indent->checkedBy->departments->name}}</td>
                 <td colspan="3">{{$indent->approvedBy->departments->name}}</td>
             </tr>

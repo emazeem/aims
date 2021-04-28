@@ -18,7 +18,7 @@ class ChartofaccountController extends Controller
         $ones = AccLevelOne::all();
         $twos = AccLevelTwo::all();
         $threes = AccLevelThree::all();
-        return view('acc_level_four.index', compact('ones', 'twos', 'threes'));
+        return view('chartofaccount.index', compact('ones', 'twos', 'threes'));
     }
 
     public function fetch()
@@ -47,7 +47,7 @@ class ChartofaccountController extends Controller
             ->addColumn('options', function ($data) {
                 $action=null;
                 $token=csrf_token();
-                $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_four/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/chartofaccount/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
                 if (Auth ::user()->can('customer-delete')){
                     $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
@@ -62,39 +62,12 @@ class ChartofaccountController extends Controller
             ->make(true);
     }
 
-    /*public function fetch(){
-        $data=Chartofaccount::with('codeone','codetwo','codethree')->get();
-        //dd($data);
-        return DataTables::of($data)
-            ->addColumn('id', function ($data) {
-                return $data->id;
-            })
-            ->addColumn('acc_code', function ($data) {
-                return $data->acc_code;
-            })
-            ->addColumn('title', function ($data) {
-                return $data->title;
-            })
-            ->addColumn('parent', function ($data) {
-                return '<b class="text-danger">'.$data->codeone->title.'</b> <i class="fa fa-angle-right"> </i> <b class="text-primary">'.$data->codetwo->title.'</b></b> <i class="fa fa-angle-right"> </i> <b class="text-success">'.$data->codethree->title.'</b>';
-            })
-
-            ->addColumn('options', function ($data) {
-
-                return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/acc_level_four/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
-            })
-            ->rawColumns(['options','parent'])
-            ->make(true);
-    }
-    */
     public function create()
     {
         $ones = AccLevelOne::all();
         $twos = AccLevelTwo::all();
         $threes = AccLevelThree::all();
-        return view('acc_level_four.create', compact('ones', 'twos', 'threes'));
+        return view('chartofaccount.create', compact('ones', 'twos', 'threes'));
     }
 
     public function edit($id)
@@ -104,7 +77,7 @@ class ChartofaccountController extends Controller
         $ones = AccLevelOne::all();
         $twos = AccLevelTwo::all();
         $threes = AccLevelThree::all();
-        return view('acc_level_four.edit', compact('ones', 'twos', 'threes', 'edit', 'level'));
+        return view('chartofaccount.edit', compact('ones', 'twos', 'threes', 'edit', 'level'));
     }
 
     public function store(Request $request)
@@ -129,7 +102,7 @@ class ChartofaccountController extends Controller
         $acc->title = $request->title;
         $code4=(Chartofaccount::withTrashed()->where('code3',$request->level3of4)->count());
         $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
-        $acc->acc_code = $acc->codeone->code1 . $acc->codetwo->code2 . $acc->codethree->code3 . str_pad($code4+1, 4, '0', STR_PAD_LEFT);;
+        $acc->acc_code = $acc->codeone->code1 . $acc->codetwo->code2 . $acc->codethree->code3 . str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
         $acc->save();
         return response()->json(['success'=> 'Chart of Account has added successfully.']);
     }
@@ -160,8 +133,13 @@ class ChartofaccountController extends Controller
     }
     public function show(){
         $accounts =AccLevelOne::all();
-        return view('acc_level_four.show',compact('accounts'));
+        return view('chartofaccount.show',compact('accounts'));
     }
+    public function prints(){
+        $accounts =AccLevelOne::all();
+        return view('chartofaccount.print',compact('accounts'));
+    }
+
     public function mycc($acc){
         $account=Chartofaccount::where('acc_code',$acc)->first();
         $cc=CostCenter::where('parent_id',$account->id)->get();

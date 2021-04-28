@@ -44,7 +44,7 @@
                     <div class="col-10">
                         <select class="form-control" id="v_type" name="v_type" >
                             <option value="" selected disabled>Select Voucher Type</option>
-                            <option value="journal">Journal Voucher</option>
+                            <option value="journal">Payment Voucher</option>
                         </select>
                         @if ($errors->has('v_type'))
                             <span class="text-danger">
@@ -179,80 +179,3 @@
     </script>
 
 @endsection
-{{--
-@section('content')
-    <html>
-    <head>
-        <title>Add Remove Dynamic Dependent Select Box using Ajax jQuery with PHP</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    </head>
-    <body>
-    <br />
-    <div class="container">
-        <form method="post" id="insert_form">
-            <div class="table-repsonsive">
-                <span id="error"></span>
-                <table class="table table-bordered" id="item_table">
-                    <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Sub Category</th>
-                        <th><button type="button" name="add" class="btn btn-success btn-xs add"><span class="glyphicon glyphicon-plus"></span></button></th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <div align="center">
-                    <input type="submit" name="submit" class="btn btn-info" value="Insert" />
-                </div>
-            </div>
-        </form>
-    </div>
-    </body>
-    </html>
-    <script>
-        $(document).ready(function(){
-
-            var count = 0;
-            $(document).on('click', '.add', function(){
-                count++;
-                var html = '';
-                html += '<tr>';
-                html += '<td><select name="item_category[]" class="form-control item_category" data-sub_category_id="'+count+'"><option value="">Select Category</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->acc_code.'">'.$account->title.'</option>';}  @endphp</select></td>';
-                html += '<td><select name="item_sub_category[]" class="form-control item_sub_category" id="item_sub_category'+count+'"><option value="">Select Sub Category</option></select></td>';
-                html += '<td><button type="button" name="remove" class="btn btn-danger btn-xs remove"><span class="glyphicon glyphicon-minus"></span></button></td>';
-                $('tbody').append(html);
-            });
-
-            $(document).on('click', '.remove', function(){
-                $(this).closest('tr').remove();
-            });
-
-            $(document).on('change', '.item_category', function(){
-                var category_id = $(this).val();
-                var sub_category_id = $(this).data('sub_category_id');
-                $.ajax({
-                    url: '/acc_level_four/my-cc/'+category_id,
-                    type: "GET",
-                    dataType: "json",
-                    success:function(data)
-                    {
-
-                        $('#item_sub_category'+sub_category_id).empty();
-                        var html = '<option value="">Select Sub Category</option>';
-
-                        $.each(data, function(key, value) {
-                            var dat="<option value='"+value.id+"'>"+ value.title +"</option>";
-                            html=html+dat ;
-                        });
-                        console.log(html);
-                        $('#item_sub_category'+sub_category_id).append(html);
-                    }
-                });
-            });
-
-
-
-        });
-    </script>
-@endsection--}}

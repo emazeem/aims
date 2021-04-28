@@ -29,6 +29,7 @@ Route::get('/calibration-sticker',function (){return view('docs.calibration_stic
 Route::get('/deliverynote',function (){return view('docs.deliverynote');});
 Route::get('/pra',function (){ $entries=\App\Models\InvoicingLedger::all()->where('service_tax_type',2); return view('docs.pra',compact('entries'));})->name('pra');
 Route::get('/masterlistofequipments',function (){ $assets=\App\Models\Asset::all(); return view('docs.masterlistofequipments',compact('assets'));});
+
 Route::group(['prefix'=> 'customers'],function() {
     Route::get('',[App\Http\Controllers\CustomerController::class, 'index'])->middleware('auth')->name('customers');
     Route::get('/create',[App\Http\Controllers\CustomerController::class, 'create'])->middleware('auth')->name('customers.create');
@@ -39,6 +40,39 @@ Route::group(['prefix'=> 'customers'],function() {
     Route::post('/store',[App\Http\Controllers\CustomerController::class, 'store'])->middleware('auth')->name('customers.store');
     Route::delete('delete',[App\Http\Controllers\CustomerController::class, 'destroy'])->middleware('auth')->name('customers.destroy');
 });
+Route::group(['prefix'=> 'purchase-order'],function() {
+    Route::get('',[App\Http\Controllers\PoController::class, 'index'])->middleware('auth')->name('po');
+    Route::get('/create',[App\Http\Controllers\PoController::class, 'create'])->middleware('auth')->name('po.create');
+    Route::get('/show/{id}',[App\Http\Controllers\PoController::class, 'show'])->middleware('auth')->name('po.show');
+    Route::get('/edit/{id}',[App\Http\Controllers\PoController::class, 'edit'])->middleware('auth')->name('po.edit');
+    Route::post('/update',[App\Http\Controllers\PoController::class, 'update'])->middleware('auth')->name('po.update');
+    Route::post('',[App\Http\Controllers\PoController::class, 'fetch'])->middleware('auth')->name('po.fetch');
+    Route::post('/store',[App\Http\Controllers\PoController::class, 'store'])->middleware('auth')->name('po.store');
+    Route::delete('delete',[App\Http\Controllers\PoController::class, 'destroy'])->middleware('auth')->name('po.destroy');
+});
+Route::group(['prefix'=> 'vendor'],function() {
+    Route::get('',[App\Http\Controllers\VendorsController::class, 'index'])->middleware('auth')->name('vendors');
+    Route::get('/create',[App\Http\Controllers\VendorsController::class, 'create'])->middleware('auth')->name('vendors.create');
+    Route::get('/show/{id}',[App\Http\Controllers\VendorsController::class, 'show'])->middleware('auth')->name('vendors.show');
+    Route::get('/edit/{id}',[App\Http\Controllers\VendorsController::class, 'edit'])->middleware('auth')->name('vendors.edit');
+    Route::post('/update',[App\Http\Controllers\VendorsController::class, 'update'])->middleware('auth')->name('vendors.update');
+    Route::post('',[App\Http\Controllers\VendorsController::class, 'fetch'])->middleware('auth')->name('vendors.fetch');
+    Route::post('/store',[App\Http\Controllers\VendorsController::class, 'store'])->middleware('auth')->name('vendors.store');
+    Route::delete('delete',[App\Http\Controllers\VendorsController::class, 'destroy'])->middleware('auth')->name('vendors.destroy');
+});
+
+Route::group(['prefix'=> 'scopeofsupply'],function() {
+    Route::post('/store',[App\Http\Controllers\ScopeOfSupplyController::class, 'store'])->middleware('auth')->name('scope.of.supply.store');
+});
+
+Route::group(['prefix'=> 'purchase/vendor'],function() {
+    Route::post('/send-to-tm',[App\Http\Controllers\PurchaseVendorController::class, 'send_to_tm'])->middleware('auth')->name('purchase.vendor.send.to.tm');
+    Route::post('/prioritized',[App\Http\Controllers\PurchaseVendorController::class, 'prioritized'])->middleware('auth')->name('purchase.vendor.prioritized');
+    Route::post('/selected_vendor',[App\Http\Controllers\PurchaseVendorController::class, 'selected_vendor'])->middleware('auth')->name('purchase.vendor.selected.vendor');
+    Route::post('/set_priority',[App\Http\Controllers\PurchaseVendorController::class, 'set_priority'])->middleware('auth')->name('purchase.vendor.set.priority');
+    Route::post('/store',[App\Http\Controllers\PurchaseVendorController::class, 'store'])->middleware('auth')->name('purchase.vendor.store');
+});
+
 Route::group(['prefix'=> 'users'],function() {
     Route::get('',[App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('users');
     Route::get('/attendances',[App\Http\Controllers\UserController::class, 'attendances'])->middleware('auth')->name('users.attendances');
@@ -535,11 +569,12 @@ Route::group(['prefix'=> 'acc_level_three'],function(){
     Route::delete('delete',[App\Http\Controllers\AccLevelThreeController::class, 'destroy'])->middleware('auth')->name('acc_level_three.destroy');
 
 });
-Route::group(['prefix'=> 'acc_level_four'],function(){
+Route::group(['prefix'=> 'chartofaccount'],function(){
     Route::get('',[App\Http\Controllers\ChartofaccountController::class, 'index'])->middleware('auth')->name('acc_level_four');
     Route::post('',[App\Http\Controllers\ChartofaccountController::class, 'fetch'])->middleware('auth')->name('acc_level_four.fetch');
     Route::get('/create',[App\Http\Controllers\ChartofaccountController::class, 'create'])->middleware('auth')->name('acc_level_four.create');
     Route::get('/show',[App\Http\Controllers\ChartofaccountController::class, 'show'])->middleware('auth')->name('acc_level_four.show');
+    Route::get('/print',[App\Http\Controllers\ChartofaccountController::class, 'prints'])->middleware('auth')->name('acc_level_four.print');
     Route::get('/edit/{id}',[App\Http\Controllers\ChartofaccountController::class, 'edit'])->middleware('auth')->name('acc_level_four.edit');
     Route::post('/store/',[App\Http\Controllers\ChartofaccountController::class, 'store'])->middleware('auth')->name('acc_level_four.store');
     Route::post('/update/',[App\Http\Controllers\ChartofaccountController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
@@ -564,20 +599,26 @@ Route::group(['prefix'=> 'vouchers'],function(){
     Route::post('/store/',[App\Http\Controllers\VoucherController::class, 'store'])->middleware('auth')->name('vouchers.store');
     Route::post('/update/',[App\Http\Controllers\VoucherController::class, 'update'])->middleware('auth')->name('vouchers.update');
 });
-Route::group(['prefix'=> 'sales-voucher'],function(){
-    Route::get('',[App\Http\Controllers\SaleVocuherController::class, 'index'])->middleware('auth')->name('sales.vouchers');
-    Route::post('',[App\Http\Controllers\SaleVocuherController::class, 'fetch'])->middleware('auth')->name('sales.vouchers.fetch');
+Route::group(['prefix'=> 'sales-invoice'],function(){
+    Route::get('',[App\Http\Controllers\SalesInvoiceController::class, 'index'])->middleware('auth')->name('sales.invoice');
+    Route::post('',[App\Http\Controllers\SalesInvoiceController::class, 'fetch'])->middleware('auth')->name('sales.invoice.fetch');
 });
-Route::group(['prefix'=> 'sales-receipt-voucher'],function(){
-    Route::get('',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'index'])->middleware('auth')->name('sales.receipt.vouchers');
-    Route::post('',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'fetch'])->middleware('auth')->name('sales.receipt.vouchers.fetch');
-    Route::get('/create',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'create'])->middleware('auth')->name('sales.receipt.vouchers.create');
-    Route::get('/edit/{id}',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'edit'])->middleware('auth')->name('sales.receipt.vouchers.edit');
-    Route::get('/show/{id}',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'show'])->middleware('auth')->name('sales.receipt.vouchers.show');
-    Route::get('/print/{id}',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'prints'])->middleware('auth')->name('sales.receipt.vouchers.print');
-    Route::post('/store/',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'store'])->middleware('auth')->name('sales.receipt.vouchers.store');
-    Route::post('/update/',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'update'])->middleware('auth')->name('sales.receipt.vouchers.update');
-    Route::get('get-inv/{customer}',[App\Http\Controllers\SalesReceiptVouhcerController::class, 'get_inv'])->middleware('auth')->name('sales.receipt.vouchers.get_inv');
+Route::group(['prefix'=> 'invoice'],function(){
+    Route::post('store',[App\Http\Controllers\InvoiceController::class, 'store'])->middleware('auth')->name('invoice.store');
+});
+
+Route::group(['prefix'=> 'receipt-voucher'],function(){
+    Route::get('',[App\Http\Controllers\ReceiptVoucherController::class, 'index'])->middleware('auth')->name('sales.receipt.vouchers');
+    Route::post('',[App\Http\Controllers\ReceiptVoucherController::class, 'fetch'])->middleware('auth')->name('sales.receipt.vouchers.fetch');
+    Route::get('/create',[App\Http\Controllers\ReceiptVoucherController::class, 'create'])->middleware('auth')->name('sales.receipt.vouchers.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\ReceiptVoucherController::class, 'edit'])->middleware('auth')->name('sales.receipt.vouchers.edit');
+    Route::get('/show/{id}',[App\Http\Controllers\ReceiptVoucherController::class, 'show'])->middleware('auth')->name('sales.receipt.vouchers.show');
+    Route::get('/print/{id}',[App\Http\Controllers\ReceiptVoucherController::class, 'prints'])->middleware('auth')->name('sales.receipt.vouchers.print');
+    Route::post('/store/',[App\Http\Controllers\ReceiptVoucherController::class, 'store'])->middleware('auth')->name('sales.receipt.vouchers.store');
+    Route::post('/update/',[App\Http\Controllers\ReceiptVoucherController::class, 'update'])->middleware('auth')->name('sales.receipt.vouchers.update');
+    Route::get('get-inv/{customer}',[App\Http\Controllers\ReceiptVoucherController::class, 'get_inv'])->middleware('auth')->name('sales.receipt.vouchers.get_inv');
+    Route::get('get-inv-details/{inv}',[App\Http\Controllers\ReceiptVoucherController::class, 'get_inv_details'])->middleware('auth')->name('sales.receipt.vouchers.get.inv.details');
+    Route::get('get-payments-acc/{type}',[App\Http\Controllers\ReceiptVoucherController::class, 'get_payment_acc'])->middleware('auth')->name('sales.receipt.vouchers.get_payments_acc');
 });
 
 
@@ -664,6 +705,7 @@ Route::group(['prefix'=> 'inventory-categories'],function() {
 Route::group(['prefix'=> 'inventories'],function() {
     Route::get('',[App\Http\Controllers\InventoriesController::class, 'index'])->middleware('auth')->name('inventory.index');
     Route::get('view/{id}',[App\Http\Controllers\InventoriesController::class, 'view'])->middleware('auth')->name('inventory.view');
+    Route::get('get-sub-categories/{id}',[App\Http\Controllers\InventoriesController::class, 'get_subcategories'])->middleware('auth')->name('inventory.get_subcategories');
     Route::post('',[App\Http\Controllers\InventoriesController::class, 'fetch'])->middleware('auth')->name('inventory.fetch');
     Route::post('/store',[App\Http\Controllers\InventoriesController::class, 'store'])->middleware('auth')->name('inventory.store');
     Route::post('/edit',[App\Http\Controllers\InventoriesController::class, 'edit'])->middleware('auth')->name('inventory.edit');

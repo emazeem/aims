@@ -163,6 +163,7 @@
                             "<td>" + item.price + "</td>" +
                             "</tr>"
                         );
+
                     });
                 },
                 error: function(){},

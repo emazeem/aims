@@ -17,7 +17,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3><i class="fa fa-dollar"></i> Sales Voucher</h3>
+            <h3><i class="fa fa-dollar"></i> Sales Invoice</h3>
         </div>
         <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
@@ -63,7 +63,7 @@
                 "order": [[0, 'desc']],
                 "pageLength": 25,
                 "ajax": {
-                    "url": "{{ route('sales.vouchers.fetch') }}",
+                    "url": "{{ route('sales.invoice.fetch') }}",
                     "dataType": "json",
                     "type": "POST",
                     "data": {_token: "{{csrf_token()}}"}
@@ -76,13 +76,50 @@
                     {"data": "status"},
                     {"data": "options", "orderable": false},
                 ]
-
             });
-
         }
         $(document).ready(function () {
             InitTable();
+            $(document).on('click', '.invoice-store', function (e) {
+                swal({
+                    title: "Are you sure to generate its Invoice?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var id = $(this).attr('data-id');
+                            var token = '{{csrf_token()}}';
+                            e.preventDefault();
+                            var request_method = 'POST';
+                            var form_data = $("#form" + id).serialize();
 
+                            $.ajax({
+                                url: "{{route('invoice.store')}}",
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
+                                statusCode: {
+                                    403: function () {
+                                        swal("Failed", "Permission denied.", "error");
+                                        return false;
+                                    }
+                                },
+                                success: function (data) {
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                    });
+                                },
+                                error: function (data) {
+                                    swal("Failed", data.error, "error");
+                                },
+                            });
+
+                        }
+                    });
+
+            });
         });
     </script>
 @endsection

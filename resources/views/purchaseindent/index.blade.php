@@ -1,5 +1,13 @@
 @extends('layouts.master')
 @section('content')
+    @if(Session::has('success'))
+        <script>
+            $(document).ready(function () {
+                swal("Done!", '{{Session('success')}}', "success");
+            });
+        </script>
+        @php Session::forget('success') @endphp
+    @endif
     <div class="row">
         <div class="col-12">
             <h3 class="pull-left border-bottom pb-1"><i class="fa fa-paper-plane"></i> Purchase Indent</h3>

@@ -1,9 +1,5 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
-        {{--<div class="navbar nav_title" style="border: 0;">
-            <a href="" class="site_title"><i class="fa fa-cog"></i> <span>AIMS</span></a>
-        </div>--}}
-        <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic" >
                 @if(auth()->user()->profile)
@@ -55,11 +51,6 @@
 
                         @else
                             @can($menu->slug)
-                                {{--<a href="{{url($menu->url)}}" class="py-1 my-0 {{(Request::url()==url(''.$menu->url))?"active":""}} sidebar-a">
-                                    <i class="{{$menu->icon}}"></i>
-                                    <span>{{$menu->name}}</span>
-                                </a>
---}}
                                 <li>
                                     {{--{{(Request::url()==url(''.$menu->url))?"active":""}}--}}
                                     <a href="{{url($menu->url)}}"><i class="{{$menu->icon}}"></i> {{$menu->name}}
@@ -72,11 +63,7 @@
 
                 </ul>
             </div>
-
         </div>
-        <!-- /sidebar menu -->
-
-        <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">
                 <a data-toggle="tooltip" data-placement="top" title="Dashboard" href="{{url('/')}}">
                     <span class="fa fa-home fa-1x" aria-hidden="true"></span>
@@ -93,7 +80,5 @@
                     <span class="fa fa-sign-in fa-1x" aria-hidden="true"></span>
                 </a>
         </div>
-
-        <!-- /menu footer buttons -->
     </div>
 </div>

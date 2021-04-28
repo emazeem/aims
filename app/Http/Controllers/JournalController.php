@@ -30,6 +30,7 @@ class JournalController extends Controller
             ->addColumn('acc_title', function ($data) {
                 $account=Chartofaccount::where('acc_code',$data->acc_code)->first();
                 return $account->title;
+
             })
             ->addColumn('type', function ($data) {
                 return ucwords(str_replace('-',' ',$data->parent->type));

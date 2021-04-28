@@ -27,6 +27,7 @@
                         <a title='Mark as Complete' class='btn btn-outline-primary btn-sm complete' href='#'
                            data-id='{{$show->id}}'><i class='fa fa-thumbs-up'></i> Mark as Complete</a>
                     @endif
+
                 @endif
             @endif
         </div>

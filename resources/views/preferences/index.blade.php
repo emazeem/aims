@@ -69,7 +69,6 @@
             $(document).ready(function () {
                 InitTable();
             });
-
         </script>
 @endsection
 

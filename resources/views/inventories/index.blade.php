@@ -17,7 +17,29 @@
         </script>
     @endif
     <!-- Table start -->
-
+    <script>
+        $(document).ready(function () {
+            $('select[name="category"]').on('change', function () {
+                var cat = $(this).val();
+                if (cat) {
+                    $.ajax({
+                        url: '/inventories/get-sub-categories/' + cat,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('select[name="subcategory"]').empty();
+                            $('select[name="subcategory"]').append('<option disabled selected>Select Subcategory</option>');
+                            $.each(data, function (key, value) {
+                                $('select[name="subcategory"]').append('<option value="' + value.id + '">' + value.category_name + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('select[name="subcategory"]').empty();
+                }
+            });
+        });
+    </script>
     <div class="col-12">
         <div class="col-12">
             <h3 class="pull-left pb-1"><i class="fa fa-list"></i> Inventories</h3>
@@ -31,9 +53,9 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Category</th>
+                <th>Subcategory</th>
                 <th>Model</th>
                 <th>Price</th>
-                <th>Status</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -42,9 +64,9 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Category</th>
+                <th>Subcategory</th>
                 <th>Model</th>
                 <th>Price</th>
-                <th>Status</th>
                 <th>Action</th>
             </tr>
             </tfoot>
@@ -59,7 +81,8 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Inventory</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Inventory
+                    </h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -68,69 +91,76 @@
                     <form action="{{route('inventory.store')}}" class="form" id="add_form" method="POST">
                         @csrf
 
-                            <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Title" autocomplete="off" value="{{ old('title') }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="category">Category</label>
-                                <select type="text" name="category" id="category" class="form-control" required="required">
-                                    <option disabled selected>Select Category</option>
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->category_name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Model</label>
-                                <input type="text" class="form-control" id="model" name="model" placeholder="Model" autocomplete="off" value="{{ old('model') }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Quantity</label>
-                                <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" autocomplete="off" value="{{ old('quantity') }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Annual Depreciation</label>
-                                <input type="text" class="form-control" id="depreciation" name="depreciation" placeholder="Depreciation %" autocomplete="off" value="{{ old('depreciation') }}">
-                            </div>
                         <div class="form-group">
-                            <label for="depreciation_duration">Depreciation Duration</label>
-                            <select type="text" name="depreciation_duration" id="depreciation_duration" class="form-control"
-                                    required="required">
-                                @for($i=1;$i<=10;$i++)
-                                <option value="{{$i}}">{{$i}} Year{{$i>1?'s':''}}</option>
-                                    @endfor
+                            <label>Title</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Title"
+                                   autocomplete="off" value="{{ old('title') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select type="text" name="category" id="category" class="form-control" required="required">
+                                <option disabled selected>Select Category</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
-                                <label>Price</label>
-                                <input type="text" class="form-control" id="price" name="price" placeholder="Price" autocomplete="off" value="{{ old('price') }}">
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Description" autocomplete="off"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="department">Departments</label>
-                                <select type="text" name="department" id="department" class="form-control" required="required">
-                                    <option disabled selected>Select Department</option>
-                                    @foreach($departments as $department)
-                                        <option value="{{$department->id}}">{{$department->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit_status">Status</label>
-                                <select type="text" name="status" id="edit_status" class="form-control"
-                                        required="required">
-                                    <option value="1">Active</option>
-                                    <option value="0">Disable</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="consumable" >Consumable<input type="checkbox"  id="consumable" name="consumable"></label>
-                            </div>
-                            <input type="hidden" name="edit_id" id="edit_id" value="">
+                            <label for="edit_subcategory">Subcategory</label>
+                            <select type="text" name="subcategory" id="edit_subcategory" class="form-control"
+                                    required="required">
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Model</label>
+                            <input type="text" class="form-control" id="model" name="model" placeholder="Model"
+                                   autocomplete="off" value="{{ old('model') }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity"
+                                   autocomplete="off" value="{{ old('quantity') }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Annual Depreciation</label>
+                            <input type="text" class="form-control" id="depreciation" name="depreciation"
+                                   placeholder="Depreciation %" autocomplete="off" value="{{ old('depreciation') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="depreciation_duration">Depreciation Duration</label>
+                            <select type="text" name="depreciation_duration" id="depreciation_duration"
+                                    class="form-control"
+                                    required="required">
+                                @for($i=1;$i<=10;$i++)
+                                    <option value="{{$i}}">{{$i}} Year{{$i>1?'s':''}}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="text" class="form-control" id="price" name="price" placeholder="Price"
+                                   autocomplete="off" value="{{ old('price') }}">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea type="text" class="form-control" id="description" name="description"
+                                      placeholder="Description" autocomplete="off"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Departments</label>
+                            <select type="text" name="department" id="department" class="form-control"
+                                    required="required">
+                                <option disabled selected>Select Department</option>
+                                @foreach($departments as $department)
+                                    <option value="{{$department->id}}">{{$department->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="consumable">Consumable<input type="checkbox" id="consumable" name="consumable"></label>
+                        </div>
+                        <input type="hidden" name="edit_id" id="edit_id" value="">
                 </div>
                 <div class="modal-footer">
                     <input type="submit" class="btn btn-primary" id="add_form_btn" value="Save">
@@ -160,10 +190,10 @@
                 "columns": [
                     {"data": "id"},
                     {"data": "title"},
+                    {"data": "subcategory"},
                     {"data": "category"},
                     {"data": "model"},
                     {"data": "price"},
-                    {"data": "status"},
                     {"data": "options", "orderable": false},
                 ]
 
@@ -184,10 +214,10 @@
                         $('#edit_id').val(data.id);
                         $('#edit_category_name').val(data.category_name);
                         $('#edit_status').val(data.status);
+
                     }
                 });
             });
-
         });
     </script>
 @endsection
