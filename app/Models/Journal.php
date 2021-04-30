@@ -22,7 +22,7 @@ class Journal extends Model
         return $this->hasMany('App\Models\JournalDetails','parent_id','id');
     }
     public function businessLine(){
-        return $this->belongsTo('App\Models\BusinessLine','business_line','id');
+        return $this->belongsTo('App\Models\BusinessLine','business_line','id')->withDefault();
     }
     public function attachments(){
         return $this->hasMany('App\Models\Journalassets','voucher_id','id');

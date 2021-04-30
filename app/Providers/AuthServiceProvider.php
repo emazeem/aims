@@ -136,8 +136,8 @@ class AuthServiceProvider extends ServiceProvider
 
     public function businessLine()
     {
-        Gate::define('business-line', function ($user) {
-            if (in_array('business-line',explode(',',$user->roles->permissions))){
+        Gate::define('business-lines', function ($user) {
+            if (in_array('business-lines',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;

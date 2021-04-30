@@ -332,21 +332,7 @@ Route::group(['prefix'=> 'receivable-ledger'],function() {
     Route::post('/update/{invoice}',[App\Http\Controllers\ReceivingLedgerController::class, 'update'])->middleware('auth')->name('receivable_ledger.update');
     Route::get('/show/{invoice}',[App\Http\Controllers\ReceivingLedgerController::class, 'show'])->middleware('auth')->name('receivable_ledger.show');
 });
-Route::group(['prefix'=> 'expenses'],function(){
-    Route::get('',[App\Http\Controllers\ExpenseController::class, 'index'])->middleware('auth')->name('expenses');
-    Route::post('',[App\Http\Controllers\ExpenseController::class, 'fetch'])->middleware('auth')->name('expenses.fetch');
-    Route::get('/create/',[App\Http\Controllers\ExpenseController::class, 'create'])->middleware('auth')->name('expenses.create');
-    Route::get('/edit/{id}',[App\Http\Controllers\ExpenseController::class, 'edit'])->middleware('auth')->name('expenses.edit');
-    Route::post('/store/',[App\Http\Controllers\ExpenseController::class, 'store'])->middleware('auth')->name('expenses.store');
-    Route::post('/update/',[App\Http\Controllers\ExpenseController::class, 'update'])->middleware('auth')->name('expenses.update');
-    Route::get('/get_subcategories/{id}',[App\Http\Controllers\ExpenseController::class, 'get_subcategories'])->middleware('auth')->name('expenses.get_subcategories');
-});
-Route::group(['prefix'=> 'expenses_categories'],function(){
-    Route::get('',[App\Http\Controllers\ExpensecategoryController::class, 'index'])->middleware('auth')->name('expenses_categories');
-    Route::post('',[App\Http\Controllers\ExpensecategoryController::class, 'fetch'])->middleware('auth')->name('expenses_categories.fetch');
-    Route::get('/create/',[App\Http\Controllers\ExpensecategoryController::class, 'create'])->middleware('auth')->name('expenses_categories.create');
-    Route::post('/store/',[App\Http\Controllers\ExpensecategoryController::class, 'store'])->middleware('auth')->name('expenses_categories.store');
-});
+
 Route::group(['prefix'=> 'manage-reference'],function(){
     Route::get('',[App\Http\Controllers\ManagereferenceController::class, 'index'])->middleware('auth')->name('manageref');
     Route::post('',[App\Http\Controllers\ManagereferenceController::class, 'fetch'])->middleware('auth')->name('manageref.fetch');

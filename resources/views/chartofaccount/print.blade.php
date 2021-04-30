@@ -34,7 +34,7 @@
                                 <li class="level-2">{{$leveltwo->title}}</li>
                                 <ul class="nested">
                                     @foreach($leveltwo->levelthree as $levelthree)
-                                        <li class="level-3">{{$levelthree->title}}</li>
+                                        <li class="level-3"> ({{$levelthree->id}}) {{$levelthree->title}}</li>
                                         <ul>
                                             @foreach($levelthree->levelfour as $chart)
                                                 <li class="level-4">

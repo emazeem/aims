@@ -67,18 +67,16 @@ class ReceiptVoucherController extends Controller
 
         $blines=BusinessLine::all();
 
-        $customers=Chartofaccount::where('code3',4)->orderBy('title','asc')->get();
+        $customers=Chartofaccount::where('code3',3)->orderBy('title','asc')->get();
 
-        $servicetaxes=Chartofaccount::where('code3',22)->get();
+        $servicetaxes=Chartofaccount::where('code3',13)->get();
 
-        $incometaxes=Chartofaccount::where('code3',45)->get();
-        $liability_incometaxes=Chartofaccount::where('code3',22)->get();
+        $incometaxes=Chartofaccount::where('code3',4)->get();
+        $liability_incometaxes=Chartofaccount::where('code3',5)->get();
 
         foreach ($customers as $item){
             $item->title=str_replace("'","",$item->title);
         }
-
-
         return view('receiptvoucher.create',compact('blines','customers','servicetaxes','incometaxes','liability_incometaxes'));
     }
     public function store(Request $request){

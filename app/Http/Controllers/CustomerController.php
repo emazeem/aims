@@ -14,7 +14,7 @@ class CustomerController extends Controller
 {
     public function index(){
 
-        /*$customers=Customer::all();
+/*        $customers=Customer::all();
         foreach ($customers as $customer){
             $acc = new Chartofaccount();
             $acc->code4 = 000;
@@ -26,7 +26,6 @@ class CustomerController extends Controller
             $acc->acc_code = 10103 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
             $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
             $acc->save();
-
             $customer->acc_code=$acc->acc_code;
             $customer->save();
         }

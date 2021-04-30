@@ -9,7 +9,7 @@ use Yajra\DataTables\DataTables;
 class BusinessLineController extends Controller
 {
     public function index(){
-        $this->authorize('business-line');
+        $this->authorize('business-lines');
         return view('business_line');
     }
     public function fetch(){
