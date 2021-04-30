@@ -82,7 +82,6 @@ class ChartofaccountController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->all());
         $this->validate(request(), [
             'title' => 'required',
             'level1of4' => 'required',
@@ -94,7 +93,6 @@ class ChartofaccountController extends Controller
             'level2of4.required' => 'Level two is required.',
             'level3of4.required' => 'Level three is required.',
         ]);
-
         $acc = new Chartofaccount();
         $acc->code3 = $request->level3of4;
         $acc->code2 = $request->level2of4;
@@ -103,6 +101,7 @@ class ChartofaccountController extends Controller
         $code4=(Chartofaccount::withTrashed()->where('code3',$request->level3of4)->count());
         $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
         $acc->acc_code = $acc->codeone->code1 . $acc->codetwo->code2 . $acc->codethree->code3 . str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
+
         $acc->save();
         return response()->json(['success'=> 'Chart of Account has added successfully.']);
     }

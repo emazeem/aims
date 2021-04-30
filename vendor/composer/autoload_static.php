@@ -816,6 +816,7 @@ class ComposerStaticInit3a81bb0a2d8c36e47ea5a50a0b8e8a40
         'App\\Models\\Notification' => __DIR__ . '/../..' . '/app/Models/Notification.php',
         'App\\Models\\Parameter' => __DIR__ . '/../..' . '/app/Models/Parameter.php',
         'App\\Models\\Po' => __DIR__ . '/../..' . '/app/Models/Po.php',
+        'App\\Models\\PoDetails' => __DIR__ . '/../..' . '/app/Models/PoDetails.php',
         'App\\Models\\Preference' => __DIR__ . '/../..' . '/app/Models/Preference.php',
         'App\\Models\\Preventivechecklist' => __DIR__ . '/../..' . '/app/Models/Preventivechecklist.php',
         'App\\Models\\Preventivemaintenancerecord' => __DIR__ . '/../..' . '/app/Models/Preventivemaintenancerecord.php',

@@ -42,14 +42,19 @@ Route::group(['prefix'=> 'customers'],function() {
 });
 Route::group(['prefix'=> 'purchase-order'],function() {
     Route::get('',[App\Http\Controllers\PoController::class, 'index'])->middleware('auth')->name('po');
-    Route::get('/create',[App\Http\Controllers\PoController::class, 'create'])->middleware('auth')->name('po.create');
+    Route::get('/create/{id}',[App\Http\Controllers\PoController::class, 'create'])->middleware('auth')->name('po.create');
+    Route::get('/print/{id}',[App\Http\Controllers\PoController::class, 'prints'])->middleware('auth')->name('po.prints');
     Route::get('/show/{id}',[App\Http\Controllers\PoController::class, 'show'])->middleware('auth')->name('po.show');
-    Route::get('/edit/{id}',[App\Http\Controllers\PoController::class, 'edit'])->middleware('auth')->name('po.edit');
-    Route::post('/update',[App\Http\Controllers\PoController::class, 'update'])->middleware('auth')->name('po.update');
+    Route::post('/edit',[App\Http\Controllers\PoController::class, 'edit'])->middleware('auth')->name('po.edit');
     Route::post('',[App\Http\Controllers\PoController::class, 'fetch'])->middleware('auth')->name('po.fetch');
     Route::post('/store',[App\Http\Controllers\PoController::class, 'store'])->middleware('auth')->name('po.store');
     Route::delete('delete',[App\Http\Controllers\PoController::class, 'destroy'])->middleware('auth')->name('po.destroy');
 });
+Route::group(['prefix'=> 'purchase-order-items'],function() {
+    Route::post('/store',[App\Http\Controllers\PoDetailsController::class, 'store'])->middleware('auth')->name('po.items.store');
+
+});
+
 Route::group(['prefix'=> 'vendor'],function() {
     Route::get('',[App\Http\Controllers\VendorsController::class, 'index'])->middleware('auth')->name('vendors');
     Route::get('/create',[App\Http\Controllers\VendorsController::class, 'create'])->middleware('auth')->name('vendors.create');
@@ -60,11 +65,9 @@ Route::group(['prefix'=> 'vendor'],function() {
     Route::post('/store',[App\Http\Controllers\VendorsController::class, 'store'])->middleware('auth')->name('vendors.store');
     Route::delete('delete',[App\Http\Controllers\VendorsController::class, 'destroy'])->middleware('auth')->name('vendors.destroy');
 });
-
 Route::group(['prefix'=> 'scopeofsupply'],function() {
     Route::post('/store',[App\Http\Controllers\ScopeOfSupplyController::class, 'store'])->middleware('auth')->name('scope.of.supply.store');
 });
-
 Route::group(['prefix'=> 'purchase/vendor'],function() {
     Route::post('/send-to-tm',[App\Http\Controllers\PurchaseVendorController::class, 'send_to_tm'])->middleware('auth')->name('purchase.vendor.send.to.tm');
     Route::post('/prioritized',[App\Http\Controllers\PurchaseVendorController::class, 'prioritized'])->middleware('auth')->name('purchase.vendor.prioritized');
@@ -72,7 +75,6 @@ Route::group(['prefix'=> 'purchase/vendor'],function() {
     Route::post('/set_priority',[App\Http\Controllers\PurchaseVendorController::class, 'set_priority'])->middleware('auth')->name('purchase.vendor.set.priority');
     Route::post('/store',[App\Http\Controllers\PurchaseVendorController::class, 'store'])->middleware('auth')->name('purchase.vendor.store');
 });
-
 Route::group(['prefix'=> 'users'],function() {
     Route::get('',[App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('users');
     Route::get('/attendances',[App\Http\Controllers\UserController::class, 'attendances'])->middleware('auth')->name('users.attendances');

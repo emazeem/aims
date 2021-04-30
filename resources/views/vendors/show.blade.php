@@ -52,6 +52,10 @@
                     <th>Person</th>
                     <td>{{$show->person}}</td>
                 </tr>
+                <tr>
+                    <th>Account Code</th>
+                    <td>{{$show->acc_code}}</td>
+                </tr>
 
 
                 <tr>

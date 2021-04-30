@@ -163,6 +163,7 @@ return array(
     'App\\Models\\Notification' => $baseDir . '/app/Models/Notification.php',
     'App\\Models\\Parameter' => $baseDir . '/app/Models/Parameter.php',
     'App\\Models\\Po' => $baseDir . '/app/Models/Po.php',
+    'App\\Models\\PoDetails' => $baseDir . '/app/Models/PoDetails.php',
     'App\\Models\\Preference' => $baseDir . '/app/Models/Preference.php',
     'App\\Models\\Preventivechecklist' => $baseDir . '/app/Models/Preventivechecklist.php',
     'App\\Models\\Preventivemaintenancerecord' => $baseDir . '/app/Models/Preventivemaintenancerecord.php',

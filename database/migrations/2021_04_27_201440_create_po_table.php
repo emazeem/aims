@@ -16,7 +16,13 @@ class CreatePoTable extends Migration
         Schema::create('po', function (Blueprint $table) {
             $table->id();
             $table->integer('indent_id')->comment('approved-vendor');
+            $table->string('payment_term');
+            $table->string('delivery_term');
+            $table->string('currency');
             $table->integer('created_by');
+            $table->integer('checked_by')->nullable();
+            $table->integer('approved_by')->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

@@ -13,4 +13,7 @@ class Po extends Model
     public function createdBy(){
         return $this->belongsTo('App\Models\User','created_by');
     }
+    public function po_items(){
+        return $this->hasMany('App\Models\PoDetails','po_id','id');
+    }
 }

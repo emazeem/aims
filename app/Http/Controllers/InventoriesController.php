@@ -13,6 +13,9 @@ use Yajra\DataTables\DataTables;
 class InventoriesController extends Controller
 {
     public function index(){
+
+
+
         $categories=InventoryCategory::all()->where('parent_id',null);
         $departments=Department::all();
         return view('inventories.index',compact('categories','departments'));

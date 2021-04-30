@@ -22,6 +22,7 @@ class CreateVendorsTable extends Migration
             $table->string('category');
             $table->string('address');
             $table->string('person');
+            $table->integer('acc_code');
             $table->string('scope_of_supply');
             $table->string('approval_basis');
             $table->date('expiry_date');

@@ -75,7 +75,7 @@ class InvoiceController extends Controller
         //Liabilities -> Current Liabilities -> PRA Cr.
         $service_tax=new JournalDetails();
         $service_tax->parent_id=$journal->id;
-        $service_tax->acc_code=20104001;
+        $service_tax->acc_code=20101001;
         $service_tax->narration=$invoice->job->quotes->customers->regions->name.' OF '.$invoice->title;
         $service_tax->cr=$regional_tax_charges;
         $service_tax->save();

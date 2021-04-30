@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chartofaccount;
 use App\Models\ScopeOfSupply;
 use App\Models\Vendors;
 use Illuminate\Http\Request;
@@ -114,6 +115,18 @@ class VendorsController extends Controller
         $vendors->expiry_date=$request->expiry_date;
         $vendors->status=$request->status;
         $vendors->save();
+        $acc = new Chartofaccount();
+        $acc->code4 = 000;
+        $acc->code3 = 14;
+        $acc->code2 = 3;
+        $acc->code1 = 2;
+        $acc->title = $vendors->name;
+        $code4=(Chartofaccount::withTrashed()->where('code3',14)->count());
+        $acc->acc_code = 20106 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
+        $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
+        $acc->save();
+        $vendors->acc_code=$acc->acc_code;
+        $vendors->save();
 
         return redirect()->back()->with('success', 'Vendor added successfully');
 
@@ -149,7 +162,6 @@ class VendorsController extends Controller
         $vendors->expiry_date=$request->expiry_date;
         $vendors->status=$request->status;
         $vendors->save();
-
         return redirect()->back()->with('success', 'Vendor updated successfully');
 
     }

@@ -14,6 +14,23 @@ class CustomerController extends Controller
 {
     public function index(){
 
+        /*$customers=Customer::all();
+        foreach ($customers as $customer){
+            $acc = new Chartofaccount();
+            $acc->code4 = 000;
+            $acc->code3 = 3;
+            $acc->code2 = 1;
+            $acc->code1 = 1;
+            $acc->title = $customer->reg_name;
+            $code4=(Chartofaccount::withTrashed()->where('code3',3)->count());
+            $acc->acc_code = 10103 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
+            $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
+            $acc->save();
+
+            $customer->acc_code=$acc->acc_code;
+            $customer->save();
+        }
+        dd('saved');*/
         $this->authorize('customer-index');
         return view('customers.index');
     }
@@ -171,12 +188,12 @@ class CustomerController extends Controller
 
         $acc = new Chartofaccount();
         $acc->code4 = 000;
-        $acc->code3 = 4;
+        $acc->code3 = 3;
         $acc->code2 = 1;
         $acc->code1 = 1;
         $acc->title = $customer->reg_name;
-        $code4=(Chartofaccount::withTrashed()->where('code3',4)->count());
-        $acc->acc_code = 10104 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
+        $code4=(Chartofaccount::withTrashed()->where('code3',3)->count());
+        $acc->acc_code = 10103 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
         $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
         $acc->save();
 

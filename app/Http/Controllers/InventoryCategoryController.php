@@ -15,7 +15,17 @@ class InventoryCategoryController extends Controller
     //
     public function index()
     {
+
         $categories = InventoryCategory::where('status','Active')->where('parent_id',null)->get();
+        /*foreach ($categories as $category){
+            $acc=new AccLevelThree();
+            $acc->code2=2;
+            $acc->code1=1;
+            $acc->title=$category->category_name;
+            $reserved=AccLevelThree::withTrashed()->where('code2',2)->count();
+            $acc->code3=str_pad($reserved+1, 2, '0', STR_PAD_LEFT);
+            $acc->save();
+        }*/
         return view('inventoryCategories.index')->with('categories',$categories);
     }
     public function fetch(){
@@ -30,9 +40,9 @@ class InventoryCategoryController extends Controller
             })
             ->addColumn('account',function($data){
                 if ($data->parent_id){
-                    return $data->account4->acc_code;
+                    //return $data->account4->acc_code;
                 }else{
-                    return $data->account3->codeone->code1.$data->account3->codetwo->code2.$data->account3->code3;
+                    //return $data->account3->codeone->code1.$data->account3->codetwo->code2.$data->account3->code3;
                 }
             })
             ->addColumn('parent',function($data){
