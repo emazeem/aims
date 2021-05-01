@@ -53,7 +53,6 @@
                         @endif
                     </div>
                 </div>
-
                 <div class="form-group row">
                     <label for="v_date" class="col-2 control-label">Date of Voucher</label>
                     <div class="col-10">
@@ -61,6 +60,22 @@
                         @if ($errors->has('v_date'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('v_date') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="po" class="col-2 control-label">Select PO</label>
+                    <div class="col-10">
+                        <select class="form-control" id="po" name="po" >
+                            <option value="" selected disabled>Select PO</option>
+                            @foreach(\App\Models\Po::all() as $static)
+                                <option value="{{$static->id}}">PO # 00 {{$static->id}}</option>
+                            @endforeach
+                        </select>
+                        @if ($errors->has('po'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('po') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -79,7 +94,7 @@
                         @endif
                     </div>
                 </div>
-                <table id="myTable" class=" table order-list table-bordered bg-white table-hover">
+                <table id="myTable" class="table order-list table-bordered bg-white table-hover">
                     <thead>
                     <tr>
                         <td style="width: 30%;">Account</td>
@@ -98,6 +113,8 @@
                     <tfoot>
                 </table>
 
+
+
                 <a href="{{ URL::previous() }}" class="btn btn-light border"> <i class="fa fa-angle-left"></i> Back</a>
                 <button type="submit" class="btn btn-primary float-right">Save</button>
             </form>
@@ -106,7 +123,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var count = 0;
-            $("#addrow").on("click", function () {
+            $("#addrow").on("click", function (){
                 count++;
                 var newRow = $("<tr>");
                 var cols = "";
@@ -125,6 +142,7 @@
                 $(this).closest("tr").remove();
                 count -= 1
             });
+
             $("#add_voucher_form").on('submit',(function(e) {
                 e.preventDefault();
                 $.ajax({

@@ -93,20 +93,16 @@
                         @endif
                     </div>
                 </div>
-
-
-
                 <div class="form-group row">
                     <label for="category" class="col-sm-2 control-label">Category</label>
                     <div class="col-sm-10">
-                        <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="category" name="category">
-                                <option selected disabled>Select Category</option>
-                                <option value="scope-1">Scope # 01</option>
-                                <option value="scope-2">Scope # 02</option>
-                                <option value="scope-3">Scope # 03</option>
-                            </select>
-                        </div>
+                        <input type="text" class="form-control" id="category" name="category" placeholder="Category"
+                               autocomplete="off" value="{{old('category')}}">
+
+                        @foreach(\App\Models\Vendors::all() as $item)
+                            <a href="#" class="btn badge badge-danger my-1 saved-categories" data-value="{{$item->category}}">{{$item->category}}</a>
+                        @endforeach
+
                         @if ($errors->has('category'))
                             <span class="text-danger">
                           <strong>{{ $errors->first('category') }}</strong>
@@ -268,6 +264,14 @@
         </div>
     </div>
     </div>
-
+    <script>
+        $(document).ready(function () {
+            $('.saved-categories').on('click',function (e) {
+                e.preventDefault();
+                var category=$(this).attr('data-value');
+                $('#category').val(category);
+            });
+        });
+    </script>
 @endsection
 

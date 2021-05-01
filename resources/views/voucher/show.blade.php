@@ -49,6 +49,12 @@
                     <th>Voucher Date</th>
                     <td>{{$show->date->format('d-m-Y')}}</td>
                 </tr>
+                @if($po)
+                <tr>
+                    <th>PO</th>
+                    <td>PO # 00{{$po->id}}</td>
+                </tr>
+                @endif
                 <tr>
                     <th>Created By</th>
                     <td>{{$show->createdby->fname.' '.$show->createdby->lname}}</td>

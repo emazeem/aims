@@ -10,6 +10,22 @@
         @php Session::forget('success') @endphp
     @endif
 
+    <script>
+        var myObject =function () {
+            var value=0;
+            console.log(value);
+            return {
+                m1:function () {
+                    value++;
+                    console.log(value);
+                },
+                m2:function () {
+                    value--;
+                    console.log(value);
+                },
+            }
+        };
+    </script>
     <div class="row">
 
         <form method="post" id="check_form">
@@ -66,6 +82,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-12">
             <div class="x_content">
                 <div class="row">

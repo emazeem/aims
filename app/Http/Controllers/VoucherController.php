@@ -7,6 +7,8 @@ use App\Models\Chartofaccount;
 use App\Models\Journal;
 use App\Models\Journalassets;
 use App\Models\JournalDetails;
+use App\Models\Po;
+use App\Models\PoVoucher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -19,7 +21,14 @@ class VoucherController extends Controller
     }
     public function show($id){
         $show=Journal::find($id);
-        return view('voucher.show',compact('show'));
+        $povoucher=PoVoucher::where('journal_id',$show->id)->first();
+        if (isset($povoucher)){
+            $po=Po::find($povoucher->po_id);
+        }
+        else{
+            $po=null;
+        }
+        return view('voucher.show',compact('show','po'));
     }
     public function edit($id){
         $accounts=Chartofaccount::all();
@@ -58,7 +67,7 @@ class VoucherController extends Controller
 
     }
     public function create(){
-        $accounts=Chartofaccount::all();
+        $accounts=Chartofaccount::orderBy('title','ASC')->get();
         foreach ($accounts as $customer){
             $customer->title=str_replace("'","",$customer->title);
         }
@@ -66,7 +75,6 @@ class VoucherController extends Controller
         return view('voucher.create',compact('accounts','blines'));
     }
     public function store(Request $request){
-        //dd($request->all());
         $c_id=[];
         foreach (Journal::all() as $voucher) {
             $date=substr($voucher->customize_id, 2, 4);
@@ -99,9 +107,7 @@ class VoucherController extends Controller
         $journal->save();
         $journal->customize_id=date('dmy').(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
-
         foreach ($request->account as $k=>$item){
-
             $details=new JournalDetails();
             $details->parent_id=$journal->id;
             $details->cost_center=$request->costcenter[$k];
@@ -111,16 +117,22 @@ class VoucherController extends Controller
             $details->dr=$request->dr[$k];
             $details->save();
         }
-        foreach ($request->attachments as $files) {
-
-            $attachment=$journal->id.$files->getClientOriginalName();
-            Storage::disk('local')->put('/public/vouchers/'.$journal->id.'/'.$attachment, File::get($files));
-            $assets=new Journalassets();
-            $assets->voucher_id=$journal->id;
-            $assets->attachment=$attachment;
-            $assets->save();
+        if ($request->attachments){
+            foreach ($request->attachments as $files) {
+                $attachment=$journal->id.$files->getClientOriginalName();
+                Storage::disk('local')->put('/public/vouchers/'.$journal->id.'/'.$attachment, File::get($files));
+                $assets=new Journalassets();
+                $assets->voucher_id=$journal->id;
+                $assets->attachment=$attachment;
+                $assets->save();
+            }
         }
-
+        if ($request->po){
+            $po=new PoVoucher();
+            $po->journal_id=$journal->id;
+            $po->po_id=$request->po;
+            $po->save();
+        }
         return response()->json(['success'=>'Voucher added Successfully']);
     }
     public function update(Request $request){
