@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\AccLevelThree;
 use App\Models\Chartofaccount;
+use App\Models\Inventories;
+use App\Models\InventoriesQuantity;
 use App\Models\InventoryCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +54,19 @@ class InventoryCategoryController extends Controller
                     return null;
                 }
             })
+            ->addColumn('opening',function($data){
+                if ($data->parent_id){
+                    $inventories=Inventories::where('subcategory_id',$data->id)->get();
+                    $total=0;
+                    foreach ($inventories as $inventory){
+                        foreach (InventoriesQuantity::where('inventory_id',$inventory->id)->get() as $item) {
+                            $total=$total+$inventory->price;
+                        }
+                    }
+                    return $total;
+                }
+            })
+
             ->addColumn('status',function($data){
                 if($data->status=='Disable') {
                     return '<span class="label label-danger">Disable</span>';

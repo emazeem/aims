@@ -18,6 +18,42 @@
                 @csrf
                 <input type="hidden" class="form-control" id="id" name="id" value="{{$id}}">
 
+                <div class="form-group row">
+                    <label for="category" class="col-sm-2 control-label">Category</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="category" name="category">
+                                <option selected disabled>Select Category</option>
+                                @foreach(\App\Models\InventoryCategory::all()->where('parent_id','!=',null) as $item)
+                                    <option value="{{$item->id}}">{{$item->category_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @if ($errors->has('category'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('category') }}</strong>
+                             </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="item_type" class="col-sm-2 control-label">Item Type</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="item_type" name="item_type">
+                                <option selected disabled>Select Item Type</option>
+                                <option value="consumable">Consumable</option>
+                                <option value="fixed-asset">Fixed Asset</option>
+                            </select>
+                        </div>
+                        @if ($errors->has('item_type'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('item_type') }}</strong>
+                             </span>
+                        @endif
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <label for="title" class="col-sm-2 control-label">Title</label>
@@ -31,6 +67,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="description" class="col-sm-2 control-label">Description</label>
                     <div class="col-sm-10">
@@ -43,19 +80,6 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="form-group row">
-                    <label for="purpose" class="col-sm-2 control-label">Purpose</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="purpose" name="purpose" placeholder="Purpose" autocomplete="off" value="{{old('purpose')}}">
-                        @if ($errors->has('purpose'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('purpose') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-
                 <div class="form-group row">
                     <label for="item_code" class="col-sm-2 control-label">Item Code</label>
                     <div class="col-sm-10">
@@ -69,12 +93,39 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="ref_code" class="col-sm-2 control-label">Reference Doc</label>
+                    <label for="model" class="col-sm-2 control-label">Model</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="ref_code" name="ref_code" placeholder="Reference Code" autocomplete="off" value="{{old('ref_code')}}">
-                        @if ($errors->has('ref_code'))
+                        <input type="text" class="form-control" id="model" name="model" placeholder="Model"
+                               autocomplete="off" value="{{old('model')}}">
+                        @if ($errors->has('model'))
                             <span class="text-danger">
-                                <strong>{{ $errors->first('ref_code') }}</strong>
+                                <strong>{{ $errors->first('model') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="purpose" class="col-sm-2 control-label">Purpose</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="purpose" name="purpose" placeholder="Purpose" autocomplete="off" value="{{old('purpose')}}">
+                        @if ($errors->has('purpose'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('purpose') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="ref_doc" class="col-sm-2 control-label">Reference Doc</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="ref_doc" name="ref_doc" placeholder="Reference Doc" autocomplete="off" value="{{old('ref_doc')}}">
+                        @if ($errors->has('ref_doc'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('ref_doc') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -101,29 +152,8 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="consumption" class="col-sm-2 control-label">Last 6 months consumption</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="consumption" name="consumption" placeholder="Last 6 months consumption"
-                               autocomplete="off" value="{{old('consumption')}}">
-                        @if ($errors->has('consumption'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('consumption') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="stock" class="col-sm-2 control-label">Current Stock</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="stock" name="stock" placeholder="Current Stock" autocomplete="off" value="{{old('stock')}}">
-                        @if ($errors->has('stock'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('stock') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
+
+
                 <div class="form-group row">
                     <label for="qty" class="col-sm-2 control-label">Quantity</label>
                     <div class="col-sm-10">
@@ -135,6 +165,20 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="consumption" class="col-sm-2 control-label">Last 6 months consumption</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" id="consumption" name="consumption" placeholder="Last 6 months consumption"
+                                  autocomplete="off">{{old('consumption')}}</textarea>
+                        @if ($errors->has('consumption'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('consumption') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+
                 <div class="text-right">
                     <a href="{{ URL::previous() }}" class="btn btn-primary"><i class="fa fa-close"></i> Cancel</a>
                     <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save</button>

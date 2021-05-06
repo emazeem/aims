@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PoDetails;
+use App\Models\Purchaseindentitem;
 use Illuminate\Http\Request;
 
 class PoDetailsController extends Controller
@@ -15,18 +16,11 @@ class PoDetailsController extends Controller
             'qty' => 'required',
             'price' => 'required',
         ]);
-        $exist=PoDetails::where('po_id',$request->id)->where('indent_item_id',$request->indentitem_id)->first();
-        if ($exist){
-            $items=PoDetails::find($exist->id);
-        }else{
-            $items=new PoDetails();
-        }
-        $items->po_id=$request->id;
-        $items->indent_item_id=$request->indentitem_id;
-        $items->description=$request->description;
-        $items->qty=$request->qty;
-        $items->price=$request->price;
-        $items->save();
+        $item=Purchaseindentitem::find($request->indentitem_id);
+        $item->description=$request->description;
+        $item->qty=$request->qty;
+        $item->price=$request->price;
+        $item->save();
         return redirect()->back()->with('success', 'Item added successfully');
     }
 }

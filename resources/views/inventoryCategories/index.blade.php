@@ -33,6 +33,7 @@
                 <th>Parent</th>
                 <th>Status</th>
                 <th>Account</th>
+                <th>Opening Balance</th>
                 <th>Created At</th>
                 <th>Action</th>
 
@@ -45,6 +46,7 @@
                 <th>Parent</th>
                 <th>Status</th>
                 <th>Account</th>
+                <th>Opening Balance</th>
                 <th>Created At</th>
                 <th>Action</th>
             </tr>
@@ -136,6 +138,7 @@
                     {"data": "parent"},
                     {"data": "status"},
                     {"data": "account"},
+                    {"data": "opening"},
                     {"data": "created_at"},
                     {"data": "options", "orderable": false},
                 ]

@@ -14,9 +14,8 @@
             <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_scopeofsupply"><i class="fa fa-plus-circle"></i> Scope Of Supply</button>
 
         </div>
-
             @foreach($indents->indent_items as $indent)
-            <div class="col-6">
+            <div class="col-4">
                 <form class="form-horizontal row" action="{{route('po.items.store')}}" method="post">
                 @csrf
                 <input type="hidden" value="{{$id}}" name="id" id="id">
@@ -25,7 +24,7 @@
                     <label for="description" class="control-label">Description</label>
                     <div class="col-sm-12">
                         <textarea type="text" class="form-control" id="description" name="description" placeholder="Description"
-                               autocomplete="off" >{{old('description',$indent->item_description)}}</textarea>
+                               autocomplete="off" >{{old('description',$indent->description)}}</textarea>
                         @if ($errors->has('description'))
                             <span class="text-danger">
                           <strong>{{ $errors->first('description') }}</strong>
@@ -49,7 +48,7 @@
                     <label for="price" class="control-label">Price</label>
                     <div class="col-sm-12">
                         <input type="text" class="form-control" id="price" name="price" placeholder="Price"
-                               autocomplete="off" value="{{old('price')}}">
+                               autocomplete="off" value="{{old('price',$indent->price)}}">
                         @if ($errors->has('price'))
                             <span class="text-danger">
                           <strong>{{ $errors->first('price') }}</strong>

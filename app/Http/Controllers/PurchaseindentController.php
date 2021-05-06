@@ -78,6 +78,7 @@ class PurchaseindentController extends Controller
     }
 
     public function store(Request $request){
+        //dd($request->all());
         $this->validate(request(),[
             'indent_type' => 'required',
             'department_id' => 'required',
@@ -86,6 +87,7 @@ class PurchaseindentController extends Controller
             'location' => 'required',
             'required' => 'required',
             'indenter' => 'required',
+            'store_incharge' => 'required',
         ]);
         $indent=new Purchaseindent();
         $indent->indent_type=$request->indent_type;
@@ -95,12 +97,13 @@ class PurchaseindentController extends Controller
         $indent->location=$request->location;
         $indent->required=$request->required;
         $indent->status=0;
+        $indent->store_incharge=$request->store_incharge;
         $indent->indenter=$request->indenter;
         $indent->prepared_by=auth()->user()->id;
         $indent->checked_by=auth()->user()->id;
         $indent->approved_by=auth()->user()->id;
         $indent->save();
-        return redirect($request->url)->with('success','Purchase indent added successfully');
+        return redirect()->back()->with('success','Purchase indent added successfully');
     }
     public function update(Request $request){
         $this->validate(request(),[

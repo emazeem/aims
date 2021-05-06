@@ -22,56 +22,99 @@
     </div>
     <div class="row pb-3">
         <div class="col-12">
-            <table class="table table-hover font-13 table-bordered bg-white">
+            <h5 class="pull-left"><i class="fa fa-eye"></i> PO
+                <small>{Details}</small>
+            </h5>
+            <a href="{{route('po.create',[$show->id])}}" class="btn btn-sm btn-success pull-right"> <i
+                        class="fa fa-plus-circle"></i> Add Items </a>
+            <a href="{{route('po.prints',[$show->id])}}" class="btn btn-sm btn-success pull-right"> <i
+                        class="fa fa-print"></i> Print </a>
+
+        </div>
+        <div class="col-12">
+            <table class="text-dark table table-hover font-13 table-bordered table-sm bg-white table-hover">
                 <tr>
-                    <th>Indent ID</th>
-                    <td>{{$show->indent_id}}</td>
+                    <th>PO #</th>
+                    <td>PO / {{$show->id}}</td>
                 </tr>
                 <tr>
-                    <th>Title</th>
-                    <td>{{$show->title}}</td>
+                    <th>Indent #</th>
+                    <td>IND /{{$show->indent_id}}</td>
                 </tr>
                 <tr>
-                    <th>Purpose</th>
-                    <td>{{$show->purpose}}</td>
+                    <th>Delivery Terms</th>
+                    <td>{{$show->delivery_term}}</td>
                 </tr>
                 <tr>
-                    <th>Item Code</th>
-                    <td>{{$show->item_code}}</td>
+                    <th>Payment Term</th>
+                    <th class="text-danger">{{strtoupper(str_replace('-',' ',$show->payment_term))}}</th>
+                </tr>
+
+                <tr>
+                    <th>Created By</th>
+                    <td>{{$show->createdBy->fname.' '.$show->createdBy->lname}}</td>
                 </tr>
                 <tr>
-                    <th>Item Description</th>
-                    <td>{{$show->item_description}}</td>
-                </tr>
-                <tr>
-                    <th>Ref Code</th>
-                    <td>{{$show->ref_code}}</td>
-                </tr>
-                <tr>
-                    <th>Unit</th>
-                    <td>{{$show->unit}}</td>
-                </tr>
-                <tr>
-                    <th>Last 6 Months Consumption</th>
-                    <td>{{$show->last_six_months_consumption}}</td>
-                </tr>
-                <tr>
-                    <th>Current Stock</th>
-                    <td>{{$show->current_stock}}</td>
-                </tr>
-                <tr>
-                    <th>Quantity</th>
-                    <td>{{$show->qty}}</td>
-                </tr>
-                <tr>
-                    <th>Created on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
-                </tr>
-                <tr>
-                    <th>Updated on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
+                    <th>Date</th>
+                    <td>{{$show->created_at->format('d M Y')}}</td>
                 </tr>
             </table>
+            @if(count($show->po_items)>0)
+                <h5 class="pull-left"><i class="fa fa-eye"></i> PO Items</h5>
+                <table class="text-dark table table-hover font-13 table-bordered table-sm bg-white table-hover">
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach($show->po_items as $item)
+                        <tr>
+                            <td>{{$item->title}}</td>
+                            <td>{{$item->description}}</td>
+                            <td>{{$item->qty}}</td>
+                            <td>{{$item->price}}</td>
+                            <td>{{$item->price*$item->qty}}</td>
+                            <td>
+                                <a href="{{url('material_receiving/create/'.$item->id)}}"
+                                   class="btn btn-light border btn-sm"><i class="fa fa-arrow-circle-down"></i> GRN</a>
+                                @if($item->receiving->id!=null)
+                                    @if(!$item->inventory_id)
+                                    <form action="{{route('inventory.store')}}" class="bg-warning p-2"
+                                          method="POST">
+                                        @csrf
+                                        <input type="hidden" name="item_id" value="{{$item->id}}">
+                                        <input type="hidden" name="title" value="{{$item->title}}">
+                                        <input type="hidden" name="category" value="{{$item->category_id}}">
+                                        <input type="hidden" name="description" value="{{$item->description}}">
+                                        <input type="hidden" name="subcategory" value="{{$item->subcategory_id}}">
+                                        <input type="hidden" name="model" value="{{$item->model}}">
+                                        <input type="hidden" name="quantity" value="{{$item->qty}}">
+                                        <input type="text" name="depreciation" value="" style="width: 50px;height: 18px" placeholder="Depreciation">
+                                        <select type="text" name="depreciation_duration" id="depreciation_duration">
+                                            @for($i=1;$i<=10;$i++)
+                                                <option value="{{$i}}">{{$i}} Year{{$i>1?'s':''}}</option>
+                                            @endfor
+                                        </select>
+                                        <input type="hidden" name="price" value="{{$item->price}}">
+                                        <input type="hidden" name="department" value="{{$show->indent->department_id}}">
+                                        <button type="submit" style="height: 20px;padding: 0;border: none" class="px-2"><i class="fa fa-arrow-circle-down"></i> Move to Inventory</button>
+
+                                    </form>
+                                        @endif
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            @endif
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-12">
+
             <div class="row">
                 <h4 class="border-bottom ml-3"><i class="fa fa-tasks"></i> Material Receiving</h4>
             </div>
@@ -86,7 +129,7 @@
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
-                @foreach($show->receivings as $receiving)
+                @foreach($show->po_recievings as $receiving)
                     <tr>
                         <td>{{$receiving->received_from}}</td>
                         <td class="text-capitalize">{{$receiving->purchase_type}} Purchase</td>

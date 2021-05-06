@@ -91,11 +91,24 @@
                                                 <strong>{{ $errors->first('title') }}</strong>
                                             </span>
                                         @endif
-                                        <div class="py-2">
+                                        <div>
                                             <span id="previous"></span>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="opening_balance" class="col-sm-2 control-label">Opening Balance</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="opening_balance" name="opening_balance"
+                                               placeholder="Opening Balance" autocomplete="off" value="{{old('opening_balance')}}">
+                                        @if ($errors->has('opening_balance'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('opening_balance') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
                                 <div class="col-12 text-right">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save
                                     </button>

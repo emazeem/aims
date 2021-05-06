@@ -22,6 +22,7 @@ class CreateAccLevelFoursTable extends Migration
             $table->char('code4',3);
             $table->char('acc_code',9);
             $table->string('title');
+            $table->string('opening_balance')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -37,3 +38,4 @@ class CreateAccLevelFoursTable extends Migration
         Schema::dropIfExists('acc_level_fours');
     }
 }
+//ALTER TABLE `acc_level_fours` ADD `opening_balance` VARCHAR(225) NOT NULL DEFAULT '0' AFTER `title`;

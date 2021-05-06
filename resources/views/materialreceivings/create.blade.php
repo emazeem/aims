@@ -15,8 +15,40 @@
         <div class="col-12">
             <form class="form-horizontal" action="{{route('material.receiving.store')}}" method="post">
                 @csrf
-                <input type="hidden" class="form-control" id="purchase_indent_id" name="purchase_indent_id" placeholder="purchase_indent_id" autocomplete="off" value="{{$id}}">
-
+                <input type="hidden" class="form-control" id="indent_item_id" name="indent_item_id" value="{{$item->id}}">
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 control-label">Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" disabled class="form-control" id="title" name="title" value="{{$item->title}}">
+                        @if ($errors->has('title'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" disabled class="form-control" id="title" name="title" value="{{$item->description}}">
+                        @if ($errors->has('title'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="title" class="col-sm-2 control-label">Quantity</label>
+                    <div class="col-sm-10">
+                        <input type="text" disabled class="form-control" id="title" name="title" value="{{$item->qty}}">
+                        @if ($errors->has('title'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('title') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label for="purchase_type" class="col-sm-2 control-label">Purchase Type</label>
                     <div class="col-sm-10">

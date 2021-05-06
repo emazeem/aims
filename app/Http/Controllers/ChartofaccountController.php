@@ -98,6 +98,7 @@ class ChartofaccountController extends Controller
         $acc->code2 = $request->level2of4;
         $acc->code1 = $request->level1of4;
         $acc->title = $request->title;
+        $acc->opening_balance=$request->opening_balance?$request->opening_balance:0;
         $code4=(Chartofaccount::withTrashed()->where('code3',$request->level3of4)->count());
         $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
         $acc->acc_code = $acc->codeone->code1 . $acc->codetwo->code2 . $acc->codethree->code3 . str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
@@ -122,6 +123,7 @@ class ChartofaccountController extends Controller
         $acc->code3 = $request->level3of4;
         $acc->code2 = $request->level2of4;
         $acc->code1 = $request->level1of4;
+        $acc->opening_balance=$request->opening_balance?$request->opening_balance:0;
         $acc->title = $request->title;
         $acc->save();
         return redirect()->back()->with('success', 'Chart of Account has updated successfully.');
@@ -144,5 +146,10 @@ class ChartofaccountController extends Controller
         $cc=CostCenter::where('parent_id',$account->id)->get();
         return response()->json($cc);
     }
+    public function mycoa($id){
+        $account=Chartofaccount::where('code3',$id)->get();
+        return response()->json($account);
+    }
+
     //
 }

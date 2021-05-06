@@ -6,6 +6,7 @@ use App\Models\Department;
 use App\Models\Inventories;
 use App\Models\InventoriesQuantity;
 use App\Models\InventoryCategory;
+use App\Models\Purchaseindentitem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
@@ -13,9 +14,6 @@ use Yajra\DataTables\DataTables;
 class InventoriesController extends Controller
 {
     public function index(){
-
-
-
         $categories=InventoryCategory::all()->where('parent_id',null);
         $departments=Department::all();
         return view('inventories.index',compact('categories','departments'));
@@ -57,6 +55,7 @@ class InventoriesController extends Controller
     }
     public function store(Request $request)
     {
+
         $this->validate(request(), [
             'title' => 'required',
             'category' => 'required',
@@ -82,7 +81,9 @@ class InventoriesController extends Controller
         $data->description = $request->description;
         $data->consumable = $request->consumable?$request->consumable:null;
         $data->save();
-
+        $item=Purchaseindentitem::find($request->item_id);
+        $item->inventory_id=$data->id;
+        $item->save();
         for ($i=0;$i<$quantity;$i++){
             $inventoryQty=new InventoriesQuantity();
             $inventoryQty->inventory_id=$data->id;
@@ -96,7 +97,6 @@ class InventoriesController extends Controller
         $success = 'Inventory has been created.';
         return back()->with('success',$success);
     }
-
     public function view($id){
         $show=Inventories::find($id);
         return view('inventories.show',compact('show'));

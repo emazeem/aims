@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AccLevelThree;
 use App\Models\BusinessLine;
 use App\Models\Chartofaccount;
 use App\Models\Journal;
@@ -67,7 +68,7 @@ class VoucherController extends Controller
 
     }
     public function create(){
-        $accounts=Chartofaccount::orderBy('title','ASC')->get();
+        $accounts=AccLevelThree::orderBy('title','ASC')->get();
         foreach ($accounts as $customer){
             $customer->title=str_replace("'","",$customer->title);
         }
@@ -170,6 +171,11 @@ class VoucherController extends Controller
             $details->save();
         }
         return response()->json(['success'=>'Voucher updated Successfully']);
+    }
+    public function get_po_details($id){
+        $po=Po::find($id);
+        $data=$po->po_items;
+        return response()->json($data);
     }
     //
 }

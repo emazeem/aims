@@ -119,7 +119,7 @@
             <div class="modal-body">
                 <form method="post" action="{{route('po.store')}}">
                     @csrf
-                    <input type="text" value="" name="edit_id" id="edit_id">
+                    <input type="hidden" value="" name="edit_id" id="edit_id">
                     <div class="col-12 mb-1">
                         <label for="purchase_indent">Select Purchase Indent</label>
                         <div class="form-check form-check-inline" style="width: 100%">

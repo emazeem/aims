@@ -70,7 +70,7 @@
                         <select class="form-control" id="po" name="po" >
                             <option value="" selected disabled>Select PO</option>
                             @foreach(\App\Models\Po::all() as $static)
-                                <option value="{{$static->id}}">PO # 00 {{$static->id}}</option>
+                                <option value="{{$static->id}}">PO # 00{{$static->id}}</option>
                             @endforeach
                         </select>
                         @if ($errors->has('po'))
@@ -80,6 +80,19 @@
                         @endif
                     </div>
                 </div>
+                <table class="table table-bordered po-table">
+                    <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Desc</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+
                 <div class="form-group row">
                     <label for="attachments" class="col-sm-8 control-label">Attachments</label>
                     <div class="col-sm-4">
@@ -97,8 +110,9 @@
                 <table id="myTable" class="table order-list table-bordered bg-white table-hover">
                     <thead>
                     <tr>
-                        <td style="width: 30%;">Account</td>
-                        <td style="width: 15%;">Cost Center</td>
+                        <td style="width: 20%;">Categories</td>
+                        <td style="width: 20%;">Account</td>
+                        <td style="width: 10%;">Cost Center</td>
                         <td style="width: 20%;">Narration</td>
                         <td style="width: 10%;">Dr.</td>
                         <td style="width: 10%;">Cr.</td>
@@ -127,8 +141,9 @@
                 count++;
                 var newRow = $("<tr>");
                 var cols = "";
-                cols += '<td><select name="account[]"  class="form-control item_category" id="account" data-sub_category_id="'+count+'"><option value="" selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->acc_code.'">'.$account->title.'</option>';}  @endphp</td>';
-                cols += '<td><select name="costcenter[]"  class="form-control item_sub_category" id="item_sub_category'+count+'"><option value="" selected>Select Cost Center</option></select></td>';
+                cols += '<td><select name="tlevel[]"  class="form-control tlevel" id="tlevel'+count+'" data-tlevel="'+count+'"><option value="" selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->id.'">'.$account->title.'</option>';}  @endphp</td>';
+                cols += '<td><select name="account[]"  class="form-control account" id="account_id'+count+'" data-account_id="'+count+'"><option value="" selected>Select Account</option>';
+                cols += '<td><select name="costcenter[]"  class="form-control costcenter_id" id="costcenter_id'+count+'"><option value="" selected>Select Cost Center</option></select></td>';
                 cols += '<td><textarea rows="1"  class="form-control" name="narration[]" placeholder="Narration"/></td>';
                 cols += '<td><input type="text"  name="dr[]"  class="form-control" id="dr" placeholder="Dr."></td>';
                 cols += '<td><input type="text"  name="cr[]"  class="form-control" id="cr" placeholder="Cr."></td>';
@@ -173,25 +188,67 @@
                 });
             }));
 
-            $(document).on('change', '.item_category', function(){
-                var category_id = $(this).val();
-                var sub_category_id = $(this).data('sub_category_id');
+            $(document).on('change', '.tlevel', function(){
+                var tlevel = $(this).val();
+                var step_id = $(this).data('tlevel');
                 $.ajax({
-                    url: '/acc_level_four/my-cc/'+category_id,
+                    url: '/chartofaccount/my-coa/'+tlevel,
                     type: "GET",
                     dataType: "json",
                     success:function(data)
                     {
-                        $('#item_sub_category'+sub_category_id).empty();
+                        $('#account_id'+step_id).empty();
+                        var html = '<option value="">Select Account</option>';
+                        $.each(data, function(key, value) {
+                            var dat="<option value='"+value.acc_code+"'>"+ value.title +"</option>";
+                            html=html+dat ;
+                        });
+                        console.log(html);
+                        $('#account_id'+step_id).append(html);
+                    }
+                });
+            });
+            $(document).on('change', '.account', function(){
+                var account = $(this).val();
+                var account_id = $(this).data('account_id');
+                $.ajax({
+                    url: '/chartofaccount/my-cc/'+account,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data)
+                    {
+                        $('#costcenter_id'+account_id).empty();
                         var html = '<option value="">Select Cost Center</option>';
                         $.each(data, function(key, value) {
                             var dat="<option value='"+value.id+"'>"+ value.title +"</option>";
                             html=html+dat ;
                         });
                         console.log(html);
-                        $('#item_sub_category'+sub_category_id).append(html);
+                        $('#costcenter_id'+account_id).append(html);
                     }
                 });
+            });
+            $('select[name="po"]').on('change', function() {
+                var po = $(this).val();
+                if(po) {
+                    $.ajax({
+                        url: '/vouchers/get-po-details/'+po,
+                        type: "GET",
+                        dataType: "json",
+                        success:function(data) {
+                            $.each(data,function(index,item){
+                                $('.po-table').append(
+                                    "<tr>" +
+                                    "<td>" + item.description + "</td>" +
+                                    "<td>" + item.qty + "</td>"+
+                                    "<td>" + item.price + "</td>"
+                                );
+                            });
+                        }
+                    });
+                }else{
+                    $('.po-table').empty();
+                }
             });
         });
     </script>

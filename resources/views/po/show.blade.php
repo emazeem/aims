@@ -19,6 +19,7 @@
             <h5 class="pull-left"> <i class="fa fa-eye"></i> PO <small>{Details}</small></h5>
             <a href="{{route('po.create',[$show->id])}}" class="btn btn-sm btn-success pull-right"> <i class="fa fa-plus-circle"></i> Add Items </a>
             <a href="{{route('po.prints',[$show->id])}}" class="btn btn-sm btn-success pull-right"> <i class="fa fa-print"></i> Print </a>
+
         </div>
         <div class="col-12">
             <table class="text-dark table table-hover font-13 table-bordered table-sm bg-white table-hover">
@@ -65,7 +66,6 @@
                         <td>{{$item->price}}</td>
                         <td>{{$item->price*$item->qty}}</td>
                     </tr>
-
                 @endforeach
             </table>
             @endif

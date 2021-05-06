@@ -16,7 +16,6 @@
             <form class="form-horizontal" action="{{route('purchase.indent.store')}}" method="post"
                   enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" value="{{URL::previous()}}" name="url">
                 <div class="form-group row">
                     <label for="indent_type" class="col-sm-2 control-label">Indent Type</label>
                     <div class="col-sm-10">
@@ -127,6 +126,25 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="store_incharge" class="col-sm-2 control-label">Store Incharge</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="store_incharge" name="store_incharge">
+                                <option selected disabled>Select Store Incharge</option>
+                                @foreach(\App\Models\User::all() as $user)
+                                    <option value="{{$user->id}}">{{$user->fname}} {{$user->lname}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @if ($errors->has('store_incharge'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('store_incharge') }}</strong>
+                             </span>
+                        @endif
+                    </div>
+                </div>
+
                 <!-- /.box-body -->
                 <div class="text-right">
                     <a href="{{ URL::previous() }}" class="btn btn-light border"><i class="fa fa-angle-left"></i> Cancel</a>

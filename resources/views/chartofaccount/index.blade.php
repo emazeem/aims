@@ -78,7 +78,7 @@
                     {"data": "parent"},
                     {"data": "acc_code"},
                     {"data": "title"},
-                    {"data": "cost.center"},
+                    {"data": "cost.center","orderable": false},
                     {"data": "options", "orderable": false},
                 ]
             });

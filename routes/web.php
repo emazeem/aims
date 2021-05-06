@@ -568,6 +568,7 @@ Route::group(['prefix'=> 'chartofaccount'],function(){
     Route::post('/update/',[App\Http\Controllers\ChartofaccountController::class, 'update'])->middleware('auth')->name('acc_level_four.update');
     Route::delete('delete',[App\Http\Controllers\ChartofaccountController::class, 'destroy'])->middleware('auth')->name('acc_level_four.destroy');
     Route::get('/my-cc/{id}',[App\Http\Controllers\ChartofaccountController::class, 'mycc'])->middleware('auth')->name('acc_level_four.my-cc');
+    Route::get('/my-coa/{id}',[App\Http\Controllers\ChartofaccountController::class, 'mycoa'])->middleware('auth')->name('acc_level_four.my-coa');
 });
 
 Route::group(['prefix'=> 'cost-center'],function(){
@@ -586,6 +587,7 @@ Route::group(['prefix'=> 'vouchers'],function(){
     Route::get('/print/{id}',[App\Http\Controllers\VoucherController::class, 'prints'])->middleware('auth')->name('vouchers.print');
     Route::post('/store/',[App\Http\Controllers\VoucherController::class, 'store'])->middleware('auth')->name('vouchers.store');
     Route::post('/update/',[App\Http\Controllers\VoucherController::class, 'update'])->middleware('auth')->name('vouchers.update');
+    Route::get('get-po-details/{id}',[App\Http\Controllers\VoucherController::class, 'get_po_details'])->middleware('auth')->name('vouchers.get.po.details');
 });
 Route::group(['prefix'=> 'sales-invoice'],function(){
     Route::get('',[App\Http\Controllers\SalesInvoiceController::class, 'index'])->middleware('auth')->name('sales.invoice');

@@ -160,20 +160,18 @@
                     <th>Reference Code</th>
                     <th>Unit</th>
                     <th>Last 6 Months Consumption</th>
-                    <th>Current Stock</th>
                     <th>Qty</th>
                     <th>Action</th>
                 </tr>
                     @foreach($show->indent_items as $item)
                     <tr>
                         <td>{{$item->title}}</td>
-                        <td>{{$item->item_code}}</td>
+                        <td>{{$item->code}}</td>
                         <td>{{$item->purpose}}</td>
-                        <td>{{$item->item_description}}</td>
-                        <td>{{$item->ref_code}}</td>
+                        <td>{{$item->description}}</td>
+                        <td>{{$item->ref_doc}}</td>
                         <td>{{$item->unit}}</td>
-                        <td>{{$item->last_six_months_consumption}}</td>
-                        <td>{{$item->current_stock}}</td>
+                        <td>{{$item->consumption_6months}}</td>
                         <td>{{$item->qty}}</td>
                         <td>
                             <a href="{{url('purchase_indent/item/edit/'.$item->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
