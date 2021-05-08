@@ -33,7 +33,9 @@
             </div>
         </div>
         <div class="col-12 text-center">
-            <p class="text-center mt-0 pt-0 b">From {{date('d/M/Y',strtotime($dates[0]))}} to {{date('d/M/Y',strtotime($dates[1]))}}</p>
+            @if($dates)
+                <p class="text-center mt-0 pt-0 b">From {{date('d/M/Y',strtotime($dates[0]))}} to {{date('d/M/Y',strtotime($dates[1]))}}</p>
+            @endif
         </div>
         <div class="row">
             <table class="table table-bordered">

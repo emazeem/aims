@@ -37,35 +37,69 @@
                 </p>
             </div>
         </div>
+
         <div class="col-12 text-center">
-            <p class=" font-14"> <b>Account ID :</b> {{$account->acc_code}} <span class="mx-5"></span> <b>Account Title :</b> {{$account->title}}</p>
             @if($dates)
-                <p class="text-center font-14 mt-0 pt-0 b">From {{$dates[0]}} to {{$dates[1]}}</p>
+                <p class="text-center font-14 mt-0 pt-0 b">From {{date('d-M Y',strtotime($dates[0]))}} to {{date('d-M Y',strtotime($dates[1]))}}</p>
             @endif
+        </div>
+        <div class="col-12">
+            <b class="m-0">A/C CODE : {{$account->acc_code}}</b><br>
+            <b class="m-0">A/C TITLE : {{$account->title}}</b>
         </div>
         <div class="row">
             <table class="table table-bordered">
                 <thead>
                 <tr>
                     <th class="text-center">Date</th>
+                    <th class="text-center">Voucher#</th>
                     <th class="text-xs">Narration</th>
                     <th class="text-xs">Reference</th>
+                    <th class="text-xs">Cost Center</th>
                     <th class="text-xs">Dr.</th>
                     <th class="text-xs">Cr.</th>
                     <th class="text-xs">Balance</th>
                 </tr>
                 </thead>
                 <tbody>
+                <tr>
+                    <td class="text-center">Opening Balance</td>
+                    <td class="text-xs">-</td>
+                    <td class="text-xs">-</td>
+                    <td class="text-xs">-</td>
+                    <td class="text-xs">-</td>
+                    <td class="text-xs">-</td>
+                    <td class="text-xs">-</td>
+                    <td class="text-xs">{{$opening_balance}}</td>
+                </tr>
+                @php $dr=0;$cr=0; @endphp
                 @foreach($entries as $entry)
                     <tr>
-                        <td class="text-center">{{$entry->date}}</td>
+                        <td class="text-center">{{$entry->parent->date->format('d-M-Y')}}</td>
+                        <td class="text-xs">{{$entry->parent->customize_id}}</td>
                         <td class="text-xs">{{$entry->narration}}</td>
-                        <td class="text-xs text-capitalize">{{str_replace('-',' ',$entry->type)}}</td>
+                        <td class="text-xs text-capitalize">{{str_replace('-',' ',$entry->parent->type)}}</td>
+                        <td class="text-xs">{{$entry->cost_center}}</td>
                         <td class="text-xs">{{$entry->dr}}</td>
                         <td class="text-xs">{{$entry->cr}}</td>
-                        <td class="text-xs">-</td>
+                        <td class="text-xs">
+                            @if($entry->dr)
+                                @php $opening_balance=$opening_balance+$entry->dr @endphp
+                                {{$opening_balance}}
+                            @endif
+                            @if($entry->cr)
+                                @php $opening_balance=$opening_balance-$entry->cr @endphp
+                                {{$opening_balance}}
+                            @endif
+                        </td>
                     </tr>
+                    @php $dr=$dr+$entry->dr;$cr=$cr+$entry->cr; @endphp
                 @endforeach
+                    <tr>
+                        <td colspan="5"></td>
+                        <td>{{$dr}}</td>
+                        <td>{{$cr}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

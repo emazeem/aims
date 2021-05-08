@@ -57,78 +57,211 @@ class JournalController extends Controller
         if ($validator->fails()) {
             return  redirect()->back()->with('failed', 'Please select account to continue');
         }
+        $account=Chartofaccount::where('acc_code',$request->account)->first();
+        $opening_balance=$account->opening_balance;
+        $dates=null;
+        $closing=0;
         if ($request->daterange) {
             $dates=explode('-',$request->daterange);
             $dates[0]=date('Y-m-d',strtotime($dates[0]));
             $dates[1]=date('Y-m-d',strtotime($dates[1]));
-            $entries=Journal::where('acc_code',$request->account)->where('date','>=',$dates[0])->where('date','<=',$dates[1])->get();
+            $entries = JournalDetails::where('acc_code',$request->account)->whereHas('parent', function($q) use($dates){
+                $q->where('date','>=',$dates[0])->where('date','<=',$dates[1]);
+            })->get();
+            $opening = JournalDetails::where('acc_code',$request->account)->whereHas('parent', function($q) use($dates){
+                $q->where('date','<',$dates[0]);
+            })->get();
+            $closing = JournalDetails::where('acc_code',$request->account)->whereHas('parent', function($q) use($dates){
+                $q->where('date','>',$dates[1]);
+            })->get();
+
+            foreach ($opening as $item){
+                if (isset($item->dr)){
+                    $opening_balance=$opening_balance+$item->dr;
+                }
+                if (isset($item->cr)){
+                    $opening_balance=$opening_balance-$item->cr;
+                }
+            }
+
         }else{
-            $entries=Journal::all()->where('acc_code',$request->account);
+            $entries = JournalDetails::where('acc_code',$request->account)->get();
         }
-        $account=Chartofaccount::where('acc_code',$request->account)->first();
-        return view('journal.ledger',compact('entries','account','dates'));
+        return view('journal.ledger',compact('entries','account','dates','opening_balance','closing'));
     }
     public function income(Request $request){
-        $validator = Validator::make($request->all(), [
-            'daterange' => 'required'
-        ]);
-        if ($validator->fails()) {
-            return  redirect()->back()->with('failed', 'Please select date range');
-        }
-        $dates=explode('-',$request->daterange);
-        $dates[0]=date('Y-m-d',strtotime($dates[0]));
-        $dates[1]=date('Y-m-d',strtotime($dates[1]));
-        $accounts=AccLevelOne::with('leveltwo')
-            ->whereIn('code1',[2,1])
-            ->get();
-        foreach ($accounts as $account){
-            foreach ($account->leveltwo as $value){
-                foreach ($value->levelthree as $item) {
-                    $chartofaccounts= Chartofaccount::where('code3',$item->id)->get();
-                    $dr=0;$cr=0;
-                    foreach ($chartofaccounts as $chartofaccount){
-                        $journals=Journal::where('acc_code',$chartofaccount->acc_code)->get();
-                        foreach ($journals as $journal){
-                            if ($journal->dr){
-                                $dr=$dr+$journal->dr;
+
+        if ($request->daterange){
+            $dates=explode('-',$request->daterange);
+            $dates[0]=date('Y-m-d',strtotime($dates[0]));
+            $dates[1]=date('Y-m-d',strtotime($dates[1]));
+            $accounts=AccLevelOne::with('leveltwo')
+                ->whereIn('code1',[4,5])
+                ->get();
+            foreach ($accounts as $account){
+                foreach ($account->leveltwo as $value){
+                    foreach ($value->levelthree as $item) {
+                        $chartofaccounts= Chartofaccount::where('code3',$item->id)->get();
+                        foreach ($chartofaccounts as $chartofaccount){
+                            $balances[$chartofaccount->acc_code]=0;
+                            $dr=$chartofaccount->opening_balance;$cr=0;
+                            $journals = JournalDetails::where('acc_code',$chartofaccount->acc_code)->whereHas('parent', function($q) use($dates){
+                                $q->where('date','>=',$dates[0])->where('date','<=',$dates[1]);
+                            })->get();
+                            foreach ($journals as $journal){
+                                if ($journal->dr){
+                                    $dr=$dr+$journal->dr;
+                                }
+                                if ($journal->cr){
+                                    $cr=$cr+$journal->cr;
+                                }
                             }
-                            if ($journal->cr){
-                                $cr=$cr+$journal->cr;
-                            }
+                            $balances[$chartofaccount->acc_code]=$dr-$cr;
                         }
                     }
-                    $three[$item->id]=$dr-$cr;
+                }
+            }
+        }
+        else{
+            $accounts=AccLevelOne::with('leveltwo')
+                ->whereIn('code1',[4,5])
+                ->get();
+            foreach ($accounts as $account){
+                foreach ($account->leveltwo as $value){
+                    foreach ($value->levelthree as $item) {
+                        $chartofaccounts= Chartofaccount::where('code3',$item->id)->get();
+                        foreach ($chartofaccounts as $chartofaccount){
+                            $balances[$chartofaccount->acc_code]=0;
+                            $dr=$chartofaccount->opening_balance;$cr=0;
+                            $journals = JournalDetails::where('acc_code',$chartofaccount->acc_code)->get();
+                            foreach ($journals as $journal){
+                                if ($journal->dr){
+                                    $dr=$dr+$journal->dr;
+                                }
+                                if ($journal->cr){
+                                    $cr=$cr+$journal->cr;
+                                }
+                            }
+                            $balances[$chartofaccount->acc_code]=$dr-$cr;
+                        }
+                    }
                 }
             }
         }
 
-        return view('journal.income',compact('accounts','three'));
+
+        return view('journal.income',compact('accounts','balances'));
     }
+
     public function trail_balance(Request $request){
-        $validator = Validator::make($request->all(), [
-            'daterange' => 'required'
-        ]);
-        if ($validator->fails()) {
-            return  redirect()->back()->with('failed', 'Please select date range');
-        }
-        $dates=explode('-',$request->daterange);
-        $dates[0]=date('Y-m-d',strtotime($dates[0]));
-        $dates[1]=date('Y-m-d',strtotime($dates[1]));
-        $jaccounts=Journal::distinct()->get('acc_code')->toArray();
-        $accounts=Chartofaccount::whereIn('acc_code',$jaccounts)->get();
-        foreach ($jaccounts as $jaccount){
-            $dr=0;$cr=0;
-            $temps=Journal::where('acc_code',$jaccount)->where('date','>=',$dates[0])->where('date','<=',$dates[1])->get();
-            foreach ($temps as $temp) {
-                if ($temp->dr){
-                    $dr=$dr+$temp->dr;
+
+        //dd($request->all());
+        $dates=null;
+        if ($request->daterange){
+            $dates=explode('-',$request->daterange);
+            $dates[0]=date('Y-m-d',strtotime($dates[0]));
+            $dates[1]=date('Y-m-d',strtotime($dates[1]));
+            $accounts=Chartofaccount::all();
+            foreach ($accounts as $jaccount){
+                $dr=$jaccount->opening_balance;$cr=0;
+                $temps = JournalDetails::where('acc_code',$jaccount->acc_code)->whereHas('parent', function($q) use($dates){
+                    $q->where('date','>=',$dates[0])->where('date','<=',$dates[1]);
+                })->get();
+
+                foreach ($temps as $temp) {
+                    if ($temp->dr){
+                        $dr=$dr+$temp->dr;
+                    }
+                    if ($temp->cr){
+                        $cr=$cr+$temp->cr;
+                    }
                 }
-                if ($temp->cr){
-                    $cr=$cr+$temp->cr;
-                }
+                $entries[$jaccount['acc_code']]=$dr-$cr;
             }
-            $entries[$jaccount['acc_code']]=$dr-$cr;
+        }else{
+            $accounts=Chartofaccount::all();
+            foreach ($accounts as $jaccount){
+                $dr=$jaccount->opening_balance;$cr=0;
+                $temps =JournalDetails::where('acc_code',$jaccount->acc_code)->get();
+                foreach ($temps as $temp) {
+                    if ($temp->dr){
+                        $dr=$dr+$temp->dr;
+                    }
+                    if ($temp->cr){
+                        $cr=$cr+$temp->cr;
+                    }
+                }
+                $entries[$jaccount['acc_code']]=$dr-$cr;
+            }
         }
+
         return view('journal.trailbalance',compact('dates','accounts','entries'));
     }
+
+
+
+    public function balance_sheet(Request $request){
+
+        if ($request->daterange){
+            $dates=explode('-',$request->daterange);
+            $dates[0]=date('Y-m-d',strtotime($dates[0]));
+            $dates[1]=date('Y-m-d',strtotime($dates[1]));
+            $accounts=AccLevelOne::with('leveltwo')
+                ->whereIn('code1',[1,2,3])
+                ->get();
+            foreach ($accounts as $account){
+                foreach ($account->leveltwo as $value){
+                    foreach ($value->levelthree as $item) {
+                        $chartofaccounts= Chartofaccount::where('code3',$item->id)->get();
+                        foreach ($chartofaccounts as $chartofaccount){
+                            $balances[$chartofaccount->acc_code]=0;
+                            $dr=$chartofaccount->opening_balance;$cr=0;
+                            $journals = JournalDetails::where('acc_code',$chartofaccount->acc_code)->whereHas('parent', function($q) use($dates){
+                                $q->where('date','>=',$dates[0])->where('date','<=',$dates[1]);
+                            })->get();
+                            foreach ($journals as $journal){
+                                if ($journal->dr){
+                                    $dr=$dr+$journal->dr;
+                                }
+                                if ($journal->cr){
+                                    $cr=$cr+$journal->cr;
+                                }
+                            }
+                            $balances[$chartofaccount->acc_code]=$dr-$cr;
+                        }
+                    }
+                }
+            }
+        }
+        else{
+            $accounts=AccLevelOne::with('leveltwo')
+                ->whereIn('code1',[1,2,3])
+                ->get();
+            foreach ($accounts as $account){
+                foreach ($account->leveltwo as $value){
+                    foreach ($value->levelthree as $item) {
+                        $chartofaccounts= Chartofaccount::where('code3',$item->id)->get();
+                        foreach ($chartofaccounts as $chartofaccount){
+                            $balances[$chartofaccount->acc_code]=0;
+                            $dr=$chartofaccount->opening_balance;$cr=0;
+                            $journals = JournalDetails::where('acc_code',$chartofaccount->acc_code)->get();
+                            foreach ($journals as $journal){
+                                if ($journal->dr){
+                                    $dr=$dr+$journal->dr;
+                                }
+                                if ($journal->cr){
+                                    $cr=$cr+$journal->cr;
+                                }
+                            }
+                            $balances[$chartofaccount->acc_code]=$dr-$cr;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        return view('journal.balance_sheet',compact('accounts','balances'));
+    }
+
 }

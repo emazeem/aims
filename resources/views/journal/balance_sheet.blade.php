@@ -22,7 +22,7 @@
             </div>
             <div class="col-7 border-left-right-0 custom-border">
                 <p class="text-center b font-14 mt-4 text-capitalize">
-                    Income Statement
+                    Balance Sheet
                 </p>
                 <p class="text-center mt-0 pt-0">FROM 01-01-2019 to 01-02-2021</p>
             </div>
@@ -56,7 +56,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                @php $revenue=0;$expenses=0; @endphp
                 @foreach($accounts as $account)
                 <tr>
                     <td>{{$account->title}}</td>
@@ -89,24 +88,11 @@
                                 <td>{{$balances[$coa->acc_code]>=0?$balances[$coa->acc_code]:''}}</td>
                                 <td>{{$balances[$coa->acc_code]<0?$balances[$coa->acc_code]:''}}</td>
                             </tr>
-                            @if($coa->code1==4)
-                                @php $revenue=$revenue+$balances[$coa->acc_code]; @endphp
-                            @endif
-                            @if($coa->code1==5)
-                                @php $expenses=$expenses+$balances[$coa->acc_code]; @endphp
-                            @endif
+
                             @endforeach
                         @endforeach
                     @endforeach
                 @endforeach
-                <tr>
-                    <td colspan="2">Expenses</td>
-                    <td>{{$expenses}}</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Sale</td>
-                    <td>{{$revenue}}</td>
-                </tr>
 
                 </tbody>
             </table>
