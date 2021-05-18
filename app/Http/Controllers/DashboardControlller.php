@@ -24,10 +24,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Schema;
 use LaravelFullCalendar\Facades\Calendar;
+use Stevebauman\Location\Facades\Location;
 
 class DashboardControlller extends Controller
 {
     public function index(){
+
+        $ip=\request()->ip();
+        $data = Location::get($ip);
+        dd($ip,$data);
+
         $columns = Schema::getColumnListing('journals');
         //dd($columns);
 
