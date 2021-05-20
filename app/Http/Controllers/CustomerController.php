@@ -101,7 +101,6 @@ class CustomerController extends Controller
                       </form>";
                 }
                 return $action;
-
             })
             ->rawColumns(['options','prin_name','prin_phone'])
             ->make(true);
@@ -116,6 +115,7 @@ class CustomerController extends Controller
             'pay_type' => 'required',
             'pay_way' => 'required',
             'region' => 'required',
+            'tax_case' => 'required',
             'prin_name.0' => 'required',
             'prin_phone.0' => 'required',
             'prin_email.0' => 'required',
@@ -148,6 +148,7 @@ class CustomerController extends Controller
         $customer->ntn=$request->ntn;
         $customer->address=$request->address;
         $customer->customer_type=$request->pay_type;
+        $customer->tax_case=$request->tax_case;
         $customer->region=$request->region;
         $customer->pay_terms=$request->pay_way;
         $customer->credit_limit=0;
@@ -248,6 +249,7 @@ class CustomerController extends Controller
         $customer->ntn=$request->ntn;
         $customer->address=$request->address;
         $customer->customer_type=$request->pay_type;
+        $customer->tax_case=$request->tax_case;
         $customer->region=$request->region;
         $customer->pay_terms=$request->pay_way;
         $customer->credit_limit=0;

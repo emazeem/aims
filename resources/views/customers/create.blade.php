@@ -29,7 +29,6 @@
                     </div>
                 </div>
                 <div class="form-group row">
-
                     <label for="ntn" class="col-sm-2 control-label">NTN / FTN</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="ntn" name="ntn" placeholder="NTN / FTN"
@@ -111,8 +110,26 @@
                       </span>
                         @endif
                     </div>
-
                 </div>
+                <div class="form-group row">
+                    <label for="tax_case" class="col-sm-2 control-label">Tax Case</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="tax_case" name="tax_case">
+                                <option selected disabled="">Select Tax Case</option>
+                                <option value="1">Case-1 : Income Tax By AIMS + Service Tax By AIMS</option>
+                                <option value="2">Case-2 : Income Tax At SOURCE + Service Tax By SOURCE</option>
+                                <option value="3">Case-3 : Income Tax At SOURCE + Service Tax By AIMS</option>
+                            </select>
+                        </div>
+                        @if ($errors->has('tax_case'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('tax_case') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+
                 <div class="col-12">
                     <div class="row">
                         <div class="col-md-4 col-12 bg-white border">

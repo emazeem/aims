@@ -19,40 +19,8 @@
         <div class="col-12 d-sm-flex align-items-center justify-content-between">
             <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Receipt Voucher</h3>
         </div>
-        <div class="col-3 bg-white">
-            <h4 class="m-0">Example :</h4>
-            <p class='m-0'>Service Charges: 100 PKR</p>
-            <p class='m-0'>Service Tax (%): 16</p>
-            <p class='m-0'>Total Receivable : 116</p>
-            <p class='m-0'>Income Tax (%): 3%</p>
-            <p class='m-0'>Income Tax (PKR): 3.48</p>
-        </div>
-        <div class="col-3 bg-white">
-            <p class="m-0 font-weight-bold">CASE:1 </p>
-            <p class="m-0 font-weight-bold">Income Tax and Service Tax by AIMS</p>
-            <p class="m-0">Bank / Cash A/C : 116 Dr.</p>
-            <p class="m-0">Customer A/C : 116 Cr.</p>
-            <p class="m-0">Advance IT 3% : 3.48 Dr.</p>
-            <p class="m-0">Income Tax 3% By AIMS : 3.48 Cr.</p>
-        </div>
-        <div class="col-3 bg-white">
-            <p class="m-0 font-weight-bold">CASE:2 </p>
-            <p class="m-0 font-weight-bold">Income Tax and Service Tax at Source</p>
-            <p class="m-0">Bank / Cash A/C : 96.52 (116-16-3.48) Dr.</p>
-            <p class="m-0">Customer A/C : 116 Cr.</p>
-            <p class="m-0">Advance IT 3% : 3.48 Dr.</p>
-            <p class="m-0">PRA 16% : 16 Dr.</p>
-        </div>
-        <div class="col-3 bg-white">
-            <p class="m-0 font-weight-bold">CASE:3 </p>
-            <p class="m-0 font-weight-bold">Income Tax at SOURCE and Service Tax by AIMS</p>
-            <p class="m-0">Bank / Cash A/C : 112.52 (116-3.48) Dr.</p>
-            <p class="m-0">Customer A/C : 116 Cr.</p>
-            <p class="m-0">Advance IT 3% : 3.48 Dr.</p>
-        </div>
 
-
-        <div class="col-12">
+        <div class="col-12 mb-5">
             <form id="add_voucher_form" class="row">
                 @csrf
                 <div class="form-group col-6">
@@ -69,7 +37,6 @@
                             </span>
                     @endif
                 </div>
-
                 <div class="form-group col-6">
                     <label for="v_date" class="control-label">Date of Voucher</label>
                     <input type="date" class="form-control" id="v_date" name="v_date" value="{{old('v_date',date('Y-m-d'))}}">
@@ -79,19 +46,6 @@
                         </span>
                     @endif
                 </div>
-                <div class="form-group col-6">
-                    <label for="tax_by" class="control-label">Tax By</label>
-                    <select class="form-control" id="tax_by" name="tax_by">
-                        <option selected disabled>Select option...</option>
-                        <option value="case-1">Case-1 : Income Tax By AIMS + Service Tax By AIMS</option>
-                        <option value="case-2">Case-2 : Income Tax At SOURCE + Service Tax By SOURCE</option>
-                        <option value="case-3">Case-3 : Income Tax At SOURCE + Service Tax By AIMS</option>
-                    </select>
-                    @if ($errors->has('income_tax_deducted'))
-                        <span class="text-danger"><strong>{{ $errors->first('income_tax_deducted') }}</strong></span>
-                    @endif
-                </div>
-
                 <div class="form-group col-6">
                     <label for="attachments" class="control-label">Attachments</label>
                     <div class="custom-file">
@@ -104,61 +58,9 @@
                             </span>
                     @endif
                 </div>
-                <div class="col-12 payment-type-accounts">
-                    <h5>Bank / Cash (Dr.)</h5>
-                    <div class="form-group row">
-                        <label for="payment_type" class="col-2 control-label">Select Payment Type</label>
-                        <div class="col-10">
-                            <select class="form-control" id="payment_type" name="payment_type" >
-                                <option value="" selected disabled>Select Payment Type</option>
-                                <option value="cash">CASH</option>
-                                <option value="bank">BANK</option>
-                            </select>
-                            @if ($errors->has('payment_type'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('payment_type') }}</strong>
-                            </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="payment_acc" class="col-2 control-label">Select Payment Acc</label>
-                        <div class="col-10">
-                            <select class="form-control" id="payment_acc" name="payment_acc" >
-                                <option value="" selected disabled>Select Payment Acc.</option>
-                            </select>
-                            @if ($errors->has('payment_acc'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('payment_acc') }}</strong>
-                            </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="payment_charges" class="col-2 control-label">Payment Charges</label>
-                        <div class="col-10">
-                            <input type="text" class="form-control" id="payment_charges" name="payment_charges" placeholder="Payment Charges" value="{{old('payment_charges')}}">
-                            @if ($errors->has('payment_charges'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('payment_charges') }}</strong>
-                            </span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="payment_narration" class="col-2 control-label">Payment Narration</label>
-                        <div class="col-10">
-                            <input type="text" class="form-control" id="payment_narration" name="payment_narration" placeholder="Payment Narration" value="{{old('payment_narration')}}">
-                            @if ($errors->has('payment_narration'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('payment_narration') }}</strong>
-                            </span>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 customer-accounts">
-                <h5>Customer Receivable (Cr.)</h5>
+
+                <div class="col-12 ">
+                    <h5>Customer Receivable (Cr.)</h5>
                     <div class="form-group row">
                         <label for="customer_acc" class="col-2 control-label">Customer Account</label>
                         <div class="col-10">
@@ -224,6 +126,60 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12 payment-type-accounts">
+                    <h5>Bank / Cash (Dr.)</h5>
+                    <div class="form-group row">
+                        <label for="payment_type" class="col-2 control-label">Select Payment Type</label>
+                        <div class="col-10">
+                            <select class="form-control" id="payment_type" name="payment_type" >
+                                <option value="" selected disabled>Select Payment Type</option>
+                                <option value="cash">CASH</option>
+                                <option value="bank">BANK</option>
+                            </select>
+                            @if ($errors->has('payment_type'))
+                                <span class="text-danger">
+                                <strong>{{ $errors->first('payment_type') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="payment_acc" class="col-2 control-label">Select Payment Acc</label>
+                        <div class="col-10">
+                            <select class="form-control" id="payment_acc" name="payment_acc" >
+                                <option value="" selected disabled>Select Payment Acc.</option>
+                            </select>
+                            @if ($errors->has('payment_acc'))
+                                <span class="text-danger">
+                                <strong>{{ $errors->first('payment_acc') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="payment_charges" class="col-2 control-label">Payment Charges</label>
+                        <div class="col-10">
+                            <input type="text" class="form-control" id="payment_charges" name="payment_charges" placeholder="Payment Charges" value="{{old('payment_charges')}}">
+                            @if ($errors->has('payment_charges'))
+                                <span class="text-danger">
+                                <strong>{{ $errors->first('payment_charges') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="payment_narration" class="col-2 control-label">Payment Narration</label>
+                        <div class="col-10">
+                            <input type="text" class="form-control" id="payment_narration" name="payment_narration" placeholder="Payment Narration" value="{{old('payment_narration')}}">
+                            @if ($errors->has('payment_narration'))
+                                <span class="text-danger">
+                                <strong>{{ $errors->first('payment_narration') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-12 service-tax-accounts">
                 <h5>Service Tax (Dr.)</h5>
                     <div class="form-group row">
@@ -268,7 +224,7 @@
                 <div class="col-12 advance-income-tax-accounts">
                 <h5>Advance - Income Tax (Dr.)</h5>
                     <div class="form-group row">
-                        <label for="adv_income_tax_acc" class="col-2 control-label">Advnace Income Tax Acc</label>
+                        <label for="adv_income_tax_acc" class="col-2 control-label">Advance Income Tax Acc</label>
                         <div class="col-10">
                             <select class="form-control" id="adv_income_tax_acc" name="adv_income_tax_acc">
                                 <option value="" selected disabled>Select Income Tax Acc</option>
@@ -347,50 +303,54 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ URL::previous() }}" class="btn btn-light border"> <i class="fa fa-angle-left"></i> Back</a>
-                <button type="submit" class="btn btn-primary float-right">Save</button>
+                <div class="col-12">
+                    <a href="{{ URL::previous() }}" class="btn btn-light border"> <i class="fa fa-angle-left"></i> Back</a>
+                    <button type="submit" class="btn btn-primary float-right">Save</button>
+
+                </div>
             </form>
+        </div>
+    </div>
+    <div class="row bg-white p-3 mb-3">
+        <div class="col-3">
+            <h4 class="m-0">Example :</h4>
+            <p class='m-0'>Service Charges: 100 PKR</p>
+            <p class='m-0'>Service Tax (%): 16</p>
+            <p class='m-0'>Total Receivable : 116</p>
+            <p class='m-0'>Income Tax (%): 3%</p>
+            <p class='m-0'>Income Tax (PKR): 3.48</p>
+        </div>
+        <div class="col-3">
+            <p class="m-0 font-weight-bold">CASE:1 </p>
+            <p class="m-0 font-weight-bold">Income Tax and Service Tax by AIMS</p>
+            <p class="m-0">Bank / Cash A/C : 116 Dr.</p>
+            <p class="m-0">Customer A/C : 116 Cr.</p>
+            <p class="m-0">Advance IT 3% : 3.48 Dr.</p>
+            <p class="m-0">Income Tax 3% By AIMS : 3.48 Cr.</p>
+        </div>
+        <div class="col-3">
+            <p class="m-0 font-weight-bold">CASE:2 </p>
+            <p class="m-0 font-weight-bold">Income Tax and Service Tax at Source</p>
+            <p class="m-0">Bank / Cash A/C : 96.52 (116-16-3.48) Dr.</p>
+            <p class="m-0">Customer A/C : 116 Cr.</p>
+            <p class="m-0">Advance IT 3% : 3.48 Dr.</p>
+            <p class="m-0">PRA 16% : 16 Dr.</p>
+        </div>
+        <div class="col-3">
+            <p class="m-0 font-weight-bold">CASE:3 </p>
+            <p class="m-0 font-weight-bold">Income Tax at SOURCE and Service Tax by AIMS</p>
+            <p class="m-0">Bank / Cash A/C : 112.52 (116-3.48) Dr.</p>
+            <p class="m-0">Customer A/C : 116 Cr.</p>
+            <p class="m-0">Advance IT 3% : 3.48 Dr.</p>
         </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.payment-type-accounts').hide();
-            $('.customer-accounts').hide();
+
             $('.service-tax-accounts').hide();
             $('.advance-income-tax-accounts').hide();
             $('.liability-income-tax-accounts').hide();
 
-            $('select[name="tax_by"]').on('change', function() {
-                var type = $(this).val();
-                if (type=='case-1'){
-                    $('.payment-type-accounts').show();
-                    $('.customer-accounts').show();
-                    $('.service-tax-accounts').hide();
-                    $('.advance-income-tax-accounts').show();
-                    $('.liability-income-tax-accounts').show();
-                }
-                if (type=='case-2'){
-                    $('.payment-type-accounts').show();
-                    $('.customer-accounts').show();
-                    $('.service-tax-accounts').show();
-                    $('.advance-income-tax-accounts').show();
-                    $('.liability-income-tax-accounts').hide();
-                }
-                if (type=='case-3'){
-                    $('.payment-type-accounts').show();
-                    $('.customer-accounts').show();
-                    $('.service-tax-accounts').hide();
-                    $('.advance-income-tax-accounts').show();
-                    $('.liability-income-tax-accounts').hide();
-                }
-                if (!type){
-                    $('.payment-type-accounts').hide();
-                    $('.customer-accounts').hide();
-                    $('.service-tax-accounts').hide();
-                    $('.advance-income-tax-accounts').hide();
-                    $('.liability-income-tax-accounts').hide();
-                }
-            });
             $('select[name="customer_acc"]').on('change', function() {
                 var customer = $(this).val();
                 if(customer) {
@@ -405,6 +365,22 @@
                             $.each(data, function(key, value) {
                                 $('select[name="customer_inv"]').append('<option value="'+ value.id +'">'+ value.title +'</option>');
                             });
+                            var type = data['case'];
+                            if (type=='1'){
+                                $('.service-tax-accounts').hide();
+                                $('.advance-income-tax-accounts').show();
+                                $('.liability-income-tax-accounts').show();
+                            }
+                            if (type=='2'){
+                                $('.service-tax-accounts').show();
+                                $('.advance-income-tax-accounts').show();
+                                $('.liability-income-tax-accounts').hide();
+                            }
+                            if (type=='3'){
+                                $('.service-tax-accounts').hide();
+                                $('.advance-income-tax-accounts').show();
+                                $('.liability-income-tax-accounts').hide();
+                            }
                         }
                     });
                 }else{

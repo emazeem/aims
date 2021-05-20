@@ -42,6 +42,21 @@
                     <th>Region</th>
                     <td>{{\App\Models\Preference::find($show->region)->name}}</td>
                 </tr>
+                <tr>
+                    <th>Tax Case</th>
+                    <td>
+                        @if($show->tax_case==1)
+                            Case-1 : Income Tax By AIMS + Service Tax By AIMS
+                        @elseif($show->tax_case==2)
+                            Case-2 : Income Tax At SOURCE + Service Tax By SOURCE
+                        @elseif($show->tax_case==3)
+                            Case-3 : Income Tax At SOURCE + Service Tax By AIMS
+                        @else
+                        @endif
+
+
+                    </td>
+                </tr>
 
                 <tr>
                     <th>01-Principal Name</th>

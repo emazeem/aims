@@ -285,6 +285,7 @@ class ReceiptVoucherController extends Controller
             $jobids[]=$jobs->id;
         }
         $invoices=Invoice::whereIn('job_id',$jobids)->get();
+        $invoices['case']=$customer->tax_case;
         return response()->json($invoices);
     }
     public function get_inv_details($inv){
@@ -298,7 +299,6 @@ class ReceiptVoucherController extends Controller
             if ($detail->dr==null){
                 $detail->dr='';
             }
-
         }
         return response()->json($details);
     }

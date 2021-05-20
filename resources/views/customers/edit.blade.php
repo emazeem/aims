@@ -111,7 +111,24 @@
                       </span>
                         @endif
                     </div>
-
+                </div>
+                <div class="form-group row">
+                    <label for="tax_case" class="col-sm-2 control-label">Tax Case</label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="tax_case" name="tax_case">
+                                <option selected disabled="">Select Tax Case</option>
+                                <option value="1" {{$edit->tax_case==1?'selected':''}}>Case-1 : Income Tax By AIMS + Service Tax By AIMS</option>
+                                <option value="2" {{$edit->tax_case==2?'selected':''}}>Case-2 : Income Tax At SOURCE + Service Tax By SOURCE</option>
+                                <option value="3" {{$edit->tax_case==3?'selected':''}}>Case-3 : Income Tax At SOURCE + Service Tax By AIMS</option>
+                            </select>
+                        </div>
+                        @if ($errors->has('tax_case'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('tax_case') }}</strong>
+                      </span>
+                        @endif
+                    </div>
                 </div>
                 @php $pnames=explode(',',$edit->prin_name); @endphp
                 @php $pphones=explode(',',$edit->prin_phone); @endphp
