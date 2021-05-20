@@ -30,10 +30,15 @@ class DashboardControlller extends Controller
 {
     public function index(){
 
-        $ip=\request()->ip();
-        $data = Location::get($ip);
-        dd($ip,$data);
+        //$ip=\request()->ip();
+        //$data = Location::get($ip);
 
+        $ip='39.37.247.112';
+        $data = Location::get($ip);
+        https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&appid=4d934a76dfd686a9d005d8668f3c6de7
+        //dd($ip,$data);
+
+        //4d934a76dfd686a9d005d8668f3c6de7
         $columns = Schema::getColumnListing('journals');
         //dd($columns);
 
