@@ -16,20 +16,19 @@
     @endif
     <div class="col-12 d-sm-flex align-items-center justify-content-between mb-4">
         <h3 class="border-bottom"><i class="fa fa-tasks"></i> Material Receiving</h3>
-        <span class="text-right">
-            <a href="{{url('material_receiving/create/'.$show->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add Material Receiving</a>
-        </span>
+
     </div>
     <div class="row pb-3">
         <div class="col-12">
             <h5 class="pull-left"><i class="fa fa-eye"></i> PO
                 <small>{Details}</small>
-            </h5>
-            <a href="{{route('po.create',[$show->id])}}" class="btn btn-sm btn-success pull-right"> <i
-                        class="fa fa-plus-circle"></i> Add Items </a>
-            <a href="{{route('po.prints',[$show->id])}}" class="btn btn-sm btn-success pull-right"> <i
-                        class="fa fa-print"></i> Print </a>
 
+            </h5>
+        </div>
+        <div class="col-12">
+            @foreach($show->grn as $grn)
+                <a href="{{url('vouchers/show/'.$grn->voucher_id)}}">Voucher # {{$grn->voucher_id}}</a>
+            @endforeach
         </div>
         <div class="col-12">
             <table class="text-dark table table-hover font-13 table-bordered table-sm bg-white table-hover">
@@ -98,6 +97,12 @@
                                                 <option value="{{$i}}">{{$i}} Year{{$i>1?'s':''}}</option>
                                             @endfor
                                         </select>
+                                        <select type="text" name="type" id="type" style="width: 50px;height: 18px">
+                                            <option value="fixed-asset">Fixed Assets</option>
+                                            <option value="consumable-inventory">Consumable Inventory</option>
+                                            <option value="trading-inventory">Trading Inventory</option>
+                                        </select>
+
                                         <input type="hidden" name="price" value="{{$item->price}}">
                                         <input type="hidden" name="department" value="{{$show->indent->department_id}}">
                                         <button type="submit" style="height: 20px;padding: 0;border: none" class="px-2"><i class="fa fa-arrow-circle-down"></i> Move to Inventory</button>
@@ -120,48 +125,38 @@
             </div>
             <table class="table table-hover font-13 table-bordered bg-white">
                 <tr class="bg-light">
+                    <th>Select</th>
+                    <th>Title</th>
+                    <th>Description</th>
                     <th>Received From</th>
                     <th>Purchase Type</th>
                     <th>Physical Check</th>
                     <th>Meet Specifications</th>
                     <th>Unit</th>
                     <th>Qty</th>
-                    <th>Status</th>
-                    <th>Action</th>
                 </tr>
-                @foreach($show->po_recievings as $receiving)
+                <form action="{{route('material.receiving.grn.create')}}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> GRN</button>
+                    <input type="hidden" value="{{$show->id}}" name="po">
+                    @foreach($show->po_items as $item)
+                    @if($item->receiving->received_from)
                     <tr>
-                        <td>{{$receiving->received_from}}</td>
-                        <td class="text-capitalize">{{$receiving->purchase_type}} Purchase</td>
-                        <td>{!! ($receiving->physical_check==1)?'<span class="badge badge-primary">YES</span>':'<span class="badge badge-danger">NO</span>'!!}</td>
-                        <td>{!! ($receiving->meet_specifications==1)?'<span class="badge badge-primary">YES</span>':'<span class="badge badge-danger">NO</span>'!!}
-                            <br>
-                            @if($receiving->specifications==0)
-                                <input type="checkbox" readonly checked> As per indent
-                            @endif
-                            @if($receiving->specifications==1)
-                                <input type="checkbox" readonly checked> As per specs sheet of OEM
-                            @endif
-                            @if($receiving->specifications==1)
-                                <input type="checkbox" readonly checked>  As per requirement of process
-                            @endif
-                        </td>
-                        <td class="text-capitalize">{{$receiving->unit}}</td>
-                        <td>{{$receiving->qty}}</td>
-                        <td>
-                            @if($receiving->status==0)
-                                <span class=' badge badge-warning'>Pending</span>
-                            @endif
-                        </td>
-                        <td>
-                            <a href="{{url('material_receiving/edit/'.$receiving->id)}}" class="btn btn-success btn-sm">
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                        </td>
+                        <td><input type="checkbox" {{in_array($item->receiving->id,$grnid)?'disabled checked':''}} name="grn[]" id="grn" value="{{$item->receiving->id}}"></td>
+                        <td>{{$item->title}}</td>
+                        <td>{{$item->description}}</td>
+                        <td>{{$item->receiving->received_from}}</td>
+                        <td>{{$item->receiving->purchase_type}}</td>
+                        <td>{{$item->receiving->physical_check==0?'No':'Yes'}}</td>
+                        <td>{{$item->receiving->meet_specifications==0?'Yes':'No'}}</td>
+                        <td>{{$item->receiving->unit}}</td>
+                        <td>{{$item->receiving->qty}}</td>
                     </tr>
+                    @endif
                 @endforeach
-
+                </form>
             </table>
         </div>
     </div>
+
 @endsection

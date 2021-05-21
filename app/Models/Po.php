@@ -20,6 +20,10 @@ class Po extends Model
     public function po_items(){
         return $this->hasMany('App\Models\Purchaseindentitem','indent_id','indent_id');
     }
+    public function grn(){
+        return $this->hasMany('App\Models\GrnVoucher','po_id','id');
+    }
+
     public function po_recievings(){
         return $this->hasMany('App\Models\Materialreceiving','purchase_indent_item_id','indent_id');
     }

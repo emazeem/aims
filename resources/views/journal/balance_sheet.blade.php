@@ -51,8 +51,8 @@
                 <thead>
                 <tr>
                     <th>Account</th>
-                    <th>Dr</th>
-                    <th>Cr</th>
+                    <th class="text-right">Dr</th>
+                    <th class="text-right">Cr</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -85,8 +85,8 @@
                                         </span>
                                     </span>
                                 </td>
-                                <td>{{$balances[$coa->acc_code]>=0?$balances[$coa->acc_code]:''}}</td>
-                                <td>{{$balances[$coa->acc_code]<0?$balances[$coa->acc_code]:''}}</td>
+                                <td class="text-right">{{$balances[$coa->acc_code]>=0?number_format($balances[$coa->acc_code]):''}}</td>
+                                <td class="text-right">{{$balances[$coa->acc_code]<0?number_format($balances[$coa->acc_code]):''}}</td>
                             </tr>
 
                             @endforeach

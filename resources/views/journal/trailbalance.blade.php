@@ -52,17 +52,17 @@
                     <tr>
                         <td>{{$account->acc_code}}</td>
                         <td>{{$account->title}}</td>
-                        <td>
+                        <td class="text-right">
                             @if($entries[$account->acc_code])
                                 @if($entries[$account->acc_code]>0)
-                                {{$entries[$account->acc_code]}}
+                                {{$entries[$account->acc_code]?number_format($entries[$account->acc_code]):''}}
                                 @endif
                             @endif
                         </td>
-                        <td>
+                        <td class="text-right">
                             @if($entries[$account->acc_code])
                                 @if($entries[$account->acc_code]<0)
-                                    {{-$entries[$account->acc_code]}}
+                                    {{-$entries[$account->acc_code]?number_format($entries[$account->acc_code]):''}}
                                 @endif
                             @endif
                         </td>

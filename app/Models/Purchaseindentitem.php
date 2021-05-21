@@ -15,4 +15,5 @@ class Purchaseindentitem extends Model
     public function receiving(){
         return $this->belongsTo('App\Models\Materialreceiving','id','purchase_indent_item_id')->withDefault();
     }
+
 }

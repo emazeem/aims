@@ -52,8 +52,8 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
-                <th>Category</th>
                 <th>Subcategory</th>
+                <th>Category</th>
                 <th>Model</th>
                 <th>Price</th>
                 <th>Action</th>
@@ -63,8 +63,8 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
-                <th>Category</th>
                 <th>Subcategory</th>
+                <th>Category</th>
                 <th>Model</th>
                 <th>Price</th>
                 <th>Action</th>
@@ -157,8 +157,14 @@
                                 @endforeach
                             </select>
                         </div>
+
                         <div class="form-group">
-                            <label for="consumable">Consumable<input type="checkbox" id="consumable" name="consumable"></label>
+                            <label for="type">Type</label>
+                            <select type="text" name="type" id="type" class="form-control" required="required">
+                                <option value="fixed-asset">Fixed Assets</option>
+                                <option value="consumable-inventory">Consumable Inventory</option>
+                                <option value="trading-inventory">Trading Inventory</option>
+                            </select>
                         </div>
                         <input type="hidden" name="edit_id" id="edit_id" value="">
                 </div>

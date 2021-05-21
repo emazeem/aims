@@ -362,7 +362,7 @@
                             $('select[name="customer_inv"]').empty();
 
                             $('select[name="customer_inv"]').append('<option disabled selected>Select Customer Invoices</option>');
-                            $.each(data, function(key, value) {
+                            $.each(data['invoices'], function(key, value) {
                                 $('select[name="customer_inv"]').append('<option value="'+ value.id +'">'+ value.title +'</option>');
                             });
                             var type = data['case'];

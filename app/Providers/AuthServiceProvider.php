@@ -73,6 +73,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->accleveltwo();
         $this->acclevelthree();
         $this->acclevelfour();
+        $this->purchase_invoice();
         $this->vouchers();
         $this->activitylog();
         $this->journal();
@@ -93,6 +94,16 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+    public function purchase_invoice()
+    {
+        Gate::define('purchase-invoice', function ($user) {
+            if (in_array('purchase-invoice',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+    }
+
     public function cir()
     {
         Gate::define('cir', function ($user) {

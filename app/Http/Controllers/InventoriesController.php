@@ -56,6 +56,7 @@ class InventoriesController extends Controller
     public function store(Request $request)
     {
 
+
         $this->validate(request(), [
             'title' => 'required',
             'category' => 'required',
@@ -67,7 +68,9 @@ class InventoriesController extends Controller
             'depreciation_duration' => 'required',
             'department' => 'required',
             'description' => 'required',
+            'type' => 'required',
         ]);
+
         $user_id = Auth::user()->id;
         $quantity = $request->quantity;
         $data = new Inventories();
@@ -79,15 +82,17 @@ class InventoriesController extends Controller
         $data->subcategory_id = $request->subcategory;
         $data->price = $request->price;
         $data->description = $request->description;
-        $data->consumable = $request->consumable?$request->consumable:null;
+        $data->type = $request->type;
         $data->save();
-        $item=Purchaseindentitem::find($request->item_id);
-        $item->inventory_id=$data->id;
-        $item->save();
+        if ($request->item_id){
+            $item=Purchaseindentitem::find($request->item_id);
+            $item->inventory_id=$data->id;
+            $item->save();
+        }
         for ($i=0;$i<$quantity;$i++){
             $inventoryQty=new InventoriesQuantity();
             $inventoryQty->inventory_id=$data->id;
-            $serial_no = $request->title.strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));
+            $serial_no = str_replace(' ','-',$request->title).strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 4));
             $inventoryQty->serial_no=$serial_no;
             $inventoryQty->quantity_type='IN';
             $inventoryQty->user_id=$user_id;

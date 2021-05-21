@@ -9,9 +9,9 @@ use App\Models\Jobitem;
 use Yajra\DataTables\DataTables;
 
 class SalesInvoiceController extends Controller
-{public function index(){
-    return view('salesinvoice.index');
-}
+{   public function index(){
+        return view('salesinvoice.index');
+    }
     public function fetch(){
         $this->authorize('jobs-index');
         $data=Job::with('quotes')->get();

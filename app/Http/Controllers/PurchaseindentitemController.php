@@ -48,26 +48,32 @@ class PurchaseindentitemController extends Controller
     }
     public function update(Request $request){
         $this->validate(request(),[
+            'category' => 'required',
+            'item_type' => 'required',
             'title' => 'required',
-            'purpose' => 'required',
-            'item_code' => 'required',
             'description' => 'required',
-            'ref_code' => 'required',
+            'item_code' => 'required',
+            'model' => 'required',
+            'purpose' => 'required',
+            'ref_doc' => 'required',
             'unit' => 'required',
             'consumption' => 'required',
-            'stock' => 'required',
             'qty' => 'required',
         ]);
         $item=Purchaseindentitem::find($request->id);
-        $item->item_code=$request->item_code;
-        $item->item_description=$request->description;
-        $item->ref_code=$request->ref_code;
-        $item->unit=$request->unit;
-        $item->last_six_months_consumption=$request->consumption;
-        $item->current_stock=$request->stock;
-        $item->qty=$request->qty;
-        $item->purpose=$request->purpose;
+        $item->category_id=InventoryCategory::find($request->category)->parent_id;
+        $item->subcategory_id=$request->category;
+        $item->indent_id=$request->id;
+        $item->item_type=$request->item_type;
         $item->title=$request->title;
+        $item->description=$request->description;
+        $item->code=$request->item_code;
+        $item->model=$request->model;
+        $item->purpose=$request->purpose;
+        $item->ref_doc=$request->ref_doc;
+        $item->unit=$request->unit;
+        $item->consumption_6months=$request->consumption;
+        $item->qty=$request->qty;
         $item->save();
         return redirect()->back()->with('success','Purchase indent item updated successfully');
     }

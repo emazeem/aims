@@ -19,7 +19,7 @@ class CreateInventoriesTable extends Migration
             $table->integer('category_id');
             $table->integer('subcategory_id');
             $table->integer('department_id');
-            $table->string('consumable')->nullable();
+            $table->string('type')->nullable();
             $table->string('price');
             $table->string('model');
             $table->string('description');

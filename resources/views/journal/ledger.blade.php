@@ -64,13 +64,13 @@
                 <tbody>
                 <tr>
                     <td class="text-center">Opening Balance</td>
-                    <td class="text-xs">-</td>
-                    <td class="text-xs">-</td>
-                    <td class="text-xs">-</td>
-                    <td class="text-xs">-</td>
-                    <td class="text-xs">-</td>
-                    <td class="text-xs">-</td>
-                    <td class="text-xs">{{$opening_balance}}</td>
+                    <td class="text-right">-</td>
+                    <td class="text-right">-</td>
+                    <td class="text-right">-</td>
+                    <td class="text-right">-</td>
+                    <td class="text-right">-</td>
+                    <td class="text-right">-</td>
+                    <td class="text-right">{{$opening_balance}}</td>
                 </tr>
                 @php $dr=0;$cr=0; @endphp
                 @foreach($entries as $entry)
@@ -80,16 +80,16 @@
                         <td class="text-xs">{{$entry->narration}}</td>
                         <td class="text-xs text-capitalize">{{str_replace('-',' ',$entry->parent->type)}}</td>
                         <td class="text-xs">{{$entry->cost_center}}</td>
-                        <td class="text-xs">{{$entry->dr}}</td>
-                        <td class="text-xs">{{$entry->cr}}</td>
-                        <td class="text-xs">
+                        <td class="text-right">{{$entry->dr?number_format($entry->dr):''}}</td>
+                        <td class="text-right">{{$entry->cr?number_format($entry->cr):''}}</td>
+                        <td class="text-right">
                             @if($entry->dr)
                                 @php $opening_balance=$opening_balance+$entry->dr @endphp
-                                {{$opening_balance}}
+                                {{number_format($opening_balance)}}
                             @endif
                             @if($entry->cr)
                                 @php $opening_balance=$opening_balance-$entry->cr @endphp
-                                {{$opening_balance}}
+                                {{number_format($opening_balance)}}
                             @endif
                         </td>
                     </tr>
@@ -97,8 +97,8 @@
                 @endforeach
                     <tr>
                         <td colspan="5"></td>
-                        <td>{{$dr}}</td>
-                        <td>{{$cr}}</td>
+                        <td class="text-right">{{number_format($dr)}}</td>
+                        <td class="text-right">{{number_format($cr)}}</td>
                     </tr>
                 </tbody>
             </table>

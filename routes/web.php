@@ -449,6 +449,7 @@ Route::group(['prefix'=> 'material_receiving'],function() {
     Route::post('store',[App\Http\Controllers\MaterialreceivingController::class, 'store'])->middleware('auth')->name('material.receiving.store');
     Route::post('update',[App\Http\Controllers\MaterialreceivingController::class, 'update'])->middleware('auth')->name('material.receiving.update');
     Route::get('show/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'show'])->middleware('auth')->name('material.receiving.show');
+    Route::post('grn/create',[App\Http\Controllers\MaterialreceivingController::class, 'create_grn'])->middleware('auth')->name('material.receiving.grn.create');
 });
 Route::get('/no-facility',[App\Http\Controllers\NofacilityController::class, 'index'])->middleware('auth')->name('nofacility.index');
 Route::post('/no-facility',[App\Http\Controllers\NofacilityController::class, 'fetch'])->middleware('auth')->name('nofacility.fetch');
@@ -593,6 +594,12 @@ Route::group(['prefix'=> 'sales-invoice'],function(){
     Route::get('',[App\Http\Controllers\SalesInvoiceController::class, 'index'])->middleware('auth')->name('sales.invoice');
     Route::post('',[App\Http\Controllers\SalesInvoiceController::class, 'fetch'])->middleware('auth')->name('sales.invoice.fetch');
 });
+Route::group(['prefix'=> 'purchase-invoice'],function(){
+    Route::get('',[App\Http\Controllers\PurchaseInvoiceController::class, 'index'])->middleware('auth')->name('purchase.invoice');
+    Route::post('',[App\Http\Controllers\PurchaseInvoiceController::class, 'fetch'])->middleware('auth')->name('purchase.invoice.fetch');
+    Route::post('store',[App\Http\Controllers\PurchaseInvoiceController::class, 'store'])->middleware('auth')->name('purchase.invoice.store');
+});
+
 Route::group(['prefix'=> 'invoice'],function(){
     Route::post('store',[App\Http\Controllers\InvoiceController::class, 'store'])->middleware('auth')->name('invoice.store');
 });

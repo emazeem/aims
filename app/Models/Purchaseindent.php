@@ -16,7 +16,6 @@ class Purchaseindent extends Model
     public function indent_vendors(){
         return $this->hasMany('App\Models\PurchaseVendor','purchase_indent_id','id');
     }
-
     public function indenters(){
         return $this->belongsTo('App\Models\User','indenter');
     }
