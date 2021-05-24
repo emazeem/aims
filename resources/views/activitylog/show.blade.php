@@ -28,7 +28,7 @@
                                     <a class="h6">{{$activity->subject_type}}</a>
                                 </h2>
                                 <div class="byline text-danger">
-                                    <small >{{$activity['created_at']->diffForHumans()}} by{{$activity->performedBy->fname.' '.$activity->performedBy->lname}}</small>
+                                    <small >{{$activity['created_at']->diffForHumans()}} by{{\App\Models\User::find($activity->causer_id)->fname.' '.\App\Models\User::find($activity->causer_id)->lname}}</small>
                                 </div>
                                 <div class="excerpt">
 

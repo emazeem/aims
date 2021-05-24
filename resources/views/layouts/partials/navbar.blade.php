@@ -5,6 +5,7 @@
         </div>
         <nav class="nav navbar-nav">
             <ul class=" navbar-right">
+
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:void(0);" class="user-profile dropdown-toggle" aria-haspopup="true"
                        id="navbarDropdown"
@@ -51,6 +52,7 @@
                         </div>
                     </div>
                 </li>
+
                 <li role="presentation" class="nav-item dropdown open p-md-2 p-0 mt-2 mt-md-0">
 
                     <a href="javascript:void(0);" class="dropdown-togge" id="navbarDropdown1"
@@ -99,6 +101,10 @@
                         @endif
                     </ul>
                 </li>
+                <li role="presentation" class="nav-item dropdown open p-md-2 p-0 mt-2 mt-md-0">
+                    <a href="{{URL::current()}}"><i class="fa fa-refresh"></i></a>
+                </li>
+
             </ul>
         </nav>
     </div>

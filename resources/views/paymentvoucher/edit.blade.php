@@ -10,7 +10,7 @@
 
     <div class="row pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3 class="border-bottom"><i class="fa fa-refresh"></i> Edit Voucher</h3>
+            <h3 class="border-bottom"><i class="fa fa-refresh"></i> Edit Payment Voucher</h3>
         </div>
 
         <div class="col-12">

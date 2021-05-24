@@ -16,12 +16,13 @@
         </div>
             @foreach($indents->indent_items as $indent)
             <div class="col-4">
-                <form class="form-horizontal row" action="{{route('po.items.store')}}" method="post">
+                <form class="form-horizontal border border-primary p-1 row" action="{{route('po.items.store')}}" method="post">
                 @csrf
                 <input type="hidden" value="{{$id}}" name="id" id="id">
                 <input type="hidden" value="{{$indent->id}}" name="indentitem_id" id="indentitem_id">
-                <div class="form-group col-12">
-                    <label for="description" class="control-label">Description</label>
+                    <div class="form-group col-12">
+                        <h5 class=" p-2 text-primary">{{$indent->title}}</h5>
+                        <label for="description" class="control-label">Description</label>
                     <div class="col-sm-12">
                         <textarea type="text" class="form-control" id="description" name="description" placeholder="Description"
                                autocomplete="off" >{{old('description',$indent->description)}}</textarea>

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use App\Models\Attendance;
 use App\Models\Capabilities;
+use App\Models\Chartofaccount;
 use App\Models\Customer;
 use App\Models\Department;
 use App\Models\Designation;
@@ -29,7 +30,6 @@ use Stevebauman\Location\Facades\Location;
 class DashboardControlller extends Controller
 {
     public function index(){
-
         //$ip=\request()->ip();
         //$data = Location::get($ip);
 

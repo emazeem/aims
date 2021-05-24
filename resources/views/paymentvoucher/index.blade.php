@@ -16,9 +16,9 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Voucher</h3>
+            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Payment Voucher</h3>
             <div class="text-right mt-2">
-                <a class="btn btn-primary btn-sm" href="{{route('vouchers.create')}}"> <i class="fa fa-plus-circle"></i> Add Voucher</a>
+                <a class="btn btn-primary btn-sm" href="{{route('vouchers.create')}}"> <i class="fa fa-plus-circle"></i> Add Payment Voucher</a>
             </div>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">

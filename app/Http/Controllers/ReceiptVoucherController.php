@@ -167,10 +167,10 @@ class ReceiptVoucherController extends Controller
         $journal->save();
         $inv=Invoice::find($request->customer_inv);
         $vs=new InvoiceVsReceipts();
-
         $vs->invoice_id=$inv->voucher_id;
         $vs->receipt_id=$journal->id;
         $vs->save();
+
 
         if ($request->tax_by=='case-1'){
             //bank or cash
@@ -289,6 +289,7 @@ class ReceiptVoucherController extends Controller
         return response()->json($data);
     }
     public function get_inv_details($inv){
+
         $invoice =Invoice::find($inv);
         $journal=Journal::find($invoice->voucher_id);
         $details=$journal->details;

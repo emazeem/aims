@@ -49,23 +49,6 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="purchase_type" class="col-sm-2 control-label">Purchase Type</label>
-                    <div class="col-sm-10">
-                        <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="purchase_type" name="purchase_type">
-                                <option selected disabled>Select Deliver to</option>
-                                <option value="local">Local Purchase</option>
-                                <option value="abroad">Abroad Purchase</option>
-                            </select>
-                        </div>
-                        @if ($errors->has('purchase_type'))
-                            <span class="text-danger">
-                                <strong>{{ $errors->first('purchase_type') }}</strong>
-                             </span>
-                        @endif
-                    </div>
-                </div>
 
                 <div class="form-group row">
                     <label for="received_from" class="col-sm-2 control-label">Received From</label>

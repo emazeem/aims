@@ -3,17 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
+use App\Models\Journal;
 use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Jobitem;
 use Yajra\DataTables\DataTables;
 
 class SalesInvoiceController extends Controller
-{   public function index(){
+{
+
+
+    public function index(){
         return view('salesinvoice.index');
     }
+    public function create(){
+        return view('salesinvoice.create');
+    }
     public function fetch(){
-        $this->authorize('jobs-index');
+        $data=Journal::with('createdby')->get();
+        //dd($data);
+        return DataTables::of($data)
+            ->addColumn('id', function ($data) {
+                return $data->id;
+            })
+            ->addColumn('customize_id', function ($data) {
+                return $data->customize_id;
+            })
+            ->addColumn('type', function ($data) {
+                return ucwords(str_replace('-',' ',$data->type));
+            })
+            ->addColumn('date', function ($data) {
+                return $data->date->format('d-M-Y');
+            })
+            ->addColumn('created_by', function ($data) {
+                return $data->createdby->fname.' '.$data->createdby->lname;
+            })
+            ->addColumn('options', function ($data) {
+                return "&emsp;
+                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/journal-vouchers/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                  <a title='Show' class='btn btn-sm btn-primary' href='" . url('/vouchers/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
+                  ";
+            })->rawColumns(['options'])->make(true);
+
+    }
+    public function create_fetch(){
         $data=Job::with('quotes')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -62,7 +95,7 @@ class SalesInvoiceController extends Controller
 
 
                 }else{
-                    $action.="<a title='Show Invoice' 
+                    $action.="<a title='Show Invoice'
                 onclick=\"window.open('".url('/jobs/print/invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
                 href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-paperclip'></i> Invoice</a>";
                 }
@@ -73,7 +106,5 @@ class SalesInvoiceController extends Controller
             ->rawColumns(['options','status'])
             ->make(true);
     }
-
-
     //
 }

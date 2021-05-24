@@ -125,7 +125,7 @@
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="purchase_indent" name="purchase_indent" style="width: 100%">
                                 <option selected disabled="">Select Purchase Indent</option>
-                                @foreach(\App\Models\Purchaseindent::all() as $item)
+                                @foreach($pis as $item)
                                     <option value="{{$item->id}}">Purchase Indent # {{$item->id}}</option>
                                 @endforeach
                             </select>

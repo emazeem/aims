@@ -16,9 +16,9 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Sales Invoice</h3>
+            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Journal Voucher</h3>
             <div class="text-right mt-2">
-                <a class="btn btn-primary btn-sm" href="{{route('sales.invoice.create')}}"> <i class="fa fa-plus-circle"></i> Add Sales Invoice</a>
+                <a class="btn btn-primary btn-sm" href="{{route('journal.vouchers.create')}}"> <i class="fa fa-plus-circle"></i> Add Journal Voucher</a>
             </div>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
@@ -64,7 +64,7 @@
                 "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
-                    "url": "{{route('sales.invoice.fetch')}}",
+                    "url": "{{route('journal.vouchers.fetch')}}",
                     "dataType": "json",
                     "type": "POST",
                     "data": {_token: "{{csrf_token()}}"}

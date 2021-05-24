@@ -589,9 +589,24 @@ Route::group(['prefix'=> 'vouchers'],function(){
     Route::post('/store/',[App\Http\Controllers\VoucherController::class, 'store'])->middleware('auth')->name('vouchers.store');
     Route::post('/update/',[App\Http\Controllers\VoucherController::class, 'update'])->middleware('auth')->name('vouchers.update');
     Route::get('get-po-details/{id}',[App\Http\Controllers\VoucherController::class, 'get_po_details'])->middleware('auth')->name('vouchers.get.po.details');
+    Route::get('get-inv-details/{inv}',[App\Http\Controllers\VoucherController::class, 'get_inv_details'])->middleware('auth')->name('vouchers.get.inv.details');
 });
+Route::group(['prefix'=> 'journal-vouchers'],function(){
+    Route::get('',[App\Http\Controllers\JournalVouhcerController::class, 'index'])->middleware('auth')->name('journal.vouchers');
+    Route::post('',[App\Http\Controllers\JournalVouhcerController::class, 'fetch'])->middleware('auth')->name('journal.vouchers.fetch');
+    Route::get('/create',[App\Http\Controllers\JournalVouhcerController::class, 'create'])->middleware('auth')->name('journal.vouchers.create');
+    Route::get('/edit/{id}',[App\Http\Controllers\JournalVouhcerController::class, 'edit'])->middleware('auth')->name('journal.vouchers.edit');
+    Route::get('/show/{id}',[App\Http\Controllers\JournalVouhcerController::class, 'show'])->middleware('auth')->name('journal.vouchers.show');
+    Route::get('/print/{id}',[App\Http\Controllers\JournalVouhcerController::class, 'prints'])->middleware('auth')->name('journal.vouchers.print');
+    Route::post('/store/',[App\Http\Controllers\JournalVouhcerController::class, 'store'])->middleware('auth')->name('journal.vouchers.store');
+    Route::post('/update/',[App\Http\Controllers\JournalVouhcerController::class, 'update'])->middleware('auth')->name('journal.vouchers.update');
+
+});
+
 Route::group(['prefix'=> 'sales-invoice'],function(){
     Route::get('',[App\Http\Controllers\SalesInvoiceController::class, 'index'])->middleware('auth')->name('sales.invoice');
+    Route::get('/create',[App\Http\Controllers\SalesInvoiceController::class, 'create'])->middleware('auth')->name('sales.invoice.create');
+    Route::post('/create/fetch',[App\Http\Controllers\SalesInvoiceController::class, 'create_fetch'])->middleware('auth')->name('sales.invoice.create.fetch');
     Route::post('',[App\Http\Controllers\SalesInvoiceController::class, 'fetch'])->middleware('auth')->name('sales.invoice.fetch');
 });
 Route::group(['prefix'=> 'purchase-invoice'],function(){

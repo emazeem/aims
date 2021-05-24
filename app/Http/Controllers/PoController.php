@@ -12,7 +12,14 @@ class PoController extends Controller
 
     public function index()
     {
-        return view('po.index');
+
+        $poid=[];
+        $pos=Po::all();
+        foreach ($pos as $po){
+            $poid[]=$po->indent_id;
+        }
+        $pis=Purchaseindent::all()->whereNotIn('id',$poid);
+        return view('po.index',compact('pis'));
     }
 
     public function fetch()

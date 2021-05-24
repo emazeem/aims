@@ -53,6 +53,7 @@
                 <h5 class="pull-left"> <i class="fa fa-eye"></i> PO Items</h5>
                 <table class="text-dark table table-hover font-13 table-bordered table-sm bg-white table-hover">
                 <tr>
+                    <th>Title</th>
                     <th>Description</th>
                     <th>Qty</th>
                     <th>Price</th>
@@ -61,6 +62,7 @@
 
                 @foreach($show->po_items as $item)
                     <tr>
+                        <td>{{$item->title}}</td>
                         <td>{{$item->description}}</td>
                         <td>{{$item->qty}}</td>
                         <td>{{$item->price}}</td>

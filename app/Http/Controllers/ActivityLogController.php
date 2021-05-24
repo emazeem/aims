@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parameter;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\Facades\DataTables;
@@ -17,7 +18,7 @@ class ActivityLogController extends Controller
         return view('activitylog.show',compact('activities'));
     }
     public function fetch(){
-        $data=Activity::with('performedBy')->get();
+        $data=Activity::all();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -32,7 +33,7 @@ class ActivityLogController extends Controller
                 return $data->subject_type;
             })
             ->addColumn('causer_id', function ($data) {
-                return $data->performedBy->fname.' '.$data->performedBy->lname;
+                return User::find($data->causer_id)->fname.' '.User::find($data->causer_id)->lname;
             })
             ->addColumn('properties', function ($data) {
                 return $data->properties;

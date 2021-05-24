@@ -55,7 +55,11 @@
                     <th>Status</th>
                     <td>
                         @if($show->status==0)
-                            <span class="btn btn-sm btn-warning badge">Waiting for TM Prioritize</span>
+                            @if(count($show->indent_items)>0)
+                                <span class="btn btn-sm btn-warning badge">Waiting for TM Prioritize</span>
+                            @else
+                                <span class="btn btn-sm btn-warning badge">Empty Purchase Indent</span>
+                            @endif
                         @endif
                         @if($show->status==1)
                             <span class="btn btn-sm btn-warning badge">TM is reviewing</span>

@@ -396,7 +396,7 @@
                         dataType: "json",
                         success:function(data) {
                             $.each(data,function(index,item){
-                                $('.inv-table').append(
+                                $('.inv-table tbody').append(
                                     "<tr>" +
                                     "<td>" + item.narration + "</td>" +
                                     "<td>" + item.acc_code + "</td>"+
@@ -407,7 +407,7 @@
                         }
                     });
                 }else{
-                    $('.inv-table').empty();
+                    $('.inv-table tbody').empty();
                 }
             });
             $('select[name="payment_type"]').on('change', function() {

@@ -17,7 +17,7 @@
     @endif
     <div class="row pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Voucher</h3>
+            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Journal Voucher</h3>
         </div>
         <div class="col-12">
             <form id="add_voucher_form">
@@ -43,8 +43,7 @@
                     <label for="v_type" class="col-2 control-label">Select Voucher Type</label>
                     <div class="col-10">
                         <select class="form-control" id="v_type" name="v_type" >
-                            <option value="" selected disabled>Select Voucher Type</option>
-                            <option value="journal">Payment Voucher</option>
+                            <option value="journal" selected>Journal Voucher</option>
                         </select>
                         @if ($errors->has('v_type'))
                             <span class="text-danger">
@@ -65,33 +64,16 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="po" class="col-2 control-label">Select PO</label>
+                    <label for="reference" class="col-2 control-label">Reference</label>
                     <div class="col-10">
-                        <select class="form-control" id="po" name="po" >
-                            <option value="" selected disabled>Select PO</option>
-                            @foreach(\App\Models\Po::all() as $static)
-                                <option value="{{$static->id}}">PO # 00{{$static->id}}</option>
-                            @endforeach
-                        </select>
-                        @if ($errors->has('po'))
+                        <input type="text" class="form-control" id="reference" name="reference" value="{{old('reference')}}" placeholder="Enter Reference">
+                        @if ($errors->has('reference'))
                             <span class="text-danger">
-                                <strong>{{ $errors->first('po') }}</strong>
+                                <strong>{{ $errors->first('reference') }}</strong>
                             </span>
                         @endif
                     </div>
                 </div>
-                <table class="table table-bordered po-table">
-                    <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Desc</th>
-                        <th>Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-
 
                 <div class="form-group row">
                     <label for="attachments" class="col-sm-8 control-label">Attachments</label>
@@ -107,6 +89,7 @@
                         @endif
                     </div>
                 </div>
+
                 <table id="myTable" class="table order-list table-bordered bg-white table-hover">
                     <thead>
                     <tr>
@@ -136,6 +119,7 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
+
             var count = 0;
             $("#addrow").on("click", function (){
                 count++;
@@ -161,7 +145,7 @@
             $("#add_voucher_form").on('submit',(function(e) {
                 e.preventDefault();
                 $.ajax({
-                    url: "{{route('vouchers.store')}}",
+                    url: "{{route('journal.vouchers.store')}}",
                     type: "POST",
                     data:  new FormData(this),
                     contentType: false,
@@ -228,28 +212,7 @@
                     }
                 });
             });
-            $('select[name="po"]').on('change', function() {
-                var po = $(this).val();
-                if(po) {
-                    $.ajax({
-                        url: '/vouchers/get-po-details/'+po,
-                        type: "GET",
-                        dataType: "json",
-                        success:function(data) {
-                            $.each(data,function(index,item){
-                                $('.po-table').append(
-                                    "<tr>" +
-                                    "<td>" + item.description + "</td>" +
-                                    "<td>" + item.qty + "</td>"+
-                                    "<td>" + item.price + "</td>"
-                                );
-                            });
-                        }
-                    });
-                }else{
-                    $('.po-table').empty();
-                }
-            });
+
         });
     </script>
 

@@ -32,6 +32,7 @@ class PurchaseInvoiceController extends Controller
                 return $data->voucher_id;
             })
             ->addColumn('options', function ($data) {
+
                 $action=null;
                 $token=csrf_token();
                 $action.="<a class='btn btn-danger btn-sm invoice-store' title='Create Invoice' href='#' data-id='{$data->id}'><i class='fa fa-plus'></i> Invoice</a>
@@ -39,14 +40,13 @@ class PurchaseInvoiceController extends Controller
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"POST\">
-                      </form>";
-
-                $action.="<a title='Show Invoice' 
-                onclick=\"window.open('".url('/jobs/print/invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
-                href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-paperclip'></i> Invoice</a>";
-
-                return $action;
-
+                
+                     </form>";
+                if (!$data->invoice_id){
+                    return $action;
+                }else{
+                    return "<a href='".url('vouchers/show/'.$data->invoice_id)."' class='btn btn-sm btn-warning'><i class='fa fa-eye'></i> Purchase Invoice</a>";
+                }
             })
             ->rawColumns(['options','status'])
             ->make(true);
@@ -81,7 +81,7 @@ class PurchaseInvoiceController extends Controller
         $journal=new Journal();
         $journal->business_line=1;
         $journal->date=date('Y-m-d');
-        $journal->type='Purchase voucher';
+        $journal->type='Purchase Invoice';
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();

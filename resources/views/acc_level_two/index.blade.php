@@ -19,10 +19,11 @@
             <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Accounting Level Two</h3>
             <div class="text-right mt-2">
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right " data-toggle="modal" data-target="#add-level"><i class="fa fa-plus-circle"></i> Add Level Two</button>
+                <a class="btn btn-info btn-sm" href="{{route('acc_level_one')}}"><b>1</b></a>
+                <a class="btn btn-warning btn-sm" href="{{route('acc_level_two')}}"><b>2</b></a>
+                <a class="btn btn-primary btn-sm" href="{{route('acc_level_three')}}"><b>3</b></a>
+                <a class="btn btn-success btn-sm" href="{{route('acc_level_four')}}">Chart of Account</a>
 
-                <a class="btn btn-primary btn-sm" href="{{route('acc_level_one')}}">Level One</a>
-                <a class="btn btn-info btn-sm" href="{{route('acc_level_three')}}">Level Three</a>
-                <a class="btn btn-success btn-sm" href="{{route('acc_level_four')}}">Level Four</a>
             </div>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" cellspacing="0"
                    width="100%">

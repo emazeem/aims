@@ -23,7 +23,7 @@ class ChartofaccountController extends Controller
 
     public function fetch()
     {
-        $data = Chartofaccount::with('codeone','codetwo','codethree','cc');
+        $data = Chartofaccount::with('codeone','codetwo','codethree','cc')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;

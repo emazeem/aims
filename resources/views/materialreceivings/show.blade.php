@@ -129,7 +129,6 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>Received From</th>
-                    <th>Purchase Type</th>
                     <th>Physical Check</th>
                     <th>Meet Specifications</th>
                     <th>Unit</th>
@@ -146,7 +145,6 @@
                         <td>{{$item->title}}</td>
                         <td>{{$item->description}}</td>
                         <td>{{$item->receiving->received_from}}</td>
-                        <td>{{$item->receiving->purchase_type}}</td>
                         <td>{{$item->receiving->physical_check==0?'No':'Yes'}}</td>
                         <td>{{$item->receiving->meet_specifications==0?'Yes':'No'}}</td>
                         <td>{{$item->receiving->unit}}</td>

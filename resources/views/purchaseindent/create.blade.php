@@ -24,7 +24,7 @@
                                 <option selected disabled>Select Indent Type</option>
                                 <option value="capital">Capital Purchase</option>
                                 <option value="spot">Spot Purchase</option>
-                                <option value="normal">Normal Purchase</option>
+                                <option value="normal" selected>Normal Purchase</option>
                             </select>
                         </div>
                         @if ($errors->has('indent_type'))

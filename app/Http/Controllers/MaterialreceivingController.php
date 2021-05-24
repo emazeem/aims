@@ -73,7 +73,6 @@ class MaterialreceivingController extends Controller
 
     public function store(Request $request){
         $this->validate($request,[
-            'purchase_type'=>'required',
             'received_from'=>'required',
             'unit'=>'required',
             'qty'=>'required',
@@ -84,9 +83,8 @@ class MaterialreceivingController extends Controller
         $receiving->purchase_indent_item_id=$request->indent_item_id;
         $receiving->received_from=$request->received_from;
         $receiving->physical_check=$request->physical_check;
-        $receiving->purchase_type=$request->purchase_type;
-        if ($request->meet_specifications!=0){
-            $receiving->meet_specifications=$request->meet_specifications;
+        $receiving->meet_specifications=$request->meet_specifications;
+        if ($request->meet_specifications==1){
             $receiving->specifications=$request->specifications;
         }
         $receiving->unit=$request->unit;
@@ -96,7 +94,6 @@ class MaterialreceivingController extends Controller
     }
     public function update(Request $request){
         $this->validate($request,[
-            'purchase_type'=>'required',
             'received_from'=>'required',
             'unit'=>'required',
             'qty'=>'required',
@@ -104,13 +101,16 @@ class MaterialreceivingController extends Controller
             'meet_specifications'=>'required',
         ]);
         $receiving=Materialreceiving::find($request->id);
+        $receiving->purchase_indent_item_id=$request->indent_item_id;
         $receiving->received_from=$request->received_from;
         $receiving->physical_check=$request->physical_check;
-        $receiving->purchase_type=$request->purchase_type;
         $receiving->meet_specifications=$request->meet_specifications;
-        $receiving->specifications=$request->specifications;
+        if ($request->meet_specifications==1){
+            $receiving->specifications=$request->specifications;
+        }
         $receiving->unit=$request->unit;
         $receiving->qty=$request->qty;
+        $receiving->delete();
         $receiving->save();
         return redirect()->back()->with('success','Material Receiving updated successfully');
     }

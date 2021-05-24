@@ -197,6 +197,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('journal-vouchers', function ($user) {
+            if (in_array('journal-vouchers',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
         Gate::define('sales-invoice', function ($user) {
             if (in_array('sales-invoice',explode(',',$user->roles->permissions))){
                 return true;
