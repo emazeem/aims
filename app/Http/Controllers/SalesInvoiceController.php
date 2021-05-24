@@ -20,7 +20,7 @@ class SalesInvoiceController extends Controller
         return view('salesinvoice.create');
     }
     public function fetch(){
-        $data=Journal::with('createdby')->get();
+        $data=Journal::with('createdby')->where('type','sales invoice')->get();
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {

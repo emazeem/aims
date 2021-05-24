@@ -581,7 +581,9 @@ Route::group(['prefix'=> 'cost-center'],function(){
 
 Route::group(['prefix'=> 'vouchers'],function(){
     Route::get('',[App\Http\Controllers\VoucherController::class, 'index'])->middleware('auth')->name('vouchers');
+    Route::get('all-vouchers',[App\Http\Controllers\VoucherController::class, 'all'])->middleware('auth')->name('vouchers.all');
     Route::post('',[App\Http\Controllers\VoucherController::class, 'fetch'])->middleware('auth')->name('vouchers.fetch');
+    Route::post('/fetch-all',[App\Http\Controllers\VoucherController::class, 'all_fetch'])->middleware('auth')->name('vouchers.fetch.all');
     Route::get('/create',[App\Http\Controllers\VoucherController::class, 'create'])->middleware('auth')->name('vouchers.create');
     Route::get('/edit/{id}',[App\Http\Controllers\VoucherController::class, 'edit'])->middleware('auth')->name('vouchers.edit');
     Route::get('/show/{id}',[App\Http\Controllers\VoucherController::class, 'show'])->middleware('auth')->name('vouchers.show');
@@ -611,7 +613,9 @@ Route::group(['prefix'=> 'sales-invoice'],function(){
 });
 Route::group(['prefix'=> 'purchase-invoice'],function(){
     Route::get('',[App\Http\Controllers\PurchaseInvoiceController::class, 'index'])->middleware('auth')->name('purchase.invoice');
+    Route::get('/create',[App\Http\Controllers\PurchaseInvoiceController::class, 'create'])->middleware('auth')->name('purchase.invoice.create');
     Route::post('',[App\Http\Controllers\PurchaseInvoiceController::class, 'fetch'])->middleware('auth')->name('purchase.invoice.fetch');
+    Route::post('/create/fetch',[App\Http\Controllers\PurchaseInvoiceController::class, 'create_fetch'])->middleware('auth')->name('purchase.invoice.create.fetch');
     Route::post('store',[App\Http\Controllers\PurchaseInvoiceController::class, 'store'])->middleware('auth')->name('purchase.invoice.store');
 });
 

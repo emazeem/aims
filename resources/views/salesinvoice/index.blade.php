@@ -20,6 +20,7 @@
             <div class="text-right mt-2">
                 <a class="btn btn-primary btn-sm" href="{{route('sales.invoice.create')}}"> <i class="fa fa-plus-circle"></i> Add Sales Invoice</a>
             </div>
+
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
                 <thead>

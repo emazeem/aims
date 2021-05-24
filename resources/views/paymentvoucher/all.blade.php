@@ -16,10 +16,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Purchase Invoice</h3>
-            <div class="text-right mt-2">
-                <a class="btn btn-primary btn-sm" href="{{route('purchase.invoice.create')}}"> <i class="fa fa-plus-circle"></i> Purchase Invoice</a>
-            </div>
+            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> All Vouchers</h3>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
                 <thead>
@@ -64,7 +61,7 @@
                 "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
-                    "url": "{{route('purchase.invoice.fetch')}}",
+                    "url": "{{route('vouchers.fetch.all')}}",
                     "dataType": "json",
                     "type": "POST",
                     "data": {_token: "{{csrf_token()}}"}

@@ -363,7 +363,7 @@
                             var form_data = $("#form" + id).serialize();
 
                             $.ajax({
-                                url: "{{route('sales.invoice.create.fetch')}}",
+                                url: "{{route('invoice.store')}}",
                                 type: request_method,
                                 dataType: "JSON",
                                 data: form_data,

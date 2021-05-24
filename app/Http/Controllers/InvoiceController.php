@@ -48,7 +48,7 @@ class InvoiceController extends Controller
         $journal=new Journal();
         $journal->business_line=1;
         $journal->date=date('Y-m-d');
-        $journal->type='Sales voucher';
+        $journal->type='sales invoice';
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();

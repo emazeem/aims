@@ -37,7 +37,7 @@ class ReceiptVoucherController extends Controller
         return view('receiptvoucher.print',compact('show'));
     }
     public function fetch(){
-        $data=Journal::with('createdby')->get();
+        $data=Journal::with('createdby')->where('type','receipt voucher')->get();
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -80,6 +80,7 @@ class ReceiptVoucherController extends Controller
         return view('receiptvoucher.create',compact('blines','customers','servicetaxes','incometaxes','liability_incometaxes'));
     }
     public function store(Request $request){
+        $c=Customer::where('acc_code',$request->customer_acc)->first();
         $c_id=[];
         foreach (Journal::all() as $voucher) {
             $date=substr($voucher->customize_id, 2, 4);
@@ -90,9 +91,8 @@ class ReceiptVoucherController extends Controller
         $this->validate(request(), [
             'business_line' => 'required',
             'v_date' => 'required',
-            'tax_by' => 'required',
         ]);
-        if ($request->tax_by=='case-1') {
+        if ($c->tax_case=='1') {
             $this->validate(request(), [
                 'payment_type' => 'required',
                 'payment_acc' => 'required',
@@ -116,7 +116,7 @@ class ReceiptVoucherController extends Controller
                 return response()->json(['error'=>'Please verify that credit and debit amounts are equal'],422);
             }
         }
-        if ($request->tax_by=='case-2') {
+        if ($c->tax_case=='2') {
             $this->validate(request(), [
                 'payment_type' => 'required',
                 'payment_acc' => 'required',
@@ -137,7 +137,7 @@ class ReceiptVoucherController extends Controller
                 return response()->json(['error'=>'Please verify that credit and debit amounts are equal'],422);
             }
         }
-        if ($request->tax_by=='case-3') {
+        if ($c->tax_case=='3') {
             $this->validate(request(), [
                 'payment_type' => 'required',
                 'payment_acc' => 'required',
@@ -172,7 +172,7 @@ class ReceiptVoucherController extends Controller
         $vs->save();
 
 
-        if ($request->tax_by=='case-1'){
+        if ($c->tax_case=='1'){
             //bank or cash
             $receipt=new JournalDetails();
             $receipt->parent_id=$journal->id;
@@ -204,7 +204,7 @@ class ReceiptVoucherController extends Controller
             $liability_it->cr=$request->payable_income_tax_charges;
             $liability_it->save();
         }
-        if ($request->tax_by=='case-2'){
+        if ($c->tax_case=='2'){
 //bank/cash
             $receipt=new JournalDetails();
             $receipt->parent_id=$journal->id;
@@ -236,7 +236,7 @@ class ReceiptVoucherController extends Controller
             $service_tax->dr=$request->service_tax_acc_charges;
             $service_tax->save();
         }
-        if ($request->tax_by=='case-3'){
+        if ($c->tax_case=='3'){
 
 //bank/cash
             $receipt=new JournalDetails();

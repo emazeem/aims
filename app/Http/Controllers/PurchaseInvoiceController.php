@@ -19,39 +19,68 @@ class PurchaseInvoiceController extends Controller
         return view('purchaseinvoice.index');
     }
     public function fetch(){
-        $this->authorize('jobs-index');
-        $data=GrnVoucher::all();
+        $data=Journal::with('createdby')->where('type','purchase invoice')->get();
+        //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
             })
-            ->addColumn('po', function ($data) {
-                return $data->po_id;
+            ->addColumn('customize_id', function ($data) {
+                return $data->customize_id;
             })
-            ->addColumn('voucher_id', function ($data) {
-                return $data->voucher_id;
+            ->addColumn('type', function ($data) {
+                return ucwords(str_replace('-',' ',$data->type));
+            })
+            ->addColumn('date', function ($data) {
+                return $data->date->format('d-M-Y');
+            })
+            ->addColumn('created_by', function ($data) {
+                return $data->createdby->fname.' '.$data->createdby->lname;
             })
             ->addColumn('options', function ($data) {
+                return "&emsp;
+                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/sales-voucher/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
+                  <a title='Show' class='btn btn-sm btn-primary' href='" . url('/sales-voucher/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
+                  ";
+            })->rawColumns(['options'])->make(true);
 
-                $action=null;
-                $token=csrf_token();
-                $action.="<a class='btn btn-danger btn-sm invoice-store' title='Create Invoice' href='#' data-id='{$data->id}'><i class='fa fa-plus'></i> Invoice</a>
+    }public function create_fetch(){
+    $this->authorize('jobs-index');
+    $data=GrnVoucher::all();
+    return DataTables::of($data)
+        ->addColumn('id', function ($data) {
+            return $data->id;
+        })
+        ->addColumn('po', function ($data) {
+            return $data->po_id;
+        })
+        ->addColumn('voucher_id', function ($data) {
+            return $data->voucher_id;
+        })
+        ->addColumn('options', function ($data) {
+
+            $action=null;
+            $token=csrf_token();
+            $action.="<a class='btn btn-danger btn-sm invoice-store' title='Create Invoice' href='#' data-id='{$data->id}'><i class='fa fa-plus'></i> Invoice</a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"POST\">
                 
                      </form>";
-                if (!$data->invoice_id){
-                    return $action;
-                }else{
-                    return "<a href='".url('vouchers/show/'.$data->invoice_id)."' class='btn btn-sm btn-warning'><i class='fa fa-eye'></i> Purchase Invoice</a>";
-                }
-            })
-            ->rawColumns(['options','status'])
-            ->make(true);
-    }
+            if (!$data->invoice_id){
+                return $action;
+            }else{
+                return "<a href='".url('vouchers/show/'.$data->invoice_id)."' class='btn btn-sm btn-warning'><i class='fa fa-eye'></i> Purchase Invoice</a>";
+            }
+        })
+        ->rawColumns(['options','status'])
+        ->make(true);
 
+    }
+    public function create(){
+        return view('purchaseinvoice.create');
+    }
     public function store(Request $request){
         //dd($request->all());
         $price=0;

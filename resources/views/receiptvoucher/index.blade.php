@@ -64,7 +64,7 @@
                 "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
-                    "url": "{{route('vouchers.fetch')}}",
+                    "url": "{{route('sales.receipt.vouchers.fetch')}}",
                     "dataType": "json",
                     "type": "POST",
                     "data": {_token: "{{csrf_token()}}"}
