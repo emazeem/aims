@@ -23,7 +23,6 @@ class SchedulingController extends Controller
     }
     public function fetch(){
         $data=Job::with('quotes')->get();
-
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -41,10 +40,6 @@ class SchedulingController extends Controller
                 }
                 return $status;
             })
-            ->addColumn('turnaround', function ($data) {
-                $turnaround=date('d M Y',(strtotime($data->quotes->created_at)+($data->quotes->turnaround*(86400))));
-                return $turnaround;
-            })
             ->addColumn('type', function ($data) {
                 $check=null;
                 $items=Jobitem::where('job_id',$data->id)->get();
@@ -58,6 +53,7 @@ class SchedulingController extends Controller
                 else if ($check==[1]){$type='SITE';}
                 else {$type='SPLIT';}
                 return $type;
+
             })->addColumn('options', function ($data) {
                 $check=null;
                 $items=Jobitem::where('job_id',$data->id)->get();

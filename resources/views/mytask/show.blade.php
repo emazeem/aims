@@ -82,7 +82,7 @@
                 </tr>
                 <tr>
                     <th>Capability</th>
-                    <td>{{$show->item->capabilities->name.' '.$show->item->capabilities->range}}</td>
+                    <td>{{$show->item->capability.$show->item->capabilities->name.' '.$show->item->capabilities->range}}</td>
                 </tr>
                 <tr>
                     <th>Procedure</th>
@@ -343,7 +343,7 @@
         </div>
     </div>
 
-
+    {{$show->item->capabilities->calculator}}
      {{--for general calculator--}}
     @if($show->item->capabilities->calculator=='general-calculator')
         @if($dataentrie)

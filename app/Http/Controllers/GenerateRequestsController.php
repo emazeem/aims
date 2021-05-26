@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Capabilities;
 use App\Models\Customer;
 use App\Models\Item;
+use App\Models\Parameter;
 use App\Models\Quotes;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +17,11 @@ class GenerateRequestsController extends Controller
         $this->authorize('quote-index');
         $customers=Customer::orderBY('reg_name')->get();
         $tms=User::where('department',3)->get();
-        return view('generate_requests.index',compact('customers','tms'));
+
+        $capabilities=Capabilities::all();
+        $parameters=Parameter::all();
+
+        return view('generate_requests.index',compact('customers','tms','capabilities','parameters'));
     }
     public function get_principal($id){
         $user=Customer::find($id);
@@ -61,8 +67,10 @@ class GenerateRequestsController extends Controller
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
+
                 $action.="<a title='view' href=".url('/generate-requests/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
                 $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
+
                 return "&emsp;".$action;
             })
             ->rawColumns(['options','status'])

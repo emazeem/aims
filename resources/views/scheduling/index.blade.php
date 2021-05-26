@@ -19,7 +19,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Customer</th>
-                    <th>Turnaround</th>
                     <th>Status</th>
                     <th>Type</th>
                     <th>Action</th>
@@ -31,7 +30,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Customer</th>
-                    <th>Turnaround</th>
                     <th>Status</th>
                     <th>Type</th>
                     <th>Action</th>
@@ -63,7 +61,6 @@
                 "columns": [
                     { "data": "id" },
                     { "data": "customer" },
-                    { "data": "turnaround" },
                     { "data": "status" },
                     { "data": "type" },
                     { "data": "options" ,"orderable":false},

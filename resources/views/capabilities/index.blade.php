@@ -206,6 +206,7 @@
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;
                     });
+
                     swal("Failed", error, "error");
                 }
             });

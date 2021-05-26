@@ -143,6 +143,7 @@
                 error: function(){},
             });
         });
+
         $("#add_session_form").on('submit',(function(e) {
             e.preventDefault();
             $.ajax({
@@ -178,6 +179,7 @@
                 }
             });
         }));
+
         $("#edit_session_form").on('submit',(function(e) {
             e.preventDefault();
             $.ajax({
@@ -222,11 +224,49 @@
                 }
             });
         }));
+        $('select[name="parameter"]').on('change', function() {
+            $('#price').val('');
+            $('#range').val('');
+            var parameter = $(this).val();
+            if(parameter) {
+                $.ajax({
+                    url: '/items/select-capabilities/'+parameter,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('select[name="capability"]').empty();
 
+                        $('select[name="capability"]').append('<option disabled selected>Select Respective Parameter</option>');
+                        $.each(data, function(key, value) {
+                            $('select[name="capability"]').append('<option value="'+ value +'">'+ key +'</option>');
+                        });
+                    }
+                });
+            }else{
+                $('select[name="capability"]').empty();
+            }
+        });
+        $('select[name="capability"]').on('change', function() {
+            var capability = $(this).val();
+            if(capability) {
+                $.ajax({
+                    url: '/items/select-price/'+capability,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('#price').val(data.price);
+                        $('#range').val(data.range);
+                        $('#location').val(data.location);
+                        $('#accredited').val(data.accredited);
+                    }
+                });
+            }else{
+                $('select[name="capability"]').empty();
+            }
+        });
     });
 
 </script>
-
 <div class="modal fade" id="add_session" tabindex="-1" role="dialog" aria-labelledby="add_session" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -301,7 +341,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="edit_session" tabindex="-1" role="dialog" aria-labelledby="edit_session" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -378,5 +417,4 @@
             </div>
     </div>
 </div>
-
 @endsection

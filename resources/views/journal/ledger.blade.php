@@ -70,7 +70,7 @@
                     <td class="text-right">-</td>
                     <td class="text-right">-</td>
                     <td class="text-right">-</td>
-                    <td class="text-right">{{$opening_balance}}</td>
+                    <td class="text-right">{{number_format($opening_balance)}}</td>
                 </tr>
                 @php $dr=0;$cr=0; @endphp
                 @foreach($entries as $entry)
@@ -85,12 +85,12 @@
                         <td class="text-right">
                             @if($entry->dr)
                                 @php $opening_balance=$opening_balance+$entry->dr @endphp
-                                {{number_format($opening_balance)}}
+
                             @endif
                             @if($entry->cr)
                                 @php $opening_balance=$opening_balance-$entry->cr @endphp
-                                {{number_format($opening_balance)}}
                             @endif
+                                {{$opening_balance>0?number_format($opening_balance): '('.number_format(abs($opening_balance)).')'}}
                         </td>
                     </tr>
                     @php $dr=$dr+$entry->dr;$cr=$cr+$entry->cr; @endphp

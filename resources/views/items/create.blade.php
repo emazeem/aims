@@ -49,6 +49,7 @@
 
 
             $('select[name="capability"]').append('<option disabled selected>Select Respective Parameter</option>');
+
             $('select[name="parameter"]').on('change', function() {
                 $('#price').val('');
                 $('#range').val('');
@@ -93,7 +94,6 @@
         });
     </script>
     <div class="row pb-3">
-
         <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
             <h1 class="h3 border-bottom"><i class="fa fa-plus-circle"></i> Add Items</h1>
             <a class="btn btn-danger btn-sm" data-toggle="modal" href="#" data-target="#add_na">
@@ -231,12 +231,9 @@
                         @endif
                     </div>
                 </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Save</button>
-                </div>
-                <!-- /.box-footer -->
+                <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
+                <button type="submit" class="btn btn-primary float-right">Save</button>
+
             </form>
         </div>
     </div>

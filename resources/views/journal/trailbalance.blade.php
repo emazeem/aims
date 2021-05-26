@@ -38,7 +38,7 @@
             @endif
         </div>
         <div class="row">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th class="text-xs">Account Code</th>
@@ -62,7 +62,7 @@
                         <td class="text-right">
                             @if($entries[$account->acc_code])
                                 @if($entries[$account->acc_code]<0)
-                                    {{-$entries[$account->acc_code]?number_format($entries[$account->acc_code]):''}}
+                                    {{-$entries[$account->acc_code]?number_format(abs($entries[$account->acc_code])):''}}
                                 @endif
                             @endif
                         </td>

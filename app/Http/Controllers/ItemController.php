@@ -124,6 +124,7 @@ class ItemController extends Controller
         return view('items.edit',compact('session','parameters','capabilities','edit'));
     }
     public function store(Request $request){
+        dd($request->all());
         $this->authorize('items-create');
         //non-listed
         if (isset($request->name)){
@@ -301,5 +302,4 @@ class ItemController extends Controller
         $nofacility->save();
         return response()->json(['success'=>'Sent with no facility']);
     }
-    //
 }

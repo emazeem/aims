@@ -31,8 +31,6 @@
                 @endif
             @endif
         </div>
-
-
     </div>
     <div class="row">
         <div class="col-12">
@@ -164,10 +162,9 @@
                     <th>Action</th>
                 </tr>
                 </tfoot>
-
             </table>
-
         </div>
+
     </div>
     <script>
 

@@ -33,8 +33,8 @@ Route::get('/masterlistofequipments',function (){ $assets=\App\Models\Asset::all
 Route::group(['prefix'=> 'customers'],function() {
     Route::get('',[App\Http\Controllers\CustomerController::class, 'index'])->middleware('auth')->name('customers');
     Route::get('/create',[App\Http\Controllers\CustomerController::class, 'create'])->middleware('auth')->name('customers.create');
-    Route::get('/view/{id}',[App\Http\Controllers\CustomerController::class, 'show'])->middleware('auth')->name('customers.show');
-    Route::get('/edit/{id}',[App\Http\Controllers\CustomerController::class, 'edit'])->middleware('auth')->name('customers.edit');
+    Route::post('show',[App\Http\Controllers\CustomerController::class, 'show'])->middleware('auth')->name('customers.show');
+    Route::post('/edit',[App\Http\Controllers\CustomerController::class, 'edit'])->middleware('auth')->name('customers.edit');
     Route::post('/update/{id}',[App\Http\Controllers\CustomerController::class, 'update'])->middleware('auth')->name('customers.update');
     Route::post('',[App\Http\Controllers\CustomerController::class, 'fetch'])->middleware('auth')->name('customers.fetch');
     Route::post('/store',[App\Http\Controllers\CustomerController::class, 'store'])->middleware('auth')->name('customers.store');
@@ -255,6 +255,7 @@ Route::group(['prefix'=> 'scheduling'],function() {
     Route::post('',[App\Http\Controllers\SchedulingController::class, 'fetch'])->middleware('auth')->name('scheduling.fetch');
 });
 Route::group(['prefix'=> 'items'],function() {
+    Route::get('show/{id}',[App\Http\Controllers\ItemController::class, 'show'])->middleware('auth')->name('items.show');
     Route::get('',[App\Http\Controllers\ItemController::class, 'index'])->middleware('auth')->name('items');
     Route::get('/select-capabilities/{id}',[App\Http\Controllers\ItemController::class, 'getCapabilities'])->middleware('auth')->name('items.getcapabilities');
     Route::get('/select-price/{id}',[App\Http\Controllers\ItemController::class, 'getPrice'])->middleware('auth')->name('items.getPrice');

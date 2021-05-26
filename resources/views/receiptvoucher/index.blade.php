@@ -16,7 +16,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Incoming Payments / Receipt Voucher</h3>
+            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Receipt Voucher</h3>
             <div class="text-right mt-2">
                 <a class="btn btn-primary btn-sm" href="{{route('sales.receipt.vouchers.create')}}"> <i class="fa fa-plus-circle"></i> Receipt Voucher</a>
             </div>

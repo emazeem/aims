@@ -18,7 +18,7 @@
                 @csrf
                 <div class="form-group mt-md-4 row">
                     <label for="name" class="col-sm-2 control-label">Registered Name</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Registered Name"
                                autocomplete="off" value="{{old('name')}}">
                         @if ($errors->has('name'))
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="ntn" class="col-sm-2 control-label">NTN / FTN</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <input type="text" class="form-control" id="ntn" name="ntn" placeholder="NTN / FTN"
                                autocomplete="off" value="{{old('ntn')}}">
                         @if ($errors->has('ntn'))
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="address" class="col-sm-2 control-label">Physical Address</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <textarea type="text" class="form-control" rows="5" id="address" name="address"
                                   placeholder="Physical Address" autocomplete="off">{{old('address')}}</textarea>
                         @if ($errors->has('address'))
@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="region" class="col-sm-2 control-label">Select Region</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="region" name="region">
                                 <option selected disabled="">Select Region</option>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="pay_type" class="col-sm-2 control-label">Payment Type</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="pay_type" name="pay_type">
                                 <option selected disabled="">Select Payment Type</option>
@@ -97,7 +97,7 @@
 
                 <div class="form-group row">
                     <label for="pay_way" class="col-sm-2 control-label">Payment Way</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="pay_way" name="pay_way">
                                 <option selected disabled="">Select Payment Way</option>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="tax_case" class="col-sm-2 control-label">Tax Case</label>
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="tax_case" name="tax_case">
                                 <option selected disabled="">Select Tax Case</option>
