@@ -144,12 +144,9 @@
                         @endif
                     </div>
                 </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <a href="{{ url('/sessions') }}" class="btn btn-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Update</button>
-                </div>
-                <!-- /.box-footer -->
+                <a href="{{ URL::previous() }}" class="btn btn-light btn-sm border"><i class="fa fa-angle-left"></i> Back</a>
+                <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-save"></i> Update</button>
+
             </form>
         </div>
     </div>

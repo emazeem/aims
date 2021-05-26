@@ -21,6 +21,7 @@
             <input name='id' type='hidden' value='{{$show->id}}'>
         </form>
         <div class="col-12 text-right">
+            {{$noaction}}
             @if(count($items)>0)
                 @if($noaction==false)
                     @if($show->status==0)

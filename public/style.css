@@ -90,17 +90,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
     background-color: #007bff !important;
     margin-top: -5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+h3,h4{
+    font-family: "Times New Roman";
+    color: #000;
+}

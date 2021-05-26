@@ -124,7 +124,7 @@ class ItemController extends Controller
         return view('items.edit',compact('session','parameters','capabilities','edit'));
     }
     public function store(Request $request){
-        dd($request->all());
+
         $this->authorize('items-create');
         //non-listed
         if (isset($request->name)){
@@ -169,7 +169,7 @@ class ItemController extends Controller
             'location.required' => 'Location field is required *',
             'accredited.required' => 'Accredited field is required *',
         ]);
-        //change status 0 to 1 for empty to adding state of session
+        //change status 0 to 1 for empty to adding state of quote
         $item=new Item();
         $item->quote_id=$request->session_id;
         $item->not_available=null;
@@ -201,7 +201,7 @@ class ItemController extends Controller
             $q->type='SITE';
             $q->save();
         }else{}
-        return redirect()->back()->with('success', 'Item added successfully');
+        return response()->json(['success'=> 'Item added successfully']);
     }
     public function update($id,Request $request){
 
@@ -256,7 +256,6 @@ class ItemController extends Controller
         return redirect()->back()->with('success', 'Item updated successfully');
     }
     public function updateNA(Request $request){
-
         $this->validate(request(), [
             'name' => 'required',
             'quantity' => 'required',
@@ -269,8 +268,6 @@ class ItemController extends Controller
         $item->quantity=$request->quantity;
         $item->save();
         return response()->json(['success'=>'Updated successfully']);
-
-
     }
     public function getCapabilities($id){
         $capabilities=Capabilities::where('parameter', $id)

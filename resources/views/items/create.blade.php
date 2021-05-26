@@ -91,6 +91,33 @@
                     $('select[name="capability"]').empty();
                 }
             });
+            $("#add-items").on('submit',(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('items.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        swal('success',data.success,'success').then((value) => {
+
+                        });
+
+                    },
+                    error: function(xhr)
+                    {
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+
         });
     </script>
     <div class="row pb-3">
@@ -102,7 +129,7 @@
         </div>
         <div class="col-12">
 
-            <form class="form-horizontal" action="{{route('items.store')}}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" id="add-items">
                 @csrf
                 <div class="form-group  row">
                     <label for="session" class="col-sm-2 control-label">Quote</label>
@@ -231,8 +258,8 @@
                         @endif
                     </div>
                 </div>
-                <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                <button type="submit" class="btn btn-primary float-right">Save</button>
+                <a href="{{ URL::previous() }}" class="btn btn-light btn-sm border"><i class="fa fa-angle-left"></i> Back</a>
+                <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-save"></i> Save</button>
 
             </form>
         </div>

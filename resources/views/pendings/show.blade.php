@@ -31,6 +31,7 @@
                     <th>Customer</th>
                     <th>Not Available</th>
                     <th>Checks</th>
+                    <th>Reason</th>
                     <th>Created_at</th>
                     <th>Action</th>
                 </tr>
@@ -52,7 +53,9 @@
                                     Cal Procedure {!! ($checks[1]==1)?'✓':'✗' !!}<br>
                                     Cal Schedule {!! ($checks[2]==1)?'✓':'✗' !!}
                                 @endif
+
                             </td>
+                            <td>{{$item->rf_reason}}</td>
                             <td>{{date('d-M Y',strtotime($item->created_at))}}</td>
                             <td>
 
@@ -92,6 +95,7 @@
                     <th>Customer</th>
                     <th>Not Available</th>
                     <th>Checks</th>
+                    <th>Reason</th>
                     <th>Created_at</th>
                     <th>Action</th>
                 </tr>
@@ -222,15 +226,19 @@
                                     <label class="form-check-label" for="cal_schedule">Cal Schedule</label>
                                 </div>
                             </div>
-                            <div class="col-12 text-right">
-                                <button class="btn btn-primary" type="submit">Save</button>
+                            <div class="form-group col-12">
+                                <label for="rf_reason" class="control-label"></label>
+                                <textarea type="text" class="form-control" rows="2" id="rf_reason" name="rf_reason"
+                                          placeholder="Reason" autocomplete="off">{{old('rf_reason')}}</textarea>
                             </div>
-
                         </div>
 
-                    </form>
                 </div>
                 <div class="modal-footer">
+                    <div class="col-12 text-right">
+                        <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-save"></i> Save</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>

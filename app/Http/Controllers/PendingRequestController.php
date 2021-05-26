@@ -70,7 +70,18 @@ class PendingRequestController extends Controller
     */
     public function fetch(){
         $this->authorize('quote-index');
-        $data=Quotes::with('customers')->get();
+
+        $quotes=Quotes::with('items')->get();
+        $pending=[];
+        foreach ($quotes as $quote){
+            foreach ($quote->items as $item){
+                if ($item->status==1){
+                    $pending[]=$quote->id;
+                }
+            }
+        }
+        $pending=array_unique($pending);
+        $data=Quotes::with('customers')->whereIn('id',$pending)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return 'RFQ/'.date('y',strtotime($data->created_at)).'/'.$data->id;
@@ -197,6 +208,7 @@ class PendingRequestController extends Controller
         }
         $items=Item::find($request->id);
         $items->rf_checks=implode(',',$array);
+        $items->rf_reason=$request->rf_reason;
         $items->save();
         return response()->json(['success'=>'Checks added successfully']);
     }

@@ -30,7 +30,7 @@ class GenerateRequestsController extends Controller
     }
     public function fetch(){
         $this->authorize('quote-index');
-        $data=Quotes::with('customers')->get();
+        $data=Quotes::with('customers')->where('status',0)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return 'RFQ/'.date('y',strtotime($data->created_at)).'/'.$data->id;
@@ -67,10 +67,8 @@ class GenerateRequestsController extends Controller
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
-
                 $action.="<a title='view' href=".url('/generate-requests/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
                 $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
-
                 return "&emsp;".$action;
             })
             ->rawColumns(['options','status'])

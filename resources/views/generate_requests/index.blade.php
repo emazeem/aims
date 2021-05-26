@@ -16,7 +16,7 @@
 @endif
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Requests</h3>
+        <h3 class="pull-left pb-1"><i class="fa fa-question-circle "></i> All Requests</h3>
         <span class="">
             <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-circle"></i> Request</button>
         </span>
