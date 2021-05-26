@@ -230,14 +230,42 @@
                             "<tr><td>Tax Case</td><td>" + data.tax_case + "</td></tr>"+
                             "<tr><td>Principal Name</td><td>" + data.prin_name + "</td></tr>"+
                             "<tr><td>Principal Email</td><td>" + data.prin_email + "</td></tr>"+
-                            "<tr><td>Principal Phone</td><td>" + data.prin_email + "</td></tr>"+
-                            "<tr><td>Purchase Name</td><td>" + data.pur_name + "</td></tr>"+
-                            "<tr><td>Purchase Email</td><td>" + data.pur_email + "</td></tr>"+
-                            "<tr><td>Purchase Phone</td><td>" + data.pur_phone + "</td></tr>"+
-                            "<tr><td>Account Name</td><td>" + data.acc_name + "</td></tr>"+
-                            "<tr><td>Account Email</td><td>" + data.acc_email + "</td></tr>"+
-                            "<tr><td>Account Phone</td><td>" + data.acc_phone + "</td></tr>"
+                            "<tr><td>Principal Phone</td><td>" + data.prin_email + "</td></tr>"
                         );
+                        if (data.pur_name){
+                            $('.customer-show').append(
+                                "<tr><td>Purchase Name</td><td>" + data.pur_name + "</td></tr>"
+                            );
+                        }
+                        if (data.pur_email){
+                            $('.customer-show').append(
+                                "<tr><td>Purchase Email</td><td>" + data.pur_email + "</td></tr>"
+                            );
+                        }
+                        if (data.pur_phone){
+                            $('.customer-show').append(
+                                "<tr><td>Purchase Phone</td><td>" + data.pur_phone + "</td></tr>"
+                            );
+                        }
+
+                        if (data.acc_name){
+                            $('.customer-show').append(
+                                "<tr><td>Account Name</td><td>" + data.acc_name + "</td></tr>"
+
+                            );
+                        }
+
+                        if (data.acc_email){
+                            $('.customer-show').append(
+                                "<tr><td>Account Email</td><td>" + data.acc_email + "</td></tr>"
+                            );
+                        }
+
+                        if (data.acc_phone){
+                            $('.customer-show').append(
+                                "<tr><td>Account Phone</td><td>" + data.acc_phone + "</td></tr>");
+                        }
+
                     }
                 });
             });
