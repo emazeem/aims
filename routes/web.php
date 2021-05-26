@@ -182,7 +182,6 @@ Route::group(['prefix'=> 'menus'],function() {
     Route::post('/edit',[App\Http\Controllers\MenuController::class, 'edit'])->middleware('auth')->name('menus.edit');
     Route::delete('/delete',[App\Http\Controllers\MenuController::class, 'destroy'])->middleware('auth')->name('menus.destroy');
     Route::post('/update',[App\Http\Controllers\MenuController::class, 'update'])->middleware('auth')->name('menus.update');
-    Route::post('/search',[App\Http\Controllers\MenuController::class, 'search'])->middleware('auth')->name('menus.search');
 
     Route::get('/manage',[App\Http\Controllers\MenuController::class, 'manage'])->middleware('auth')->name('menus.manage');
     Route::post('/store_position',[App\Http\Controllers\MenuController::class, 'store_position'])->middleware('auth')->name('menus.store_position');

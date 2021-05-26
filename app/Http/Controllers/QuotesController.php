@@ -22,9 +22,23 @@ class QuotesController extends Controller
         $user->prin_name=explode(',',$user->prin_name);
         return response()->json($user);
     }
-    public function fetch(){
+    public function fetch(Request $request){
         $this->authorize('quote-index');
-        $data=Quotes::with('customers')->where('status','>',0)->get();
+        if ($request->search=='not-sent-to-customer'){
+            $data=Quotes::with('customers')->where('status',1)->get();
+        }
+        if ($request->search=='approval-waiting'){
+            $data=Quotes::with('customers')->where('status',2)->get();
+        }
+        if ($request->search=='approved'){
+            $data=Quotes::with('customers')->where('status',3)->get();
+        }
+        if ($request->search=='all'){
+            $data=Quotes::with('customers')->where('status','>',0)->get();
+        }
+
+
+
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return 'QTN/'.date('y',strtotime($data->created_at)).'/'.$data->id;
@@ -39,12 +53,9 @@ class QuotesController extends Controller
                 return $data->type;
             })
                 ->addColumn('status', function ($data) {
-                //Items are adding
-                if ($data->status==0){
-                    $status= '<b class="badge badge-secondary">Items being added</b>';
-                }
+
                 if ($data->status==1){
-                    $status= '<b class="badge badge-success">Quote is closed</b>';
+                    $status= '<b class="badge badge-success">Quote not sent to Customer</b>';
                 }
                 if ($data->status==2){
                     $status= '<b class="badge badge-success">Waiting for Customer Approval</b>';

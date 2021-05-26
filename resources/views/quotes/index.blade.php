@@ -17,10 +17,17 @@
 <div class="row">
     <div class="col-12">
         <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Quotes</h3>
-        {{--<span class="">
-            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-circle"></i> Quote</button>
-        </span>
-        --}}
+
+        <div class="col-12">
+            <div class="form-check form-check-inline col-2 pull-right mb-2">
+                <select class="form-control" id="search" name="search">
+                    <option value="not-sent-to-customer">Not Sent to Customer</option>
+                    <option value="approval-waiting">Waiting for Customer Approval</option>
+                    <option value="approved">Approved Quotes</option>
+                    <option value="all">All Quotes & RFQ</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <div class="col-lg-12">
@@ -56,7 +63,7 @@
 </script>
 <script>
 
-    function InitTable() {
+    function InitTable(search) {
         $(".loading").fadeIn();
 
         $('#example').DataTable({
@@ -71,7 +78,7 @@
                 "url": "{{ route('quotes.fetch') }}",
                 "dataType": "json",
                 "type": "POST",
-                "data":{ _token: "{{csrf_token()}}"}
+                "data":{ 'search':search,_token: "{{csrf_token()}}"}
             },
             "columns": [
                 { "data": "id" },
@@ -86,8 +93,11 @@
 
     }
     $(document).ready(function() {
-        InitTable();
-
+        InitTable('not-sent-to-customer');
+        $('select[name="search"]').on('change', function() {
+            var search = $(this).val();
+            InitTable(search);
+        });
         $(document).on('click', '.delete', function (e) {
             swal({
                 title: "Are you sure to delete this quote?",

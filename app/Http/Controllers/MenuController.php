@@ -16,21 +16,19 @@ class MenuController extends Controller
 
         return view('menus',compact('parents'));
     }
-    public function fetch(){
-        $check=Session::get('filter_data');
-        if (empty($check)){
+    public function fetch(Request $request){
+        //dd($request->all());
+        if ($request->type=='all'){
             $data=Menu::all();
-        }else{
-            if ($check['type']=='parent'){
-                $data=Menu::all()->where('parent_id',null);
-            }
-            if ($check['type']=='child'){
-                $data=Menu::all()->where('has_child',1);
-            }
-            if ($check['type']=='other'){
-                $data=Menu::all()->where('has_child',0)->where('parent_id',!null);
-            }
-
+        }
+        if ($request->type=='parent'){
+            $data=Menu::all()->where('parent_id',null);
+        }
+        if ($request->type=='child'){
+            $data=Menu::all()->where('has_child',1);
+        }
+        if ($request->type=='other'){
+            $data=Menu::all()->where('has_child',0)->where('parent_id',!null);
         }
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
