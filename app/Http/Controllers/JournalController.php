@@ -2,8 +2,10 @@
 namespace App\Http\Controllers;
 use App\Models\AccLevelOne;
 use App\Models\Chartofaccount;
+use App\Models\Customer;
 use App\Models\Journal;
 use App\Models\JournalDetails;
+use Carbon\Carbon;
 use     Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
@@ -259,9 +261,37 @@ class JournalController extends Controller
                 }
             }
         }
-
-
         return view('journal.balance_sheet',compact('accounts','balances'));
+    }
+    public function receivable_aging(){
+        $invoices=Journal::where('type','sales invoice')->get();
+        $customer_id=[];
+
+        foreach ($invoices as $invoice){
+            foreach ($invoice->details as $detail) {
+                if(substr($detail->acc_code,0,5)==10103){
+                    $customer_id[]=$detail->acc_code;
+
+                }
+            }
+        }
+        $customer_id=array_unique($customer_id);
+        $customer_id=array_values($customer_id);
+
+        $data=[];
+        $details=[];
+        foreach ($customer_id as $k=>$item){
+            $customers=Customer::where('acc_code',$item)->first();
+            $data[$k]['customer_acc_code']=$item;
+            $data[$k]['customer_name']=$customers->reg_name;
+
+            $transactions=JournalDetails::where('acc_code',$item)->whereHas('parent', function($q) {
+                $q->where('type', 'sales invoice');
+            })->get();
+            $data[$k]['invoices']=$transactions;
+            //$data[$k]['invoices']['voucher_id'];
+        }
+        return view('journal.receivable_aging',compact('data','details'));
     }
 
 }

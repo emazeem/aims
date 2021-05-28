@@ -650,6 +650,7 @@ Route::group(['prefix'=> 'journal'],function(){
     Route::post('/trail_balance',[App\Http\Controllers\JournalController::class, 'trail_balance'])->middleware('auth')->name('trail.balance');
     Route::post('/income',[App\Http\Controllers\JournalController::class, 'income'])->middleware('auth')->name('journal.income');
     Route::post('/balance-sheet',[App\Http\Controllers\JournalController::class, 'balance_sheet'])->middleware('auth')->name('journal.balance_sheet');
+    Route::get('/receivable-aging',[App\Http\Controllers\JournalController::class, 'receivable_aging'])->middleware('auth')->name('journal.receivable_aging');
 });
 Route::group(['prefix'=> 'general-calculator'],function() {
     Route::get('print/woksheet/{loc}/{id}',[App\Http\Controllers\Calculator\GeneralCalculatorController::class, 'print_worksheet'])->middleware('auth')->name('general.calculator.print_worksheet');

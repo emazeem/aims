@@ -22,6 +22,7 @@
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#trial-balance">Trail Balance</button>
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#income-statement">Profit & Loss Statement</button>
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#balance-sheet">Balance Sheet</button>
+                <a href="{{route('journal.receivable_aging')}}" class="btn btn-sm btn-primary shadow-sm pull-right">Receivable Aging</a>
             </span>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>

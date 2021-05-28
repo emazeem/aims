@@ -24,9 +24,15 @@ class Journal extends Model
     public function businessLine(){
         return $this->belongsTo('App\Models\BusinessLine','business_line','id')->withDefault();
     }
+    public function invoices(){
+        return $this->belongsTo('App\Models\Invoice','id','voucher_id')->withDefault();
+    }
+    public function invtopay(){
+        return $this->hasMany('App\Models\InvoiceVsReceipts','invoice_id','id');
+    }
+
     public function attachments(){
         return $this->hasMany('App\Models\Journalassets','voucher_id','id');
     }
-
     use HasFactory;
 }

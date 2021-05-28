@@ -6,59 +6,47 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>General Ledger</title>
-    <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
 </head>
-
 <body>
 
 <div class="container-fluid">
 
     <div class="col-12 font-style mt-2">
         <div class="row">
-            <div class="col-2 text-center custom-border">
+            <div class="col-2 text-center border border-dark border-right-0 p-2">
                 <img src="{{url('/img/aims.png')}}" class="mt-2 ml-2" width="100">
             </div>
-            <div class="col-7 border-left-right-0 custom-border" >
-                <p class="text-center b font-14 mt-4 text-capitalize">
+            <div class="col-10 border border-dark  p-2" >
+                <h1 class="text-center b font-14 mt-4 text-capitalize">
                     General Ledger
-                </p>
-            </div>
-            <div class="col-3 row custom-border font-9 p-0">
-                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
-                <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2020</p>
-                <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 mt-2 mb-1">
-                    Issue # 01
-                    <span class="px-4"></span>
-                    Rev # 02
-                </p>
+                </h1>
             </div>
         </div>
 
-        <div class="col-12 text-center">
-            @if($dates)
-                <p class="text-center font-14 mt-0 pt-0 b">From {{date('d-M Y',strtotime($dates[0]))}} to {{date('d-M Y',strtotime($dates[1]))}}</p>
-            @endif
-        </div>
-        <div class="col-12">
-            <b class="m-0">A/C CODE : {{$account->acc_code}}</b><br>
-            <b class="m-0">A/C TITLE : {{$account->title}}</b>
+        <div class="row my-3">
+            <div class="col-12 mb-2">
+                @if($dates)
+                    <span class="h4 border-dark border-bottom">From {{date('d-M Y',strtotime($dates[0]))}} to {{date('d-M Y',strtotime($dates[1]))}}</span>
+                @endif
+            </div>
+
+            <div class="col-3"><p> <b>A/C CODE</b> : {{$account->acc_code}}</p></div>
+            <div class="col-3"><p> <b>A/C TITLE</b> : {{$account->title}}</p></div>
+
         </div>
         <div class="row">
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="bg-info text-light">
                 <tr>
-                    <th class="text-center">Date</th>
-                    <th class="text-center">Voucher#</th>
-                    <th class="text-xs">Narration</th>
-                    <th class="text-xs">Reference</th>
-                    <th class="text-xs">Cost Center</th>
-                    <th class="text-xs">Dr.</th>
-                    <th class="text-xs">Cr.</th>
-                    <th class="text-xs">Balance</th>
+                    <td >Date</td>
+                    <td>Voucher#</td>
+                    <td >Narration</td>
+                    <td >Reference</td>
+                    <td >Cost Center</td>
+                    <td >Dr.</td>
+                    <td >Cr.</td>
+                    <td >Balance</td>
                 </tr>
                 </thead>
                 <tbody>

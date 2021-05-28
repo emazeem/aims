@@ -19,7 +19,7 @@
         <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Quotes</h3>
 
         <div class="col-12">
-            <div class="form-check form-check-inline col-2 pull-right mb-2">
+            <div class="form-check form-check-inline col-3 pull-right mb-2">
                 <select class="form-control" id="search" name="search">
                     <option value="not-sent-to-customer">Not Sent to Customer</option>
                     <option value="approval-waiting">Waiting for Customer Approval</option>

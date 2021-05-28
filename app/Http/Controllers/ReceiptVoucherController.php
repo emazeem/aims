@@ -277,12 +277,15 @@ class ReceiptVoucherController extends Controller
 
 
     public function get_inv($id){
+
         $jobids=[];
         $customer=Customer::where('acc_code',$id)->first();
         $quotes=Quotes::where('customer_id',$customer->id)->get();
         foreach ($quotes as $quote){
-            $jobs=Job::where('quote_id',$quote->id)->first();
-            $jobids[]=$jobs->id;
+            $jobs=Job::where('quote_id',$quote->id)->get();
+            foreach ($jobs as $job){
+                $jobids[]=$job->id;
+            }
         }
         $data['invoices']=Invoice::whereIn('job_id',$jobids)->get();
         $data['case']=$customer->tax_case;
