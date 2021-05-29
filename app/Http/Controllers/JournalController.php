@@ -293,5 +293,20 @@ class JournalController extends Controller
         }
         return view('journal.receivable_aging',compact('data','details'));
     }
+    public function pra(Request $request){
+        Validator::validate($request->all(), [
+            'month' => 'required'
+        ]);
+        $eachs=Journal::where('type','sales invoice')->get();
+        $id=[];
+        foreach ($eachs as $each){
+            if (date('Y-m',strtotime($each->date))==$request->month){
+               $id[]=$each->id;
+            }
+        }
+        $invoices=Journal::whereIn('id',$id)->get();
+        $month=date('F Y',strtotime($request->month));
+        return view('journal.pra',compact('invoices','month'));
+    }
 
 }

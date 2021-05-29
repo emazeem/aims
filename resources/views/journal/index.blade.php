@@ -23,6 +23,7 @@
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#income-statement">Profit & Loss Statement</button>
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#balance-sheet">Balance Sheet</button>
                 <a href="{{route('journal.receivable_aging')}}" class="btn btn-sm btn-primary shadow-sm pull-right">Receivable Aging</a>
+                <button {{--href="{{route('journal.pra')}}"--}} data-toggle="modal" data-target="#pra" class="btn btn-sm btn-primary shadow-sm pull-right">PRA</button>
             </span>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
@@ -215,6 +216,34 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="daterange" id="daterange" value="" />
                                     <button class="no-date">NO Date</button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer text-right bg-light">
+                    <button class="btn btn-primary btn-sm btn-block" type="submit"><i class="fa fa-eye"></i> Show</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pra" tabindex="-1" role="dialog" aria-labelledby="income-statement" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title"><i class="fa fa-money"></i> PRA</h5>
+                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                        <small><i class="fa fa-times-circle"></i></small>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{{route('journal.pra')}}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="month" class="p-0 m-0"><small>Select Month</small></label>
+                                <div class="form-group">
+                                    <input type="month" class="form-control" name="month" id="month" value="" />
                                 </div>
                             </div>
                         </div>
