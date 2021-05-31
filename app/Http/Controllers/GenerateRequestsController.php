@@ -42,18 +42,8 @@ class GenerateRequestsController extends Controller
                 return $data->type;
             })
             ->addColumn('status', function ($data) {
-                //Items are adding
                 if ($data->status==0){
-                    $status= '<b class="badge badge-secondary">Items being added</b>';
-                }
-                if ($data->status==1){
-                    $status= '<b class="badge badge-success">New Quote Generated</b>';
-                }
-                if ($data->status==2){
-                    $status= '<b class="badge badge-success">Waiting for Customer Approval</b>';
-                }
-                if ($data->status==3){
-                    $status= '<b class="badge badge-danger">Approved</b>';
+                    $status= '<b class="badge badge-secondary  p-1 px-2 mt-2">Items being added</b>';
                 }
                 return $status;
             })

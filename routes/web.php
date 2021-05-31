@@ -259,7 +259,6 @@ Route::group(['prefix'=> 'items'],function() {
     Route::get('/select-capabilities/{id}',[App\Http\Controllers\ItemController::class, 'getCapabilities'])->middleware('auth')->name('items.getcapabilities');
     Route::get('/select-price/{id}',[App\Http\Controllers\ItemController::class, 'getPrice'])->middleware('auth')->name('items.getPrice');
     Route::post('',[App\Http\Controllers\ItemController::class, 'fetch'])->middleware('auth')->name('items.fetch');
-    Route::get('/create/{id}',[App\Http\Controllers\ItemController::class, 'create'])->middleware('auth')->name('items.create');
     Route::post('/store',[App\Http\Controllers\ItemController::class, 'store'])->middleware('auth')->name('items.store');
     Route::post('/updateNA',[App\Http\Controllers\ItemController::class, 'updateNA'])->middleware('auth')->name('items.updateNA');
     Route::get('/edit/{session}/{id}',[App\Http\Controllers\ItemController::class, 'edit'])->middleware('auth')->name('items.edit');

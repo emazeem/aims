@@ -37,8 +37,6 @@ class QuotesController extends Controller
             $data=Quotes::with('customers')->where('status','>',0)->get();
         }
 
-
-
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return 'QTN/'.date('y',strtotime($data->created_at)).'/'.$data->id;
@@ -55,14 +53,13 @@ class QuotesController extends Controller
                 ->addColumn('status', function ($data) {
 
                 if ($data->status==1){
-                    $status= '<b class="badge badge-success">Quote not sent to Customer</b>';
+                    $status= '<b class="badge badge-info p-1 px-2 mt-2">To be Sent</b>';
                 }
                 if ($data->status==2){
-                    $status= '<b class="badge badge-success">Waiting for Customer Approval</b>';
+                    $status= '<b class="badge badge-primary p-1 px-2 mt-2">Waiting Customer Approval</b>';
                 }
-                //Team is working
                 if ($data->status==3){
-                    $status= '<b class="badge badge-danger">Approved</b>';
+                    $status= '<b class="badge badge-success p-1 px-2 mt-2">Approved</b>';
                 }
                 return $status;
             })
@@ -77,11 +74,6 @@ class QuotesController extends Controller
                 $token=csrf_token();
                 $action=null;
                 $action.="<a title='view' href=".url('/quotes/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
-                if ($data->status==1){
-                    $action.="<a title='send to customer' data-id='".$data->id."' class='btn btn-sm btn-success sendtocustomer'><i class='fa fa-send'></i></a>";
-                }
-                /*$action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
-                */
 
                 $action.="<a onclick=\"window.open('".url('/quotes/print/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
                 href=".url('/quotes/print/'.$data->id)." 
@@ -185,6 +177,7 @@ class QuotesController extends Controller
                 $noaction=true;
             }
         }
+
         return view('quotes.show',compact('show','id','tms','items','noaction'));
     }
 

@@ -28,10 +28,11 @@
       <tr>
         <th>ID</th>
         <th>Customer</th>
-        <th>Status</th>
         <th>Total Items</th>
-        <th>Location</th>
-        <th>Action</th>
+        <th>Type</th>
+          <th>Status</th>
+
+          <th>Action</th>
       </tr>
       </thead>
       <tbody class="text-capitalize">
@@ -40,9 +41,10 @@
       <tr>
           <th>ID</th>
           <th>Customer</th>
-          <th>Status</th>
           <th>Total Items</th>
-          <th>Location</th>
+          <th>Type</th>
+          <th>Status</th>
+
           <th>Action</th>
       </tr>
       </tfoot>
@@ -73,9 +75,9 @@
             "columns": [
                 { "data": "id" },
                 { "data": "customer" },
-                { "data": "status" },
                 { "data": "total" },
                 { "data": "type" },
+                { "data": "status" },
                 { "data": "options" ,"orderable":false},
             ]
 

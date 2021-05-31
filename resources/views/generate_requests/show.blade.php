@@ -10,26 +10,85 @@
     <div class="row">
 
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> AIMS/QT/{{date('y')}}/{{$show->id}}Detail</h3>
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i>
+                AIMS/QT/{{date('y')}}/{{$show->id}}Detail
+            </h3>
         </div>
         <form id="form{{$show->id}}" action="" method='post' role='form'>
             @csrf
             <input name='id' type='hidden' value='{{$show->id}}'>
         </form>
         <div class="col-12 text-right">
-            {{$noaction}}
             @if(count($items)>0)
                 @if($noaction==false)
                     @if($show->status==0)
-                        <a title='Mark as Complete' class='btn btn-outline-primary btn-sm complete' href='#'
-                           data-id='{{$show->id}}'><i class='fa fa-thumbs-up'></i> Mark as Complete</a>
+                        @if(!empty($show->turnaround))
+                            <a title='Mark as Complete' class='btn btn-outline-primary btn-sm complete' href='#'
+                               data-id='{{$show->id}}'><i class='fa fa-thumbs-up'></i> Mark as Complete</a>
+                        @endif
                     @endif
-
                 @endif
+            @endif
+            @if($show->status>0)
+                    <a href="{{url('/quotes/view/'.$show->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> AIMS/QT/{{date('y')}}/{{$show->id}}</a>
             @endif
         </div>
     </div>
     <div class="row">
+        @if($show->status==0)
+        <div class="col-12">
+            <div class="card shadow">
+                <!-- Card Header - Accordion -->
+                <a href="#remarks_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                   aria-expanded="true" aria-controls="collapseCardExample">
+                    <h6 class="m-0 font-weight-bold text-primary"> Remarks & Turnaround</h6>
+                </a>
+                <div class="collapse" id="remarks_card">
+                    <div class="card-body">
+                        <form action="{{url('/quotes/remarks')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$show->id}}">
+                            <div class="row">
+                                <div class="col-12 col-md-5">
+                                    <div class="font-italic form-group p-0 m-0">
+                                        <label for="remarks">Remarks (if any)</label>
+                                        <input type="text" class="form-control " id="remarks" name="remarks" autocomplete="off" value="{{old('remarks')}}" placeholder="Enter RFQ Remarks">
+                                    </div>
+                                    @if ($errors->has('remarks'))
+                                        <span class="text-danger">
+                                            <strong>{{ $errors->first('remarks') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="col-12 col-md-5">
+
+                                    <label for="turnaround"><i>Tentative Turnaround </i></label>
+                                    <div class="form-check form-check-inline" style="width: 100%">
+                                        <select class="form-control" id="turnaround" name="turnaround">
+                                            <option disabled selected>Select Turnaround</option>
+                                            <option value="3" {{(count($show->items)>0 && count($show->items)<=5)?'selected':''}}>3 working days</option>
+                                            <option value="8" {{(count($show->items)>5 && count($show->items)<=10)?'selected':''}}>8 working days</option>
+                                            <option value="15" {{(count($show->items)>10 && count($show->items)<=50)?'selected':''}}>15 working days</option>
+                                            <option value="30" {{(count($show->items)>50)?'selected':''}}>30 working days</option>
+                                        </select>
+                                        @if ($errors->has('turnaround'))
+                                            <span class="text-danger">
+                                                <strong>{{ $errors->first('turnaround') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-2">
+                                    <button class="btn btn-primary mt-4" type="submit"><i class="fa fa-save"></i> Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
         <div class="col-12">
             <table class="table table-hover bg-white table-sm table-bordered mt-2">
                 <tr>
@@ -109,22 +168,11 @@
                     <td><b>Created on</b></td>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
                 </tr>
-
-                <tr>
-                    <td><b>Updated on</b></td>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
-                </tr>
             </table>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-12 my-2">
-            @if($show->status==0)
-                <a href="{{url('/items/create/'.$show->id)}}" class='btn btn-sm btn-outline-primary float-right'><i
-                            class='fa fa-plus'></i> Items</a>
-            @endif
-        </div>
         <div class="col-lg-12">
             <table id="example" class="table table-hover bg-white table-sm table-bordered mt-2 display nowrap"
                    cellspacing="0" width="100%">
@@ -416,8 +464,11 @@
             </div>
         </div>
     </div>
-
-    @if(count($show->logs)>0)
+    @if($show->status==0)
+        @include('items.create')
+    @endif
+@endsection
+{{--@if(count($show->logs)>0)
         <h4 class="mt-4 border-bottom">Revision Log </h4>
         <table id="example" class="table table-hover bg-white table-sm table-bordered mt-2 display nowrap">
 
@@ -428,6 +479,4 @@
             @endforeach
         </table>
     @endif
-    @include('items.create')
-
-@endsection
+    --}}
