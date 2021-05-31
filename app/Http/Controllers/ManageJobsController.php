@@ -60,9 +60,30 @@ class ManageJobsController extends Controller
 
     public function show($id){
         $show=Quotes::find($id);
+
+
         $jobs=Job::where('quote_id',$id)->get();
-        //dd($jobs);
-        return view('manage.show',compact('show','jobs'));
+        $job_ids=[];
+        $assigned_items=[];
+        foreach ($jobs as $job){
+            $job_ids[]=$job->id;
+        }
+        foreach ($job_ids as $job_id) {
+            //for lab
+            $labs=Jobitem::where('job_id',$job_id)->where('type',0)->get();
+            foreach ($labs as $lab){
+                $assigned_items[]=$lab->item_id;
+            }
+            $sites=Jobitem::where('job_id',$job_id)->where('type',1)->get();
+            foreach ($sites as $site){
+                $assigned_items[]=$site->item_id;
+            }
+        }
+        $assigned_items=array_unique($assigned_items);
+        $assigned_items=array_values($assigned_items);
+        $items=Item::with('capabilities')->where('quote_id',$id)->get();
+
+        return view('manage.show',compact('show','jobs','id','items','assigned_items'));
     }
     public function get_items(Request $request){
         $items=Item::with('capabilities')->where('quote_id',$request->id)->get();

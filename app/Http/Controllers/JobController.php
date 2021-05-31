@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\InvoicingLedger;
+use App\Models\Asset;
 use App\Models\Item;
 use App\Models\Job;
 use App\Models\Jobitem;
-use App\Models\Labjob;
-use App\Models\Sitejob;
-use Illuminate\Http\Request;
-use PDF;
+use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
 
 class JobController extends Controller
 {
     public function index(){
-        return view('jobs.index');
+        $users=User::all();
+        $assets=Asset::all();
+        return view('jobs.index',compact('users','assets'));
     }
     public function fetch(){
         $this->authorize('jobs-index');
@@ -58,18 +57,10 @@ class JobController extends Controller
                 $check=Jobitem::where('job_id',$data->id)->where('type',0)->count();
                 $token=csrf_token();
                 $action=null;
-
                 $action.="<a title='view' href=".url('/jobs/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
-                $action.="<a title='Job Form'
-                onclick=\"window.open('".url('/jobs/print/jobform/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
-                 href=".url('/jobs/print/jobform/'.$data->id)." 
-                 class='btn btn-sm btn-danger'><small>JN</small></a>";
-                $action.="<a title='Invoice' 
-                onclick=\"window.open('".url('/jobs/print/invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
-                href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-dollar'></i></a>";
-                $action.="<a 
-                onclick=\"window.open('".url('/jobs/print/DN/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
-                title='Invoice' href=".url('/jobs/print/DN/'.$data->id)." class='btn btn-sm btn-info'><small>DN</small></a>";
+                $action.="<a title='Job Form' onclick=\"window.open('".url('/jobs/print/jobform/'.$data->id)."','newwindow','width=1100,height=1000');return false;\" href=".url('/jobs/print/jobform/'.$data->id)." class='btn btn-sm btn-danger'><small>JN</small></a>";
+                $action.="<a title='Invoice' onclick=\"window.open('".url('/jobs/print/invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\" href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-dollar'></i></a>";
+                $action.="<a onclick=\"window.open('".url('/jobs/print/DN/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"                title='Invoice' href=".url('/jobs/print/DN/'.$data->id)." class='btn btn-sm btn-info'><small>DN</small></a>";
                 if ($check>0){
                     if ($ifassigned){
                         $action.="<a title='Gatepass'
@@ -77,17 +68,30 @@ class JobController extends Controller
                      class='btn btn-sm text-light bg-warning' href=".url('jobs/print/GP/'.$data->id)."><small>GP</small></a>";
                     }
                     $action.="<a title='Item Entries' href=".url('/item/entries/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-plus'></i></a>";
-
                 }
-                $invoice=InvoicingLedger::where('job_id',$data->id)->get();
-                $invoice_exist=count($invoice);
-                //if ($invoice_exist==0){
-                    $action.="<a title='Add Invoice Ledger Details' href=".url('/invoicing-ledger/create/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-check'></i></a>";
-                /*}
-                else{
-                    $invoice=InvoicingLedger::where('job_id',$data->id)->first();
-                    $action.="<a title='Edit Invoice Ledger Details' href=".url('/invoicing-ledger/edit/'.$invoice->id)." class='btn btn-sm btn-danger'><i class='fa fa-check'></i></a>";
-                }*/
+                $items=Jobitem::where('job_id',$data->id)->get();
+                $check=[];
+                foreach ($items as $item){
+                    $check[]=$item->type;
+                }
+                $type=null;
+                $check=array_unique($check);
+                if ($check==[0]){$type=0;}
+                else if ($check==[1]){$type=1;}
+                else{$type=2;}
+
+                if ($type==1){
+                    $action.="<button type='button' title='assign site job' class='btn btn-sm btn-danger assign-site' data-id=".$data->id."  href=''>SITE</button>";
+                }
+                if ($type==0){
+                    $action.="<a title='view' href=".url('/scheduling/labs/'.$data->id)." class='btn btn-sm btn-success'>LAB</i></a>";
+                }
+                if ($type==2){
+                    $action.="<button type='button' title='assign site job' class='btn btn-sm btn-danger assign-site' data-id=".$data->id."  href=''>SITE</button>";
+
+                    $action.="<a title='view' href=".url('/scheduling/labs/'.$data->id)." class='btn btn-sm btn-success'>LAB</a>";
+                }
+
                 return "&emsp;".$action;
 
             })

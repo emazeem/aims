@@ -27,12 +27,10 @@
                 <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-refresh'></i> Revise</a>
             @if($show->approval_mode)
                 @if($show->customers->pur_name)
-
                         <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#' data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
-
                     @endif
                 @endif
-                @endif  
+                @endif
             @endif
         </div>
     </div>

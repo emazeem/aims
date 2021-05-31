@@ -10,38 +10,24 @@
     <div class="row">
 
         <div class="col-12">
-            {{--<button type="button" class="btn btn-primary create-jobs" data-id="{{$show->id}}">
-                <i class='fa fa-plus'></i> Create Jobs
-            </button>
-            --}}
-            <h3 class="border-bottom pull-left">QTN/{{date('y',strtotime($show->created_at))}}/{{$show->id}} <small><i class="fa fa-arrow-right"></i></small> Details</h3>
-            <a class="btn btn-primary float-right" href="{{url('/jobs/manage/create/'.$show->id)}}">
-                <i class='fa fa-plus'></i> Create Jobs
-            </a>
-            <table class="table table-hover bg-white table-bordered mt-2">
+            <h3 class="border-bottom pull-left"><i class="fa fa-eye"></i> QTN/{{date('y',strtotime($show->created_at))}}/{{$show->id}} <small><i class="fa fa-arrow-right"></i></small> Details</h3>
+
+            <table class="table table-hover bg-white table-bordered table-sm mt-2">
                 <tr>
                     <td><b>Quote #</b></td>
                     <td>QTN/{{date('y',strtotime($show->created_at))}}{{$show->id}}</td>
-                </tr>
-                <tr>
-                    <td><b>Jobs Created</b></td>
-                    <td>{{$jobs->count()}}</td>
                 </tr>
 
                 <tr>
                     <td><b>Customer</b></td>
                     <td>{{$show->customers->reg_name}}</td>
                 </tr>
-                <tr>
-                    <td><b>{{$show->name}} Jobs</b></td>
-                    <td>{{$jobs->count()}}</td>
-                </tr>
                 @if(count($jobs)>0)
                 <tr>
                     <td><b>All Jobs ({{count($jobs)}})</b></td>
                     <td>
                         @foreach($jobs as $job)
-                            <a class="btn btn-sm btn-outline-danger delete" href="javascript:void(0);" data-id="{{$job->id}}">JOB # {{$job->id}} <i class="fa fa-trash"></i></a>
+                            <span class="badge badge-danger px-3 p-2 delete" style="cursor: pointer" href="javascript:void(0);" data-id="{{$job->id}}">JOB # {{$job->id}} <i class="fa fa-trash"></i></span>
                             <form id="delete_job" class="float-left mr-1">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$job->id}}">
@@ -53,10 +39,6 @@
                 <tr>
                     <td><b>Created on</b></td>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
-                </tr>
-                <tr>
-                    <td><b>Updated on</b></td>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
                 </tr>
             </table>
         </div>
@@ -74,9 +56,7 @@
                     <form id="create_jobs">
                     @csrf
                     <input type="hidden" value="" id="quote_id" name="id">
-
                         <div class="group-checkbox"></div>
-
 
                 </div>
                 <div class="modal-footer">
@@ -162,7 +142,7 @@
             });
         });
     </script>
-
+    @include('manage.create')
 @endsection
 
 
