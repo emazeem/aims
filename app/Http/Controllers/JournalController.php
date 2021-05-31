@@ -301,7 +301,14 @@ class JournalController extends Controller
         $id=[];
         foreach ($eachs as $each){
             if (date('Y-m',strtotime($each->date))==$request->month){
-               $id[]=$each->id;
+                foreach ($each->details as $detail){
+                    if (substr($detail->acc_code,0,5)==10103){
+                        $customer=Customer::where('acc_code',$detail->acc_code)->first();
+                        if($customer->region==2){
+                            $id[]=$each->id;
+                        }
+                    }
+                }
             }
         }
         $invoices=Journal::whereIn('id',$id)->get();

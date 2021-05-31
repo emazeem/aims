@@ -51,12 +51,12 @@
                         <td>{{date('d-m-Y',strtotime($invoice->date))}}</td>
                         <td>{{$invoice->invoices->title }}</td>
                         <td>{{$customer->ntn}}</td>
-                        <td>{{$charges-$pra}}</td>
-                        <td>{{$pra}}</td>
-                        <td>{{$charges}}</td>
-                        <td>
+                        <td class="text-right">{{number_format($charges-$pra)}}</td>
+                        <td class="text-right">{{number_format($pra)}}</td>
+                        <td class="text-right">{{number_format($charges)}}</td>
+                        <td class="text-right">
                             @if($customer->tax_case!=2)
-                                {{$pra}}
+                                {{number_format($pra)}}
                             @endif
                         </td>
                         <td>{{$customer->reg_name}}</td>

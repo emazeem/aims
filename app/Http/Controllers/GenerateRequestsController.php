@@ -149,7 +149,9 @@ class GenerateRequestsController extends Controller
                 $noaction=true;
             }
         }
-        return view('generate_requests.show',compact('show','id','tms','items','noaction'));
+        $capabilities=Capabilities::all();
+        $parameters=Parameter::all();
+        return view('generate_requests.show',compact('show','id','tms','items','noaction','capabilities','parameters'));
     }
 
     //

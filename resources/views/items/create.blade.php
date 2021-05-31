@@ -1,5 +1,4 @@
-@extends('layouts.master')
-@section('content')
+
     @if(Session::has('success'))
         <script>
             $(document).ready(function() {
@@ -10,7 +9,6 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-
             $("#add_na_form").on('submit',(function(e) {
                 e.preventDefault();
                 $.ajax({
@@ -93,8 +91,14 @@
             });
             $("#add-items").on('submit',(function(e) {
                 e.preventDefault();
+                var url='';
+                if ($('#edit_item_id')){
+                    url="{{route('items.update')}}";
+                } else {
+                    url="{{route('items.store')}}";
+                }
                 $.ajax({
-                    url: "{{route('items.store')}}",
+                    url:url ,
                     type: "POST",
                     data:  new FormData(this),
                     contentType: false,
@@ -103,7 +107,7 @@
                     success: function(data)
                     {
                         swal('success',data.success,'success').then((value) => {
-
+                            InitTable();
                         });
 
                     },
@@ -120,44 +124,23 @@
 
         });
     </script>
-    <div class="row pb-3">
+    <hr>
+    <div class="row bg-white pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-            <h1 class="h3 border-bottom"><i class="fa fa-plus-circle"></i> Add Items</h1>
-            <a class="btn btn-danger btn-sm" data-toggle="modal" href="#" data-target="#add_na">
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-plus-circle"></i> Add Items</h3>
+            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#add_na">
                 <i class="fa fa-times"></i> Not Listed
-            </a>
+            </button>
         </div>
         <div class="col-12">
 
-            <form class="form-horizontal" id="add-items">
+            <form class="form-horizontal row" id="add-items">
                 @csrf
-                <div class="form-group  row">
-                    <label for="session" class="col-sm-2 control-label">Quote</label>
-                    <div class="col-sm-10">
-                        <input type="hidden" value="{{$session->id}}" name="session_id">
-                        <input type="text" class="form-control" id="session" name="session" placeholder="" autocomplete="off" value="QTN/{{date('y',strtotime($session->created_at))}}/{{$session->id}}" disabled>
-                        @if ($errors->has('session'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('session') }}</strong>
-                      </span>
-                        @endif
-                    </div>
-                </div>
-                <div class="form-group  row">
-                    <label for="customer" class="col-sm-2 control-label">Customer</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="customer" name="customer" placeholder="customer" autocomplete="off" value="{{$session->customers->reg_name}}" disabled>
-                        @if ($errors->has('customer'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('customer') }}</strong>
-                      </span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="parameter" class="col-sm-2 control-label">Parameter</label>
-                    <div class="col-sm-10">
+                <input type="hidden" value="{{$show->id}}" name="quote_id" id="id">
+                <input type="hidden" value="" name="edit_id" id="edit_item_id">
+                <div class="form-group col-6">
+                    <label for="parameter" class="col-12 control-label">Parameter</label>
+                    <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="parameter" name="parameter">
                                 <option selected disabled>Select Parameter</option>
@@ -173,9 +156,9 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="capability" class="col-sm-2 control-label">Capability & Price List</label>
-                    <div class="col-sm-10">
+                <div class="form-group col-6">
+                    <label for="capability" class="col-12 control-label">Capability </label>
+                    <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="capability" name="capability">
 
@@ -190,9 +173,9 @@
                 </div>
 
 
-                <div class="form-group  row">
-                    <label for="range" class="col-sm-2 control-label">Range</label>
-                    <div class="col-sm-10">
+                <div class="form-group  col-6">
+                    <label for="range" class="col-12 control-label">Range</label>
+                    <div class="col-12">
                         <input type="text" class="form-control" id="range" name="range" placeholder="Range" autocomplete="off" value="{{old('range')}}">
                         @if ($errors->has('range'))
                             <span class="text-danger">
@@ -201,9 +184,9 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group  row">
-                    <label for="price" class="col-sm-2 control-label">Price</label>
-                    <div class="col-sm-10">
+                <div class="form-group  col-6">
+                    <label for="price" class="col-12 control-label">Price</label>
+                    <div class="col-12">
                         <input type="text" class="form-control" id="price" name="price" placeholder="Price" autocomplete="off" value="{{old('price')}}">
                         @if ($errors->has('price'))
                             <span class="text-danger">
@@ -212,9 +195,9 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="location" class="col-sm-2 control-label">Location</label>
-                    <div class="col-sm-10">
+                <div class="form-group col-6">
+                    <label for="location" class="col-12 control-label">Location</label>
+                    <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="location" name="location">
                                 <option selected disabled>Select Location</option>
@@ -229,9 +212,9 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="accredited" class="col-sm-2 control-label">Accredited</label>
-                    <div class="col-sm-10">
+                <div class="form-group col-6">
+                    <label for="accredited" class="col-12 control-label">Accredited</label>
+                    <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="accredited" name="accredited">
                                 <option selected disabled>Select for Accredited</option>
@@ -246,10 +229,10 @@
                         @endif
                     </div>
                 </div>
-
-                <div class="form-group  row">
-                    <label for="quantity" class="col-sm-2 control-label">Quantity</label>
-                    <div class="col-sm-10">
+                <div class="form-group col-6"></div>
+                <div class="form-group col-6">
+                    <label for="quantity" class="col-12 control-label">Quantity</label>
+                    <div class="col-12">
                         <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" autocomplete="off" value="{{old('quantity',1)}}">
                         @if ($errors->has('quantity'))
                             <span class="text-danger">
@@ -258,8 +241,11 @@
                         @endif
                     </div>
                 </div>
-                <a href="{{ URL::previous() }}" class="btn btn-light btn-sm border"><i class="fa fa-angle-left"></i> Back</a>
-                <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-save"></i> Save</button>
+                <div class="col-12">
+                    {{--<a href="{{ URL::previous() }}" class="btn btn-light btn-sm border"><i class="fa fa-angle-left"></i> Back</a>
+                    --}}
+                    <button type="submit" class="btn btn-primary btn-sm float-right "><i class="fa fa-save"></i> Save</button>
+                </div>
 
             </form>
         </div>
@@ -268,34 +254,32 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="add_na">Add Misc.</h5>
+                    <h5 class="modal-title" id="add_na"><i class="fa fa-plus-square"></i> Add Misc.</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form id="add_na_form">
                         @csrf
-                        <input type="hidden" value="{{$session->id}}" name="session_id">
+                        <input type="hidden" value="{{$show->id}}" name="quote_id">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-8">
+                                <label for="name">Capability</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Put capability name (not listed)" autocomplete="off" value="{{old('name')}}">
                             </div>
                             <div class="col-sm-4">
-                                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="quantity" autocomplete="off" value="{{old('quantity')}}">
-                            </div>
-
-                            <div class="col-sm-2">
-                                <button class="btn btn-primary" type="submit">Save</button>
+                                <label for="quantity">Qty</label>
+                                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Qty" autocomplete="off" value="{{old('quantity')}}">
                             </div>
                         </div>
-                    </form>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer m-0 p-2">
+                    <button class="btn btn-primary btn-sm " type="submit"><i class="fa fa-save"></i>Save</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
-@endsection
 

@@ -94,9 +94,9 @@ class ItemController extends Controller
                 $action=null;
                 if ($data->quotes->status==0){
                     if ($data->not_available==null){
-                        $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/items/edit/'. $data->quote_id.'/'.$data->id) . "'><i class='fa fa-edit'></i></a>";
+                        $action.="<a title='Edit' class='btn btn-sm btn-success edit' href data-id='$data->id'><i class='fa fa-edit'></i></a>";
                     } else{
-                        $action.="<a title='Edit' class='btn btn-sm btn-success edit' href='#' data-id='$data->id'><i class='fa fa-edit'></i></a>";
+                        $action.="<a title='Edit' class='btn btn-sm btn-success edit-na' href='#' data-id='$data->id'><i class='fa fa-edit'></i></a>";
                     }
                     if (Auth::user()->can('items-delete')){
                         $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
@@ -137,7 +137,7 @@ class ItemController extends Controller
             ]);
 
             $item=new Item();
-            $item->quote_id=$request->session_id;
+            $item->quote_id=$request->quote_id;
             $item->not_available=$request->name;
             $item->parameter=0;
             $item->capability=0;
@@ -171,7 +171,7 @@ class ItemController extends Controller
         ]);
         //change status 0 to 1 for empty to adding state of quote
         $item=new Item();
-        $item->quote_id=$request->session_id;
+        $item->quote_id=$request->quote_id;
         $item->not_available=null;
         $item->location=$request->location;
         $item->accredited=$request->accredited;
@@ -182,28 +182,28 @@ class ItemController extends Controller
         $item->price=$request->price;
         $item->quantity=$request->quantity;
         $item->save();
-        $items=Item::where('quote_id',$request->session_id)->where('status',0)->get();
+        $items=Item::where('quote_id',$request->quote_id)->where('status',0)->get();
         $lab=0;$site=0;
         foreach($items as $value){
             if ($value->location=='site'){$site=1;}
             if ($value->location=='lab'){$lab=1;}
         }
         if ($lab==1 and $site==1){
-            $q=Quotes::find($request->session_id);
+            $q=Quotes::find($request->quote_id);
             $q->type='BOTH';
             $q->save();
         }if ($lab==1 and $site==0){
-            $q=Quotes::find($request->session_id);
+            $q=Quotes::find($request->quote_id);
             $q->type='LAB';
             $q->save();
         }if ($site==1 and $lab==0){
-            $q=Quotes::find($request->session_id);
+            $q=Quotes::find($request->quote_id);
             $q->type='SITE';
             $q->save();
         }else{}
         return response()->json(['success'=> 'Item added successfully']);
     }
-    public function update($id,Request $request){
+    public function update(Request $request){
 
 
         $this->validate(request(), [
@@ -223,7 +223,7 @@ class ItemController extends Controller
             'location.required' => 'Location field is required *',
             'accredited.required' => 'Accredited field is required *',
         ]);
-        $item=Item::find($id);
+        $item=Item::find($request->edit_id);
         $item->parameter=$request->parameter;
         $item->not_available=null;
         $item->capability=$request->capability;
@@ -234,26 +234,27 @@ class ItemController extends Controller
         $item->quantity=$request->quantity;
         //dd($item);
         $item->save();
-        $items=Item::where('quote_id',$request->session_id)->where('status',0)->get();
+        $items=Item::where('quote_id',$request->quote_id)->where('status',0)->get();
         $lab=0;$site=0;
         foreach($items as $value){
             if ($value->location=='site'){$site=1;}
             if ($value->location=='lab'){$lab=1;}
         }
         if ($lab==1 and $site==1){
-            $q=Quotes::find($request->session_id);
+            $q=Quotes::find($request->quote_id);
             $q->type='BOTH';
             $q->save();
         }if ($lab==1 and $site==0){
-            $q=Quotes::find($request->session_id);
+            $q=Quotes::find($request->quote_id);
             $q->type='LAB';
             $q->save();
         }if ($site==1 and $lab==0){
-            $q=Quotes::find($request->session_id);
+            $q=Quotes::find($request->quote_id);
             $q->type='SITE';
             $q->save();
         }else{}
-        return redirect()->back()->with('success', 'Item updated successfully');
+        return response()->json(['success'=>'Item Updated successfully']);
+
     }
     public function updateNA(Request $request){
         $this->validate(request(), [
@@ -278,6 +279,7 @@ class ItemController extends Controller
     }
     public function editNA(Request $request){
         $editNA=Item::find($request->id);
+        $editNA['capability_name']=Capabilities::find($editNA->capability)->name;
         return response()->json($editNA);
     }
     public function getPrice($id){

@@ -10,12 +10,8 @@
     <div class="row">
 
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> AIMS/QT/{{date('y')}}/{{$show->id}}
-                Detail</h3>
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> AIMS/QT/{{date('y')}}/{{$show->id}}Detail</h3>
         </div>
-
-        {{--        <a title='Send to Customer' class='btn btn-info' href="{{url('quotes/sendmail/' . $show->id)}}"><i class='fa fa-paper-plane'></i></a>--}}
-
         <form id="form{{$show->id}}" action="" method='post' role='form'>
             @csrf
             <input name='id' type='hidden' value='{{$show->id}}'>
@@ -253,7 +249,7 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $(document).on('click', '.edit', function () {
+            $(document).on('click', '.edit-na', function () {
                 var id = $(this).attr('data-id');
 
                 $.ajax({
@@ -282,8 +278,34 @@
                     },
                 });
             });
+            $(document).on('click', '.edit', function (e) {
+                e.preventDefault();
+                var id = $(this).attr('data-id');
 
-
+                $.ajax({
+                    "url": "{{url('/items/editNA')}}",
+                    type: "POST",
+                    data: {'id': id, _token: '{{csrf_token()}}'},
+                    dataType: "json",
+                    beforeSend: function () {
+                        $(".loading").fadeIn();
+                    },
+                    success: function (data) {
+                        $('#edit_item_id').val(data.id);
+                        $('.item_btn').val('Update');
+                        $('#parameter').val(data.parameter);
+                        $('#capability').append('<option selected value="'+data.capability+'">'+data.capability_name+'</option>');
+                        $('#range').val(data.range);
+                        $('#price').val(data.price);
+                        $('#location').val(data.location);
+                        $('#accredited').val(data.accredited);
+                        $('#quantity').val(data.quantity);
+                        //Populating Form Data to Edit Ends
+                    },
+                    error: function () {
+                    },
+                });
+            });
             $("#edit_na_form").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -360,13 +382,13 @@
         });
 
     </script>
-    <div class="modal fade" id="edit_na" tabindex="-1" role="dialog" aria-labelledby="add_na" aria-hidden="true">
+    <div class="modal fade" id="edit_na" tabindex="-1" role="dialog" aria-labelledby="edit_na" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="add_na">Edit Misc.</h5>
+                    <h5 class="modal-title" id="edit_na"><i class="fa fa-edit"></i> Edit Misc.</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -374,43 +396,27 @@
                         @csrf
                         <input type="hidden" value="" name="id" id="edit_id">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-8">
+                                <label for="name">Capability</label>
                                 <input type="text" class="form-control" id="edit_name" name="name"
                                        placeholder="Put capability name (not listed)" autocomplete="off"
                                        value="{{old('name')}}">
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
+                                <label for="quantity">Qty</label>
                                 <input type="number" class="form-control" id="edit_quantity" name="quantity"
-                                       placeholder="quantity" autocomplete="off" value="{{old('quantity')}}">
-                            </div>
-
-                            <div class="col-sm-2">
-                                <button class="btn btn-primary" type="submit">Update</button>
+                                       placeholder="Qty" autocomplete="off" value="{{old('quantity')}}">
                             </div>
                         </div>
+                </div>
+                <div class="modal-footer m-0 py-2">
+                    <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-refresh"></i> Update</button>
                     </form>
                 </div>
-                <div class="modal-footer">
-                </div>
             </div>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" id="printdetails" tabindex="-1" role="dialog"
-         aria-labelledby="edit_session" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="edit_session">Add Quote Detail</h4>
-                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body px-md-5">
 
-                </div>
-            </div>
-        </div>
-    </div>
     @if(count($show->logs)>0)
         <h4 class="mt-4 border-bottom">Revision Log </h4>
         <table id="example" class="table table-hover bg-white table-sm table-bordered mt-2 display nowrap">
@@ -422,4 +428,6 @@
             @endforeach
         </table>
     @endif
+    @include('items.create')
+
 @endsection

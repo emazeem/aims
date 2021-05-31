@@ -26,7 +26,7 @@
     <link href="{{url('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
     <script type="text/javascript" src="{{url('js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     @if(Route::currentRouteName()=='journal.index' or Route::currentRouteName()=='vouchers.create' )
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -47,7 +47,7 @@
             @yield('content')
         </div>
         <footer>
-            <div class="text-center">
+            <div class="text-center ">
                 AIMS- Al Meezan Meterology Services <a href="/">ERP ® {{date('Y')}}</a>
             </div>
             <div class="clearfix"></div>
@@ -77,6 +77,7 @@ or Route::currentRouteName()=='inventory.category.index' or Route::currentRouteN
     <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>
     <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
 @endif
+
 @if(Route::currentRouteName()=='home')
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>

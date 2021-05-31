@@ -29,8 +29,8 @@
                     <td>Invoice</td>
                     <td>0-30 Days</td>
                     <td>31-60 Days</td>
-                    <td>61-90 Days</td>
-                    <td>90+ Days</td>
+                    <td>61-120 Days</td>
+                    <td>120+ Days</td>
                     <td>Total</td>
                 </tr>
                 </thead>
@@ -46,7 +46,7 @@
                             @foreach($datum['invoices'] as $invoice)
                                 @php $total=0; @endphp
                                 <a href="{{url('vouchers/show/'.$invoice->parent->id)}}">
-                                    {{$invoice->parent->invoices->title}}-
+                                    {{$invoice->parent->invoices->title}}
                                 </a>
                                 <br>
                                 @php $receiving=0; @endphp
@@ -60,7 +60,7 @@
                                 @php $invoices_amount=$invoices_amount+$invoice->dr @endphp
                             @endforeach
                         </td>
-                        <td>
+                        <td class="text-right" >
                             @foreach($datum['invoices'] as $invoice)
                                 @php
                                     $start=\Carbon\Carbon::now();
@@ -77,13 +77,13 @@
                                             @endif
                                         @endforeach
                                     @endforeach
-                                    {{$invoice->dr-$receiving}}
+                                    {{number_format($invoice->dr-$receiving)}}
 
                                 @endif
                                 <br>
                             @endforeach
                         </td>
-                        <td>
+                        <td class="text-right">
                             @foreach($datum['invoices'] as $invoice)
                                 @php
                                     $start=\Carbon\Carbon::now();
@@ -100,18 +100,18 @@
                                             @endif
                                         @endforeach
                                     @endforeach
-                                    {{$invoice->dr-$receiving}}
+                                    {{number_format($invoice->dr-$receiving)}}
                                 @endif
                                 <br>
                             @endforeach
                         </td>
-                        <td>
+                        <td class="text-right">
                             @foreach($datum['invoices'] as $invoice)
                                 @php
                                     $start=\Carbon\Carbon::now();
                                     $difference = $start->diffInDays($invoice->parent->date);
                                 @endphp
-                                @if($difference>60 and $difference<=90)
+                                @if($difference>60 and $difference<=120)
 
                                     @php $receiving=0; @endphp
                                     @foreach($invoice->parent->invtopay as $invoices)
@@ -122,9 +122,7 @@
                                             @endif
                                         @endforeach
                                     @endforeach
-                                    {{$invoice->dr-$receiving}}
-
-
+                                    {{number_format($invoice->dr-$receiving)}}
                                 @endif
                                 <br>
                             @endforeach
@@ -135,7 +133,7 @@
                                     $start=\Carbon\Carbon::now();
                                     $difference = $start->diffInDays($invoice->parent->date);
                                 @endphp
-                                @if($difference>90)
+                                @if($difference>120)
 
                                 @php $receiving=0; @endphp
                                     @foreach($invoice->parent->invtopay as $invoices)
@@ -153,8 +151,7 @@
                                 <br>
                             @endforeach
                         </td>
-
-                        <td>{{$invoices_amount-$received_amount}}</td>
+                        <td class="text-right">{{number_format($invoices_amount-$received_amount)}}</td>
                     </tr>
                 @endforeach
                 </tbody>

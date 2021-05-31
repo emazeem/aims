@@ -135,7 +135,7 @@ class CustomerController extends Controller
                 $token=csrf_token();
                 $action=null;
                 if (Auth::user()->can('customer-edit')) {
-                    $action.="<a title='Edit Customer' class='btn edit btn-sm btn-warning' href data-id='" . $data->id . "'><i class='fa fa-pencil'></i></a>";
+                    $action.="<a title='Edit Customer' class='btn edit btn-sm btn-warning' href data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
                 }
 
                 if (Auth::user()->can('customer-view')) {

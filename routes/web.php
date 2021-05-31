@@ -263,7 +263,7 @@ Route::group(['prefix'=> 'items'],function() {
     Route::post('/store',[App\Http\Controllers\ItemController::class, 'store'])->middleware('auth')->name('items.store');
     Route::post('/updateNA',[App\Http\Controllers\ItemController::class, 'updateNA'])->middleware('auth')->name('items.updateNA');
     Route::get('/edit/{session}/{id}',[App\Http\Controllers\ItemController::class, 'edit'])->middleware('auth')->name('items.edit');
-    Route::post('/update/{id}',[App\Http\Controllers\ItemController::class, 'update'])->middleware('auth')->name('items.update');
+    Route::post('/update',[App\Http\Controllers\ItemController::class, 'update'])->middleware('auth')->name('items.update');
     Route::delete('/delete/{id}',[App\Http\Controllers\ItemController::class, 'destroy'])->middleware('auth')->name('items.delete');
     Route::delete('/nofacility/{id}',[App\Http\Controllers\ItemController::class, 'nofacility'])->middleware('auth')->name('items.nofacility');
     Route::post('/editNA/',[App\Http\Controllers\ItemController::class, 'editNA'])->middleware('auth')->name('items.editNA');

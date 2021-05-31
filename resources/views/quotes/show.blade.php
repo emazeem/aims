@@ -224,7 +224,7 @@
                                     </div>
 
                                     <div class="text-right">
-                                        <button class="btn btn-primary" type="submit">Approve Quote</button>
+                                        <button class="btn btn-primary" type="submit">Add Purchase Details</button>
                                     </div>
                                 </form>
                             </div>
