@@ -92,10 +92,13 @@
             $("#add-items").on('submit',(function(e) {
                 e.preventDefault();
                 var url='';
-                if ($('#edit_item_id')){
+                alert($('#edit_item_id').val());
+                if ($('#edit_item_id').val()){
                     url="{{route('items.update')}}";
+                    alert('up');
                 } else {
                     url="{{route('items.store')}}";
+                    alert('sto');
                 }
                 $.ajax({
                     url:url ,
@@ -108,6 +111,7 @@
                     {
                         swal('success',data.success,'success').then((value) => {
                             InitTable();
+                            $('#edit_item_id').val('');
                         });
 
                     },
