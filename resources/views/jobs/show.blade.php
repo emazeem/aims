@@ -334,9 +334,6 @@
                                                 <span class="badge badge-success">Ended</span>
                                             @endif
                                         </p>
-
-
-
                                         @if($sitejob->status<1)
                                             <span class="badge badge-info px-3 py-2 m-1">Waiting for store entry</span>
                                         @else

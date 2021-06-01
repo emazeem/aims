@@ -25,6 +25,7 @@
 
                 <a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href='#'
                    data-id='{{$show->id}}'><i class='fa fa-send'></i> Send to Customer</a>
+
             @else
                 @if($show->status<3)
                     <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-refresh'></i> Revise</a>

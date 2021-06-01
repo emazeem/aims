@@ -94,6 +94,46 @@
     }
     $(document).ready(function() {
         InitTable('not-sent-to-customer');
+        $(document).on('click', '.sendtocustomer', function (e) {
+            e.preventDefault();
+            swal({
+                title: "Are you sure that you sent quote to customer?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var id = $(this).attr('data-id');
+                        e.preventDefault();
+                        $.ajax({
+                            url: "{{route('quotes.sendtocustomer')}}",
+                            type: 'POST',
+                            dataType: "JSON",
+                            data: {
+                                "_token": "{{ csrf_token() }}",
+                                "id": id
+                            },
+                            statusCode: {
+                                403: function () {
+                                    swal("Failed", "Permission denied.", "error");
+                                    return false;
+                                }
+                            },
+                            success: function (data) {
+                                swal('success', data.success, 'success').then((value) => {
+                                    location.reload();
+                                });
+                            },
+                            error: function () {
+                                swal("Failed", "Please try again later", "error");
+                            },
+                        });
+
+                    }
+                });
+
+        });
         $('select[name="search"]').on('change', function() {
             var search = $(this).val();
             InitTable(search);

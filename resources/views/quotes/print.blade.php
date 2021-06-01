@@ -30,12 +30,12 @@
             <div class="col-3 row custom-border font-9 p-0">
                 <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04</p>
                 <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2020</p>
+                <p class="text-center font-11 col-12 my-2">Issue Date : 07-06-2021</p>
                 <div class="col-12 custom-bottom-border"></div>
                 <p class="text-center font-11 col-12 mt-2 mb-1">
                     Issue # 01
                     <span class="px-4"></span>
-                    Rev # 02
+                    Rev # 03
                 </p>
             </div>
         </div>
@@ -184,7 +184,7 @@
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-3 font-10">Subject /Description:</div>
-            <div class="col-9 text-center font-10"> <span><b>Calibration of Test, measurement and diagnostic equipment</b></span></div>
+            <div class="col-9 text-center font-10"> <span><b>Calibration of Test, Measurement and Diagnostic Equipment</b></span></div>
             <div class="col-12 mt-3 font-10">Dear {{$session->principal}},</div>
             <p class="col-12 mt-3 font-10">Please find below our competitive proposal for the calibration of your
                 instruments. We hope our offer will be in line with your requirement. Would you require
@@ -356,17 +356,17 @@
                     $numberToWords = new \NumberToWords\NumberToWords();
                     $numberTransformer = $numberToWords->getNumberTransformer('en');
                     ?>
-                    <th colspan="8"  class="text-capitalize">Total ( {{$numberTransformer->toWords($total)}} )</th>
+                    <th colspan="8"  class="text-capitalize">Total Payable ( {{$numberTransformer->toWords($total)}} )</th>
                     <th colspan="2">{{number_format($total)}}</th>
                 </tr>
                 </tbody>
             </table>
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">8</span> TENTATIVE TURNAROUND TIME:</p>
-            <p class="font-10 line-height col-12 ml-5 pl-2"><span>{{$session->turnaround}} working days</span></p>
+            <p class="font-10 line-height col-12 ml-5 pl-2"><span>{{$session->turnaround}} working days from receipt of job/site of schedule by AIMS</span></p>
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">9</span> TERMS & CONDITIONS:</p>
             <p class="font-10 line-height col-12"><span>9.1 -	Price basis is Ex works Pakistan unless otherwise mentioned anywhere in the body of this quote.</span></p>
             <p class="font-10 line-height col-12"><span>9.2 -	AIMS prices are applicable for the quoted quantities, in case of any variation, AIMS reserve the rights to change unit prices.</span></p>
-            <p class="font-10 line-height col-12"><span class="">9.3 -	For each non-calibrateable item sent by customer, AIMS will charge @ 25% of calibration charges for wasted manhours. Additionally for site job transportation will be charges as per actual.</span></p>
+            <p class="font-10 line-height col-12"><span class="">9.3 -	For each non-calibrateable item sent by customer, AIMS will charge @ 20% of calibration charges for wasted manhours. Additionally for site job transportation will be charges as per actual.</span></p>
             <p class="font-10 line-height col-12"><span>9.4 - Terms of payment:</span></p>
             <div class="ml-5">
                 <p class="ml-5 font-10 col-12 pl-2"><input type="checkbox" {{($session->customers->customer_type=="cash" and $session->customers->pay_terms=="advance")?"checked":""}}> Cash/cheque advance  before starting job.</p>
@@ -388,7 +388,7 @@
             <p class="font-10 line-height col-12"><span>IBAN :  			PK97 MEZN 0002 5601 0243 9271</span></p>
 
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">11</span> VALIDITY:</p>
-            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">11.1 - This quotation is valid thirty (60) calendar days from the date of this offer.</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">11.1 - This quotation is valid sixty (60) calendar days from the date of this offer.</span></p>
             <div class="col-7 ">
                 <p class="font-11 line-height col-12 b mt-4">Al- Meezan Industrial Meterology Services</p>
                 <p class="font-11 line-height col-12 b "><span class="custom-bottom-border">Date :  {{date('d-m-Y',time())}}</span></p>

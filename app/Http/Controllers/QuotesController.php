@@ -79,6 +79,11 @@ class QuotesController extends Controller
                 href=".url('/quotes/print/'.$data->id)." 
                 class='btn btn-sm btn-danger'><b>QF</b></a>";
 
+                if ($data->status==1){
+                    $action="<a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href
+                   data-id='".$data->id."'><i class='fa fa-send'></i></a>";
+                }
+
                 $items=Item::where('quote_id',$data->id)->get();
                 $show=false;
                 foreach ($items as $item){
