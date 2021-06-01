@@ -64,7 +64,6 @@ class JobController extends Controller
         $job=Job::with('quotes')->find($id);
         $labjobs=Jobitem::where('job_id',$id)->where('type',0)->get();
         $sitejobs=Jobitem::where('job_id',$id)->where('type',1)->get();
-
         $ifassigned=Jobitem::where('job_id',$id)->where('type',1)->where('group_assets',!null)->get();
         return view('jobs.show',compact('job','labjobs','sitejobs','ifassigned'));
     }

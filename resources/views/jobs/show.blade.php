@@ -202,22 +202,22 @@
 
                                             <p class="m-0">↪ <b>Status : </b>
                                                 @if($labjob->status==0)
-                                                    
+
                                                     <span class="badge badge-primary">Pending</span>
                                                 @elseif($labjob->status==1)
-                                                    
+
                                                     <span class="badge badge-danger">Checked-in</span>
                                                 @elseif($labjob->status==2)
-                                                    
+
                                                     <span class="badge badge-success">Assigned</span>
                                                 @elseif($labjob->status==3)
-                                                    
+
                                                     <span class="badge badge-success">Started</span>
                                                 @elseif($labjob->status==4)
-                                                    
+
                                                     <span class="badge badge-success">Calculated</span>
                                                 @elseif($labjob->status==5)
-                                                    
+
                                                     <span class="badge badge-success">Ended</span>
                                                 @endif
                                             </p>
@@ -349,7 +349,7 @@
                                         @endif
 
 
-                                        @if($labjob->status<2)
+                                        @if($sitejob->status<2)
                                             <span class="badge badge-info px-3 py-2 m-1">Not Assigned yet</span>
                                         @else
                                             <p class="m-0">↪ <b>Start : </b>{{$sitejob->start}}</p>
@@ -361,7 +361,7 @@
                                             </p>
                                             <p class="m-0">↪ <b>Assign Asset : </b>
                                                 <br>
-                                                @if($labjob->assign_assets)
+                                                @if($sitejob->assign_assets)
                                                     @php $assets=explode(',',$sitejob->assign_assets); @endphp
                                                     @foreach($assets as $asset)
                                                         <span class="badge badge-info py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
