@@ -27,7 +27,14 @@
                     <td><b>All Jobs ({{count($jobs)}})</b></td>
                     <td>
                         @foreach($jobs as $job)
-                            <span class="badge badge-danger px-3 p-2 delete" style="cursor: pointer" href="javascript:void(0);" data-id="{{$job->id}}">JOB # {{$job->id}} <i class="fa fa-trash"></i></span>
+
+                            <a class="badge badge-light border hover px-3 p-2 mb-1" href="{{url('jobs/view/'.$job->id)}}" data-id="{{$job->id}}">
+                                JOB # {{$job->id}}
+                            </a>
+                            <span class="badge badge-light border hover px-3 p-2 delete" style="cursor: pointer" href="javascript:void(0);" data-id="{{$job->id}}">
+                                <i class="fa fa-trash"></i>
+                            </span>
+                        <br>
                             <form id="delete_job" class="float-left mr-1">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$job->id}}">

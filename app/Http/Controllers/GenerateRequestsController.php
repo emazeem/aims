@@ -42,6 +42,7 @@ class GenerateRequestsController extends Controller
                 return $data->type;
             })
             ->addColumn('status', function ($data) {
+                //Items are adding
                 if ($data->status==0){
                     $status= '<b class="badge badge-secondary  p-1 px-2 mt-2">Items being added</b>';
                 }

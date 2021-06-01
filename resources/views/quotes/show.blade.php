@@ -18,19 +18,23 @@
             <input name='id' type='hidden' value='{{$show->id}}'>
         </form>
         <div class="col-12 text-right">
-            <a onclick="window.open('{{url('/quotes/print/'.$show->id)}}','newwindow','width=1100,height=1000');return false;" href="{{url('/quotes/print/'.$show->id)}}" title='Print' class='pull-left btn btn-sm btn-success'><i class="fa fa-print"></i> Print</a>
-        @if($show->status==1)
-            @if($show->status<3)
+            <a onclick="window.open('{{url('/quotes/print/'.$show->id)}}','newwindow','width=1100,height=1000');return false;"
+               href="{{url('/quotes/print/'.$show->id)}}" title='Print' class='pull-left btn btn-sm btn-success'><i
+                        class="fa fa-print"></i> Print</a>
+            @if($show->status==1)
+
                 <a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href='#'
                    data-id='{{$show->id}}'><i class='fa fa-send'></i> Send to Customer</a>
             @else
-                <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-refresh'></i> Revise</a>
-            @if($show->approval_mode)
-                @if($show->customers->pur_name)
-                        <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#' data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
+                @if($show->status<3)
+                    <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-refresh'></i> Revise</a>
+                    @if($show->approval_mode)
+                        @if($show->customers->pur_name)
+                            <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#' data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
+                        @endif
                     @endif
                 @endif
-                @endif
+
             @endif
         </div>
     </div>
@@ -185,7 +189,8 @@
                     <!-- Card Header - Accordion -->
                     <a href="#purchase_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
                        aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">{{(!$show->customers->pur_name)?'Add':'Update'}} Purchase Details</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">{{(!$show->customers->pur_name)?'Add':'Update'}}
+                            Purchase Details</h6>
                     </a>
                     <!-- Card Content - Collapse -->
                     <div class="collapse" id="purchase_card">

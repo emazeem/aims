@@ -270,7 +270,7 @@
             <div class="col-3 font-10 b"><input type="checkbox"> Dollar ($)</div>
         </div>
         <div class="row py-3">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th>Sr#</th>
@@ -310,9 +310,9 @@
                         <td class="font-11">
                             @if($quote->status==0 or $quote->status==2){{$quote->location}}@else --- @endif</td>
                         <td class="font-11">
-                            @if($quote->status==0 or $quote->status==2){{$quote->price}}@else --- @endif</td>
+                            @if($quote->status==0 or $quote->status==2){{number_format($quote->price)}}@else --- @endif</td>
                         <td class="font-11">{{$quote->quantity}}</td>
-                        <td class="font-11">{{$quote->quantity*$quote->price}}</td>
+                        <td class="font-11">{{number_format($quote->quantity*$quote->price)}}</td>
                     </tr>
                     @php $subtotal=$subtotal+($quote->quantity*$quote->price); @endphp
                 @endforeach
@@ -341,14 +341,14 @@
                 @endforeach
                 <tr>
                     <th colspan="8">Total Service Charges</th>
-                    <th colspan="2">{{$subtotal}}</th>
+                    <th colspan="2">{{number_format($subtotal)}}</th>
                 </tr>
                 <tr>
                     <th colspan="8">{{\App\Models\Preference::find($session->customers->region)->name}} ({{\App\Models\Preference::find($session->customers->region)->value}}%)</th>
                     <th colspan="2">
 
                         @php $tax=$subtotal*(\App\Models\Preference::find($session->customers->region)->value/100);@endphp
-                        {{$tax}}
+                        {{number_format($tax)}}
                     </th>
                 </tr>
                 <tr>
@@ -357,7 +357,7 @@
                     $numberTransformer = $numberToWords->getNumberTransformer('en');
                     ?>
                     <th colspan="8"  class="text-capitalize">Total ( {{$numberTransformer->toWords($total)}} )</th>
-                    <th colspan="2">{{$total}}</th>
+                    <th colspan="2">{{number_format($total)}}</th>
                 </tr>
                 </tbody>
             </table>

@@ -10,20 +10,39 @@
     <div class="row">
         <div class="col-12">
             <h3 class="border-bottom pull-left"><i class="fa fa-tasks"></i> Job Detail</h3>
+            <div class="pull-right">
+                <a onclick="window.open('{{url('/jobs/print/jobform/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                   href="{{url('/jobs/print/jobform/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
+                            class="fa fa-print"></i> JN</a>
+                <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                   href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
+                            class="fa fa-print"></i> DN</a>
+                @if(count($ifassigned)>0)
+                <a title='Gatepass' onclick="window.open('{{url('/jobs/print/GP/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                    class='btn btn-sm btn-info' href="{{url('jobs/print/GP/'.$job->id)}}"><i class="fa fa-print"></i> GP</a>
+                @endif
+            </div>
         </div>
         <div class="col-12">
-            <table class="table table-hover table-bordered table-sm">
+            <div class="row">
+
+            </div>
+            <table class="table table-hover table-bordered table-sm bg-white">
                 <tr>
                     <th>ID</th>
                     <td>JN/{{date('y',strtotime($job->created_at))}}/{{$job->id}}</td>
                 </tr>
                 <tr>
+                    <th>Customer</th>
+                    <td>{{$job->quotes->customers->reg_name}}</td>
+                </tr>
+                <tr>
                     <th>Status</th>
                     <td>
                         @if($job->status==0)
-                            <span class="badge badge-primary">Pending</span>
+                            <span class="badge badge-primary px-2 py-1">Pending</span>
                         @else
-                            <span class="badge badge-primary">Complete</span>
+                            <span class="badge badge-primary px-2 py-1">Complete</span>
                         @endif
                     </td>
                 </tr>
@@ -43,194 +62,22 @@
                         @endif
                     </td>
                 </tr>
-                <tr>
-                    <th>Customer</th>
-                    <td>{{$job->quotes->customers->reg_name}}</td>
-                </tr>
+
                 <tr>
                     <th>Turnaround</th>
-                    <td>{{$job->quotes->turnaround}}</td>
-                </tr>
-                <tr>
-                    <th>Mode</th>
-                    <td>{{$job->quotes->mode}}</td>
+                    <td>{{$job->quotes->turnaround}} Days</td>
                 </tr>
             </table>
         </div>
-
-        @if($labjobs)
-            <div class="col-12">
-                <h4>Lab Detail</h4>
-                <table class="table table-hover table-bordered table-responsive table-sm">
-
-                    <thead>
-                    <tr>
-                        <th class="text-center">Quote ID</th>
-                        <th>Equipment ID</th>
-                        <th>Serial</th>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Accessories</th>
-                        <th>Visual Inspection</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Started At</th>
-                        <th>Ended At</th>
-                        <th>Assign User</th>
-                        <th>Assign Assets</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @php $sr=0; @endphp
-                    @foreach($labjobs as $labjob)
-                        <tr>
-                            <?php $sr++ ?>
-                            <td class="text-center">
-                                Item {{$sr}} of {{count($labjobs)+count($sitejobs)}}<br>
-                                <a href="{{url('jobs/print/jobtag/lab/'.$sr.'/'.$labjob->id)}}" class="btn"><i
-                                            class="fa fa-qrcode text-danger fa-2x"></i></a>
-                            </td>
-                            <td>@if($labjob->eq_id){{$labjob->eq_id}}@else ---@endif</td>
-                            <td>@if($labjob->serial){{$labjob->serial}}@else ---@endif</td>
-                            <td>@if($labjob->make){{$labjob->make}}@else ---@endif</td>
-                            <td>@if($labjob->model){{$labjob->model}}@else ---@endif</td>
-                            <td>@if($labjob->accessories){{$labjob->accessories}}@else ---@endif</td>
-                            <td>@if($labjob->visual_inspection){{$labjob->visual_inspection}}@else ---@endif</td>
-                            <td>@if($labjob->start){{$labjob->start}}@else ---@endif</td>
-                            <td>@if($labjob->end){{$labjob->end}}@else ---@endif</td>
-                            <td>@if($labjob->started_at){{$labjob->started_at}}@else ---@endif</td>
-                            <td>@if($labjob->ended_at){{$labjob->ended_at}}@else ---@endif</td>
-                            <td>
-                                @if($labjob->assign_user)
-                                    {{\App\Models\User::find($labjob->assign_user)->fname}}{{\App\Models\User::find($labjob->assign_user)->lname}}
-                                @endif
-                                    @if($labjob->assign_user)@else ---@endif
-                            </td>
-                            @php $assets=explode(',',$labjob->assign_assets) @endphp
-                            <td>
-                                @if($labjob->assign_assets)
-                                    @foreach($assets as $asset)
-                                        <span class="badge badge-dark">{{\App\Models\Asset::find($asset)->name}}</span>
-                                    @endforeach
-                                @endif
-                                    @if($labjob->assign_assets)@else ---@endif
-                            </td>
-                            <td>
-                                @if($labjob->status==0)
-                                    <span class="badge badge-primary">New Entry</span>
-                                @elseif($labjob->status==1)
-                                    <span class="badge badge-danger">Checked-in</span>
-                                @elseif($labjob->status==2)
-                                    <span class="badge badge-success">Assigned</span>
-                                @elseif($labjob->status==3)
-                                    <span class="badge badge-success">Started</span>
-                                @elseif($labjob->status==4)
-                                    <span class="badge badge-success">Calculated</span>
-                                @elseif($labjob->status==5)
-                                    <span class="badge badge-success">Ended</span>
-                                @endif
-                                <br>
-                                <span class="text-center col-12">
-                                        <a href="#" data-id="{{$labjob->id}}" data-type="lab"
-                                           class="btn scan btn-primary mt-1 btn-sm"><i class="fa fa-search"></i></a>
-                                    </span>
-
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-
-            </div>
-        @endif
-        @if(count($sitejobs)>0)
-            <div class="col-12">
-                <h4>Site Detail</h4>
-                <table class="table table-hover table-bordered table-responsive table-sm">
-                    <thead>
-                    <tr>
-                        <th>Quote ID</th>
-                        <th>Equipment ID</th>
-                        <th>Model</th>
-                        <th>Visual Inspection</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Started At</th>
-                        <th>Ended At</th>
-                        <th>Assign Assets</th>
-                        <th>Assign User</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                    @foreach($sitejobs as $sitejob)
-                        <tbody>
-                        <tr>
-                            <td>{{$sitejob->jobs->quote_id}}</td>
-                            <td>@if($sitejob->eq_id){{$sitejob->eq_id}}@else ---@endif</td>
-                            <td>@if($sitejob->model){{$sitejob->model}}@else ---@endif</td>
-                            <td>@if($sitejob->visual_inspection){{$sitejob->visual_inspection}}@else ---@endif</td>
-                            <td>@if($sitejob->start){{$sitejob->start}}@else ---@endif</td>
-                            <td>@if($sitejob->end){{$sitejob->end}}@else ---@endif</td>
-                            <td>@if($sitejob->started_at){{$sitejob->started_at}}@else ---@endif</td>
-                            <td>@if($sitejob->ended_at){{$sitejob->ended_at}}@else ---@endif</td>
-                            <td>@if($sitejob->assign_assets){{$sitejob->assign_assets}}@else ---@endif</td>
-                            <td>@if($sitejob->assign_user){{$sitejob->assign_user}}@else ---@endif</td>
-                            <td>
-                                @if($sitejob->status==0)
-                                    <span class="badge badge-primary">New Entry</span>
-                                @elseif($sitejob->status==1)
-                                    <span class="badge badge-success">Assigned</span>
-                                @elseif($sitejob->status==2)
-                                    <span class="badge badge-danger">Checked-in</span>
-                                @elseif($sitejob->status==3)
-                                    <span class="badge badge-success">Started</span>
-                                @elseif($sitejob->status==4)
-                                    <span class="badge badge-success">Calculated</span>
-                                @elseif($sitejob->status==5)
-                                    <span class="badge badge-success">Ended</span>
-                                @endif
-                            </td>
-                        </tr>
-                        </tbody>
-                    @endforeach
-                </table>
-
-                @foreach($sitejobs as $sitejob)
-                    <h4>All Assets</h4>
-                    @php $all_assets=explode(',',$sitejob->group_assets); @endphp
-                    @if(isset($sitejob->group_assets))
-                        @foreach($all_assets as $asset)
-                            <div class="col-12">
-                                <li>{{\App\Models\Asset::find($asset)->name}}
-                                    ( {{\App\Models\Asset::find($asset)->code}} )
-                                </li>
-                            </div>
-                        @endforeach
-                    @endif
-                    <h4>All Users</h4>
-
-                    @php $all_users=explode(',',$sitejob->group_users); @endphp
-                    @if(isset($sitejob->group_users))
-
-                        @foreach($all_users as $user)
-                            <div class="col-12">
-                                <li>{{\App\Models\User::find($user)->fname}} {{\App\Models\User::find($user)->lname}}</li>
-                            </div>
-                        @endforeach
-
-                    @endif
-                    @break
-                @endforeach
-
-            </div>
-
-        @endif
-
-
     </div>
     <script>
         $(document).ready(function () {
+            $(document).on('click', '.assign-lab-task', function () {
+                var id = $(this).attr('data-id');
+
+                $('#assign-lab-task').modal('show');
+                $('#lab_task_id').val(id);
+            });
             $(document).on('click', '.scan', function () {
                 var id = $(this).attr('data-id');
                 var type = $(this).attr('data-type');
@@ -317,5 +164,226 @@
             </div>
         </div>
     </div>
+    @include('itementries.create')
+    @include('tasks.labjob')
+    @include('tasks.sitejob')
 
+    <div class="x_content">
+
+        <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="lab-tab" data-toggle="tab" href="#lab" role="tab" aria-controls="home" aria-selected="true">Lab Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="site-tab" data-toggle="tab" href="#site" role="tab" aria-controls="profile" aria-selected="false">Site Items</a>
+            </li>
+
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="lab" role="tabpanel" aria-labelledby="lab-tab">
+                @if(count($labjobs)>0)
+                    <div class="col-12">
+                        @php $sr=0; @endphp
+                        <div class="row">
+                            @foreach($labjobs as $labjob)
+                                <div class="col-md-4 col-12 mt-1">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a href="#" data-id="{{$labjob->id}}" data-type="lab"
+                                               class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
+                                            <button type="button" data-id="{{$labjob->id}}" class="btn btn-sm btn-light border pull-right assign-lab-task"><i class="fa fa-plus-square"></i> Assign</button>
+                                            @if($labjob->status>0)
+                                                <a href="#" data-id="{{$labjob->id}}" class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i> Receiving</a>
+                                            @elseif($labjob->status==0)
+                                                <a href="#" data-id="{{$labjob->id}}" class="btn add btn-light border btn-sm"><i class="fa fa-plus"></i> Receiving</a>
+                                            @endif
+                                        </div>
+                                        <div class="card-body">
+
+                                            <p class="m-0">↪ <b>Status : </b>
+                                                @if($labjob->status==0)
+                                                    
+                                                    <span class="badge badge-primary">Pending</span>
+                                                @elseif($labjob->status==1)
+                                                    
+                                                    <span class="badge badge-danger">Checked-in</span>
+                                                @elseif($labjob->status==2)
+                                                    
+                                                    <span class="badge badge-success">Assigned</span>
+                                                @elseif($labjob->status==3)
+                                                    
+                                                    <span class="badge badge-success">Started</span>
+                                                @elseif($labjob->status==4)
+                                                    
+                                                    <span class="badge badge-success">Calculated</span>
+                                                @elseif($labjob->status==5)
+                                                    
+                                                    <span class="badge badge-success">Ended</span>
+                                                @endif
+                                            </p>
+
+                                            <p class="m-0">↪ <b>Parameter : </b>{{\App\Models\Parameter::find($labjob->item->parameter)->name}}</p>
+                                            <p class="m-0">↪ <b>Capability : </b>{{\App\Models\Capabilities::find($labjob->item->capability)->name}}</p>
+                                            <p class="m-0">↪ <b>Range : </b>{{$labjob->item->range}}</p>
+                                            <p class="m-0">↪ <b>Accredited : </b>{{$labjob->item->accredited}}</p>
+
+                                            @if($labjob->status<1)
+                                                <span class="badge badge-info px-3 py-2 m-1">Waiting for store entry</span>
+                                            @else
+                                                <p class="m-0">↪ <b>Equipment ID : </b>{{$labjob->eq_id}}</p>
+                                                <p class="m-0">↪ <b>Serial : </b>{{$labjob->serial}}</p>
+                                                <p class="m-0">↪ <b>Make : </b>{{$labjob->make}}</p>
+                                                <p class="m-0">↪ <b>Model : </b>{{$labjob->model}}</p>
+                                                <p class="m-0">↪ <b>Accessories : </b>{{$labjob->accessories}}</p>
+                                                <p class="m-0">↪ <b>Visual Inspection : </b>{{$labjob->eq_id}}</p>
+                                            @endif
+                                            @if($labjob->status<2)
+                                                <span class="badge badge-info px-3 py-2 m-1">Not Assigned yet</span>
+                                            @else
+                                                <p class="m-0">↪ <b>Start : </b>{{$labjob->start}}</p>
+                                                <p class="m-0">↪ <b>End : </b>{{$labjob->end}}</p>
+                                                <p class="m-0">↪ <b>Assign User : </b>
+                                                @if($labjob->assign_user)
+                                                    {{\App\Models\User::find($labjob->assign_user)->fname}}{{\App\Models\User::find($labjob->assign_user)->lname}}
+                                                @endif
+                                            </p>
+                                                <p class="m-0">↪ <b>Assign Asset : </b>
+                                                <br>
+                                                @if($labjob->assign_assets)
+                                                    @php $assets=explode(',',$labjob->assign_assets); @endphp
+                                                    @foreach($assets as $asset)
+                                                        <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
+                                                    @endforeach
+                                                @endif
+
+                                            </p>
+                                            @endif
+                                            @if($labjob->status<3)
+                                                <span class="badge badge-info px-3 py-2 m-1">Not Started yet</span>
+
+                                            @else
+                                                <p class="m-0">↪ <b>Started : </b>{{$labjob->started_at}}</p>
+                                            @endif
+                                            @if($labjob->status<5)
+                                                <span class="badge badge-info px-3 py-2 m-1">Not Ended yet</span>
+                                            @else
+                                                <p class="m-0">↪ <b>Ended : </b>{{$labjob->ended_at}}</p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
+
+            </div>
+            <div class="tab-pane fade" id="site" role="tabpanel" aria-labelledby="site-tab">
+                @if(count($sitejobs)>0)
+                    <div class="row">
+                        <div class="col-12">
+                            <button type='button' title='Assign Site Job' class='btn btn-sm btn-light border assign-site pull-right' data-id="{{$job->id}}"  href> <i class="fa fa-plus-square"></i> Assign</button>
+                            @foreach($sitejobs as $sitejob)
+                                <h4>Assets Assigned</h4>
+                                @php $all_assets=explode(',',$sitejob->group_assets); @endphp
+                                @if(isset($sitejob->group_assets))
+                                    @foreach($all_assets as $asset)
+                                        <span class="badge border px-3 py-2 m-1">
+                                        {{\App\Models\Asset::find($asset)->name}} ( {{\App\Models\Asset::find($asset)->code}} )
+                                        </span>
+                                    @endforeach
+                                @endif
+                                <h4>Assigned Users</h4>
+
+                                @php $all_users=explode(',',$sitejob->group_users); @endphp
+                                @if(isset($sitejob->group_users))
+                                    @foreach($all_users as $user)
+                                        <span class="badge border px-3 py-2 m-1">
+                                        {{\App\Models\User::find($user)->fname}} {{\App\Models\User::find($user)->lname}}
+                                        </span>
+                                    @endforeach
+
+                                @endif
+                                @break
+                            @endforeach
+                        </div>
+                    @foreach($sitejobs as $sitejob)
+                            <div class="col-md-4 col-12 mt-1">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a href="#" data-id="{{$sitejob->id}}" data-type="lab" class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="m-0">↪ <b>Parameter : </b>{{\App\Models\Parameter::find($sitejob->item->parameter)->name}}</p>
+                                        <p class="m-0">↪ <b>Capability : </b>{{\App\Models\Capabilities::find($sitejob->item->capability)->name}}</p>
+                                        <p class="m-0">↪ <b>Range : </b>{{$sitejob->item->range}}</p>
+                                        <p class="m-0">↪ <b>Accredited : </b>{{$sitejob->item->accredited}}</p>
+                                        <p class="m-0">↪ <b>Status : </b>
+                                            @if($sitejob->status==0)
+                                                <span class="badge badge-primary">Pending</span>
+                                            @elseif($sitejob->status==1)
+                                                <span class="badge badge-success">Assigned</span>
+                                            @elseif($sitejob->status==2)
+                                                <span class="badge badge-danger">Checked-in</span>
+                                            @elseif($sitejob->status==3)
+                                                <span class="badge badge-success">Started</span>
+                                            @elseif($sitejob->status==4)
+                                                <span class="badge badge-success">Calculated</span>
+                                            @elseif($sitejob->status==5)
+                                                <span class="badge badge-success">Ended</span>
+                                            @endif
+                                        </p>
+
+
+
+                                        @if($sitejob->status<1)
+                                            <span class="badge badge-info px-3 py-2 m-1">Waiting for store entry</span>
+                                        @else
+                                            <p class="m-0">↪ <b>Equipment ID : </b>{{$sitejob->eq_id}}</p>
+                                            <p class="m-0">↪ <b>Serial : </b>{{$sitejob->serial}}</p>
+                                            <p class="m-0">↪ <b>Make : </b>{{$sitejob->make}}</p>
+                                            <p class="m-0">↪ <b>Model : </b>{{$sitejob->model}}</p>
+                                            <p class="m-0">↪ <b>Accessories : </b>{{$sitejob->accessories}}</p>
+                                            <p class="m-0">↪ <b>Visual Inspection : </b>{{$sitejob->eq_id}}</p>
+                                        @endif
+
+
+                                        @if($labjob->status<2)
+                                            <span class="badge badge-info px-3 py-2 m-1">Not Assigned yet</span>
+                                        @else
+                                            <p class="m-0">↪ <b>Start : </b>{{$sitejob->start}}</p>
+                                            <p class="m-0">↪ <b>End : </b>{{$sitejob->end}}</p>
+                                            <p class="m-0">↪ <b>Assign User : </b>
+                                                @if($labjob->assign_user)
+                                                    {{\App\Models\User::find($sitejob->assign_user)->fname}}{{\App\Models\User::find($sitejob->assign_user)->lname}}
+                                                @endif
+                                            </p>
+                                            <p class="m-0">↪ <b>Assign Asset : </b>
+                                                <br>
+                                                @if($labjob->assign_assets)
+                                                    @php $assets=explode(',',$sitejob->assign_assets); @endphp
+                                                    @foreach($assets as $asset)
+                                                        <span class="badge badge-info py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
+                                                    @endforeach
+                                                @endif
+
+                                            </p>
+                                        @endif
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+
+                @endif
+            </div>
+        </div>
+    </div>
 @endsection

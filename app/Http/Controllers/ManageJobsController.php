@@ -34,8 +34,7 @@ class ManageJobsController extends Controller
                 return $data->type;
             })
             ->addColumn('turnaround', function ($data) {
-                $turnaround=date('d M, Y',strtotime($data->turnaround));
-                return $turnaround;
+                return $data->turnaround.' Days';
             })
             ->addColumn('total', function ($data) {
                 $items=Item::where('quote_id',$data->id)->get();
