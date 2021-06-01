@@ -35,6 +35,8 @@
                         "<tr><td>NTN/FTN</td><td>" + data.ntn + "</td></tr>"+
                         "<tr><td>Ship to Address</td><td>" + data.address + "</td></tr>"+
                         "<tr><td>Bill to Address</td><td>" + data.bill_to_address + "</td></tr>"+
+                        "<tr><td>Payment Type</td><td class='text-capitalize'>" + data.customer_type + "</td></tr>"+
+                        "<tr><td>Payment Terms</td><td class='text-capitalize'>" + data.pay_terms + "</td></tr>"+
                         "<tr><td>Region</td><td>" + data.region + "</td></tr>"+
                         "<tr><td>Tax Case</td><td>" + data.tax_case + "</td></tr>"+
                         "<tr><td>Principal Name</td><td>" + data.prin_name + "</td></tr>"+

@@ -284,9 +284,9 @@ class CustomerController extends Controller
             $customer->pay_terms=$request->pay_way;
             $customer->credit_limit=0;
 
-            $customer->prin_name=implode(',',$request->prin_name);
-            $customer->prin_phone=implode(',',$request->prin_phone);
-            $customer->prin_email=implode(',',$request->prin_email);
+            $customer->prin_name=implode(',',array_filter($request->prin_name));
+            $customer->prin_phone=implode(',',array_filter($request->prin_phone));
+            $customer->prin_email=implode(',',array_filter($request->prin_email));
 
             if ($request->pur_name or $request->pur_phone[0] or $request->pur_phone[1] or $request->pur_email ){
                 $this->validate(request(), [
@@ -297,7 +297,7 @@ class CustomerController extends Controller
                     'pur_email.required' => 'Purchase Email field is required *',
                 ]);
                 $customer->pur_name=$request->pur_name;
-                $customer->pur_phone=implode(',',$request->pur_phone);
+                $customer->pur_phone=implode(',',array_filter($request->pur_phone));
                 $customer->pur_email=$request->pur_email;
             }
             if ($request->acc_name or $request->acc_phone[0] or $request->acc_phone[1] or $request->acc_email ){
@@ -309,14 +309,10 @@ class CustomerController extends Controller
                     'acc_name.required' => 'Account Name field is required *',
                     'acc_email.required' => 'Account Email field is required *',
                 ]);
-
                 $customer->acc_name=$request->acc_name;
-                $customer->acc_phone=implode(',',$request->acc_phone);
+                $customer->acc_phone=implode(',',array_filter($request->acc_phone));
                 $customer->acc_email=$request->acc_email;
             }
-
-
-
 
             $acc = new Chartofaccount();
             $acc->code4 = 000;
