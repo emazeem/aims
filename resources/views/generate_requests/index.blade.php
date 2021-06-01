@@ -18,7 +18,7 @@
     <div class="col-12">
         <h3 class="pull-left pb-1"><i class="fa fa-question-circle "></i> All Requests</h3>
         <span class="">
-            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-circle"></i> Request</button>
+            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-square"></i> Request</button>
         </span>
     </div>
 
@@ -147,6 +147,10 @@
         });
 
         $("#add_session_form").on('submit',(function(e) {
+            var button=$('.request-save-btn');
+            var previous=$('.request-save-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
             e.preventDefault();
             $.ajax({
                 url: "{{route('quotes.store')}}",
@@ -157,21 +161,16 @@
                 processData:false,
                 success: function(data)
                 {
-
-                    if(!data.errors)
-                    {
-                        //$(".loading").();
-                        $('button').attr('disabled',false);
-                        $('#add_session').modal('hide');
-                        swal('success',data.success,'success').then((value) => {
-                            location.reload();
-                        });
-                    }else {
-                        swal("Warning", data.errors, "warning");
-                    }
+                    button.attr('disabled',null).html(previous);
+                    $('button').attr('disabled',false);
+                    $('#add_session').modal('hide');
+                    swal('success',data.success,'success').then((value) => {
+                        InitTable();
+                    });
                 },
                 error: function(xhr)
                 {
+                    button.attr('disabled',null).html(previous);
                     $('button').attr('disabled',false);
                     var error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
@@ -184,6 +183,10 @@
 
         $("#edit_session_form").on('submit',(function(e) {
             e.preventDefault();
+            var button=$('.request-edit-btn');
+            var previous=$('.request-edit-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
             $.ajax({
                 url: "{{route('quotes.update')}}",
                 type: "POST",
@@ -194,26 +197,11 @@
                 success: function(data)
                 {
 
-                    if(!data.errors)
-                    {
-                        $('#edit_session').modal('hide');
-                        swal('success',data.success,'success').then((value) => {
-                            location.reload();
-                        });
-
-                    }
-                    else
-                    {
-                        jQuery.each(data.errors, function (key, value) {
-                            swal({
-                                title: "Pesan Eror",
-                                text: value,
-                                timer: 5000,
-                                showConfirmButton: false,
-                                type: "error"
-                            })
-                        });
-                    }
+                    button.attr('disabled',null).html(previous);
+                    $('#edit_session').modal('hide');
+                    swal('success',data.success,'success').then((value) => {
+                        InitTable();
+                    });
                 },
                 error: function(xhr)
                 {
@@ -336,7 +324,7 @@
                     </div>
             </div>
             <div class="modal-footer text-right bg-light">
-                <button class="btn btn-primary btn-sm btn-block" type="submit"><i class="fa fa-save"></i> Save</button>
+                <button class="btn btn-primary btn-sm btn-block request-save-btn" type="submit"><i class="fa fa-save"></i> Save</button>
             </div>
             </form>
 
@@ -411,7 +399,7 @@
             </div>
 
                     <div class="modal-footer text-right bg-light">
-{{--                        <button class="btn btn-primary btn-sm btn-block" type="submit"><i class="fa fa-refresh"></i> Update</button>--}}
+                        <button class="btn btn-primary btn-sm btn-block request-edit-btn" type="submit"><i class="fa fa-refresh"></i> Update</button>
                     </div>
 
                 </form>

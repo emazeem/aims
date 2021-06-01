@@ -188,8 +188,8 @@
                                             <div class="form-check form-check-inline" style="width: 100%">
                                                 <select class="form-control" id="turnaround" name="turnaround">
                                                     <option disabled selected>Select Turnaround</option>
-                                                    <option value="3" {{(count($show->items)>0 && count($show->items)<=5)?'selected':''}}>3 working days</option>
-                                                    <option value="8" {{(count($show->items)>5 && count($show->items)<=10)?'selected':''}}>8 working days</option>
+                                                    <option value="3" {{(count($show->items)>0 && count($show->items)<=5)?'selected':''}}>5 working days</option>
+                                                    <option value="8" {{(count($show->items)>5 && count($show->items)<=10)?'selected':''}}>10 working days</option>
                                                     <option value="15" {{(count($show->items)>10 && count($show->items)<=50)?'selected':''}}>15 working days</option>
                                                     <option value="30" {{(count($show->items)>50)?'selected':''}}>30 working days</option>
                                                 </select>

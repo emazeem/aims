@@ -283,6 +283,7 @@ class CustomerController extends Controller
             $customer->bill_to_address=$request->bill_to_address;
             $customer->pay_terms=$request->pay_way;
             $customer->credit_limit=0;
+
             $customer->prin_name=implode(',',$request->prin_name);
             $customer->prin_phone=implode(',',$request->prin_phone);
             $customer->prin_email=implode(',',$request->prin_email);

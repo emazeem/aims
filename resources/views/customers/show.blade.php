@@ -1,157 +1,82 @@
-@extends('layouts.master')
-@section('content')
-    @if(Session::has('success'))
-        <script>
-            $(document).ready(function () {
-                swal("Done!", '{{Session('message')}}', "success");
-            });
-        </script>
-    @endif
+<div class="modal fade" id="show-customer" tabindex="-1" role="dialog" aria-labelledby="show-customer" aria-hidden="true">
+    <div class="modal-dialog  modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title" id="show-customer"> <i class="fa fa-eye"></i> Show Customer</h5>
+                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times-circle"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table text-dark table-sm bg-white table-bordered table-responsive-sm table-hover font-13 customer-show">
 
-    <div class="row">
-        <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> Customer Details</h3>
-            <div class="text-md-right">
-                <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fa fa-eye"></i> Customer Ledger</a>
-                <a href="" class="btn btn-sm btn-success shadow-sm mt-1"><i class="fa fa-eye"></i> Receivable Aging Ledger</a>
+                </table>
             </div>
         </div>
-        <div class="col-12">
-            <table class="table table-sm bg-white table-bordered table-responsive-sm table-hover font-13">
-                <tr>
-                    <th>Registration Name</th>
-                    <td>{{$show->reg_name}}</td>
-                </tr>
-                <tr>
-                    <th>NTN/FTN</th>
-                    <td>{{$show->ntn}}</td>
-                </tr>
-                <tr>
-                    <th>Physical Address</th>
-                    <td>{{$show->address}}</td>
-                </tr>
-                <tr>
-                    <th>Customer Type</th>
-                    <td class="text-capitalize">{{$show->customer_type}}</td>
-                </tr>
-                <tr>
-                    <th>Payment Terms</th>
-                    <td>{{$show->pay_terms}}</td>
-                </tr>
-                <tr>
-                    <th>Region</th>
-                    <td>{{\App\Models\Preference::find($show->region)->name}}</td>
-                </tr>
-                <tr>
-                    <th>Tax Case</th>
-                    <td>
-                        @if($show->tax_case==1)
-                            Case-1 : Income Tax By AIMS + Service Tax By AIMS
-                        @elseif($show->tax_case==2)
-                            Case-2 : Income Tax At SOURCE + Service Tax By SOURCE
-                        @elseif($show->tax_case==3)
-                            Case-3 : Income Tax At SOURCE + Service Tax By AIMS
-                        @else
-                        @endif
-
-
-                    </td>
-                </tr>
-
-                <tr>
-                    <th>01-Principal Name</th>
-                    <td>
-                        @foreach(explode(',',$show->prin_name) as $item)
-                            <span class="badge badge-success">{{$item}}</span>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr>
-                    <th>01-Principal Email</th>
-                    <td>
-                        @foreach(explode(',',$show->prin_email) as $item)
-                            <span class="badge badge-success">{{$item}}</span>
-                        @endforeach
-                    </td>
-                </tr>
-                <tr>
-                    <th>01-Principal Phone</th>
-                    <td>
-                        @foreach(explode(',',$show->prin_phone) as $item)
-                            <span class="badge badge-success">{{$item}}</span>
-                        @endforeach
-                    </td>
-                </tr>
-                @if($show->prin_name_2)
-                    <tr>
-                        <th>02-Principal Name</th>
-                        <td>{{$show->prin_name_2}}</td>
-                    </tr>
-                    <tr>
-                        <th>02-Principal Email</th>
-                        <td>{{$show->prin_email_2}}</td>
-                    </tr>
-                    <tr>
-                        <th>02-Principal Phone</th>
-                        <td>{{$show->prin_phone_2}}</td>
-                    </tr>
-                @endif
-                @if($show->prin_name_3)
-                    <tr>
-                        <th>03-Principal Name</th>
-                        <td>{{$show->prin_name_3}}</td>
-                    </tr>
-                    <tr>
-                        <th>03-Principal Email</th>
-                        <td>{{$show->prin_email_3}}</td>
-                    </tr>
-                    <tr>
-                        <th>03-Principal Phone</th>
-                        <td>{{$show->prin_phone_3}}</td>
-                    </tr>
-                @endif
-
-                @if($show->pur_name)
-                    <tr>
-                        <th>Purchase Name</th>
-                        <td>{{$show->pur_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Purchase Email</th>
-                        <td>{{$show->pur_email}}</td>
-                    </tr>
-                    <tr>
-                        <th>Purchase Phone</th>
-                        <td>{{$show->pur_phone}}</td>
-                    </tr>
-                @endif
-                @if($show->acc_name)
-                    <tr>
-                        <th>Account Name</th>
-                        <td>{{$show->acc_name}}</td>
-                    </tr>
-                    <tr>
-                        <th>Account Email</th>
-                        <td>{{$show->acc_email}}</td>
-                    </tr>
-                    <tr>
-                        <th>Account Phone</th>
-                        <td>{{$show->acc_phone}}
-                        </td>
-                    </tr>
-                @endif
-                <tr>
-                    <th>Created on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
-                </tr>
-                <tr>
-                    <th>Updated on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
-                </tr>
-            </table>
-
-        </div>
     </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.view-customer', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('data-id');
 
+            $.ajax({
+                "url": "{{route('customers.show')}}",
+                type: "POST",
+                data: {'id': id,_token: '{{csrf_token()}}'},
+                dataType : "json",
+                success: function(data)
+                {
+                    $('#show-customer').modal('toggle');
+                    $('.customer-show').empty();
+                    $('.customer-show').append(
+                        "<tr><td>Registration Name</td><td>" + data.reg_name + "</td></tr>"+
+                        "<tr><td>NTN/FTN</td><td>" + data.ntn + "</td></tr>"+
+                        "<tr><td>Ship to Address</td><td>" + data.address + "</td></tr>"+
+                        "<tr><td>Bill to Address</td><td>" + data.bill_to_address + "</td></tr>"+
+                        "<tr><td>Region</td><td>" + data.region + "</td></tr>"+
+                        "<tr><td>Tax Case</td><td>" + data.tax_case + "</td></tr>"+
+                        "<tr><td>Principal Name</td><td>" + data.prin_name + "</td></tr>"+
+                        "<tr><td>Principal Email</td><td>" + data.prin_email + "</td></tr>"+
+                        "<tr><td>Principal Phone</td><td>" + data.prin_email + "</td></tr>"
+                    );
+                    if (data.pur_name){
+                        $('.customer-show').append(
+                            "<tr><td>Purchase Name</td><td>" + data.pur_name + "</td></tr>"
+                        );
+                    }
+                    if (data.pur_email){
+                        $('.customer-show').append(
+                            "<tr><td>Purchase Email</td><td>" + data.pur_email + "</td></tr>"
+                        );
+                    }
+                    if (data.pur_phone){
+                        $('.customer-show').append(
+                            "<tr><td>Purchase Phone</td><td>" + data.pur_phone + "</td></tr>"
+                        );
+                    }
 
-@endsection
+                    if (data.acc_name){
+                        $('.customer-show').append(
+                            "<tr><td>Account Name</td><td>" + data.acc_name + "</td></tr>"
+
+                        );
+                    }
+
+                    if (data.acc_email){
+                        $('.customer-show').append(
+                            "<tr><td>Account Email</td><td>" + data.acc_email + "</td></tr>"
+                        );
+                    }
+
+                    if (data.acc_phone){
+                        $('.customer-show').append(
+                            "<tr><td>Account Phone</td><td>" + data.acc_phone + "</td></tr>");
+                    }
+
+                }
+            });
+        });
+    });
+</script>

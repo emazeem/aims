@@ -39,7 +39,6 @@
 </head>
 <body class="nav-md">
 <div class="container body">
-    <div class="loader"></div>
     <div class="main_container">
         @include('layouts.partials.sidebar')
         @include('layouts.partials.navbar')

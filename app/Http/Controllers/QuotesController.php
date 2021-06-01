@@ -80,7 +80,7 @@ class QuotesController extends Controller
                 class='btn btn-sm btn-danger'><b>QF</b></a>";
 
                 if ($data->status==1){
-                    $action="<a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href
+                    $action.="<a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href
                    data-id='".$data->id."'><i class='fa fa-send'></i></a>";
                 }
 

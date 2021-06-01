@@ -91,6 +91,9 @@
             });
             $("#add-items").on('submit',(function(e) {
                 e.preventDefault();
+                var button=$('.items-save-btn');
+                var previous=$('.items-save-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
                 var url='';
                 if ($('#edit_item_id').val()){
                     url="{{route('items.update')}}";
@@ -107,6 +110,8 @@
                     processData:false,
                     success: function(data)
                     {
+
+                        button.attr('disabled',null).html(previous);
                         swal('success',data.success,'success').then((value) => {
                             InitTable();
                             $('#edit_item_id').val('');
@@ -115,6 +120,7 @@
                     },
                     error: function(xhr)
                     {
+                        button.attr('disabled',null).html(previous);
                         var error='';
                         $.each(xhr.responseJSON.errors, function (key, item) {
                             error+=item;
@@ -244,9 +250,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    {{--<a href="{{ URL::previous() }}" class="btn btn-light btn-sm border"><i class="fa fa-angle-left"></i> Back</a>
-                    --}}
-                    <button type="submit" class="btn btn-primary btn-sm float-right "><i class="fa fa-save"></i> Save</button>
+                    <button type="submit" class="btn btn-primary btn-sm float-right items-save-btn"><i class="fa fa-save"></i> Save</button>
                 </div>
 
             </form>
