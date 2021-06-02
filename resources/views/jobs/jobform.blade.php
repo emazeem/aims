@@ -142,7 +142,7 @@
                         <td class="font-md">{{\App\Models\Item::find($labjob->item_id)->capabilities->name}}</td>
                         <td class="font-md">{{$labjob->eq_id}}</td>
                         <td class="font-md">{{$labjob->model}}</td>
-                        <td class="font-md">{{date('d M-Y',strtotime($labjob->jobs->quotes->turnaround))}}</td>
+                        <td class="font-md">{{$labjob->jobs->quotes->turnaround)}}</td>
                         <td class="font-md">{{$labjob->accessories}}</td>
                         <td class="font-md">{{$labjob->visual_inspection}}</td>
                     </tr>
@@ -154,7 +154,7 @@
                         <td class="font-md">{{$sitejob->item->capabilities->name}}</td>
                         <td class="font-md">{{$sitejob->eq_id}}</td>
                         <td class="font-md">{{$sitejob->model}}</td>
-                        <td class="font-md">{{date('d M-Y',strtotime($sitejob->jobs->quotes->turnaround))}}</td>
+                        <td class="font-md">{{$sitejob->jobs->quotes->turnaround)}}</td>
                         <td class="font-md">{{$sitejob->accessories}}</td>
                         <td class="font-md">{{$sitejob->visual_inspection}}</td>
                     </tr>

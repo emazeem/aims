@@ -109,8 +109,6 @@
                         <td>{{$show->turnaround}} working days</td>
                     </tr>
                 @endif
-
-
                 <tr>
                     <td><b>Created on</b></td>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>

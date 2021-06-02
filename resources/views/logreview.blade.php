@@ -9,7 +9,7 @@
     </style>
     <div class="col-12">
         <h3 class="pull-left pb-1"><i class="fa fa-list"></i> Log Reviews</h3>
-        <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2" data-toggle="modal" data-target="#add_logs"><i class="fa fa-plus-circle"></i> Log Reviews</button>
+        <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2 add_logs_btn"><i class="fa fa-plus-circle"></i> Log Reviews</button>
     </div>
   <div class="col-lg-12">
     <table id="example" class="table table-bordered bg-white table-hover table-sm display nowrap" cellspacing="0" width="100%">
@@ -75,60 +75,10 @@
         });
 
     }
-    $(document).ready(function() {
-        InitTable();
-        $(document).on('click', '.edit', function() {
-            $('#add_logs_form')[0].reset();
-            var id = $(this).attr('data-id');
-            $('.title-log-review').text('Update Log Reviews');
-            $('.log-save-btn').html('<i class="fa fa-save"></i> Update');
-            $.ajax({
-                "url": "{{route('log_reviews.edit')}}",
-                type: "POST",
-                data: {'id': id,_token: '{{csrf_token()}}'},
-                dataType : "json",
-                success: function(data)
-                {
-                    $('#add_logs').modal('toggle');
-                    $('#edit_id').val(data.id);
-                    $('#title').val(data.title);
-                    $('#description').val(data.description);
-                    $('#start').val(data.start);
-                    $('#end').val(data.end);
-                    $('#priority').val(data.priority);
-                }
-            });
-        });
-/*        $(document).on('click', '.show', function (e) {
-            e.preventDefault();
-            var id = $(this).attr('data-id');
-            $.ajax({
-                "url": "{{route('log_reviews.show')}}",
-                type: "POST",
-                data: {'id': id,_token: '{{csrf_token()}}'},
-                dataType : "json",
-                success: function(data)
-                {
-                    $('#show_logs').modal('toggle');
-                    $('.log-table').empty();
-                    $('.log-table').append(
-                        "<tr><th>Title</th><td>" + data.title + "</td></tr>"+
-                        "<tr><th>Description</th><td>" + data.description + "</td></tr>"+
-                        "<tr><th>Start</th><td>" + data.start + "</td></tr>"+
-                        "<tr><th>End</th><td>" + data.end + "</td></tr>"+
-                        "<tr><th>Status</th><td>" + data.status + "</td></tr>"+
-                        "<tr><th>Priority</th><td>" + data.priority + "</td></tr>"
-                    );
-                }
-            });
-        });*/
-    });
-
-
 </script>
 
 
-<div class="modal fade" id="add_logs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="add_logs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -185,11 +135,11 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="show_logs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="show_logs" tabindex="-1" role="dialog" aria-labelledby="show-log-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> <span class="title-log-review">Add Log Reviews</span></h5>
+                <h5 class="modal-title" id="show-log-title"><i class="fa fa-plus-circle"></i> <span class="title-log-review">Add Log Reviews</span></h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
                 </button>
@@ -205,6 +155,32 @@
 
 <script>
     $(document).ready(function () {
+        InitTable();
+        $(document).on('click', '.edit', function() {
+            $('#add_logs_form')[0].reset();
+            var id = $(this).attr('data-id');
+            $('.title-log-review').text('Update Log Reviews');
+            $('.log-save-btn').html('<i class="fa fa-save"></i> Update');
+            $.ajax({
+                "url": "{{route('log_reviews.edit')}}",
+                type: "POST",
+                data: {'id': id,_token: '{{csrf_token()}}'},
+                dataType : "json",
+                success: function(data)
+                {
+                    $('#add_logs').modal('toggle');
+                    $('#edit_id').val(data.id);
+                    $('#title').val(data.title);
+                    $('#description').val(data.description);
+                    $('#start').val(data.start);
+                    $('#end').val(data.end);
+                    $('#priority').val(data.priority);
+                }
+            });
+        });
+        $(document).on('click', '.add_logs_btn', function() {
+            $('#add_logs').modal('toggle');
+        });
         $("#add_logs_form").on('submit',(function(e) {
             e.preventDefault();
             var button=$('.log-save-btn');
@@ -271,7 +247,30 @@
                     }
                 });
 
-        });
+        });/*
+        $(document).on('click', '.show', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                "url": "{{route('log_reviews.show')}}",
+                type: "POST",
+                data: {'id': id,_token: '{{csrf_token()}}'},
+                dataType : "json",
+                success: function(data)
+                {
+                    $('#show_logs').modal('toggle');
+                    $('.log-table').empty();
+                    $('.log-table').append(
+                        "<tr><th>Title</th><td>" + data.title + "</td></tr>"+
+                        "<tr><th>Description</th><td>" + data.description + "</td></tr>"+
+                        "<tr><th>Start</th><td>" + data.start + "</td></tr>"+
+                        "<tr><th>End</th><td>" + data.end + "</td></tr>"+
+                        "<tr><th>Status</th><td>" + data.status + "</td></tr>"+
+                        "<tr><th>Priority</th><td>" + data.priority + "</td></tr>"
+                    );
+                }
+            });
+        });*/
     });
 </script>
 @endsection
