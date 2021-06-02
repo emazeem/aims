@@ -13,8 +13,8 @@
         <th>Title</th>
         <th>Description</th>
         <th>Priority</th>
-        <th>Status</th>
         <th>Created By</th>
+          <th>Status</th>
         <th>Attachment</th>
         <th>Action</th>
       </tr>
@@ -27,8 +27,8 @@
           <th>Title</th>
           <th>Description</th>
           <th>Priority</th>
-          <th>Status</th>
           <th>Created By</th>
+          <th>Status</th>
           <th>Attachment</th>
           <th>Action</th>
       </tr>
@@ -41,7 +41,6 @@
 
     function InitTable() {
         $(".loading").fadeIn();
-
         $('#example').DataTable({
             responsive: true,
             "bDestroy": true,
@@ -51,7 +50,7 @@
             "order": [[0, 'asc']],
             "pageLength": 25,
             "ajax":{
-                "url": "{{ route('designations.fetch') }}",
+                "url": "{{ route('log_reviews.fetch') }}",
                 "dataType": "json",
                 "type": "POST",
                 "data":{ _token: "{{csrf_token()}}"}
@@ -61,8 +60,9 @@
                 { "data": "title" },
                 { "data": "description" },
                 { "data": "priority" },
-                { "data": "status" },
                 { "data": "created_by" },
+                { "data": "status" },
+                { "data": "attachment" },
                 { "data": "options" ,"orderable":false},
             ]
 
@@ -72,83 +72,28 @@
     $(document).ready(function() {
         InitTable();
         $(document).on('click', '.edit', function() {
+            $('#add_logs_form')[0].reset();
             var id = $(this).attr('data-id');
-
+            $('.title-log-review').text('Update Log Reviews');
+            $('.log-save-btn').html('<i class="fa fa-save"></i> Update');
             $.ajax({
-                "url": "{{url('/designations/edit')}}",
+                "url": "{{route('log_reviews.edit')}}",
                 type: "POST",
                 data: {'id': id,_token: '{{csrf_token()}}'},
                 dataType : "json",
                 success: function(data)
                 {
-                    $('#edit_designation').modal('toggle');
-                    $('#editid').val(data.id);
-                    $('#edit_department').val(data.department_id);
-                    $('#editname').val(data.name);
+                    $('#add_logs').modal('toggle');
+                    $('#edit_id').val(data.id);
+                    $('#title').val(data.title);
+                    $('#description').val(data.description);
+                    $('#start').val(data.start);
+                    $('#end').val(data.end);
+                    $('#priority').val(data.priority);
                 }
             });
         });
-        $("#add_designation_form").on('submit',(function(e) {
-            e.preventDefault();
-            var button=$(this).find('input[type="submit"],button');
-            var previous=$(button).html();
-            button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
-            $.ajax({
-                url: "{{route('designations.store')}}",
-                type: "POST",
-                data:  new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false,
-                success: function(data)
-                {
-                    button.attr('disabled',null).html(previous);
-                    swal('success',data.success,'success').then((value) => {
-                        $('#add_designation').modal('hide');
-                        InitTable();
-                    });
 
-                },
-                error: function(xhr)
-                {
-                    button.attr('disabled',null).html(previous);
-                    var error='';
-                    $.each(xhr.responseJSON.errors, function (key, item) {
-                        error+=item;
-                    });
-                    swal("Failed", error, "error");
-                }
-            });
-        }));
-        $("#edit_designation_form").on('submit',(function(e) {
-            e.preventDefault();
-            $.ajax({
-                url: "{{route('designations.update')}}",
-                type: "POST",
-                data:  new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false,
-                success: function(data)
-                {
-
-                    if(!data.errors)
-                    {
-                        $('#edit_designation').modal('toggle');
-                        swal("Success", "designation updated successfully", "success");
-                        InitTable();
-                    }
-                },
-                error: function(xhr)
-                {
-                    var error='';
-                    $.each(xhr.responseJSON.errors, function (key, item) {
-                        error+=item;
-                    });
-                    swal("Failed", error, "error");
-                }
-            });
-        }));
 
     });
 
@@ -157,17 +102,17 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Log Reviews</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> <span class="title-log-review">Add Log Reviews</span></h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
                 </button>
             </div>
 
             <div class="modal-body">
-                <form id="add_designation_form">
+                <form id="add_logs_form" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" value="id" name="edit_id" id="edit_id">
                     <div class="row">
-
                         <div class="form-group col-12">
                             <label for="title">Title</label>
                             <input type="text" class="form-control" id="title" name="title" placeholder="Title">
@@ -188,27 +133,65 @@
                             <label for="priority">Priority</label>
                             <select class="form-control" id="priority" name="priority">
                                 <option selected disabled>--Select Priority</option>
-                                <option value="1"><i class="fa fa-arrow-up"></i>High</option>
-                                <option value="0"><i class="fa fa-arrow-down"></i>Low</option>
+                                <option value="1">↑ High</option>
+                                <option value="0">↓ Low</option>
                             </select>
 
                         </div>
-
-
-                        <div class="col-12 text-right">
-                            <button class="btn btn-primary " type="submit">Save</button>
+                        <div class="form-group col-12">
+                            <label for="attachment">Attachment</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="attachment" id="attachment">
+                                <label class="custom-file-label" for="attachment">Attachment</label>
+                            </div>
                         </div>
-
                     </div>
-
-                </form>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-primary btn-sm log-save-btn" type="submit"><i class="fa fa-save"></i> Save</button>
+                </form>
+
             </div>
         </div>
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+        $("#add_logs_form").on('submit',(function(e) {
+            e.preventDefault();
+            var button=$('.log-save-btn');
+            var previous=$(button).html();
+            button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+            $.ajax({
+                url: "{{route('log_reviews.store')}}",
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success: function(data)
+                {
+                    button.attr('disabled',null).html(previous);
+                    swal('success',data.success,'success').then((value) => {
+                        $('#add_logs_form').modal('hide');
+                        InitTable();
+                    });
+
+                },
+                error: function(xhr)
+                {
+                    button.attr('disabled',null).html(previous);
+                    var error='';
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
+                }
+            });
+        }));
+    });
+</script>
 @endsection
 
 

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LogReview extends Model
 {
     use HasFactory;
+    public function createdby(){
+        return $this->belongsTo('App\Models\User','created_by','id');
+    }
 }
