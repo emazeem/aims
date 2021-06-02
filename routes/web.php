@@ -120,6 +120,7 @@ Route::group(['prefix'=> 'assets'],function() {
     Route::get('/edit/{id}',[App\Http\Controllers\AssetController::class, 'edit'])->middleware('auth')->name('assets.edit');
     Route::post('/update/{id}',[App\Http\Controllers\AssetController::class, 'update'])->middleware('auth')->name('assets.update');
     Route::get('/show/{id}',[App\Http\Controllers\AssetController::class, 'show'])->middleware('auth')->name('assets.show');
+    Route::delete('delete',[App\Http\Controllers\AssetController::class, 'destroy'])->middleware('auth')->name('assets.destroy');
 });
 Route::group(['prefix'=> 'asset/groups'],function() {
     Route::get('',[App\Http\Controllers\AssetgroupController::class, 'index'])->middleware('auth')->name('assets.groups');
