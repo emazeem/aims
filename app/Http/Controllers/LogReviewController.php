@@ -51,6 +51,8 @@ class LogReviewController extends Controller
 
                 if($data->attachment){
                     $image="<img src='".Storage::disk('local')->url('public/log-reviews/'.$data->attachment)."' class='img-fluid' width='100'>";
+                }else{
+                    $image='';
                 }
                 return $image;
             })
@@ -72,7 +74,7 @@ class LogReviewController extends Controller
             ->make(true);
     }
     public function store(Request $request){
-        
+
         $this->authorize('designation-create');
         $this->validate(request(), [
             'title' => 'required',
