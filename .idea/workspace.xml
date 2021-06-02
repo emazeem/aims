@@ -56,16 +56,16 @@
         <counts>
           <entry key="css" value="171" />
           <entry key="html" value="420" />
-          <entry key="php" value="32027" />
+          <entry key="php" value="32270" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="19799" />
+          <entry key="Blade" value="19834" />
           <entry key="CSS" value="172" />
           <entry key="HTML" value="424" />
-          <entry key="PHP" value="12223" />
+          <entry key="PHP" value="12431" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -73,16 +73,16 @@
         <counts>
           <entry key="css" value="2" />
           <entry key="html" value="1" />
-          <entry key="php" value="470" />
+          <entry key="php" value="472" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="251" />
+          <entry key="Blade" value="252" />
           <entry key="CSS" value="2" />
           <entry key="HTML" value="1" />
-          <entry key="PHP" value="219" />
+          <entry key="PHP" value="220" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -96,8 +96,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="181" column="55" lean-forward="true" selection-start-line="181" selection-start-column="55" selection-end-line="181" selection-end-column="55" />
+            <state relative-caret-position="340">
+              <caret line="183" column="115" lean-forward="true" selection-start-line="183" selection-start-column="115" selection-end-line="183" selection-end-column="133" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-178">
+              <caret line="134" selection-start-line="134" selection-end-line="135" />
             </state>
           </provider>
         </entry>
@@ -105,8 +114,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+            <state relative-caret-position="438">
+              <caret line="109" column="45" lean-forward="true" selection-start-line="109" selection-start-column="45" selection-end-line="109" selection-end-column="45" />
               <folding>
                 <element signature="e#40#65#0#PHP" expanded="true" />
               </folding>
@@ -117,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/logreview.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="113" column="65" selection-start-line="113" selection-start-column="58" selection-end-line="113" selection-end-column="65" />
+            <state relative-caret-position="130">
+              <caret line="207" column="32" selection-start-line="207" selection-start-column="31" selection-end-line="207" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -139,7 +148,6 @@
       <find>customer-save-btn</find>
       <find>request-save-btn</find>
       <find>CUSTOMER</find>
-      <find>customer</find>
       <find>CUS</find>
       <find>requ</find>
       <find>items-save-btn</find>
@@ -157,6 +165,7 @@
       <find>route</find>
       <find>image</find>
       <find>$('#add-customer-form')[0].reset();</find>
+      <find>customer</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -221,7 +230,6 @@
         <option value="$PROJECT_DIR$/resources/views/customers/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_06_02_112612_create_log_reviews_table.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" />
@@ -230,6 +238,7 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/LogReview.php" />
         <option value="$PROJECT_DIR$/resources/views/customers/create.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/logreview.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php" />
       </list>
@@ -619,12 +628,12 @@
       <workItem from="1622363140473" duration="805000" />
       <workItem from="1622366674124" duration="97000" />
       <workItem from="1622377102263" duration="609000" />
-      <workItem from="1622430208609" duration="48071000" />
+      <workItem from="1622430208609" duration="48734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231416000" />
+    <option name="totallyTimeSpent" value="232079000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -952,20 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="269" column="83" selection-start-line="269" selection-start-column="83" selection-end-line="269" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1628">
-          <caret line="74" column="59" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1029,13 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="181" column="55" lean-forward="true" selection-start-line="181" selection-start-column="55" selection-end-line="181" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/customers/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1043,17 +1031,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="183" column="115" lean-forward="true" selection-start-line="183" selection-start-column="115" selection-end-line="183" selection-end-column="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="113" lean-forward="true" selection-start-line="72" selection-start-column="12" selection-end-line="113" />
+          <folding>
+            <element signature="e#2339#4099#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-178">
+          <caret line="134" selection-start-line="134" selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/logreview.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="113" column="65" selection-start-line="113" selection-start-column="58" selection-end-line="113" selection-end-column="65" />
+        <state relative-caret-position="130">
+          <caret line="207" column="32" selection-start-line="207" selection-start-column="31" selection-end-line="207" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+        <state relative-caret-position="438">
+          <caret line="109" column="45" lean-forward="true" selection-start-line="109" selection-start-column="45" selection-end-line="109" selection-end-column="45" />
           <folding>
             <element signature="e#40#65#0#PHP" expanded="true" />
           </folding>

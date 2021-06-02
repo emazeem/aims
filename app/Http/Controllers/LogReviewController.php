@@ -56,10 +56,16 @@ class LogReviewController extends Controller
             })
 
             ->addColumn('options', function ($data) {
-
-                return "&emsp;
-                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>
-                  ";
+                $token=csrf_token();
+                $action=null;
+                $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
+                $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method='post' role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+                return $action;
 
             })
             ->rawColumns(['options','priority','status','attachment'])
@@ -99,4 +105,11 @@ class LogReviewController extends Controller
         $edit=LogReview::find($request->id);
         return response()->json($edit);
     }
+    public function destroy(Request $request){
+        $log=LogReview::find($request->id);
+        Storage::delete('public/log-reviews/'.$log->attachment);
+        $log->delete();
+        return response()->json(['success','Deleted Successfully']);
+    }
+
 }
