@@ -37,6 +37,9 @@
                         "<tr><td>Bill to Address</td><td>" + data.bill_to_address + "</td></tr>"+
                         "<tr><td>Payment Type</td><td class='text-capitalize'>" + data.customer_type + "</td></tr>"+
                         "<tr><td>Payment Terms</td><td class='text-capitalize'>" + data.pay_terms + "</td></tr>"+
+                        "<tr><td>Credit Limit</td><td>" + data.credit_limit + "</td></tr>"+
+                        "<tr><td>Industry</td><td>" + data.industry + "</td></tr>"+
+                        "<tr><td>Plant</td><td>" + data.plant + "</td></tr>"+
                         "<tr><td>Region</td><td>" + data.region + "</td></tr>"+
                         "<tr><td>Tax Case</td><td>" + data.tax_case + "</td></tr>"+
                         "<tr><td>Principal Name</td><td>" + data.prin_name + "</td></tr>"+

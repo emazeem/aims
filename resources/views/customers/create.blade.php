@@ -67,6 +67,9 @@
                     $('#account-email').val(data.acc_email);
                     $('#account-phone-1').val(data.acc_phone_1);
                     $('#account-phone-2').val(data.acc_phone_2);
+                    $('#credit_limit').val(data.credit_limit);
+                    $('#industry').val(data.industry);
+                    $('#plant').val(data.plant);
                 }
             });
         });
@@ -124,6 +127,7 @@
                         <input type="text" class="form-control" id="name" name="name" placeholder="Registered Name"
                                autocomplete="off" value="{{old('name')}}">
                     </div>
+
                     <div class="form-group m-0 col-4">
                         <label for="ntn" class="control-label">NTN / FTN</label>
                         <input type="text" class="form-control" id="ntn" name="ntn" placeholder="NTN / FTN"
@@ -141,6 +145,18 @@
                                 @endforeach
                             </select>
                         </div>
+                    </div>
+                    <div class="form-group m-0 col-4">
+                        <label for="plant" class="control-label">Plant</label>
+                        <input type="text" class="form-control" id="plant" name="plant" placeholder="Plant" autocomplete="off" value="{{old('plant')}}">
+                    </div>
+                    <div class="form-group m-0 col-4">
+                        <label for="industry" class="control-label">Industry</label>
+                        <input type="text" class="form-control" id="industry" name="industry" placeholder="Industry" autocomplete="off" value="{{old('industry')}}">
+                    </div>
+                    <div class="form-group m-0 col-4">
+                        <label for="credit_limit" class="control-label">Credit Limit</label>
+                        <input type="text" class="form-control" id="credit_limit" name="credit_limit" placeholder="Credit Limit" autocomplete="off" value="{{old('credit_limit',200000)}}">
                     </div>
                     <div class="form-group m-0 col-6">
                         <label for="address" class="control-label">Physical Address</label>
