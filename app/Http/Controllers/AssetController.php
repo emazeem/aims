@@ -338,7 +338,7 @@ class AssetController extends Controller
             $asset->image = $attachment;
         }
         $asset->save();
-        return redirect()->back()->with('success', 'Asset added successfully');
+        return response()->json(['success'=>'Asset added successfully']);
 
     }
 
@@ -402,7 +402,7 @@ class AssetController extends Controller
             $asset->image = $attachment;
         }
         $asset->save();
-        return redirect()->back()->with('success', 'Asset updated successfully!');
+        return response()->json(['success'=> 'Asset updated successfully!']);
 
     }
 }

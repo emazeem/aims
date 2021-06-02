@@ -335,8 +335,6 @@ class CustomerController extends Controller
             Notification::send($users, new CustomerNotification($message));
             return response()->json(['success'=>'Customer added successfully']);
         }
-
-
     }
     public function update($id,Request $request){
         $this->authorize('customer-edit');

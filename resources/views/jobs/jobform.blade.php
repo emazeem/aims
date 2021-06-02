@@ -76,7 +76,7 @@
             </div>
             <div class="col-4 row my-1 font-sm ">
                 <div class="col-7">Work order / Quotation #</div>
-                <div class="col-5 custom-bottom-border  text-center">{{$job->quotes->mode}}</div>
+                <div class="col-5 custom-bottom-border  text-center">{{$job->quotes->approval_mode_details}}</div>
             </div>
             <div class="col-3 row my-1 font-sm ">
                 <div class="col-3">Dated:</div>
