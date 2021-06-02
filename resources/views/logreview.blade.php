@@ -99,11 +99,35 @@
                 }
             });
         });
-
-
+/*        $(document).on('click', '.show', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                "url": "{{route('log_reviews.show')}}",
+                type: "POST",
+                data: {'id': id,_token: '{{csrf_token()}}'},
+                dataType : "json",
+                success: function(data)
+                {
+                    $('#show_logs').modal('toggle');
+                    $('.log-table').empty();
+                    $('.log-table').append(
+                        "<tr><th>Title</th><td>" + data.title + "</td></tr>"+
+                        "<tr><th>Description</th><td>" + data.description + "</td></tr>"+
+                        "<tr><th>Start</th><td>" + data.start + "</td></tr>"+
+                        "<tr><th>End</th><td>" + data.end + "</td></tr>"+
+                        "<tr><th>Status</th><td>" + data.status + "</td></tr>"+
+                        "<tr><th>Priority</th><td>" + data.priority + "</td></tr>"
+                    );
+                }
+            });
+        });*/
     });
 
+
 </script>
+
+
 <div class="modal fade" id="add_logs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -247,33 +271,6 @@
                     }
                 });
 
-        });
-        $(document).on('click', '.show', function (e) {
-            e.preventDefault();
-            var id = $(this).attr('data-id');
-            $.ajax({
-                "url": "{{route('log_reviews.show')}}",
-                type: "POST",
-                data: {'id': id,_token: '{{csrf_token()}}'},
-                dataType : "json",
-                success: function(data)
-                {
-                    $('#show_logs').modal('toggle');
-                    $('.log-table').empty();
-                    console.log(data);
-                    $('.log-table').append(
-                        "<tr><th>Title</th><td>" + data.title + "</td></tr>"+
-                        "<tr><th>Description</th><td>" + data.description + "</td></tr>"+
-                        "<tr><th>Start</th><td>" + data.start + "</td></tr>"+
-                        "<tr><th>End</th><td>" + data.end + "</td></tr>"+
-                        "<tr><th>Status</th><td>" + data.status + "</td></tr>"+
-                        "<tr><th>Priority</th><td>" + data.priority + "</td></tr>"
-                    );
-                    if (data.attachment!='-'){
-                        "<tr><th>Attachment</th><td>" + data.attachment + "</td></tr>"
-                    }
-                }
-            });
         });
     });
 </script>

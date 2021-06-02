@@ -56,16 +56,16 @@
         <counts>
           <entry key="css" value="171" />
           <entry key="html" value="420" />
-          <entry key="php" value="33085" />
+          <entry key="php" value="33157" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="20095" />
+          <entry key="Blade" value="20166" />
           <entry key="CSS" value="172" />
           <entry key="HTML" value="425" />
-          <entry key="PHP" value="12984" />
+          <entry key="PHP" value="12985" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -93,11 +93,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="121" column="30" selection-start-line="121" selection-start-column="30" selection-end-line="121" selection-end-column="30" />
+            <state relative-caret-position="352">
+              <caret line="126" column="9" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
               <folding>
                 <element signature="e#40#65#0#PHP" expanded="true" />
               </folding>
@@ -105,13 +105,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/logreview.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="262" column="38" selection-start-line="262" selection-start-column="38" selection-end-line="262" selection-end-column="38" />
+            <state relative-caret-position="462">
+              <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
               <folding>
                 <element signature="e#600#672#0#HTML" expanded="true" />
+                <element signature="e#2167#3059#0#HTML" />
+                <element signature="e#3404#4475#0#HTML" />
                 <element signature="e#3083#6286#0#HTML" />
                 <element signature="e#6386#7633#0#HTML" />
                 <element signature="e#7693#9015#0#HTML" />
@@ -236,8 +238,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/index.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/logreview.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php" />
+        <option value="$PROJECT_DIR$/resources/views/logreview.blade.php" />
       </list>
     </option>
   </component>
@@ -626,12 +628,12 @@
       <workItem from="1622366674124" duration="97000" />
       <workItem from="1622377102263" duration="609000" />
       <workItem from="1622430208609" duration="50503000" />
-      <workItem from="1622628459835" duration="3808000" />
+      <workItem from="1622628459835" duration="4371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237656000" />
+    <option name="totallyTimeSpent" value="238219000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1012,25 +1014,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/logreview.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="262" column="38" selection-start-line="262" selection-start-column="38" selection-end-line="262" selection-end-column="38" />
+        <state relative-caret-position="352">
+          <caret line="126" column="9" selection-start-line="126" selection-start-column="9" selection-end-line="126" selection-end-column="9" />
           <folding>
-            <element signature="e#600#672#0#HTML" expanded="true" />
-            <element signature="e#3083#6286#0#HTML" />
-            <element signature="e#6386#7633#0#HTML" />
-            <element signature="e#7693#9015#0#HTML" />
+            <element signature="e#40#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/logreview.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="121" column="30" selection-start-line="121" selection-start-column="30" selection-end-line="121" selection-end-column="30" />
+        <state relative-caret-position="462">
+          <caret line="146" lean-forward="true" selection-start-line="146" selection-end-line="146" />
           <folding>
-            <element signature="e#40#65#0#PHP" expanded="true" />
+            <element signature="e#600#672#0#HTML" expanded="true" />
+            <element signature="e#2167#3059#0#HTML" />
+            <element signature="e#3404#4475#0#HTML" />
+            <element signature="e#3083#6286#0#HTML" />
+            <element signature="e#6386#7633#0#HTML" />
+            <element signature="e#7693#9015#0#HTML" />
           </folding>
         </state>
       </provider>
