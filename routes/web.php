@@ -182,6 +182,7 @@ Route::group(['prefix'=> 'log-reviews'],function() {
     Route::post('/store',[App\Http\Controllers\LogReviewController::class, 'store'])->middleware('auth')->name('log_reviews.store');
     Route::post('/edit',[App\Http\Controllers\LogReviewController::class, 'edit'])->middleware('auth')->name('log_reviews.edit');
     Route::post('/update',[App\Http\Controllers\LogReviewController::class, 'update'])->middleware('auth')->name('log_reviews.update');
+    Route::post('/show',[App\Http\Controllers\LogReviewController::class, 'show'])->middleware('auth')->name('log_reviews.show');
     Route::delete('/delete',[App\Http\Controllers\LogReviewController::class, 'destroy'])->middleware('auth')->name('log_reviews.delete');
 });
 

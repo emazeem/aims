@@ -1,6 +1,12 @@
 @extends('layouts.master')
 @section('content')
 <div class="row">
+    <style>
+        table td {
+            word-wrap: break-word;         /* All browsers since IE 5.5+ */
+            overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+        }
+    </style>
     <div class="col-12">
         <h3 class="pull-left pb-1"><i class="fa fa-list"></i> Log Reviews</h3>
         <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2" data-toggle="modal" data-target="#add_logs"><i class="fa fa-plus-circle"></i> Log Reviews</button>
@@ -11,7 +17,7 @@
       <tr>
         <th>ID</th>
         <th>Title</th>
-        <th>Description</th>
+        <th style="white-space:normal;word-break: break-all;word-wrap: break-spaces">Description</th>
         <th>Priority</th>
         <th>Created By</th>
           <th>Status</th>
@@ -155,6 +161,23 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="show_logs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> <span class="title-log-review">Add Log Reviews</span></h5>
+                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table text-dark table-sm bg-white table-bordered table-responsive-sm table-hover font-13 log-table">
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     $(document).ready(function () {
@@ -225,7 +248,33 @@
                 });
 
         });
-
+        $(document).on('click', '.show', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('data-id');
+            $.ajax({
+                "url": "{{route('log_reviews.show')}}",
+                type: "POST",
+                data: {'id': id,_token: '{{csrf_token()}}'},
+                dataType : "json",
+                success: function(data)
+                {
+                    $('#show_logs').modal('toggle');
+                    $('.log-table').empty();
+                    console.log(data);
+                    $('.log-table').append(
+                        "<tr><th>Title</th><td>" + data.title + "</td></tr>"+
+                        "<tr><th>Description</th><td>" + data.description + "</td></tr>"+
+                        "<tr><th>Start</th><td>" + data.start + "</td></tr>"+
+                        "<tr><th>End</th><td>" + data.end + "</td></tr>"+
+                        "<tr><th>Status</th><td>" + data.status + "</td></tr>"+
+                        "<tr><th>Priority</th><td>" + data.priority + "</td></tr>"
+                    );
+                    if (data.attachment!='-'){
+                        "<tr><th>Attachment</th><td>" + data.attachment + "</td></tr>"
+                    }
+                }
+            });
+        });
     });
 </script>
 @endsection

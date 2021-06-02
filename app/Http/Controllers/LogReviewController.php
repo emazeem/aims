@@ -26,7 +26,7 @@ class LogReviewController extends Controller
                 return $data->title;
             })
             ->addColumn('description', function ($data) {
-                return $data->description;
+                return substr($data->description,0,40).'...';
             })
             ->addColumn('priority', function ($data) {
                 if ($data->priority==0){
@@ -60,6 +60,7 @@ class LogReviewController extends Controller
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
+                $action.="<button type='button' title='Show' class='btn show btn-sm btn-warning' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-eye'></i></button>";
                 $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
                 $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
@@ -108,6 +109,27 @@ class LogReviewController extends Controller
         $edit=LogReview::find($request->id);
         return response()->json($edit);
     }
+    public function show(Request $request){
+        $show=LogReview::find($request->id);
+        if ($show->priority==0){
+            $show->priority='<i class="fa fa-arrow-down text-success"></i> LOW';
+        }else{
+            $show->priority='<i class="fa fa-arrow-up text-danger"></i> HIGH';
+        }
+        if ($show->status==0){
+            $status= '<span class="badge badge-info px-2 py-1"> Pending</span>';
+        }
+        $show->status=$status;
+        if ($show->attachment){
+            $image="<img src='".Storage::disk('local')->url('public/log-reviews/'.$show->attachment)."' class='img-fluid' width='100'>";
+        }else{
+            $image='-';
+        }
+        $show->image=$image;
+
+        return response()->json($show);
+    }
+
     public function destroy(Request $request){
         $log=LogReview::find($request->id);
         Storage::delete('public/log-reviews/'.$log->attachment);

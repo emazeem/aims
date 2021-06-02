@@ -28,7 +28,6 @@
       </tr>
       </thead>
       <tbody class="text-capitalize">
-
       </tbody>
       <tfoot>
       <tr>
