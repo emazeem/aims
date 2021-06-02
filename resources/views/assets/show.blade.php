@@ -120,7 +120,17 @@
                 </tr>
                 <tr>
                     <th>Calibration Interval</th>
-                    <td>{{($show->calibration_interval==1)?'1 Year':'2 Years'}}</td>
+                    <td>
+                        @if($show->calibration_interval==1)
+                            1 Year
+                        @elseif($show->calibration_interval==1)
+                            2 Years
+                        @elseif($show->calibration_interval==1)
+                            3 Years
+                        @else
+
+                        @endif
+                    </td>
                 </tr>
 
                 <tr>

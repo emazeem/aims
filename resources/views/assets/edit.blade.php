@@ -157,6 +157,7 @@
                             <option value="lab1" {{($edit->location=="lab1")?'selected':''}}>Lab 1</option>
                             <option value="lab2" {{($edit->location=="lab2")?'selected':''}}>Lab 2</option>
                             <option value="lab3" {{($edit->location=="lab3")?'selected':''}}>Lab 3</option>
+                            <option value="lab4" {{($edit->location=="lab4")?'selected':''}}>Lab 4</option>
                         </select>
                     </div>
                     @if ($errors->has('location'))

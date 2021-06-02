@@ -83,7 +83,17 @@ class AuthServiceProvider extends ServiceProvider
         $this->po();
         $this->cir();
         $this->asset_requisition();
+        $this->logreview();
         //
+    }
+    public function logreview()
+    {
+        Gate::define('log-reviews', function ($user) {
+            if (in_array('log-reviews',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
     }
     public function asset_requisition()
     {
@@ -94,6 +104,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
     }
+
     public function purchase_invoice()
     {
         Gate::define('purchase-invoice', function ($user) {

@@ -175,6 +175,14 @@ Route::group(['prefix'=> 'designations'],function() {
     Route::post('/edit',[App\Http\Controllers\DesignationController::class, 'edit'])->middleware('auth')->name('designations.edit');
     Route::post('/update',[App\Http\Controllers\DesignationController::class, 'update'])->middleware('auth')->name('designations.update');
 });
+Route::group(['prefix'=> 'log-reviews'],function() {
+    Route::get('',[App\Http\Controllers\LogReviewController::class, 'index'])->middleware('auth')->name('log_reviews');
+    Route::post('',[App\Http\Controllers\LogReviewController::class, 'fetch'])->middleware('auth')->name('log_reviews.fetch');
+    Route::post('/store',[App\Http\Controllers\LogReviewController::class, 'store'])->middleware('auth')->name('log_reviews.store');
+    Route::post('/edit',[App\Http\Controllers\LogReviewController::class, 'edit'])->middleware('auth')->name('log_reviews.edit');
+    Route::post('/update',[App\Http\Controllers\LogReviewController::class, 'update'])->middleware('auth')->name('log_reviews.update');
+});
+
 Route::group(['prefix'=> 'menus'],function() {
     Route::get('',[App\Http\Controllers\MenuController::class, 'index'])->middleware('auth')->name('menus');
     Route::post('',[App\Http\Controllers\MenuController::class, 'fetch'])->middleware('auth')->name('menus.fetch');

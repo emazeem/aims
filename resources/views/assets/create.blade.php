@@ -166,6 +166,7 @@
                             <option value="lab1">Lab 1</option>
                             <option value="lab2">Lab 2</option>
                             <option value="lab2">Lab 3</option>
+                            <option value="lab4">Lab 4</option>
                         </select>
                     </div>
                     @if ($errors->has('location'))
