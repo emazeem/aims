@@ -2,37 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Charts\AssetChart;
 use App\Models\Asset;
 use App\Models\Assetspecification;
-use App\Models\Column;
 use App\Models\Intermediatechecksofasset;
 use App\Models\Parameter;
 use App\Models\Preventivemaintenancerecord;
-use App\Models\Procedure;
-use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use phpDocumentor\Reflection\DocBlock;
 use Yajra\DataTables\DataTables;
 
 class AssetController extends Controller
 {
     //
     public function index()
-    {
-        /*$temps=Asset::all();
-        foreach ($temps as $temp){
-            $asset=Asset::find($temp->id);
-            $asset->calibration_interval=1;
-            $due=strtotime($temp->calibration)+(60*60*24*365);
-            $asset->due=date('Y-m-d',$due);
-            $asset->save();
-        }
-        dd('done');*/
-
-        $assets = Asset::all();
+    {   $assets = Asset::all();
         return view('assets.index', compact('assets'));
     }
 
@@ -282,7 +266,6 @@ class AssetController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
         $this->validate(request(), [
             'name' => 'required',
             'parameter' => 'required',
