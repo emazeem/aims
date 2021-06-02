@@ -111,7 +111,7 @@
             <div class="modal-body">
                 <form id="add_logs_form" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" value="id" name="edit_id" id="edit_id">
+                    <input type="hidden" value="" name="edit_id" id="edit_id">
                     <div class="row">
                         <div class="form-group col-12">
                             <label for="title">Title</label>

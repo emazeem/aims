@@ -92,7 +92,7 @@
         InitTable();
         $(document).on('click', '.delete', function (e) {
             swal({
-                title: "Are you sure to delete this Asset?",
+                title: "Are you sure to delete this asset?",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
