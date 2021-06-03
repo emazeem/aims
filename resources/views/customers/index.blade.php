@@ -12,9 +12,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Registered Name</th>
+                    <th>Address</th>
                     <th>Principal Name</th>
                     <th>Principal Phone</th>
-                    <th>Acc Code</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -24,9 +24,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Registered Name</th>
+                    <th>Address</th>
                     <th>Principal Name</th>
                     <th>Principal Phone</th>
-                    <th>Acc Code</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -58,9 +58,9 @@
                 "columns": [
                     {"data": "id"},
                     {"data": "name"},
+                    {"data": "address"},
                     {"data": "prin_name"},
                     {"data": "prin_phone"},
-                    {"data": "acc_code"},
                     {"data": "options", "orderable": false},
                 ]
 

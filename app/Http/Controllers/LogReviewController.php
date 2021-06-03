@@ -149,7 +149,7 @@ class LogReviewController extends Controller
         return response()->json(['success'=>'Deleted Successfully']);
     }
     public function start(Request $request){
-
+        date_default_timezone_set("Asia/Karachi");
         $log=LogReview::find($request->id);
         $log->status=1;
         $log->started=date('Y-m-d h:i:s');
@@ -159,6 +159,7 @@ class LogReviewController extends Controller
     }
     public function end(Request $request){
 
+        date_default_timezone_set("Asia/Karachi");
         $log=LogReview::find($request->id);
         $log->status=2;
         $log->ended=date('Y-m-d h:i:s');

@@ -147,8 +147,8 @@
                         </div>
                     </div>
                     <div class="form-group m-0 col-4">
-                        <label for="plant" class="control-label">Plant</label>
-                        <input type="text" class="form-control" id="plant" name="plant" placeholder="Plant" autocomplete="off" value="{{old('plant')}}">
+                        <label for="plant" class="control-label">Plant / Stie</label>
+                        <input type="text" class="form-control" id="plant" name="plant" placeholder="Plant / Site" autocomplete="off" value="{{old('plant')}}">
                     </div>
                     <div class="form-group m-0 col-4">
                         <label for="industry" class="control-label">Industry</label>
@@ -159,9 +159,9 @@
                         <input type="text" class="form-control" id="credit_limit" name="credit_limit" placeholder="Credit Limit" autocomplete="off" value="{{old('credit_limit',200000)}}">
                     </div>
                     <div class="form-group m-0 col-6">
-                        <label for="address" class="control-label">Physical Address</label>
+                        <label for="address" class="control-label">Shipping Address</label>
                         <textarea type="text" class="form-control" rows="1" id="address" name="address"
-                                  placeholder="Physical Address" autocomplete="off">{{old('address')}}</textarea>
+                                  placeholder="Shipping Address" autocomplete="off">{{old('address')}}</textarea>
                     </div>
                     <div class="form-group m-0 col-6">
                         <label for="bill_to_address" class="control-label">Bill to Address</label>
@@ -197,10 +197,11 @@
                         <label for="tax_case" class="control-label">Tax Case</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="tax_case" name="tax_case">
-                                <option selected disabled="">Select Tax Case</option>
+                                <option selected disabled="">--Select Tax Case</option>
                                 <option value="1">Case-1 : Income Tax By AIMS + Service Tax By AIMS</option>
                                 <option value="2">Case-2 : Income Tax At SOURCE + Service Tax By SOURCE</option>
                                 <option value="3">Case-3 : Income Tax At SOURCE + Service Tax By AIMS</option>
+                                <option value="4">Case-4 : 20% At SOURCE + 80% By AIMS (SRB only)</option>
                             </select>
                         </div>
                     </div>

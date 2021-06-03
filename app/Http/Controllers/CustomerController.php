@@ -31,6 +31,7 @@ class CustomerController extends Controller
             $customer->save();
         }
         dd('saved');*/
+
         $this->authorize('customer-index');
         return view('customers.index',compact('saletaxes'));
     }
@@ -111,8 +112,8 @@ class CustomerController extends Controller
             ->addColumn('name', function ($data) {
                 return $data->reg_name;
             })
-            ->addColumn('acc_code', function ($data) {
-                return $data->acc_code;
+            ->addColumn('address', function ($data) {
+                return $data->address.'-'.$data->plant;
             })
 
             ->addColumn('prin_name', function ($data) {
