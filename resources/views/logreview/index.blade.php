@@ -96,8 +96,21 @@
                     $('#edit_id').val(data.id);
                     $('#title').val(data.title);
                     $('#description').val(data.description);
-                    $('#start').val(data.start);
-                    $('#end').val(data.end);
+                    let start_d = new Date(data.start);
+                    let start_ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(start_d);
+                    let start_mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(start_d);
+                    let start_da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(start_d);
+                    var start=`${start_ye}-${start_mo}-${start_da}`;
+
+                    let end_d = new Date(data.end);
+                    let end_ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(end_d);
+                    let end_mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(end_d);
+                    let end_da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(end_d);
+                    var end=`${end_ye}-${end_mo}-${end_da}`;
+
+
+                    $('#start').val(start);
+                    $('#end').val(end);
                     $('#priority').val(data.priority);
                 }
             });

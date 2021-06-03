@@ -7,6 +7,7 @@ use App\Models\Item;
 use App\Models\Nofacility;
 use App\Models\Parameter;
 use App\Models\Quotes;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
@@ -160,6 +161,7 @@ class ItemController extends Controller
             'quantity' => 'required',
             'location' => 'required',
             'accredited' => 'required',
+
         ],[
             'parameter.required' => 'Parameter field is required *',
             'capability.required' => 'Capability field is required *',
@@ -175,6 +177,7 @@ class ItemController extends Controller
         $item->not_available=null;
         $item->location=$request->location;
         $item->accredited=$request->accredited;
+        $item->unit=$request->unit?$request->unit:null;
         $item->parameter=$request->parameter;
         $item->capability=$request->capability;
         $item->range=$request->range;
@@ -271,11 +274,15 @@ class ItemController extends Controller
         return response()->json(['success'=>'Updated successfully']);
     }
     public function getCapabilities($id){
-        $capabilities=Capabilities::where('parameter', $id)
+        $data['capabilities']=Capabilities::where('parameter', $id)
             ->orderBy('name','ASC')
             ->pluck('id', 'name')
             ->all();
-        return response()->json($capabilities);
+        $data['unit']=Unit::where('parameter', $id)
+            ->orderBy('unit','ASC')
+            ->pluck('id', 'unit')
+            ->all();
+        return response()->json($data);
     }
     public function editNA(Request $request){
         $editNA=Item::find($request->id);

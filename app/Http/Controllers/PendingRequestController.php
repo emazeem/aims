@@ -20,54 +20,6 @@ class PendingRequestController extends Controller
         $this->authorize('pending-index');
         return view('pendings.index');
     }
-    /*public function fetch(){
-        $data=Item::with('quotes')->where('not_available','!=',null)->get();
-        return DataTables::of($data)
-            ->addColumn('id', function ($data) {
-                return $data->id;
-            })
-            ->addColumn('quotes', function ($data) {
-                return $data->quote_id;
-            })
-            ->addColumn('customer', function ($data) {
-                $customer=Customer::find($data->quotes->customer_id);
-                return $customer->reg_name;
-            })
-            ->addColumn('not_available', function ($data) {
-                return $data->not_available;
-            })
-            ->addColumn('createdat', function ($data) {
-                return $data->created_at;
-            })
-            ->addColumn('updatedat', function ($data) {
-                return $data->updated_at;
-            })
-
-            ->addColumn('options', function ($data) {
-                $token=csrf_token();
-                $option=null;
-                if ($data->status==1) {
-                    $option .= "<a title='Checks' class='btn btn-sm btn-success checks'  href='#' data-id='{$data->id}'><i class='fa fa-check'></i></a>";
-                    $option .= "<a title='Add' class='btn btn-sm btn-primary' href='" . url('pendings/create/' . $data->id) . "'><i class='fa fa-plus'></i></a>";
-                    $option.="<a class='btn btn-danger btn-sm nofacility' href='#' data-id='{$data->id}'><i class='fa fa-ban'></i></a>
-                    <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
-                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
-                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
-                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
-                      </form>";
-                }
-                else{
-                    $option .= "<a title='Checks' class='btn btn-sm btn-success checks'  href='#' data-id='{$data->id}'><i class='fa fa-check'></i></a>";
-
-                }
-                return $option."&emsp;";
-
-            })
-            ->rawColumns(['options'])
-            ->make(true);
-
-    }
-    */
     public function fetch(){
         $this->authorize('quote-index');
 
@@ -206,6 +158,13 @@ class PendingRequestController extends Controller
         else{
             $array[2]=0;
         }
+        if (isset($request->sub_contractor)){
+            $array[3]=1;
+        }
+        else{
+            $array[3]=0;
+        }
+
         $items=Item::find($request->id);
         $items->rf_checks=implode(',',$array);
         $items->rf_reason=$request->rf_reason;

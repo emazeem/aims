@@ -16,7 +16,24 @@ use Yajra\DataTables\DataTables;
 class CapabilitiesController extends Controller
 {
     public function index(){
+        $caps=Capabilities::all();
+        foreach ($caps as $k=> $cap){
+            if (strpos($cap->range, '~') !== false ){
+                $range=explode('~',$cap->range);
+                $min=$range[0];
+                $max=$range[1];
+            }elseif ($cap->range==0){
+                $min=0;
+                $max=0;
+            }else{
+                $min=0;
+                $max=$cap->range;
+            }
+            $cap->min_range=$min;
+            $cap->max_range=$max;
 
+        }
+        dd(1);
         $procedures=Procedure::all();
         $parameters=DB::table('parameters')->get();
         $units=Unit::all();

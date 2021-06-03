@@ -87,7 +87,7 @@ class LogReviewController extends Controller
             ->make(true);
     }
     public function store(Request $request){
-        
+
         $this->validate(request(), [
             'title' => 'required',
             'description' => 'required',
@@ -120,6 +120,8 @@ class LogReviewController extends Controller
     }
     public function edit(Request $request){
         $edit=LogReview::find($request->id);
+        $edit->start=$edit->start->format('Y-m-d');
+        $edit->end=$edit->end->format('Y-m-d');
         return response()->json($edit);
     }
     public function shows(Request $request){

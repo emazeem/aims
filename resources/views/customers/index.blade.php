@@ -13,8 +13,6 @@
                     <th>ID</th>
                     <th>Registered Name</th>
                     <th>Address</th>
-                    <th>Principal Name</th>
-                    <th>Principal Phone</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -25,8 +23,6 @@
                     <th>ID</th>
                     <th>Registered Name</th>
                     <th>Address</th>
-                    <th>Principal Name</th>
-                    <th>Principal Phone</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -59,8 +55,6 @@
                     {"data": "id"},
                     {"data": "name"},
                     {"data": "address"},
-                    {"data": "prin_name"},
-                    {"data": "prin_phone"},
                     {"data": "options", "orderable": false},
                 ]
 

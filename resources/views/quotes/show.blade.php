@@ -10,8 +10,9 @@
     <div class="row">
 
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> AIMS/QT/{{date('y')}}/{{$show->id}}
-                Detail</h3>
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i>
+                {{$show->cid}}
+            </h3>
         </div>
         <form id="form{{$show->id}}" action="" method='post' role='form'>
             @csrf

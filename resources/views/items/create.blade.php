@@ -46,7 +46,7 @@
 
 
 
-            $('select[name="capability"]').append('<option disabled selected>Select Respective Parameter</option>');
+            $('select[name="capability"]').append('<option disabled selected>--Select Capability</option>');
 
             $('select[name="parameter"]').on('change', function() {
                 $('#price').val('');
@@ -60,10 +60,17 @@
                         success:function(data) {
                             $('select[name="capability"]').empty();
 
-                            $('select[name="capability"]').append('<option disabled selected>Select Respective Parameter</option>');
-                            $.each(data, function(key, value) {
+                            $('select[name="capability"]').append('<option disabled selected>--Select Capability</option>');
+                            $.each(data['capabilities'], function(key, value) {
                                 $('select[name="capability"]').append('<option value="'+ value +'">'+ key +'</option>');
                             });
+                            $('select[name="unit"]').empty();
+
+                            $('select[name="unit"]').append('<option disabled selected>--Select Unit</option>');
+                            $.each(data['unit'], function(key, value) {
+                                $('select[name="unit"]').append('<option value="'+ value +'">'+ key +'</option>');
+                            });
+
                         }
                     });
                 }else{
@@ -135,7 +142,7 @@
     <hr>
     <div class="row bg-white pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-plus-circle"></i> Add Items</h3>
+            <h3 class="pull-left pb-1"><i class="fa fa-plus-circle"></i> Add Items</h3>
             <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#add_na">
                 <i class="fa fa-times"></i> Not Listed
             </button>
@@ -151,17 +158,13 @@
                     <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="parameter" name="parameter">
-                                <option selected disabled>Select Parameter</option>
+                                <option selected disabled>--Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        @if ($errors->has('parameter'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('parameter') }}</strong>
-                      </span>
-                        @endif
+
                     </div>
                 </div>
                 <div class="form-group col-6">
@@ -172,11 +175,6 @@
 
                             </select>
                         </div>
-                        @if ($errors->has('capability'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('capability') }}</strong>
-                      </span>
-                        @endif
                     </div>
                 </div>
 
@@ -185,22 +183,13 @@
                     <label for="range" class="col-12 control-label">Range</label>
                     <div class="col-12">
                         <input type="text" class="form-control" id="range" name="range" placeholder="Range" autocomplete="off" value="{{old('range')}}">
-                        @if ($errors->has('range'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('range') }}</strong>
-                      </span>
-                        @endif
+
                     </div>
                 </div>
                 <div class="form-group  col-6">
                     <label for="price" class="col-12 control-label">Price</label>
                     <div class="col-12">
                         <input type="text" class="form-control" id="price" name="price" placeholder="Price" autocomplete="off" value="{{old('price')}}">
-                        @if ($errors->has('price'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('price') }}</strong>
-                      </span>
-                        @endif
                     </div>
                 </div>
                 <div class="form-group col-6">
@@ -208,16 +197,11 @@
                     <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="location" name="location">
-                                <option selected disabled>Select Location</option>
+                                <option selected disabled>--Select Location</option>
                                 <option value="site">site</option>
                                 <option value="lab">lab</option>
                             </select>
                         </div>
-                        @if ($errors->has('location'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('location') }}</strong>
-                      </span>
-                        @endif
                     </div>
                 </div>
                 <div class="form-group col-6">
@@ -225,28 +209,29 @@
                     <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="accredited" name="accredited">
-                                <option selected disabled>Select for Accredited</option>
+                                <option selected disabled>--Select for Accredited</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
                         </div>
-                        @if ($errors->has('accredited'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('accredited') }}</strong>
-                      </span>
-                        @endif
                     </div>
                 </div>
-                <div class="form-group col-6"></div>
+                <div class="form-group col-6">
+                    <label for="unit" class="col-12 control-label">Unit</label>
+                    <div class="col-12">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="unit" name="unit">
+                                <option selected disabled>--Select Unit of measure</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group col-6">
                     <label for="quantity" class="col-12 control-label">Quantity</label>
                     <div class="col-12">
                         <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" autocomplete="off" value="{{old('quantity',1)}}">
-                        @if ($errors->has('quantity'))
-                            <span class="text-danger">
-                          <strong>{{ $errors->first('quantity') }}</strong>
-                      </span>
-                        @endif
                     </div>
                 </div>
                 <div class="col-12">

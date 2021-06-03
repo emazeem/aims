@@ -51,7 +51,8 @@
                                     @php $checks = explode(',',$item->rf_checks); @endphp
                                     Reference Std {!! ($checks[0]==1)?'✓':'✗' !!}<br>
                                     Cal Procedure {!! ($checks[1]==1)?'✓':'✗' !!}<br>
-                                    Cal Schedule {!! ($checks[2]==1)?'✓':'✗' !!}
+                                    Cal Schedule {!! ($checks[2]==1)?'✓':'✗' !!}<br>
+                                    Sub Contractor {!! ($checks[3]==1)?'✓':'✗' !!}
                                 @endif
 
                             </td>
@@ -226,6 +227,13 @@
                                     <label class="form-check-label" for="cal_schedule">Cal Schedule</label>
                                 </div>
                             </div>
+                            <div class="col-12 mb-1">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="sub_contractor" name="sub_contractor">
+                                    <label class="form-check-label" for="sub_contractor">Sub Contractor</label>
+                                </div>
+                            </div>
+
                             <div class="form-group col-12">
                                 <label for="rf_reason" class="control-label"></label>
                                 <textarea type="text" class="form-control" rows="2" id="rf_reason" name="rf_reason"
