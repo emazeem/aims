@@ -95,6 +95,7 @@ class LogReviewController extends Controller
             'priority' => 'required',
             'start' => 'required',
             'end' => 'required',
+            'assign_to' => 'required',
         ]);
         if ($request->edit_id){
             $message='Updated Successfully';
@@ -106,6 +107,7 @@ class LogReviewController extends Controller
         $log->title=$request->title;
         $log->description=$request->description;
         $log->priority=$request->priority;
+        $log->assign_to=$request->assign_to;
         $log->start=$request->start;
         $log->end=$request->end;
         if ($request->attachment){

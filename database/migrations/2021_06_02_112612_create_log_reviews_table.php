@@ -20,6 +20,7 @@ class CreateLogReviewsTable extends Migration
             $table->string('attachment');
             $table->integer('status')->default(0);
             $table->integer('priority');
+            $table->integer('assign_to');
             $table->integer('created_by');
             $table->date('start');
             $table->date('end');

@@ -11,5 +11,9 @@ class LogReview extends Model
     public function createdby(){
         return $this->belongsTo('App\Models\User','created_by','id');
     }
+    public function assignto(){
+        return $this->belongsTo('App\Models\User','assign_to','id');
+    }
+
     protected $dates=['start','end','started','ended'];
 }

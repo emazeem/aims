@@ -77,28 +77,7 @@
         });
 
     }
-</script>
 
-
-<div class="modal fade" id="show_logs" tabindex="-1" role="dialog" aria-labelledby="show-log-title" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="show-log-title"><i class="fa fa-plus-circle"></i> <span class="title-log-review">Add Log Reviews</span></h5>
-                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table class="table text-dark table-sm bg-white table-bordered table-responsive-sm table-hover font-13 log-table">
-
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
     $(document).ready(function () {
         InitTable();
         $(document).on('click', '.edit', function() {
@@ -125,6 +104,8 @@
         });
         $(document).on('click', '.add_logs_btn', function() {
             $('#add_logs').modal('toggle');
+            $('.log-save-btn').html('<i class="fa fa-save"></i> Save');
+            $('.title-log-review').text('Add Log Reviews');
         });
         $("#add_logs_form").on('submit',(function(e) {
             e.preventDefault();
@@ -142,7 +123,8 @@
                 {
                     button.attr('disabled',null).html(previous);
                     swal('success',data.success,'success').then((value) => {
-                        $('#add_logs_form').modal('hide');
+                        $('#add_logs').modal('hide');
+                        $('#add_logs_form')[0].reset();
                         InitTable();
                     });
 
@@ -221,11 +203,11 @@
                         </div>
                         <div class="form-group col-12">
                             <label for="start">Start Date</label>
-                            <input type="date" class="form-control" id="start" name="start">
+                            <input type="date" class="form-control" id="start" name="start" value="{{date('Y-m-d')}}">
                         </div>
                         <div class="form-group col-12">
                             <label for="end">End Date</label>
-                            <input type="date" class="form-control" id="end" name="end">
+                            <input type="date" class="form-control" id="end" name="end" value="{{date('Y-m-d')}}">
                         </div>
                         <div class="form-group col-12">
                             <label for="priority">Priority</label>
@@ -236,6 +218,14 @@
                             </select>
 
                         </div>
+                        <div class="form-group col-12">
+                            <label for="assign_to">Assign To</label>
+                            <select class="form-control" id="assign_to" name="assign_to">
+                                <option selected disabled>--Select Assignee</option>
+                                <option value="19" selected>{{\App\Models\User::find(19)->fname.' '.\App\Models\User::find(19)->lname}}</option>
+                            </select>
+                        </div>
+
                         <div class="form-group col-12">
                             <label for="attachment">Attachment</label>
                             <div class="custom-file">

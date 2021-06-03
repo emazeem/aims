@@ -81,6 +81,10 @@
                     <th>Assigned By</th>
                     <td>{{$show->createdby->fname.' '.$show->createdby->lname}}</td>
                 </tr>
+                <tr>
+                    <th>Assigned To</th>
+                    <td>{{$show->assignto->fname.' '.$show->assignto->lname}}</td>
+                </tr>
 
             </table>
         </div>
