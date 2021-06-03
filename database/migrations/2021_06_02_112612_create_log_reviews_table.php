@@ -23,8 +23,8 @@ class CreateLogReviewsTable extends Migration
             $table->integer('created_by');
             $table->date('start');
             $table->date('end');
-            $table->date('started')->nullable();
-            $table->date('ended')->nullable();
+            $table->dateTime('started')->nullable();
+            $table->dateTime('ended')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

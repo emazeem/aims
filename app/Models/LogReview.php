@@ -11,4 +11,5 @@ class LogReview extends Model
     public function createdby(){
         return $this->belongsTo('App\Models\User','created_by','id');
     }
+    protected $dates=['start','end','started','ended'];
 }

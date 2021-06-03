@@ -1,47 +1,49 @@
 @extends('layouts.master')
 @section('content')
-<div class="row">
-    <style>
-        table td {
-            word-wrap: break-word;         /* All browsers since IE 5.5+ */
-            overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
-        }
-    </style>
-    <div class="col-12">
-        <h3 class="pull-left pb-1"><i class="fa fa-list"></i> Log Reviews</h3>
-        <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2 add_logs_btn"><i class="fa fa-plus-circle"></i> Log Reviews</button>
-    </div>
-  <div class="col-lg-12">
-    <table id="example" class="table table-bordered bg-white table-hover table-sm display nowrap" cellspacing="0" width="100%">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th style="white-space:normal;word-break: break-all;word-wrap: break-spaces">Description</th>
-        <th>Priority</th>
-        <th>Created By</th>
-          <th>Status</th>
-        <th>Attachment</th>
-        <th>Action</th>
-      </tr>
-      </thead>
-      <tbody class="text-capitalize">
-      </tbody>
-      <tfoot>
-      <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Priority</th>
-          <th>Created By</th>
-          <th>Status</th>
-          <th>Attachment</th>
-          <th>Action</th>
-      </tr>
-      </tfoot>
-    </table>
+<div class="container">
+    <div class="row">
+        <style>
+            table td {
+                word-wrap: break-word;         /* All browsers since IE 5.5+ */
+                overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+            }
+        </style>
+        <div class="col-12">
+            <h3 class="pull-left pb-1"><i class="fa fa-list"></i> Log Reviews</h3>
+            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2 add_logs_btn"><i class="fa fa-plus-circle"></i> Log Reviews</button>
+        </div>
+        <div class="col-lg-12">
+            <table id="example" class="table table-bordered bg-white table-hover table-sm display nowrap" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th style="white-space:normal;word-break: break-all;word-wrap: break-spaces">Description</th>
+                    <th>Priority</th>
+                    <th>Created By</th>
+                    <th>Status</th>
+                    <th>Attachment</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody class="text-capitalize">
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Created By</th>
+                    <th>Status</th>
+                    <th>Attachment</th>
+                    <th>Action</th>
+                </tr>
+                </tfoot>
+            </table>
 
-  </div>
+        </div>
+    </div>
 </div>
 <script>
 
@@ -78,63 +80,6 @@
 </script>
 
 
-<div class="modal fade" id="add_logs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> <span class="title-log-review">Add Log Reviews</span></h5>
-                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
-                </button>
-            </div>
-
-            <div class="modal-body">
-                <form id="add_logs_form" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" value="" name="edit_id" id="edit_id">
-                    <div class="row">
-                        <div class="form-group col-12">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" placeholder="Title">
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="start">Start Date</label>
-                            <input type="date" class="form-control" id="start" name="start">
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="end">End Date</label>
-                            <input type="date" class="form-control" id="end" name="end">
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="priority">Priority</label>
-                            <select class="form-control" id="priority" name="priority">
-                                <option selected disabled>--Select Priority</option>
-                                <option value="1">↑ High</option>
-                                <option value="0">↓ Low</option>
-                            </select>
-
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="attachment">Attachment</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="attachment" id="attachment">
-                                <label class="custom-file-label" for="attachment">Attachment</label>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary btn-sm log-save-btn" type="submit"><i class="fa fa-save"></i> Save</button>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
 <div class="modal fade" id="show_logs" tabindex="-1" role="dialog" aria-labelledby="show-log-title" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -247,32 +192,68 @@
                     }
                 });
 
-        });/*
-        $(document).on('click', '.show', function (e) {
-            e.preventDefault();
-            var id = $(this).attr('data-id');
-            $.ajax({
-                "url": "{{route('log_reviews.show')}}",
-                type: "POST",
-                data: {'id': id,_token: '{{csrf_token()}}'},
-                dataType : "json",
-                success: function(data)
-                {
-                    $('#show_logs').modal('toggle');
-                    $('.log-table').empty();
-                    $('.log-table').append(
-                        "<tr><th>Title</th><td>" + data.title + "</td></tr>"+
-                        "<tr><th>Description</th><td>" + data.description + "</td></tr>"+
-                        "<tr><th>Start</th><td>" + data.start + "</td></tr>"+
-                        "<tr><th>End</th><td>" + data.end + "</td></tr>"+
-                        "<tr><th>Status</th><td>" + data.status + "</td></tr>"+
-                        "<tr><th>Priority</th><td>" + data.priority + "</td></tr>"
-                    );
-                }
-            });
-        });*/
+        });
     });
 </script>
+
+<div class="modal fade" id="add_logs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> <span class="title-log-review">Add Log Reviews</span></h5>
+                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="add_logs_form" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" value="" name="edit_id" id="edit_id">
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="start">Start Date</label>
+                            <input type="date" class="form-control" id="start" name="start">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="end">End Date</label>
+                            <input type="date" class="form-control" id="end" name="end">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="priority">Priority</label>
+                            <select class="form-control" id="priority" name="priority">
+                                <option selected disabled>--Select Priority</option>
+                                <option value="1">↑ High</option>
+                                <option value="0">↓ Low</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="attachment">Attachment</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="attachment" id="attachment">
+                                <label class="custom-file-label" for="attachment">Attachment</label>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-sm log-save-btn" type="submit"><i class="fa fa-save"></i> Save</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 

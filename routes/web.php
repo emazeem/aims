@@ -182,8 +182,10 @@ Route::group(['prefix'=> 'log-reviews'],function() {
     Route::post('/store',[App\Http\Controllers\LogReviewController::class, 'store'])->middleware('auth')->name('log_reviews.store');
     Route::post('/edit',[App\Http\Controllers\LogReviewController::class, 'edit'])->middleware('auth')->name('log_reviews.edit');
     Route::post('/update',[App\Http\Controllers\LogReviewController::class, 'update'])->middleware('auth')->name('log_reviews.update');
-    Route::post('/show',[App\Http\Controllers\LogReviewController::class, 'show'])->middleware('auth')->name('log_reviews.show');
+    Route::get('/show/{id}',[App\Http\Controllers\LogReviewController::class, 'show'])->middleware('auth')->name('log_reviews.show');
     Route::delete('/delete',[App\Http\Controllers\LogReviewController::class, 'destroy'])->middleware('auth')->name('log_reviews.delete');
+    Route::post('start',[App\Http\Controllers\LogReviewController::class, 'start'])->middleware('auth')->name('log_reviews.start');
+    Route::post('end',[App\Http\Controllers\LogReviewController::class, 'end'])->middleware('auth')->name('log_reviews.end');
 });
 
 Route::group(['prefix'=> 'menus'],function() {
