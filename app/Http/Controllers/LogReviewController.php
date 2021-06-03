@@ -87,8 +87,7 @@ class LogReviewController extends Controller
             ->make(true);
     }
     public function store(Request $request){
-
-        $this->authorize('designation-create');
+        
         $this->validate(request(), [
             'title' => 'required',
             'description' => 'required',

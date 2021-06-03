@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AIMS-QT-{{date('y')}}-{{$session->id}} {{$session->customers->reg_name}}</title>
+    <title>{{$session->customers->reg_name}} {{$session->cid}}  # {{$session->revision}}</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
@@ -17,7 +17,7 @@
     }
 </style>
 <body>
-<button onclick="window.print()" id="printPageButton" class="btn btn-danger btn-sm float-right">Print</button>
+<button onClick="window.print();" id="printPageButton" class="btn btn-danger btn-sm float-right">Print</button>
 <div class="container">
     <div class="col-12 font-style mt-2">
         <div class="row">
@@ -371,11 +371,18 @@
             <div class="ml-5">
                 <p class="ml-5 font-10 col-12 pl-2"><input type="checkbox" {{($session->customers->customer_type=="cash" and $session->customers->pay_terms=="advance")?"checked":""}}> Cash/cheque advance  before starting job.</p>
                 <p class="ml-5 font-10 col-12 pl-2"><input type="checkbox" {{($session->customers->customer_type=="cash" and $session->customers->pay_terms=="against delivery")?"checked":""}}> Cash/cheque against delivery of calibration certificates.</p>
-                <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="15 days")?"checked":""}}> 15 days from invoice date.</p>
-                <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="30 days")?"checked":""}}> 30 days from invoice date.</p>
-                <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="60 days")?"checked":""}}> 60 days from invoice date.</p>
-                <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="120 days")?"checked":""}}> 120 days from invoice date.</p>
-
+                @if($session->customers->customer_type=="credit" and $session->customers->pay_terms=="15 days")
+                    <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="15 days")?"checked":""}}> 15 days from invoice date.</p>
+                @endif
+                @if($session->customers->customer_type=="credit" and $session->customers->pay_terms=="30 days")
+                    <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="30 days")?"checked":""}}> 30 days from invoice date.</p>
+                @endif
+                @if($session->customers->customer_type=="credit" and $session->customers->pay_terms=="60 days")
+                    <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="60 days")?"checked":""}}> 60 days from invoice date.</p>
+                @endif
+                @if($session->customers->customer_type=="credit" and $session->customers->pay_terms=="120 days")
+                    <p class="ml-5 col-12 font-10 pl-2"><input type="checkbox" {{($session->customers->customer_type=="credit" and $session->customers->pay_terms=="120 days")?"checked":""}}> 120 days from invoice date.</p>
+                @endif
             </div>
 
 

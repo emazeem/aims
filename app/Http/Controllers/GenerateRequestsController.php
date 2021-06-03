@@ -92,6 +92,7 @@ class GenerateRequestsController extends Controller
         }
 
         $session=new Quotes();
+        $session->cid='RFQ/'.str_pad($session->id, 6, '0', STR_PAD_LEFT);
         $session->customer_id=$request->customer;
         $session->principal=$request->principal;
         $session->tm=$request->tm;

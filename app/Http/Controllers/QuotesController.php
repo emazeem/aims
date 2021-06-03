@@ -140,6 +140,9 @@ class QuotesController extends Controller
         $session->tm=$request->tm;
         $session->rfq_mode=$request->rfq_mode;
         $session->rfq_mode_details=$request->rfq_mode_details;
+        $session->cid='RFQ/';
+        $session->save();
+        $session->cid='RFQ/'.str_pad($session->id, 6, '0', STR_PAD_LEFT);
         $session->save();
         return response()->json(['success'=>'Added successfully']);
     }
