@@ -46,10 +46,10 @@ class LogReviewController extends Controller
             })
             ->addColumn('status', function ($data) {
                 if ($data->status==0){
-                    return '<span class="badge badge-info px-2 py-1"> Pending</span> ';
+                    return '<span class="badge badge-danger px-2 py-1"> Pending</span> ';
                 }
                 if ($data->status==1){
-                    return '<span class="badge badge-primary px-2 py-1"> Started</span> ';
+                    return '<span class="badge badge-info px-2 py-1"> Started</span> ';
                 }
                 if ($data->status==2){
                     return '<span class="badge badge-success px-2 py-1"> Completed</span> ';

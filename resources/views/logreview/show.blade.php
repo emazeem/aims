@@ -27,9 +27,9 @@
                     <th>Status</th>
                     <td>
                         @if($show->status==0)
-                            <span class="badge badge-info px-2 py-1"> Pending</span>
+                            <span class="badge badge-danger px-2 py-1"> Pending</span>
                         @elseif($show->status==1)
-                            <span class="badge badge-primary px-2 py-1"> Started</span>
+                            <span class="badge badge-info px-2 py-1"> Started</span>
                         @else
                             <span class="badge badge-success px-2 py-1"> Completed</span>
                         @endif
