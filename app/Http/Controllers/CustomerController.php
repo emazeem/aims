@@ -116,7 +116,7 @@ class CustomerController extends Controller
                 return $data->address.'-'.$data->plant;
             })
 
-            ->addColumn('prin_name', function ($data) {
+           /* ->addColumn('prin_name', function ($data) {
                 $colors=['badge-primary','badge-dark','badge-warning'];
                 $principals=null;
                 foreach (explode(',',$data->prin_name) as $key=>$item) {
@@ -131,7 +131,7 @@ class CustomerController extends Controller
                     $phones.='<span class="badge '.$colors[$k].'">'.$item.'</span><br>';
                 }
                 return $phones;
-            })
+            })*/
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
