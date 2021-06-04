@@ -471,15 +471,3 @@
         @include('items.create')
     @endif
 @endsection
-{{--@if(count($show->logs)>0)
-        <h4 class="mt-4 border-bottom">Revision Log </h4>
-        <table id="example" class="table table-hover bg-white table-sm table-bordered mt-2 display nowrap">
-
-            @foreach($show->logs as $log)
-                <tr>
-                    <td>{{$log->description}}</td>
-                </tr>
-            @endforeach
-        </table>
-    @endif
-    --}}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LogReview;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
@@ -19,7 +20,9 @@ class LogReviewController extends Controller
     public function show($id){
         $this->authorize('log-reviews');
         $show=LogReview::find($id);
-        return view('logreview.show',compact('show'));
+        $next=$show->next();
+        $previous=$show->previous();
+        return view('logreview.show',compact('show','next','previous'));
     }
 
     public function fetch(){
@@ -141,6 +144,8 @@ class LogReviewController extends Controller
             $image='-';
         }
         $show->image=$image;
+
+
 
         return response()->json($show);
     }

@@ -25,8 +25,9 @@
     <!-- bootstrap-daterangepicker -->
     <link href="{{url('vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
     <script type="text/javascript" src="{{url('js/jquery.min.js')}}"></script>
+
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
 
     @if(Route::currentRouteName()=='journal.index' or Route::currentRouteName()=='vouchers.create' )
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

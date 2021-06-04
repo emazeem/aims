@@ -43,8 +43,8 @@
                         "<tr><th>Region</th><td>" + data.region + "</td></tr>"+
                         "<tr><th>Tax Case</th><td>" + data.tax_case + "</td></tr>"+
                         "<tr><th>Principal Name</th><td>" + data.prin_name + "</td></tr>"+
-                        "<tr><th>Principal Email</th><td>" + data.prin_phone + "</td></tr>"+
-                        "<tr><th>Principal Phone</th><td>" + data.prin_email + "</td></tr>"
+                        "<tr><th>Principal Email</th><td>" + data.prin_email + "</td></tr>"+
+                        "<tr><th>Principal Phone</th><td>" + data.prin_phone + "</td></tr>"
                     );
                     if (data.pur_name){
                         $('.customer-show').append(

@@ -8,6 +8,7 @@
     @endif
 
     <script type="text/javascript">
+
         $(document).ready(function() {
             $("#add_na_form").on('submit',(function(e) {
                 e.preventDefault();
@@ -136,9 +137,10 @@
                     }
                 });
             }));
-
         });
+
     </script>
+
     <hr>
     <div class="row bg-white pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
@@ -157,7 +159,7 @@
                     <label for="parameter" class="col-12 control-label">Parameter</label>
                     <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="parameter" name="parameter">
+                            <select class="form-control " id="parameter" name="parameter">
                                 <option selected disabled>--Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
@@ -272,5 +274,4 @@
             </div>
         </div>
     </div>
-
 

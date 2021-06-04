@@ -13,7 +13,8 @@
                     @endif
             </span>
         </div>
-        <div class="col-lg-12">
+
+        <div class="col-12">
             <table class="table text-dark table-sm bg-white table-bordered table-responsive-sm table-hover font-13 log-table">
                 <tr>
                     <th>Title</th>
@@ -88,6 +89,20 @@
 
             </table>
         </div>
+        <div class="col-12">
+            @if($previous)
+                <span class="pull-left">
+                    <a href="{{url('/log-reviews/show/'.$previous->id)}}" class="btn btn-light border btn-sm"><i class="fa fa-angle-left" ></i> Previous </a>
+                </span>
+            @endif
+            @if($next)
+                <span class="pull-right">
+                    <a href="{{url('/log-reviews/show/'.$next->id)}}" class="btn btn-light border btn-sm"> Next <i class="fa fa-angle-right" ></i></a>
+                </span>
+            @endif
+
+        </div>
+
     </div>
 </div>
 <script>
