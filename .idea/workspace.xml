@@ -56,7 +56,7 @@
         <counts>
           <entry key="css" value="171" />
           <entry key="html" value="420" />
-          <entry key="php" value="36649" />
+          <entry key="php" value="36654" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
@@ -65,7 +65,7 @@
           <entry key="Blade" value="22167" />
           <entry key="CSS" value="172" />
           <entry key="HTML" value="425" />
-          <entry key="PHP" value="14476" />
+          <entry key="PHP" value="14481" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -73,7 +73,7 @@
         <counts>
           <entry key="css" value="2" />
           <entry key="html" value="1" />
-          <entry key="php" value="537" />
+          <entry key="php" value="538" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -82,7 +82,7 @@
           <entry key="Blade" value="287" />
           <entry key="CSS" value="2" />
           <entry key="HTML" value="1" />
-          <entry key="PHP" value="250" />
+          <entry key="PHP" value="251" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -101,6 +101,15 @@
               <folding>
                 <element signature="e#41#69#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -126,7 +135,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customers/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="131">
@@ -239,11 +248,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php" />
         <option value="$PROJECT_DIR$/resources/views/logreview/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customers/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customers/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
       </list>
     </option>
   </component>
@@ -656,12 +665,12 @@
       <workItem from="1622377102263" duration="609000" />
       <workItem from="1622430208609" duration="50503000" />
       <workItem from="1622628459835" duration="25810000" />
-      <workItem from="1622779756162" duration="689000" />
+      <workItem from="1622779756162" duration="1145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260347000" />
+    <option name="totallyTimeSpent" value="260803000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1014,13 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/capabilities/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -1042,6 +1044,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
           <caret line="45" column="76" selection-start-line="45" selection-start-column="76" selection-end-line="45" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
         </state>
       </provider>
     </entry>

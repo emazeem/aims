@@ -94,7 +94,7 @@ class CustomerController extends Controller
             $phones.='<span class="badge '.$colors[$k].'">'.$item.'</span><br>';
         }
         $emails=null;
-        foreach (explode(',',$show->prin_phone) as $k=>$item) {
+        foreach (explode(',',$show->prin_email) as $k=>$item) {
             $emails.='<span class="badge '.$colors[$k].'">'.$item.'</span><br>';
         }
         $show->prin_name=$principals;
