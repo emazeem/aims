@@ -16,7 +16,7 @@ use Yajra\DataTables\DataTables;
 class CapabilitiesController extends Controller
 {
     public function index(){
-        $caps=Capabilities::all();
+        /*$caps=Capabilities::all();
         foreach ($caps as $k=> $cap){
             if (strpos($cap->range, '~') !== false ){
                 $range=explode('~',$cap->range);
@@ -31,9 +31,14 @@ class CapabilitiesController extends Controller
             }
             $cap->min_range=$min;
             $cap->max_range=$max;
-
+            if ($cap->accredited=='yes'){
+                $cap->accredited_min_range=$min;
+                $cap->accredited_max_range=$max;
+            }
+            $cap->save();
         }
-        dd(1);
+        dd(1);*/
+
         $procedures=Procedure::all();
         $parameters=DB::table('parameters')->get();
         $units=Unit::all();
@@ -109,7 +114,8 @@ class CapabilitiesController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'category' => 'required',
-            'range' => 'required',
+            'min_range' => 'required',
+            'max_range' => 'required',
             'unit' => 'required',
             'accuracy' => 'required',
             'price' => 'required',
@@ -120,7 +126,8 @@ class CapabilitiesController extends Controller
         ],[
             'name.required' => 'Name field is required *',
             'category.required' => 'Category field is required *',
-            'range.required' => 'Range field is required *',
+            'min_range.required' => 'Min Range field is required *',
+            'max_range.required' => 'Max Range field is required *',
             'unit.required' => 'Unit field is required *',
             'accuracy.required' => 'Accuracy field is required *',
             'price.required' => 'Price field is required *',
@@ -132,7 +139,10 @@ class CapabilitiesController extends Controller
         $capabilities=new Capabilities();
         $capabilities->name=$request->name;
         $capabilities->parameter=$request->category;
-        $capabilities->range=$request->range;
+        $capabilities->min_range=$request->min_range;
+        $capabilities->accredited_min_range=$request->acc_min_range;
+        $capabilities->accredited_max_range=$request->acc_max_range;
+        $capabilities->max_range=$request->max_range;
         $capabilities->unit=$request->unit;
         $capabilities->calculator=$request->calculator;
         $capabilities->accuracy=$request->accuracy;
@@ -148,7 +158,8 @@ class CapabilitiesController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'category' => 'required',
-            'range' => 'required',
+            'min_range' => 'required',
+            'max_range' => 'required',
             'unit' => 'required',
             'accuracy' => 'required',
             'price' => 'required',
@@ -159,7 +170,8 @@ class CapabilitiesController extends Controller
         ],[
             'name.required' => 'Name field is required *',
             'category.required' => 'Category field is required *',
-            'range.required' => 'Range field is required *',
+            'min_range.required' => 'Min Range field is required *',
+            'max_range.required' => 'Max Range field is required *',
             'unit.required' => 'Unit field is required *',
             'accuracy.required' => 'Accuracy field is required *',
             'price.required' => 'Price field is required *',
@@ -172,7 +184,11 @@ class CapabilitiesController extends Controller
         $capabilities=Capabilities::find($request->id);
         $capabilities->name=$request->name;
         $capabilities->parameter=$request->category;
-        $capabilities->range=$request->range;
+
+        $capabilities->min_range=$request->min_range;
+        $capabilities->accredited_min_range=$request->acc_min_range;
+        $capabilities->accredited_max_range=$request->acc_max_range;
+        $capabilities->max_range=$request->max_range;
         $capabilities->location=$request->location;
         $capabilities->accredited=($request->accredited)?"yes":"no";
         $capabilities->unit=$request->unit;

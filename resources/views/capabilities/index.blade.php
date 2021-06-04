@@ -112,7 +112,10 @@
                         $('#editname').val(data.name);
                         $('#editparameter').val(data.parameter);
                         $('#editprocedure').val(data.procedure);
-                        $('#editrange').val(data.range);
+                        $('#edit_min_range').val(data.min_range);
+                        $('#edit_acc_min_range').val(data.accredited_min_range);
+                        $('#edit_max_range').val(data.max_range);
+                        $('#edit_acc_max_range').val(data.accredited_max_range);
                         $('#editunit').val(data.unit);
                         $('#editaccuracy').val(data.accuracy);
                         $('#editcalculator').val(data.calculator);
@@ -252,7 +255,7 @@
 </script>
 
     <div class="modal fade" id="add_capabilities" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Add Capabilities</h5>
@@ -309,12 +312,33 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label for="range" class="col-sm-2 control-label">Range</label>
+                            <label for="min_range" class="col-sm-2 control-label">Min Range</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="range" name="range" placeholder="Range" autocomplete="off" value="{{old('range')}}">
+                                <input type="text" class="form-control" id="min_range" name="min_range" placeholder="Min Range" autocomplete="off"  value="0">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="max_range" class="col-sm-2 control-label">Max Range</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="max_range" name="max_range" placeholder="Max Range" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="acc_min_range" class="col-sm-2 control-label">Accredited Min Range</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="acc_min_range" name="acc_min_range" placeholder="Accredited Min Range" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="acc_max_range" class="col-sm-2 control-label">Accredited Max Range</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="acc_max_range" name="acc_max_range" placeholder="Accredited Max Range" autocomplete="off">
+                            </div>
+                        </div>
+
+
                         <div class="form-group row">
                             <label for="unit" class="col-sm-2 control-label">Unit</label>
                             <div class="col-sm-10">
@@ -366,13 +390,14 @@
                             </div>
                         </div>
                         </div>
+
+
+                </div>
                 <div class="modal-footer">
                     <a href="{{ URL::previous() }}" class="btn btn-default bg-light border">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Save</button>
-                </div>
+                    <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> Save</button>
                     </form>
-                </div>
-                <div class="modal-footer">
+
                 </div>
             </div>
         </div>
@@ -443,11 +468,31 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="range" class="col-sm-2 control-label">Range</label>
+                            <label for="min_range" class="col-sm-2 control-label">Min Range</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="editrange" name="range" placeholder="Range" autocomplete="off" value="{{old('range')}}">
+                                <input type="text" class="form-control" id="edit_min_range" name="min_range" placeholder="Min Range" autocomplete="off"  value="0">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="max_range" class="col-sm-2 control-label">Max Range</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="edit_max_range" name="max_range" placeholder="Max Range" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="acc_min_range" class="col-sm-2 control-label">Accredited Min Range</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="edit_acc_min_range" name="acc_min_range" placeholder="Accredited Min Range" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="acc_max_range" class="col-sm-2 control-label">Accredited Max Range</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="edit_acc_max_range" name="acc_max_range" placeholder="Accredited Max Range" autocomplete="off">
+                            </div>
+                        </div>
+
+
                         <div class="form-group row">
                             <label for="unit" class="col-sm-2 control-label">Unit</label>
                             <div class="col-sm-10">

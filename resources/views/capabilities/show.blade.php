@@ -29,8 +29,16 @@
                 </tr>
                 <tr>
                     <th>Range</th>
-                    <td>{{$show->range}}</td>
+                    <td>{{$show->min_range.'-'.$show->max_range}}</td>
                 </tr>
+                @if($show->accredited_min_range)
+                <tr>
+                    <th>Accredit Range</th>
+                    <td>{{$show->accredited_min_range.'-'.$show->accredited_max_range}}</td>
+
+                </tr>
+                @endif
+
                 <tr>
                     <th>Price</th>
                     <td>{{$show->price}}</td>
