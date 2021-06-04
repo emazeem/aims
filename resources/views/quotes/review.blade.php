@@ -60,7 +60,7 @@
                 @php $principals=explode(',',$quotes->customers->prin_name);$pemails=explode(',',$quotes->customers->prin_email); @endphp
                 @if($quotes->principal==$principals[0])
                     {{$pemails[0]}}
-                @elseif($session->principal==$principals[1])
+                @elseif($quotes->principal==$principals[1])
                     {{$pemails[1]}}
                 @else
                     {{$pemails[2]}}
@@ -102,7 +102,8 @@
                     <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[0]==1)?'checked':''}}></td>
                     <td><input type="checkbox"{{($item->status==2)?'checked':''}} {{($checks[1]==1)?'checked':''}}></td>
                     <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[2]==1)?'checked':''}}></td>
-                    <td><input type="checkbox" ></td>
+                    <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[2]==1)?'checked':''}}></td>
+                    
                 </tr>
             @endforeach
             </tbody>

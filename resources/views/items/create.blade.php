@@ -10,42 +10,6 @@
     <script type="text/javascript">
 
         $(document).ready(function() {
-            $("#add_na_form").on('submit',(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    url: "{{route('items.store')}}",
-                    type: "POST",
-                    data:  new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                    statusCode: {
-                        403: function() {
-                            $(".loading").fadeOut();
-                            swal("Failed", "Access Denied" , "error");
-                            return false;
-                        }
-                    },
-                    success: function(data)
-                    {
-
-                        if(!data.errors)
-                        {
-
-                            $('#add_na').modal('hide');
-                            swal('success', data.success, 'success').then((value) => {
-                                location.reload();
-                            });
-                        }
-                    },
-                    error: function()
-                    {
-                        swal("Failed", "Fields Required. Try again.", "error");
-                    }
-                });
-            }));
-
-
 
             $('select[name="capability"]').append('<option disabled selected>--Select Capability</option>');
 
@@ -148,6 +112,7 @@
             <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#add_na">
                 <i class="fa fa-times"></i> Not Listed
             </button>
+
         </div>
         <div class="col-12">
 
@@ -241,37 +206,6 @@
                 </div>
 
             </form>
-        </div>
-    </div>
-    <div class="modal fade" id="add_na" tabindex="-1" role="dialog" aria-labelledby="add_na" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="add_na"><i class="fa fa-plus-square"></i> Add Misc.</h5>
-                    <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="add_na_form">
-                        @csrf
-                        <input type="hidden" value="{{$show->id}}" name="quote_id">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <label for="name">Capability</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Put capability name (not listed)" autocomplete="off" value="{{old('name')}}">
-                            </div>
-                            <div class="col-sm-4">
-                                <label for="quantity">Qty</label>
-                                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Qty" autocomplete="off" value="{{old('quantity')}}">
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer m-0 p-2">
-                    <button class="btn btn-primary btn-sm " type="submit"><i class="fa fa-save"></i>Save</button>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 

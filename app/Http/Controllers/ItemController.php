@@ -32,14 +32,11 @@ class ItemController extends Controller
                 return $data->id;
             })
             ->addColumn('parameter', function ($data) {
-                if (isset($data->not_available)){
-                    return '<b class="text-danger">Not Available</b>';
-                }
                 return $data->parameters->name;
             })
             ->addColumn('capability', function ($data) {
                 if (isset($data->not_available)){
-                    return $data->not_available;
+                    return '<span class="text-danger">'.$data->not_available.'</span>';
                 }
                 return $data->capabilities->name;
             })
@@ -113,7 +110,7 @@ class ItemController extends Controller
                     return "<span class='badge'>Not Allowed</span>";
                 }
             })
-            ->rawColumns(['options','parameter','status'])
+            ->rawColumns(['options','parameter','status','capability'])
             ->make(true);
     }
     public function edit($session,$id){
@@ -128,19 +125,21 @@ class ItemController extends Controller
 
         $this->authorize('items-create');
         //non-listed
-        if (isset($request->name)){
+        if (isset($request->non_listed)){
             $this->validate(request(), [
                 'name' => 'required',
+                'parameter' => 'required',
                 'quantity' => 'required',
             ],[
                 'name.required' => 'Parameter field is required *',
                 'quantity.required' => 'Quantity field is required *',
+                'parameter.required' => 'Quantity field is required *',
             ]);
 
             $item=new Item();
             $item->quote_id=$request->quote_id;
             $item->not_available=$request->name;
-            $item->parameter=0;
+            $item->parameter=$request->parameter;
             $item->capability=0;
             $item->location="site";
             $item->accredited="no";
@@ -263,13 +262,16 @@ class ItemController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'quantity' => 'required',
+            'parameter' => 'required',
         ],[
             'name.required' => 'Parameter field is required *',
             'quantity.required' => 'Quantity field is required *',
+            'parameter.required' => 'Quantity field is required *',
         ]);
         $item=Item::find($request->id);
         $item->not_available=$request->name;
         $item->quantity=$request->quantity;
+        $item->parameter=$request->parameter;
         $item->save();
         return response()->json(['success'=>'Updated successfully']);
     }
@@ -286,7 +288,7 @@ class ItemController extends Controller
     }
     public function editNA(Request $request){
         $editNA=Item::find($request->id);
-        $editNA['capability_name']=Capabilities::find($editNA->capability)->name;
+        $editNA['capability_name']=$editNA->not_available;
         return response()->json($editNA);
     }
     public function getPrice($id){

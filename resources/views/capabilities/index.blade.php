@@ -389,15 +389,10 @@
                                 <label class="form-check-label" for="accredited">Accredited</label>
                             </div>
                         </div>
-                        </div>
-
-
-                </div>
-                <div class="modal-footer">
-                    <a href="{{ URL::previous() }}" class="btn btn-default bg-light border">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> Save</button>
+                        <a href="{{ URL::previous() }}" class="btn btn-default bg-light border">Cancel</a>
+                        <button type="submit" class="btn btn-primary float-right"><i class="fa fa-save"></i> Save</button>
                     </form>
-
+                 </div>
                 </div>
             </div>
         </div>

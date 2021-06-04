@@ -36,7 +36,7 @@
                             <select class="form-control" id="category" name="category">
                                 <option selected disabled>Select Parameter</option>
                                 @foreach($parameters as $parameter)
-                                    <option value="{{$parameter->id}}">{{$parameter->name}}</option>
+                                    <option value="{{$parameter->id}}" {{$edit->parameter==$parameter->id?'selected':''}}>{{$parameter->name}}</option>
                                 @endforeach
 
                             </select>

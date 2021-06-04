@@ -64,7 +64,7 @@
                                 $token=csrf_token();
                                 $option=null;
                                 $option .= "<a title='Add Checks for Review Form' class='btn btn-sm btn-success checks'  href='#' data-id=".$item->id."><span class='badge'> <i class='fa fa-plus-circle'></i> Checks</span></a>";
-                                if ($item->rf_checks=='1,1,1'){
+                                if ($item->rf_checks=='1,1,1,1'){
                                     $option .= "<a title='Add' class='btn btn-sm btn-primary' href='" . url('pendings/create/' . $item->id) . "'><i class='fa fa-plus'></i></a>";
                                 }
                                 elseif($item->rf_checks!=null){
