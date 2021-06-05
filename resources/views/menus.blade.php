@@ -6,7 +6,8 @@
             margin: 0;
         }
     </style>
-<div class="row">
+
+    <div class="row">
     <div class="col-12">
         <h3 class="border-bottom pull-left"><i class="fa fa-tasks"></i> All Menus</h3>
         <span class="text-right">

@@ -39,6 +39,18 @@
                 dataType : "json",
                 success: function(data)
                 {
+
+                    $('select[name="pay_way"]').empty();
+                    if (data.customer_type == 'cash') {
+                        $('select[name="pay_way"]').append('<option value="advance">Advance</option>');
+                        $('select[name="pay_way"]').append('<option value="against delivery">Against Delivery</option>');
+                    }
+                    if (data.customer_type == 'credit') {
+                        $('select[name="pay_way"]').append('<option value="15 days" >15 days</option>');
+                        $('select[name="pay_way"]').append('<option value="30 days">30 days</option>');
+                        $('select[name="pay_way"]').append('<option value="60 days">60 days</option>');
+                        $('select[name="pay_way"]').append('<option value="120 days">120 days</option>');
+                    }
                     $('#add-customer').modal('toggle');
                     $('#edit-id').val(data.id);
                     $('#name').val(data.reg_name);
@@ -47,7 +59,7 @@
                     $('#bill_to_address').val(data.bill_to_address);
                     $('#region').val(data.region);
                     $('#pay_type').val(data.customer_type);
-                    $('#pay_way').append('<option value'+data.pay_terms+' selected>'+data.pay_terms+'</option>');
+                    $('#pay_way').val(data.pay_terms);
                     $('#tax_case').val(data.tax_case);
                     $('#principal-name-1').val(data.prin_name_1);
                     $('#principal-phone-1').val(data.prin_phone_1);
