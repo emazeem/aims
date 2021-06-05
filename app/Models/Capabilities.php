@@ -19,7 +19,7 @@ class Capabilities extends Model
             'App\Models\Procedure','procedure');
     }
     public function units(){
-        return $this->belongsTo('App\Models\Unit','unit')->withDefault();
+        return $this->belongsTo('App\Models\Unit','unit','id')->withDefault();
     }
     public function calculators(){
         return $this->belongsTo('App\Models\Preference','calculator','slug')->withDefault();

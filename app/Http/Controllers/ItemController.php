@@ -155,7 +155,8 @@ class ItemController extends Controller
         $this->validate(request(), [
             'parameter' => 'required',
             'capability' => 'required',
-            'range' => 'required',
+            'range.0' => 'required',
+            'range.1' => 'required',
             'price' => 'required',
             'quantity' => 'required',
             'location' => 'required',
@@ -164,7 +165,8 @@ class ItemController extends Controller
         ],[
             'parameter.required' => 'Parameter field is required *',
             'capability.required' => 'Capability field is required *',
-            'range.required' => 'Range field is required *',
+            'range.0.required' => 'Min Range field is required *',
+            'range.1.required' => 'Max Range field is required *',
             'price.required' => 'Price field is required *',
             'quantity.required' => 'Quantity field is required *',
             'location.required' => 'Location field is required *',
@@ -179,7 +181,7 @@ class ItemController extends Controller
         $item->unit=$request->unit?$request->unit:null;
         $item->parameter=$request->parameter;
         $item->capability=$request->capability;
-        $item->range=$request->range;
+        $item->range=implode(',',$request->range);
         $item->status=0;
         $item->price=$request->price;
         $item->quantity=$request->quantity;
@@ -211,7 +213,8 @@ class ItemController extends Controller
         $this->validate(request(), [
             'parameter' => 'required',
             'capability' => 'required',
-            'range' => 'required',
+            'range.0' => 'required',
+            'range.1' => 'required',
             'price' => 'required',
             'quantity' => 'required',
             'location' => 'required',
@@ -219,7 +222,8 @@ class ItemController extends Controller
         ],[
             'parameter.required' => 'Parameter field is required *',
             'capability.required' => 'Capability field is required *',
-            'range.required' => 'Range field is required *',
+            'range.0.required' => 'Min Range field is required *',
+            'range.1.required' => 'Max Range field is required *',
             'price.required' => 'Price field is required *',
             'quantity.required' => 'Quantity field is required *',
             'location.required' => 'Location field is required *',
@@ -229,7 +233,6 @@ class ItemController extends Controller
         $item->parameter=$request->parameter;
         $item->not_available=null;
         $item->capability=$request->capability;
-        $item->range=$request->range;
         $item->location=$request->location;
         $item->accredited=$request->accredited;
         $item->price=$request->price;
@@ -292,8 +295,11 @@ class ItemController extends Controller
         return response()->json($editNA);
     }
     public function getPrice($id){
-        $price=Capabilities::find($id);
-        return response()->json($price);
+        $data=Capabilities::find($id);
+        if ($data->accredited=='yes'){
+            $data['unit_name']=$data->units->unit;
+        }
+        return response()->json($data);
     }
     public function destroy($id){
         $this->authorize('items-delete');
@@ -309,5 +315,17 @@ class ItemController extends Controller
         $nofacility->capability=$q->not_available;
         $nofacility->save();
         return response()->json(['success'=>'Sent with no facility']);
+    }
+    public function compare_ranges($min,$max,$id){
+        $capability=Capabilities::find($id);
+        if ($capability->accredited_min_range<=$min){
+            return response()->json(['error'=>'Your Min Range is LOW']);
+        }else if ($capability->accredited_max_range>=$max){
+            return response()->json(['error'=>'Your Max Range is HIGH']);
+        } else if ($capability->accredited_max_range>=$max &&$capability->accredited_min_range<=$min ){
+            return response()->json(['success'=>'Accredited']);
+        }
+
+
     }
 }

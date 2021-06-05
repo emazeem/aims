@@ -74,8 +74,8 @@ class LogReviewController extends Controller
 
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
-                $action=null;
-                $action.="<a title='Show' class='btn btn-sm btn-warning' href='".url('log-reviews/show/'.$data->id)."'><i class='fa fa-eye'></i></a>";
+                $action=null.'<div class="btn-group ">';
+                $action.="<a title='Show' class='btn rounded-0 btn-sm btn-warning' href='".url('log-reviews/show/'.$data->id)."'><i class='fa fa-eye'></i></a>";
                 $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
                 $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
@@ -83,7 +83,7 @@ class LogReviewController extends Controller
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
                       </form>";
-                return $action;
+                return $action."</div>";
 
             })
             ->rawColumns(['options','priority','status','attachment'])

@@ -166,6 +166,7 @@ class CapabilitiesController extends Controller
             'remarks' => 'required',
             'location' => 'required',
             'procedure' => 'required',
+            'calculator' => 'required',
 
         ],[
             'name.required' => 'Name field is required *',
@@ -178,7 +179,7 @@ class CapabilitiesController extends Controller
             'remarks.required' => 'Remarks field is required *',
             'location.required' => 'Location field is required *',
             'procedure.required' => 'Procedure field is required *',
-
+            'calculator.required' => 'Calculator field is required *',
 
         ]);
         $capabilities=Capabilities::find($request->id);

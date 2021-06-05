@@ -17,61 +17,54 @@
         </div>
         <div class="col-12">
 
-            <table class="table table-responsive-sm table-hover font-13" width="100%">
+            <table class="table bg-white table-responsive-sm border-0 table-hover font-13" width="100%">
 
                 <tr>
-                    <th width="50%">Name</th>
-                    <td width="50%">{{$show->name}}</td>
+                    <th width="20%" >Name</th>
+                    <td width="80%">{{$show->name}}</td>
                 </tr>
                 <tr>
-                    <th>Parameter</th>
+                    <th >Parameter</th>
                     <td>{{$show->parameters->name}}</td>
                 </tr>
                 <tr>
-                    <th>Range</th>
+                    <th >Range</th>
                     <td>{{$show->min_range.'-'.$show->max_range}}</td>
                 </tr>
                 @if($show->accredited_min_range)
                 <tr>
-                    <th>Accredit Range</th>
+                    <th >Accredit Range</th>
                     <td>{{$show->accredited_min_range.'-'.$show->accredited_max_range}}</td>
 
                 </tr>
                 @endif
 
                 <tr>
-                    <th>Price</th>
+                    <th >Price</th>
                     <td>{{$show->price}}</td>
                 </tr>
                 <tr>
-                    <th>Unit</th>
-                    <td>{{$show->unit}}</td>
+                    <th >Unit</th>
+                    <td>{{$show->units->unit}}</td>
                 </tr>
                 <tr>
-                    <th>Accuracy</th>
+                    <th >Accuracy</th>
                     <td>{{$show->accuracy}}</td>
                 </tr>
                 <tr>
-                    <th>Location</th>
+                    <th >Location</th>
                     <td class="text-capitalize">{{$show->location}}</td>
                 </tr>
                 <tr>
-                    <th>Accredited</th>
+                    <th >Accredited</th>
                     <td class="text-capitalize font-weight-bold">{{$show->accredited}}</td>
                 </tr>
 
                 <tr>
-                    <th>Remarks</th>
+                    <th >Remarks</th>
                     <td>{{$show->remarks}}</td>
                 </tr>
-                <tr>
-                    <th>Created on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
-                </tr>
-                <tr>
-                    <th>Updated on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
-                </tr>
+
             </table>
 
         </div>

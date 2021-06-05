@@ -103,7 +103,7 @@
                     <td><input type="checkbox"{{($item->status==2)?'checked':''}} {{($checks[1]==1)?'checked':''}}></td>
                     <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[2]==1)?'checked':''}}></td>
                     <td><input type="checkbox" {{($item->status==2)?'checked':''}} {{($checks[2]==1)?'checked':''}}></td>
-                    
+
                 </tr>
             @endforeach
             </tbody>

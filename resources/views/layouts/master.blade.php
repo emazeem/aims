@@ -77,7 +77,9 @@ or Route::currentRouteName()=='vouchers.all' or Route::currentRouteName()=='log_
     <link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
     <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>
     <script src="{{url('js/dataTables.responsive.min.js')}}"></script>
+
 @endif
+
 
 @if(Route::currentRouteName()=='home')
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>

@@ -271,6 +271,7 @@ Route::group(['prefix'=> 'items'],function() {
     Route::get('',[App\Http\Controllers\ItemController::class, 'index'])->middleware('auth')->name('items');
     Route::get('/select-capabilities/{id}',[App\Http\Controllers\ItemController::class, 'getCapabilities'])->middleware('auth')->name('items.getcapabilities');
     Route::get('/select-price/{id}',[App\Http\Controllers\ItemController::class, 'getPrice'])->middleware('auth')->name('items.getPrice');
+    Route::get('/compare-ranges/{min}/{max}/{capability}',[App\Http\Controllers\ItemController::class, 'compare_ranges'])->middleware('auth')->name('items.compare_ranges');
     Route::post('',[App\Http\Controllers\ItemController::class, 'fetch'])->middleware('auth')->name('items.fetch');
     Route::post('/store',[App\Http\Controllers\ItemController::class, 'store'])->middleware('auth')->name('items.store');
     Route::post('/updateNA',[App\Http\Controllers\ItemController::class, 'updateNA'])->middleware('auth')->name('items.updateNA');
