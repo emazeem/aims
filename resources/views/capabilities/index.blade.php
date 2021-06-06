@@ -291,7 +291,7 @@
                                 <select class="form-control" id="procedure" name="procedure">
                                     <option selected disabled>Select Procedure</option>
                                     @foreach($procedures as $procedure)
-                                        <option value="{{$procedure->id}}">{{$procedure->name}}</option>
+                                        <option value="{{$procedure->id}}">{{$procedure->name}} -- {{$procedure->description}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -408,7 +408,7 @@
                                 <select class="form-control" id="editprocedure" name="procedure">
                                     <option selected disabled>Select Procedure</option>
                                     @foreach($procedures as $procedure)
-                                        <option value="{{$procedure->id}}">{{$procedure->name}}</option>
+                                        <option value="{{$procedure->id}}">{{$procedure->name}} -- {{$procedure->description}}</option>
                                     @endforeach
                                 </select>
                             </div>

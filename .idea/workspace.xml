@@ -32,8 +32,8 @@
     <session id="760252081">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
-          <entry key="project.open.time.0" value="9" />
+          <entry key="project.closed" value="38" />
+          <entry key="project.open.time.0" value="10" />
           <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.14" value="3" />
@@ -49,20 +49,20 @@
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.76" value="1" />
-          <entry key="project.opened" value="43" />
+          <entry key="project.opened" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="171" />
           <entry key="html" value="420" />
-          <entry key="php" value="39811" />
+          <entry key="php" value="39812" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="24386" />
+          <entry key="Blade" value="24387" />
           <entry key="CSS" value="172" />
           <entry key="HTML" value="425" />
           <entry key="PHP" value="15419" />
@@ -73,13 +73,13 @@
         <counts>
           <entry key="css" value="3" />
           <entry key="html" value="2" />
-          <entry key="php" value="589" />
+          <entry key="php" value="591" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="320" />
+          <entry key="Blade" value="322" />
           <entry key="CSS" value="3" />
           <entry key="HTML" value="2" />
           <entry key="PHP" value="269" />
@@ -92,32 +92,10 @@
     <favorites_list name="aims" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="39" column="7" selection-start-line="28" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>unit</find>
-      <find>Unit</find>
-      <find>fields</find>
       <find>editNa</find>
       <find>show</find>
       <find>view</find>
@@ -145,6 +123,9 @@
       <find>ajax</find>
       <find>calen</find>
       <find>swee</find>
+      <find>capabil</find>
+      <find>update</find>
+      <find>example</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -219,9 +200,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ItemController.php" />
         <option value="$PROJECT_DIR$/resources/views/menus.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/customers/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
         <option value="C:/Windows/Temp/Rar$DRa16304.46122/themify-icons/demo-files/demo.css" />
+        <option value="$PROJECT_DIR$/resources/views/customers/create.blade.php" />
       </list>
     </option>
   </component>
@@ -417,7 +398,45 @@
       <autoscrollFromSource Scope="true" ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="capabilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="capabil&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/capabilities&#10;changepas&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/changepassword.blade.php&#10;pending&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/PendingRequestController.php&#10;itemcon&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/ItemController.php&#10;pendin&#9;null&#9;null&#10;quotes&#9;null&#9;null&#10;level&#9;null&#9;null&#10;config&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/bootstrap/cache/config.php&#10;app.p&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/config/app.php&#10;auth&#9;null&#9;null&#10;designc&#9;null&#9;null&#10;asset&#9;null&#9;null&#10;CUSTOMER&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/customers&#10;style&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/style.css&#10;desig&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/designation.blade.php&#10;jobcontroller&#9;null&#9;null&#10;invoicecp&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/InvoiceController.php&#10;saleinv&#9;null&#9;null&#10;journal&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JournalVouhcerController.php&#10;quot&#9;null&#9;null&#10;style.&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/style.css&#10;trail&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/journal/trailbalance.blade.php&#10;LEDGER&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/journal/ledger.blade.php&#10;customer&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/customers&#10;generalcal&#9;null&#9;null&#10;capa&#9;null&#9;null&#10;CalclulatorentriesController&#9;null&#9;null&#10;designati&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/designation.blade.php&#10;param&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/parameter.blade.php&#10;itemcontroller&#9;null&#9;null&#10;mater&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/MaterialreceivingController.php&#10;master&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;invoice&#9;null&#9;null&#10;purchase&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Models/Purchaseindent.php&#10;app.&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/config/app.php&#10;app.php&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/bootstrap/app.php&#10;dashboard&#9;null&#9;null&#10;inven&#9;null&#9;null&#10;inventory&#9;null&#9;null&#10;material&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/MaterialreceivingController.php&#10;pode&#9;null&#9;null&#10;pocontroller&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/PoController.php&#10;CREATE_PO&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/database/migrations/2021_04_27_201440_create_po_table.php&#10;itemcontro&#9;null&#9;null&#10;inden&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/purchaseindent&#10;categor&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/InventoryCategoryController.php&#10;voucher&#9;null&#9;null&#10;authser&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php" />
@@ -503,11 +522,12 @@
       <workItem from="1622885546766" duration="6000" />
       <workItem from="1622885820713" duration="2357000" />
       <workItem from="1622970881485" duration="8000" />
+      <workItem from="1622970893632" duration="807000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="286433000" />
+    <option name="totallyTimeSpent" value="287240000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -520,9 +540,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1913767" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1913767" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -825,13 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/capabilities/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/parameter.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -852,17 +864,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customers/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="39" column="39" lean-forward="true" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Windows/Temp/Rar$DRa16304.46122/themify-icons/demo-files/demo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="49" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -873,10 +885,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/customers/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="39" column="7" selection-start-line="28" selection-end-line="29" />
+        <state relative-caret-position="2310">
+          <caret line="105" column="74" selection-start-line="105" selection-start-column="74" selection-end-line="105" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/capabilities/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="239" selection-start-line="239" selection-end-line="240" />
         </state>
       </provider>
     </entry>
