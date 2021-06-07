@@ -38,9 +38,13 @@ class VoucherController extends Controller
         return view('paymentvoucher.show',compact('show','po'));
     }
     public function edit($id){
-        $accounts=Chartofaccount::all();
+        $accounts=AccLevelThree::orderBy('title','ASC')->get();
+        foreach ($accounts as $customer){
+            $customer->title=str_replace("'","",$customer->title);
+        }
+        $blines=BusinessLine::all();
         $edit=Journal::find($id);
-        return view('paymentvoucher.edit',compact('edit','accounts'));
+        return view('paymentvoucher.edit',compact('edit','accounts','blines'));
     }
     public function prints($id){
         $show=Journal::find($id);
@@ -135,6 +139,7 @@ class VoucherController extends Controller
         $journal=new Journal();
         $journal->business_line=$request->business_line;
         $journal->date=$request->v_date;
+        $journal->reference=$request->reference?$request->reference:null;
         $journal->type=$request->v_type.' voucher';
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
@@ -179,8 +184,6 @@ class VoucherController extends Controller
     }
     public function update(Request $request){
         $this->validate(request(), [
-            'v_type' => 'required',
-            'v_date' => 'required',
             'account.*' => 'required',
             'narration.*' => 'required',
             'price.*' => 'required',
@@ -194,15 +197,12 @@ class VoucherController extends Controller
             return response()->json(['error'=>'Please verify that credit and debit amounts are equal'],422);
         }
         $journal=Journal::find($request->id);
-        $journal->business_line=1;
-        $journal->date=$request->v_date;
-        $journal->type=$request->v_type.' voucher';
+        $journal->reference=$request->reference?$request->reference:null;
         $journal->created_by=auth()->user()->id;
-        $journal->customize_id=0;
         $journal->save();
 
         foreach ($request->account as $k=>$item){
-            $details=JournalDetails::find($request->details_id[$k]);
+            $details=JournalDetails::find($request->detail_id[$k]);
             $details->parent_id=$journal->id;
             $details->acc_code=$request->account[$k];
             $details->cost_center=$request->costcenter[$k];

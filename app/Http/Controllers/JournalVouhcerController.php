@@ -64,6 +64,7 @@ class JournalVouhcerController extends Controller
             $customer->title=str_replace("'","",$customer->title);
         }
         $blines=BusinessLine::all();
+
         return view('journalvoucher.create',compact('accounts','blines'));
     }
     public function store(Request $request){
@@ -123,10 +124,7 @@ class JournalVouhcerController extends Controller
     }
 
     public function update(Request $request){
-        //dd($request->all());
         $this->validate(request(), [
-            'v_type' => 'required',
-            'v_date' => 'required',
             'account.*' => 'required',
             'narration.*' => 'required',
             'price.*' => 'required',
@@ -140,10 +138,7 @@ class JournalVouhcerController extends Controller
             return response()->json(['error'=>'Please verify that credit and debit amounts are equal'],422);
         }
         $journal=Journal::find($request->id);
-        $journal->business_line=$request->business_line;
         $journal->reference=$request->reference?$request->reference:null;
-        $journal->date=$request->v_date;
-        $journal->type=$request->v_type.' voucher';
         $journal->created_by=auth()->user()->id;
         $journal->save();
 

@@ -110,6 +110,17 @@
                         @endif
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="reference" class="col-2 control-label">Reference</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control" id="reference" name="reference" value="{{old('reference')}}" placeholder="Enter Reference">
+                        @if ($errors->has('reference'))
+                            <span class="text-danger">
+                                <strong>{{ $errors->first('reference') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
                 <h5 class="po-div">PO Details</h5>
                 <table class="table bg-white table-hover table-bordered po-table">
                     <thead>
