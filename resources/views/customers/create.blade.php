@@ -103,7 +103,7 @@
                     button.attr('disabled',null).html(previous);
                     swal('success',data.success,'success').then((value) => {
                         $('#add-customer').modal('hide');
-                        InitTable();
+                        $("#example").DataTable().ajax.reload(null,false);
                     });
 
                 },
