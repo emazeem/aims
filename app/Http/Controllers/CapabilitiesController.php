@@ -70,7 +70,7 @@ class CapabilitiesController extends Controller
                 return $data->parameters->name;
             })
             ->addColumn('range', function ($data) {
-                return $data->range;
+                return $data->min_range.'-'.$data->max_range;
             })
             ->addColumn('price', function ($data) {
                 return $data->price;

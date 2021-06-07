@@ -32,7 +32,7 @@
     <session id="760252081">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="42" />
+          <entry key="project.closed" value="43" />
           <entry key="project.open.time.0" value="14" />
           <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.11" value="3" />
@@ -564,12 +564,12 @@
       <workItem from="1622979678870" duration="2000" />
       <workItem from="1622979685349" duration="1000" />
       <workItem from="1623038405138" duration="666000" />
-      <workItem from="1623042558746" duration="1048000" />
+      <workItem from="1623042558746" duration="2241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="289661000" />
+    <option name="totallyTimeSpent" value="290854000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -584,7 +584,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19440243" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19440243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
