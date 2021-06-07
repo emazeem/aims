@@ -56,7 +56,7 @@
           <entry key="css" value="198" />
           <entry key="html" value="420" />
           <entry key="js" value="1" />
-          <entry key="php" value="40756" />
+          <entry key="php" value="40811" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
@@ -66,7 +66,7 @@
           <entry key="CSS" value="199" />
           <entry key="HTML" value="425" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="15657" />
+          <entry key="PHP" value="15712" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -140,7 +140,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartofaccountController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
@@ -149,11 +149,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoucherController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="199" selection-start-line="199" selection-end-line="200" />
+            <state relative-caret-position="846">
+              <caret line="148" selection-start-line="148" selection-end-line="148" />
             </state>
           </provider>
         </entry>
@@ -171,8 +171,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pcoded-mtext-submenu</find>
-      <find>can take a regular sel</find>
       <find>an take a regular select box l</find>
       <find>with plac</find>
       <find>respond.min.js</find>
@@ -201,6 +199,8 @@
       <find>date</find>
       <find>add_voucher_form</find>
       <find>edit_voucher_form</find>
+      <find>voucher</find>
+      <find>$voucher-&gt;type</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -276,9 +276,9 @@
         <option value="$PROJECT_DIR$/app/Models/Journal.php" />
         <option value="$PROJECT_DIR$/resources/views/journalvoucher/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/paymentvoucher/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VoucherController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/JournalVouhcerController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ChartofaccountController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VoucherController.php" />
       </list>
     </option>
   </component>
@@ -700,12 +700,12 @@
       <workItem from="1623046187328" duration="2445000" />
       <workItem from="1623056655102" duration="3586000" />
       <workItem from="1623063387438" duration="3705000" />
-      <workItem from="1623078399979" duration="4214000" />
+      <workItem from="1623078399979" duration="5436000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304804000" />
+    <option name="totallyTimeSpent" value="306026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1064,13 +1064,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoucherController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="199" selection-start-line="199" selection-end-line="200" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JournalVouhcerController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1082,6 +1075,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoucherController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
         </state>
       </provider>
     </entry>

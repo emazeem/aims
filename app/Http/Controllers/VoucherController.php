@@ -115,12 +115,13 @@ class VoucherController extends Controller
 
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 2, 4);
+            $date=substr($voucher->customize_id, 4, 6);
             if (date('my')==$date){
-                $c_id[]=$voucher->id;
+                if ($voucher->type='payment voucher'){
+                    $c_id[]=$voucher->id;
+                }
             }
         }
-        //dd($request->all());
         $this->validate(request(), [
             'v_type' => 'required',
             'v_date' => 'required',
@@ -144,7 +145,7 @@ class VoucherController extends Controller
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();
-        $journal->customize_id=date('dmy').(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='PV'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
         foreach ($request->account as $k=>$item){
             $details=new JournalDetails();
