@@ -18,7 +18,7 @@
                                     <span class="pcoded-micon">
                                         <i class="{{$menu->icon}}"></i>
                                     </span>
-                                    <span class="pcoded-mtext small">
+                                    <span class="pcoded-mtext">
                                         {{$menu->name}}
                                     </span>
                                 </a>
@@ -32,7 +32,7 @@
                                     ?>
                                     @foreach($submenus as $submenu)
                                         @can($submenu->slug)
-                                            <li class=" pcoded-mtext-submenu"><a href="{{url($submenu->url)}}" class="small">{{$submenu->name}}</a></li>
+                                            <li class=" pcoded-mtext-submenu"><a href="{{url($submenu->url)}}" class="">{{$submenu->name}}</a></li>
                                         @endcan
                                     @endforeach
                                 </ul>
@@ -45,7 +45,7 @@
                                 <a href="{{url($menu->url)}}" class="nav-link ">
                     <span class="pcoded-micon">
                         <i class="{{$menu->icon}}"></i></span>
-                                    <span class="pcoded-mtext small">{{$menu->name}}</span>
+                                    <span class="pcoded-mtext">{{$menu->name}}</span>
                                 </a>
                             </li>
                         @endcan

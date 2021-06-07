@@ -21418,7 +21418,7 @@ pre[class*=language-]:before {
     box-shadow: 2px 0 2.94px 0.06px rgba(4, 26, 55, 0.16);
     -webkit-transition: all 0.05s ease-in-out;
     transition: all 0.05s ease-in-out;
-    width: 235px;
+    width: 270px;
     height: calc(100% - 56px);
     margin-top: 56px;
     top: 0;
@@ -22319,7 +22319,8 @@ pre[class*=language-]:before {
 .pcoded-content {
     position: relative;
     display: block;
-    padding: 25px;
+    padding: 35px;
+
 }
 
 .pcoded-main-container {
@@ -22331,7 +22332,7 @@ pre[class*=language-]:before {
     float: unset;
     right: 0;
     top: 0;
-    margin-left: 235px;
+    margin-left: 270px;
     min-height: 100vh;
     -webkit-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
@@ -22434,7 +22435,7 @@ pre[class*=language-]:before {
     }
 
     .pcoded-navbar {
-        margin-left: -235px;
+        margin-left: -270px;
         position: absolute;
         height: 100%;
         box-shadow: none;
