@@ -29,7 +29,7 @@
     <session id="760252081">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="45" />
+          <entry key="project.closed" value="46" />
           <entry key="project.open.time.0" value="15" />
           <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.11" value="3" />
@@ -55,13 +55,13 @@
           <entry key="css" value="198" />
           <entry key="html" value="420" />
           <entry key="js" value="1" />
-          <entry key="php" value="40484" />
+          <entry key="php" value="40507" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="24969" />
+          <entry key="Blade" value="24992" />
           <entry key="CSS" value="199" />
           <entry key="HTML" value="425" />
           <entry key="JavaScript" value="1" />
@@ -107,8 +107,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/chartofaccount/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+            <state relative-caret-position="256">
+              <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -117,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ajax</find>
       <find>calen</find>
       <find>swee</find>
       <find>capabil</find>
@@ -147,6 +146,7 @@
       <find>tree2</find>
       <find>tree</find>
       <find>tree1</find>
+      <find>font</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -610,12 +610,12 @@
       <workItem from="1623042558746" duration="2241000" />
       <workItem from="1623046187328" duration="2445000" />
       <workItem from="1623056655102" duration="3586000" />
-      <workItem from="1623063387438" duration="3352000" />
+      <workItem from="1623063387438" duration="3705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300237000" />
+    <option name="totallyTimeSpent" value="300590000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,7 +628,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.19440243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -637,7 +636,7 @@
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="TODO" order="3" weight="0.3295082" />
-      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49924356" weight="0.37540984" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.49924356" visible="true" weight="0.37540984" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50075644" side_tool="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
@@ -976,8 +975,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/chartofaccount/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        <state relative-caret-position="256">
+          <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
         </state>
       </provider>
     </entry>

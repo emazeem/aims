@@ -15,6 +15,8 @@
             });
         </script>
     @endif
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
     <div class="row pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Payment Voucher</h3>
