@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php" line="72" />
+    <bookmark url="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php" line="64" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="249595b0-aae4-4d3e-ad9b-794fa60e8ac9" name="Default Changelist" comment="" />
@@ -57,7 +57,7 @@
         <counts>
           <entry key="css" value="171" />
           <entry key="html" value="420" />
-          <entry key="php" value="39845" />
+          <entry key="php" value="39850" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
@@ -66,7 +66,7 @@
           <entry key="Blade" value="24420" />
           <entry key="CSS" value="172" />
           <entry key="HTML" value="425" />
-          <entry key="PHP" value="15419" />
+          <entry key="PHP" value="15424" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -74,7 +74,7 @@
         <counts>
           <entry key="css" value="4" />
           <entry key="html" value="2" />
-          <entry key="php" value="593" />
+          <entry key="php" value="594" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -83,7 +83,7 @@
           <entry key="Blade" value="324" />
           <entry key="CSS" value="4" />
           <entry key="HTML" value="2" />
-          <entry key="PHP" value="269" />
+          <entry key="PHP" value="270" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -103,11 +103,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/customers/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2310">
               <caret line="105" column="74" selection-start-line="105" selection-start-column="74" selection-end-line="105" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="78" column="165" selection-start-line="78" selection-start-column="165" selection-end-line="78" selection-end-column="165" />
             </state>
           </provider>
         </entry>
@@ -219,7 +228,6 @@
         <option value="$PROJECT_DIR$/resources/views/pendings/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/quotes/review.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/logreview/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php" />
         <option value="$PROJECT_DIR$/app/Models/Capabilities.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php" />
@@ -232,6 +240,7 @@
         <option value="C:/Windows/Temp/Rar$DRa16304.46122/themify-icons/demo-files/demo.css" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/customers/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php" />
       </list>
     </option>
   </component>
@@ -413,6 +422,24 @@
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
               <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -427,6 +454,13 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="capabilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="customers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aims" type="b2602c69:ProjectViewProjectNode" />
@@ -530,12 +564,12 @@
       <workItem from="1622979678870" duration="2000" />
       <workItem from="1622979685349" duration="1000" />
       <workItem from="1623038405138" duration="666000" />
-      <workItem from="1623042558746" duration="684000" />
+      <workItem from="1623042558746" duration="1048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="289297000" />
+    <option name="totallyTimeSpent" value="289661000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -774,13 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="77" column="62" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Capabilities.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -902,6 +929,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2310">
           <caret line="105" column="74" selection-start-line="105" selection-start-column="74" selection-end-line="105" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="78" column="165" selection-start-line="78" selection-start-column="165" selection-end-line="78" selection-end-column="165" />
         </state>
       </provider>
     </entry>

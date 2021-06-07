@@ -76,7 +76,7 @@ class LogReviewController extends Controller
                 $token=csrf_token();
                 $action=null.'<div class="btn-group ">';
                 $action.="<a title='Show' class='btn rounded-0 btn-sm btn-warning' href='".url('log-reviews/show/'.$data->id)."'><i class='fa fa-eye'></i></a>";
-                $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>";
+                $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>";
                 $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
