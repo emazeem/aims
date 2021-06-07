@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <div class="row">
     <div class="col-12">
         <h3 class="pull-left pb-1"><i class="fa fa-tasks"></i> All Purchase Orders</h3>

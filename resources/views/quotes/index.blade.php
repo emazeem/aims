@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 @if(Session::has('success'))
     <script>
         $(document).ready(function () {
@@ -16,17 +17,14 @@
 @endif
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> All Quotes</h3>
-
-        <div class="col-12">
-            <div class="form-check form-check-inline col-3 pull-right mb-2">
-                <select class="form-control" id="search" name="search">
-                    <option value="not-sent-to-customer">Not Sent to Customer</option>
-                    <option value="approval-waiting">Waiting for Customer Approval</option>
-                    <option value="approved">Approved Quotes</option>
-                    <option value="all">All Quotes & RFQ</option>
-                </select>
-            </div>
+        <h3 class="float-left pb-1"><i class="fa fa-list"></i> All Quotes</h3>
+        <div class="form-check form-check-inline col-3 float-right mb-2">
+            <select class="form-control" id="search" name="search">
+                <option value="not-sent-to-customer">Not Sent to Customer</option>
+                <option value="approval-waiting">Waiting for Customer Approval</option>
+                <option value="approved">Approved Quotes</option>
+                <option value="all">All Quotes & RFQ</option>
+            </select>
         </div>
     </div>
 

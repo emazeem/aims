@@ -81,7 +81,7 @@ class QuotesController extends Controller
 
                 if ($data->status==1){
                     $action.="<a title='Send to Customer' class='btn btn-outline-success btn-sm sendtocustomer' href
-                   data-id='".$data->id."'><i class='fa fa-send'></i></a>";
+                   data-id='".$data->id."'><i class='fa fa-paper-plane'></i></a>";
                 }
 
                 $items=Item::where('quote_id',$data->id)->get();

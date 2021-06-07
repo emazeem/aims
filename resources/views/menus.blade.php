@@ -1,22 +1,22 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
     <style>
         label{
             padding: 0;
             margin: 0;
         }
     </style>
-
-    <div class="row">
-    <div class="col-12">
-        <h3 class="border-bottom pull-left"><i class="fa fa-tasks"></i> All Menus</h3>
-        <span class="text-right">
-                        <a href="{{route('menus.manage')}}" class="btn btn-sm pull-right btn-success shadow-sm"><i class="fa fa-sort"></i> Manage Menus</a>
+<div class="row py-2">
+    <div class="col-md-6 col-12 ">
+        <h3 class="pull-left font-weight-light"><i class="feather icon-layout"></i> All Menus</h3>
+        <a href="{{route('menus.manage')}}" class="btn btn-sm pull-right btn-success shadow-sm">
+            <i class="fa fa-sort"></i> Manage Menus</a>
         <button type="button" class="btn btn-sm pull-right btn-primary shadow-sm" data-toggle="modal" data-target="#add_menu"><i class="fa fa-plus-circle"></i> Menu</button>
-    </span>
     </div>
-    <div class="col-12">
-        <div class="form-check form-check-inline col-2 pull-right mb-2">
+    <div class="col-md-6 col-12">
+        <span class="float-right">
             <select class="form-control" id="type" name="type">
                 <option selected disabled>Select Type</option>
                 <option value="all" selected>All Menus</option>
@@ -24,8 +24,10 @@
                 <option value="child">Child Menu</option>
                 <option value="other">Other Menu</option>
             </select>
-        </div>
+
+        </span>
     </div>
+
 </div>
 
     <div class="col-lg-12">
@@ -191,7 +193,7 @@
                 {
                     $('#edit_menu').modal('hide');
                     swal('success',data.success,'success').then((value) => {
-                        InitTable();
+                        InitTable('all');
                     });
 
                 },

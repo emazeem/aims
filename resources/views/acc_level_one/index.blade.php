@@ -14,6 +14,7 @@
             });
         </script>
     @endif
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="row">
         <div class="col-12">
             <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Accounting Level One</h3>

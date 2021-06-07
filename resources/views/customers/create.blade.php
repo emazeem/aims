@@ -59,7 +59,7 @@
                     $('#bill_to_address').val(data.bill_to_address);
                     $('#region').val(data.region);
                     $('#pay_type').val(data.customer_type);
-                    $('#pay_way').val(data.pay_terms);
+                    $('#pay_way').append('<option value'+data.pay_terms+' selected>'+data.pay_terms+'</option>');
                     $('#tax_case').val(data.tax_case);
                     $('#principal-name-1').val(data.prin_name_1);
                     $('#principal-phone-1').val(data.prin_phone_1);
@@ -103,7 +103,7 @@
                     button.attr('disabled',null).html(previous);
                     swal('success',data.success,'success').then((value) => {
                         $('#add-customer').modal('hide');
-                        $("#example").DataTable().ajax.reload(null,false);
+                        InitTable();
                     });
 
                 },
@@ -269,7 +269,7 @@
 
                         </div>
                     </div>
-                    <div class="col-md-6 col-12 bg-white border ">
+                    <div class="col-md-6 col-12 bg-white">
                         <label for="purchase" class="col-form-label">Purchase Contact</label>
 
                         <div class="form-group m-0">
@@ -293,7 +293,7 @@
                                    placeholder="Email" autocomplete="off" value="{{old('pur_email')}}">
                         </div>
                     </div>
-                    <div class="col-md-6 col-12 bg-white border">
+                    <div class="col-md-6 col-12 bg-white">
                         <label for="account" class="col-form-label">Accounts Payable</label>
                         <div class="form-group m-0">
                             <input type="text" class="form-control" id="account-name" name="acc_name" placeholder="Name"

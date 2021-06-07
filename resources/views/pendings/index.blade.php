@@ -1,4 +1,5 @@
-{{--
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>{{--
 @extends('layouts.master')
 @section('content')
     @if(Session::has('success'))

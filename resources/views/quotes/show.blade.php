@@ -7,6 +7,7 @@
             });
         </script>
     @endif
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="row">
 
         <div class="col-12">
@@ -29,7 +30,7 @@
 
             @else
                 @if($show->status<3)
-                    <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-refresh'></i> Revise</a>
+                    <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-spinner'></i> Revise</a>
                     @if($show->approval_mode)
                         @if($show->customers->pur_name)
                             <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#' data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
@@ -42,7 +43,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <table class="table table-hover bg-white table-sm table-bordered mt-2">
+            <table class="table table-hover bg-white table-sm table-bordered nowrap mt-2">
                 <tr>
                     <td><b>Quote #</b></td>
                     <td>AIMS/QT/{{date('y')}}/{{$show->id}}</td>
@@ -118,6 +119,7 @@
             </table>
         </div>
         <div class="col-12">
+            @if($show->status>1)
             @if($show->status<3)
                 <div class="card shadow">
                     <!-- Card Header - Accordion -->
@@ -294,9 +296,8 @@
                         </div>
                     </div>
                 </div>
-
             @endif
-
+            @endif
         </div>
     </div>
 

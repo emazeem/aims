@@ -1,36 +1,40 @@
 @extends('layouts.master')
 @section('content')
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="row">
         <div class="col-12">
-            <h3 class="pull-left pb-1"><i class="fa fa-users"></i> Customers</h3>
-            <a href class="btn btn-sm add btn-primary shadow-sm pull-right mt-2"><i
+            <h5 class="m-b-10 font-weight-light float-left"><i class="feather icon-user"></i> Customers</h5>
+            <a href class="btn btn-sm add btn-primary shadow-sm float-right mt-2"><i
                         class="fa fa-plus-circle"></i> Customer</a>
         </div>
-        <div class="col-lg-12">
-            <table id="example" class="table table-bordered table-hover display nowrap" width="100%">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Registered Name</th>
-                    <th>Address</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody class="text-capitalize">
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th>ID</th>
-                    <th>Registered Name</th>
-                    <th>Address</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot>
-            </table>
 
-        </div>
+    <div class="col-12">
+        <table id="example" class="table dt-responsive table-hover bg-white display nowrap table-sm" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Registered Name</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody class="text-capitalize">
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Registered Name</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+            </tfoot>
+        </table>
+
     </div>
 
+    </div>
 
 
 

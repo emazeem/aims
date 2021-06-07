@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 @if(Session::has('success'))
     <script>
         $(document).ready(function () {
@@ -14,12 +15,13 @@
         });
     </script>
 @endif
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left pb-1"><i class="fa fa-question-circle "></i> All Requests</h3>
-        <span class="">
-            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-square"></i> Request</button>
-        </span>
+        <h3 class="float-left pb-1"><i class="fa fa-question-circle "></i> All Requests</h3>
+        <button type="button" class="btn btn-sm btn-primary shadow-sm float-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-square"></i> Request</button>
+
     </div>
 
     <div class="col-lg-12">

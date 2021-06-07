@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -17,7 +18,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3><i class="fa fa-tasks"></i> All Jobs</h3>
+            <h3><i class="fa fa-list"></i> All Jobs</h3>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
 

@@ -61,7 +61,7 @@ class MenuController extends Controller
             ->addColumn('options', function ($data) {
 
                 $action=null;
-                $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>
+                $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>
                 ";
                 $token=csrf_token();
                 if (Auth::user()->can('items-delete')){

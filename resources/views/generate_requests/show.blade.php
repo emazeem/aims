@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -10,8 +11,8 @@
     <div class="row">
 
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i>
-                AIMS/QT/{{date('y')}}/{{$show->id}}Detail
+            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-eye"></i>
+                {{$show->cid}}
             </h3>
         </div>
         <form id="form{{$show->id}}" action="" method='post' role='form'>
@@ -40,7 +41,7 @@
             <table class="table table-hover bg-white table-sm table-bordered mt-2">
                 <tr>
                     <td><b>Quote #</b></td>
-                    <td>AIMS/QT/{{date('y')}}/{{$show->id}}</td>
+                    <td>{{$show->cid}}</td>
                 </tr>
                 <tr>
                     <td><b>Customer</b></td>

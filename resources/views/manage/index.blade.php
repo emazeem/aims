@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
     <h3 class="border-bottom"><i class="fa fa-tasks"></i> Manage Jobs</h3>
 </div>

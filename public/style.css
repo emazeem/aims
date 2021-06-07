@@ -1,96 +1,14 @@
-.dataTables_paginate a.page-link{
-    color: white;
-    border: 2px solid white;
-    background-color: #136bf7 !important;
+/*
+.close-btn:hover{
+    transform: rotate(360deg);
 }
-#example_previous .page-link ,#example_next .page-link {
-    color: #e4e4e4;
-}
-.close-btn,.close-btn:active,.close-btn:focus{
+.close-btn{
+    transition: transform .9s ease-in-out;
+}*/
+.close-btn:active,.close-btn:focus{
     border: none;
-    outline: none;
+    outline:  none;
 }
-.dataTables_length label .form-control{
-    border: 1px solid #615e5e;
-    color: #615e5e;
-    font-weight: bold;
-}
-.dataTables_length label {
-    color: #615e5e;
-    font-weight: bold;
-}
-.dataTables_filter label .form-control{
-    border: 1px solid #615e5e;
-    color: #615e5e;
-}
-.dataTables_filter label {
-    color: #615e5e;
-}
-@media (max-width: 400px) {
-
-    .dataTables_length label .form-control{
-       margin: 5px;
-    }
-}
-.select2-container .select2-selection--single{
-    height:34px !important;
-}
-.select2-container--default .select2-selection--single{
-    border: 1px solid #ccc !important;
-    border-radius: 0px !important;
-}
-span.select2-container {
-    z-index:10050;
-}
-#example,example2{
-    background-color: white;
-}
-.breadcrumb .breadcrumb-item a{
-    font-weight: bold;
-    color: #0a6f91;
-}
-.loader {
-    position: relative;
-    left: 50%;
-    top: 50%;
-    z-index:-3;
-    width: 120px;
-    height: 120px;
-    margin: -76px 0 0 -76px;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    -webkit-animation: spin 1s linear infinite;
-    animation: spin 0.5s linear infinite;
-}
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-.animate-bottom {
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s
-}
-@-webkit-keyframes animatebottom {
-    from { bottom:-100px; opacity:0 }
-    to { bottom:0px; opacity:1 }
-}
-@keyframes animatebottom {
-    from{ bottom:-100px; opacity:0 }
-    to{ bottom:0; opacity:1 }
-}
-table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
-    background-color: #007bff !important;
-    margin-top: -5px;
-}
-h3,h4{
-    font-family: "Times New Roman";
-    color: #000;
+#example{
+    background: white;
 }
