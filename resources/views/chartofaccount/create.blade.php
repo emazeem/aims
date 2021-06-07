@@ -15,7 +15,7 @@
         </script>
     @endif
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="row ">
         <h3 class="border-bottom pull-left"><i class="fa fa-money"></i> Chart of Account</h3>
         <div class="col-12">
