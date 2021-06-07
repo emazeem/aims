@@ -7,6 +7,7 @@
             });
         </script>
     @endif
+
     <div class="row">
         <div class="col-12">
             <h3 class="float-left font-weight-light"><i class="fa fa-list"></i> Job Detail</h3>

@@ -19,12 +19,13 @@ class ProcedureController extends Controller
         $data=Procedure::with('parameters')->get();
         //dd($data);
         return DataTables::of($data)
-            ->addColumn('id', function ($data) {
-                return $data->id;
-            })
             ->addColumn('name', function ($data) {
                 return $data->name;
             })
+            ->addColumn('description', function ($data) {
+                return $data->name;
+            })
+
             ->addColumn('uncertainties', function ($data) {
                 $all=null;
                 foreach (explode(',',$data->uncertainties) as $item){

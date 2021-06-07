@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>RUBIK</title>
+    <title>Rubik</title>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <meta charset="utf-8">
@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{url('style.css')}}">
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
+
+    <!-- select2 css -->
+    <link rel="stylesheet" href="{{url('assets/css/plugins/select2.min.css')}}">
+
 </head>
 @if(Route::currentRouteName()!='login')
     <body class="">
@@ -60,5 +64,11 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
     @endif
+
+    <!-- select2 Js -->
+    <script src="{{url('assets/js/plugins/select2.full.min.js')}}"></script>
+    <!-- form-select-custom Js -->
+    <script src="{{url('assets/js/pages/form-select-custom.js')}}"></script>
+
     </body>
 </html>

@@ -3,7 +3,7 @@
         <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
         <a href="#!" class="b-brand">
             <!-- ========   change your logo hear   ============ -->
-            <img src="{{url('assets/images/logo.png')}}" alt="" class="logo">
+            <img src="{{url('assets/images/logo.png')}}" style="width: 140px" alt="" class="logo">
             <img src="{{url('assets/images/logo-icon.png')}}" alt="" class="logo-thumb">
         </a>
         <a href="#!" class="mob-toggler">

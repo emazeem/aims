@@ -47,7 +47,7 @@
                     @foreach($uncertainties as $uncertainty)
                         <tr>
                             <td class="text-center">
-                                <div class="checkbox mt-2">
+                                <div class="mt-2">
                                     <input type="checkbox" id="{{$uncertainty->slug}}" value="{{$uncertainty->slug}}" name="uncertainties[]" {{(in_array($uncertainty->slug,explode(',',$edit->uncertainties)))?'checked':''}}>
                                 </div>
                             </td>

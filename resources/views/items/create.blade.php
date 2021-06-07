@@ -8,8 +8,11 @@
     @endif
 
     <script type="text/javascript">
-
+        'use strict';
         $(document).ready(function() {
+            $(".select-2-capability").select2();
+            $(".select-2-parameter").select2();
+            $(".select-2-unit").select2();
             $('select[name="capability"]').append('<option disabled selected>--Select Capability</option>');
             $('.check-accreditation').on('click', function() {
                 var min=$('#min_range').val();
@@ -172,7 +175,7 @@
                     <label for="parameter" class="col-12 control-label">Parameter</label>
                     <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control " id="parameter" name="parameter">
+                            <select class="select-2-parameter form-control form-control-lg" id="parameter" name="parameter">
                                 <option selected disabled>--Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
@@ -186,7 +189,7 @@
                     <label for="capability" class="col-12 control-label">Capability </label>
                     <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="capability" name="capability">
+                            <select class="form-control select-2-capability" id="capability" name="capability">
 
                             </select>
                         </div>
@@ -197,7 +200,7 @@
                     <label for="unit" class="col-12 control-label">Unit</label>
                     <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="unit" name="unit">
+                            <select class="form-control select-2-unit" id="unit" name="unit">
                                 <option selected disabled>--Select Unit of measure</option>
 
                             </select>

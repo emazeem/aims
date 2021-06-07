@@ -1,3 +1,8 @@
+<style>
+    .pcoded-mtext,.pcoded-mtext-submenu{
+        color: black;
+    }
+</style>
 <nav class="pcoded-navbar menupos-fixed menu-light ">
     <div class="navbar-wrapper  ">
         <div class="navbar-content scroll-div " >
@@ -27,7 +32,7 @@
                                     ?>
                                     @foreach($submenus as $submenu)
                                         @can($submenu->slug)
-                                            <li><a href="{{url($submenu->url)}}">{{$submenu->name}}</a></li>
+                                            <li class=" pcoded-mtext-submenu"><a href="{{url($submenu->url)}}" class="small">{{$submenu->name}}</a></li>
                                         @endcan
                                     @endforeach
                                 </ul>

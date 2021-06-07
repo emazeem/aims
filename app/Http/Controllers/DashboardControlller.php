@@ -103,7 +103,9 @@ class DashboardControlller extends Controller
         $head_applications=LeaveApplication::where('head_recommendation_status',null)->where('head_id',\auth()->user()->id)->get();
         //dd($head_applications);
 
-        return view('dashboard',compact('head_applications','customers','calendar','indentforrevisions','indentforapprovals','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status'));
+        $gparameters=Parameter::all();
+
+        return view('dashboard',compact('head_applications','customers','calendar','indentforrevisions','indentforapprovals','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status','gparameters'));
     }
     public function markRead($id)
     {

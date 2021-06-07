@@ -1,6 +1,5 @@
 <script>
     $(document).ready(function () {
-
         $(document).on('click', '.add', function(e) {
             e.preventDefault();
             $('#add-customer-form')[0].reset();

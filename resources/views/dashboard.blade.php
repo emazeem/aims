@@ -39,6 +39,7 @@
 
             @endif
         </div>
+
         <div class="col-12">
             <div class="row">
                 <!-- order-card start -->
@@ -109,6 +110,7 @@
                 </div>
             </div>
         </div>
+
         {{--<div class="col-12" style="overflow: hidden">
             <h2 class="ml-2">Purchase Indent Revisions</h2>
             <table class="table table-hover font-13 bg-white table-responsive">
