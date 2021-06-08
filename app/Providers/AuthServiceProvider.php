@@ -323,12 +323,41 @@ class AuthServiceProvider extends ServiceProvider
     }
     public function acclevelfour()
     {
-        Gate::define('acc-level-four-index', function ($user) {
-            if (in_array('acc-level-four-index',explode(',',$user->roles->permissions))){
+        Gate::define('index-coa', function ($user) {
+            if (in_array('index-coa',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
+        Gate::define('create-coa', function ($user) {
+            if (in_array('create-coa',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('update-coa', function ($user) {
+            if (in_array('update-coa',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('delete-coa', function ($user) {
+            if (in_array('delete-coa',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('view-coa', function ($user) {
+            if (in_array('view-coa',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
+
+
     }
 
 
@@ -539,6 +568,27 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('create-units', function ($user) {
+            if (in_array('create-units',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('update-units', function ($user) {
+            if (in_array('update-units',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('delete-units', function ($user) {
+            if (in_array('delete-units',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
     }
     public function uncertainties()
     {

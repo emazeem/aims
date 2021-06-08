@@ -8,12 +8,13 @@
 
         </script>
     @endif
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom "><i class="fa fa-plus-circle"></i> Add Units</h3>
+            <h3 class="font-weight-light "><i class="feather icon-plus-circle"></i> Add Units</h3>
         </div>
         <div class="col-12">
-            <form class="form-horizontal" action="{{route('units.store')}}" method="post">
+            <form class="form-horizontal" id="add_unit_form" method="post">
             @csrf
 
                 <div class="form-group mt-md-4 row">
@@ -93,7 +94,7 @@
 
                 <div class="mt-5 pt-3 col-12 text-right">
                     <a href="{!! url(''); !!}" class="btn btn-primary"><i class="fa fa-times-circle"></i> Cancel</a>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                    <button type="submit" class="unit-save-btn btn btn-primary"><i class="fa fa-save"></i> Save</button>
                 </div>
             </form>
         </div>
@@ -109,7 +110,7 @@
                         dataType: "json",
                         success:function(data) {
                             $('#previous').empty();
-                            $.each(data, function(key, value) {
+                            $.each(data['previous'], function(key, value) {
                                 $('#previous').append('<a href="/units/edit/'+ value.id +'" class="btn btn-primary btn-sm">'+ value.unit +'</a>');
                             });
                             $('#primary').empty();
@@ -125,6 +126,42 @@
                     $('#previous').empty();
                 }
             });
+
+            $("#add_unit_form").on('submit',(function(e) {
+                var button=$('.unit-save-btn');
+                var previous=$('.unit-save-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('units.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success');
+                    },
+                    error: function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        if (xhr.responseJSON.error){
+                            swal("Failed", xhr.responseJSON.error, "error").then((value) => {
+                                location.reload();
+                            });
+                        }else {
+                            var error='';
+                            $.each(xhr.responseJSON.errors, function (key, item) {
+                                error+=item;
+                            });
+                            swal("Failed", error, "error");
+                        }
+                    }
+                });
+            }));
         });
 
 

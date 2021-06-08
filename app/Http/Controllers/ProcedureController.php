@@ -23,7 +23,7 @@ class ProcedureController extends Controller
                 return $data->name;
             })
             ->addColumn('description', function ($data) {
-                return $data->name;
+                return $data->description;
             })
 
             ->addColumn('uncertainties', function ($data) {

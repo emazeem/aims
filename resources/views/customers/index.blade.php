@@ -88,20 +88,18 @@
                                 type: request_method,
                                 dataType: "JSON",
                                 data: form_data,
-                                statusCode: {
-                                    403: function () {
-                                        swal("Failed", "Permission denied.", "error");
-                                        return false;
-                                    }
-                                },
                                 success: function (data) {
                                     swal('success', data.success, 'success').then((value) => {
-                                        location.reload();
+                                        $("#example").DataTable().ajax.reload(null,false);
                                     });
 
                                 },
-                                error: function (data) {
-                                    swal("Failed", data.error, "error");
+                                error: function (xhr) {
+                                    var error='';
+                                    $.each(xhr.responseJSON.errors, function (key, item) {
+                                        error+=item;
+                                    });
+                                    swal("Failed", error, "error");
                                 },
                             });
 

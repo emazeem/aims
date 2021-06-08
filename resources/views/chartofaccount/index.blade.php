@@ -22,10 +22,12 @@
                 <a class="btn btn-info btn-sm" href="{{route('acc_level_one')}}"><b>1</b></a>
                 <a class="btn btn-warning btn-sm" href="{{route('acc_level_two')}}"><b>2</b></a>
                 <a class="btn btn-primary btn-sm" href="{{route('acc_level_three')}}"><b>3</b></a>
-
-                <a class="btn btn-success btn-sm" href="{{route('acc_level_four.show')}}"> <i class="fa fa-eye"></i> Chart of Account</a>
-
-                <a class="btn btn-primary btn-sm" href="{{route('acc_level_four.create')}}"> <i class="fa fa-plus-circle"></i> Chart of Account</a>
+                @can('view-coa')
+                    <a class="btn btn-success btn-sm" href="{{route('acc_level_four.show')}}"> <i class="fa fa-eye"></i> Chart of Account</a>
+                @endcan
+                @can('create-coa')
+                    <a class="btn btn-primary btn-sm" href="{{route('acc_level_four.create')}}"> <i class="fa fa-plus-circle"></i> Chart of Account</a>
+                @endcan
             </div>
         </div>
         <div class="col-12">
@@ -269,6 +271,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

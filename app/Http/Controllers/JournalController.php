@@ -12,13 +12,14 @@ use Yajra\DataTables\DataTables;
 class JournalController extends Controller
 {
     public function index(){
+        $this->authorize('journal-index');
         $chartofaccounts=Chartofaccount::all();
         return view('journal.index',compact('chartofaccounts'));
     }
 
     public function fetch(){
+        $this->authorize('journal-index');
         $data=JournalDetails::with('parent')->get();
-        //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -40,7 +41,6 @@ class JournalController extends Controller
 
             ->addColumn('date', function ($data) {
                 return $data->parent->date->format('d-M-Y');
-                //return $data->v_date->format('d-M-Y');
             })
             ->addColumn('dr', function ($data) {
                 return $data->dr;

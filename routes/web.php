@@ -361,6 +361,7 @@ Route::group(['prefix'=> 'units'],function(){
     Route::get('/create',[App\Http\Controllers\UnitController::class, 'create'])->middleware('auth')->name('units.create');
     Route::get('/edit/{id}',[App\Http\Controllers\UnitController::class, 'edit'])->middleware('auth')->name('units.edit');
     Route::post('/store/',[App\Http\Controllers\UnitController::class, 'store'])->middleware('auth')->name('units.store');
+    Route::delete('/delete',[App\Http\Controllers\UnitController::class, 'destroy'])->middleware('auth')->name('units.destroy');
     Route::post('/update/',[App\Http\Controllers\UnitController::class, 'update'])->middleware('auth')->name('units.update');
     Route::get('/units_of_assets/{id}',[App\Http\Controllers\UnitController::class, 'units_of_assets'])->middleware('auth')->name('units.units_of_assets');
     Route::get('/check_both_units/{unit}/{asset}',[App\Http\Controllers\UnitController::class, 'check_both_units'])->middleware('auth')->name('units.check_both_units');

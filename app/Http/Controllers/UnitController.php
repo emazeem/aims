@@ -8,15 +8,18 @@ use App\Models\Parameter;
 use App\Models\Preference;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\False_;
 use Yajra\DataTables\DataTables;
 
 class UnitController extends Controller
 {
     public function index(){
+        $this->authorize('units-index');
         return view('units.index');
     }
     public function fetch(){
+        $this->authorize('units-index');
         $data=Unit::with('parameters')->get();
         //dd($data);
         return DataTables::of($data)
@@ -30,11 +33,22 @@ class UnitController extends Controller
                 return $data->unit;
             })
             ->addColumn('options', function ($data) {
+                $action=null;
+                $token=csrf_token();
 
-                return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/units/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
+                if (Auth::user()->can('update-units')){
+                    $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/units/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                }
+                if (Auth::user()->can('delete-units')){
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method='post' role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
 
+                }
+                return $action;
             })
             ->rawColumns(['options','status'])
             ->make(true);
@@ -43,10 +57,12 @@ class UnitController extends Controller
 
 
     public function create(){
+        $this->authorize('create-units');
         $parameters=Parameter::all();
         return view('units.create',compact('parameters'));
     }
     public function edit($id){
+        $this->authorize('update-units');
         $parameters=Parameter::all();
         $edit=Unit::find($id);
         $previous_units=Unit::where('parameter',$edit->parameter)->get();
@@ -54,6 +70,7 @@ class UnitController extends Controller
     }
 
     public function store(Request $request){
+        $this->authorize('create-units');
         $this->validate(request(), [
 /*            'unit' => 'required|unique:units',*/
             'unit' => 'required',
@@ -69,10 +86,10 @@ class UnitController extends Controller
         $unit->factor_multiply=$request->factor_multiply;
         $unit->factor_add=$request->factor_add;
         $unit->save();
-        return  redirect()->back()->with('success', 'Unit has been added successfully.');
+        return  response()->json(['success'=>'Unit has been added successfully.']);
     }
     public function update(Request $request){
-        //dd($request->all());
+        $this->authorize('update-units');
         $this->validate(request(), [
             'unit' => 'required',
             'parameter' => 'required',
@@ -88,7 +105,7 @@ class UnitController extends Controller
         $u->factor_multiply=$request->factor_multiply;
         $u->factor_add=$request->factor_add;
         $u->save();
-        return  redirect()->back()->with('success', 'Unit has been updated successfully.');
+        return  response()->json(['success'=> 'Unit has been updated successfully.']);
     }
 
     public function units_of_assets($id){
@@ -103,7 +120,7 @@ class UnitController extends Controller
         return response()->json($units);
     }
     public function previous_units($id){
-        $units=Unit::where('parameter',$id)->get();
+        $units['previous']=Unit::where('parameter',$id)->get();
         $units['primary']=Unit::where('primary_',null)->where('parameter',$id)->get();
         return response()->json($units);
     }
@@ -130,6 +147,10 @@ class UnitController extends Controller
         }
         return response()->json($data);
     }
-
+    public function destroy(Request $request){
+        $this->authorize('delete-units');
+        Unit::find($request->id)->delete();
+        return response()->json(['success'=>'Unit deleted successfully']);
+    }
     //
 }

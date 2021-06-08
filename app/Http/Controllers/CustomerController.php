@@ -115,6 +115,7 @@ class CustomerController extends Controller
                       <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
                       </form>";
                 }
+
                 return $action;
             })
             ->rawColumns(['options','prin_name','prin_phone'])

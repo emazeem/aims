@@ -15,6 +15,7 @@ class ChartofaccountController extends Controller
 {
     public function index()
     {
+        $this->authorize('index-coa');
         $ones = AccLevelOne::all();
         $twos = AccLevelTwo::all();
         $threes = AccLevelThree::all();
@@ -23,6 +24,7 @@ class ChartofaccountController extends Controller
 
     public function fetch()
     {
+        $this->authorize('index-coa');
         $data = Chartofaccount::with('codeone','codetwo','codethree','cc')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -47,8 +49,10 @@ class ChartofaccountController extends Controller
             ->addColumn('options', function ($data) {
                 $action=null;
                 $token=csrf_token();
-                $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/chartofaccount/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
-                if (Auth ::user()->can('customer-delete')){
+                if (Auth::user()->can('update-coa')){
+                    $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/chartofaccount/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                }
+                if (Auth::user()->can('delete-coa')){
                     $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
@@ -64,6 +68,7 @@ class ChartofaccountController extends Controller
 
     public function create()
     {
+        $this->authorize('create-coa');
         $ones = AccLevelOne::all();
         $twos = AccLevelTwo::all();
         $threes = AccLevelThree::all();
@@ -72,6 +77,7 @@ class ChartofaccountController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('update-coa');
         $level = 4;
         $edit = Chartofaccount::find($id);
         $ones = AccLevelOne::all();
@@ -82,6 +88,7 @@ class ChartofaccountController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('create-coa');
         $this->validate(request(), [
             'title' => 'required',
             'level1of4' => 'required',
@@ -108,6 +115,7 @@ class ChartofaccountController extends Controller
     }
     public function update(Request $request)
     {
+        $this->authorize('update-coa');
         $this->validate(request(), [
             'title' => 'required',
             'level1of4' => 'required',
@@ -129,10 +137,12 @@ class ChartofaccountController extends Controller
         return redirect()->back()->with('success', 'Chart of Account has updated successfully.');
     }
     public function destroy(Request $request){
+        $this->authorize('delete-coa');
         Chartofaccount::find($request->id)->delete();
         return response()->json(['success'=>'Chart of Account deleted successfully']);
     }
     public function show(){
+        $this->authorize('view-coa');
         $accounts =AccLevelOne::all();
         return view('chartofaccount.show',compact('accounts'));
     }
@@ -147,6 +157,7 @@ class ChartofaccountController extends Controller
         return response()->json($cc);
     }
     public function mycoa($id){
+
         $account=Chartofaccount::where('code3',$id)->get();
         return response()->json($account);
     }

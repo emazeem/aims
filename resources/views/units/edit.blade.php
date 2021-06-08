@@ -8,15 +8,16 @@
 
         </script>
     @endif
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom "><i class="fa fa-pencil"></i> Edit Units</h3>
+            <h3 class="font-weight-light "><i class="feather icon-edit"></i> Update Units</h3>
             <a href="{{route('units.create')}}" class="btn btn-primary pull-right btn-sm">
                 <span class="fa fa-plus-circle"></span> Add Unit
             </a>
         </div>
         <div class="col-12">
-            <form class="form-horizontal" action="{{route('units.update')}}" method="post">
+            <form class="form-horizontal" id="edit_unit_form" method="post">
 
                 @csrf
                 <input type="hidden" value="{{$edit->id}}" name="id" id="id">
@@ -104,7 +105,7 @@
 
                 <div class="mt-5 pt-3 col-12 text-right">
                     <a href="{!! url(''); !!}" class="btn btn-primary"><i class="fa fa-times-circle"></i> Cancel</a>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
+                    <button type="submit" class="unit-update-btn btn btn-primary"><i class="fa fa-save"></i> Update</button>
                 </div>
 
             </form>
@@ -122,6 +123,7 @@
                         success:function(data) {
                             $('#previous').empty();
                             $.each(data, function(key, value) {
+
                                 $('#previous').append('<a href="/units/edit/'+ value.id +'" class="btn btn-primary btn-sm">'+ value.unit +'</a>');
                             });
 
@@ -144,6 +146,43 @@
                     $('#previous').empty();
                 }
             });
+            $("#edit_unit_form").on('submit',(function(e) {
+                var button=$('.unit-update-btn');
+                var previous=$('.unit-update-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('units.update')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        swal("success", data.success, "success").then((value) => {
+                            location.reload();
+                        });
+                    },
+                    error: function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        if (xhr.responseJSON.error){
+                            swal("Failed", xhr.responseJSON.error, "error").then((value) => {
+                                location.reload();
+                            });
+                        }else {
+                            var error='';
+                            $.each(xhr.responseJSON.errors, function (key, item) {
+                                error+=item;
+                            });
+                            swal("Failed", error, "error");
+                        }
+                    }
+                });
+            }));
         });
 
 
