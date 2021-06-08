@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{url('style.css')}}">
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
-
-    <!-- select2 css -->
+    
     <link rel="stylesheet" href="{{url('assets/css/plugins/select2.min.css')}}">
 
 </head>
