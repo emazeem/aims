@@ -28,6 +28,9 @@
                             </p>
                         </li>
                     @endforeach
+                    @if(count(Auth::user()->Notifications)==0)
+                        <p>No notifications</p>
+                    @endif
                 </ul>
             </div>
         </div>

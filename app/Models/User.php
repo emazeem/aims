@@ -34,6 +34,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $dates=['dob','joining'];
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
