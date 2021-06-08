@@ -17,12 +17,14 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Payment Voucher</h3>
-            <div class="text-right mt-2">
+            <h3 class="float-left font-weight-light"><i class="feather icon-activity"></i> Payment Voucher</h3>
+            <div class="float-right mt-2">
                 <a class="btn btn-warning btn-sm" href="{{route('vouchers.all')}}"> <i class="fa fa-eye"></i> All Vouchers</a>
 
                 <a class="btn btn-primary btn-sm" href="{{route('vouchers.create')}}"> <i class="fa fa-plus-circle"></i> Add Payment Voucher</a>
             </div>
+        </div>
+        <div class="col-12 mt-3">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
                 <thead>

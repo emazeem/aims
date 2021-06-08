@@ -19,7 +19,7 @@
 
     <div class="row pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3><i class="fa fa-edit"></i> Update Payment Voucher</h3>
+            <h3 class="float-left font-weight-light"><i class="feather icon-edit"></i> Payment Voucher</h3>
         </div>
         <div class="col-12">
             <form id="edit_voucher_form">

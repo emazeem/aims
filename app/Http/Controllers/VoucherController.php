@@ -112,10 +112,9 @@ class VoucherController extends Controller
         return view('paymentvoucher.create',compact('accounts','blines'));
     }
     public function store(Request $request){
-
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 4, 6);
+            $date=substr($voucher->customize_id, 5, 4);
             if (date('my')==$date){
                 if ($voucher->type='payment voucher'){
                     $c_id[]=$voucher->id;

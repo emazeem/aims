@@ -4,7 +4,8 @@
 <div class="row">
 
     <div class="col-12">
-        <h3 class="border-bottom text-dark pull-left"><i class="fa fa-tasks"></i> No Facilities Items</h3>
+        <h3 class="float-left font-weight-light"><i class="feather icon-alert-circle"></i> No Facility Items</h3>
+
     </div>
   <div class="col-lg-12">
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">

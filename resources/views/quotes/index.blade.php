@@ -17,7 +17,9 @@
 @endif
 <div class="row">
     <div class="col-12">
-        <h3 class="float-left pb-1"><i class="fa fa-list"></i> All Quotes</h3>
+
+        <h3 class="float-left font-weight-light"><i class="feather icon-list"></i> All Quotes</h3>
+
         <div class="form-check form-check-inline col-3 float-right mb-2">
             <select class="form-control" id="search" name="search">
                 <option value="not-sent-to-customer">Not Sent to Customer</option>

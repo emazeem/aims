@@ -24,7 +24,7 @@ class JobController extends Controller
                 return $data->id;
             })
             ->addColumn('quote', function ($data) {
-                return $data->quote_id;
+                return $data->quotes->cid;
             })
             ->addColumn('customer', function ($data) {
                 return $data->quotes->customers->reg_name;

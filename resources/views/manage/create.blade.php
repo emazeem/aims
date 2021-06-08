@@ -1,7 +1,8 @@
 
     <div class="col-12">
         <div class="row">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Drop Items to Create Job</h3>
+            <h3 class="float-left font-weight-light"><i class="feather icon-plus-circle"></i> Drop Items to Create Job</h3>
+
         </div>
         <form method="post" action="{{route('jobs.manage.store')}}">
             @csrf

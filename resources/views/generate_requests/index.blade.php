@@ -15,11 +15,10 @@
         });
     </script>
 @endif
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-
 <div class="row">
     <div class="col-12">
-        <h3 class="float-left pb-1"><i class="fa fa-question-circle "></i> All Requests</h3>
+        <h3 class="float-left font-weight-light"><i class="feather icon-help-circle"></i> All Requests</h3>
+
         <button type="button" class="btn btn-sm btn-primary shadow-sm float-right" data-toggle="modal" data-target="#add_session"><i class="fa fa-plus-square"></i> Request</button>
 
     </div>
