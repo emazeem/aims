@@ -20,6 +20,7 @@ use Yajra\DataTables\DataTables;
 class VoucherController extends Controller
 {
     public function index(){
+        $this->authorize('vouchers-index');
         return view('paymentvoucher.index');
     }
     public function all(){
@@ -27,6 +28,7 @@ class VoucherController extends Controller
     }
 
     public function show($id){
+        $this->authorize('view-payment-voucher');
         $show=Journal::find($id);
         $povoucher=PoVoucher::where('journal_id',$show->id)->first();
         if (isset($povoucher)){
@@ -38,6 +40,7 @@ class VoucherController extends Controller
         return view('paymentvoucher.show',compact('show','po'));
     }
     public function edit($id){
+        $this->authorize('update-payment-voucher');
         $accounts=AccLevelThree::orderBy('title','ASC')->get();
         foreach ($accounts as $customer){
             $customer->title=str_replace("'","",$customer->title);
@@ -47,12 +50,13 @@ class VoucherController extends Controller
         return view('paymentvoucher.edit',compact('edit','accounts','blines'));
     }
     public function prints($id){
+        $this->authorize('print-payment-voucher');
         $show=Journal::find($id);
         return view('paymentvoucher.print',compact('show'));
     }
     public function fetch(){
+        $this->authorize('vouchers-index');
         $data=Journal::with('createdby')->where('type','payment voucher')->get();
-        //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -78,7 +82,6 @@ class VoucherController extends Controller
     }
     public function all_fetch(){
         $data=Journal::with('createdby')->get();
-        //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -104,6 +107,7 @@ class VoucherController extends Controller
     }
 
     public function create(){
+        $this->authorize('create-payment-voucher');
         $accounts=AccLevelThree::orderBy('title','ASC')->get();
         foreach ($accounts as $customer){
             $customer->title=str_replace("'","",$customer->title);
@@ -112,6 +116,7 @@ class VoucherController extends Controller
         return view('paymentvoucher.create',compact('accounts','blines'));
     }
     public function store(Request $request){
+        $this->authorize('create-payment-voucher');
         $c_id=[];
         foreach (Journal::all() as $voucher) {
             $date=substr($voucher->customize_id, 5, 4);
@@ -183,6 +188,7 @@ class VoucherController extends Controller
         return response()->json(['success'=>'Voucher added Successfully']);
     }
     public function update(Request $request){
+        $this->authorize('update-payment-voucher');
         $this->validate(request(), [
             'account.*' => 'required',
             'narration.*' => 'required',

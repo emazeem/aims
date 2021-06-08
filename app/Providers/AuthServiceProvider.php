@@ -84,6 +84,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->cir();
         $this->asset_requisition();
         $this->logreview();
+        $this->payment_vouchers();
         //
     }
     public function logreview()
@@ -199,15 +200,43 @@ class AuthServiceProvider extends ServiceProvider
 
 
     }
-
-    public function vouchers()
+    public function payment_vouchers()
     {
         Gate::define('vouchers-index', function ($user) {
-            if (in_array('vouchers-index',explode(',',$user->roles->permissions))){
+            if (in_array('vouchers-index', explode(',', $user->roles->permissions))) {
                 return true;
             }
             return false;
         });
+        Gate::define('create-payment-voucher', function ($user) {
+            if (in_array('create-payment-voucher', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('update-payment-voucher', function ($user) {
+            if (in_array('update-payment-voucher', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('view-payment-voucher', function ($user) {
+            if (in_array('view-payment-voucher', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('print-payment-voucher', function ($user) {
+            if (in_array('print-payment-voucher', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+
+
+    }
+    public function vouchers()
+    {
         Gate::define('journal-vouchers', function ($user) {
             if (in_array('journal-vouchers',explode(',',$user->roles->permissions))){
                 return true;

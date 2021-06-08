@@ -14,11 +14,10 @@
 <body>
 
 <div class="container">
-
     <div class="col-12 font-style mt-2">
         <div class="row">
             <div class="col-2 text-center custom-border">
-                <img src="{{url('/img/aims.png')}}" class="ml-2 p-2" width="100">
+                <img src="{{url('/img/AIMS.png')}}" class="ml-2 p-2" width="100">
             </div>
             <div class="col-10 border-left-0 custom-border" >
                 <h2 class="text-center b  mt-4 text-capitalize">
@@ -77,9 +76,9 @@
         </div>
 
         <div class="row py-3">
-            <div class="col-4 my-1 font-11 ">Prepared by : <span class="custom-bottom-border px-5">{{$show->createdby->fname}} {{$show->createdby->lname}}</span></div>
-            <div class="col-4 my-1 font-11 ">Checked by : <span class="custom-bottom-border px-5">{{$show->createdby->fname}} {{$show->createdby->lname}}</span></div>
-            <div class="col-4 my-1 font-11 ">Approved by : <span class="custom-bottom-border px-5">{{$show->createdby->fname}} {{$show->createdby->lname}}</span></div>
+            <div class="col-4 my-1 font-11 ">Prepared by : <span class="custom-bottom-border pr-5">{{$show->createdby->fname}} {{$show->createdby->lname}}</span></div>
+            <div class="col-4 my-1 font-11 ">Checked by : <span class="custom-bottom-border pr-5">{{$show->createdby->fname}} {{$show->createdby->lname}}</span></div>
+            <div class="col-4 my-1 font-11 ">Approved by : <span class="custom-bottom-border pr-5">{{$show->createdby->fname}} {{$show->createdby->lname}}</span></div>
         </div>
 
 
