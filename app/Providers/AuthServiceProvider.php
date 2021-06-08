@@ -95,6 +95,31 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('add-log-reviews', function ($user) {
+            if (in_array('add-log-reviews',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('update-log-reviews', function ($user) {
+            if (in_array('update-log-reviews',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('view-log-reviews', function ($user) {
+            if (in_array('view-log-reviews',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('delete-log-reviews', function ($user) {
+            if (in_array('delete-log-reviews',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
     }
     public function asset_requisition()
     {

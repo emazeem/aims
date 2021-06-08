@@ -10,8 +10,8 @@
             }
         </style>
         <div class="col-12">
-            <h3 class="pull-left pb-1"><i class="fa fa-list"></i> Log Reviews</h3>
-            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2 add_logs_btn"><i class="fa fa-plus-circle"></i> Log Reviews</button>
+            <h3 class="float-left font-weight-light"><i class="feather icon-list"></i> Log Reviews</h3>
+            <button type="button" class="btn btn-sm btn-primary shadow-sm float-right mt-2 add_logs_btn"><i class="fa fa-plus-circle"></i> Log Reviews</button>
         </div>
         <div class="col-lg-12">
             <table id="example" class="table table-bordered bg-white table-hover table-sm display nowrap" cellspacing="0" width="100%">

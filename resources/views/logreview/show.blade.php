@@ -1,10 +1,12 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="pull-left pb-1"><i class="fa fa-eye"></i> Log Reviews</h3>
-                <span class="pull-right">
+                <h3 class="float-left font-weight-light"><i class="feather icon-eye"></i> Log Reviews</h3>
+
+                <span class="float-right">
                     @if($show->assign_to==auth()->user()->id)
                         @if($show->status==0)
                             <button class="btn btn-success btn-sm start" data-id="{{$show->id}}"><i class="fa fa-hourglass-start"></i> Start </button>

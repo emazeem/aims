@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function() {
@@ -18,7 +19,7 @@
 
     </style>
     <div class="row pb-3">
-        <h3 class="border-bottom text-dark"><i class="fa fa-tasks"></i> Edit Roles</h3>
+        <h3 class="font-weight-light text-dark"><i class="feather icon-edit"></i> Edit Roles</h3>
         <div class="col-12">
             <form class="form-horizontal" action="{{route('roles.update')}}" method="post" enctype="multipart/form-data">
                 @csrf

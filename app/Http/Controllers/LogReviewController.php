@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LogReview;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +19,7 @@ class LogReviewController extends Controller
         return view('logreview.index');
     }
     public function show($id){
-        $this->authorize('log-reviews');
+        $this->authorize('view-log-reviews');
         $show=LogReview::find($id);
         $next=$show->next();
         $previous=$show->previous();
@@ -26,6 +27,7 @@ class LogReviewController extends Controller
     }
 
     public function fetch(){
+        $this->authorize('log-reviews');
         $data=LogReview::with('createdby')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -75,14 +77,20 @@ class LogReviewController extends Controller
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null.'<div class="btn-group ">';
-                $action.="<a title='Show' class='btn rounded-0 btn-sm btn-warning' href='".url('log-reviews/show/'.$data->id)."'><i class='fa fa-eye'></i></a>";
-                $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>";
-                $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                if (Auth::user()->can('edit-log-reviews')) {
+                    $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>";
+                }
+                if (Auth::user()->can('view-log-reviews')) {
+                    $action.="<a title='Show' class='btn rounded-0 btn-sm btn-warning' href='".url('log-reviews/show/'.$data->id)."'><i class='fa fa-eye'></i></a>";
+                }
+                if (Auth::user()->can('delete-log-reviews')) {
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
-                      </form>";
+                    </form>";
+                }
                 return $action."</div>";
 
             })
@@ -90,7 +98,7 @@ class LogReviewController extends Controller
             ->make(true);
     }
     public function store(Request $request){
-
+        $this->authorize('add-log-reviews');
         $this->validate(request(), [
             'title' => 'required',
             'description' => 'required',
@@ -122,35 +130,14 @@ class LogReviewController extends Controller
         return response()->json(['success'=>$message]);
     }
     public function edit(Request $request){
+        $this->authorize('edit-log-reviews');
         $edit=LogReview::find($request->id);
         $edit->start=$edit->start->format('Y-m-d');
         $edit->end=$edit->end->format('Y-m-d');
         return response()->json($edit);
     }
-    public function shows(Request $request){
-        $show=LogReview::find($request->id);
-        if ($show->priority==0){
-            $show->priority='<i class="fa fa-arrow-down text-success"></i> LOW';
-        }else{
-            $show->priority='<i class="fa fa-arrow-up text-danger"></i> HIGH';
-        }
-        if ($show->status==0){
-            $status= '<span class="badge badge-info px-2 py-1"> Pending</span>';
-        }
-        $show->status=$status;
-        if ($show->attachment){
-            $image="<img src='".Storage::disk('local')->url('public/log-reviews/'.$show->attachment)."' class='img-fluid' width='100'>";
-        }else{
-            $image='-';
-        }
-        $show->image=$image;
-
-
-
-        return response()->json($show);
-    }
-
     public function destroy(Request $request){
+        $this->authorize('delete-log-reviews');
         $log=LogReview::find($request->id);
         Storage::delete('public/log-reviews/'.$log->attachment);
         $log->delete();
