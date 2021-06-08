@@ -2,10 +2,12 @@
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="row">
-        <div class="col-lg-12">
-            <h3 class="border-bottom text-dark pull-left"><i class="fa fa-tasks"></i> All Roles</h3>
+        <div class="col-12">
+            <h3 class="font-weight-light float-left"><i class="feather icon-info"></i> All Roles</h3>
             <a href="{{route('roles.create')}}" class="btn float-right btn-sm btn-primary shadow-sm"><i
                         class="fa fa-plus-circle"></i> Roles</a>
+        </div>
+        <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>

@@ -123,10 +123,13 @@ class ManageJobsController extends Controller
             $items[]=$item;
         }
         $job = new Job();
+        $job->cid='JN/';
         $job->quote_id = $request->id;
         $job->status = 0;
         $job->save();
-         $quotes = Item::where('quote_id', $request->id)->get();
+        $job->cid='JN/'.str_pad($job->id, 6, '0', STR_PAD_LEFT);
+        $job->save();
+        $quotes = Item::where('quote_id', $request->id)->get();
          foreach ($quotes as $quote) {
              if (in_array($quote->id,$items)){
                  for ($x = 0; $x < $quote->quantity; $x++) {

@@ -7,10 +7,11 @@
             });
         </script>
     @endif
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
     <div class="row">
         <div class="col-12">
-            <h3 class="float-left font-weight-light"><i class="fa fa-list"></i> Job Detail</h3>
+            <h3 class="float-left font-weight-light"><i class="feather icon-eye"></i> Job Detail</h3>
             <div class="float-right">
                 <a onclick="window.open('{{url('/jobs/print/jobform/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
                    href="{{url('/jobs/print/jobform/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
@@ -31,7 +32,7 @@
             <table class="table table-hover table-bordered table-sm bg-white">
                 <tr>
                     <th>ID</th>
-                    <td>JN/{{date('y',strtotime($job->created_at))}}/{{$job->id}}</td>
+                    <td>{{$job->cid}}</td>
                 </tr>
                 <tr>
                     <th>Customer</th>

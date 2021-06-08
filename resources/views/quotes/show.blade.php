@@ -44,7 +44,7 @@
             <table class="table table-hover bg-white table-sm table-bordered nowrap mt-2">
                 <tr>
                     <td><b>Quote #</b></td>
-                    <td>AIMS/QT/{{date('y')}}/{{$show->id}}</td>
+                    <td>{{$show->cid}}</td>
                 </tr>
                 <tr>
                     <td><b>Customer</b></td>

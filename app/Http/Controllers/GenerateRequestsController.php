@@ -33,7 +33,7 @@ class GenerateRequestsController extends Controller
         $data=Quotes::with('customers')->where('status',0)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
-                return 'RFQ/'.date('y',strtotime($data->created_at)).'/'.$data->id;
+                return str_replace('QTN','RFQ',$data->cid);
             })
             ->addColumn('customer', function ($data) {
                 return $data->customers->reg_name;

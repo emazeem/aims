@@ -17,9 +17,8 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Chart of Account</h3>
-            <div class="text-right mt-2">
-
+            <h3 class="font-weight-light float-left"><i class="feather icon-activity"></i> Chart of Account</h3>
+            <div class="float-right mt-2">
                 <a class="btn btn-info btn-sm" href="{{route('acc_level_one')}}"><b>1</b></a>
                 <a class="btn btn-warning btn-sm" href="{{route('acc_level_two')}}"><b>2</b></a>
                 <a class="btn btn-primary btn-sm" href="{{route('acc_level_three')}}"><b>3</b></a>
@@ -28,6 +27,8 @@
 
                 <a class="btn btn-primary btn-sm" href="{{route('acc_level_four.create')}}"> <i class="fa fa-plus-circle"></i> Chart of Account</a>
             </div>
+        </div>
+        <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" cellspacing="0"
                    width="100%">
                 <thead>
