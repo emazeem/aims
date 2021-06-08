@@ -4,15 +4,15 @@
 
     <div class="row">
     <div class="col-12">
-        <h3 class="pull-left pb-1"><i class="fa fa-tasks"></i> All Parameters</h3>
-        <span class="pull-right">
-    <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_parameter"><i class="fa fa-plus-circle"></i> Parameter</button>
-
+        <h3 class="font-weight-light float-left pb-1"><i class="feather icon-list"></i> All Parameters</h3>
+        <span class="float-right">
+            @can('parameter-create')
+                <button type="button" class="btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#add_parameter"><i class="fa fa-plus-circle"></i> Parameter</button>
+            @endcan
         </span>
     </div>
   <div class="col-lg-12">
       <table id="example" class="table bg-white table-hover table-sm display nowrap" cellspacing="0" width="100%">
-
       <thead>
       <tr>
         <th>ID</th>
@@ -176,6 +176,9 @@
 
 
         $("#add_parameter_form").on('submit',(function(e) {
+            var button=$('.parameter-save-btn');
+            var previous=$('.parameter-save-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
 
             e.preventDefault();
             $.ajax({
@@ -185,30 +188,34 @@
                 contentType: false,
                 cache: false,
                 processData:false,
-                statusCode: {
-                    403: function() {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Access Denied" , "error");
-                        return false;
-                    }
-                },
+
                 success: function(data)
                 {
+                    button.attr('disabled',null).html(previous);
 
-                    if(!data.errors)
-                    {
-                        $('#add_parameter').modal('toggle');
-                        swal("Success", "Parameter added successfully", "success");
-                        InitTable();
-                    }
+                    $('#add_parameter').modal('toggle');
+                    swal('success', data.success, 'success').then((value) => {
+                        $("#example").DataTable().ajax.reload(null,false);
+
+                    });
                 },
-                error: function()
-                {
-                    swal("Failed", "Fields Required. Try again.", "error");
-                }
+
+                error: function (xhr) {
+                    button.attr('disabled',null).html(previous);
+
+                    var error='';
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
+                },
             });
         }));
         $("#edit_parameter_form").on('submit',(function(e) {
+            var button=$('.parameter-update-btn');
+            var previous=$('.parameter-update-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
             e.preventDefault();
             $.ajax({
                 url: "{{route('parameters.update')}}",
@@ -220,21 +227,63 @@
                 success: function(data)
                 {
 
-                    if(!data.errors)
-                    {
-                        $('#edit_parameter').modal('toggle');
-                        swal("Success", "Parameter updated successfully", "success");
-                        InitTable();
-                    }
-                },
-                error: function(e)
-                {
-                    swal("Failed", "Fields Required. Try again.", "error");
+                    button.attr('disabled',null).html(previous);
 
-                }
+                    $('#edit_parameter').modal('toggle');
+                    swal('success', data.success, 'success').then((value) => {
+                        $("#example").DataTable().ajax.reload(null,false);
+
+                    });
+                },
+                error: function (xhr) {
+                    button.attr('disabled',null).html(previous);
+
+                    var error='';
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error+=item;
+                    });
+                    swal("Failed", error, "error");
+                },
             });
         }));
+        $(document).on('click', '.delete', function (e) {
+            swal({
+                title: "Are you sure to delete this parameter?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var id = $(this).attr('data-id');
+                        var token = '{{csrf_token()}}';
+                        e.preventDefault();
+                        var request_method = $("#form" + id).attr("method");
+                        var form_data = $("#form" + id).serialize();
 
+                        $.ajax({
+                            url: "{{route('parameters.destroy')}}",
+                            type: request_method,
+                            dataType: "JSON",
+                            data: form_data,
+                            success: function (data) {
+                                swal('success', data.success, 'success').then((value) => {
+                                    $("#example").DataTable().ajax.reload(null,false);
+                                });
+
+                            },
+                            error: function (xhr) {
+                                var error='';
+                                $.each(xhr.responseJSON.errors, function (key, item) {
+                                    error+=item;
+                                });
+                                swal("Failed", error, "error");
+                            },
+                        });
+
+                    }
+                });
+        });
     });
 
 </script>
@@ -244,20 +293,20 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Parameter</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Add Parameter</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                 </button>
             </div>
             <div class="modal-body">
                 <form id="add_parameter_form">
                     @csrf
                     <div class="row">
-                        <div class="form-group col-9  float-left">
+                        <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
 
-                        <div class="col-9">
+                        <div class="col-12">
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control" id="parent" name="parent" >
                                     <option disabled selected>Select Parent (if any)</option>
@@ -267,16 +316,12 @@
                                 </select>
                             </div>
                         </div>
-
-                        <div class="col-2">
-                            <button class="btn btn-primary" type="submit">Save</button>
-                        </div>
-
                     </div>
 
-                </form>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-primary parameter-save-btn" type="submit">Save</button>
+                </form>
             </div>
         </div>
     </div>
@@ -286,9 +331,10 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-pencil"></i> Edit Parameter</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-edit"></i> Edit Parameter</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
+
                 </button>
             </div>
             <div class="modal-body">
@@ -296,11 +342,11 @@
                     @csrf
                     <input type="hidden" name="id" id="editid">
                     <div class="row">
-                        <div class="form-group col-9  float-left">
+                        <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
 
-                        <div class="col-9">
+                        <div class="col-12">
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control" id="editparent" name="parent" >
                                     <option disabled selected>Select Parent (if any)</option>
@@ -310,16 +356,11 @@
                                 </select>
                             </div>
                         </div>
-
-                        <div class="col-2">
-                            <button class="btn btn-primary" type="submit">Update</button>
-                        </div>
-
                     </div>
-
-                </form>
             </div>
             <div class="modal-footer">
+                <button class="btn btn-primary parameter-update-btn" type="submit">Update</button>
+                </form>
             </div>
         </div>
     </div>

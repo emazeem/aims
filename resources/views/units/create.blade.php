@@ -143,7 +143,10 @@
                     success: function(data)
                     {
                         button.attr('disabled',null).html(previous);
-                        swal('success',data.success,'success');
+                        swal('success', data.success, 'success').then((value) => {
+                            $("#example").DataTable().ajax.reload(null,false);
+
+                        });
                     },
                     error: function(xhr)
                     {

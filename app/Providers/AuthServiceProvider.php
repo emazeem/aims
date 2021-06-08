@@ -632,6 +632,27 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('parameter-create', function ($user) {
+            if (in_array('parameter-create',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('parameter-edit', function ($user) {
+            if (in_array('parameter-edit',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('parameter-delete', function ($user) {
+            if (in_array('parameter-delete',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
 
     }
     public function invoicing_ledger()

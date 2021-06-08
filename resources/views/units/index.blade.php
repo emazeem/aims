@@ -88,7 +88,8 @@
                                 data: form_data,
                                 success: function (data) {
                                     swal('success', data.success, 'success').then((value) => {
-                                        InitTable();
+                                        $("#example").DataTable().ajax.reload(null,false);
+
                                     });
 
                                 },

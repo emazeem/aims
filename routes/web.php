@@ -150,6 +150,7 @@ Route::group(['prefix'=> 'parameters'],function() {
     Route::post('/store',[App\Http\Controllers\ParameterControlller::class, 'store'])->middleware('auth')->name('parameters.store');
     Route::post('/edit',[App\Http\Controllers\ParameterControlller::class, 'edit'])->middleware('auth')->name('parameters.edit');
     Route::post('/update',[App\Http\Controllers\ParameterControlller::class, 'update'])->middleware('auth')->name('parameters.update');
+    Route::delete('/delete',[App\Http\Controllers\ParameterControlller::class, 'destroy'])->middleware('auth')->name('parameters.destroy');
     Route::post('/view_assets',[App\Http\Controllers\ParameterControlller::class, 'view_assets'])->middleware('auth')->name('parameters.view_assets');
     Route::post('/view_units',[App\Http\Controllers\ParameterControlller::class, 'view_units'])->middleware('auth')->name('parameters.view_units');
     Route::post('/view_capabilities',[App\Http\Controllers\ParameterControlller::class, 'view_capabilities'])->middleware('auth')->name('parameters.view_capabilities');
