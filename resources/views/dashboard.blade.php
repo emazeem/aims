@@ -15,10 +15,7 @@
         </form>
         <div class="col-12">
             <div class="page-header-title float-left">
-                <h5 class="m-b-10">
-                    <i class="feather icon-home"></i>
-                    Dashboard
-                </h5>
+                <h5 class="m-b-10 font-weight-light"><i class="feather icon-home"></i> Dashboard</h5>
             </div>
         @if($check==0)
                 @if($checkout_missing_status==1)

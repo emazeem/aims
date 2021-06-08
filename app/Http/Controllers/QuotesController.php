@@ -7,7 +7,9 @@ use App\Models\Item;
 use App\Models\Quoterevisionlog;
 use App\Models\Quotes;
 use App\Models\User;
+use App\Notifications\LogReviewNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Yajra\DataTables\DataTables;
 class QuotesController extends Controller
 {
@@ -386,8 +388,14 @@ class QuotesController extends Controller
             $approval=Quotes::find($request->id);
             $approval->status=1;
             $approval->save();
+
+            $users = User::where('user_type', 1)->get();
+            $url = '/quotes/view/'.$approval->id;
+            $message = collect(['title' => 'RFQ has been marked as complete','by'=>auth()->user()->id, 'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' has approved this RFQ', 'redirectURL' => $url]);
+            Notification::send($users, new LogReviewNotification($message));
             return response()->json(['success'=>'Quote is marked as complete']);
         }
+
     }
     public function sendtocustomer(Request $request){
         $this->authorize('quote-revised');

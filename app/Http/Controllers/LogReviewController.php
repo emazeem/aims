@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\LogReview;
 use App\Models\User;
+use App\Notifications\LogReviewNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
 
@@ -150,18 +151,19 @@ class LogReviewController extends Controller
         $log->started=date('Y-m-d h:i:s');
         $log->save();
         return response()->json(['success'=>'Task Started Successfully']);
-
     }
     public function end(Request $request){
-
         date_default_timezone_set("Asia/Karachi");
         $log=LogReview::find($request->id);
         $log->status=2;
         $log->ended=date('Y-m-d h:i:s');
         $log->save();
+
+        $users = User::where('user_type', 1)->get();
+        $url = '/log-reviews/show/'.$log->id;
+        $message = collect(['title' => 'Task completed successfully','by'=>auth()->user()->id, 'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' has finished this task', 'redirectURL' => $url]);
+        Notification::send($users, new LogReviewNotification($message));
+
         return response()->json(['success'=>'Task Completed Successfully']);
-
     }
-
-
 }

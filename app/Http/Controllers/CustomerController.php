@@ -14,24 +14,6 @@ class CustomerController extends Controller
 {
     public function index(){
         $saletaxes=Preference::where('category',1)->get();
-
-/*        $customers=Customer::all();
-        foreach ($customers as $customer){
-            $acc = new Chartofaccount();
-            $acc->code4 = 000;
-            $acc->code3 = 3;
-            $acc->code2 = 1;
-            $acc->code1 = 1;
-            $acc->title = $customer->reg_name;
-            $code4=(Chartofaccount::withTrashed()->where('code3',3)->count());
-            $acc->acc_code = 10103 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
-            $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
-            $acc->save();
-            $customer->acc_code=$acc->acc_code;
-            $customer->save();
-        }
-        dd('saved');*/
-
         $this->authorize('customer-index');
         return view('customers.index',compact('saletaxes'));
     }
@@ -115,23 +97,6 @@ class CustomerController extends Controller
             ->addColumn('address', function ($data) {
                 return $data->address.'-'.$data->plant;
             })
-
-           /* ->addColumn('prin_name', function ($data) {
-                $colors=['badge-primary','badge-dark','badge-warning'];
-                $principals=null;
-                foreach (explode(',',$data->prin_name) as $key=>$item) {
-                    $principals.='<span class="badge '.$colors[$key].'">'.$item.'</span><br>';
-                }
-                return $principals;
-            })
-            ->addColumn('prin_phone', function ($data) {
-                $colors=['badge-primary','badge-dark','badge-warning','badge-warning'];
-                $phones=null;
-                foreach (explode(',',$data->prin_phone) as $k=>$item) {
-                    $phones.='<span class="badge '.$colors[$k].'">'.$item.'</span><br>';
-                }
-                return $phones;
-            })*/
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
