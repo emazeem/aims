@@ -48,9 +48,9 @@
                                 <li class="notification">
                                     <div class="media">
                                         @if(\App\Models\User::find($notification->data['data']['by'])->profile == null)
-                                            <img class="img-radius" src="{{url('img/profile.png')}}" alt="user-profile">
+                                            <img class="img-radius  hei-40" style="object-fit: cover" src="{{url('img/profile.png')}}" alt="user-profile">
                                         @else
-                                            <img class="img-radius" src="{{Storage::disk('local')->url('public/profile/'.$notification->data['data']['by'].'/'.\App\Models\User::find($notification->data['data']['by'])->profile)}}" alt="user-profile">
+                                            <img class="img-radius  hei-40" style="object-fit: cover"  src="{{Storage::disk('local')->url('public/profile/'.$notification->data['data']['by'].'/'.\App\Models\User::find($notification->data['data']['by'])->profile)}}" alt="user-profile">
                                         @endif
                                         <div class="media-body">
                                             <p>
@@ -99,9 +99,9 @@
                         <div class="pro-head">
                             @if(auth()->user()->profile)
                                 <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
-                                     class="img-radius wid-40" alt="User-Profile-Image">
+                                     class="img-radius wid-40 hei-40" style="object-fit: cover" alt="User-Profile-Image">
                             @else
-                                <img src="{{url('img/profile.png')}}" class="img-radius wid-40">
+                                <img src="{{url('img/profile.png')}}" class="img-radius wid-40 hei-40" style="object-fit: cover">
                             @endif
 
                             <span>{{auth()->user()->fname.' '.auth()->user()->lname}}</span>
