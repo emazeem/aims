@@ -30,7 +30,7 @@ class ParameterControlller extends Controller
             ->addColumn('name', function ($data) {
                 return $data->name;
             })
-            ->addColumn('parent', function ($data) {
+            /*->addColumn('parent', function ($data) {
                 if ($data->parent!==null){
                     return "<span class='badge badge-danger'>".$data->parents->name."</span>";
                 }
@@ -38,7 +38,7 @@ class ParameterControlller extends Controller
                     return "<i>NULL</i>";
                 }
             })
-
+            */
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;

@@ -17,7 +17,6 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Parent</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -27,7 +26,6 @@
       <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Parent</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -57,7 +55,6 @@
             "columns": [
                 { "data": "id" },
                 { "data": "name" },
-                { "data": "parent" },
                 { "data": "options" ,"orderable":false},
             ]
 

@@ -11,8 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="font-weight-light "><i class="feather icon-edit"></i> Update Units</h3>
-            <a href="{{route('units.create')}}" class="btn btn-primary pull-right btn-sm">
+            <h3 class="font-weight-light float-left"><i class="feather icon-edit"></i> Update Units</h3>
+            <a href="{{route('units.create')}}" class="btn btn-primary float-right btn-sm">
                 <span class="fa fa-plus-circle"></span> Add Unit
             </a>
         </div>
@@ -54,7 +54,11 @@
                         <div class="py-2">
                             <span id="previous">
                                 @foreach($previous_units as $unit)
-                                    <a href="{{url('units/edit/'.$unit->id)}}" class="btn btn-primary btn-sm">{{$unit->unit}}</a>
+                                    @if($unit->primary_)
+                                        <a href="{{url('units/edit/'.$unit->id)}}" class="btn btn-primary btn-sm">{{$unit->unit}}</a>
+                                    @else
+                                        <a href="{{url('units/edit/'.$unit->id)}}" class="btn btn-warning btn-sm">{{$unit->unit}}</a>
+                                    @endif
                                 @endforeach
                             </span>
                         </div>
@@ -66,7 +70,10 @@
                     <label for="primary" class="col-sm-2 control-label">Primary</label>
                     <div class="col-sm-10">
                         <select class="form-control text-xs" id="primary" name="primary">
-                            <option value="{{$edit->primary_}}" selected >@if($edit->primary_){{\App\Models\Unit::find($edit->primary_)->unit}}@endif</option>
+                            <option value="" selected>None</option>
+                            @foreach(\App\Models\Unit::where('parameter',$edit->parameter)->where('primary_',null)->get() as $item)
+                                <option value="{{$item->id}}" selected >{{$item->unit}}</option>
+                            @endforeach
 
                             {{--@foreach(\App\Models\Unit::all()->where('primary_',null) as $unit)
                                 <option value="{{$unit->id}}">{{$unit->unit}}</option>
@@ -104,7 +111,7 @@
                 </div>
 
                 <div class="mt-5 pt-3 col-12 text-right">
-                    <a href="{!! url(''); !!}" class="btn btn-primary"><i class="fa fa-times-circle"></i> Cancel</a>
+                    <a href="{!! url('units'); !!}" class="btn btn-light border"><i class="fa fa-times-circle"></i> Cancel</a>
                     <button type="submit" class="unit-update-btn btn btn-primary"><i class="fa fa-save"></i> Update</button>
                 </div>
 

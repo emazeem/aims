@@ -14,6 +14,10 @@ class Unit extends Model
         return $this->belongsTo('App\Models\Parameter','parameter')->withDefault();
         //
     }
+    public function others(){
+        return $this->hasMany( self::class, 'primary_', 'id' );
+    }
+
     protected static $logAttributes = ['parameter','unit'];
     protected static $logOnlyDirty = true;
 }

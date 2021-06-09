@@ -57,9 +57,6 @@
                     <div class="col-sm-10">
                         <select class="form-control text-xs" id="primary" name="primary">
                             <option value="" selected >Select Primary_</option>
-                            {{--@foreach(\App\Models\Unit::all()->where('primary_',null) as $unit)
-                                <option value="{{$unit->id}}">{{$unit->unit}}</option>
-                            @endforeach--}}
                         </select>
                         @if ($errors->has('primary'))
                             <span class="text-danger">
@@ -93,7 +90,7 @@
                 </div>
 
                 <div class="mt-5 pt-3 col-12 text-right">
-                    <a href="{!! url(''); !!}" class="btn btn-primary"><i class="fa fa-times-circle"></i> Cancel</a>
+                    <a href="{!! url('units'); !!}" class="btn btn-light border"><i class="fa fa-times-circle"></i> Cancel</a>
                     <button type="submit" class="unit-save-btn btn btn-primary"><i class="fa fa-save"></i> Save</button>
                 </div>
             </form>
@@ -111,12 +108,17 @@
                         success:function(data) {
                             $('#previous').empty();
                             $.each(data['previous'], function(key, value) {
-                                $('#previous').append('<a href="/units/edit/'+ value.id +'" class="btn btn-primary btn-sm">'+ value.unit +'</a>');
+                                if (value.primary_==null){
+                                    $('#previous').append('<a href="/units/edit/'+ value.id +'" class="btn btn-warning btn-sm">'+ value.unit +'</a>');
+                                }else{
+                                    $('#previous').append('<a href="/units/edit/'+ value.id +'" class="btn btn-primary btn-sm">'+ value.unit +'</a>');
+                                }
                             });
                             $('#primary').empty();
                             $('#primary').append('<option value="" selected>None</option>');
                             $.each(data['primary'], function(key, value) {
                                 $('#primary').append('<option value="'+value.id+'">'+ value.unit +'</option>');
+
                             });
 
                         }
@@ -144,7 +146,6 @@
                     {
                         button.attr('disabled',null).html(previous);
                         swal('success', data.success, 'success').then((value) => {
-                            $("#example").DataTable().ajax.reload(null,false);
 
                         });
                     },
@@ -153,7 +154,7 @@
                         button.attr('disabled',null).html(previous);
                         if (xhr.responseJSON.error){
                             swal("Failed", xhr.responseJSON.error, "error").then((value) => {
-                                location.reload();
+
                             });
                         }else {
                             var error='';

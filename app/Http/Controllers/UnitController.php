@@ -20,7 +20,7 @@ class UnitController extends Controller
     }
     public function fetch(){
         $this->authorize('units-index');
-        $data=Unit::with('parameters')->get();
+        $data=Unit::with('parameters')->with('others')->where('primary_',null)->get();
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -29,9 +29,17 @@ class UnitController extends Controller
             ->addColumn('parameter', function ($data) {
                 return $data->parameters->name;
             })
-            ->addColumn('unit', function ($data) {
+            ->addColumn('primary', function ($data) {
                 return $data->unit;
             })
+            ->addColumn('secondary', function ($data) {
+                $secondary=null;
+                foreach ($data->others as $other){
+                    $secondary.='<span class="badge">'.$other->unit.'</span>';
+                }
+                return $secondary;
+            })
+
             ->addColumn('options', function ($data) {
                 $action=null;
                 $token=csrf_token();
@@ -50,7 +58,7 @@ class UnitController extends Controller
                 }
                 return $action;
             })
-            ->rawColumns(['options','status'])
+            ->rawColumns(['options','secondary'])
             ->make(true);
 
     }
@@ -79,10 +87,14 @@ class UnitController extends Controller
             'unit.required' => 'Unit is required.',
             'parameter.required' => 'Parameter is required.',
         ]);
+        $alreadyhavepriamry=Unit::where('parameter',$request->parameter)->where('primary_',null)->get();
+        if (count($alreadyhavepriamry)!=0){
+            return response()->json(['error'=>'This parameter has already primary unit'],404);
+        }
         $unit=new Unit();
         $unit->unit=$request->unit;
         $unit->parameter=$request->parameter;
-        //$unit->primary_=($request->primary)?$request->primary:null;
+        $unit->primary_=($request->primary)?$request->primary:null;
         $unit->factor_multiply=$request->factor_multiply;
         $unit->factor_add=$request->factor_add;
         $unit->save();
@@ -101,7 +113,7 @@ class UnitController extends Controller
         //dd($unit);
         $u->unit=$request->unit;
         $u->parameter=$request->parameter;
-        //$u->primary=($request->primary)?$request->primary:null;
+        $u->primary_=($request->primary)?$request->primary:null;
         $u->factor_multiply=$request->factor_multiply;
         $u->factor_add=$request->factor_add;
         $u->save();

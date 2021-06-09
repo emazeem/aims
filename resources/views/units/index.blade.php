@@ -17,7 +17,8 @@
                 <tr>
                     <th>Id</th>
                     <th>Parameter</th>
-                    <th>Unit</th>
+                    <th>Primary</th>
+                    <th>Secondary</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -28,7 +29,8 @@
                 <tr>
                     <th>Id</th>
                     <th>Parameter</th>
-                    <th>Unit</th>
+                    <th>Primary</th>
+                    <th>Secondary</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -59,7 +61,8 @@
                 "columns": [
                     {"data": "id"},
                     {"data": "parameter"},
-                    {"data": "unit"},
+                    {"data": "primary"},
+                    {"data": "secondary"},
                     {"data": "options", "orderable": false},
                 ]
             });
