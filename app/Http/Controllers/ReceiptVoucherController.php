@@ -21,22 +21,27 @@ class ReceiptVoucherController extends Controller
 {
     //
     public function index(){
+        $this->authorize('receipt-voucher');
         return view('receiptvoucher.index');
     }
     public function show($id){
+        $this->authorize('view-receipt-voucher');
         $show=Journal::find($id);
         return view('receiptvoucher.show',compact('show'));
     }
     public function edit($id){
+        $this->authorize('edit-receipt-voucher');
         $accounts=Chartofaccount::all();
         $edit=Journal::find($id);
         return view('receiptvoucher.edit',compact('edit','accounts'));
     }
     public function prints($id){
+        $this->authorize('print-receipt-voucher');
         $show=Journal::find($id);
         return view('receiptvoucher.print',compact('show'));
     }
     public function fetch(){
+        $this->authorize('receipt-voucher');
         $data=Journal::with('createdby')->where('type','receipt voucher')->get();
         //dd($data);
         return DataTables::of($data)
@@ -56,15 +61,15 @@ class ReceiptVoucherController extends Controller
                 return $data->createdby->fname.' '.$data->createdby->lname;
             })
             ->addColumn('options', function ($data) {
-                return "&emsp;
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/sales-voucher/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  <a title='Show' class='btn btn-sm btn-primary' href='" . url('/sales-voucher/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
-                  ";
+                $action=null;
+                $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/sales-voucher/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                $action.="<a title='Show' class='btn btn-sm btn-primary' href='" . url('/sales-voucher/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                return $action;
             })->rawColumns(['options'])->make(true);
 
     }
     public function create(){
-
+        $this->authorize('add-receipt-voucher');
         $blines=BusinessLine::all();
 
         $customers=Chartofaccount::where('code3',3)->orderBy('title','asc')->get();
@@ -80,14 +85,19 @@ class ReceiptVoucherController extends Controller
         return view('receiptvoucher.create',compact('blines','customers','servicetaxes','incometaxes','liability_incometaxes'));
     }
     public function store(Request $request){
+        $this->authorize('add-receipt-voucher');
         $c=Customer::where('acc_code',$request->customer_acc)->first();
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 2, 4);
+            $date=substr($voucher->customize_id, 5, 4);
+            $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
-                $c_id[]=$voucher->id;
+                if ($type=='RV'){
+                    $c_id[]=$voucher->id;
+                }
             }
         }
+
         $this->validate(request(), [
             'business_line' => 'required',
             'v_date' => 'required',
@@ -163,7 +173,7 @@ class ReceiptVoucherController extends Controller
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();
-        $journal->customize_id=date('dmy').(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='RV'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
         $inv=Invoice::find($request->customer_inv);
         $vs=new InvoiceVsReceipts();

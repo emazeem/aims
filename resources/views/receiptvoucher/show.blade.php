@@ -22,7 +22,9 @@
                 Voucher # {{$show->id}}
             </h3>
             <span class="float-right">
-            <a href="{{route('vouchers.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i></a>
+                @can('print-receipt-voucher')
+                    <a href="{{route('vouchers.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i></a>
+                @endcan
             </span>
         </div>
         <div class="col-12">

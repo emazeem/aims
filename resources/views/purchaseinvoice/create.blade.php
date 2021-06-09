@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -17,7 +18,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3><i class="fa fa-eye"></i> Purchase Invoice</h3>
+            <h3 class="font-weight-light"><i class="feather icon-list"></i> Purchase Invoice</h3>
         </div>
         <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"

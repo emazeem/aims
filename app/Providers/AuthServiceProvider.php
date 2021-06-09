@@ -139,6 +139,33 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('add-purchase-invoice', function ($user) {
+            if (in_array('add-purchase-invoice',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('edit-purchase-invoice', function ($user) {
+            if (in_array('edit-purchase-invoice',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('view-purchase-invoice', function ($user) {
+            if (in_array('view-purchase-invoice',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('print-purchase-invoice', function ($user) {
+            if (in_array('print-purchase-invoice',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
     }
 
     public function cir()
@@ -295,12 +322,56 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('add-sales-invoice', function ($user) {
+            if (in_array('add-sales-invoice',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('view-sales-invoice', function ($user) {
+            if (in_array('view-sales-invoice',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
+
         Gate::define('receipt-voucher', function ($user) {
             if (in_array('receipt-voucher',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
+        Gate::define('add-receipt-voucher', function ($user) {
+            if (in_array('add-receipt-voucher',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('edit-receipt-voucher', function ($user) {
+            if (in_array('edit-receipt-voucher',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('view-receipt-voucher', function ($user) {
+            if (in_array('view-receipt-voucher',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('print-receipt-voucher', function ($user) {
+            if (in_array('print-receipt-voucher',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
+
     }
     public function activitylog()
     {

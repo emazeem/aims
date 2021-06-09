@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -19,7 +20,9 @@
         <div class="col-12">
             <h3 class="font-weight-light float-left"><i class="feather icon-activity"></i> Sales Invoice</h3>
             <div class="float-right mt-2">
-                <a class="btn btn-primary btn-sm" href="{{route('sales.invoice.create')}}"> <i class="fa fa-plus-circle"></i> Add Sales Invoice</a>
+                @can('add-sales-invoice')
+                    <a class="btn btn-primary btn-sm" href="{{route('sales.invoice.create')}}"> <i class="fa fa-plus-circle"></i> Add Sales Invoice</a>
+                @endcan
             </div>
         </div>
         <div class="col-12">
@@ -27,7 +30,6 @@
                    width="100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Customize ID</th>
                     <th>V Type</th>
                     <th>V Date</th>
@@ -40,7 +42,6 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
                     <th>Customize ID</th>
                     <th>V Type</th>
                     <th>V Date</th>
@@ -73,7 +74,6 @@
                     "data": {_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
                     {"data": "customize_id"},
                     {"data": "type"},
                     {"data": "date"},

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -17,16 +17,19 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Receipt Voucher</h3>
+            <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> Receipt Voucher</h3>
             <div class="text-right mt-2">
-                <a class="btn btn-primary btn-sm" href="{{route('sales.receipt.vouchers.create')}}"> <i class="fa fa-plus-circle"></i> Receipt Voucher</a>
+                @can('add-receipt-voucher')
+                    <a class="btn btn-primary btn-sm" href="{{route('sales.receipt.vouchers.create')}}"> <i class="fa fa-plus-circle"></i> Receipt Voucher</a>
+                @endcan
             </div>
+        </div>
+        <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Customize ID</th>
+                    <th>#</th>
                     <th>V Type</th>
                     <th>V Date</th>
                     <th>Created By</th>
@@ -38,8 +41,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
-                    <th>Customize ID</th>
+                    <th>#</th>
                     <th>V Type</th>
                     <th>V Date</th>
                     <th>Created By</th>
@@ -71,7 +73,6 @@
                     "data": {_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
                     {"data": "customize_id"},
                     {"data": "type"},
                     {"data": "date"},

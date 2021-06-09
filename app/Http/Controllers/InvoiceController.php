@@ -14,6 +14,7 @@ class InvoiceController extends Controller
 {
     //
     public function store(Request $request){
+        $this->authorize('add-sales-invoice');
         $this->validate(request(), [
             'id'=>'required'
         ]);
@@ -22,11 +23,15 @@ class InvoiceController extends Controller
         $invoice->title='INVOICE # '.str_pad($request->id,5,0,STR_PAD_LEFT);
         $invoice->save();
         //$customr_acc=Chartofaccount::where('acc_code',$invoice->job->quotes->customers->acc_code)->first();
+
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 2, 4);
+            $date=substr($voucher->customize_id, 5, 4);
+            $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
-                $c_id[]=$voucher->id;
+                if ($type=='SI'){
+                    $c_id[]=$voucher->id;
+                }
             }
         }
         $service_charges=0;
@@ -54,8 +59,7 @@ class InvoiceController extends Controller
         $journal->save();
         $invoice->voucher_id=$journal->id;
         $invoice->save();
-        $journal->save();
-        $journal->customize_id=date('dmy').(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='SI'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
 
         //Accounts Receivable of customer Dr.

@@ -16,9 +16,11 @@ class PurchaseInvoiceController extends Controller
 {
 
     public function index(){
+        $this->authorize('purchase-invoice');
         return view('purchaseinvoice.index');
     }
     public function fetch(){
+        $this->authorize('purchase-invoice');
         $data=Journal::with('createdby')->where('type','purchase invoice')->get();
         //dd($data);
         return DataTables::of($data)
@@ -44,8 +46,9 @@ class PurchaseInvoiceController extends Controller
                   ";
             })->rawColumns(['options'])->make(true);
 
-    }public function create_fetch(){
-    $this->authorize('jobs-index');
+    }
+    public function create_fetch(){
+    $this->authorize('add-purchase-invoice');
     $data=GrnVoucher::all();
     return DataTables::of($data)
         ->addColumn('id', function ($data) {
@@ -79,10 +82,11 @@ class PurchaseInvoiceController extends Controller
 
     }
     public function create(){
+        $this->authorize('add-purchase-invoice');
         return view('purchaseinvoice.create');
     }
     public function store(Request $request){
-        //dd($request->all());
+        $this->authorize('add-purchase-invoice');
         $price=0;
         $grnvoucher=GrnVoucher::find($request->id);
         $po=Po::find($grnvoucher->po_id);
@@ -101,11 +105,15 @@ class PurchaseInvoiceController extends Controller
 
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 2, 4);
+            $date=substr($voucher->customize_id, 5, 4);
+            $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
-                $c_id[]=$voucher->id;
+                if ($type=='PI'){
+                    $c_id[]=$voucher->id;
+                }
             }
         }
+
 
         $journal=new Journal();
         $journal->business_line=1;
@@ -114,7 +122,7 @@ class PurchaseInvoiceController extends Controller
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();
-        $journal->customize_id=date('dmy').(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='PI'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
 
         //Liability -> IR/GR Dr.

@@ -14,18 +14,18 @@ class SalesInvoiceController extends Controller
 
 
     public function index(){
+        $this->authorize('sales-invoice');
         return view('salesinvoice.index');
     }
     public function create(){
+        $this->authorize('add-sales-invoice');
         return view('salesinvoice.create');
     }
     public function fetch(){
+        $this->authorize('sales-invoice');
         $data=Journal::with('createdby')->where('type','sales invoice')->get();
         //dd($data);
         return DataTables::of($data)
-            ->addColumn('id', function ($data) {
-                return $data->id;
-            })
             ->addColumn('customize_id', function ($data) {
                 return $data->customize_id;
             })
@@ -47,13 +47,14 @@ class SalesInvoiceController extends Controller
 
     }
     public function create_fetch(){
+        $this->authorize('add-sales-invoice');
         $data=Job::with('quotes')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
-                return $data->id;
+                return $data->cid;
             })
             ->addColumn('quote', function ($data) {
-                return $data->quote_id;
+                return $data->quotes->cid;
             })
             ->addColumn('customer', function ($data) {
                 return $data->quotes->customers->reg_name;
@@ -85,7 +86,7 @@ class SalesInvoiceController extends Controller
                 $invoice_exist=Invoice::where('job_id',$data->id)->count();
                 $action=null;
                 $token=csrf_token();
-                if ($invoice_exist==0){
+                if ($invoice_exist){
                     $action.="<a class='btn btn-danger btn-sm invoice-store' title='Create Invoice' href='#' data-id='{$data->id}'><i class='fa fa-plus'></i> Invoice</a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
@@ -99,9 +100,7 @@ class SalesInvoiceController extends Controller
                 onclick=\"window.open('".url('/jobs/print/invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
                 href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-paperclip'></i> Invoice</a>";
                 }
-
                 return $action;
-
             })
             ->rawColumns(['options','status'])
             ->make(true);

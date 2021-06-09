@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -17,10 +17,14 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Purchase Invoice</h3>
-            <div class="text-right mt-2">
-                <a class="btn btn-primary btn-sm" href="{{route('purchase.invoice.create')}}"> <i class="fa fa-plus-circle"></i> Purchase Invoice</a>
+            <h3 class="font-weight-light float-left"><i class="feather icon-activity"></i> Purchase Invoice</h3>
+            <div class="float-right mt-2">
+                @can('add-purchase-invoice')
+                    <a class="btn btn-primary btn-sm" href="{{route('purchase.invoice.create')}}"> <i class="fa fa-plus-circle"></i> Purchase Invoice</a>
+                @endcan
             </div>
+        </div>
+        <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
                 <thead>

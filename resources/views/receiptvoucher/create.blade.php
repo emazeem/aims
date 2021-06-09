@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function() {
@@ -17,7 +18,7 @@
     @endif
     <div class="row pb-3">
         <div class="col-12 d-sm-flex align-items-center justify-content-between">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Receipt Voucher</h3>
+            <h3 class="font-weight-light"><i class="feather icon-activity"></i> Receipt Voucher</h3>
         </div>
 
         <div class="col-12 mb-5">
@@ -47,6 +48,16 @@
                     @endif
                 </div>
                 <div class="form-group col-6">
+                    <label for="reference" class="control-label">Reference</label>
+                    <input type="text" class="form-control" id="reference" name="reference" value="{{old('reference')}}" placeholder="Enter Reference">
+                    @if ($errors->has('reference'))
+                        <span class="text-danger">
+                                <strong>{{ $errors->first('reference') }}</strong>
+                            </span>
+                    @endif
+                </div>
+
+                <div class="form-group col-6">
                     <label for="attachments" class="control-label">Attachments</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="attachments[]" multiple id="attachments">
@@ -59,8 +70,8 @@
                     @endif
                 </div>
 
-                <div class="col-12 ">
-                    <h5>Customer Receivable (Cr.)</h5>
+                <div class="col-12 mt-4">
+                    <h5 class="font-weight-light">Customer Receivable (Cr.)</h5>
                     <div class="form-group row">
                         <label for="customer_acc" class="col-2 control-label">Customer Account</label>
                         <div class="col-10">
@@ -127,7 +138,7 @@
                     </div>
                 </div>
                 <div class="col-12 payment-type-accounts">
-                    <h5>Bank / Cash (Dr.)</h5>
+                    <h5 class="font-weight-light">Bank / Cash (Dr.)</h5>
                     <div class="form-group row">
                         <label for="payment_type" class="col-2 control-label">Select Payment Type</label>
                         <div class="col-10">
@@ -181,7 +192,7 @@
                 </div>
 
                 <div class="col-12 service-tax-accounts">
-                <h5>Service Tax (Dr.)</h5>
+                <h5 class="font-weight-light">Service Tax (Dr.)</h5>
                     <div class="form-group row">
                         <label for="service_tax_acc" class="col-2 control-label">Income Tax Acc</label>
                         <div class="col-10">
@@ -222,7 +233,7 @@
                     </div>
                 </div>
                 <div class="col-12 advance-income-tax-accounts">
-                <h5>Advance - Income Tax (Dr.)</h5>
+                <h5 class="font-weight-light">Advance - Income Tax (Dr.)</h5>
                     <div class="form-group row">
                         <label for="adv_income_tax_acc" class="col-2 control-label">Advance Income Tax Acc</label>
                         <div class="col-10">
@@ -263,7 +274,7 @@
                     </div>
                 </div>
                 <div class="col-12 liability-income-tax-accounts">
-                    <h5>Liability - Income Tax (Cr.)</h5>
+                    <h5 class="font-weight-light">Liability - Income Tax (Cr.)</h5>
                     <div class="form-group row">
                         <label for="payable_income_tax_acc" class="col-2 control-label">Income Tax Acc</label>
                         <div class="col-10">
@@ -312,8 +323,9 @@
         </div>
     </div>
     <div class="row bg-white p-3 mb-3">
-        <div class="col-3">
-            <h4 class="m-0">Example :</h4>
+        <div class=" col-12">            <h4 class="m-0 font-weight-light">Example :</h4>
+        </div>
+        <div class="col-3 pt-5">
             <p class='m-0'>Service Charges: 100 PKR</p>
             <p class='m-0'>Service Tax (%): 16</p>
             <p class='m-0'>Total Receivable : 116</p>
