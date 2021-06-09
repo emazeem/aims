@@ -146,7 +146,7 @@
                     {
                         button.attr('disabled',null).html(previous);
                         swal('success', data.success, 'success').then((value) => {
-                            window.location.href='{{URL::previous()}}'
+                            window.location.href='{{url('units')}}'
                         });
                     },
                     error: function(xhr)
