@@ -120,8 +120,9 @@ class VoucherController extends Controller
         $c_id=[];
         foreach (Journal::all() as $voucher) {
             $date=substr($voucher->customize_id, 5, 4);
+            $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
-                if ($voucher->type='payment voucher'){
+                if ($type=='PV'){
                     $c_id[]=$voucher->id;
                 }
             }

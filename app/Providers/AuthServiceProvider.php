@@ -200,6 +200,7 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
     }
 
     public function inventory()
@@ -268,6 +269,25 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('add-journal-vouchers', function ($user) {
+            if (in_array('add-journal-vouchers',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('edit-journal-vouchers', function ($user) {
+            if (in_array('edit-journal-vouchers',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('print-journal-vouchers', function ($user) {
+            if (in_array('print-journal-vouchers',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
 
         Gate::define('sales-invoice', function ($user) {
             if (in_array('sales-invoice',explode(',',$user->roles->permissions))){

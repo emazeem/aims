@@ -16,9 +16,11 @@ class JournalVouhcerController extends Controller
 {
     //
     public function index(){
+        $this->authorize('journal-vouchers');
         return view('journalvoucher.index');
     }
     public function edit($id){
+        $this->authorize('edit-journal-vouchers');
         $accounts=AccLevelThree::orderBy('title','ASC')->get();
         foreach ($accounts as $customer){
             $customer->title=str_replace("'","",$customer->title);
@@ -28,12 +30,13 @@ class JournalVouhcerController extends Controller
         return view('journalvoucher.edit',compact('edit','accounts','blines'));
     }
     public function prints($id){
+        $this->authorize('print-journal-vouchers');
         $show=Journal::find($id);
         return view('paymentvoucher.print',compact('show'));
     }
     public function fetch(){
+        $this->authorize('journal-vouchers');
         $data=Journal::with('createdby')->where('type','journal voucher')->get();
-        //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -59,6 +62,7 @@ class JournalVouhcerController extends Controller
 
     }
     public function create(){
+        $this->authorize('add-journal-vouchers');
         $accounts=AccLevelThree::orderBy('title','ASC')->get();
         foreach ($accounts as $customer){
             $customer->title=str_replace("'","",$customer->title);
@@ -68,13 +72,18 @@ class JournalVouhcerController extends Controller
         return view('journalvoucher.create',compact('accounts','blines'));
     }
     public function store(Request $request){
+        $this->authorize('add-journal-vouchers');
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 2, 4);
+            $date=substr($voucher->customize_id, 5, 4);
+            $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
-                $c_id[]=$voucher->id;
+                if ($type=='JV'){
+                    $c_id[]=$voucher->id;
+                }
             }
         }
+        //dd($c_id);
         $this->validate(request(), [
             'v_type' => 'required',
             'v_date' => 'required',
@@ -98,7 +107,7 @@ class JournalVouhcerController extends Controller
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();
-        $journal->customize_id=date('dmy').(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='JV'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
         foreach ($request->account as $k=>$item){
             $details=new JournalDetails();
@@ -120,10 +129,12 @@ class JournalVouhcerController extends Controller
                 $assets->save();
             }
         }
-        return response()->json(['success'=>'Voucher added Successfully']);
+        return response()->json(['success'=>'JV added']);
     }
 
     public function update(Request $request){
+        $this->authorize('edit-journal-vouchers');
+
         $this->validate(request(), [
             'account.*' => 'required',
             'narration.*' => 'required',
@@ -163,6 +174,6 @@ class JournalVouhcerController extends Controller
                 $assets->save();
             }
         }
-        return response()->json(['success'=>'Voucher updated successfully']);
+        return response()->json(['success'=>'JV Updated']);
     }
 }

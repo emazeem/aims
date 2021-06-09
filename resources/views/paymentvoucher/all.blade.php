@@ -14,10 +14,13 @@
             });
         </script>
     @endif
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> All Vouchers</h3>
-            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
+            <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> All Vouchers</h3>
+        </div>
+        <div class="col-12">
+        <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
                 <thead>
                 <tr>

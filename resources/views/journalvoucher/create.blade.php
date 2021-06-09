@@ -15,9 +15,10 @@
             });
         </script>
     @endif
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row pb-3">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Journal Voucher</h3>
+        <div class="col-12">
+            <h3 class="font-weight-light mb-3"><i class="feather icon-plus-circle"></i> Add Journal Voucher</h3>
         </div>
         <div class="col-12">
             <form id="add_voucher_form">

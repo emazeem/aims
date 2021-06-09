@@ -15,9 +15,10 @@
             });
         </script>
     @endif
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row pb-3">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h3 class="border-bottom"><i class="fa fa-refresh"></i> Edit Journal Voucher</h3>
+        <div class="col-12">
+            <h3 class="font-weight-light"><i class="feather icon-edit"></i> Edit Journal Voucher</h3>
         </div>
         <div class="col-12">
             <form id="edit_voucher_form">
@@ -26,7 +27,7 @@
                 <div class="form-group row">
                     <label for="business_line" class="col-2 control-label">Select Business Line</label>
                     <div class="col-10">
-                        <select class="form-control" id="business_line" name="business_line" >
+                        <select class="form-control" id="business_line" name="business_line" disabled>
                             <option value="" selected disabled>Select Business Line</option>
                             @foreach($blines as $bline)
                                 <option value="{{$bline->id}}" {{$bline->id==1?'selected':''}}>{{$bline->title}}</option>
@@ -43,7 +44,7 @@
                 <div class="form-group row">
                     <label for="v_type" class="col-2 control-label">Select Voucher Type</label>
                     <div class="col-10">
-                        <select class="form-control" id="v_type" name="v_type" >
+                        <select class="form-control" id="v_type" name="v_type" disabled>
                             <option value="journal" selected>Journal Voucher</option>
                         </select>
                         @if ($errors->has('v_type'))
@@ -54,9 +55,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="v_date" class="col-2 control-label">Date of Voucher</label>
+                    <label for="v_date" class="col-2 control-label" >Date of Voucher</label>
                     <div class="col-10">
-                        <input type="date" class="form-control" id="v_date" name="v_date" value="{{old('v_date',date('Y-m-d'))}}">
+                        <input type="date" class="form-control" id="v_date" disabled name="v_date" value="{{old('v_date',date('Y-m-d'))}}">
                         @if ($errors->has('v_date'))
                             <span class="text-danger">
                                 <strong>{{ $errors->first('v_date') }}</strong>

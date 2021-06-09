@@ -148,13 +148,6 @@
                 contentType: false,
                 cache: false,
                 processData:false,
-                statusCode: {
-                    403: function() {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Access Denied" , "error");
-                        return false;
-                    }
-                },
                 success: function(data)
                 {
 
@@ -163,8 +156,7 @@
 
                         $('#add_menu').modal('toggle');
                         swal('success',data.success,'success').then((value) => {
-                            location.reload();
-
+                            $("#example").DataTable().ajax.reload(null,false);
                         });
 
                     }
@@ -193,13 +185,12 @@
                 {
                     $('#edit_menu').modal('hide');
                     swal('success',data.success,'success').then((value) => {
-                        InitTable('all');
+                        $("#example").DataTable().ajax.reload(null,false);
                     });
 
                 },
                 error: function(xhr, status, error)
                 {
-
                     var error;
                     error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
