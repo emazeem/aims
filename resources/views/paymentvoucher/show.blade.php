@@ -20,7 +20,9 @@
             <h3 class="font-weight-light float-left">
                 <i class="feather icon-eye "></i>{{$show->customize_id}}</h3>
             <span class="float-right">
-            <a href="{{route('vouchers.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i> Print</a>
+                @can('print-payment-voucher')
+                    <a href="{{route('vouchers.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i> Print</a>
+                @endcan
             </span>
         </div>
         <div class="col-12">
@@ -79,8 +81,8 @@
             </table>
         </div>
         <div class="col-12">
-            <h4 class="border-bottom pull-left">
-                <i class="fa fa-tasks"></i>
+            <h4 class="font-weight-light">
+                <i class="feather icon-list"></i>
                 Voucher Details
             </h4>
             <table class="table table-hover table-sm font-13 table-bordered bg-white">

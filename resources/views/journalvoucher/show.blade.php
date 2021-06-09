@@ -22,7 +22,9 @@
                 Voucher # {{$show->id}}
             </h3>
             <span class="float-right">
-            <a href="{{route('vouchers.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i></a>
+                @can('print-journal-vouchers')
+                    <a href="{{route('vouchers.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i></a>
+                @endcan
             </span>
         </div>
         <div class="col-12">
@@ -76,8 +78,8 @@
             </table>
         </div>
         <div class="col-12">
-            <h4 class="border-bottom pull-left">
-                <i class="fa fa-tasks"></i>
+            <h4 class="font-weight-light">
+                <i class="feather icon-list"></i>
                 Voucher Details
             </h4>
             <table class="table table-hover table-sm font-13 table-bordered bg-white">
