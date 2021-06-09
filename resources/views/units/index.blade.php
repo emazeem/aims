@@ -92,7 +92,6 @@
                                 success: function (data) {
                                     swal('success', data.success, 'success').then((value) => {
                                         $("#example").DataTable().ajax.reload(null,false);
-
                                     });
 
                                 },

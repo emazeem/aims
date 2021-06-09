@@ -98,7 +98,7 @@ class UnitController extends Controller
         $unit->factor_multiply=$request->factor_multiply;
         $unit->factor_add=$request->factor_add;
         $unit->save();
-        return  response()->json(['success'=>'Unit has been added successfully.']);
+        return response()->json(['success'=>'Unit has been added successfully.']);
     }
     public function update(Request $request){
         $this->authorize('update-units');
