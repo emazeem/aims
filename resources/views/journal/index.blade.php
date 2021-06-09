@@ -17,7 +17,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="pull-left"><i class="fa fa-money"></i> General Journal</h3>
+            <h3 class="float-left font-weight-light"><i class="fa fa-money"></i> General Journal</h3>
             <span class="float-right mt-1">
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#general-ledger">General Ledger</button>
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#trial-balance">Trail Balance</button>
@@ -26,7 +26,9 @@
                 <a href="{{route('journal.receivable_aging')}}" class="btn btn-sm btn-primary shadow-sm pull-right">Receivable Aging</a>
                 <button {{--href="{{route('journal.pra')}}"--}} data-toggle="modal" data-target="#pra" class="btn btn-sm btn-primary shadow-sm pull-right">PRA</button>
             </span>
-            <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
+        </div>
+        <div class="col-12">
+        <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th>ID</th>
