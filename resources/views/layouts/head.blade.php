@@ -33,7 +33,7 @@
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i><span class="badge bg-danger"><span class="sr-only"></span></span></a>
                     <div class="dropdown-menu dropdown-menu-right notification">
                         <div class="noti-head">
-                            <h6 class="d-inline-block m-b-0">Notifications</h6>
+                            <h6 class="d-inline-block m-b-0"> {{Auth::user()->UnreadNotifications->count()}} Notifications</h6>
                             <div class="float-right">
                                 <a href="#!" class="m-r-10">mark as read</a>
                                 <a href="#!">clear all</a>

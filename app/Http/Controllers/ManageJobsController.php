@@ -9,7 +9,10 @@ use App\Models\Labjob;
 use App\Models\Quotes;
 use App\Models\Role;
 use App\Models\Sitejob;
+use App\Models\User;
+use App\Notifications\CustomNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Yajra\DataTables\DataTables;
 
 class ManageJobsController extends Controller
@@ -147,6 +150,17 @@ class ManageJobsController extends Controller
                  }
              }
          }
+
+        $users = User::where('user_type', 1)->get();
+        $url = '/jobs/view/'.$job->id;
+        $message = collect([
+            'title' => 'A new job has been created',
+            'by'=>auth()->user()->id,
+            'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' created a job (' .$job->cid.') from '.Quotes::find($request->id)->cid,
+            'redirectURL' => $url
+        ]);
+        Notification::send($users, new CustomNotification($message));
+
         return redirect()->back()->with('success','Job created successfully');
     }
 

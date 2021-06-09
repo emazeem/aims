@@ -34,8 +34,10 @@ class UnitController extends Controller
             })
             ->addColumn('secondary', function ($data) {
                 $secondary=null;
+
                 foreach ($data->others as $other){
-                    $secondary.='<span class="badge">'.$other->unit.'</span>';
+
+                    $secondary.='<span class="badge" data-toggle="tooltip" data-placement="top" title="'.$other->factor_multiply.'">'.$other->unit.'</span>';
                 }
                 return $secondary;
             })

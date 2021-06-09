@@ -7,7 +7,7 @@
             });
         </script>
     @endif
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('/assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
 
         <div class="col-12">
@@ -59,11 +59,9 @@
                             [ <span class="text-success">Pending</span> ]
                         @endif
                         @if($show->status==1)
-                            [ <span class="text-success">Marked as Complete</span> ]
-                            [ <span class="text-success">Still not Sent to Customer</span> ]
+                            [ <span class="text-success">To be Sent to Customer</span> ]
                         @endif
                         @if($show->status==2)
-                            [ <span class="text-success">Quote Sent to Customer</span> ]
                             [ <span class="text-success">Awaiting Customer Approval</span> ]
                         @endif
                         @if($show->status==3)
@@ -219,42 +217,25 @@
                                         if (isset($show->customers->pur_phone)) {
                                             $purchase_phones = explode('-', $show->customers->pur_phone);
                                         }
+
                                         ?>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="pur_phone"
                                                    name="pur_phone[]"
                                                    placeholder="Phone" autocomplete="off"
                                                    value="{{old('pur_phone',$purchase_phones?$purchase_phones[0]:null)}}">
-                                            @if ($errors->has('pur_phone'))
-                                                <span class="text-danger">
-                          <strong>{{ $errors->first('pur_phone') }}</strong>
-                      </span>
-                                            @endif
-
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="pur_phone"
                                                    name="pur_phone[]"
                                                    placeholder="Phone (opt)" autocomplete="off"
-                                                   value="{{old('pur_phone',$purchase_phones?$purchase_phones[1]:null)}}">
-                                            @if ($errors->has('pur_phone'))
-                                                <span class="text-danger">
-                          <strong>{{ $errors->first('pur_phone') }}</strong>
-                      </span>
-                                            @endif
-
+                                                   value="{{old('pur_phone',count($purchase_phones)==2?$purchase_phones[1]:null)}}">
                                         </div>
 
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="purchase" name="pur_email"
                                                    placeholder="Email" autocomplete="off"
                                                    value="{{old('pur_email',$show->customers->pur_email?$show->customers->pur_email: null)}}">
-                                            @if ($errors->has('pur_email'))
-                                                <span class="text-danger">
-                          <strong>{{ $errors->first('pur_email') }}</strong>
-                      </span>
-                                            @endif
-
                                         </div>
                                     </div>
                                 </div>

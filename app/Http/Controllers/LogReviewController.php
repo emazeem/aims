@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\LogReview;
 use App\Models\User;
-use App\Notifications\LogReviewNotification;
+
+use App\Notifications\CustomNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -161,8 +162,8 @@ class LogReviewController extends Controller
 
         $users = User::where('user_type', 1)->get();
         $url = '/log-reviews/show/'.$log->id;
-        $message = collect(['title' => 'Task completed successfully','by'=>auth()->user()->id, 'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' has finished this task', 'redirectURL' => $url]);
-        Notification::send($users, new LogReviewNotification($message));
+        $message = collect(['title' => 'Task completed successfully','by'=>auth()->user()->id, 'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' has finished Task # '.$log->id, 'redirectURL' => $url]);
+        Notification::send($users, new CustomNotification($message));
 
         return response()->json(['success'=>'Task Completed Successfully']);
     }

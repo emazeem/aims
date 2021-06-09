@@ -1,7 +1,7 @@
 
     <div class="col-12">
         <div class="row">
-            <h3 class="float-left font-weight-light"><i class="feather icon-plus-circle"></i> Drop Items to Create Job</h3>
+            <h4 class="float-left font-weight-light"><i class="feather icon-plus-circle"></i> Select Items to Create Job</h4>
 
         </div>
         <form method="post" action="{{route('jobs.manage.store')}}">
@@ -24,10 +24,21 @@
                     @if($item->status!=3)
                         <tr>
                             <td>
+
                                 @if(!in_array($item->id,$assigned_items))
-                                    <input type="checkbox" name="items[]" value="{{$item->id}}" id="{{$item->id}}" >
+                                    <div class="form-group">
+                                        <div class="checkbox checkbox-fill d-inline">
+                                            <input type="checkbox" name="items[]" value="{{$item->id}}" id="{{$item->id}}">
+                                            <label class="cr" for="{{$item->id}}"></label>
+                                        </div>
+                                    </div>
                                 @else
-                                    <input type="checkbox" name="items[]" value="{{$item->id}}" id="{{$item->id}}" disabled checked>
+                                    <div class="form-group">
+                                        <div class="checkbox checkbox-fill d-inline">
+                                            <input type="checkbox"  name="items[]" value="{{$item->id}}" id="{{$item->id}}" disabled checked>
+                                            <label class="cr" for="{{$item->id}}"></label>
+                                        </div>
+                                    </div>
                                 @endif
                             </td>
                             <td>

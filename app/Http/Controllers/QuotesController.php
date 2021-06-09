@@ -7,7 +7,7 @@ use App\Models\Item;
 use App\Models\Quoterevisionlog;
 use App\Models\Quotes;
 use App\Models\User;
-use App\Notifications\LogReviewNotification;
+use App\Notifications\CustomNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Yajra\DataTables\DataTables;
@@ -363,6 +363,13 @@ class QuotesController extends Controller
         $approval->status=3;
         $approval->type=$type;
         $approval->save();
+
+
+        $users = User::where('user_type', 1)->get();
+        $url = '/quotes/view/'.$approval->id;
+        $message = collect(['title' => 'RFQ has been approved','by'=>auth()->user()->id, 'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' has approved '.$approval->cid, 'redirectURL' => $url]);
+        Notification::send($users, new CustomNotification($message));
+
         return response()->json(['success'=>'Quote approved successfully']);
     }
     public function revised($id){
@@ -391,8 +398,8 @@ class QuotesController extends Controller
 
             $users = User::where('user_type', 1)->get();
             $url = '/quotes/view/'.$approval->id;
-            $message = collect(['title' => 'RFQ has been marked as complete','by'=>auth()->user()->id, 'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' has approved this RFQ', 'redirectURL' => $url]);
-            Notification::send($users, new LogReviewNotification($message));
+            $message = collect(['title' => 'RFQ has been marked as complete','by'=>auth()->user()->id, 'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' has marked this RFQ '.$approval->cid .' as completed. ', 'redirectURL' => $url]);
+            Notification::send($users, new CustomNotification($message));
             return response()->json(['success'=>'Quote is marked as complete']);
         }
 
@@ -406,15 +413,16 @@ class QuotesController extends Controller
         return response()->json(['success'=>'Quote is marked as sent to customer']);
     }
     public function discount(Request $request){
-        //dd($request->all());
         $items=Item::where('quote_id',$request->id)->get();
         foreach ($items as $item){
             if ($item->status==0 || $item->status==2){
                 $update=Item::find($item->id);
-                $update->price=$update->price-(($request->discount/100)*$update->price);
+
                 $log=new Quoterevisionlog();
                 $log->quote_id=$item->quote_id;
-                $log->description='QTN/'.date('y',strtotime($item->quotes->created_at)).'/'.$item->quote_id.' ('.$item->id.')'.$request->discount.'% Discount applied with old value of '.$update->price.' and new price is '.($update->price-(($request->discount/100)*$update->price));
+                $log->description= $item->quotes->cid.'('.$item->id.')'.$request->discount.'% Discount applied with old value of '.$update->price.' and new price is '.($update->price-(($request->discount/100)*$update->price));
+
+                $update->price=$update->price-(($request->discount/100)*$update->price);
                 if ($update->save()){
                     $log->save();
                 }

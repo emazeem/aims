@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -10,12 +11,12 @@
     <div class="row">
 
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-eye"></i> QTN/{{date('y',strtotime($show->created_at))}}/{{$show->id}} <small><i class="fa fa-arrow-right"></i></small> Details</h3>
+            <h3 class="font-weight-light"><i class="feather icon-eye"></i> {{$show->cid}} <small></h3>
 
             <table class="table table-hover bg-white table-bordered table-sm mt-2">
                 <tr>
                     <td><b>Quote #</b></td>
-                    <td>QTN/{{date('y',strtotime($show->created_at))}}{{$show->id}}</td>
+                    <td>{{$show->cid}}</td>
                 </tr>
 
                 <tr>

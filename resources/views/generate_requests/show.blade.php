@@ -54,19 +54,8 @@
                             [ <span class="text-success">Pending</span> ]
                         @endif
                         @if($show->status==1)
-                            [ <span class="text-success">Marked as Complete</span> ]
-                            [ <span class="text-success">Still not Sent to Customer</span> ]
+                            [ <span class="text-success">To be Sent to Customer</span> ]
                         @endif
-                        @if($show->status==2)
-                            [ <span class="text-success">Quote Sent to Customer</span> ]
-                            [ <span class="text-success">Awaiting Customer Approval</span> ]
-                        @endif
-                        @if($show->status==3)
-                            [ <span class="text-success">Quote is approved by Customer</span> ]
-                        @endif
-
-
-
                         @if($noaction==true)
                             [ <span class="text-danger">Item(s) pending for review</span> ]
                         @endif
@@ -156,60 +145,59 @@
             </table>
         </div>
         @if($show->status==0)
-            @if(count($show->items)>0)
-                <div class="col-12">
-                    <div class="card shadow">
-                        <!-- Card Header - Accordion -->
-                        <a href="#remarks_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                           aria-expanded="true" aria-controls="collapseCardExample">
-                            <h6 class="m-0 font-weight-bold text-primary"> Remarks & Turnaround</h6>
-                        </a>
-                        <div class="collapse" id="remarks_card">
-                            <div class="card-body">
-                                <form action="{{url('/quotes/remarks')}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$show->id}}">
-                                    <div class="row">
-                                        <div class="col-12 col-md-5">
-                                            <div class="font-italic form-group p-0 m-0">
-                                                <label for="remarks">Remarks (if any)</label>
-                                                <input type="text" class="form-control " id="remarks" name="remarks" autocomplete="off" value="{{old('remarks')}}" placeholder="Enter RFQ Remarks">
-                                            </div>
-                                            @if ($errors->has('remarks'))
-                                                <span class="text-danger">
+            <div class="col-12">
+                <div class="card shadow">
+                    <!-- Card Header - Accordion -->
+                    <a href="#remarks_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                       aria-expanded="true" aria-controls="collapseCardExample">
+                        <h6 class="m-0 font-weight-bold text-primary"> Remarks & Turnaround</h6>
+                    </a>
+                    <div class="collapse" id="remarks_card">
+                        <div class="card-body">
+                            <form action="{{url('/quotes/remarks')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$show->id}}">
+                                <div class="row">
+                                    <div class="col-12 col-md-5">
+                                        <div class="font-italic form-group p-0 m-0">
+                                            <label for="remarks">Remarks (if any)</label>
+                                            <input type="text" class="form-control " id="remarks" name="remarks" autocomplete="off" value="{{old('remarks')}}" placeholder="Enter RFQ Remarks">
+                                        </div>
+                                        @if ($errors->has('remarks'))
+                                            <span class="text-danger">
                                             <strong>{{ $errors->first('remarks') }}</strong>
                                         </span>
-                                            @endif
-                                        </div>
-                                        <div class="col-12 col-md-5">
+                                        @endif
+                                    </div>
+                                    <div class="col-12 col-md-5">
 
-                                            <label for="turnaround"><i>Tentative Turnaround </i></label>
-                                            <div class="form-check form-check-inline" style="width: 100%">
-                                                <select class="form-control" id="turnaround" name="turnaround">
-                                                    <option disabled selected>Select Turnaround</option>
-                                                    <option value="3" {{(count($show->items)>0 && count($show->items)<=5)?'selected':''}}>5 working days</option>
-                                                    <option value="8" {{(count($show->items)>5 && count($show->items)<=10)?'selected':''}}>10 working days</option>
-                                                    <option value="15" {{(count($show->items)>10 && count($show->items)<=50)?'selected':''}}>15 working days</option>
-                                                    <option value="30" {{(count($show->items)>50)?'selected':''}}>30 working days</option>
-                                                </select>
-                                                @if ($errors->has('turnaround'))
-                                                    <span class="text-danger">
+                                        <label for="turnaround"><i>Tentative Turnaround </i></label>
+                                        <div class="form-check form-check-inline" style="width: 100%">
+                                            <select class="form-control" id="turnaround" name="turnaround">
+                                                <option disabled selected>Select Turnaround</option>
+                                                <option value="3" {{(count($show->items)>0 && count($show->items)<=5)?'selected':''}}>5 working days</option>
+                                                <option value="8" {{(count($show->items)>5 && count($show->items)<=10)?'selected':''}}>10 working days</option>
+                                                <option value="15" {{(count($show->items)>10 && count($show->items)<=50)?'selected':''}}>15 working days</option>
+                                                <option value="30" {{(count($show->items)>50)?'selected':''}}>30 working days</option>
+                                            </select>
+                                            @if ($errors->has('turnaround'))
+                                                <span class="text-danger">
                                                 <strong>{{ $errors->first('turnaround') }}</strong>
                                             </span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-2">
-                                            <button class="btn btn-primary mt-4" type="submit"><i class="fa fa-save"></i> Save</button>
+                                            @endif
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="col-12 col-md-2">
+                                        <button class="btn btn-primary mt-4" type="submit"><i class="fa fa-save"></i> Save</button>
+                                    </div>
+                                </div>
+                            </form>
 
-                            </div>
                         </div>
                     </div>
                 </div>
-            @endif
+            </div>
+
         @endif
 
     </div>

@@ -243,11 +243,6 @@ class CustomerController extends Controller
             $customer->acc_code=$acc->acc_code;
             $customer->save();
 
-            $users = User::where('user_type', 1)->get();
-            $url = '/customers/view/'.$customer->id;
-            $creator = auth()->user()->fname . ' ' . auth()->user()->lname;
-            $message = collect(['title' => 'New customer added','by'=>auth()->user()->id, 'body' => 'A new customer ( '.$customer->reg_name.' ) has been added.', 'redirectURL' => $url]);
-            Notification::send($users, new CustomerNotification($message));
             return response()->json(['success'=>'Customer added successfully']);
         }
     }

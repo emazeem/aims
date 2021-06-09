@@ -10,14 +10,16 @@ use Illuminate\Notifications\Notification;
 class CustomNotification extends Notification
 {
     use Queueable;
+    private $notification;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($notification)
     {
+        $this->notification=$notification;
         //
     }
 
@@ -29,7 +31,7 @@ class CustomNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -55,6 +57,7 @@ class CustomNotification extends Notification
     public function toArray($notifiable)
     {
         return [
+            'data'=>$this->notification
             //
         ];
     }
