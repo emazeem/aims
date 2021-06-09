@@ -87,10 +87,10 @@ class UnitController extends Controller
             'unit.required' => 'Unit is required.',
             'parameter.required' => 'Parameter is required.',
         ]);
-        $alreadyhavepriamry=Unit::where('parameter',$request->parameter)->where('primary_',null)->get();
+        /*$alreadyhavepriamry=Unit::where('parameter',$request->parameter)->where('primary_',null)->get();
         if (count($alreadyhavepriamry)!=0){
             return response()->json(['error'=>'This parameter has already primary unit'],404);
-        }
+        }*/
         $unit=new Unit();
         $unit->unit=$request->unit;
         $unit->parameter=$request->parameter;
