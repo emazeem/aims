@@ -75,8 +75,8 @@
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off" value="{{old('password')}}">
                         @if ($errors->has('password'))
                             <span class="text-danger">
-                          <strong>{{ $errors->first('password') }}</strong>
-                      </span>
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
                         @endif
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-@if(Session::has('success'))
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+    @if(Session::has('success'))
     <script>
         $(document).ready(function () {
             swal("Done!", '{{Session('success')}}', "success");

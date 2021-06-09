@@ -1,7 +1,12 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         $("#add_na_form").on('submit',(function(e) {
+
+            var button=$('.non-listed-add-btn');
+            var previous=$('.non-listed-add-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
             e.preventDefault();
             $.ajax({
                 url: "{{route('items.store')}}",
@@ -12,6 +17,7 @@
                 processData:false,
                 success: function(data)
                 {
+                    button.attr('disabled',null).html(previous);
                     $('#add_na').modal('hide');
                     swal('success', data.success, 'success').then((value) => {
                         location.reload();
@@ -19,6 +25,7 @@
                 },
                 error: function(xhr)
                 {
+                    button.attr('disabled',null).html(previous);
                     var error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;
@@ -29,6 +36,11 @@
             });
         }));
         $("#edit_na_form").on('submit', (function (e) {
+
+            var button=$('.non-listed-update-btn');
+            var previous=$('.non-listed-update-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
             e.preventDefault();
             $.ajax({
                 url: "{{route('items.updateNA')}}",
@@ -37,24 +49,15 @@
                 contentType: false,
                 cache: false,
                 processData: false,
-                statusCode: {
-                    403: function () {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Access Denied", "error");
-                        return false;
-                    }
-                },
                 success: function (data) {
-
-                    if (!data.errors) {
-                        swal('success', data.success, 'success').then((value) => {
-                            location.reload();
-                        });
-
-                        InitTable();
-                    }
+                    button.attr('disabled',null).html(previous);
+                    swal('success', data.success, 'success').then((value) => {
+                        location.reload();
+                    });
+                    InitTable();
                 },
                 error: function (xhr) {
+                    button.attr('disabled',null).html(previous);
                     var error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;
@@ -71,16 +74,6 @@
                 type: "POST",
                 data: {'id': id, _token: '{{csrf_token()}}'},
                 dataType: "json",
-                beforeSend: function () {
-                    $(".loading").fadeIn();
-                },
-                statusCode: {
-                    403: function () {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Permission deneid for this action.", "error");
-                        return false;
-                    }
-                },
                 success: function (data) {
                     $('#edit_na').modal('toggle');
                     $('#edit_id').val(data.id);
@@ -134,7 +127,7 @@
                     </div>
             </div>
             <div class="modal-footer m-0 p-2">
-                <button class="btn btn-primary btn-sm " type="submit"><i class="fa fa-save"></i> Save</button>
+                <button class="btn btn-primary btn-sm non-listed-add-btn" type="submit"><i class="fa fa-save"></i> Save</button>
                 </form>
             </div>
         </div>
@@ -179,7 +172,7 @@
                     </div>
             </div>
             <div class="modal-footer m-0 py-2">
-                <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-refresh"></i> Update</button>
+                <button class="btn btn-primary btn-sm non-listed-update-btn" type="submit"><i class="fa fa-refresh"></i> Update</button>
                 </form>
             </div>
         </div>

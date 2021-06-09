@@ -154,9 +154,9 @@
 
     <hr>
     <div class="row bg-white pb-3">
-        <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-            <h3 class="pull-left pb-1"><i class="fa fa-plus-circle"></i> Add Items</h3>
-            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#add_na">
+        <div class="my-4 col-12">
+            <h3 class="float-left pb-1 font-weight-light"><i class="feather icon-plus-circle"></i> Add Items</h3>
+            <button class="btn float-right btn-danger btn-sm" data-toggle="modal" data-target="#add_na">
                 <i class="fa fa-times"></i> Not Listed
             </button>
 

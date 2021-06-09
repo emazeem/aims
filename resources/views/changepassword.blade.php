@@ -21,12 +21,9 @@
 
     <div class="row">
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-key"></i> Change Password</h3>
+            <h3 class="float-left font-weight-light pb-1"><i class="feather icon-lock"></i> Change Password</h3>
         </div>
-        <div class="col-md-4 col-12"></div>
         <div class="col-md-4 mt-4 col-12">
-            <div class="text-center">
-            </div>
             <form class="form-horizontal" action="{{route('change-password')}}" method="post" autocomplete="off">
                 @csrf
                 <div class="box-body">

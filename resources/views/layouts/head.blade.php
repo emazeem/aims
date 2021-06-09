@@ -117,6 +117,7 @@
                         <ul class="pro-body">
                             <li><a href="{{url('/profile')}}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
                             <li><a href="{{url('/notifications')}}" class="dropdown-item"><i class="feather icon-bell"></i> Notifications</a></li>
+                            <li><a href="{{url('/change_password')}}" class="dropdown-item"><i class="feather icon-lock"></i> Change Password</a></li>
                             <li>
                                 <a class="dropdown-item" title="Logout"
                                    onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"
