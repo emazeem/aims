@@ -17,7 +17,7 @@ class CapabilitiesController extends Controller
 {
     public function index(){
         $this->authorize('capabilities-index');
-        $procedures=Procedure::all();
+        $procedures=Procedure::orderBy('name','ASC')->get();
         $parameters=Parameter::orderBy('name','ASC')->get();
         $units=Unit::all();
         $parent=Preference::where('slug','calculators')->first();

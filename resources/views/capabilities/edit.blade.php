@@ -135,12 +135,12 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group col-6 p-1 m-0">
+                    <div class="form-group col-12 p-1 m-0">
                         <label for="procedure" class=" control-label">Procedure</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control select-2-procedure"  style="width: 100%" id="editprocedure" name="procedure">
                                 @foreach($procedures as $procedure)
-                                    <option value="{{$procedure->id}}">{{$procedure->name}}</option>
+                                    <option value="{{$procedure->id}}">{{$procedure->name}}-{{$procedure->description}}</option>
                                 @endforeach
                             </select>
                         </div>
