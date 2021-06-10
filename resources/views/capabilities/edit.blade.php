@@ -2,9 +2,9 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-refresh"></i> Update Capabilities</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-refresh-cw"></i> Update Capabilities</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
+                    <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                 </button>
             </div>
             <div class="modal-body">
@@ -96,13 +96,15 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-6 p-1 m-0 form-check pt-5">
-                        <label class="ml-md-3" for="accredited">
-                            <input type="checkbox" class=" form-check-input"  name="accredited" id="editaccredited">
-                            Accredited
-                        </label>
-                        <button type="submit" class="btn cap-update-btn btn-primary float-right"><i class="fa fa-refresh"></i> Update</button>
-
+                    <div class="col-6"></div>
+                    <div class="col-6 p-1 m-0 form-check">
+                        <div class="checkbox float-right checkbox-fill d-inline">
+                            <input type="checkbox" name="accredited" value="" id="editaccredited">
+                            <label class="cr" for="accredited">Accredited</label>
+                        </div>
+                    </div>
+                    <div class="col-6 text-right">
+                        <button type="submit" class="btn cap-update-btn btn-primary"><i class="feather icon-refresh-cw"></i> Update</button>
                     </div>
                 </form>
 
@@ -169,7 +171,7 @@
                     if(data.accredited=='yes'){
                         $("#editaccredited").prop('checked', true);
                     }else {
-
+                        $("#editaccredited").prop('checked', false);
                     }
 
                     $('#editunit').empty();
