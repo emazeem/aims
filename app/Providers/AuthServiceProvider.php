@@ -973,6 +973,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('capabilities-delete', function ($user) {
+            if (in_array('capabilities-delete',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
 
     }
     public function roles()
