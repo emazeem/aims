@@ -105,7 +105,7 @@
                             <label class="cr" for="accredited">Accredited</label>
                         </div>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-12 text-right">
                         <button type="submit" class="btn cap-save-btn btn-primary"><i class="fa fa-save"></i> Save</button>
                     </div>
                 </form>

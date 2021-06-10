@@ -69,7 +69,6 @@
                         <label for="unit" class=" control-label">Unit</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="editunit" name="unit">
-                                <option selected disabled>Select Unit</option>
 
                             </select>
                         </div>
@@ -103,7 +102,7 @@
                             <label class="cr" for="editaccredited">Accredited</label>
                         </div>
                     </div>
-                    <div class="col-6 text-right">
+                    <div class="col-12 text-right">
                         <button type="submit" class="btn cap-update-btn btn-primary"><i class="feather icon-refresh-cw"></i> Update</button>
                     </div>
                 </form>
@@ -126,7 +125,7 @@
                     dataType: "json",
                     success:function(data) {
                         $('#editunit').empty();
-                        $('#editunit').append('<option disabled selected>--Select Units</option>');
+                        $('#editunit').append('<option disabled >--Select Units</option>');
                         $.each(data['previous'], function(key, value) {
                             $('#editunit').append('<option value="'+value.id+'">'+ value.unit +'</option>');
                         });
@@ -175,12 +174,12 @@
                     }
 
                     $('#editunit').empty();
-                    $('#editunit').append('<option disabled selected>--Select Units</option>');
+                    $('#editunit').append('<option disabled>--Select Units</option>');
                     $.each(data['units'], function(key, value) {
                         var selection = data.unit == value.id ? 'selected' : '';
                         $('#editunit').append('<option value="'+value.id+'" '+selection+'>'+ value.unit +'</option>');
                     });
-
+                    $('#editunit').val(data.unit);
                     //Populating Form Data to Edit Ends
                 },
                 error: function(){},
