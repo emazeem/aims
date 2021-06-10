@@ -145,17 +145,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group col-6 p-1 m-0">
-                        <label for="calculator" class=" control-label">Calculator</label>
-                        <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="editcalculator" name="calculator">
-                                <option selected disabled>Select Calculator</option>
-                                @foreach($calculators as $calculator)
-                                    <option value="{{$calculator->slug}}">{{$calculator->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="form-group col-6 p-1 m-0">
                         <label for="min_range" class=" control-label">Min Range</label>
                         <input type="text" class="form-control" id="edit_min_range" name="min_range" placeholder="Min Range" autocomplete="off"  value="0">
@@ -172,7 +162,17 @@
                         <label for="acc_max_range" class=" control-label">Accredited Max Range</label>
                         <input type="text" class="form-control" id="edit_acc_max_range" name="acc_max_range" placeholder="Accredited Max Range" autocomplete="off">
                     </div>
-
+                    <div class="form-group col-6 p-1 m-0">
+                        <label for="calculator" class=" control-label">Calculator</label>
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="editcalculator" name="calculator">
+                                <option selected disabled>Select Calculator</option>
+                                @foreach($calculators as $calculator)
+                                    <option value="{{$calculator->slug}}">{{$calculator->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="form-group col-6 p-1 m-0">
                         <label for="unit" class=" control-label">Unit</label>
