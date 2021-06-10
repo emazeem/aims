@@ -16,29 +16,6 @@ use Yajra\DataTables\DataTables;
 class CapabilitiesController extends Controller
 {
     public function index(){
-        /*$caps=Capabilities::all();
-        foreach ($caps as $k=> $cap){
-            if (strpos($cap->range, '~') !== false ){
-                $range=explode('~',$cap->range);
-                $min=$range[0];
-                $max=$range[1];
-            }elseif ($cap->range==0){
-                $min=0;
-                $max=0;
-            }else{
-                $min=0;
-                $max=$cap->range;
-            }
-            $cap->min_range=$min;
-            $cap->max_range=$max;
-            if ($cap->accredited=='yes'){
-                $cap->accredited_min_range=$min;
-                $cap->accredited_max_range=$max;
-            }
-            $cap->save();
-        }
-        dd(1);*/
-
         $procedures=Procedure::all();
         $parameters=DB::table('parameters')->get();
         $units=Unit::all();
@@ -54,6 +31,7 @@ class CapabilitiesController extends Controller
     }
     public function edit(Request $request){
         $edit=Capabilities::find($request->id);
+        $edit['units']=Unit::all()->where('parameter',$edit->parameter);
         return response()->json($edit);
     }
     public function fetch(){

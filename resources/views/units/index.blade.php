@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <div class="row">
+    <div class="row">
         <div class="col-12">
             <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> All Units</h3>
             @can('create-units')

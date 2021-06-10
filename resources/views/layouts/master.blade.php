@@ -36,6 +36,8 @@
     @else
         @yield('content')
     @endif
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+
     <script src="{{url('assets/js/vendor-all.min.js')}}"></script>
     <script src="{{url('assets/js/plugins/bootstrap.min.js')}}"></script>
     <script src="{{url('assets/js/pcoded.min.js')}}"></script>
