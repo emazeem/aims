@@ -9,7 +9,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Unit extends Model
 {
-    use HasFactory,LogsActivity,SoftDeletes;
+    use HasFactory,LogsActivity;
+    use SoftDeletes;
     public function parameters(){
         return $this->belongsTo('App\Models\Parameter','parameter')->withDefault();
         //
