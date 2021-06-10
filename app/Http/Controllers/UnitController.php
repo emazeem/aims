@@ -16,11 +16,11 @@ use Yajra\DataTables\DataTables;
 class UnitController extends Controller
 {
     public function index(){
-        $units=Unit::onlyTrashed()->get();
+        /*$units=Unit::onlyTrashed()->get();
         foreach ($units as $unit){
             echo 'DELETE FROM `units` WHERE id = '.$unit->id.';';
         }
-        dd($units);
+        dd($units);*/
         $this->authorize('units-index');
         return view('units.index');
     }
