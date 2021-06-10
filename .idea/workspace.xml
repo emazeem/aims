@@ -96,11 +96,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AssetController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="45" column="3" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
+            <state relative-caret-position="-242">
+              <caret line="72" column="94" selection-start-line="72" selection-start-column="94" selection-end-line="72" selection-end-column="94" />
             </state>
           </provider>
         </entry>
@@ -114,7 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/assets/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
@@ -185,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VoucherController.php" />
         <option value="$PROJECT_DIR$/resources/views/paymentvoucher/all.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/JournalVouhcerController.php" />
         <option value="$PROJECT_DIR$/resources/views/journalvoucher/edit.blade.php" />
@@ -236,6 +235,7 @@
         <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" />
       </list>
     </option>
   </component>
@@ -677,12 +677,12 @@
       <workItem from="1623056655102" duration="3586000" />
       <workItem from="1623063387438" duration="3705000" />
       <workItem from="1623078399979" duration="56445000" />
-      <workItem from="1623296353972" duration="14422000" />
+      <workItem from="1623296353972" duration="14683000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371457000" />
+    <option name="totallyTimeSpent" value="371718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1096,13 +1096,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AssetController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="45" column="3" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1114,6 +1107,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="81" selection-start-line="5" selection-start-column="81" selection-end-line="5" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AssetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242">
+          <caret line="72" column="94" selection-start-line="72" selection-start-column="94" selection-end-line="72" selection-end-column="94" />
         </state>
       </provider>
     </entry>

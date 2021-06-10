@@ -69,8 +69,8 @@ class AssetController extends Controller
             ->addColumn('options', function ($data) {
 
                 $token=csrf_token();
-                $action="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/assets/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
-                $action.="<a title='Show' class='btn btn-sm btn-warning' href='" . url('/assets/show/' . $data->id) . "'><i class='fa fa-eye'></i></a>";
+                $action="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/asset/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                $action.="<a title='Show' class='btn btn-sm btn-warning' href='" . url('/asset/show/' . $data->id) . "'><i class='fa fa-eye'></i></a>";
                 $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
