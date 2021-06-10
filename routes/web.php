@@ -106,7 +106,7 @@ Route::group(['prefix'=> 'capabilities/group'],function() {
     Route::post('',[App\Http\Controllers\CapabilitiesgroupController::class, 'fetch'])->middleware('auth')->name('capabilities.groups.fetch');
     Route::post('store',[App\Http\Controllers\CapabilitiesgroupController::class, 'store'])->middleware('auth')->name('capabilities.groups.store');
 });
-Route::group(['prefix'=> 'assets'],function() {
+Route::group(['prefix'=> 'asset'],function() {
     Route::group(['prefix'=> 'intermediate-checks'],function() {
         Route::get('/create/{asset}',[App\Http\Controllers\IntermediatechecksofassetController::class, 'create'])->middleware('auth')->name('intermediate-checks.create');
         Route::get('/edit/{asset}',[App\Http\Controllers\IntermediatechecksofassetController::class, 'edit'])->middleware('auth')->name('intermediate-checks.edit');

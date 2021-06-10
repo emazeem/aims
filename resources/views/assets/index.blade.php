@@ -1,10 +1,10 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left pb-1"><i class="fa fa-tasks"></i> All Assets</h3>
-        <span class="text-right ">
+        <h3 class="float-left font-weight-light pb-1"><i class="feather icon-list"></i> All Assets</h3>
+        <span class="float-right ">
                 <a href="{{route('assets.create')}}" class="btn float-right mt-1 btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle"></i> Assets</a>
             <a href="{{route('parameters')}}" class="btn float-right mt-1 mx-1 btn-sm btn-success shadow-sm"><i class="fa fa-eye"></i> Parameters</a>
             <button type="button" class="btn btn-sm btn-primary float-right mt-1 shadow-sm" data-toggle="modal" data-target="#add_column"><i class="fa fa-plus-circle"></i> Add Specific Column</button>

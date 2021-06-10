@@ -206,9 +206,6 @@
             </div>
         </div>
 
-
-
-
         {{--<div class="col-12" style="overflow: hidden">
             <h2 class="ml-2">Purchase Indent Revisions</h2>
             <table class="table table-hover font-13 bg-white table-responsive">
@@ -302,7 +299,7 @@
 
 
         <div class="col-12 mt-2">
-            <h2 class="ml-2">Events and Deadlines</h2>
+            <h4 class="font-weight-light">Events and Deadlines</h4>
             {!! $calendar->calendar() !!}
             {!! $calendar->script() !!}
         </div>
