@@ -209,7 +209,7 @@
                     <div class="col-6 p-1 m-0 form-check">
                         <div class="checkbox float-right checkbox-fill d-inline">
                             <input type="checkbox" name="accredited" value="" id="editaccredited">
-                            <label class="cr" for="accredited">Accredited</label>
+                            <label class="cr" for="editaccredited">Accredited</label>
                         </div>
                     </div>
                     <div class="col-6 text-right">
