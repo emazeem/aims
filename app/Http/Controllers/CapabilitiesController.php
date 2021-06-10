@@ -17,22 +17,12 @@ class CapabilitiesController extends Controller
 {
     public function index(){
         $procedures=Procedure::all();
-        $parameters=DB::table('parameters')->get();
+        $parameters=DB::table('parameters')->orderBy('name','ASC')->get();
         $units=Unit::all();
         $parent=Preference::where('slug','calculators')->first();
         $calculators=Preference::where('category',$parent->id)->get();
 
         return view('capabilities.index',compact('parameters','procedures','units','calculators'));
-    }
-    public function create(){
-        $procedures=Procedure::all();
-        $parameters=DB::table('parameters')->get();
-        return view('capabilities.create',compact('parameters','procedures'));
-    }
-    public function edit(Request $request){
-        $edit=Capabilities::find($request->id);
-        $edit['units']=Unit::all()->where('parameter',$edit->parameter);
-        return response()->json($edit);
     }
     public function fetch(){
         $data=Capabilities::with('parameters')->get ();

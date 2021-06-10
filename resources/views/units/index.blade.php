@@ -15,7 +15,6 @@
                    width="100%">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Parameter</th>
                     <th>Primary</th>
                     <th>Secondary</th>
@@ -27,7 +26,6 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>Id</th>
                     <th>Parameter</th>
                     <th>Primary</th>
                     <th>Secondary</th>
@@ -49,8 +47,7 @@
                 "processing": true,
                 "serverSide": true,
                 "Paginate": true,
-
-                "order": [[0, 'desc']],
+                "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
                     "url": "{{route('units.fetch')}}",
@@ -59,7 +56,6 @@
                     "data": {_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
                     {"data": "parameter"},
                     {"data": "primary"},
                     {"data": "secondary"},

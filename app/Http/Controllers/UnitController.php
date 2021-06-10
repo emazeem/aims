@@ -23,9 +23,6 @@ class UnitController extends Controller
         $data=Unit::with('parameters')->with('others')->where('primary_',null)->get();
         //dd($data);
         return DataTables::of($data)
-            ->addColumn('id', function ($data) {
-                return $data->id;
-            })
             ->addColumn('parameter', function ($data) {
                 return $data->parameters->name;
             })
