@@ -195,7 +195,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-12">
             <div class="card">
                 <div class="card-header">
                     <h5>Quote</h5>
