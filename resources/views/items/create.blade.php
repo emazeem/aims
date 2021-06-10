@@ -189,7 +189,7 @@
                     <label for="capability" class="col-12 control-label">Capability </label>
                     <div class="col-12">
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control select-2-capability" id="capability" name="capability">
+                            <select class="form-control select-2-capability" style="width: 100%" id="capability" name="capability">
 
                             </select>
                         </div>

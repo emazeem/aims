@@ -18,7 +18,7 @@
                     <div class="form-group col-6 p-1 m-0">
                         <label for="category" class=" control-label">Parameter</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="editparameter" name="category">
+                            <select class="form-control select-2-parameter" id="editparameter" style="width: 100%" name="category">
                                 <option selected disabled>Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
@@ -30,7 +30,7 @@
                     <div class="form-group col-6 p-1 m-0">
                         <label for="procedure" class=" control-label">Procedure</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="editprocedure" name="procedure">
+                            <select class="form-control select-2-procedure"  style="width: 100%" id="editprocedure" name="procedure">
                                 <option selected disabled>Select Procedure</option>
                                 @foreach($procedures as $procedure)
                                     <option value="{{$procedure->id}}">{{$procedure->name}}</option>
@@ -115,6 +115,8 @@
 </div>
 <script>
     $(document).ready(function () {
+        $(".select-2-parameter").select2();
+        $(".select-2-procedure").select2();
         $('#editparameter').on('change', function() {
             var parameter = $(this).val();
             if(parameter) {

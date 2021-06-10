@@ -17,7 +17,7 @@
                     <div class="form-group col-6 p-1 m-0">
                         <label for="category" class="control-label">Parameter</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="category" name="category">
+                            <select class="form-control select-2-capability" style="width: 100%" id="category" name="category">
                                 <option selected disabled>Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
@@ -29,7 +29,7 @@
                     <div class="form-group col-6 p-1 m-0">
                         <label for="procedure" class=" control-label">Procedure</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <select class="form-control" id="procedure" name="procedure">
+                            <select class="form-control select-2-procedure" style="width: 100%" id="procedure" name="procedure">
                                 <option selected disabled>Select Procedure</option>
                                 @foreach($procedures as $procedure)
                                     <option value="{{$procedure->id}}">{{$procedure->name}}</option>
@@ -113,6 +113,9 @@
 </div>
 <script>
     $(document).ready(function () {
+
+        $(".select-2-capability").select2();
+        $(".select-2-procedure").select2();
         $("#add_capabilities_form").on('submit',(function(e) {
             var button=$('.cap-save-btn');
             var previous=$('.cap-save-btn').html();

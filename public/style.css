@@ -12,3 +12,16 @@
 #example{
     background: white;
 }
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #4b5258 !important;
+}
+.select2-container .select2-selection--single {
+    padding-top: 4px;
+    height: 35px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    margin-top: 2px !important;
+}
+.select2-container--default .select2-selection--single{
+    border: 1px solid #ced4da !important;
+}
