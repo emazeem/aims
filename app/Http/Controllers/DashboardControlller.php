@@ -30,19 +30,22 @@ use Stevebauman\Location\Facades\Location;
 class DashboardControlller extends Controller
 {
     public function index(){
-        $ip=\request()->ip();
-        dd($ip);
-        $ip='39.37.247.112';
+        /*//$ip=\request()->ip();
+        $ip='119.155.0.229';
+
         $data = Location::get($ip);
 
 //        $ip='39.37.247.112';
         //$data = Location::get($ip);
-        https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&appid=4d934a76dfd686a9d005d8668f3c6de7
+        $key='4d934a76dfd686a9d005d8668f3c6de7';
+        file_get_contents('api.openweathermap.org/data/2.5/weather?q='.$data->cityName.'&appid='.$key);
         dd($ip,$data);
 
         //4d934a76dfd686a9d005d8668f3c6de7
-        $columns = Schema::getColumnListing('journals');
-        //dd($columns);
+
+
+        //$columns = Schema::getColumnListing('journals');
+        //dd($columns);*/
 
         $departments=Department::all()->count();
         $designations=Designation::all()->count();
