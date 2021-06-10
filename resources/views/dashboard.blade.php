@@ -25,7 +25,7 @@
         </form>
         <div class="col-12">
             <div class="page-header-title float-left">
-                <h5 class="m-b-10 font-weight-light"><i class="feather icon-home"></i> Dashboard</h5>
+                <h3 class="m-b-10 font-weight-light"><i class="feather icon-home"></i> Dashboard</h3>
 
 
             </div>
@@ -50,73 +50,131 @@
         </div>
 
         <div class="col-12">
-            <div class="row">
-                <!-- order-card start -->
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-blue order-card">
-                        <div class="card-body">
-                            <h6 class="text-white">Customers</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-user float-left"></i><span>{{$customers}}</span></h2>
+            <div class="row mt-3">
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-green order-card">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card prod-p-card bg-c-red">
                         <div class="card-body">
-                            <h6 class="text-white">Parameters</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-user float-left"></i><span>{{$parameters}}</span></h2>
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Customers</h6>
+                                    <h3 class="m-b-0 text-white">{{$customers}}</h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="feather icon-user text-white"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-yellow order-card">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card prod-p-card bg-c-blue">
                         <div class="card-body">
-                            <h6 class="text-white">Capabilities</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-user float-left"></i><span>{{$capabilities}}</span></h2>
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Parameters</h6>
+                                    <h3 class="m-b-0 text-white">{{$parameters}}</h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-list text-white"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-red order-card">
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card prod-p-card bg-c-green">
                         <div class="card-body">
-                            <h6 class="text-white">Assets</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-user float-left"></i><span>{{$assets}}</span></h2>
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Capabilities</h6>
+                                    <h3 class="m-b-0 text-white">{{$capabilities}}</h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-list text-white"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-yellow order-card">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card prod-p-card bg-c-yellow">
                         <div class="card-body">
-                            <h6 class="text-white">Quotes</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-user float-left"></i><span>{{$quotes}}</span></h2>
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Assets</h6>
+                                    <h3 class="m-b-0 text-white">{{$assets}}</h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-building text-white"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-red order-card">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card prod-p-card bg-c-green">
                         <div class="card-body">
-                            <h6 class="text-white">Jobs</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-user float-left"></i><span>{{$jobs}}</span></h2>
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Quotes</h6>
+                                    <h3 class="m-b-0 text-white">{{$quotes}}</h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="feather icon-activity text-white"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-green order-card">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card prod-p-card bg-c-yellow">
                         <div class="card-body">
-                            <h6 class="text-white">Users</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-user float-left"></i><span>{{$personnels}}</span></h2>
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Jobs</h6>
+                                    <h3 class="m-b-0 text-white">{{$jobs}}</h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-list text-white"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-blue order-card">
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card prod-p-card bg-c-blue">
                         <div class="card-body">
-                            <h6 class="text-white">Departments</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-user float-left"></i><span>{{$departments}}</span></h2>
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Users</h6>
+                                    <h3 class="m-b-0 text-white">{{$personnels}}</h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="feather icon-user text-white"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card prod-p-card bg-c-red">
+                        <div class="card-body">
+                            <div class="row align-items-center m-b-0">
+                                <div class="col">
+                                    <h6 class="m-b-5 text-white">Departments</h6>
+                                    <h3 class="m-b-0 text-white">{{$departments}}</h3>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-building text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="col-12">
