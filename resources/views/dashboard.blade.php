@@ -1,6 +1,16 @@
 @extends('layouts.master')
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
+    <!-- Rating Js -->
+    <script src="assets/js/plugins/jquery.barrating.min.js"></script>
+    <!-- Apex Chart -->
+    <script src="assets/js/plugins/apexcharts.min.js"></script>
+    <!-- peity chart js -->
+    <script src="assets/js/plugins/jquery.peity.min.js"></script>
+    <!-- custom-chart js -->
+    <script src="assets/js/pages/chart.js"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -109,6 +119,18 @@
                 </div>
             </div>
         </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Parameter vs Asset and Capabilities</h5>
+                </div>
+                <div class="card-body">
+                    <div id="parameters-vs-assets"></div>
+                </div>
+            </div>
+        </div>
+
+
 
         {{--<div class="col-12" style="overflow: hidden">
             <h2 class="ml-2">Purchase Indent Revisions</h2>
@@ -310,6 +332,65 @@
                 document.getElementById("current_time").innerText = moment().format('MMM D YYYY, h:mm:ss A');
             }, 1000);
 
+
+
+        });
+        $(function() {
+            var options = {
+                chart: {
+                    height: 400,
+                    type: 'area',
+                    zoom: {
+                        enabled: false
+                    },
+                    toolbar: {
+                        show: false,
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    width: 2,
+                    curve: 'straight',
+                },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shade: 'dark',
+                        gradientToColors: ['#4099ff'],
+                        shadeIntensity: 1,
+                        type: 'horizontal',
+                        opacityFrom: 0.9,
+                        opacityTo: 0.5,
+                        stops: [0, 100, 100, 100]
+                    },
+                },
+                yaxis: {
+                    labels: {
+                        show: true,
+                        maxWidth: 20,
+                    }
+                },
+                xaxis: {
+                    categories:[@php foreach ($gparameters as $gparameter){ echo "'$gparameter->name'".',';} @endphp],
+                },
+                colors: ["#4099ff","#ff1712"],
+                series: [{
+                    name: "Assets",
+                    data: [@php foreach ($gparameters as $gparameter){ echo count(\App\Models\Asset::where('parameter',$gparameter->id)->get()).',';} @endphp],
+                },{
+                    name: "Capabilities",
+                    data: [@php foreach ($gparameters as $gparameter){ echo count(\App\Models\Capabilities::where('parameter',$gparameter->id)->get()).',';} @endphp],
+                }],
+                grid: {
+                    row: {
+                        opacity: 0.5
+                    }
+                },
+            };
+            var chart = new ApexCharts(document.querySelector("#parameters-vs-assets"), options);
+            chart.render();
         });
     </script>
 @endsection

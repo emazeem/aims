@@ -104,7 +104,6 @@ class DashboardControlller extends Controller
         //dd($head_applications);
 
         $gparameters=Parameter::all();
-
         return view('dashboard',compact('head_applications','customers','calendar','indentforrevisions','indentforapprovals','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status','gparameters'));
     }
     public function markRead($id)

@@ -8,7 +8,7 @@
         <div class="navbar-content scroll-div " >
             <ul class="nav pcoded-inner-navbar ">
                 <li class="nav-item pcoded-menu-caption">
-                    <label>Navigation</label>
+                    <label class="text-capitalize">Navigation</label>
                 </li>
                 @foreach($menus as $menu)
                     @if($menu->has_child==1)

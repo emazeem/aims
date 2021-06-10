@@ -324,60 +324,7 @@ function floatchart() {
     });
     // [ process-complience-chart ] end
     // [ user-chart1 ] start
-    $(function() {
-        var options = {
-            chart: {
-                height: 150,
-                type: 'area',
-                zoom: {
-                    enabled: false
-                },
-                toolbar: {
-                    show: false,
-                }
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                width: 3,
-                curve: 'straight',
-            },
-            fill: {
-                type: 'gradient',
-                gradient: {
-                    shade: 'dark',
-                    gradientToColors: ['#4099ff'],
-                    shadeIntensity: 1,
-                    type: 'horizontal',
-                    opacityFrom: 0.9,
-                    opacityTo: 0.5,
-                    stops: [0, 100, 100, 100]
-                },
-            },
-            yaxis: {
-                labels: {
-                    show: true,
-                    maxWidth: 20,
-                }
-            },
-            xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', ],
-            },
-            colors: ["#4099ff"],
-            series: [{
-                name: "Hour.",
-                data: [0, 30, 10, 45, 30, 55, 30, 50]
-            }],
-            grid: {
-                row: {
-                    opacity: 0.5
-                }
-            },
-        }
-        var chart = new ApexCharts(document.querySelector("#user-chart1"), options);
-        chart.render();
-    });
+
     // [ user-chart1 ] end
     // [ user-chart2 ] start
     $(function() {

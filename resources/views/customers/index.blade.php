@@ -2,12 +2,12 @@
 @section('content')
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 mb-2">
             <h5 class="m-b-10 font-weight-light float-left"><i class="feather icon-user"></i> Customers</h5>
-            <a href class="btn btn-sm add btn-primary shadow-sm float-right mt-2"><i
-                        class="fa fa-plus-circle"></i> Customer</a>
+            <a href class="btn btn-sm add btn-primary shadow-sm float-right"><i class="fa fa-plus-circle"></i> Customer</a>
         </div>
 
     <div class="col-12">
