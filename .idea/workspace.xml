@@ -56,7 +56,7 @@
           <entry key="css" value="278" />
           <entry key="html" value="422" />
           <entry key="js" value="3" />
-          <entry key="php" value="49621" />
+          <entry key="php" value="49688" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
@@ -66,7 +66,7 @@
           <entry key="CSS" value="279" />
           <entry key="HTML" value="427" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="19053" />
+          <entry key="PHP" value="19120" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -75,13 +75,13 @@
           <entry key="css" value="9" />
           <entry key="html" value="11" />
           <entry key="js" value="4" />
-          <entry key="php" value="847" />
+          <entry key="php" value="848" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="480" />
+          <entry key="Blade" value="481" />
           <entry key="CSS" value="9" />
           <entry key="HTML" value="11" />
           <entry key="JavaScript" value="4" />
@@ -96,38 +96,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="22" column="70" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+            <state relative-caret-position="284">
+              <caret line="190" column="45" selection-start-line="190" selection-start-column="45" selection-end-line="190" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/capabilities/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="717" column="29" selection-start-line="717" selection-start-column="20" selection-end-line="717" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ParameterControlller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/capabilities/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="303">
+              <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -241,10 +223,10 @@
         <option value="$PROJECT_DIR$/resources/views/items/create.blade.php" />
         <option value="$PROJECT_DIR$/public/style.css" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/capabilities/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/capabilities/edit.blade.php" />
       </list>
     </option>
   </component>
@@ -686,12 +668,12 @@
       <workItem from="1623056655102" duration="3586000" />
       <workItem from="1623063387438" duration="3705000" />
       <workItem from="1623078399979" duration="56445000" />
-      <workItem from="1623296353972" duration="18381000" />
+      <workItem from="1623296353972" duration="19231000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375416000" />
+    <option name="totallyTimeSpent" value="376266000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1095,24 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/capabilities/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="32" column="96" selection-start-line="32" selection-start-column="96" selection-end-line="32" selection-end-column="96" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="717" column="29" selection-start-line="717" selection-start-column="20" selection-end-line="717" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ParameterControlller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
@@ -1127,10 +1091,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="717" column="29" selection-start-line="717" selection-start-column="20" selection-end-line="717" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="22" column="70" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+        <state relative-caret-position="284">
+          <caret line="190" column="45" selection-start-line="190" selection-start-column="45" selection-end-line="190" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/capabilities/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
         </state>
       </provider>
     </entry>

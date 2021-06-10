@@ -16,6 +16,7 @@ use Yajra\DataTables\DataTables;
 class CapabilitiesController extends Controller
 {
     public function index(){
+        $this->authorize('capabilities-index');
         $procedures=Procedure::all();
         $parameters=DB::table('parameters')->orderBy('name','ASC')->get();
         $units=Unit::all();
@@ -25,11 +26,13 @@ class CapabilitiesController extends Controller
     }
 
     public function edit(Request $request){
+        $this->authorize('capabilities-edit');
         $edit=Capabilities::find($request->id);
         $edit['units']=Unit::all()->where('parameter',$edit->parameter);
         return response()->json($edit);
     }
     public function fetch(){
+        $this->authorize('capabilities-index');
         $data=Capabilities::with('parameters')->get ();
         //dd($data);
         return DataTables::of($data)
@@ -84,6 +87,7 @@ class CapabilitiesController extends Controller
 
     }
     public function store(Request $request){
+        $this->authorize('capabilities-create');
         $this->validate(request(), [
             'name' => 'required',
             'category' => 'required',
@@ -128,6 +132,7 @@ class CapabilitiesController extends Controller
         return response()->json(['success'=> 'Capability added successfully']);
     }
     public function update(Request $request){
+        $this->authorize('capabilities-edit');
         $this->validate(request(), [
             'name' => 'required',
             'category' => 'required',
@@ -176,12 +181,14 @@ class CapabilitiesController extends Controller
 
     }
     public function show($id){
+        $this->authorize('capabilities-view');
         $parameters=Parameter::all();
         $show=Capabilities::find($id);
         $suggestions=Suggestion::where('capabilities',$id)->get();
         return view('capabilities.show',compact('show','parameters','suggestions'));
     }
     public function delete(Request $request){
+        $this->authorize('capabilities-delete');
         $item=Capabilities::find($request->id);
         $item->delete();
         return response()->json(['success'=> 'Capability deleted successfully']);

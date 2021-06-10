@@ -19,7 +19,6 @@
                         <label for="category" class=" control-label">Parameter</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control select-2-parameter" id="editparameter" style="width: 100%" name="category">
-                                <option selected disabled>Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
                                 @endforeach
@@ -31,7 +30,6 @@
                         <label for="procedure" class=" control-label">Procedure</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control select-2-procedure"  style="width: 100%" id="editprocedure" name="procedure">
-                                <option selected disabled>Select Procedure</option>
                                 @foreach($procedures as $procedure)
                                     <option value="{{$procedure->id}}">{{$procedure->name}}</option>
                                 @endforeach
