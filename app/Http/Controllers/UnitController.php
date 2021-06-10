@@ -15,6 +15,8 @@ use Yajra\DataTables\DataTables;
 class UnitController extends Controller
 {
     public function index(){
+        $units=Unit::onlyTrashed()->get();
+        dd($units);
         $this->authorize('units-index');
         return view('units.index');
     }
