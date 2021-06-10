@@ -104,7 +104,16 @@ class DashboardControlller extends Controller
         //dd($head_applications);
 
         $gparameters=Parameter::all();
-        return view('dashboard',compact('head_applications','customers','calendar','indentforrevisions','indentforapprovals','capabilities','parameters','quotes','sessions','personnels','assets','jobs','departments','designations','check','checkout_missing_status','gparameters'));
+
+        $pendings_q=Quotes::all()->where('status',0)->count();
+        $notsents_q=Quotes::all()->where('status',1)->count();
+        $waitings_q=Quotes::all()->where('status',2)->count();
+        $approved_q=Quotes::all()->where('status',3)->count();
+        return view('dashboard',
+            compact('head_applications','customers','calendar','indentforrevisions',
+                            'indentforapprovals','capabilities','parameters','quotes','sessions',
+                            'personnels','assets','jobs','departments','designations','check','checkout_missing_status',
+                            'gparameters','pendings_q','notsents_q','waitings_q','approved_q'));
     }
     public function markRead($id)
     {

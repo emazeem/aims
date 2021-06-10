@@ -129,6 +129,17 @@
                 </div>
             </div>
         </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Quote</h5>
+                </div>
+                <div class="card-body">
+                    <div id="quote-chart"></div>
+                </div>
+            </div>
+        </div>
+
 
 
 
@@ -390,6 +401,29 @@
                 },
             };
             var chart = new ApexCharts(document.querySelector("#parameters-vs-assets"), options);
+            chart.render();
+        });
+        $(function() {
+            var options = {
+                chart: {
+                    height: 200,
+                    type: 'donut',
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                series: [{{$pendings_q}}, {{$notsents_q}}, {{$waitings_q}},{{$approved_q}}],
+                colors: ["#ff5370","#4099ff","#000000", "#2ed8b6"],
+                labels: ["Pending", "To be sent", "Waiting approval","Approved"],
+                legend: {
+                    show: true,
+                    position: 'bottom',
+                }
+            };
+            var chart = new ApexCharts(
+                document.querySelector("#quote-chart"),
+                options
+            );
             chart.render();
         });
     </script>

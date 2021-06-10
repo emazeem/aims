@@ -83,29 +83,7 @@ function floatchart() {
     });
     // [ student-chart ] end
     // [ email-chart ] start
-    $(function() {
-        var options = {
-            chart: {
-                height: 200,
-                type: 'donut',
-            },
-            dataLabels: {
-                enabled: false,
-            },
-            series: [85.7, 77.56, 20.9],
-            colors: ["#4099ff", "#ff5370", "#2ed8b6"],
-            labels: ["Send", "Open", "Bounced"],
-            legend: {
-                show: true,
-                position: 'bottom',
-            }
-        }
-        var chart = new ApexCharts(
-            document.querySelector("#email-chart"),
-            options
-        );
-        chart.render();
-    });
+
     // [ email-chart ] end
     // [ seo-card1 ] start
     $(function() {
