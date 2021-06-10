@@ -1,16 +1,24 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    <style>
+        .parameter-vs-assets::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .parameter-vs-assets::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .parameter-vs-assets::-webkit-scrollbar-thumb {
+            background-color: #136bf7;
+            outline: 1px solid #136bf7;
+        }
+    </style>
+
+    <script src="{{url('/assets/js/1.10.1/jquery.min.js')}}"></script>
 
 
-    <!-- Rating Js -->
-    <script src="assets/js/plugins/jquery.barrating.min.js"></script>
-    <!-- Apex Chart -->
-    <script src="assets/js/plugins/apexcharts.min.js"></script>
-    <!-- peity chart js -->
-    <script src="assets/js/plugins/jquery.peity.min.js"></script>
-    <!-- custom-chart js -->
-    <script src="assets/js/pages/chart.js"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -182,8 +190,8 @@
                 <div class="card-header">
                     <h5>Parameter vs Asset and Capabilities</h5>
                 </div>
-                <div class="card-body">
-                    <div id="parameters-vs-assets"></div>
+                <div class="card-body parameter-vs-assets" style="overflow-x: scroll">
+                    <div id="parameters-vs-assets" style="width: 2000px;"></div>
                 </div>
             </div>
         </div>
@@ -485,4 +493,9 @@
             chart.render();
         });
     </script>
+    <script src="{{url('assets/js/plugins/jquery.barrating.min.js')}}"></script>
+    <script src="{{url('assets/js/plugins/apexcharts.min.js')}}"></script>
+    <script src="{{url('assets/js/plugins/jquery.peity.min.js')}}"></script>
+    <script src="{{url('assets/js/pages/chart.js')}}"></script>
+
 @endsection
