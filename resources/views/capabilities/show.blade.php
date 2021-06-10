@@ -10,8 +10,8 @@
 
     <div class="row">
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> Capability Details</h3>
-            <span class="pull-right">
+            <h3 class="float-left font-weight-light pb-1"><i class="feather icon-eye"></i> Capability Details</h3>
+            <span class="float-right">
             <a href="" data-toggle="modal" data-target="#add_suggestion"><i class="fa fa-question"></i> Add Suggestion</a>
         </span>
         </div>
