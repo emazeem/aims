@@ -7,10 +7,11 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content=""/>
     <meta name="description" content=""/>
     <meta name="keywords" content="">
-    <meta name="author" content="Codedthemes"/>
+    <meta name="author" content=""/>
+
     <link rel="icon" href="{{url('assets/images/favicon.ico')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">

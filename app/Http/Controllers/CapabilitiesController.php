@@ -10,7 +10,6 @@ use App\Models\Procedure;
 use App\Models\Suggestion;
 use App\Models\Unit;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
 class CapabilitiesController extends Controller
@@ -24,7 +23,6 @@ class CapabilitiesController extends Controller
         $calculators=Preference::where('category',$parent->id)->get();
         return view('capabilities.index',compact('parameters','procedures','units','calculators'));
     }
-
     public function edit(Request $request){
         $this->authorize('capabilities-edit');
         $edit=Capabilities::find($request->id);
@@ -33,7 +31,7 @@ class CapabilitiesController extends Controller
     }
     public function fetch(){
         $this->authorize('capabilities-index');
-        $data=Capabilities::with('parameters')->get ();
+        $data=Capabilities::with('parameters')->where('is_group',0)->get();
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
