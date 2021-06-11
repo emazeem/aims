@@ -7,9 +7,10 @@
             });
         </script>
     @endif
+    <script src="{{url('/assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
         <div class="col-12">
-            <h2>Edit Procedure</h2>
+            <h2 class="font-weight-light">Edit Procedure</h2>
             <form id="edit_procedure_form">
                 <input type="hidden" value="{{$edit->id}}" name="id" >
                 @csrf

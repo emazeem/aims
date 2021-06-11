@@ -7,12 +7,12 @@
             });
         </script>
     @endif
+    <script src="{{url('/assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
         <div class="col-12">
-            <h2>Add Procedure</h2>
+            <h2 class="font-weight-light">Add Procedure</h2>
             <form id="add_procedure_form">
                 @csrf
-
                 <div class="form-group mt-md-4 row">
                     <label for="name" class="col-2 control-label">
                         <h6 class="font-italic">Name of Procedure</h6>
