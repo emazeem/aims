@@ -105,6 +105,8 @@ Route::group(['prefix'=> 'grouped-capabilities'],function() {
     Route::post('store',[App\Http\Controllers\GroupedCapabilitiesController::class, 'store'])->middleware('auth')->name('grouped.capabilities.store');
     Route::post('update',[App\Http\Controllers\GroupedCapabilitiesController::class, 'update'])->middleware('auth')->name('grouped.capabilities.update');
     Route::post('',[App\Http\Controllers\GroupedCapabilitiesController::class, 'fetch'])->middleware('auth')->name('grouped.capabilities.fetch');
+    Route::delete('/delete',[App\Http\Controllers\GroupedCapabilitiesController::class, 'delete'])->middleware('auth')->name('grouped.capabilities.delete');
+
 });
 
 Route::group(['prefix'=> 'asset'],function() {

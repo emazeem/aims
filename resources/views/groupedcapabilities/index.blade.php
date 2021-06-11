@@ -86,7 +86,7 @@
                             var form_data = $("#form" + id).serialize();
 
                             $.ajax({
-                                url: "{{route('capabilities.delete')}}",
+                                url: "{{route('grouped.capabilities.delete')}}",
                                 type: request_method,
                                 dataType: "JSON",
                                 data: form_data,
