@@ -57,13 +57,13 @@
           <entry key="css" value="292" />
           <entry key="html" value="422" />
           <entry key="js" value="3" />
-          <entry key="php" value="53641" />
+          <entry key="php" value="53646" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="32853" />
+          <entry key="Blade" value="32858" />
           <entry key="CSS" value="293" />
           <entry key="HTML" value="427" />
           <entry key="JavaScript" value="3" />
@@ -76,13 +76,13 @@
           <entry key="css" value="11" />
           <entry key="html" value="12" />
           <entry key="js" value="5" />
-          <entry key="php" value="895" />
+          <entry key="php" value="896" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="515" />
+          <entry key="Blade" value="516" />
           <entry key="CSS" value="11" />
           <entry key="HTML" value="12" />
           <entry key="JavaScript" value="5" />
@@ -118,11 +118,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/groupedcapabilities/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1936">
               <caret line="88" column="55" selection-start-line="88" selection-start-column="55" selection-end-line="88" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -150,7 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>text-</find>
       <find>editaccredited</find>
       <find>cap-update-btn</find>
       <find>editparameter</find>
@@ -180,6 +188,7 @@
       <find>add_capabilities_form</find>
       <find>edit_capabilities_form</find>
       <find>cap-save-btn</find>
+      <find>style.css</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -254,13 +263,13 @@
         <option value="$PROJECT_DIR$/resources/views/procedures/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/public/style.css" />
         <option value="$PROJECT_DIR$/resources/views/groupedcapabilities/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/groupedcapabilities/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/groupedcapabilities/index.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/GroupedCapabilitiesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
       </list>
     </option>
   </component>
@@ -510,6 +519,13 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="procedures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -625,12 +641,12 @@
       <workItem from="1623063387438" duration="3705000" />
       <workItem from="1623078399979" duration="56445000" />
       <workItem from="1623296353972" duration="27794000" />
-      <workItem from="1623385145177" duration="10420000" />
+      <workItem from="1623385145177" duration="10795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="395249000" />
+    <option name="totallyTimeSpent" value="395624000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -948,13 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="55" column="144" selection-start-line="55" selection-start-column="144" selection-end-line="55" selection-end-column="144" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/AIMS Data/Template/dist/form-select.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -1053,6 +1062,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1936">
           <caret line="88" column="55" selection-start-line="88" selection-start-column="55" selection-end-line="88" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
         </state>
       </provider>
     </entry>

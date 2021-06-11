@@ -13,7 +13,7 @@
     <meta name="author" content="Codedthemes"/>
     <link rel="icon" href="{{url('assets/images/favicon.ico')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{url('style.css')}}">
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
 
     <link rel="stylesheet" href="{{url('assets/css/plugins/select2.min.css')}}">
