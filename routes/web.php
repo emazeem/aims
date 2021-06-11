@@ -98,6 +98,15 @@ Route::group(['prefix'=> 'capabilities'],function() {
     Route::get('/view/{id}',[App\Http\Controllers\CapabilitiesController::class, 'show'])->middleware('auth')->name('capabilities.show');
 });
 
+Route::group(['prefix'=> 'grouped-capabilities'],function() {
+    Route::get('',[App\Http\Controllers\GroupedCapabilitiesController::class, 'index'])->middleware('auth')->name('grouped.capabilities');
+    Route::get('create',[App\Http\Controllers\GroupedCapabilitiesController::class, 'create'])->middleware('auth')->name('grouped.capabilities.create');
+    Route::get('edit/{id}',[App\Http\Controllers\GroupedCapabilitiesController::class, 'edit'])->middleware('auth')->name('grouped.capabilities.edit');
+    Route::post('store',[App\Http\Controllers\GroupedCapabilitiesController::class, 'store'])->middleware('auth')->name('grouped.capabilities.store');
+    Route::post('update',[App\Http\Controllers\GroupedCapabilitiesController::class, 'update'])->middleware('auth')->name('grouped.capabilities.update');
+    Route::post('',[App\Http\Controllers\GroupedCapabilitiesController::class, 'fetch'])->middleware('auth')->name('grouped.capabilities.fetch');
+});
+
 Route::group(['prefix'=> 'asset'],function() {
     Route::group(['prefix'=> 'intermediate-checks'],function() {
         Route::get('/create/{asset}',[App\Http\Controllers\IntermediatechecksofassetController::class, 'create'])->middleware('auth')->name('intermediate-checks.create');

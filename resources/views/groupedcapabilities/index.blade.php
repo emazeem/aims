@@ -3,14 +3,10 @@
     <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
         <div class="col-12 mb-3">
-            <h3 class="float-left font-weight-light"><i class="feather icon-list"></i> Capabilities</h3>
+            <h3 class="float-left font-weight-light"><i class="feather icon-list"></i> Grouped Capabilities ( Multi-Parameter )</h3>
             <span class="float-right ">
-                @can('capabilities-create')
-                    <a class="btn float-right btn-sm btn-primary mt-2 shadow-sm" href="#" data-toggle="modal" data-target="#add_capabilities"><i class="fa fa-plus"></i> Capabilities</a>
-                @endcan
-
-                @can('parameter-index')
-                    <a href="{{route('parameters')}}" class="btn mt-2 float-right mx-1 btn-sm btn-success shadow-sm"><i class="fa fa-eye"></i> Parameters</a>
+                @can('add-grouped-capabilities')
+                    <a class="btn float-right btn-sm btn-primary mt-2 shadow-sm" href="{{route('grouped.capabilities.create')}}" ><i class="feather icon-plus-circle"></i> Grouped Capabilities</a>
                 @endcan
             </span>
         </div>
@@ -20,16 +16,11 @@
                width="100%">
             <thead>
             <tr>
-                <th>ID</th>
+            <tr>
                 <th>Name</th>
                 <th>Parameter</th>
-                <th>Range</th>
-                <th>Price</th>
-                <th>Unit</th>
                 <th>Location</th>
-                <th>Accredited</th>
-                <th>Procedure</th>
-                <th>Calculator</th>
+                <th>Underlying</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -38,16 +29,10 @@
             </tbody>
             <tfoot>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Parameter</th>
-                <th>Range</th>
-                <th>Price</th>
-                <th>Unit</th>
                 <th>Location</th>
-                <th>Accredited</th>
-                <th>Procedure</th>
-                <th>Calculator</th>
+                <th>Underlying</th>
                 <th>Action</th>
             </tr>
             </tfoot>
@@ -66,22 +51,16 @@
                 "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
-                    "url": "{{ route('capabilities.fetch') }}",
+                    "url": "{{ route('grouped.capabilities.fetch') }}",
                     "dataType": "json",
                     "type": "POST",
                     "data": {_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
                     {"data": "name"},
                     {"data": "parameter"},
-                    {"data": "range"},
-                    {"data": "price"},
-                    {"data": "unit"},
                     {"data": "location"},
-                    {"data": "accredited"},
-                    {"data": "procedure"},
-                    {"data": "calculator"},
+                    {"data": "underlying"},
                     {"data": "options", "orderable": false},
                 ]
 
@@ -135,8 +114,6 @@
 
         });
     </script>
-    @include('capabilities.create')
-    @include('capabilities.edit')
 @endsection
 
 

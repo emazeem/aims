@@ -22,6 +22,9 @@
 .select2-container--default .select2-selection--single .select2-selection__arrow b{
     margin-top: 2px !important;
 }
-.select2-container--default .select2-selection--single{
+.select2-container--default .select2-selection--single,.select2-container--default .select2-selection--multiple{
     border: 1px solid #ced4da !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    color: #495867;
 }

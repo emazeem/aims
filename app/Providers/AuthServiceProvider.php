@@ -933,12 +933,6 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
-        Gate::define('capabilities-group-index', function ($user) {
-            if (in_array('capabilities-group-index',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
     }
     public function capabilities()
     {
@@ -979,7 +973,30 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-
+        Gate::define('grouped-capabilities', function ($user) {
+            if (in_array('grouped-capabilities',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('add-grouped-capabilities', function ($user) {
+            if (in_array('add-grouped-capabilities',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('edit-grouped-capabilities', function ($user) {
+            if (in_array('edit-grouped-capabilities',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('delete-grouped-capabilities', function ($user) {
+            if (in_array('delete-grouped-capabilities',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
 
     }
     public function roles()
