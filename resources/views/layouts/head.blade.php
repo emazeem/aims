@@ -15,16 +15,6 @@
             <li class="nav-item">
                 <a href="#" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a>
             </li>
-            <li class="nav-item">
-                <a href="#"><i class="feather icon-calendar"></i>
-                    {{date('d M Y - D')}}
-                </a>
-                <a href="#"><i class="feather icon-clock"></i>
-                    {{date('h:i A')}}
-                </a>
-
-            </li>
-
 
         </ul>
         <ul class="navbar-nav ml-auto">

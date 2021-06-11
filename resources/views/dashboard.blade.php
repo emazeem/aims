@@ -34,8 +34,6 @@
         <div class="col-12">
             <div class="page-header-title float-left">
                 <h3 class="m-b-10 font-weight-light"><i class="feather icon-home"></i> Dashboard</h3>
-
-
             </div>
         @if($check==0)
                 @if($checkout_missing_status==1)
@@ -56,6 +54,7 @@
 
             @endif
         </div>
+
 
         <div class="col-12">
             <div class="row mt-3">
@@ -183,6 +182,41 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card p-0">
+                <div class="card-body">
+                    <h6 class="mb-0 float-right">{{$api['weather'][0]['description']}}</h6>
+                    <span class="d-block mb-1">{{date('l')}}</span>
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-auto">
+                            <h2 class="text-c-purple m-0">
+                                <img src="http://openweathermap.org/img/w/{{$api['weather'][0]['icon']}}.png" alt="">
+                                {{round($api['main']['temp']-273.15)}}<sup class="f-20">°</sup></h2>
+                        </div>
+                        <div class="col text-right">
+                            <div class="form-group mb-1">
+                                <label class="m-r-5 f-20 mb-0">°F</label>
+
+                                <div class="switch switch-primary d-inline">
+                                    <input type="checkbox" id="switch-a-1" checked="">
+                                    <label for="switch-a-1" class="cr"></label>
+                                </div>
+                                <label class="m-l-5 f-20 mb-0">°C</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <small class="float-left">{{date('d M Y')}}</small>
+                            <small class="float-right" id="current_time_gadget"></small>
+                        </div>
+                        <div class="col-12">
+                            <small class="float-left"><i class="feather icon-map-pin"></i> {{$api['name']}} , {{$api['sys']['country']}}</small>
+                            <small class="float-right" id="current_time_gadget"></small>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-12">
@@ -396,7 +430,6 @@
                     });
 
             });
-
         });
     </script>
     <script>
@@ -404,6 +437,7 @@
 
             setInterval(function () {
                 document.getElementById("current_time").innerText = moment().format('MMM D YYYY, h:mm:ss A');
+                document.getElementById("current_time_gadget").innerText = moment().format('h:mm:ss A');
             }, 1000);
 
 

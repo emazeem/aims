@@ -30,22 +30,22 @@ use Stevebauman\Location\Facades\Location;
 class DashboardControlller extends Controller
 {
     public function index(){
-        /*//$ip=\request()->ip();
-        $ip='119.155.0.229';
-
+        $ip=\request()->ip();
+        if ($ip=='127.0.0.1'){
+            $ip='119.155.0.229';
+        }
         $data = Location::get($ip);
-
-//        $ip='39.37.247.112';
-        //$data = Location::get($ip);
         $key='4d934a76dfd686a9d005d8668f3c6de7';
-        file_get_contents('api.openweathermap.org/data/2.5/weather?q='.$data->cityName.'&appid='.$key);
-        dd($ip,$data);
+        $api= file_get_contents('https://api.openweathermap.org/data/2.5/weather?q=Lahore&appid='.$key,false);
+        $api=json_decode($api,true);
+
+        //dd($ip,$api);
 
         //4d934a76dfd686a9d005d8668f3c6de7
 
 
         //$columns = Schema::getColumnListing('journals');
-        //dd($columns);*/
+        //dd($columns);
 
         $departments=Department::all()->count();
         $designations=Designation::all()->count();
@@ -118,7 +118,7 @@ class DashboardControlller extends Controller
             compact('head_applications','customers','calendar','indentforrevisions',
                             'indentforapprovals','capabilities','parameters','quotes','sessions',
                             'personnels','assets','jobs','departments','designations','check','checkout_missing_status',
-                            'gparameters','pendings_q','notsents_q','waitings_q','approved_q'));
+                            'gparameters','pendings_q','notsents_q','waitings_q','approved_q','api'));
     }
     public function markRead($id)
     {
