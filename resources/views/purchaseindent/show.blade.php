@@ -193,7 +193,7 @@
                     <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Select Vendor & Suppliers
                     </h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span class="fa fa-times-circle"></span>
+                        <span class="feather icon-x-circle"></span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -251,7 +251,7 @@
                     <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-sort-numeric-asc"></i> Prioritize Quotation
                     </h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span class="fa fa-times-circle"></span>
+                        <span class="feather icon-x-circle"></span>
                     </button>
                 </div>
                 <div class="modal-body">

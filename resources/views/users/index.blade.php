@@ -1,12 +1,12 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left pb-1"><i class="fa fa-users"></i> Personnel Details</h3>
-        <a href="{{route('users.create')}}" class="btn btn-sm btn-primary shadow-sm pull-right mt-2"><i class="fa fa-plus-circle"></i> Personnel</a>
-        <a href="{{route('users.attendances')}}" class="btn btn-sm btn-success shadow-sm pull-right mt-2"><i class="fa fa-clock-o"></i> Attendances</a>
-        <a href="{{route('users.list.of.employees')}}" class="btn btn-sm btn-warning shadow-sm pull-right mt-2"><i class="fa fa-tasks"></i> List of Employees</a>
+        <h3 class="float-left pb-1 font-weight-light"><i class="feather icon-users"></i> Personnel</h3>
+        <a href="{{route('users.create')}}" class="btn btn-sm btn-primary shadow-sm float-right mt-2"><i class="fa fa-plus-circle"></i> Personnel</a>
+        <a href="{{route('users.attendances')}}" class="btn btn-sm btn-success shadow-sm float-right mt-2"><i class="fa fa-clock-o"></i> Attendances</a>
+        <a href="{{route('users.list.of.employees')}}" class="btn btn-sm btn-warning shadow-sm float-right mt-2"><i class="fa fa-tasks"></i> List of Employees</a>
     </div>
   <div class="col-lg-12">
 

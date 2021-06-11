@@ -7,13 +7,17 @@
             });
         </script>
     @endif
-
+    <style>
+        th{
+            float: right;
+        }
+    </style>
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-tasks"></i> Staff Details</h3>
+            <h3 class="font-weight-light pb-1"><i class="feather icon-eye"></i> Personnel</h3>
         </div>
         <div class="col-12">
-            <table class="table table-bordered table-responsive-sm table-hover font-13">
+            <table class="table table-borderless bg-white table-sm table-responsive-sm table-hover font-13">
                 <tr>
                     <th>First Name</th>
                     <td>{{$show->fname}}</td>
@@ -83,10 +87,6 @@
                 <tr>
                     <th>Created on</th>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
-                </tr>
-                <tr>
-                    <th>Updated on</th>
-                    <td>{{date('h:i A - d M,Y ',strtotime($show->updated_at))}}</td>
                 </tr>
             </table>
         </div>

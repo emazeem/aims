@@ -244,7 +244,7 @@
                 <div class="modal-header bg-light">
                     <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Scope Of Supply</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span class="fa fa-times-circle"></span>
+                        <span class=feather icon-x-circle"></span>
                     </button>
                 </div>
                 <div class="modal-body">

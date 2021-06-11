@@ -8,21 +8,36 @@
         </script>
     @endif
 
+    <style>
+        .attendance-scroll::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .attendance-scroll::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .attendance-scroll::-webkit-scrollbar-thumb {
+            background-color: #136bf7;
+            outline: 1px solid #136bf7;
+        }
+    </style>
+
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-clock-o"></i> Attendance [ {{date('F - Y',time())}} ]</h3>
-            <form class="pull-right" method="post" >
+            <h3 class=" font-weight-light pb-1"><i class="feather icon-clock"></i> Attendance [ {{date('F - Y',time())}} ]</h3>
+            <form class="float-right" method="post" >
                 @csrf
-                <div class="pull-left col-md-10">
+                <div class="float-left col-md-10">
                     <input type="month" class="form-control" name="searchmonth" required>
                 </div>
-                <div class="pull-right col-md-2">
+                <div class="float-right col-md-2">
                     <button type="submit" class="btn btn-success" name="submit"><i class="fa fa-search"></i></button>
                 </div>
             </form>
         </div>
         <div class="col-12">
-            <table class="table table-bordered table-responsive table-hover table-sm bg-white text-center">
+            <table class="table table-bordered table-responsive table-hover table-sm bg-white text-center attendance-scroll">
                 <thead>
                 <tr>
                     <th>Users</th>
@@ -56,5 +71,4 @@
             </table>
         </div>
     </div>
-
 @endsection

@@ -106,7 +106,6 @@
                                 @endif
                                 @if(auth()->user()->signature)
                                 <div class="media">
-                                    <i class="feather icon-clock mr-2 mt-1 f-18"></i>
                                     <div class="media-body text-left">
                                         <p class="mb-0 text-muted">
                                             <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="200" class="img-fluid">

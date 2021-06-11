@@ -424,7 +424,7 @@
 
                 </table>
                 <div class="mt-5 pt-3 col-12 text-right">
-                    <a href="{!! url(''); !!}" class="btn btn-primary"><i class="fa fa-times-circle"></i> Cancel</a>
+                    <a href="{!! url(''); !!}" class="btn btn-primary"><i class="feather icon-x-circle"></i> Cancel</a>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
                 </div>
             </form>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use  App\Models\Department;
 use App\Models\Designation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 
@@ -16,6 +17,7 @@ class DesignationController extends Controller
         return view('designation',compact('departments'));
     }
     public function fetch(){
+        $this->authorize('designation-index');
         $data=Designation::with('departments')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -35,11 +37,10 @@ class DesignationController extends Controller
                 return date('h:i A d M,Y',strtotime($data->updated_at));
             })
             ->addColumn('options', function ($data) {
-
-                return "&emsp;
-                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>
-                  ";
-
+                if (Auth::user()->can('designation-edit')){
+                    $action="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='feather icon-edit'></i></button>";
+                }
+                return $action;
             })
             ->rawColumns(['options'])
             ->make(true);

@@ -1,9 +1,10 @@
 @extends('layouts.master')
 @section('content')
-<div class="row">
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+    <div class="row">
     <div class="col-12">
-        <h3 class="pull-left pb-1"><i class="fa fa-list"></i> All Designations</h3>
-        <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right mt-2" data-toggle="modal" data-target="#add_designation"><i class="fa fa-plus-circle"></i> Designation</button>
+        <h3 class="float-left font-weight-light pb-1"><i class="feather icon-list"></i> All Designations</h3>
+        <button type="button" class="btn btn-sm btn-primary shadow-sm float-right mt-2" data-toggle="modal" data-target="#add_designation"><i class="feather icon-plus-circle"></i> Designation</button>
     </div>
   <div class="col-lg-12">
     <table id="example" class="table table-bordered bg-white table-hover table-sm display nowrap" cellspacing="0" width="100%">
@@ -146,9 +147,9 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Designation</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Add Designation</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                 </button>
             </div>
 
@@ -169,15 +170,13 @@
                         <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
-                        <div class="col-12 text-right">
-                            <button class="btn btn-primary " type="submit">Save</button>
-                        </div>
-
                     </div>
 
-                </form>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer bg-light">
+                <button class="btn btn-primary " type="submit"><i class="feather icon-save"></i> Save</button>
+                </form>
+
             </div>
         </div>
     </div>
@@ -187,9 +186,9 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-pencil"></i>  Edit Designation</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-edit"></i>  Edit Designation</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                 </button>
             </div>
             <div class="modal-body">
@@ -199,7 +198,7 @@
                     <div class="row">
                         <div class="col-12 mb-1">
                             <div class="form-check form-check-inline" style="width: 100%">
-                                <select class="form-control" id="edit_department" name="department">
+                                <select class="form-control" id="edit_department" name="department" >
                                     <option selected disabled="">Select department</option>
                                     @foreach($departments as $department)
                                         <option value="{{$department->id}}">{{$department->name}}</option>
@@ -207,18 +206,16 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group col-3  float-left">
+                        <div class="form-group col-12  float-left">
                             <input type="text" class="form-control" autofocus="autofocus" id="editname" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
-                        <div class="col-6">
-                            <button class="btn btn-primary" type="submit">Update</button>
-                        </div>
-
                     </div>
 
-                </form>
+
             </div>
             <div class="modal-footer">
+                <button class="btn btn-primary" type="submit"><i class="feather icon-edit"></i> Update</button>
+                </form>
             </div>
         </div>
     </div>

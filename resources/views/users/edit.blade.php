@@ -11,7 +11,7 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-pencil"></i> Edit Personnel</h3>
+            <h3 class="font-weight-light pb-1"><i class="feather icon-edit"></i> Edit Personnel</h3>
         </div>
 
         <div class="col-12">
@@ -235,8 +235,8 @@
 
                 <!-- /.box-body -->
                 <div class="box-footer mt-3">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Update</button>
+                    <a href="{{ URL::previous() }}" class="btn bg-white border"><i class="feather icon-chevron-left"></i> Cancel</a>
+                    <button type="submit" class="btn btn-primary float-right"><i class="feather icon-save"></i> Update</button>
                 </div>
                 <!-- /.box-footer -->
             </form>

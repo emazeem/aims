@@ -13,7 +13,7 @@
 
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-plus-circle"></i> Add Personnel</h3>
+            <h3 class="font-weight-light pb-1"><i class="feather icon-plus-circle"></i> Add Personnel</h3>
         </div>
         <div class="col-12">
 
@@ -226,8 +226,8 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer mt-3">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right">Save</button>
+                    <a href="{{ URL::previous() }}" class="btn bg-white border"><i class="feather icon-chevron-left"></i> Back</a>
+                    <button type="submit" class="btn btn-primary float-right"><i class="feather icon-save"> </i>Save</button>
                 </div>
                 <!-- /.box-footer -->
             </form>

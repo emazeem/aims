@@ -264,7 +264,7 @@
             <div class="modal-header bg-light">
                 <h5 class="modal-title" id="add_session"><i class="fa fa-plus-circle"></i> Create Request</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <small><i class="fa fa-times-circle"></i></small>
+                    <small><i class="feather icon-x-circle"></i></small>
                 </button>
             </div>
             <div class="modal-body">
@@ -338,7 +338,7 @@
             <div class="modal-header bg-light">
                 <h5 class="modal-title" id="edit_session"> <i class="fa fa-refresh"></i> Edit Request</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <i class="fa fa-times-circle"></i>
+                    <i class="feather icon-x-circle"></i>
                 </button>
             </div>
             <div class="modal-body">

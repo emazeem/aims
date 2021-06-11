@@ -30,7 +30,7 @@ class DepartmentController extends Controller
             ->addColumn('options', function ($data) {
 
                 return "&emsp;
-                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-pencil'></i></button>
+                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='feather icon-edit'></i></button>
                   ";
 
             })

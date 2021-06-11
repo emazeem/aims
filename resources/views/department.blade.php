@@ -1,13 +1,11 @@
 @extends('layouts.master')
 @section('content')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-
-</div>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
 
 <div class="row">
     <div class="col-12">
-        <h3 class="pull-left pb-1"><i class="fa fa-list"></i> All Departments</h3>
-        <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_department"><i class="fa fa-plus-circle"></i> Department</button>
+        <h3 class="float-left font-weight-light pb-1"><i class="feather icon-list"></i> All Departments</h3>
+        <button type="button" class="btn btn-sm btn-primary shadow-sm float-right" data-toggle="modal" data-target="#add_department"><i class="feather icon-plus-circle"></i> Department</button>
     </div>
   <div class="col-lg-12">
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
@@ -172,9 +170,9 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Department</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Add Department</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span class="fa fa-times-circle"></span>
+                    <span class="feather icon-x-circle"></span>
                 </button>
             </div>
             <div class="modal-body">
@@ -213,9 +211,9 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-pencil"></i> Edit Department</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-edit"></i> Edit Department</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span class="fa fa-times-circle"></span>
+                    <span class="feather icon-x-circle"></span>
 
                 </button>
             </div>

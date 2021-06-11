@@ -4,7 +4,7 @@
             <div class="modal-header bg-light">
                 <h5 class="modal-title" id="show-customer"> <i class="fa fa-eye"></i> Show Customer</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <i class="fa fa-times-circle"></i>
+                    <i class="feather icon-x-circle"></i>
                 </button>
             </div>
             <div class="modal-body">

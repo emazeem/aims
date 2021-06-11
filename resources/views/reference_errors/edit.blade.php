@@ -132,7 +132,7 @@
                                 @if($key==0)
                                     <a href="javascript:void(0)"  id="addrow" class="btn btn-primary btn-sm mt-2 text-lg"><i class="fa fa-plus-circle"></i></a>
                                 @endif
-                                <a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a>
+                                <a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="feather icon-x-circle"></i></a>
 {{--                                <i  id="addrow" class="fa fa-plus-circle text-primary mt-2 text-lg"></i>--}}
                             </td>
                         </tr>
@@ -286,7 +286,7 @@
                 cols += '<td><input type="text" class="form-control" name="reference[]"/></td>';
                 cols += '<td><input type="text" class="form-control" name="uncertainty[]"/></td>';
 
-                cols += '<td><a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
+                cols += '<td><a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="feather icon-x-circle"></i></a></td>';
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
                 counter++;

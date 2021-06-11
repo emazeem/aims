@@ -268,7 +268,7 @@
                 cols += '<td><input type="text" class="form-control" name="reference[]" value=""/></td>';
                 cols += '<td><input type="text" class="form-control" name="uncertainty[]" value=""/></td>';
                 cols += '<td>' +
-                    '<a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="fa fa-times-circle"></i></a></td>';
+                    '<a href="javascript:void(0)" class="ibtnDel btn btn-danger btn-sm mt-2 text-lg "><i class="feather icon-x-circle"></i></a></td>';
 
                 newRow.append(cols);
                 $("table.order-list").append(newRow);
