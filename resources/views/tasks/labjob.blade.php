@@ -1,4 +1,6 @@
-<div class="modal fade" id="assign-lab-task" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  >
+
+
+<div class="modal fade" id="assign-lab-task" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  >
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
@@ -9,7 +11,7 @@
             </div>
 
             <div class="modal-body">
-                <form id="assign_lab_task"  action="{{route('tasks.store')}}" method="post">
+                <form id="assign_lab_task" method="post">
                         @csrf
                         <input type="hidden" value="" name="id" id="lab_task_id">
                         @php $today=date('Y-m-d',time()); @endphp
@@ -46,41 +48,32 @@
                             <label for="user" class="col-12 control-label">Select User</label>
                             <div class="col-12">
                                 <div class="form-check form-check-inline" style="width: 100%">
-                                    <select class="form-control" id="user" name="user">
-                                        <option selected disabled>Select User</option>
+                                    <select class="form-control select-2-users" id="user" name="user"  style="width: 100%">
+                                        <option selected disabled>--Select User</option>
                                         @foreach(\App\Models\User::all() as $user)
                                             <option value="{{$user->id}}">{{$user->fname}} {{$user->lname}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @if ($errors->has('user'))
-                                    <span class="text-danger">
-                                        <strong>{{ $errors->first('user') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <label for="assets" class="col-12 control-label">Select Assets</label>
                             <div class="col-12">
                                 <div class="form-check form-check-inline" style="width: 100%">
-                                    <select class="form-control" multiple id="assets" name="assets[]" style="width: 100%">
+                                    <select class="form-control select-2-asset" multiple id="assets" name="assets[]" style="width: 100%">
                                         <option disabled>Select Assets</option>
                                         @foreach(\App\Models\Asset::all() as $asset)
                                             <option style="font-size: 11px" value="{{$asset->id}}" {{--{{(in_array($asset->id,$sug)?"selected":"")}}--}}>{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @if ($errors->has('assets'))
-                                    <span class="text-danger">
-                                        <strong>{{ $errors->first('assets') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
             </div>
             <div class="modal-footer bg-light">
-                <button type="submit" class="btn btn-primary btn-sm float-right"><i class="fa fa-save"></i> Save</button>
+                <button type="submit" class="btn lab-items-save-btn btn-primary btn-sm float-right"><i class="fa fa-save"></i> Save</button>
                 </form>
             </div>
         </div>
@@ -108,13 +101,44 @@
                 $('select[name="optassets[]"]').empty();
             }
         });
+
+
+
+
+        $("#assign_lab_task").on('submit', (function (e) {
+            e.preventDefault();
+            var button = $('.lab-items-save-btn');
+            var previous = $('.lab-items-save-btn').html();
+            button.attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+            $.ajax({
+                url: '{{route('tasks.store')}}',
+                type: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (data) {
+
+                    button.attr('disabled', null).html(previous);
+                    swal('success', data.success, 'success').then((value) => {
+                        $('#assign-lab-task').modal('hide');
+                    });
+
+                },
+                error: function (xhr) {
+                    button.attr('disabled', null).html(previous);
+                    var error = '';
+                    $.each(xhr.responseJSON.errors, function (key, item) {
+                        error += item;
+                    });
+                    swal("Failed", error, "error");
+                }
+            });
+        }));
+
     });
-
-
 </script>
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
 {{--<div class="modal fade" id="add_suggestion" tabindex="-1" role="dialog" aria-labelledby="edit_session" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -164,17 +188,15 @@
         </div>
     </div>
 </div>--}}
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+
 <script>
-    $('#assets').select2({
+    /*$('#assets').select2({
         placeholder: 'Select Assets'
     });
     $('#optassets').select2({
         placeholder: 'Select optional assets'
     });
-
+*/
     $("select").on("select2:select", function (evt) {
         var element = evt.params.data.element;
         var $element = $(element);

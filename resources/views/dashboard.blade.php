@@ -522,11 +522,10 @@
                 options
             );
             chart.render();
+
         });
     </script>
-    <script src="{{url('assets/js/plugins/jquery.barrating.min.js')}}"></script>
-    <script src="{{url('assets/js/plugins/apexcharts.min.js')}}"></script>
-    <script src="{{url('assets/js/plugins/jquery.peity.min.js')}}"></script>
     <script src="{{url('assets/js/pages/chart.js')}}"></script>
+    <script src="{{url('assets/js/plugins/apexcharts.min.js')}}"></script>
 
 @endsection

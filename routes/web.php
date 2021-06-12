@@ -261,6 +261,7 @@ Route::group(['prefix'=> 'scheduling'],function() {
         Route::get('/{id}',[App\Http\Controllers\SchedulingController::class, 'show'])->middleware('auth')->name('lab');
     });
     Route::group(['prefix'=> 'tasks'],function() {
+        Route::get('assign_site/{job_id}',[App\Http\Controllers\TaskController::class, 'site_assign'])->middleware('auth')->name('tasks.site_assign');
         Route::post('assign_site_job',[App\Http\Controllers\TaskController::class, 'siteassignjobs'])->middleware('auth')->name('tasks.siteassignjobs');
         Route::get('create/{id}',[App\Http\Controllers\TaskController::class, 'create'])->middleware('auth')->name('tasks.create');
         Route::get('edit/{id}',[App\Http\Controllers\TaskController::class, 'edit'])->middleware('auth')->name('tasks.edit');

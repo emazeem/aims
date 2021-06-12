@@ -63,7 +63,7 @@ class TaskController extends Controller
         $tasks->assign_user=$request->user;
         $tasks->assign_assets=implode(',',$request->assets);
         $tasks->save();
-        return redirect()->back()->with('success','Tasks assigned successfully');
+        return response()->json(['success'=>'Tasks assigned successfully']);
     }
 
     public function respectiveassets($id){
@@ -91,6 +91,9 @@ class TaskController extends Controller
         }
         return response()->json(['success'=> 'Site job has assigned successfully']);
 
+    }
+    public function site_assign($id){
+        return view('tasks.sitejob',compact('id'));
     }
     //
 }

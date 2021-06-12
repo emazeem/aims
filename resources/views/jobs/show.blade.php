@@ -7,7 +7,7 @@
             });
         </script>
     @endif
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
 
     <div class="row">
         <div class="col-12">
@@ -73,7 +73,13 @@
         </div>
     </div>
     <script>
+        'use strict';
         $(document).ready(function () {
+
+
+            $('.select-2-users').select2();
+            $('.select-2-asset').select2();
+
             $(document).on('click', '.assign-lab-task', function () {
                 var id = $(this).attr('data-id');
 
@@ -168,7 +174,7 @@
     </div>
     @include('itementries.create')
     @include('tasks.labjob')
-    @include('tasks.sitejob')
+
 
     <div class="x_content">
 
@@ -284,24 +290,25 @@
             <div class="tab-pane fade" id="site" role="tabpanel" aria-labelledby="site-tab">
                 @if(count($sitejobs)>0)
                     <div class="row">
-                        <div class="col-12">
-                            <button type='button' title='Assign Site Job' class='btn btn-sm btn-light border assign-site pull-right' data-id="{{$job->id}}"  href> <i class="fa fa-plus-square"></i> Assign</button>
+                        <div class="col-12 mt-2">
+                            <a href="{{route('tasks.site_assign',[$job->id])}}" title='Assign Site Job' class='btn btn-sm btn-light border assign-site float-right'> <i class="fa fa-plus-square"></i> Assign</a>
                             @foreach($sitejobs as $sitejob)
-                                <h4>Assets Assigned</h4>
                                 @php $all_assets=explode(',',$sitejob->group_assets); @endphp
                                 @if(isset($sitejob->group_assets))
-                                    @foreach($all_assets as $asset)
-                                        <span class="badge border px-3 py-2 m-1">
+                                    <h5 class="font-weight-light">Assets Assigned</h5>
+                                @foreach($all_assets as $asset)
+                                        <span class="badge border px-3 bg-white py-2 m-1">
                                         {{\App\Models\Asset::find($asset)->name}} ( {{\App\Models\Asset::find($asset)->code}} )
                                         </span>
                                     @endforeach
                                 @endif
-                                <h4>Assigned Users</h4>
+
 
                                 @php $all_users=explode(',',$sitejob->group_users); @endphp
                                 @if(isset($sitejob->group_users))
+                                    <h5 class="font-weight-light">Assigned Users</h5>
                                     @foreach($all_users as $user)
-                                        <span class="badge border px-3 py-2 m-1">
+                                        <span class="badge border px-3 bg-white py-2 m-1">
                                         {{\App\Models\User::find($user)->fname}} {{\App\Models\User::find($user)->lname}}
                                         </span>
                                     @endforeach

@@ -32,6 +32,7 @@ class MytaskController extends Controller
         $this->authorize('mytask-index');
         return view('mytask.index');
     }
+
     public function fetch(Request $request){
         $this->authorize('mytask-index');
 

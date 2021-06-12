@@ -16,9 +16,7 @@
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
-
     <link rel="stylesheet" href="{{url('assets/css/plugins/select2.min.css')}}">
-
 </head>
 @if(Route::currentRouteName()!='login')
     <body class="">
@@ -62,14 +60,13 @@
 
     @endif
     @if(Route::currentRouteName()=='home')
-        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+        <link rel="stylesheet" href="{{url('css/fullcalendar.min.css')}}"/>
+        <script src="{{url('js/moment.min.js')}}"></script>
+        <script src="{{url('js/fullcalendar.min.js')}}"></script>
     @endif
 
-    <!-- select2 Js -->
+
     <script src="{{url('assets/js/plugins/select2.full.min.js')}}"></script>
-    <!-- form-select-custom Js -->
     <script src="{{url('assets/js/pages/form-select-custom.js')}}"></script>
 
     </body>
