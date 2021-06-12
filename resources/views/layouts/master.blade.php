@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Rubik</title>
+    <title>Rubic</title>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
     <meta name="keywords" content="">
     <meta name="author" content=""/>
 
-    <link rel="icon" href="{{url('assets/images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{url('img/rubic-logo-favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
