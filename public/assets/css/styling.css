@@ -28873,6 +28873,8 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
 
 .table.table-sm td,
 .table.table-sm th {
+    word-break: break-all;
+    word-wrap: break-word;
     padding: 0.6rem 2rem;
 }
 

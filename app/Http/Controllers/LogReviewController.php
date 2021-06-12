@@ -39,7 +39,7 @@ class LogReviewController extends Controller
                 return $data->title;
             })
             ->addColumn('description', function ($data) {
-                return substr($data->description,0,40).'...';
+                return strlen($data->description)>40?substr($data->description,0,40).'...':$data->description;
             })
             ->addColumn('priority', function ($data) {
                 if ($data->priority==0){

@@ -102,6 +102,7 @@ class ComposerStaticInit3a81bb0a2d8c36e47ea5a50a0b8e8a40
         ),
         'R' => 
         array (
+            'RenatoMarinho\\LaravelPageSpeed\\' => 31,
             'Ramsey\\Uuid\\' => 12,
             'Ramsey\\Collection\\' => 18,
         ),
@@ -377,6 +378,10 @@ class ComposerStaticInit3a81bb0a2d8c36e47ea5a50a0b8e8a40
         'SimpleSoftwareIO\\QrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/simplesoftwareio/simple-qrcode/src',
+        ),
+        'RenatoMarinho\\LaravelPageSpeed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -736,6 +741,7 @@ class ComposerStaticInit3a81bb0a2d8c36e47ea5a50a0b8e8a40
         'App\\Http\\Controllers\\FormsandformatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/FormsandformatsController.php',
         'App\\Http\\Controllers\\GenerateRequestsController' => __DIR__ . '/../..' . '/app/Http/Controllers/GenerateRequestsController.php',
         'App\\Http\\Controllers\\GrnController' => __DIR__ . '/../..' . '/app/Http/Controllers/GrnController.php',
+        'App\\Http\\Controllers\\GroupedCapabilitiesController' => __DIR__ . '/../..' . '/app/Http/Controllers/GroupedCapabilitiesController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\IntermediatechecksofassetController' => __DIR__ . '/../..' . '/app/Http/Controllers/IntermediatechecksofassetController.php',
         'App\\Http\\Controllers\\InterviewappraisalController' => __DIR__ . '/../..' . '/app/Http/Controllers/InterviewappraisalController.php',
@@ -751,6 +757,7 @@ class ComposerStaticInit3a81bb0a2d8c36e47ea5a50a0b8e8a40
         'App\\Http\\Controllers\\JournalVouhcerController' => __DIR__ . '/../..' . '/app/Http/Controllers/JournalVouhcerController.php',
         'App\\Http\\Controllers\\LabjobsController' => __DIR__ . '/../..' . '/app/Http/Controllers/LabjobsController.php',
         'App\\Http\\Controllers\\LeaveApplicationController' => __DIR__ . '/../..' . '/app/Http/Controllers/LeaveApplicationController.php',
+        'App\\Http\\Controllers\\LogReviewController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogReviewController.php',
         'App\\Http\\Controllers\\ManageJobsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManageJobsController.php',
         'App\\Http\\Controllers\\ManagereferenceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagereferenceController.php',
         'App\\Http\\Controllers\\MassreferenceController' => __DIR__ . '/../..' . '/app/Http/Controllers/MassreferenceController.php',
@@ -881,7 +888,8 @@ class ComposerStaticInit3a81bb0a2d8c36e47ea5a50a0b8e8a40
         'App\\Models\\Vernierentries' => __DIR__ . '/../..' . '/app/Models/Vernierentries.php',
         'App\\Models\\Volumeentries' => __DIR__ . '/../..' . '/app/Models/Volumeentries.php',
         'App\\Models\\Zvalues' => __DIR__ . '/../..' . '/app/Models/Zvalues.php',
-        'App\\Notifications\\CustomerNotification' => __DIR__ . '/../..' . '/app/Notifications/CustomerNotification.php',
+        'App\\Notifications\\CustomNotification' => __DIR__ . '/../..' . '/app/Notifications/CustomNotification.php',
+        'App\\Notifications\\RFQNotification' => __DIR__ . '/../..' . '/app/Notifications/RFQNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -5118,6 +5126,16 @@ class ComposerStaticInit3a81bb0a2d8c36e47ea5a50a0b8e8a40
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\CollapseWhitespace' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/CollapseWhitespace.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\DeferJavascript' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/DeferJavascript.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\ElideAttributes' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/ElideAttributes.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\InlineCss' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/InlineCss.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\InsertDNSPrefetch' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/InsertDNSPrefetch.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\PageSpeed' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/PageSpeed.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\RemoveComments' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/RemoveComments.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\RemoveQuotes' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/RemoveQuotes.php',
+        'RenatoMarinho\\LaravelPageSpeed\\Middleware\\TrimUrls' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/Middleware/TrimUrls.php',
+        'RenatoMarinho\\LaravelPageSpeed\\ServiceProvider' => __DIR__ . '/..' . '/renatomarinho/laravel-page-speed/src/ServiceProvider.php',
         'Sabberworm\\CSS\\CSSList\\AtRuleBlockList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/CSSList/AtRuleBlockList.php',
         'Sabberworm\\CSS\\CSSList\\CSSBlockList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/CSSList/CSSBlockList.php',
         'Sabberworm\\CSS\\CSSList\\CSSList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/CSSList/CSSList.php',

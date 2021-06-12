@@ -1,6 +1,14 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <style>
+        .table td{
+            display: table-cell;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+    </style>
+
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -18,15 +26,15 @@
                 </span>
             </div>
 
-            <div class="col-12">
-                <table class="table text-dark table-sm bg-white table-bordered table-responsive-sm table-hover font-13 log-table">
+            <div class="col-12 table-responsive">
+                <table class="table text-dark table-sm bg-white table-bordered table-hover font-13 log-table">
                     <tr>
                         <th>Title</th>
                         <td>{{$show->title}}</td>
                     </tr>
                     <tr>
                         <th>Description</th>
-                        <td>{{$show->description}}</td>
+                        <td  style="word-break:break-all;word-wrap: break-word;">{{$show->description}}</td>
                     </tr>
                     <tr>
                         <th>Status</th>
