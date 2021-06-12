@@ -357,11 +357,32 @@
                     });
 
             });
+
+            $(document).on('click', '.edit_multi', function (e) {
+                e.preventDefault();
+                var id=$(this).attr('data-id');
+                $.ajax({
+                    "url": "{{url('/items/editNA')}}",
+                    type: "POST",
+                    data: {'id': id, _token: '{{csrf_token()}}'},
+                    dataType: "json",
+                    success: function (data) {
+                        $('#edit_multi').modal('show');
+                        $('#edit_multi_id').val(data.id);
+                        $('#edit-multi-capability').val(data.capability);
+                        $('#edit-multi-price').val(data.price);
+                        $('#edit-multi-location').val(data.location).trigger('change');
+                        $('#edit-multi-accredited').val(data.accredited);
+                        $('#edit-multi-quantity').val(data.quantity);
+                    }
+                });
+            });
         });
 
     </script>
     @if($show->status==0)
         @include('items.create')
         @include('non_listed.index')
+        @include('grouped_items.index')
     @endif
 @endsection

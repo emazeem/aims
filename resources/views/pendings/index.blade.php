@@ -14,7 +14,8 @@
             });
         </script>
     @endif
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+
     <div class="row">
         <div class="col-12">
             <h3 class="float-left font-weight-light"><i class="feather icon-activity"></i> All Pending Requests</h3>

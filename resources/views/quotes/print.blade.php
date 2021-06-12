@@ -304,7 +304,7 @@
                             @endif
                         </td>
                         <td class="font-11">
-                            @if($quote->status==0 or $quote->status==2){{$quote->range}}@else --- @endif</td>
+                            @if($quote->status==0 or $quote->status==2){{$quote->parameter==14?'Multi Parameter':$quote->range}}@else --- @endif</td>
                         <td class="font-11">
                             @if($quote->status==0 or $quote->status==2){{$quote->accredited}}@else --- @endif</td>
                         <td class="font-11">

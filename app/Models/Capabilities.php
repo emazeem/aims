@@ -24,7 +24,9 @@ class Capabilities extends Model
     public function calculators(){
         return $this->belongsTo('App\Models\Preference','calculator','slug')->withDefault();
     }
-
+    public function multis(){
+        return $this->hasMany( self::class, 'group_id', 'id' );
+    }
     protected static $logAttributes = ["name","parameter","procedure","range","price","accuracy","unit","remarks","location","accredited"];
     protected static $logOnlyDirty = true;
 }

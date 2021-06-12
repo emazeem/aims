@@ -38,6 +38,13 @@ class ItemController extends Controller
                 if (isset($data->not_available)){
                     return '<span class="text-danger">'.$data->not_available.'</span>';
                 }
+                if ($data->parameter==14){
+                    $title=null;
+                    foreach ($data->capabilities->multis as $multi) {
+                        $title.=$multi->name.'-';
+                    }
+                    return '<span class="text-danger" title="'.$title.'">'.$data->capabilities->name.'</span>';
+                }
                 return $data->capabilities->name;
             })
             ->addColumn('range', function ($data) {
@@ -92,7 +99,13 @@ class ItemController extends Controller
                 $action=null;
                 if ($data->quotes->status==0){
                     if ($data->not_available==null){
-                        $action.="<a title='Edit' class='btn btn-sm btn-success edit' href data-id='$data->id'><i class='fa fa-edit'></i></a>";
+                        if ($data->parameter==14){
+                            $action.="<a title='Edit' class='btn btn-sm btn-success edit_multi' href data-id='$data->id'><i class='fa fa-edit'></i></a>";
+
+                        }else{
+                            $action.="<a title='Edit' class='btn btn-sm btn-success edit' href data-id='$data->id'><i class='fa fa-edit'></i></a>";
+                        }
+
                     } else{
                         $action.="<a title='Edit' class='btn btn-sm btn-success edit-na' href='#' data-id='$data->id'><i class='fa fa-edit'></i></a>";
                     }
@@ -325,7 +338,127 @@ class ItemController extends Controller
         } else if ($capability->accredited_max_range>=$max &&$capability->accredited_min_range<=$min ){
             return response()->json(['success'=>'Accredited']);
         }
-
-
     }
+    public function store_multi(Request $request){
+        //dd($request->all());
+        $this->validate(request(), [
+            'capability' => 'required',
+            'price' => 'required',
+            'location' => 'required',
+            'accredited' => 'required',
+            'quantity' => 'required',
+
+        ],[
+            'parameter.required' => 'Parameter field is required *',
+            'capability.required' => 'Capability field is required *',
+            'range.0.required' => 'Min Range field is required *',
+            'range.1.required' => 'Max Range field is required *',
+            'price.required' => 'Price field is required *',
+            'quantity.required' => 'Quantity field is required *',
+            'location.required' => 'Location field is required *',
+            'accredited.required' => 'Accredited field is required *',
+        ]);
+        //change status 0 to 1 for empty to adding state of quote
+        $item=new Item();
+        $item->quote_id=$request->quote_id;
+        $item->not_available=null;
+        $item->location=$request->location;
+        $item->accredited=$request->accredited;
+        $item->unit=0;
+        $item->parameter=14;
+        $item->capability=$request->capability;
+        $item->range=0;
+        $item->status=0;
+        $item->price=$request->price;
+        $item->quantity=$request->quantity;
+        $item->save();
+        $items=Item::where('quote_id',$request->quote_id)->where('status',0)->get();
+        $lab=0;$site=0;
+        foreach($items as $value){
+            if ($value->location=='site'){$site=1;}
+            if ($value->location=='lab'){$lab=1;}
+        }
+        if ($lab==1 and $site==1){
+            $q=Quotes::find($request->quote_id);
+            $q->type='BOTH';
+            $q->save();
+        }if ($lab==1 and $site==0){
+            $q=Quotes::find($request->quote_id);
+            $q->type='LAB';
+            $q->save();
+        }if ($site==1 and $lab==0){
+            $q=Quotes::find($request->quote_id);
+            $q->type='SITE';
+            $q->save();
+        }
+        return response()->json(['success'=>'Multi Parameter item added successfully']);
+    }
+    public function update_multi(Request $request){
+        //dd($request->all());
+        $this->validate(request(), [
+            'capability' => 'required',
+            'price' => 'required',
+            'location' => 'required',
+            'accredited' => 'required',
+            'quantity' => 'required',
+
+        ],[
+            'parameter.required' => 'Parameter field is required *',
+            'capability.required' => 'Capability field is required *',
+            'range.0.required' => 'Min Range field is required *',
+            'range.1.required' => 'Max Range field is required *',
+            'price.required' => 'Price field is required *',
+            'quantity.required' => 'Quantity field is required *',
+            'location.required' => 'Location field is required *',
+            'accredited.required' => 'Accredited field is required *',
+        ]);
+        //change status 0 to 1 for empty to adding state of quote
+        $item=Item::find($request->edit_multi_id);
+        $item->location=$request->location;
+        $item->accredited=$request->accredited;
+        $item->parameter=14;
+        $item->capability=$request->capability;
+        $item->price=$request->price;
+        $item->quantity=$request->quantity;
+        $item->save();
+        $items=Item::where('quote_id',$item->quote_id)->where('status',0)->get();
+        $lab=0;$site=0;
+        foreach($items as $value){
+            if ($value->location=='site'){$site=1;}
+            if ($value->location=='lab'){$lab=1;}
+        }
+        if ($lab==1 and $site==1){
+            $q=Quotes::find($item->quote_id);
+            $q->type='BOTH';
+            $q->save();
+        }if ($lab==1 and $site==0){
+            $q=Quotes::find($item->quote_id);
+            $q->type='LAB';
+            $q->save();
+        }if ($site==1 and $lab==0){
+            $q=Quotes::find($item->quote_id);
+            $q->type='SITE';
+            $q->save();
+        }
+        return response()->json(['success'=>'Multi Parameter item updated successfully']);
+    }
+
+    public function get_multi_detail($id){
+        $multiitems=Capabilities::find($id);
+        $price=0;
+        $accredited=[];
+        foreach ($multiitems->multis as $item) {
+            $price=$price+$item->price;
+            if ($item->accredited=='no'){
+                $accredited[]=$item->accredited;
+            }
+        }
+        $data=[
+            'price'=>$price,
+            'location'=>$multiitems->location,
+            'accredited'=>count($accredited)>1?'no':'yes',
+        ];
+        return response()->json($data);
+    }
+
 }

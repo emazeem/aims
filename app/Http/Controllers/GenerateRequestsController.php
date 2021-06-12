@@ -17,7 +17,6 @@ class GenerateRequestsController extends Controller
         $this->authorize('quote-index');
         $customers=Customer::orderBY('reg_name')->get();
         $tms=User::whereIn('id',[1,2,4,6,19])->get();
-
         $capabilities=Capabilities::all();
         $parameters=Parameter::all();
 
@@ -141,8 +140,8 @@ class GenerateRequestsController extends Controller
                 $noaction=true;
             }
         }
-        $capabilities=Capabilities::all();
-        $parameters=Parameter::all();
+        $capabilities=Capabilities::orderBy('name','ASC')->get();
+        $parameters=Parameter::orderBy('name','ASC')->where('id','!=',14)->get();
         return view('generate_requests.show',compact('show','id','tms','items','noaction','capabilities','parameters'));
     }
 

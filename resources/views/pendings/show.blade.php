@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
 
     @if(Session::has('success'))
         <script>
@@ -17,16 +18,15 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom pull-left">
-                <i class="fa fa-tasks"></i>
+            <h3 class="font-weight-light pull-left">
+                <i class="feather icon-list"></i>
                 Review Items
             </h3>
         </div>
-        <div class="col-12">
+        <div class="col-12 table-responsive">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Quote</th>
                     <th>Customer</th>
                     <th>Not Available</th>
@@ -37,11 +37,11 @@
                 </tr>
                 </thead>
                 <tbody class="text-capitalize">
+
                 @foreach($quote->items as $item)
                     @if($item->status==1)
                         <tr>
-                            <td>{{$item->id}}</td>
-                            <td>RFQ/{{$item->quote_id}}</td>
+                            <td>{{$item->quotes->cid}}</td>
                             <td>{{$item->quotes->customers->reg_name}}</td>
                             <td>{{$item->not_available}}</td>
                             <td>
@@ -91,7 +91,6 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
                     <th>Quote</th>
                     <th>Customer</th>
                     <th>Not Available</th>
