@@ -14,7 +14,7 @@
 
     <link rel="icon" href="{{url('img/rubic-logo-favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{url('css/style.css')}}">
+    <link rel="stylesheet" href="{{url('css/styling.css')}}">
     <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/css/plugins/select2.min.css')}}">
 </head>
