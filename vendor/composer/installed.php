@@ -1082,15 +1082,6 @@
       ),
       'reference' => 'cd4032040a750077205918c86049aa0f43d22947',
     ),
-    'renatomarinho/laravel-page-speed' => 
-    array (
-      'pretty_version' => '2.0.0',
-      'version' => '2.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '5c807f04831a6ab99fd089c9b83fb3b5a9472d9b',
-    ),
     'rhumsaa/uuid' => 
     array (
       'replaced' => 
