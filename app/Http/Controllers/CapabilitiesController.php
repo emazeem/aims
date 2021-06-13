@@ -34,9 +34,6 @@ class CapabilitiesController extends Controller
         $data=Capabilities::with('parameters')->where('is_group',0)->get();
         //dd($data);
         return DataTables::of($data)
-            ->addColumn('id', function ($data) {
-                return $data->id;
-            })
             ->addColumn('name', function ($data) {
                 return $data->name;
             })

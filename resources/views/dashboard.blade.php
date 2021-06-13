@@ -338,14 +338,9 @@
             {!! $calendar->script() !!}
         </div>
     </div>
-
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable({});
-        });
-    </script>
     <script>
         $(document).ready(function (e) {
+            
             $(document).on('click', '.checkin', function (e) {
                 swal({
                     title: "Are you sure to check in?",

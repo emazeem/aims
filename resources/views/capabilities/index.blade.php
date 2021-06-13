@@ -20,7 +20,6 @@
                width="100%">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Parameter</th>
                 <th>Range</th>
@@ -38,7 +37,6 @@
             </tbody>
             <tfoot>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Parameter</th>
                 <th>Range</th>
@@ -72,7 +70,6 @@
                     "data": {_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
                     {"data": "name"},
                     {"data": "parameter"},
                     {"data": "range"},
