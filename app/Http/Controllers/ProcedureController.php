@@ -35,10 +35,18 @@ class ProcedureController extends Controller
             })
             ->addColumn('options', function ($data) {
 
+                $token=csrf_token();
+                $action="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                    <form id=\"form$data->id\" method=\"post\" role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                      </form>";
+
                 return "&emsp;
                     <a title='Edit' class='btn btn-sm btn-success' href='".url('/procedures/edit/'.$data->id)."'><i class='fa fa-edit'></i></button>
                     <a title='Show' class='btn btn-sm btn-warning' href='".url('/procedures/show/'.$data->id)."'><i class='fa fa-eye'></i></button>
-                  ";
+                  ".$action;
 
             })
             ->rawColumns(['options','uncertainties'])
@@ -102,5 +110,10 @@ class ProcedureController extends Controller
         $parameters=Parameter::all();
         return view('procedures.show',compact('parameters','show'));
     }
+    public function destroy(Request $request){
+        Procedure::find($request->id)->delete();
+        return response()->json(['success'=>'Deleted Successfully']);
+    }
+
     //
 }

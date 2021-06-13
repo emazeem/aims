@@ -384,6 +384,7 @@ Route::group(['prefix'=> 'procedures'],function(){
     Route::get('/create/',[App\Http\Controllers\ProcedureController::class, 'create'])->middleware('auth')->name('procedures.create');
     Route::post('/store/',[App\Http\Controllers\ProcedureController::class, 'store'])->middleware('auth')->name('procedures.store');
     Route::post('/update/',[App\Http\Controllers\ProcedureController::class, 'update'])->middleware('auth')->name('procedures.update');
+    Route::delete('destroy',[App\Http\Controllers\ProcedureController::class, 'destroy'])->middleware('auth')->name('procedures.destroy');
     Route::get('/get_assets/{id}',[App\Http\Controllers\ProcedureController::class, 'get_assets'])->middleware('auth')->name('procedures.get_assets');
 });
 Route::group(['prefix'=> 'specifications'],function(){

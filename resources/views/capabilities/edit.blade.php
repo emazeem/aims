@@ -116,27 +116,7 @@
     $(document).ready(function () {
         $(".select-2-parameter").select2();
         $(".select-2-procedure").select2();
-        $('#editparameter').on('change', function() {
-            var parameter = $(this).val();
-            if(parameter) {
-                $.ajax({
-                    url: '/units/fetch/previous_units/'+parameter,
-                    type: "GET",
-                    dataType: "json",
-                    success:function(data) {
-                        $('#editunit').empty();
-                        $('#editunit').append('<option disabled >--Select Units</option>');
-                        $.each(data['previous'], function(key, value) {
-                            $('#editunit').append('<option value="'+value.id+'">'+ value.unit +'</option>');
-                        });
-                    }
-                });
-            }
-            else{
-                $('#editunit').empty();
-                $('#editunit').append('<option disabled selected>--Select Unit</option>');
-            }
-        });
+
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('data-id');
             $.ajax({
@@ -152,9 +132,19 @@
                 },
                 success: function(data)
                 {
+
+                    $('#editunit').empty();
+                    $('#editunit').append('<option disabled selected>--Select Units</option>');
+
+                    $.each(data['units'], function(key, value) {
+                        $('#editunit').append('<option value="'+value.id+'">'+ value.unit +'</option>');
+                    });
+
                     $('#edit_capabilities').modal('toggle');
                     $('#editid').val(data.id);
                     $('#editname').val(data.name);
+                    $('#editunit').val(data.unit);
+
                     $('#editparameter').val(data.parameter).trigger('change');
                     $('#editprocedure').val(data.procedure).trigger('change');
                     $('#edit_min_range').val(data.min_range);
@@ -173,13 +163,6 @@
                         $("#editaccredited").prop('checked', false);
                     }
 
-                    $('#editunit').empty();
-                    $('#editunit').append('<option disabled>--Select Units</option>');
-                    $.each(data['units'], function(key, value) {
-                        var selection = data.unit == value.id ? 'selected' : '';
-                        $('#editunit').append('<option value="'+value.id+'" '+selection+'>'+ value.unit +'</option>');
-                    });
-                    $('#editunit').val(data.unit);
                     //Populating Form Data to Edit Ends
                 },
                 error: function(){},
@@ -219,6 +202,26 @@
                 }
             });
         }));
-
+        $('#editparameter').on('change', function() {
+            var parameter = $(this).val();
+            if(parameter) {
+                $.ajax({
+                    url: '/units/fetch/previous_units/'+parameter,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('#editunit').empty();
+                        $('#editunit').append('<option disabled selected>--Select Units</option>');
+                        $.each(data['previous'], function(key, value) {
+                            $('#editunit').append('<option value="'+value.id+'">'+ value.unit +'</option>');
+                        });
+                    }
+                });
+            }
+            else{
+                $('#editunit').empty();
+                $('#editunit').append('<option disabled selected>--Select Unit</option>');
+            }
+        });
     });
 </script>
