@@ -31,7 +31,7 @@ class CapabilitiesController extends Controller
     }
     public function fetch(){
         $this->authorize('capabilities-index');
-        $data=Capabilities::with('parameters')->where('is_group',0)->take(100)->get();
+        $data=Capabilities::with('parameters')->where('is_group',0)->get();
         return DataTables::of($data)
             ->addColumn('name', function ($data) {
                 return $data->name;
