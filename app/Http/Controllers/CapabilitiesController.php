@@ -15,15 +15,6 @@ use Yajra\DataTables\DataTables;
 class CapabilitiesController extends Controller
 {
     public function index(){
-
-        $capabilities=Capabilities::all();
-        foreach ($capabilities as $capability){
-            $name=explode(' ',$capability->name);
-            echo $name[0].'---'.$capability->id;
-            echo '<br>';
-        }
-        dd($capabilities);
-
         $this->authorize('capabilities-index');
         $procedures=Procedure::orderBy('name','ASC')->get();
         $parameters=Parameter::orderBy('name','ASC')->get();
