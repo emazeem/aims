@@ -5,13 +5,19 @@
         <div class="col-12 mb-3">
             <h3 class="float-left font-weight-light"><i class="feather icon-list"></i> Capabilities</h3>
             <span class="float-right ">
+
                 @can('capabilities-create')
-                    <a class="btn float-right btn-sm btn-primary mt-2 shadow-sm" href="#" data-toggle="modal" data-target="#add_capabilities"><i class="fa fa-plus"></i> Capabilities</a>
+                    <a class="btn float-right btn-sm btn-primary mt-2 shadow-sm" href="#" data-toggle="modal"
+                       data-target="#add_capabilities"><i class="fa fa-plus"></i> Capabilities</a>
                 @endcan
 
                 @can('parameter-index')
-                    <a href="{{route('parameters')}}" class="btn mt-2 float-right mx-1 btn-sm btn-success shadow-sm"><i class="fa fa-eye"></i> Parameters</a>
+                    <a href="{{route('parameters')}}" class="btn mt-2 float-right mx-1 btn-sm btn-success shadow-sm"><i
+                                class="fa fa-eye"></i> Parameters</a>
                 @endcan
+                    @can('add-grouped-capabilities')
+                        <a class="btn float-right btn-sm btn-primary add-grouped-capability mt-2 shadow-sm" style="display: none" href ><i class="feather icon-plus-circle"></i> Grouped Capabilities</a>
+                    @endcan
             </span>
         </div>
     </div>
@@ -21,6 +27,7 @@
             <thead>
             <tr>
                 <th>Name</th>
+                <th>@</th>
                 <th>Parameter</th>
                 <th>Range</th>
                 <th>Price</th>
@@ -37,7 +44,9 @@
             </tbody>
             <tfoot>
             <tr>
+
                 <th>Name</th>
+                <th>@</th>
                 <th>Parameter</th>
                 <th>Range</th>
                 <th>Price</th>
@@ -71,6 +80,7 @@
                 },
                 "columns": [
                     {"data": "name"},
+                    {"data": "@", orderable: false, searchable: false},
                     {"data": "parameter"},
                     {"data": "range"},
                     {"data": "price"},
@@ -94,40 +104,57 @@
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            var id = $(this).attr('data-id');
-                            var token = '{{csrf_token()}}';
-                            e.preventDefault();
-                            var request_method = $("#form" + id).attr("method");
-                            var form_data = $("#form" + id).serialize();
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        var id = $(this).attr('data-id');
+                        var token = '{{csrf_token()}}';
+                        e.preventDefault();
+                        var request_method = $("#form" + id).attr("method");
+                        var form_data = $("#form" + id).serialize();
 
-                            $.ajax({
-                                url: "{{route('capabilities.delete')}}",
-                                type: request_method,
-                                dataType: "JSON",
-                                data: form_data,
-                                statusCode: {
-                                    403: function () {
-                                        swal("Failed", "Permission denied.", "error");
-                                        return false;
-                                    }
-                                },
-                                success: function (data) {
-                                    swal('success', data.success, 'success').then((value) => {
-                                        $("#example").DataTable().ajax.reload(null, false);
-                                    });
+                        $.ajax({
+                            url: "{{route('capabilities.delete')}}",
+                            type: request_method,
+                            dataType: "JSON",
+                            data: form_data,
+                            statusCode: {
+                                403: function () {
+                                    swal("Failed", "Permission denied.", "error");
+                                    return false;
+                                }
+                            },
+                            success: function (data) {
+                                swal('success', data.success, 'success').then((value) => {
+                                    $("#example").DataTable().ajax.reload(null, false);
+                                });
 
-                                },
-                                error: function (data) {
-                                    swal("Failed", data.error, "error");
-                                },
-                            });
+                            },
+                            error: function (data) {
+                                swal("Failed", data.error, "error");
+                            },
+                        });
+                    }
+                });
+            });
 
-                        }
-                    });
-
+            $(document).on('click', '#actions', function (e) {
+                var val = [];
+                $('#actions:checked').each(function(i){
+                    val[i] = $(this).attr('data-id');
+                });
+                if (val.length==0){
+                    $('.add-grouped-capability').css('display','none');
+                } else {
+                    $('.add-grouped-capability').css('display','block');
+                }
+            });
+            $(document).on('click', '.add-grouped-capability', function (e) {
+                e.preventDefault();
+                var val = [];
+                $('#actions:checked').each(function(i){
+                    val[i] = $(this).attr('data-id');
+                });
+                window.location.href='{{url('grouped-capabilities/create')}}/'+val;
             });
 
         });

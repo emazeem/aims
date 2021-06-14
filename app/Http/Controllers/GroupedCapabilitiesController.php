@@ -56,9 +56,14 @@ class GroupedCapabilitiesController extends Controller
             ->make(true);
 
     }
-    public function create(){
+    public function create($selections=null){
+        if (isset($selections)){
+            $selections=explode(',',$selections);
+        }else{
+            $selections=[];
+        }
         $this->authorize('add-grouped-capabilities');
-        return view('groupedcapabilities.create');
+        return view('groupedcapabilities.create',compact('selections'));
     }
     public function edit($id){
         $this->authorize('edit-grouped-capabilities');

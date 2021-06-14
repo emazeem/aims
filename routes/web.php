@@ -100,8 +100,8 @@ Route::group(['prefix'=> 'capabilities'],function() {
 
 Route::group(['prefix'=> 'grouped-capabilities'],function() {
     Route::get('',[App\Http\Controllers\GroupedCapabilitiesController::class, 'index'])->middleware('auth')->name('grouped.capabilities');
-    Route::get('create',[App\Http\Controllers\GroupedCapabilitiesController::class, 'create'])->middleware('auth')->name('grouped.capabilities.create');
-    Route::get('edit/{id}',[App\Http\Controllers\GroupedCapabilitiesController::class, 'edit'])->middleware('auth')->name('grouped.capabilities.edit');
+    Route::get('create/{id?}',[App\Http\Controllers\GroupedCapabilitiesController::class, 'create'])->middleware('auth')->name('grouped.capabilities.create');
+    Route::get('edit',[App\Http\Controllers\GroupedCapabilitiesController::class, 'edit'])->middleware('auth')->name('grouped.capabilities.edit');
     Route::post('store',[App\Http\Controllers\GroupedCapabilitiesController::class, 'store'])->middleware('auth')->name('grouped.capabilities.store');
     Route::post('update',[App\Http\Controllers\GroupedCapabilitiesController::class, 'update'])->middleware('auth')->name('grouped.capabilities.update');
     Route::post('',[App\Http\Controllers\GroupedCapabilitiesController::class, 'fetch'])->middleware('auth')->name('grouped.capabilities.fetch');
@@ -381,7 +381,7 @@ Route::group(['prefix'=> 'procedures'],function(){
     Route::post('',[App\Http\Controllers\ProcedureController::class, 'fetch'])->middleware('auth')->name('procedures.fetch');
     Route::get('/edit/{id}',[App\Http\Controllers\ProcedureController::class, 'edit'])->middleware('auth')->name('procedures.edit');
     Route::get('/show/{id}',[App\Http\Controllers\ProcedureController::class, 'show'])->middleware('auth')->name('procedures.show');
-    Route::get('/create/',[App\Http\Controllers\ProcedureController::class, 'create'])->middleware('auth')->name('procedures.create');
+    Route::get('/create/{selections?}',[App\Http\Controllers\ProcedureController::class, 'create'])->middleware('auth')->name('procedures.create');
     Route::post('/store/',[App\Http\Controllers\ProcedureController::class, 'store'])->middleware('auth')->name('procedures.store');
     Route::post('/update/',[App\Http\Controllers\ProcedureController::class, 'update'])->middleware('auth')->name('procedures.update');
     Route::delete('destroy',[App\Http\Controllers\ProcedureController::class, 'destroy'])->middleware('auth')->name('procedures.destroy');

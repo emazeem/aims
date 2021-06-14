@@ -33,9 +33,13 @@ class CapabilitiesController extends Controller
         $this->authorize('capabilities-index');
         $data=Capabilities::with('parameters')->where('is_group',0)->get();
         return DataTables::of($data)
+            ->addColumn('@', function ($data) {
+                return "<input id='actions' type='checkbox' data-id='".$data->id."' name='action[]'>";
+            })
             ->addColumn('name', function ($data) {
                 return $data->name;
             })
+
             ->addColumn('parameter', function ($data) {
                 return $data->parameters->name;
             })
@@ -76,7 +80,7 @@ class CapabilitiesController extends Controller
                     <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>                 ".$action;
 
             })
-            ->rawColumns(['options'])
+            ->rawColumns(['options','@'])
             ->make(true);
 
     }

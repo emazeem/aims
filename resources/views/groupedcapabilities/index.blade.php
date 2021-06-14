@@ -8,6 +8,7 @@
                 @can('add-grouped-capabilities')
                     <a class="btn float-right btn-sm btn-primary mt-2 shadow-sm" href="{{route('grouped.capabilities.create')}}" ><i class="feather icon-plus-circle"></i> Grouped Capabilities</a>
                 @endcan
+
             </span>
         </div>
     </div>

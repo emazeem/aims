@@ -17,13 +17,13 @@
                     <div class="form-check form-check-inline" style="width: 100%">
                         <select class="form-control select-2-capability" style="width: 100%" id="parameter" name="parameter">
                             <option selected disabled>--Select Parameter</option>
-                            <option value="{{\App\Models\Parameter::find(14)->id}}">{{\App\Models\Parameter::find(14)->name}}</option>
+                            <option value="{{\App\Models\Parameter::find(14)->id}}" selected>{{\App\Models\Parameter::find(14)->name}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group col-6 p-1 m-0">
                     <label for="remarks" class=" control-label">Remarks</label>
-                    <input type="text" class="form-control" id="remarks" name="remarks" placeholder="Remarks" autocomplete="off" value="{{old('remarks')}}">
+                    <input type="text" class="form-control" id="remarks" name="remarks" placeholder="Remarks" autocomplete="off" value="{{old('remarks','No Remarks')}}">
                 </div>
                 <div class="form-group col-6 p-1 m-0">
                     <label for="location" class=" control-label">Location</label>
@@ -35,12 +35,13 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="form-group col-12 p-1 m-0">
                     <label for="underlying" class=" control-label">Underlying Capabilities</label>
                     <div class="form-check form-check-inline" style="width: 100%">
                         <select class="form-control js-example-basic-multiple" style="width: 100%" id="underlying" name="underlying[]" multiple>
-                            @foreach(\App\Models\Capabilities::orderBy('name','ASC')->where('parameter',14)->get() as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            @foreach(\App\Models\Capabilities::orderBy('name','ASC')->get() as $item)
+                                <option value="{{$item->id}}" {{in_array($item->id,$selections)?'selected':''}}>{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
