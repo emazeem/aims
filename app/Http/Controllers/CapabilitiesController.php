@@ -31,8 +31,7 @@ class CapabilitiesController extends Controller
     }
     public function fetch(){
         $this->authorize('capabilities-index');
-        $data=Capabilities::with('parameters')->where('is_group',0)->get();
-        //dd($data);
+        $data=Capabilities::with('parameters')->where('is_group',0)->take(100)->get();
         return DataTables::of($data)
             ->addColumn('name', function ($data) {
                 return $data->name;
@@ -127,6 +126,7 @@ class CapabilitiesController extends Controller
         return response()->json(['success'=> 'Capability added successfully']);
     }
     public function update(Request $request){
+        //dd($request->all());
         $this->authorize('capabilities-edit');
         $this->validate(request(), [
             'name' => 'required',

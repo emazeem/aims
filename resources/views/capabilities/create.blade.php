@@ -101,7 +101,7 @@
                     <div class="col-6"></div>
                     <div class="col-6 p-1 m-0 form-check">
                         <div class="checkbox float-right checkbox-fill d-inline">
-                            <input type="checkbox" name="accredited" value="" id="accredited">
+                            <input type="checkbox" name="accredited" id="accredited">
                             <label class="cr" for="accredited">Accredited</label>
                         </div>
                     </div>

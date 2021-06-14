@@ -98,7 +98,7 @@
                     <div class="col-6"></div>
                     <div class="col-6 p-1 m-0 form-check">
                         <div class="checkbox float-right checkbox-fill d-inline">
-                            <input type="checkbox" name="accredited" value="" id="editaccredited">
+                            <input type="checkbox" name="accredited" id="editaccredited">
                             <label class="cr" for="editaccredited">Accredited</label>
                         </div>
                     </div>
@@ -114,9 +114,6 @@
 </div>
 <script>
     $(document).ready(function () {
-        $(".select-2-parameter").select2();
-        $(".select-2-procedure").select2();
-
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('data-id');
             $.ajax({
@@ -133,19 +130,21 @@
                 success: function(data)
                 {
 
-                    $('#editunit').empty();
-                    $('#editunit').append('<option disabled selected>--Select Units</option>');
-
                     $.each(data['units'], function(key, value) {
-                        $('#editunit').append('<option value="'+value.id+'">'+ value.unit +'</option>');
+                        $('#editunit').append('<option value="'+value.id+'" >'+ value.unit +'</option>');
                     });
+
 
                     $('#edit_capabilities').modal('toggle');
                     $('#editid').val(data.id);
                     $('#editname').val(data.name);
-                    $('#editunit').val(data.unit);
 
-                    $('#editparameter').val(data.parameter).trigger('change');
+                    //$('#editparameter').val(data.parameter).trigger('change');
+
+                    $('#editparameter').find("option[value="+data.parameter+"]").attr("selected","selected");
+                    $(".select-2-parameter").select2();
+                    $(".select-2-procedure").select2();
+
                     $('#editprocedure').val(data.procedure).trigger('change');
                     $('#edit_min_range').val(data.min_range);
                     $('#edit_acc_min_range').val(data.accredited_min_range);
@@ -162,11 +161,20 @@
                     }else {
                         $("#editaccredited").prop('checked', false);
                     }
+                    $('#editunit').empty();
+                    $('#editunit').append('<option disabled selected>--Select Units</option>');
 
+                    $.each(data['units'], function(key, value) {
+                        $('#editunit').append('<option value="'+value.id+'">'+ value.unit +'</option>');
+                    });
+                    $('#editunit').val(data.unit);
                     //Populating Form Data to Edit Ends
                 },
                 error: function(){},
+            }).done(function() { //use this
+
             });
+
         });
         $("#edit_capabilities_form").on('submit',(function(e) {
             var button=$('.cap-update-btn');

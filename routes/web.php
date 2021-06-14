@@ -373,7 +373,7 @@ Route::group(['prefix'=> 'units'],function(){
     Route::post('/update/',[App\Http\Controllers\UnitController::class, 'update'])->middleware('auth')->name('units.update');
     Route::get('/units_of_assets/{id}',[App\Http\Controllers\UnitController::class, 'units_of_assets'])->middleware('auth')->name('units.units_of_assets');
     Route::get('/check_both_units/{unit}/{asset}',[App\Http\Controllers\UnitController::class, 'check_both_units'])->middleware('auth')->name('units.check_both_units');
-    Route::get('/fetch/previous_units/{id}',[App\Http\Controllers\UnitController::class, 'previous_units'])->middleware('auth')->name('units.previous_units');
+    Route::get('/fetch/previous_units/{parameter}',[App\Http\Controllers\UnitController::class, 'previous_units'])->middleware('auth')->name('units.previous_units');
 });
 
 Route::group(['prefix'=> 'procedures'],function(){

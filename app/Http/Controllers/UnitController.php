@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\Capabilities;
 use App\Models\Managereference;
 use App\Models\Parameter;
 use App\Models\Preference;
@@ -65,8 +66,6 @@ class UnitController extends Controller
             ->make(true);
 
     }
-
-
     public function create(){
         $this->authorize('create-units');
         $parameters=Parameter::all();
@@ -139,6 +138,8 @@ class UnitController extends Controller
         $units['primary']=Unit::where('primary_',null)->where('parameter',$id)->get();
         return response()->json($units);
     }
+
+
     public function check_both_units($unit,$asset){
 
         $referenceData=Managereference::where('asset',$asset)->pluck('unit')->toArray();
