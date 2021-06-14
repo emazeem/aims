@@ -137,9 +137,9 @@
                 });
             });
 
-            $(document).on('click', '#actions', function (e) {
+            $(document).on('click', '.actions', function (e) {
                 var val = [];
-                $('#actions:checked').each(function(i){
+                $('.actions:checked').each(function(i){
                     val[i] = $(this).attr('data-id');
                 });
                 if (val.length==0){
@@ -151,7 +151,7 @@
             $(document).on('click', '.add-grouped-capability', function (e) {
                 e.preventDefault();
                 var val = [];
-                $('#actions:checked').each(function(i){
+                $('.actions:checked').each(function(i){
                     val[i] = $(this).attr('data-id');
                 });
                 window.location.href='{{url('grouped-capabilities/create')}}/'+val;
