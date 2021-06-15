@@ -7,6 +7,7 @@ Route::get('optimize', function () {
 
 Route::get('/home', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth');
 Route::get('/', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth')->name('home');
+Route::post('/get-location', [App\Http\Controllers\DashboardControlller::class, 'get_location'])->middleware('auth')->name('dashboard.get.location');
 Route::get('notifications', [App\Http\Controllers\DashboardControlller::class, 'notification'])->middleware('auth')->name('notification');
 Route::get('notification/markasread/{id}', [App\Http\Controllers\DashboardControlller::class, 'markread'])->middleware('auth')->name('notification.markasread');
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->middleware('auth')->name('profile');
@@ -474,8 +475,13 @@ Route::group(['prefix'=> 'material_receiving'],function() {
     Route::get('show/{id}',[App\Http\Controllers\MaterialreceivingController::class, 'show'])->middleware('auth')->name('material.receiving.show');
     Route::post('grn/create',[App\Http\Controllers\MaterialreceivingController::class, 'create_grn'])->middleware('auth')->name('material.receiving.grn.create');
 });
-Route::get('/no-facility',[App\Http\Controllers\NofacilityController::class, 'index'])->middleware('auth')->name('nofacility.index');
-Route::post('/no-facility',[App\Http\Controllers\NofacilityController::class, 'fetch'])->middleware('auth')->name('nofacility.fetch');
+Route::group(['prefix'=> 'no-facility'],function() {
+    Route::get('',[App\Http\Controllers\NofacilityController::class, 'index'])->middleware('auth')->name('no.facility.index');
+    Route::post('fetch',[App\Http\Controllers\NofacilityController::class, 'fetch'])->middleware('auth')->name('no.facility.fetch');
+    Route::post('store',[App\Http\Controllers\NofacilityController::class, 'store'])->middleware('auth')->name('no.facility.store');
+    Route::delete('destroy',[App\Http\Controllers\NofacilityController::class, 'destroy'])->middleware('auth')->name('no.facility.destroy');
+});
+
 Route::group(['prefix'=> 'requisition'],function() {
     Route::get('/',[App\Http\Controllers\RequisitionController::class, 'index'])->middleware('auth')->name('requisition.index');
     Route::post('',[App\Http\Controllers\RequisitionController::class, 'fetch'])->middleware('auth')->name('requisition.fetch');

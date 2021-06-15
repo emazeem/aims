@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
 
     <style>
         label{
@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-6 col-12">
         <span class="float-right">
-            <select class="form-control" id="type" name="type">
+            <select class="form-control form-control-sm" id="type" name="type">
                 <option selected disabled>Select Type</option>
                 <option value="all" selected>All Menus</option>
                 <option value="parent">Parent Menu</option>
@@ -141,6 +141,10 @@
 
         $("#add_menu_form").on('submit',(function(e) {
             e.preventDefault();
+            var button=$('.menu-save-btn');
+            var previous=$('.menu-save-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
             $.ajax({
                 url: "{{route('menus.store')}}",
                 type: "POST",
@@ -150,18 +154,13 @@
                 processData:false,
                 success: function(data)
                 {
-
-                    if(!data.errors)
-                    {
-
-                        $('#add_menu').modal('toggle');
-                        swal('success',data.success,'success').then((value) => {
-                            $("#example").DataTable().ajax.reload(null,false);
-                        });
-
-                    }
+                    button.attr('disabled',null).html(previous);
+                    $('#add_menu').modal('toggle');
+                    swal('success',data.success,'success').then((value) => {
+                        $("#example").DataTable().ajax.reload(null,false);
+                    });
                 },
-                error: function(xhr, status, error)
+                error: function(xhr)
                 {
                     button.attr('disabled',null).html(previous);
                     var error='';
@@ -174,6 +173,9 @@
         }));
         $("#edit_menu_form").on('submit',(function(e) {
             e.preventDefault();
+            var button=$('.menu-update-btn');
+            var previous=$('.menu-update-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
             $.ajax({
                 url: "{{route('menus.update')}}",
                 type: "POST",
@@ -183,6 +185,7 @@
                 processData:false,
                 success: function(data)
                 {
+                    button.attr('disabled',null).html(previous);
                     $('#edit_menu').modal('hide');
                     swal('success',data.success,'success').then((value) => {
                         $("#example").DataTable().ajax.reload(null,false);
@@ -191,6 +194,7 @@
                 },
                 error: function(xhr, status, error)
                 {
+                    button.attr('disabled',null).html(previous);
                     var error;
                     error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
@@ -222,12 +226,6 @@
                             type: request_method,
                             dataType: "JSON",
                             data: form_data,
-                            statusCode: {
-                                403: function() {
-                                    swal("Failed", "Permission denied." , "error");
-                                    return false;
-                                }
-                            },
                             success: function(data)
                             {
                                 swal('success',data.success,'success').then((value) => {
@@ -264,10 +262,10 @@
 <div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content bg-light">
-            <div class="modal-header pt-2 pb-0">
-                <h4><i class="fa fa-plus-circle"></i> Add Menu</h4>
+            <div class="modal-header pb-1">
+                <h4 class="font-weight-light"><i class="feather icon-plus-circle"></i> Add Menu</h4>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span class="fa fa-times-circle"></span>
+                    <span class="feather icon-x-circle"></span>
                 </button>
             </div>
             <div class="modal-body bg-white">
@@ -277,30 +275,30 @@
                     <div class="row">
                         <div class="form-group col-12">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
+                            <input type="text" class="form-control form-control-sm" id="name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12">
                             <label for="slug">Slug</label>
-                            <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" autocomplete="off" value="{{old('slug')}}">
+                            <input type="text" class="form-control form-control-sm" id="slug" name="slug" placeholder="Slug" autocomplete="off" value="{{old('slug')}}">
                         </div>
                         <div class="form-group col-12">
                             <label for="url">Url</label>
-                            <input type="text" class="form-control" id="url" name="url" placeholder="Url" autocomplete="off" value="#">
+                            <input type="text" class="form-control form-control-sm" id="url" name="url" placeholder="Url" autocomplete="off" value="#">
                         </div>
 
                         <div class="form-group col-12">
                             <label for="icon">Icon</label>
-                            <input type="text" class="form-control" id="icon" name="icon" placeholder="icon" autocomplete="off" value="{{old('icon')}}">
+                            <input type="text" class="form-control form-control-sm" id="icon" name="icon" placeholder="icon" autocomplete="off" value="{{old('icon')}}">
                         </div>
                         <div class="form-group col-12">
                             <label for="position">Position</label>
-                            <input type="text" class="form-control" id="position" name="position" placeholder="Position" autocomplete="off" value="{{old('position',0)}}">
+                            <input type="text" class="form-control form-control-sm" id="position" name="position" placeholder="Position" autocomplete="off" value="{{old('position',0)}}">
                         </div>
 
                         <div class="col-12 mb-1">
                             <label for="parent">Parent</label>
                             <div class="form-check form-check-inline" style="width: 100%">
-                                <select class="form-control" id="parent" name="parent">
+                                <select class="form-control form-control-sm" id="parent" name="parent">
                                     <option selected disabled="">Select Parent</option>
                                     @foreach($parents as $parent)
                                         <option value="{{$parent->id}}">{{$parent->name}}</option>
@@ -309,18 +307,16 @@
                             </div>
                         </div>
                         <div class="col-12 form-check text-right mt-2">
-                            <div class="btn btn-sm btn-success px-5">
-                                    <label class="form-check-label" for="has_child">
-                                        <input type="checkbox" class="form-check-input"  name="has_child" id="has_child">
+                            <div class="checkbox float-right checkbox-fill d-inline">
+                                <input type="checkbox" name="has_child" id="has_child">
+                                <label class="cr" for="has_child">Has/Is Child</label>
+                            </div>
 
-                                        Has/Is Child
-                                    </label>
-                                </div>
                         </div>
                     </div>
                     </div>
                     <div class="modal-footer p-2">
-                        <button class="btn btn-primary btn-sm" type="submit">Save</button>
+                        <button class="btn btn-primary btn-sm menu-save-btn" type="submit"><i class="fa fa-save"></i> Save</button>
 
                     </div>
                 </form>
@@ -332,10 +328,10 @@
 <div class="modal fade" id="edit_menu" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-light pt-2 pb-0">
-                <h4 class="text-dark"><i class="fa fa-refresh"></i>  Edit Menu</h4>
+            <div class="modal-header bg-light pb-1">
+                <h4 class='font-weight-light'><i class="feather icon-refresh-cw"></i>  Edit Menu</h4>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span class="fa fa-times-circle"></span>
+                    <span class="feather icon-x-circle"></span>
                 </button>
             </div>
             <div class="modal-body">
@@ -345,30 +341,30 @@
                     <div class="row">
                         <div class="form-group col-12">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="edit_name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
+                            <input type="text" class="form-control form-control-sm" id="edit_name" name="name" placeholder="Name" autocomplete="off" value="{{old('name')}}">
                         </div>
                         <div class="form-group col-12">
                             <label for="slug">Slug</label>
-                            <input type="text" class="form-control" id="edit_slug" name="slug" placeholder="Slug" autocomplete="off" value="{{old('slug')}}">
+                            <input type="text" class="form-control form-control-sm" id="edit_slug" name="slug" placeholder="Slug" autocomplete="off" value="{{old('slug')}}">
                         </div>
                         <div class="form-group col-12">
                             <label for="url">Url</label>
-                            <input type="text" class="form-control" id="edit_url" name="url" placeholder="url" autocomplete="off" value="{{old('url')}}">
+                            <input type="text" class="form-control form-control-sm" id="edit_url" name="url" placeholder="url" autocomplete="off" value="{{old('url')}}">
                         </div>
 
                         <div class="form-group col-12">
                             <label for="icon">Icon</label>
-                            <input type="text" class="form-control" id="edit_icon" name="icon" placeholder="icon" autocomplete="off" value="fa fa-">
+                            <input type="text" class="form-control form-control-sm" id="edit_icon" name="icon" placeholder="icon" autocomplete="off" value="fa fa-">
                         </div>
 
                         <div class="form-group col-12">
                             <label for="edit_position">Position</label>
-                            <input type="text" class="form-control" id="edit_position" name="position" placeholder="Position" autocomplete="off" value="{{old('position',0)}}">
+                            <input type="text" class="form-control form-control-sm" id="edit_position" name="position" placeholder="Position" autocomplete="off" value="{{old('position',0)}}">
                         </div>
                         <div class="col-12 mb-1">
                             <label for="parent">Parent</label>
                             <div class="form-check form-check-inline" style="width: 100%">
-                                <select class="form-control" id="edit_parent" name="parent">
+                                <select class="form-control form-control-sm" id="edit_parent" name="parent">
                                     <option value="">None</option>
                                     @foreach($parents as $parent)
                                         <option value="{{$parent->id}}">{{$parent->name}}</option>
@@ -377,12 +373,11 @@
                             </div>
                         </div>
                         <div class="col-12 form-check text-right mt-2">
-                            <div class="btn btn-sm btn-success px-5">
-                                <label class="form-check-label" for="has_child">
-                                    <input type="checkbox" class="form-check-input"  name="has_child" id="edit_has_child">
-                                    Has/Is Child
-                                </label>
+                            <div class="checkbox float-right checkbox-fill d-inline">
+                                <input type="checkbox" name="has_child" id="edit_has_child">
+                                <label class="cr" for="edit_has_child">Has/Is Child</label>
                             </div>
+
                         </div>
 
                     </div>
@@ -390,7 +385,7 @@
 
                     <div class="modal-footer bg-light p-2">
                         <div class="col-12 text-right">
-                            <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-refresh"></i> Update</button>
+                            <button class="btn btn-sm btn-primary menu-update-btn" type="submit"><i class="feather icon-refresh-cw"></i> Update</button>
                         </div>
                     </div>
                 </form>

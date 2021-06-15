@@ -36,6 +36,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->interview_appraisal();
         $this->staff();
         $this->expenses();
+        $this->nofacility();
         $this->empcontract();
         $this->requisition();
         $this->units();
@@ -502,8 +503,36 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+    }
+    public function nofacility()
+    {
+        Gate::define('no-facility-index', function ($user) {
+            if (in_array('no-facility-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('no-facility-add', function ($user) {
+            if (in_array('no-facility-add',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('no-facility-delete', function ($user) {
+            if (in_array('no-facility-delete',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('no-facility-edit', function ($user) {
+            if (in_array('no-facility-edit',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
 
     }
+
 
     public function purchase()
     {

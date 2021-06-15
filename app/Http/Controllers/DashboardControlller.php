@@ -30,20 +30,6 @@ use Stevebauman\Location\Facades\Location;
 class DashboardControlller extends Controller
 {
     public function index(){
-        $ip=\request()->ip();
-        if ($ip=='127.0.0.1'){
-            $ip='119.155.0.229';
-        }
-        $data = Location::get($ip);
-        $key='4d934a76dfd686a9d005d8668f3c6de7';
-        $api= file_get_contents('https://api.openweathermap.org/data/2.5/weather?q=Lahore&appid='.$key,false);
-        $api=json_decode($api,true);
-
-        //dd($ip,$api);
-
-        //4d934a76dfd686a9d005d8668f3c6de7
-
-
         //$columns = Schema::getColumnListing('journals');
         //dd($columns);
 
@@ -118,7 +104,7 @@ class DashboardControlller extends Controller
             compact('head_applications','customers','calendar','indentforrevisions',
                             'indentforapprovals','capabilities','parameters','quotes','sessions',
                             'personnels','assets','jobs','departments','designations','check','checkout_missing_status',
-                            'gparameters','pendings_q','notsents_q','waitings_q','approved_q','api'));
+                            'gparameters','pendings_q','notsents_q','waitings_q','approved_q'));
     }
     public function markRead($id)
     {
@@ -132,6 +118,28 @@ class DashboardControlller extends Controller
     }
     public function notification(){
         return view('notifications');
+    }
+    public function get_location(Request $r){
+        $ip=\request()->ip();
+        if ($ip=='127.0.0.1'){
+            $ip='119.155.0.229';
+        }
+        $data = Location::get($ip);
+        $key='4d934a76dfd686a9d005d8668f3c6de7';
+        $api= file_get_contents('https://api.openweathermap.org/data/2.5/weather?q=Lahore&appid='.$key,false);
+        $api=json_decode($api,true);
+        $temp_centi=round($api['main']['temp']-273.15);
+        $temp_faren=$temp_centi;
+        $api=[
+            'weather-description'=>$api['weather'][0]['description'],
+            'temp-in-centi'=>$temp_centi,
+            'icon'=>'http://openweathermap.org/img/w/'.$api['weather'][0]['icon'].'.png',
+            'city'=>$api['name'],
+            'country'=>$api['sys']['country'],
+            'day'=>date('l'),
+        ];
+        return response()->json($api);
+        //4d934a76dfd686a9d005d8668f3c6de7
     }
     //
 }

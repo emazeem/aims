@@ -187,20 +187,29 @@
         <div class="col-12">
             <div class="card p-0">
                 <div class="card-body">
-                    <h6 class="mb-0 float-right">{{$api['weather'][0]['description']}}</h6>
-                    <span class="d-block mb-1">{{date('l')}}</span>
+                    <h6 class="mb-0 float-right">
+                        <div class="spinner-border spinner-border-sm loading-component"></div>
+                        <span class="weather-description"></span>
+
+                    </h6>
+                    <span class="d-block mb-1">
+                        <div class="spinner-border spinner-border-sm loading-component"></div>
+                        <span class="day"></span>
+
+                    </span>
                     <div class="row align-items-center justify-content-center">
                         <div class="col-auto">
                             <h2 class="text-c-purple m-0">
-                                <img src="http://openweathermap.org/img/w/{{$api['weather'][0]['icon']}}.png" alt="">
-                                {{round($api['main']['temp']-273.15)}}<sup class="f-20">°</sup></h2>
+                                <img class="temp-icon">
+                                <span class="temp-in-centi"></span>
+                                <sup class="f-20">°</sup></h2>
                         </div>
                         <div class="col text-right">
                             <div class="form-group mb-1">
                                 <label class="m-r-5 f-20 mb-0">°F</label>
 
                                 <div class="switch switch-primary d-inline">
-                                    <input type="checkbox" id="switch-a-1" checked="">
+                                    <input type="checkbox" id="switch-a-1" class="temp-toggler">
                                     <label for="switch-a-1" class="cr"></label>
                                 </div>
                                 <label class="m-l-5 f-20 mb-0">°C</label>
@@ -211,7 +220,10 @@
                             <small class="float-right" id="current_time_gadget"></small>
                         </div>
                         <div class="col-12">
-                            <small class="float-left"><i class="feather icon-map-pin"></i> {{$api['name']}} , {{$api['sys']['country']}}</small>
+                            <small class="float-left">
+                                <div class="spinner-border spinner-border-sm loading-component"></div>
+                                <span class="country-city"></span>
+                            </small>
                             <small class="float-right" id="current_time_gadget"></small>
                         </div>
 
@@ -340,7 +352,24 @@
     </div>
     <script>
         $(document).ready(function (e) {
-            
+            $.ajax({
+                url: "{{route('dashboard.get.location')}}",
+                type: 'POST',
+                dataType: "JSON",
+                data: {_token: '{{csrf_token()}}'},
+                beforeSend: function () {
+                    $(".loading-component").fadeIn();
+                },
+                success: function (data) {
+                    $(".loading-component").hide();
+                    $('.weather-description').html(data['weather-description']);
+                    $('.day').html(data['day']);
+                    $('.temp-in-centi').html(data['temp-in-centi']);
+                    $('.temp-icon').attr('src',data['icon']);
+                    $('.country-city').html('<i class="feather icon-map-pin"></i>'.data['city']+' '+data['country']);
+                    $('.temp-toggler').attr('checked','checked');
+                },
+            });
             $(document).on('click', '.checkin', function (e) {
                 swal({
                     title: "Are you sure to check in?",
@@ -428,16 +457,27 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
 
+        $(document).ready(function () {
             setInterval(function () {
                 document.getElementById("current_time").innerText = moment().format('MMM D YYYY, h:mm:ss A');
                 document.getElementById("current_time_gadget").innerText = moment().format('h:mm:ss A');
             }, 1000);
+            $(document).on('click','.temp-toggler',function () {
+                var checked=$('.temp-toggler').is(":checked");
+                if (checked==true){
+                    //convert faren to centi
 
+                    var faren=$('.temp-in-centi').html();
+                    $('.temp-in-centi').hide().html((faren-32)*5/9).fadeToggle(2000);
 
-
+                }else {
+                    var centi=$('.temp-in-centi').html();
+                    $('.temp-in-centi').hide().html((centi*9/5)+32).fadeToggle(2000);
+                }
+            });
         });
+
         $(function() {
             var options = {
                 chart: {
