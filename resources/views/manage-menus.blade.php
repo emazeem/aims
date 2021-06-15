@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -54,7 +55,7 @@
         });
     </script>
     <div class="col-12 row">
-        <h4 class="border-bottom"><i class="fa fa-sort"></i> Manage & Sort Menus</h4>
+        <h3 class="font-weight-light"><i class="feather icon-list"></i> Manage & Sort Menus</h3>
         {{--<div class="border p-2 m-2"><i class="fa fa-sort"></i> Range 0-{{count($mens)-1}}</div>
         --}}
     </div>
