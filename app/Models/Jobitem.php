@@ -12,7 +12,7 @@ class Jobitem extends Model
 
     public function item()
     {
-        return $this->belongsTo('App\Models\Item', 'item_id');
+        return $this->belongsTo('App\Models\QuoteItem', 'item_id');
     }
 
     public function items()

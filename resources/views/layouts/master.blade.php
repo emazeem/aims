@@ -15,7 +15,6 @@
     <link rel="icon" href="{{url('img/rubic-logo-favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{url('assets/css/styling.css')}}">
     <link rel="stylesheet" href="{{url('css/styling.css')}}">
-    <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
     <link rel="stylesheet" href="{{url('assets/css/plugins/select2.min.css')}}">
 </head>
 @if(Route::currentRouteName()!='login')
@@ -41,6 +40,8 @@
     <script src="{{url('assets/js/plugins/bootstrap.min.js')}}"></script>
     <script src="{{url('assets/js/pcoded.min.js')}}"></script>
     <script src="{{url('assets/js/menu-setting.min.js')}}"></script>
+
+    <script type="text/javascript" src="{{url('js/sweetalert.min.js')}}"></script>
 
     @if(Route::currentRouteName()=='home' or Route::currentRouteName()=='customers' or Route::currentRouteName()=='departments'or Route::currentRouteName()=='designations'or Route::currentRouteName()=='users' or Route::currentRouteName()=='parameters'
     or Route::currentRouteName()=='assets' or Route::currentRouteName()=='procedures' or Route::currentRouteName()=='capabilities' or Route::currentRouteName()=='manageref'or Route::currentRouteName()=='units'or Route::currentRouteName()=='quotes.show' or Route::currentRouteName()=='generaterequests.show'

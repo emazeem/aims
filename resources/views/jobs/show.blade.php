@@ -25,14 +25,15 @@
                 @endif
             </div>
         </div>
-        <div class="col-12">
-            <div class="row">
-
-            </div>
+        <div class="col-12 table-responsive">
             <table class="table table-hover table-bordered table-sm bg-white">
                 <tr>
                     <th>ID</th>
                     <td>{{$job->cid}}</td>
+                </tr>
+                <tr>
+                    <th>Quote ID</th>
+                    <td>{{$job->quotes->cid}}</td>
                 </tr>
                 <tr>
                     <th>Customer</th>
@@ -47,10 +48,6 @@
                             <span class="badge badge-primary px-2 py-1">Complete</span>
                         @endif
                     </td>
-                </tr>
-                <tr>
-                    <th>Quote ID</th>
-                    <td>AIMS/QR/{{date('y',strtotime($job->quotes->created_at))}}/{{$job->quote_id}}</td>
                 </tr>
                 <tr>
                     <th>Type</th>
@@ -71,6 +68,7 @@
                 </tr>
             </table>
         </div>
+        @include('jobs.create')
     </div>
     <script>
         'use strict';
@@ -119,34 +117,7 @@
                     window.location.href = 'https://' + url + '/' + type + '/' + id;
                 }, 2000);
             });
-            $("#add_details_form").on('submit', (function (e) {
-                e.preventDefault();
-                $.ajax({
-                    url: "{{route('checkin.store')}}",
-                    type: "POST",
-                    data: new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function (data) {
-                        if (!data.errors) {
-                            $('#add_details').modal('toggle');
-                            swal('success', data.success, 'success').then((value) => {
-                                location.reload();
-                            });
 
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        var error;
-                        error = null;
-                        $.each(xhr.responseJSON.errors, function (key, item) {
-                            error += item;
-                        });
-                        swal("Failed", error, "error");
-                    },
-                });
-            }));
         });
     </script>
     <div class="modal fade" id="scan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -172,7 +143,6 @@
             </div>
         </div>
     </div>
-    @include('itementries.create')
     @include('tasks.labjob')
 
 
@@ -205,6 +175,7 @@
                                             @elseif($labjob->status==0)
                                                 <a href="#" data-id="{{$labjob->id}}" class="btn add btn-light border btn-sm"><i class="fa fa-plus"></i> Receiving</a>
                                             @endif
+
                                         </div>
                                         <div class="card-body">
 

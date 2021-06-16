@@ -112,6 +112,7 @@ class ManageJobsController extends Controller
         }
         $assigned_items=array_unique($assigned_items);
         $assigned_items=array_values($assigned_items);
+
         $items=QuoteItem::with('capabilities')->where('quote_id',$id)->get();
         return view('manage.create',compact('items','id','assigned_items'));
     }

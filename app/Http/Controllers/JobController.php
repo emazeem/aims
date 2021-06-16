@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Asset;
-use App\Models\Item;
+use  App\Models\Asset;
 use App\Models\Job;
 use App\Models\Jobitem;
+use App\Models\QuoteItem;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
 class JobController extends Controller
@@ -65,7 +66,31 @@ class JobController extends Controller
         $labjobs=Jobitem::where('job_id',$id)->where('type',0)->get();
         $sitejobs=Jobitem::where('job_id',$id)->where('type',1)->get();
         $ifassigned=Jobitem::where('job_id',$id)->where('type',1)->where('group_assets',!null)->get();
-        return view('jobs.show',compact('job','labjobs','sitejobs','ifassigned'));
+
+        $items=QuoteItem::with('capabilities')->where('quote_id',$job->quote_id)->get();
+
+
+        $jobs=Job::where('quote_id',$id)->get();
+        $job_ids=[];
+        $assigned_items=[];
+        foreach ($jobs as $job){
+            $job_ids[]=$job->id;
+        }
+        foreach ($job_ids as $job_id) {
+            //for lab
+            $labs=Jobitem::where('job_id',$job_id)->where('type',0)->get();
+            foreach ($labs as $lab){
+                $assigned_items[]=$lab->item_id;
+            }
+            $sites=Jobitem::where('job_id',$job_id)->where('type',1)->get();
+            foreach ($sites as $site){
+                $assigned_items[]=$site->item_id;
+            }
+        }
+        $assigned_items=array_unique($assigned_items);
+        $assigned_items=array_values($assigned_items);
+
+        return view('jobs.show',compact('job','labjobs','sitejobs','ifassigned','items','assigned_items'));
     }
     public function print_job_form($id){
         $job=Job::with('quotes')->find($id);
@@ -88,11 +113,11 @@ class JobController extends Controller
         }
         $items=array_unique($unique_lab_items);
         $items=array_values($items);
-        $labitems=Item::whereIn('id',$items)->get();
+        $labitems=QuoteItem::whereIn('id',$items)->get();
         return view('jobs.invoice',compact('job','labitems'));
     }
     public function print_gp($id){
-        $items=Item::with('customers')->find($id);
+        $items=QuoteItem::with('customers')->find($id);
         $job=Job::find($id);
         $sitejobs=Jobitem::where('job_id',$id)->first();
         $assets=explode(',',$sitejobs->group_assets);
@@ -109,6 +134,16 @@ class JobController extends Controller
             'total' =>$total,
         ];
         return view('jobs.jobtag',compact('tag','index','total','loc'));
+    }
+    public function store(Request $request){
+        $job = new Job();
+        $job->cid='JN/';
+        $job->quote_id = $request->id;
+        $job->status = 0;
+        $job->save();
+        $job->cid='JN/'.str_pad($job->id, 6, '0', STR_PAD_LEFT);
+        $job->save();
+        return response()->json(['success'=>'Job # '.$job->cid.' created successfully!']);
     }
     //
 }

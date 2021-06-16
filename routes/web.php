@@ -326,6 +326,7 @@ Route::group(['prefix'=> 'jobs'],function() {
     Route::get('print/jobform/{id}',[App\Http\Controllers\JobController::class, 'print_job_form'])->middleware('auth')->name('jobs.print.job.form');
     Route::get('/view/{id}',[App\Http\Controllers\JobController::class, 'view'])->middleware('auth')->name('jobs.view');
     Route::post('',[App\Http\Controllers\JobController::class, 'fetch'])->middleware('auth')->name('jobs.fetch');
+    Route::post('store',[App\Http\Controllers\JobController::class, 'store'])->middleware('auth')->name('jobs.store');
 });
 Route::group(['prefix'=> 'certificates'],function() {
     Route::get('',[App\Http\Controllers\CertificateController::class, 'index'])->middleware('auth')->name('certificates');
