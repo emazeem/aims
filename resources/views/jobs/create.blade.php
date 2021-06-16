@@ -7,10 +7,10 @@
         <tr>
             <th>Capability</th>
             <th>Parameter</th>
-            <th>Qty</th>
             <th>Range</th>
             <th>Location</th>
             <th>Accredited</th>
+            <th>Qty</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -28,12 +28,26 @@
                         @endif
                     </td>
                     <td>{{$item->parameters->name}}</td>
-                    <td>{{$item->quantity}}</td>
+
                     <td>{{$item->range}}</td>
                     <td>{{$item->location}}</td>
                     <td>{{$item->accredited}}</td>
+                    <td class="px-1 mx-0">
+                        <div class="col-12 mx-0 px-0">
+                            <span class="font-weight-bold float-left">Total:</span>
+                            <span class="float-right ">{{$item->quantity}}</span>
+                        </div>
+                        @php $jobitems=\App\Models\Jobitem::where('item_id',$item->id)->get()->count() @endphp
+
+                        <div class="col-12 mx-0 px-0">
+                            <span class="font-weight-bold float-left">Balance:</span>
+                            <span class="float-right ">{{$item->quantity-$jobitems}}</span>
+                        </div>
+                    </td>
                     <td>
-                        <a href="#" data-id="{{$item->id}}" data-target="{{$job->id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i> Receiving</a>
+                        @if($item->quantity > $jobitems)
+                        <a href="#" title="Store Entry" data-id="{{$item->id}}" data-target="{{$job->id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i></a>
+                        @endif
                     </td>
                 </tr>
             @endif
@@ -58,17 +72,6 @@
                 type: "POST",
                 data: {'id': id,_token: '{{csrf_token()}}'},
                 dataType : "json",
-                beforeSend : function()
-                {
-                    $(".loading").fadeIn();
-                },
-                statusCode: {
-                    403: function() {
-                        $(".loading").fadeOut();
-                        swal("Failed", "Permission deneid for this action." , "error");
-                        return false;
-                    }
-                },
                 success: function(data)
                 {
                     $('#edit_details').modal('toggle');
@@ -103,10 +106,10 @@
                 processData:false,
                 success: function(data)
                 {
-                    /*$('#add_details').modal('toggle');
+                    $('#add_details').modal('toggle');
                     swal('success',data.success,'success').then((value) => {
                         location.reload();
-                    });*/
+                    });
                 },
                 error:  function(xhr, status)
                 {
