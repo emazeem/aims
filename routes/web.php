@@ -273,22 +273,21 @@ Route::group(['prefix'=> 'scheduling'],function() {
     Route::post('',[App\Http\Controllers\SchedulingController::class, 'fetch'])->middleware('auth')->name('scheduling.fetch');
 });
 Route::group(['prefix'=> 'items'],function() {
-    Route::get('show/{id}',[App\Http\Controllers\ItemController::class, 'show'])->middleware('auth')->name('items.show');
-    Route::get('',[App\Http\Controllers\ItemController::class, 'index'])->middleware('auth')->name('items');
-    Route::get('/select-capabilities/{id}',[App\Http\Controllers\ItemController::class, 'getCapabilities'])->middleware('auth')->name('items.getcapabilities');
-    Route::get('/select-price/{id}',[App\Http\Controllers\ItemController::class, 'getPrice'])->middleware('auth')->name('items.getPrice');
-    Route::get('/select-multi-detail/{id}',[App\Http\Controllers\ItemController::class, 'get_multi_detail'])->middleware('auth')->name('items.get_multi_detail');
-    Route::get('/compare-ranges/{min}/{max}/{capability}',[App\Http\Controllers\ItemController::class, 'compare_ranges'])->middleware('auth')->name('items.compare_ranges');
-    Route::post('',[App\Http\Controllers\ItemController::class, 'fetch'])->middleware('auth')->name('items.fetch');
-    Route::post('/store',[App\Http\Controllers\ItemController::class, 'store'])->middleware('auth')->name('items.store');
-    Route::post('/updateNA',[App\Http\Controllers\ItemController::class, 'updateNA'])->middleware('auth')->name('items.updateNA');
-    Route::get('/edit/{session}/{id}',[App\Http\Controllers\ItemController::class, 'edit'])->middleware('auth')->name('items.edit');
-    Route::post('/update',[App\Http\Controllers\ItemController::class, 'update'])->middleware('auth')->name('items.update');
-    Route::delete('/delete/{id}',[App\Http\Controllers\ItemController::class, 'destroy'])->middleware('auth')->name('items.delete');
-    Route::delete('/nofacility/{id}',[App\Http\Controllers\ItemController::class, 'nofacility'])->middleware('auth')->name('items.nofacility');
-    Route::post('/editNA/',[App\Http\Controllers\ItemController::class, 'editNA'])->middleware('auth')->name('items.editNA');
-    Route::post('/store_multi',[App\Http\Controllers\ItemController::class, 'store_multi'])->middleware('auth')->name('items.store_multi');
-    Route::post('/update_multi',[App\Http\Controllers\ItemController::class, 'update_multi'])->middleware('auth')->name('items.update_multi');
+    Route::get('show/{id}',[App\Http\Controllers\QuoteItemController::class, 'show'])->middleware('auth')->name('items.show');
+    Route::get('',[App\Http\Controllers\QuoteItemController::class, 'index'])->middleware('auth')->name('items');
+    Route::get('/select-capabilities/{id}',[App\Http\Controllers\QuoteItemController::class, 'getCapabilities'])->middleware('auth')->name('items.getcapabilities');
+    Route::get('/select-price/{id}',[App\Http\Controllers\QuoteItemController::class, 'getPrice'])->middleware('auth')->name('items.getPrice');
+    Route::get('/select-multi-detail/{id}',[App\Http\Controllers\QuoteItemController::class, 'get_multi_detail'])->middleware('auth')->name('items.get_multi_detail');
+    Route::get('/compare-ranges/{min}/{max}/{capability}',[App\Http\Controllers\QuoteItemController::class, 'compare_ranges'])->middleware('auth')->name('items.compare_ranges');
+    Route::post('',[App\Http\Controllers\QuoteItemController::class, 'fetch'])->middleware('auth')->name('items.fetch');
+    Route::post('/store',[App\Http\Controllers\QuoteItemController::class, 'store'])->middleware('auth')->name('items.store');
+    Route::post('/updateNA',[App\Http\Controllers\QuoteItemController::class, 'updateNA'])->middleware('auth')->name('items.updateNA');
+    Route::get('/edit/{session}/{id}',[App\Http\Controllers\QuoteItemController::class, 'edit'])->middleware('auth')->name('items.edit');
+    Route::post('/update',[App\Http\Controllers\QuoteItemController::class, 'update'])->middleware('auth')->name('items.update');
+    Route::delete('/delete/{id}',[App\Http\Controllers\QuoteItemController::class, 'destroy'])->middleware('auth')->name('items.delete');
+    Route::post('/nofacility',[App\Http\Controllers\QuoteItemController::class, 'nofacility'])->middleware('auth')->name('items.nofacility');
+    Route::post('/store_multi',[App\Http\Controllers\QuoteItemController::class, 'store_multi'])->middleware('auth')->name('items.store_multi');
+    Route::post('/update_multi',[App\Http\Controllers\QuoteItemController::class, 'update_multi'])->middleware('auth')->name('items.update_multi');
 });
 Route::group(['prefix'=> 'pendings'],function() {
     Route::get('',[App\Http\Controllers\PendingRequestController::class, 'index'])->middleware('auth')->name('pendings');

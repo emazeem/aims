@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Item extends Model
+class QuoteItem extends Model
 {
     use HasFactory,LogsActivity,SoftDeletes;
     public function customers(){
@@ -29,5 +29,3 @@ class Item extends Model
     protected static $logAttributes = ["quote_id","status","parameter","capability","not_available","location","accredited","range","price","quantity","rf_checks"];
     protected static $logOnlyDirty = true;
 }
-
-

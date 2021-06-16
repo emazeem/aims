@@ -72,6 +72,7 @@
                                 <form id=\"form$item->id\" method='post' role='form'>
                                     <input name=\"_token\" type=\"hidden\" value=\"$token\">
                                     <input name=\"id\" type=\"hidden\" value=\"$item->id\">
+                                    <input name=\"id\" type=\"hidden\" value=\"$item->id\">
                                     <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
                                 </form>";
                                 }
@@ -117,22 +118,12 @@
                     .then((willDelete) => {
                         if (willDelete) {
                             var id = $(this).attr('data-id');
-                            var token= '{{csrf_token()}}';
                             e.preventDefault();
-                            var request_method = $("#form"+id).attr("method");
-                            var form_data = $("#form"+id).serialize();
-
                             $.ajax({
-                                url: "{{url('items/nofacility')}}/"+id,
-                                type: request_method,
+                                url: "{{route('items.nofacility')}}",
+                                type: 'POST',
                                 dataType: "JSON",
-                                data: form_data,
-                                statusCode: {
-                                    403: function() {
-                                        swal("Failed", "Permission denied." , "error");
-                                        return false;
-                                    }
-                                },
+                                data: {'id': id, _token: '{{csrf_token()}}'},
                                 success: function(data)
                                 {
                                     swal('success',data.success,'success').then((value) => {

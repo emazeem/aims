@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Capabilities;
 use App\Models\Customer;
-use App\Models\Item;
+use App\Models\QuoteItem;
 use App\Models\Parameter;
 use App\Models\Quotes;
 use App\Models\User;
@@ -51,7 +51,7 @@ class GenerateRequestsController extends Controller
                 return $data->turnaround;
             })
             ->addColumn('total', function ($data) {
-                $total=Item::where('quote_id',$data->id)->count();
+                $total=QuoteItem::where('quote_id',$data->id)->count();
                 return $total;
             })
             ->addColumn('options', function ($data) {
@@ -133,7 +133,7 @@ class GenerateRequestsController extends Controller
         $this->authorize('quote-view');
         $show=Quotes::find($id);
         $tms=User::where('department',3)->get();
-        $items=Item::where('quote_id',$id)->get();
+        $items=QuoteItem::where('quote_id',$id)->get();
         $noaction=false;
         foreach ($items as $item){
             if ($item->status==1){

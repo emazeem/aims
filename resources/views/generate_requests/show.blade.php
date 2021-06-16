@@ -383,6 +383,7 @@
     @if($show->status==0)
         @include('items.create')
         @include('non_listed.index')
+        @include('non_listed.create')
         @include('grouped_items.index')
     @endif
 @endsection

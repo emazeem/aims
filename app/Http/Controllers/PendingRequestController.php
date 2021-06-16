@@ -7,10 +7,12 @@ use App\Models\Customer;
 use App\Models\Item;
 use App\Models\Parameter;
 use App\Models\Procedure;
+use App\Models\QuoteItem;
 use App\Models\Quotes;
 use App\Models\Session;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use League\CommonMark\Extension\SmartPunct\Quote;
 use Yajra\DataTables\Facades\DataTables;
 use Yajra\DataTables\Services\DataTable;
 
@@ -61,7 +63,7 @@ class PendingRequestController extends Controller
                 return $status;
             })
             ->addColumn('total', function ($data) {
-                $total=Item::where('quote_id',$data->id)->where('status',1)->count();
+                $total=QuoteItem::where('quote_id',$data->id)->where('status',1)->count();
                 return $total;
             })
             ->addColumn('options', function ($data) {
@@ -109,7 +111,7 @@ class PendingRequestController extends Controller
         $capabilities->procedure=$request->procedure;
         $capabilities->accredited=($request->accredited)?$request->accredited:'';
         if ($capabilities->save()){
-            $quotes=Item::find($request->na_id);
+            $quotes=QuoteItem::find($request->na_id);
             $quotes->parameter=$request->category;
             $quotes->capability=$capabilities->id;
             $quotes->not_available=null;
@@ -122,7 +124,7 @@ class PendingRequestController extends Controller
     }
     //capability create page in pending menu with id of not listed item
     public function create($id){
-        $edit=Item::find($id);
+        $edit=QuoteItem::find($id);
         $procedures=Procedure::all();
         $parameters=Parameter::all();
         $units=Unit::all();
@@ -134,7 +136,7 @@ class PendingRequestController extends Controller
     }
 
     public function print_review($id){
-        $print=Item::where('id',$id)->get();
+        $print=QuoteItem::where('id',$id)->get();
         return view('pendings.reviewform',compact('print'));
     }
     public function checks(Request $request){
@@ -165,7 +167,7 @@ class PendingRequestController extends Controller
             $array[3]=0;
         }
 
-        $items=Item::find($request->id);
+        $items=QuoteItem::find($request->id);
         $items->rf_checks=implode(',',$array);
         $items->rf_reason=$request->rf_reason;
         $items->save();

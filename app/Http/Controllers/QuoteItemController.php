@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Capabilities;
-use App\Models\Item;
 use App\Models\Nofacility;
 use App\Models\Parameter;
+use App\Models\QuoteItem;
 use App\Models\Quotes;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
-class ItemController extends Controller
+
+class QuoteItemController extends Controller
 {
     public function index(){
         return view('items.index');
@@ -26,7 +27,7 @@ class ItemController extends Controller
     }
 
     public function fetch(Request $request){
-        $data=Item::all()->where('quote_id',$request->id);
+        $data=QuoteItem::all()->where('quote_id',$request->id);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
@@ -67,9 +68,6 @@ class ItemController extends Controller
                 return $data->price;
             })
             ->addColumn('quantity', function ($data) {
-                if (isset($data->not_available)){
-                    return '';
-                }
                 return $data->quantity;
             })
             ->addColumn('sprice', function ($data) {
@@ -101,23 +99,18 @@ class ItemController extends Controller
                     if ($data->not_available==null){
                         if ($data->parameter==14){
                             $action.="<a title='Edit' class='btn btn-sm btn-success edit_multi' href data-id='$data->id'><i class='fa fa-edit'></i></a>";
-
                         }else{
                             $action.="<a title='Edit' class='btn btn-sm btn-success edit' href data-id='$data->id'><i class='fa fa-edit'></i></a>";
                         }
-
-                    } else{
-                        $action.="<a title='Edit' class='btn btn-sm btn-success edit-na' href='#' data-id='$data->id'><i class='fa fa-edit'></i></a>";
                     }
                     if (Auth::user()->can('items-delete')){
                         $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
-                    <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
-                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
-                      <input name=\"id\" type=\"hidden\" value=\"$data->id\">
-                      <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
-                      </form>";
+                            <form id=\"form$data->id\" action=\"{{action('QuotesController@destroy', $data->id)}}\" method=\"post\" role='form'>
+                            <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                            <input name=\"id\" type=\"hidden\" value=\"$data->id\">
+                            <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
+                            </form>";
                         return "&emsp;".$action;
-
                     }
                 }else{
                     return "<span class='badge'>Not Allowed</span>";
@@ -128,7 +121,7 @@ class ItemController extends Controller
     }
     public function edit($session,$id){
         $this->authorize('items-create');
-        $edit=Item::find($id);
+        $edit=QuoteItem::find($id);
         $session=Quotes::find($session);
         $capabilities=Capabilities::all();
         $parameters=Parameter::all();
@@ -139,24 +132,42 @@ class ItemController extends Controller
         $this->authorize('items-create');
         //non-listed
         if (isset($request->non_listed)){
-            $this->validate(request(), [
-                'name' => 'required',
-                'parameter' => 'required',
-                'quantity' => 'required',
-            ],[
-                'name.required' => 'Parameter field is required *',
-                'quantity.required' => 'Quantity field is required *',
-                'parameter.required' => 'Quantity field is required *',
-            ]);
-
-            $item=new Item();
+            if ($request->non_listed==1){
+                $this->validate(request(), [
+                    'name' => 'required',
+                    'parameter' => 'required',
+                    'quantity' => 'required',
+                ],[
+                    'name.required' => 'Parameter field is required *',
+                    'quantity.required' => 'Quantity field is required *',
+                    'parameter.required' => 'Quantity field is required *',
+                ]);
+            }
+            if ($request->non_listed==3){
+                $this->validate(request(), [
+                    'nocapability' => 'required',
+                    'quantity' => 'required',
+                ],[
+                    'nocapability.required' => 'Capability field is required *',
+                    'quantity.required' => 'Quantity field is required *',
+                ]);
+            }
+            $item=new QuoteItem();
             $item->quote_id=$request->quote_id;
-            $item->not_available=$request->name;
-            $item->parameter=$request->parameter;
+
+
             $item->capability=0;
             $item->location="site";
             $item->accredited="no";
-            $item->status=1;
+            if ($request->non_listed==3){
+                $item->parameter=Nofacility::find($request->nocapability)->parameter;
+                $item->status=3;
+                $item->not_available=Nofacility::find($request->nocapability)->capability;
+            }
+            if ($request->non_listed==1){
+                $item->parameter=$request->parameter;
+                $item->status=1;
+                $item->not_available=$request->name;            }
             $item->range=0;
             $item->price=0;
             $item->quantity=$request->quantity;
@@ -186,7 +197,7 @@ class ItemController extends Controller
             'accredited.required' => 'Accredited field is required *',
         ]);
         //change status 0 to 1 for empty to adding state of quote
-        $item=new Item();
+        $item=new QuoteItem();
         $item->quote_id=$request->quote_id;
         $item->not_available=null;
         $item->location=$request->location;
@@ -242,7 +253,7 @@ class ItemController extends Controller
             'location.required' => 'Location field is required *',
             'accredited.required' => 'Accredited field is required *',
         ]);
-        $item=Item::find($request->edit_id);
+        $item=QuoteItem::find($request->edit_id);
         $item->parameter=$request->parameter;
         $item->not_available=null;
         $item->capability=$request->capability;
@@ -252,7 +263,7 @@ class ItemController extends Controller
         $item->quantity=$request->quantity;
         //dd($item);
         $item->save();
-        $items=Item::where('quote_id',$request->quote_id)->where('status',0)->get();
+        $items=QuoteItem::where('quote_id',$request->quote_id)->where('status',0)->get();
         $lab=0;$site=0;
         foreach($items as $value){
             if ($value->location=='site'){$site=1;}
@@ -303,7 +314,7 @@ class ItemController extends Controller
         return response()->json($data);
     }
     public function editNA(Request $request){
-        $editNA=Item::find($request->id);
+        $editNA=QuoteItem::find($request->id);
         $editNA['capability_name']=$editNA->not_available;
         return response()->json($editNA);
     }
@@ -316,16 +327,19 @@ class ItemController extends Controller
     }
     public function destroy($id){
         $this->authorize('items-delete');
-        Item::find($id)->delete();
+        QuoteItem::find($id)->delete();
         return response()->json(['success'=>'Deleted successfully']);
     }
-    public function nofacility($id){
-        $q=Item::find($id);
+    public function nofacility(Request $request){
+        $q=QuoteItem::find($request->id);
         $q->status=3;
         $q->save();
         $nofacility=new Nofacility();
-        $nofacility->item_id=$id;
+        $nofacility->item_id=$request->id;
         $nofacility->capability=$q->not_available;
+        $nofacility->parameter=$q->parameter;
+        $nofacility->quantity=$q->quantity;
+        $nofacility->customer=$q->quotes->customer_id;
         $nofacility->save();
         return response()->json(['success'=>'Sent with no facility']);
     }
@@ -359,7 +373,7 @@ class ItemController extends Controller
             'accredited.required' => 'Accredited field is required *',
         ]);
         //change status 0 to 1 for empty to adding state of quote
-        $item=new Item();
+        $item=new QuoteItem();
         $item->quote_id=$request->quote_id;
         $item->not_available=null;
         $item->location=$request->location;
@@ -372,7 +386,7 @@ class ItemController extends Controller
         $item->price=$request->price;
         $item->quantity=$request->quantity;
         $item->save();
-        $items=Item::where('quote_id',$request->quote_id)->where('status',0)->get();
+        $items=QuoteItem::where('quote_id',$request->quote_id)->where('status',0)->get();
         $lab=0;$site=0;
         foreach($items as $value){
             if ($value->location=='site'){$site=1;}
@@ -413,7 +427,7 @@ class ItemController extends Controller
             'accredited.required' => 'Accredited field is required *',
         ]);
         //change status 0 to 1 for empty to adding state of quote
-        $item=Item::find($request->edit_multi_id);
+        $item=QuoteItem::find($request->edit_multi_id);
         $item->location=$request->location;
         $item->accredited=$request->accredited;
         $item->parameter=14;
@@ -421,7 +435,7 @@ class ItemController extends Controller
         $item->price=$request->price;
         $item->quantity=$request->quantity;
         $item->save();
-        $items=Item::where('quote_id',$item->quote_id)->where('status',0)->get();
+        $items=QuoteItem::where('quote_id',$item->quote_id)->where('status',0)->get();
         $lab=0;$site=0;
         foreach($items as $value){
             if ($value->location=='site'){$site=1;}
@@ -460,5 +474,4 @@ class ItemController extends Controller
         ];
         return response()->json($data);
     }
-
 }

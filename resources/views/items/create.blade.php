@@ -152,6 +152,10 @@
 <div class="row bg-white pb-3">
     <div class="my-4 col-12">
         <h3 class="float-left pb-1 font-weight-light"><i class="feather icon-plus-circle"></i> Add Items</h3>
+
+        <button class="btn float-right btn-success btn-sm" data-toggle="modal" data-target="#add_nofacility_items">
+            <i class="feather icon-plus-circle"></i> Add No Facility Items
+        </button>
         <button class="btn float-right btn-danger btn-sm" data-toggle="modal" data-target="#add_na">
             <i class="feather icon-more-horizontal"></i> Not Listed
         </button>
