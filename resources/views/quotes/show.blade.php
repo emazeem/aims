@@ -7,7 +7,7 @@
             });
         </script>
     @endif
-    <script src="{{url('/assets/js/1.10.1/jquery.min.js')}}"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
 
         <div class="col-12">
@@ -214,9 +214,17 @@
 
                                         <?php
                                         $purchase_phones = null;
+
                                         if (isset($show->customers->pur_phone)) {
                                             $purchase_phones = explode('-', $show->customers->pur_phone);
                                         }
+                                        if(!isset($purchase_phones[0])){
+                                            $purchase_phones[0]=null;
+                                        }
+                                        if(!isset($purchase_phones[1])){
+                                            $purchase_phones[1]=null;
+                                        }
+
 
                                         ?>
                                         <div class="form-group">

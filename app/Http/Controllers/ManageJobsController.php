@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
+
 use App\Models\Job;
 use App\Models\Jobitem;
-use App\Models\Labjob;
+use App\Models\QuoteItem;
 use App\Models\Quotes;
-use App\Models\Role;
-use App\Models\Sitejob;
 use App\Models\User;
 use App\Notifications\CustomNotification;
 use Illuminate\Http\Request;
@@ -40,7 +38,7 @@ class ManageJobsController extends Controller
                 return $data->turnaround.' Days';
             })
             ->addColumn('total', function ($data) {
-                $items=Item::where('quote_id',$data->id)->get();
+                $items=QuoteItem::where('quote_id',$data->id)->get();
                 $total=0;
                 foreach ($items as $item){
                     $total=$total+$item->quantity;
@@ -83,12 +81,12 @@ class ManageJobsController extends Controller
         }
         $assigned_items=array_unique($assigned_items);
         $assigned_items=array_values($assigned_items);
-        $items=Item::with('capabilities')->where('quote_id',$id)->get();
+        $items=QuoteItem::with('capabilities')->where('quote_id',$id)->get();
 
         return view('manage.show',compact('show','jobs','id','items','assigned_items'));
     }
     public function get_items(Request $request){
-        $items=Item::with('capabilities')->where('quote_id',$request->id)->get();
+        $items=QuoteItem::with('capabilities')->where('quote_id',$request->id)->get();
         foreach ($items as $item) {
             $item->capability=$item->capabilities->name;
         }
@@ -114,7 +112,7 @@ class ManageJobsController extends Controller
         }
         $assigned_items=array_unique($assigned_items);
         $assigned_items=array_values($assigned_items);
-        $items=Item::with('capabilities')->where('quote_id',$id)->get();
+        $items=QuoteItem::with('capabilities')->where('quote_id',$id)->get();
         return view('manage.create',compact('items','id','assigned_items'));
     }
     public function store(Request $request){
@@ -132,7 +130,7 @@ class ManageJobsController extends Controller
         $job->save();
         $job->cid='JN/'.str_pad($job->id, 6, '0', STR_PAD_LEFT);
         $job->save();
-        $quotes = Item::where('quote_id', $request->id)->get();
+        $quotes = QuoteItem::where('quote_id', $request->id)->get();
          foreach ($quotes as $quote) {
              if (in_array($quote->id,$items)){
                  for ($x = 0; $x < $quote->quantity; $x++) {

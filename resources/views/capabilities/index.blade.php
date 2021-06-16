@@ -15,9 +15,10 @@
                     <a href="{{route('parameters')}}" class="btn mt-2 float-right mx-1 btn-sm btn-success shadow-sm"><i
                                 class="fa fa-eye"></i> Parameters</a>
                 @endcan
-                    @can('add-grouped-capabilities')
-                        <a class="btn float-right btn-sm btn-primary add-grouped-capability mt-2 shadow-sm" style="display: none" href ><i class="feather icon-plus-circle"></i> Grouped Capabilities</a>
-                    @endcan
+                @can('add-grouped-capabilities')
+                    <a class="btn float-right btn-sm btn-primary add-grouped-capability mt-2 shadow-sm"
+                       style="display: none" href><i class="feather icon-plus-circle"></i> Grouped Capabilities</a>
+                @endcan
             </span>
         </div>
     </div>
@@ -139,22 +140,22 @@
 
             $(document).on('click', '.actions', function (e) {
                 var val = [];
-                $('.actions:checked').each(function(i){
+                $('.actions:checked').each(function (i) {
                     val[i] = $(this).attr('data-id');
                 });
-                if (val.length==0){
-                    $('.add-grouped-capability').css('display','none');
+                if (val.length == 0) {
+                    $('.add-grouped-capability').css('display', 'none');
                 } else {
-                    $('.add-grouped-capability').css('display','block');
+                    $('.add-grouped-capability').css('display', 'block');
                 }
             });
             $(document).on('click', '.add-grouped-capability', function (e) {
                 e.preventDefault();
                 var val = [];
-                $('.actions:checked').each(function(i){
+                $('.actions:checked').each(function (i) {
                     val[i] = $(this).attr('data-id');
                 });
-                window.location.href='{{url('grouped-capabilities/create')}}/'+val;
+                window.location.href = '{{url('grouped-capabilities/create')}}/' + val;
             });
 
         });

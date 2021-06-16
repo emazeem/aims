@@ -191,6 +191,7 @@
                 further information/clarification please revert back to undersigned.
             </p>
         </div>
+
         {{--<h1 style="page-break-after:always;"></h1>--}}
         <div class="row">
             <div class="col-12 "></div>
@@ -199,7 +200,7 @@
 
 
             @php
-                $checktypes=\App\Models\Item::where('quote_id',$session->id)->get();
+                $checktypes=\App\Models\QuoteItem::where('quote_id',$session->id)->get();
                     $totalrecords=$checktypes->count();
                     $incrementforsite=0;
                     $incrementforlab=0;
@@ -279,9 +280,9 @@
                     <th>Range</th>
                     <th>Accredited</th>
                     <th>Location</th>
-                    <th>Charges</th>
+                    <th class="text-right">Charges</th>
                     <th>Qty</th>
-                    <th>Total</th>
+                    <th class="text-right">Total</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -309,10 +310,10 @@
                             @if($quote->status==0 or $quote->status==2){{$quote->accredited}}@else --- @endif</td>
                         <td class="font-11">
                             @if($quote->status==0 or $quote->status==2){{$quote->location}}@else --- @endif</td>
-                        <td class="font-11">
+                        <td class="font-11 text-right">
                             @if($quote->status==0 or $quote->status==2){{number_format($quote->price)}}@else --- @endif</td>
                         <td class="font-11">{{$quote->quantity}}</td>
-                        <td class="font-11">{{number_format($quote->quantity*$quote->price)}}</td>
+                        <td class="font-11 text-right">{{number_format($quote->quantity*$quote->price)}}</td>
                     </tr>
                     @php $subtotal=$subtotal+($quote->quantity*$quote->price); @endphp
                 @endforeach
@@ -335,17 +336,17 @@
                         <td class="font-11"> Misc</td>
                            <td class="font-11">{{$prices[$group]}}</td>
                             <td class="font-11"></td>
-                        <td class="font-11">{{$prices[$group]}}</td>
+                        <td class="font-11 text-right">{{$prices[$group]}}</td>
                     </tr>
                         @php $subtotal=$subtotal+$prices[$group]; @endphp
                 @endforeach
                 <tr>
                     <th colspan="8">Total Service Charges</th>
-                    <th colspan="2">{{number_format($subtotal)}}</th>
+                    <th colspan="2" class="text-right">{{number_format($subtotal)}}</th>
                 </tr>
                 <tr>
                     <th colspan="8">{{\App\Models\Preference::find($session->customers->region)->name}} ({{\App\Models\Preference::find($session->customers->region)->value}}%)</th>
-                    <th colspan="2">
+                    <th colspan="2" class="text-right">
 
                         @php $tax=$subtotal*(\App\Models\Preference::find($session->customers->region)->value/100);@endphp
                         {{number_format($tax)}}
@@ -357,7 +358,7 @@
                     $numberTransformer = $numberToWords->getNumberTransformer('en');
                     ?>
                     <th colspan="8"  class="text-capitalize">Total Payable ( {{$numberTransformer->toWords($total)}} )</th>
-                    <th colspan="2">{{number_format($total)}}</th>
+                    <th colspan="2" class="text-right">{{number_format($total)}}</th>
                 </tr>
                 </tbody>
             </table>

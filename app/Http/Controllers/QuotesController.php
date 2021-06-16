@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
-use App\Models\Item;
+use App\Models\QuoteItem;
 use App\Models\Quoterevisionlog;
 use App\Models\Quotes;
 use App\Models\User;
 use App\Notifications\CustomNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
+
 use Yajra\DataTables\DataTables;
 class QuotesController extends Controller
 {
@@ -69,7 +70,7 @@ class QuotesController extends Controller
                 return $data->turnaround;
             })
             ->addColumn('total', function ($data) {
-                $total=Item::where('quote_id',$data->id)->count();
+                $total=QuoteItem::where('quote_id',$data->id)->count();
                 return $total;
             })
             ->addColumn('options', function ($data) {
@@ -86,7 +87,7 @@ class QuotesController extends Controller
                    data-id='".$data->id."'><i class='fa fa-paper-plane'></i></a>";
                 }
 
-                $items=Item::where('quote_id',$data->id)->get();
+                $items=QuoteItem::where('quote_id',$data->id)->get();
                 $show=false;
                 foreach ($items as $item){
                     if ($item->status>0){
@@ -180,7 +181,7 @@ class QuotesController extends Controller
         $this->authorize('quote-view');
         $show=Quotes::find($id);
         $tms=User::where('department',3)->get();
-        $items=Item::where('quote_id',$id)->get();
+        $items=QuoteItem::where('quote_id',$id)->get();
         $noaction=false;
         foreach ($items as $item){
             if ($item->status==1){
@@ -193,10 +194,10 @@ class QuotesController extends Controller
 
     public function sendmail($id){
         $this->authorize('quote-send-to-customer');
-        if (Item::where('quote_id',$id)->where('not_available','!=',null)->count()>0){
+        if (QuoteItem::where('quote_id',$id)->where('not_available','!=',null)->count()>0){
             return redirect('/sessions')->with('failed','Because of non-listed pending items, Email cant send');
         }
-        if (Item::where('quote_id',$id)->count()==0){
+        if (QuoteItem::where('quote_id',$id)->count()==0){
             return redirect('/sessions')->with('failed','Session is empty, Fill session and then send email');
 
         }
@@ -325,21 +326,17 @@ class QuotesController extends Controller
             }
             $prices[$group]=$p;
         }
-
-        //$items=$session->items;
-
-
         return view('quotes.print',compact('session','items','groups','prices'));
     }
     public function print_rf($id){
         //$this->authorize('quote-print-details');
         $quotes=Quotes::find($id);
-        $items=Item::where('status','>',0)->where('quote_id',$quotes->id)->get();
+        $items=QuoteItem::where('status','>',0)->where('quote_id',$quotes->id)->get();
         return view('quotes.review',compact('quotes','items'));
     }
     public function approved($id){
         $this->authorize('quote-accept');
-        $checktypes=Item::where('quote_id',$id)->get();
+        $checktypes=QuoteItem::where('quote_id',$id)->get();
         $totalrecords=$checktypes->count();
         $incrementforsite=0;
         $incrementforlab=0;
@@ -383,7 +380,7 @@ class QuotesController extends Controller
     public function complete(Request $request){
         $this->authorize('quote-revised');
         $complete=true;
-        $items = Item::where('quote_id',$request->id)->get();
+        $items = QuoteItem::where('quote_id',$request->id)->get();
         foreach ($items as $item){
             if ($item->status==1){
                 $complete=false;
@@ -413,10 +410,10 @@ class QuotesController extends Controller
         return response()->json(['success'=>'Quote is marked as sent to customer']);
     }
     public function discount(Request $request){
-        $items=Item::where('quote_id',$request->id)->get();
+        $items=QuoteItem::where('quote_id',$request->id)->get();
         foreach ($items as $item){
             if ($item->status==0 || $item->status==2){
-                $update=Item::find($item->id);
+                $update=QuoteItem::find($item->id);
 
                 $log=new Quoterevisionlog();
                 $log->quote_id=$item->quote_id;
@@ -444,7 +441,7 @@ class QuotesController extends Controller
         return back()->with('success', 'Remarks & Turnaround added successfully');
     }
     public function destroy(Request $request){
-        Item::where('quote_id',$request->id)->delete();
+        QuoteItem::where('quote_id',$request->id)->delete();
         Quotes::find($request->id)->delete();
         return response()->json(['success'=>'Quote Deleted successfully']);
     }

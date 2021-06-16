@@ -10,11 +10,13 @@ use App\Models\Procedure;
 use App\Models\Suggestion;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
 class CapabilitiesController extends Controller
 {
     public function index(){
+
         $this->authorize('capabilities-index');
         $procedures=Procedure::orderBy('name','ASC')->get();
         $parameters=Parameter::orderBy('name','ASC')->get();

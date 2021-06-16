@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 13, 2021 at 09:35 PM
+-- Generation Time: Jun 15, 2021 at 11:16 PM
 -- Server version: 5.6.51-cll-lve
 -- PHP Version: 7.3.6
 
@@ -11,12 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `aims_erp`
@@ -42,6 +36,11 @@ CREATE TABLE `acc_level_fours` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `acc_level_fours`
+--
+
+TRUNCATE TABLE `acc_level_fours`;
 --
 -- Dumping data for table `acc_level_fours`
 --
@@ -344,6 +343,11 @@ CREATE TABLE `acc_level_ones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `acc_level_ones`
+--
+
+TRUNCATE TABLE `acc_level_ones`;
+--
 -- Dumping data for table `acc_level_ones`
 --
 
@@ -371,6 +375,11 @@ CREATE TABLE `acc_level_threes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `acc_level_threes`
+--
+
+TRUNCATE TABLE `acc_level_threes`;
 --
 -- Dumping data for table `acc_level_threes`
 --
@@ -432,6 +441,11 @@ CREATE TABLE `acc_level_twos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `acc_level_twos`
+--
+
+TRUNCATE TABLE `acc_level_twos`;
+--
 -- Dumping data for table `acc_level_twos`
 --
 
@@ -464,6 +478,11 @@ CREATE TABLE `activity_log` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `activity_log`
+--
+
+TRUNCATE TABLE `activity_log`;
 --
 -- Dumping data for table `activity_log`
 --
@@ -3078,7 +3097,495 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 (2588, 'default', 'updated', 'App\\Models\\Capabilities', 766, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Calibrator Digital\",\"procedure\":\"38\",\"unit\":\"6\",\"location\":\"lab\",\"accredited\":\"no\"},\"old\":{\"name\":\"Calibrator Digital\",\"procedure\":\"1\",\"unit\":\"bar\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 03:26:41', '2021-06-14 03:26:41'),
 (2589, 'default', 'updated', 'App\\Models\\Capabilities', 906, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"39\",\"price\":\"6000\",\"unit\":\"171\",\"accredited\":\"no\"},\"old\":{\"procedure\":\"1\",\"price\":\"3000\",\"unit\":\"?C\",\"accredited\":\"yes\"}}', '2021-06-14 03:27:48', '2021-06-14 03:27:48'),
 (2590, 'default', 'updated', 'App\\Models\\Capabilities', 733, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Cargo Lift Inspection and Load Testing\",\"parameter\":\"60\",\"procedure\":\"3\",\"price\":\"7000\",\"unit\":\"190\",\"location\":\"site\"},\"old\":{\"name\":\"Cargo Lift\",\"parameter\":\"16\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"T\",\"location\":\"lab\"}}', '2021-06-14 03:29:38', '2021-06-14 03:29:38'),
-(2591, 'default', 'created', 'App\\Models\\Procedure', 68, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ASME 17.2: 2010\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Inspection Procedure for Lifts and Elevators\"}}', '2021-06-14 03:30:52', '2021-06-14 03:30:52');
+(2591, 'default', 'created', 'App\\Models\\Procedure', 68, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ASME 17.2: 2010\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Inspection Procedure for Lifts and Elevators\"}}', '2021-06-14 03:30:52', '2021-06-14 03:30:52'),
+(2592, 'default', 'created', 'App\\Models\\Item', 5, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"2\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1007\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0\",\"price\":\"3500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-14 18:25:05', '2021-06-14 18:25:05'),
+(2593, 'default', 'updated', 'App\\Models\\Quotes', 2, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"SITE\"},\"old\":{\"type\":null}}', '2021-06-14 18:25:05', '2021-06-14 18:25:05'),
+(2594, 'default', 'deleted', 'App\\Models\\Capabilities', 822, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Centrifuge Machine\",\"parameter\":\"21\",\"procedure\":\"1\",\"range\":\"0.1~5000\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-14 18:46:34', '2021-06-14 18:46:34'),
+(2595, 'default', 'deleted', 'App\\Models\\Capabilities', 705, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Centrifuge Speed\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"500~2000\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 18:46:50', '2021-06-14 18:46:50'),
+(2596, 'default', 'deleted', 'App\\Models\\Capabilities', 829, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Centrigugal Machine\",\"parameter\":\"21\",\"procedure\":\"1\",\"range\":\"500~5000\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 18:47:06', '2021-06-14 18:47:06'),
+(2597, 'default', 'updated', 'App\\Models\\Capabilities', 738, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"33\",\"procedure\":\"66\",\"price\":\"10000\",\"unit\":\"189\"},\"old\":{\"parameter\":\"16\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"T\"}}', '2021-06-14 18:48:58', '2021-06-14 18:48:58'),
+(2598, 'default', 'created', 'App\\Models\\Procedure', 69, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ISO 16809: 2012\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Ultrasonic Thickness Measurement\"}}', '2021-06-14 18:49:54', '2021-06-14 18:49:54'),
+(2599, 'default', 'deleted', 'App\\Models\\Capabilities', 706, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Centrifuge Time\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"600~3600\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-14 18:51:03', '2021-06-14 18:51:03'),
+(2600, 'default', 'created', 'App\\Models\\Procedure', 70, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ISO 3832: 2005\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Hand Operated Chain Pully Blocks Inspection\"}}', '2021-06-14 18:54:30', '2021-06-14 18:54:30'),
+(2601, 'default', 'updated', 'App\\Models\\Capabilities', 742, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"33\",\"procedure\":\"70\",\"price\":\"6000\",\"unit\":\"189\"},\"old\":{\"parameter\":\"16\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"T\"}}', '2021-06-14 18:55:44', '2021-06-14 18:55:44'),
+(2602, 'default', 'deleted', 'App\\Models\\Capabilities', 764, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Chart Recorder 2 Pen\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~1200\",\"price\":\"12000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 18:56:07', '2021-06-14 18:56:07'),
+(2603, 'default', 'updated', 'App\\Models\\Capabilities', 763, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Chart Recorder Pressure\",\"procedure\":\"38\",\"price\":\"3000\",\"unit\":\"6\"},\"old\":{\"name\":\"Chart Recorder 2 Pen\",\"procedure\":\"1\",\"price\":\"8000\",\"unit\":\"bar\"}}', '2021-06-14 18:59:29', '2021-06-14 18:59:29'),
+(2604, 'default', 'updated', 'App\\Models\\Capabilities', 867, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Chart Recorder Temperature\",\"procedure\":\"40\",\"price\":\"5000\",\"unit\":\"171\"},\"old\":{\"name\":\"Chart Recorder 2 Pen\",\"procedure\":\"1\",\"price\":\"6000\",\"unit\":\"?C\"}}', '2021-06-14 19:00:36', '2021-06-14 19:00:36'),
+(2605, 'default', 'updated', 'App\\Models\\Capabilities', 868, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Chart Recorder 6 Pen Temperature\",\"procedure\":\"40\",\"price\":\"12000\",\"unit\":\"171\",\"location\":\"lab\"},\"old\":{\"name\":\"Chart Recorder 6 Pen\",\"procedure\":\"1\",\"price\":\"10000\",\"unit\":\"?C\",\"location\":\"site\"}}', '2021-06-14 19:02:19', '2021-06-14 19:02:19'),
+(2606, 'default', 'updated', 'App\\Models\\Capabilities', 869, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Chart Recorder 12 Pen Temperature\",\"procedure\":\"40\",\"price\":\"18000\",\"unit\":\"171\"},\"old\":{\"name\":\"Chart Recorder 12 Pen\",\"procedure\":\"1\",\"price\":\"15000\",\"unit\":\"?C\"}}', '2021-06-14 19:03:04', '2021-06-14 19:03:04'),
+(2607, 'default', 'deleted', 'App\\Models\\Capabilities', 809, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Colori Meter\",\"parameter\":\"19\",\"procedure\":\"1\",\"range\":\"0~100\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"D\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 19:04:41', '2021-06-14 19:04:41'),
+(2608, 'default', 'updated', 'App\\Models\\Capabilities', 740, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"33\",\"procedure\":\"69\",\"price\":\"6000\",\"unit\":\"189\"},\"old\":{\"parameter\":\"16\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"T\"}}', '2021-06-14 19:07:10', '2021-06-14 19:07:10'),
+(2609, 'default', 'deleted', 'App\\Models\\Capabilities', 997, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Coordinate Measuring Machine\",\"parameter\":\"3\",\"procedure\":\"1\",\"range\":\"0~1000\",\"price\":\"10000\",\"accuracy\":\"0.05\",\"unit\":\"mm\",\"remarks\":\"Can be calibrated with Gauge Blocks Dim 001 and 25 Sphere Ball\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-14 19:08:40', '2021-06-14 19:08:40'),
+(2610, 'default', 'updated', 'App\\Models\\Capabilities', 758, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"66\",\"price\":\"8000\",\"unit\":\"6\"},\"old\":{\"procedure\":\"1\",\"price\":\"15000\",\"unit\":\"bar\"}}', '2021-06-14 19:10:58', '2021-06-14 19:10:58'),
+(2611, 'default', 'updated', 'App\\Models\\Capabilities', 825, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"9\",\"price\":\"2000\",\"unit\":\"48\"},\"old\":{\"procedure\":\"1\",\"price\":\"2500\",\"unit\":\"RPM\"}}', '2021-06-14 19:12:47', '2021-06-14 19:12:47'),
+(2612, 'default', 'updated', 'App\\Models\\Capabilities', 827, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"9\",\"unit\":\"48\",\"location\":\"site\",\"accredited\":\"yes\"},\"old\":{\"procedure\":\"1\",\"unit\":\"RPM\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 19:14:24', '2021-06-14 19:14:24'),
+(2613, 'default', 'updated', 'App\\Models\\Capabilities', 874, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Data Logger Temperature 2 Channel\",\"procedure\":\"40\",\"price\":\"4000\",\"unit\":\"171\",\"location\":\"lab\"},\"old\":{\"name\":\"Data Logger\",\"procedure\":\"1\",\"price\":\"3000\",\"unit\":\"?C                         \",\"location\":\"site\"}}', '2021-06-14 19:16:38', '2021-06-14 19:16:38'),
+(2614, 'default', 'deleted', 'App\\Models\\Capabilities', 870, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Data Logger 2 Channel\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-20~650\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 19:16:52', '2021-06-14 19:16:52'),
+(2615, 'default', 'updated', 'App\\Models\\Capabilities', 871, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"40\",\"unit\":\"171\"},\"old\":{\"procedure\":\"1\",\"unit\":\"?C\"}}', '2021-06-14 19:17:36', '2021-06-14 19:17:36'),
+(2616, 'default', 'updated', 'App\\Models\\Capabilities', 872, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"40\",\"price\":\"20000\",\"unit\":\"171\",\"location\":\"lab\"},\"old\":{\"procedure\":\"1\",\"price\":\"15000\",\"unit\":\"?C\",\"location\":\"site\"}}', '2021-06-14 19:18:22', '2021-06-14 19:18:22'),
+(2617, 'default', 'updated', 'App\\Models\\Capabilities', 768, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"25000\",\"unit\":\"6\",\"location\":\"lab\"},\"old\":{\"procedure\":\"1\",\"price\":\"30000\",\"unit\":\"bar\",\"location\":\"site\"}}', '2021-06-14 19:21:19', '2021-06-14 19:21:19'),
+(2618, 'default', 'updated', 'App\\Models\\Capabilities', 939, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"85\",\"procedure\":\"62\",\"price\":\"1500\",\"unit\":\"153\"},\"old\":{\"parameter\":\"31\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"mL\\/g\"}}', '2021-06-14 19:23:28', '2021-06-14 19:23:28'),
+(2619, 'default', 'deleted', 'App\\Models\\Capabilities', 841, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Density Meters\",\"parameter\":\"24\",\"procedure\":\"1\",\"range\":\"1~1000\",\"price\":\"1500\",\"accuracy\":\"0.1\",\"unit\":\"KG\\/CM3\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 19:24:44', '2021-06-14 19:24:44'),
+(2620, 'default', 'deleted', 'App\\Models\\Capabilities', 837, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dew Point Meter\",\"parameter\":\"23\",\"procedure\":\"1\",\"range\":\"20~70\",\"price\":\"2000\",\"accuracy\":\"0.1\",\"unit\":\"%RH\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 19:25:49', '2021-06-14 19:25:49'),
+(2621, 'default', 'updated', 'App\\Models\\Capabilities', 887, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"40\",\"unit\":\"171\",\"accredited\":\"yes\"},\"old\":{\"procedure\":\"1\",\"unit\":\"55\",\"accredited\":\"no\"}}', '2021-06-14 19:26:38', '2021-06-14 19:26:38'),
+(2622, 'default', 'updated', 'App\\Models\\Capabilities', 898, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"6\",\"price\":\"2500\",\"unit\":\"171\"},\"old\":{\"procedure\":\"1\",\"price\":\"3000\",\"unit\":\"?C\"}}', '2021-06-14 19:32:06', '2021-06-14 19:32:06'),
+(2623, 'default', 'deleted', 'App\\Models\\Capabilities', 910, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Filled System Dial Thermometer\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"0~350\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 19:33:11', '2021-06-14 19:33:11'),
+(2624, 'default', 'deleted', 'App\\Models\\Capabilities', 911, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Filled System Dial Thermometer\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"0~500\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 19:33:24', '2021-06-14 19:33:24'),
+(2625, 'default', 'deleted', 'App\\Models\\Capabilities', 913, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dial Thermometer\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"0~600\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 19:33:51', '2021-06-14 19:33:51'),
+(2626, 'default', 'deleted', 'App\\Models\\Capabilities', 859, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Thermometer Mechanical\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-20~650\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 19:34:07', '2021-06-14 19:34:07'),
+(2627, 'default', 'deleted', 'App\\Models\\Capabilities', 909, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Filled System Dial Thermometer\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"0~600\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 19:35:11', '2021-06-14 19:35:11'),
+(2628, 'default', 'updated', 'App\\Models\\Capabilities', 863, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"40\",\"price\":\"4500\",\"unit\":\"171\"},\"old\":{\"procedure\":\"1\",\"price\":\"6000\",\"unit\":\"?C\"}}', '2021-06-14 19:44:22', '2021-06-14 19:44:22'),
+(2629, 'default', 'deleted', 'App\\Models\\Capabilities', 865, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"IR Thermometer High Range\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"300~2500\",\"price\":\"8000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 19:46:41', '2021-06-14 19:46:41'),
+(2630, 'default', 'updated', 'App\\Models\\Capabilities', 896, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"41\",\"price\":\"1500\",\"unit\":\"171\",\"location\":\"lab\"},\"old\":{\"procedure\":\"1\",\"price\":\"3000\",\"unit\":\"?C\",\"location\":\"site\"}}', '2021-06-14 19:50:34', '2021-06-14 19:50:34'),
+(2631, 'default', 'updated', 'App\\Models\\Capabilities', 896, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"3000\",\"remarks\":\"02 Thermometer one for Dry and one for Wet.\"},\"old\":{\"price\":\"1500\",\"remarks\":\"NA\"}}', '2021-06-14 19:51:08', '2021-06-14 19:51:08'),
+(2632, 'default', 'updated', 'App\\Models\\Capabilities', 864, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"44\",\"price\":\"4000\",\"unit\":\"171\",\"location\":\"lab\"},\"old\":{\"procedure\":\"1\",\"price\":\"4500\",\"unit\":\"?C\",\"location\":\"site\"}}', '2021-06-14 19:53:08', '2021-06-14 19:53:08'),
+(2633, 'default', 'updated', 'App\\Models\\Capabilities', 858, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"41\",\"price\":\"2000\",\"unit\":\"171\",\"location\":\"lab\",\"accredited\":\"yes\"},\"old\":{\"procedure\":\"1\",\"price\":\"2500\",\"unit\":\"?C\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-14 19:54:36', '2021-06-14 19:54:36'),
+(2634, 'default', 'updated', 'App\\Models\\Capabilities', 786, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"2000\",\"unit\":\"6\"},\"old\":{\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"mbar\"}}', '2021-06-14 20:04:47', '2021-06-14 20:04:47'),
+(2635, 'default', 'deleted', 'App\\Models\\Capabilities', 893, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Digestor\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"50~500\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 20:07:47', '2021-06-14 20:07:47'),
+(2636, 'default', 'deleted', 'App\\Models\\Capabilities', 987, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Digital Auto Dispensor\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"100\",\"price\":\"2000\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 20:10:53', '2021-06-14 20:10:53'),
+(2637, 'default', 'deleted', 'App\\Models\\Capabilities', 804, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Digital BP Apparatus\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~210\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mmHg\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 20:11:51', '2021-06-14 20:11:51'),
+(2638, 'default', 'updated', 'App\\Models\\Capabilities', 832, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"9\",\"price\":\"3000\",\"unit\":\"48\",\"location\":\"lab\",\"accredited\":\"yes\"},\"old\":{\"procedure\":\"1\",\"price\":\"2500\",\"unit\":\"RPM\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-14 20:13:00', '2021-06-14 20:13:00'),
+(2639, 'default', 'updated', 'App\\Models\\Capabilities', 989, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Digital Titrator Volumetric\",\"procedure\":\"62\",\"price\":\"2000\",\"unit\":\"63\",\"location\":\"site\",\"accredited\":\"no\"},\"old\":{\"name\":\"Digital Titrator\",\"procedure\":\"1\",\"price\":\"1500\",\"unit\":\"mL\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 20:36:21', '2021-06-14 20:36:21'),
+(2640, 'default', 'deleted', 'App\\Models\\Capabilities', 734, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Distillate Water Tank   (3 Ton)\",\"parameter\":\"16\",\"procedure\":\"1\",\"range\":\"0.5~1.20\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-14 20:36:45', '2021-06-14 20:36:45'),
+(2641, 'default', 'deleted', 'App\\Models\\Capabilities', 715, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Double Cone Mixer Speed\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"10~30\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 20:37:36', '2021-06-14 20:37:36'),
+(2642, 'default', 'deleted', 'App\\Models\\Capabilities', 716, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Double Cone Mixer Time\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"60~3600\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-14 20:37:48', '2021-06-14 20:37:48'),
+(2643, 'default', 'deleted', 'App\\Models\\Capabilities', 907, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dry Block Calibrator\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"35~650\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 20:38:30', '2021-06-14 20:38:30'),
+(2644, 'default', 'deleted', 'App\\Models\\Capabilities', 894, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dry Block Heater\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"40~100\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 20:38:47', '2021-06-14 20:38:47'),
+(2645, 'default', 'deleted', 'App\\Models\\Capabilities', 897, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dry Block Calibrator\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"50~350\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 20:39:01', '2021-06-14 20:39:01'),
+(2646, 'default', 'updated', 'App\\Models\\Capabilities', 877, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"4\",\"price\":\"6500\",\"unit\":\"171\"},\"old\":{\"procedure\":\"1\",\"price\":\"7500\",\"unit\":\"?C\"}}', '2021-06-14 20:39:56', '2021-06-14 20:39:56'),
+(2647, 'default', 'updated', 'App\\Models\\Capabilities', 889, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"39\",\"price\":\"7000\",\"unit\":\"171\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"price\":\"3000\",\"unit\":\"?C\",\"location\":\"lab\"}}', '2021-06-14 20:41:33', '2021-06-14 20:41:33'),
+(2648, 'default', 'updated', 'App\\Models\\Capabilities', 839, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"41\",\"price\":\"3000\",\"unit\":\"99\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"price\":\"2000\",\"unit\":\"%RH\",\"location\":\"lab\"}}', '2021-06-14 20:42:28', '2021-06-14 20:42:28'),
+(2649, 'default', 'deleted', 'App\\Models\\Capabilities', 698, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Earth Tester AC Volt @ 50Hz Measurement\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"0~190\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"V\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 20:43:10', '2021-06-14 20:43:10'),
+(2650, 'default', 'deleted', 'App\\Models\\Capabilities', 697, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Earth Tester Resistance Measurement\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"0~2000\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 20:43:20', '2021-06-14 20:43:20'),
+(2651, 'default', 'deleted', 'App\\Models\\Capabilities', 895, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Electric Furnace\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"300~1000\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 20:44:19', '2021-06-14 20:44:19'),
+(2652, 'default', 'updated', 'App\\Models\\Capabilities', 881, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Furnace Hi Temperature\",\"procedure\":\"42\",\"unit\":\"171\",\"location\":\"site\"},\"old\":{\"name\":\"Furnace\",\"procedure\":\"1\",\"unit\":\"?C\",\"location\":\"lab\"}}', '2021-06-14 20:45:51', '2021-06-14 20:45:51'),
+(2653, 'default', 'updated', 'App\\Models\\Capabilities', 732, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"33\",\"procedure\":\"66\",\"unit\":\"189\"},\"old\":{\"parameter\":\"16\",\"procedure\":\"1\",\"unit\":\"T\"}}', '2021-06-14 20:50:45', '2021-06-14 20:50:45'),
+(2654, 'default', 'updated', 'App\\Models\\Capabilities', 810, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"38\",\"procedure\":\"25\",\"price\":\"5000\",\"unit\":\"115\"},\"old\":{\"parameter\":\"19\",\"procedure\":\"1\",\"price\":\"4000\",\"unit\":\"ppm\"}}', '2021-06-14 20:52:21', '2021-06-14 20:52:21'),
+(2655, 'default', 'updated', 'App\\Models\\Capabilities', 935, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetric Flask\",\"parameter\":\"85\",\"procedure\":\"62\",\"price\":\"1250\",\"unit\":\"153\"},\"old\":{\"name\":\"Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"price\":\"1500\",\"unit\":\"mL\"}}', '2021-06-14 20:55:38', '2021-06-14 20:55:38'),
+(2656, 'default', 'deleted', 'App\\Models\\Capabilities', 845, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Fluid Density Balance\",\"parameter\":\"24\",\"procedure\":\"1\",\"range\":\"6~22\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"lb\\/gal\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 20:57:25', '2021-06-14 20:57:25'),
+(2657, 'default', 'updated', 'App\\Models\\Capabilities', 801, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flow Transmitter DP Only\",\"procedure\":\"38\",\"price\":\"6000\",\"unit\":\"6\",\"location\":\"site\"},\"old\":{\"name\":\"Flow Transmitter\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"mmH2O\",\"location\":\"lab\"}}', '2021-06-14 20:58:23', '2021-06-14 20:58:23'),
+(2658, 'default', 'created', 'App\\Models\\Procedure', 71, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"BS 3726, 4430 Part 2 & 4436\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Specification for counterbalanced lift trucks - stability - basic tests\"}}', '2021-06-14 21:01:10', '2021-06-14 21:01:10'),
+(2659, 'default', 'updated', 'App\\Models\\Capabilities', 730, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"33\",\"procedure\":\"71\",\"price\":\"6500\",\"unit\":\"189\"},\"old\":{\"parameter\":\"16\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"T\"}}', '2021-06-14 21:02:19', '2021-06-14 21:02:19'),
+(2660, 'default', 'updated', 'App\\Models\\Capabilities', 654, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"21\",\"procedure\":\"9\",\"price\":\"2000\",\"unit\":\"48\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"RPM\",\"accredited\":\"no\"}}', '2021-06-14 21:04:53', '2021-06-14 21:04:53'),
+(2661, 'default', 'updated', 'App\\Models\\Capabilities', 655, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"86\",\"procedure\":\"60\",\"price\":\"1500\",\"unit\":\"132\",\"location\":\"site\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"sec\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 21:08:11', '2021-06-14 21:08:11'),
+(2662, 'default', 'deleted', 'App\\Models\\Capabilities', 686, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Friability Tester RPM\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"25\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 21:08:23', '2021-06-14 21:08:23'),
+(2663, 'default', 'deleted', 'App\\Models\\Capabilities', 687, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Friability Tester Time\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"240\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 21:08:32', '2021-06-14 21:08:32'),
+(2664, 'default', 'deleted', 'App\\Models\\Capabilities', 999, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"FTIR Spectrophotometer\",\"parameter\":\"19\",\"procedure\":\"1\",\"range\":\"0.05~1\",\"price\":\"8000\",\"accuracy\":\"0.02\",\"unit\":\"Abs\",\"remarks\":\"Calibration by Polysterene Films\",\"location\":\"site\",\"accredited\":\"\"}}', '2021-06-14 21:09:29', '2021-06-14 21:09:29'),
+(2665, 'default', 'updated', 'App\\Models\\Capabilities', 951, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"67\",\"unit\":\"65\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"unit\":\"Litre\",\"location\":\"lab\"}}', '2021-06-14 21:10:54', '2021-06-14 21:10:54'),
+(2666, 'default', 'deleted', 'App\\Models\\Capabilities', 945, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Fuel Dispensor\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"1~50\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"Litre\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 21:11:06', '2021-06-14 21:11:06'),
+(2667, 'default', 'updated', 'App\\Models\\Capabilities', 618, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Fusing Machine Temperature\",\"parameter\":\"27\",\"procedure\":\"40\",\"unit\":\"171\"},\"old\":{\"name\":\"Fusing Machine Pressure\",\"parameter\":\"14\",\"procedure\":\"1\",\"unit\":\"mL\"}}', '2021-06-14 21:13:52', '2021-06-14 21:13:52'),
+(2668, 'default', 'updated', 'App\\Models\\Capabilities', 617, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"86\",\"procedure\":\"60\",\"price\":\"1500\",\"unit\":\"103\",\"location\":\"site\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"2000\",\"unit\":\"mL\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-14 21:14:34', '2021-06-14 21:14:34'),
+(2669, 'default', 'deleted', 'App\\Models\\Capabilities', 1003, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gas Chromatograph\",\"parameter\":\"19\",\"procedure\":\"14\",\"range\":\"0~100\",\"price\":\"6000\",\"accuracy\":\"1%\",\"unit\":\"40\",\"remarks\":\"Can be done with cal gases\",\"location\":\"site\",\"accredited\":\"\"}}', '2021-06-14 21:16:58', '2021-06-14 21:16:58'),
+(2670, 'default', 'created', 'App\\Models\\Capabilities', 1016, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Disintegration Apparatus\",\"parameter\":\"14\",\"procedure\":\"0\",\"range\":null,\"price\":\"0\",\"accuracy\":\"0\",\"unit\":\"0\",\"remarks\":\"No Remarks\",\"location\":\"site\",\"accredited\":\"--\"}}', '2021-06-14 21:19:40', '2021-06-14 21:19:40'),
+(2671, 'default', 'updated', 'App\\Models\\Capabilities', 407, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-14 21:19:40', '2021-06-14 21:19:40'),
+(2672, 'default', 'updated', 'App\\Models\\Capabilities', 406, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-14 21:19:40', '2021-06-14 21:19:40'),
+(2673, 'default', 'updated', 'App\\Models\\Capabilities', 408, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-14 21:19:40', '2021-06-14 21:19:40'),
+(2674, 'default', 'updated', 'App\\Models\\User', 10, 'App\\Models\\User', 10, '{\"attributes\":[],\"old\":[]}', '2021-06-14 22:21:42', '2021-06-14 22:21:42'),
+(2675, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-14 22:25:39', '2021-06-14 22:25:39'),
+(2676, 'default', 'updated', 'App\\Models\\User', 10, 'App\\Models\\User', 10, '{\"attributes\":[],\"old\":[]}', '2021-06-14 22:26:08', '2021-06-14 22:26:08'),
+(2677, 'default', 'updated', 'App\\Models\\User', 10, 'App\\Models\\User', 10, '{\"attributes\":[],\"old\":[]}', '2021-06-14 22:30:26', '2021-06-14 22:30:26'),
+(2678, 'default', 'updated', 'App\\Models\\Capabilities', 745, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"procedure\":\"38\",\"price\":\"1500\",\"unit\":\"6\",\"location\":\"site\"},\"old\":{\"name\":\"Gauge Analogue\",\"procedure\":\"1\",\"price\":\"2500\",\"unit\":\"bar\",\"location\":\"lab\"}}', '2021-06-14 22:46:10', '2021-06-14 22:46:10'),
+(2679, 'default', 'updated', 'App\\Models\\Capabilities', 744, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge Accuracy Class < 1 % FS\",\"procedure\":\"38\",\"price\":\"4000\",\"unit\":\"6\",\"location\":\"lab\"},\"old\":{\"name\":\"Gauge Analogue\",\"procedure\":\"1\",\"price\":\"2000\",\"unit\":\"bar\",\"location\":\"site\"}}', '2021-06-14 22:51:17', '2021-06-14 22:51:17'),
+(2680, 'default', 'updated', 'App\\Models\\Capabilities', 746, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge Accuracy Class < 1 % FS\",\"procedure\":\"38\",\"price\":\"6000\",\"unit\":\"6\",\"location\":\"lab\"},\"old\":{\"name\":\"Gauge Analogue\",\"procedure\":\"1\",\"price\":\"4500\",\"unit\":\"bar\",\"location\":\"site\"}}', '2021-06-14 22:52:51', '2021-06-14 22:52:51'),
+(2681, 'default', 'deleted', 'App\\Models\\Capabilities', 743, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gauge Analogue\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"-1.0~20.0 \",\"price\":\"1500\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 22:53:04', '2021-06-14 22:53:04'),
+(2682, 'default', 'updated', 'App\\Models\\Capabilities', 753, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Digital < 6000 psi\",\"procedure\":\"38\",\"price\":\"4000\",\"unit\":\"6\"},\"old\":{\"name\":\"Gauge Digital \",\"procedure\":\"1\",\"price\":\"6000\",\"unit\":\"bar\"}}', '2021-06-14 22:54:59', '2021-06-14 22:54:59'),
+(2683, 'default', 'updated', 'App\\Models\\Capabilities', 754, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Digital > 6000 psi\",\"procedure\":\"38\",\"price\":\"6000\",\"unit\":\"6\",\"location\":\"lab\"},\"old\":{\"name\":\"Gauge Digital \",\"procedure\":\"1\",\"price\":\"8000\",\"unit\":\"bar\",\"location\":\"site\"}}', '2021-06-14 22:56:33', '2021-06-14 22:56:33'),
+(2684, 'default', 'deleted', 'App\\Models\\Capabilities', 751, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gauge Digital \",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"-1.0~20.0 \",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 22:56:48', '2021-06-14 22:56:48'),
+(2685, 'default', 'deleted', 'App\\Models\\Capabilities', 752, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gauge Digital \",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~700\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 22:57:06', '2021-06-14 22:57:06'),
+(2686, 'default', 'deleted', 'App\\Models\\Capabilities', 747, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gauge Test \",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"-1.0~20.0 \",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 22:57:27', '2021-06-14 22:57:27'),
+(2687, 'default', 'deleted', 'App\\Models\\Capabilities', 750, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gauge Test \",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~1700\",\"price\":\"7500\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-14 22:57:41', '2021-06-14 22:57:41'),
+(2688, 'default', 'deleted', 'App\\Models\\Capabilities', 748, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gauge Test \",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~700\",\"price\":\"3500\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-14 22:57:55', '2021-06-14 22:57:55'),
+(2689, 'default', 'deleted', 'App\\Models\\Capabilities', 749, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gauge Test \",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~1200\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-14 22:58:08', '2021-06-14 22:58:08'),
+(2690, 'default', 'updated', 'App\\Models\\Capabilities', 717, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"67\",\"price\":\"4000\",\"unit\":\"137\"},\"old\":{\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"V\"}}', '2021-06-14 23:00:20', '2021-06-14 23:00:20'),
+(2691, 'default', 'updated', 'App\\Models\\Capabilities', 943, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"62\",\"price\":\"2000\",\"unit\":\"63\"},\"old\":{\"procedure\":\"1\",\"price\":\"1500\",\"unit\":\"mL\"}}', '2021-06-14 23:12:18', '2021-06-14 23:12:18'),
+(2692, 'default', 'deleted', 'App\\Models\\Capabilities', 942, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Glass Pipettes\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"0~100\",\"price\":\"1500\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 00:39:09', '2021-06-15 00:39:09'),
+(2693, 'default', 'created', 'App\\Models\\Parameter', 88, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Surface Gloss\",\"parent\":null}}', '2021-06-15 00:51:46', '2021-06-15 00:51:46'),
+(2694, 'default', 'created', 'App\\Models\\Unit', 192, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"88\",\"unit\":\"GU\"}}', '2021-06-15 00:52:12', '2021-06-15 00:52:12'),
+(2695, 'default', 'updated', 'App\\Models\\Capabilities', 812, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"88\",\"procedure\":\"67\",\"price\":\"3000\",\"unit\":\"192\",\"location\":\"lab\"},\"old\":{\"parameter\":\"19\",\"procedure\":\"1\",\"price\":\"4000\",\"unit\":\"ppm\",\"location\":\"site\"}}', '2021-06-15 00:53:54', '2021-06-15 00:53:54'),
+(2696, 'default', 'updated', 'App\\Models\\Capabilities', 761, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"850\",\"unit\":\"6\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"InchH2O\",\"location\":\"lab\"}}', '2021-06-15 00:57:47', '2021-06-15 00:57:47'),
+(2697, 'default', 'updated', 'App\\Models\\Capabilities', 762, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Magnihelic Pressure Gauge\",\"procedure\":\"38\",\"price\":\"850\",\"unit\":\"6\"},\"old\":{\"name\":\"Guage Magnihelic\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"InchH2O\"}}', '2021-06-15 01:00:18', '2021-06-15 01:00:18'),
+(2698, 'default', 'deleted', 'App\\Models\\Capabilities', 905, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Heavy Duty Oven\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"50~200\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 01:00:55', '2021-06-15 01:00:55'),
+(2699, 'default', 'deleted', 'App\\Models\\Capabilities', 688, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"High Shear Wet Mixer Speed\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"10~60\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 01:01:17', '2021-06-15 01:01:17'),
+(2700, 'default', 'deleted', 'App\\Models\\Capabilities', 689, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"High Shear Wet Mixer Time\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"600~1800\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 01:01:31', '2021-06-15 01:01:31'),
+(2701, 'default', 'updated', 'App\\Models\\Capabilities', 912, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"67\",\"unit\":\"171\",\"accredited\":\"no\"},\"old\":{\"procedure\":\"1\",\"unit\":\"?C\",\"accredited\":\"yes\"}}', '2021-06-15 01:03:01', '2021-06-15 01:03:01'),
+(2702, 'default', 'deleted', 'App\\Models\\Capabilities', 876, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hot Plate\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-20~650\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 01:03:18', '2021-06-15 01:03:18'),
+(2703, 'default', 'deleted', 'App\\Models\\Capabilities', 736, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hot Water Tank   (27 Ton)\",\"parameter\":\"16\",\"procedure\":\"1\",\"range\":\"0.5~1.22\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 01:03:38', '2021-06-15 01:03:38'),
+(2704, 'default', 'deleted', 'App\\Models\\Capabilities', 854, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hot Wire Anemometer\",\"parameter\":\"25\",\"procedure\":\"1\",\"range\":\"0.1~20\",\"price\":\"0\",\"accuracy\":\"0.1\",\"unit\":\"m\\/Sec\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 01:04:06', '2021-06-15 01:04:06'),
+(2705, 'default', 'deleted', 'App\\Models\\Capabilities', 873, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Thermohygrometer\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-20 ~ 50\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 01:05:44', '2021-06-15 01:05:44'),
+(2706, 'default', 'updated', 'App\\Models\\Capabilities', 847, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"19\",\"unit\":\"100\"},\"old\":{\"procedure\":\"1\",\"unit\":\"g\\/mL\"}}', '2021-06-15 01:14:24', '2021-06-15 01:14:24'),
+(2707, 'default', 'created', 'App\\Models\\Unit', 193, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"52\",\"unit\":\"mF\"}}', '2021-06-15 01:19:39', '2021-06-15 01:19:39'),
+(2708, 'default', 'deleted', 'App\\Models\\Capabilities', 846, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hydrometer\",\"parameter\":\"24\",\"procedure\":\"1\",\"range\":\"0.5~1.2\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"g\\/mL\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 01:23:16', '2021-06-15 01:23:16'),
+(2709, 'default', 'deleted', 'App\\Models\\Capabilities', 844, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hydrometer\",\"parameter\":\"24\",\"procedure\":\"1\",\"range\":\"0.7~1\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"g\\/mL\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 01:23:30', '2021-06-15 01:23:30'),
+(2710, 'default', 'deleted', 'App\\Models\\Capabilities', 842, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hydrometers\",\"parameter\":\"24\",\"procedure\":\"1\",\"range\":\"0.60~1.50\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"Ratio\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 01:23:40', '2021-06-15 01:23:40'),
+(2711, 'default', 'updated', 'App\\Models\\Capabilities', 831, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"9\",\"unit\":\"48\",\"accredited\":\"yes\"},\"old\":{\"procedure\":\"1\",\"unit\":\"RPM\",\"accredited\":\"no\"}}', '2021-06-15 02:04:19', '2021-06-15 02:04:19'),
+(2712, 'default', 'updated', 'App\\Models\\Capabilities', 765, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"6000\",\"unit\":\"6\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"price\":\"7500\",\"unit\":\"bar\",\"location\":\"lab\"}}', '2021-06-15 02:05:18', '2021-06-15 02:05:18'),
+(2713, 'default', 'deleted', 'App\\Models\\Capabilities', 836, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hygrometer Graph\",\"parameter\":\"23\",\"procedure\":\"1\",\"range\":\"20~70\",\"price\":\"2000\",\"accuracy\":\"0.1\",\"unit\":\"%RH\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 02:05:34', '2021-06-15 02:05:34'),
+(2714, 'default', 'deleted', 'App\\Models\\Capabilities', 886, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hygrometer Graph\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"0~50\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 02:06:02', '2021-06-15 02:06:02'),
+(2715, 'default', 'deleted', 'App\\Models\\Capabilities', 885, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hygrometer Whirling\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"0~50\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:06:18', '2021-06-15 02:06:18'),
+(2716, 'default', 'deleted', 'App\\Models\\Capabilities', 835, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hygrometer Whirling\",\"parameter\":\"23\",\"procedure\":\"1\",\"range\":\"20~70\",\"price\":\"2000\",\"accuracy\":\"0.1\",\"unit\":\"%RH\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:06:35', '2021-06-15 02:06:35'),
+(2717, 'default', 'deleted', 'App\\Models\\Capabilities', 669, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ICI Pilling & Snagging Tester Depth Left\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"236\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:07:28', '2021-06-15 02:07:28'),
+(2718, 'default', 'deleted', 'App\\Models\\Capabilities', 670, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ICI Pilling & Snagging Tester Depth Right\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"236\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 02:07:43', '2021-06-15 02:07:43'),
+(2719, 'default', 'deleted', 'App\\Models\\Capabilities', 665, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ICI Pilling & Snagging Tester Length Left\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"230\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:07:52', '2021-06-15 02:07:52'),
+(2720, 'default', 'deleted', 'App\\Models\\Capabilities', 666, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ICI Pilling & Snagging Tester Length Right\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"230\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 02:08:03', '2021-06-15 02:08:03'),
+(2721, 'default', 'deleted', 'App\\Models\\Capabilities', 671, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ICI Pilling & Snagging Tester RPM\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"60\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:08:26', '2021-06-15 02:08:26'),
+(2722, 'default', 'deleted', 'App\\Models\\Capabilities', 667, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ICI Pilling & Snagging Tester Width Left\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"230\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:08:35', '2021-06-15 02:08:35'),
+(2723, 'default', 'deleted', 'App\\Models\\Capabilities', 668, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ICI Pilling & Snagging Tester Width Right\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"230\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 02:08:47', '2021-06-15 02:08:47');
+INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `subject_id`, `causer_type`, `causer_id`, `properties`, `created_at`, `updated_at`) VALUES
+(2724, 'default', 'updated', 'App\\Models\\Capabilities', 879, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Incubator Cool Hot & COD\",\"procedure\":\"39\",\"unit\":\"171\",\"location\":\"site\"},\"old\":{\"name\":\"Incubator\",\"procedure\":\"1\",\"unit\":\"?C\",\"location\":\"lab\"}}', '2021-06-15 02:11:30', '2021-06-15 02:11:30'),
+(2725, 'default', 'deleted', 'App\\Models\\Capabilities', 921, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Indicator\\/Meter\",\"parameter\":\"28\",\"procedure\":\"1\",\"range\":\"10~100\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"Nm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 02:12:27', '2021-06-15 02:12:27'),
+(2726, 'default', 'deleted', 'App\\Models\\Capabilities', 663, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Insulation Tester AC Voltage\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"100~600\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"AC Volt\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 02:13:09', '2021-06-15 02:13:09'),
+(2727, 'default', 'deleted', 'App\\Models\\Capabilities', 664, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Insulation Tester DC Voltage\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"100~600\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"DC Volt\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 02:13:20', '2021-06-15 02:13:20'),
+(2728, 'default', 'deleted', 'App\\Models\\Capabilities', 662, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Insulation Tester Resistance\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"10M?~1G?\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 02:13:51', '2021-06-15 02:13:51'),
+(2729, 'default', 'deleted', 'App\\Models\\Capabilities', 229, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Insulation Resistance Meter\",\"parameter\":\"82\",\"procedure\":\"8\",\"range\":\"1~10000\",\"price\":\"4500\",\"accuracy\":\"10 M Ohm\",\"unit\":\"124\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 02:14:10', '2021-06-15 02:14:10'),
+(2730, 'default', 'updated', 'App\\Models\\Capabilities', 239, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"76\",\"price\":\"1500\",\"accuracy\":\"0.1 %\",\"unit\":\"143\"},\"old\":{\"parameter\":\"82\",\"price\":\"4500\",\"accuracy\":\"10 M Ohm\",\"unit\":\"124\"}}', '2021-06-15 02:16:42', '2021-06-15 02:16:42'),
+(2731, 'default', 'updated', 'App\\Models\\Capabilities', 230, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"76\",\"price\":\"3000\"},\"old\":{\"parameter\":\"82\",\"price\":\"5000\"}}', '2021-06-15 02:17:08', '2021-06-15 02:17:08'),
+(2732, 'default', 'deleted', 'App\\Models\\Capabilities', 723, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Iron Loss Tester\",\"parameter\":\"15\",\"procedure\":\"1\",\"range\":\"0.5~1.9\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:17:57', '2021-06-15 02:17:57'),
+(2733, 'default', 'updated', 'App\\Models\\Capabilities', 780, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"2500\",\"unit\":\"6\"},\"old\":{\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"bar\"}}', '2021-06-15 02:26:11', '2021-06-15 02:26:11'),
+(2734, 'default', 'updated', 'App\\Models\\Capabilities', 912, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Hot Plate with Magnetic Stirrer\",\"accredited\":\"yes\"},\"old\":{\"name\":\"Hot Plate\",\"accredited\":\"no\"}}', '2021-06-15 02:33:38', '2021-06-15 02:33:38'),
+(2735, 'default', 'deleted', 'App\\Models\\Capabilities', 995, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Magnetic Stirer\",\"parameter\":\"21\",\"procedure\":\"1\",\"range\":\"500\",\"price\":\"2500\",\"accuracy\":\"1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:36:32', '2021-06-15 02:36:32'),
+(2736, 'default', 'deleted', 'App\\Models\\Capabilities', 720, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Magnetic Trap\",\"parameter\":\"15\",\"procedure\":\"1\",\"range\":\"AC 0~10\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"A\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 02:37:17', '2021-06-15 02:37:17'),
+(2737, 'default', 'updated', 'App\\Models\\Capabilities', 722, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"13\",\"procedure\":\"67\",\"price\":\"2000\",\"unit\":\"166\"},\"old\":{\"parameter\":\"15\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"kg \"}}', '2021-06-15 02:38:15', '2021-06-15 02:38:15'),
+(2738, 'default', 'created', 'App\\Models\\Procedure', 72, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"BS EN 14502-1:2010\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Lifting Equipment Used for Lifting People at Work\"}}', '2021-06-15 02:42:17', '2021-06-15 02:42:17'),
+(2739, 'default', 'updated', 'App\\Models\\Capabilities', 729, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"33\",\"procedure\":\"72\",\"price\":\"6000\",\"unit\":\"189\",\"location\":\"site\"},\"old\":{\"parameter\":\"16\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"T\",\"location\":\"lab\"}}', '2021-06-15 02:43:42', '2021-06-15 02:43:42'),
+(2740, 'default', 'updated', 'App\\Models\\Capabilities', 932, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Stop Watch \\/ Timer\",\"parameter\":\"86\",\"procedure\":\"60\",\"price\":\"1500\",\"unit\":\"132\",\"accredited\":\"yes\"},\"old\":{\"name\":\"Master Timer\",\"parameter\":\"29\",\"procedure\":\"1\",\"price\":\"0\",\"unit\":\"sec\",\"accredited\":\"no\"}}', '2021-06-15 02:48:05', '2021-06-15 02:48:05'),
+(2741, 'default', 'deleted', 'App\\Models\\Capabilities', 930, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Timer\",\"parameter\":\"29\",\"procedure\":\"1\",\"range\":\"0~300\",\"price\":\"800\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 02:48:15', '2021-06-15 02:48:15'),
+(2742, 'default', 'deleted', 'App\\Models\\Capabilities', 988, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Micro Biological Air Sampler\",\"parameter\":\"7\",\"procedure\":\"1\",\"range\":\"100 LPM\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"LPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:50:35', '2021-06-15 02:50:35'),
+(2743, 'default', 'created', 'App\\Models\\Procedure', 73, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ISO 8655-8\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Piston Operated Volumetric Apparatus\"}}', '2021-06-15 02:57:38', '2021-06-15 02:57:38'),
+(2744, 'default', 'updated', 'App\\Models\\Capabilities', 941, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"85\",\"procedure\":\"73\",\"price\":\"2000\",\"unit\":\"154\"},\"old\":{\"parameter\":\"31\",\"procedure\":\"1\",\"price\":\"2500\",\"unit\":\"?L\"}}', '2021-06-15 02:59:21', '2021-06-15 02:59:21'),
+(2745, 'default', 'deleted', 'App\\Models\\Capabilities', 986, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Micro Pipette\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"0~1000\",\"price\":\"2000\",\"accuracy\":\"0.1\",\"unit\":\"uL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 02:59:36', '2021-06-15 02:59:36'),
+(2746, 'default', 'deleted', 'App\\Models\\Capabilities', 953, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Mixing Vessel\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"50~300\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"Ltr\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:00:30', '2021-06-15 03:00:30'),
+(2747, 'default', 'deleted', 'App\\Models\\Capabilities', 946, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Mixing Vessels\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"50~400\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"Litre\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 03:00:41', '2021-06-15 03:00:41'),
+(2748, 'default', 'deleted', 'App\\Models\\Capabilities', 823, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Motor\",\"parameter\":\"21\",\"procedure\":\"1\",\"range\":\"0.1~10000\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:00:56', '2021-06-15 03:00:56'),
+(2749, 'default', 'updated', 'App\\Models\\Capabilities', 652, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Gas Detector Carbon Monoxide (CO)\",\"parameter\":\"8\",\"procedure\":\"26\",\"price\":\"4000\",\"unit\":\"178\",\"location\":\"lab\"},\"old\":{\"name\":\"Multigas Detector Carbon Monoxide (CO)\",\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"ppm\",\"location\":\"site\"}}', '2021-06-15 03:02:52', '2021-06-15 03:02:52'),
+(2750, 'default', 'deleted', 'App\\Models\\Capabilities', 653, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Multigas Detector Hydrogen Sulfide (H2S)\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"25\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"ppm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:03:17', '2021-06-15 03:03:17'),
+(2751, 'default', 'deleted', 'App\\Models\\Capabilities', 651, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Multigas Detector Methene (LEL)\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"50\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"%\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:03:27', '2021-06-15 03:03:27'),
+(2752, 'default', 'deleted', 'App\\Models\\Capabilities', 650, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Multigas Detector Oxygen (O2)\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"20\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"%\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 03:03:38', '2021-06-15 03:03:38'),
+(2753, 'default', 'deleted', 'App\\Models\\Capabilities', 814, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Multiparameter Bench Photometer\",\"parameter\":\"19\",\"procedure\":\"1\",\"range\":\"5~18\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 03:06:10', '2021-06-15 03:06:10'),
+(2754, 'default', 'deleted', 'App\\Models\\Capabilities', 1001, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"MV Meter\",\"parameter\":\"5\",\"procedure\":\"8\",\"range\":\"0~700\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"mV\",\"remarks\":\"can be calibrated with process calibrator E-004\",\"location\":\"lab\",\"accredited\":\"on\"}}', '2021-06-15 03:06:32', '2021-06-15 03:06:32'),
+(2755, 'default', 'updated', 'App\\Models\\Capabilities', 806, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ORP \\/ mV Meter\"},\"old\":{\"name\":\"ORP Meter\"}}', '2021-06-15 03:06:55', '2021-06-15 03:06:55'),
+(2756, 'default', 'deleted', 'App\\Models\\Capabilities', 857, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Noise Survey\",\"parameter\":\"26\",\"procedure\":\"1\",\"range\":\"20~114\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"dB\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:07:58', '2021-06-15 03:07:58'),
+(2757, 'default', 'created', 'App\\Models\\Unit', 194, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"80\",\"unit\":\"km\\/hr\"}}', '2021-06-15 03:10:49', '2021-06-15 03:10:49'),
+(2758, 'default', 'deleted', 'App\\Models\\Capabilities', 954, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Nassler Cylinder\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"100\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:12:52', '2021-06-15 03:12:52'),
+(2759, 'default', 'updated', 'App\\Models\\Capabilities', 848, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"80\",\"procedure\":\"67\",\"unit\":\"194\",\"location\":\"lab\"},\"old\":{\"parameter\":\"25\",\"procedure\":\"1\",\"unit\":\"kM\\/H\",\"location\":\"site\"}}', '2021-06-15 03:14:00', '2021-06-15 03:14:00'),
+(2760, 'default', 'updated', 'App\\Models\\Capabilities', 830, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"9\",\"unit\":\"48\",\"location\":\"lab\"},\"old\":{\"procedure\":\"1\",\"unit\":\"RPM\",\"location\":\"site\"}}', '2021-06-15 03:15:14', '2021-06-15 03:15:14'),
+(2761, 'default', 'updated', 'App\\Models\\Capabilities', 826, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"9\",\"unit\":\"48\",\"accredited\":\"yes\"},\"old\":{\"procedure\":\"1\",\"unit\":\"RPM\",\"accredited\":\"no\"}}', '2021-06-15 03:17:29', '2021-06-15 03:17:29'),
+(2762, 'default', 'updated', 'App\\Models\\Capabilities', 880, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Oven Hot Air\",\"procedure\":\"39\",\"unit\":\"171\"},\"old\":{\"name\":\"Oven\",\"procedure\":\"1\",\"unit\":\"?C\"}}', '2021-06-15 03:19:09', '2021-06-15 03:19:09'),
+(2763, 'default', 'deleted', 'App\\Models\\Capabilities', 710, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Oven Temperature\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"50~300\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:19:25', '2021-06-15 03:19:25'),
+(2764, 'default', 'deleted', 'App\\Models\\Capabilities', 711, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Oven Time\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"600~10800\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:19:34', '2021-06-15 03:19:34'),
+(2765, 'default', 'created', 'App\\Models\\Procedure', 74, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"BS 7121-2\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Safe use of Crane Operation inspection and Testing\"}}', '2021-06-15 03:23:27', '2021-06-15 03:23:27'),
+(2766, 'default', 'updated', 'App\\Models\\Capabilities', 725, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Electric Over Head Travelling Crane 5 Ton\",\"parameter\":\"33\",\"price\":\"7500\",\"unit\":\"189\",\"location\":\"site\"},\"old\":{\"name\":\"Over Head Load Crane\",\"parameter\":\"16\",\"price\":\"1000\",\"unit\":\"T\",\"location\":\"lab\"}}', '2021-06-15 03:24:26', '2021-06-15 03:24:26'),
+(2767, 'default', 'deleted', 'App\\Models\\Capabilities', 695, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Penetrometer Disk Weight\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"50~100\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"g\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 03:24:59', '2021-06-15 03:24:59'),
+(2768, 'default', 'deleted', 'App\\Models\\Capabilities', 691, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Penetrometer Main Needle Length\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"36\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:25:20', '2021-06-15 03:25:20'),
+(2769, 'default', 'deleted', 'App\\Models\\Capabilities', 690, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Penetrometer Needle Stem Length\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"38\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 03:25:30', '2021-06-15 03:25:30'),
+(2770, 'default', 'deleted', 'App\\Models\\Capabilities', 693, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Penetrometer Needle Stem Thickness\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"3.17\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:25:43', '2021-06-15 03:25:43'),
+(2771, 'default', 'deleted', 'App\\Models\\Capabilities', 692, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Penetrometer Needle Tip (Taper)\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"5.6\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 03:25:53', '2021-06-15 03:25:53'),
+(2772, 'default', 'deleted', 'App\\Models\\Capabilities', 696, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Penetrometer Needle Weight\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"2.52\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"g\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:26:07', '2021-06-15 03:26:07'),
+(2773, 'default', 'deleted', 'App\\Models\\Capabilities', 694, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Penetrometer Tip Thickness\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"0.15\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 03:26:23', '2021-06-15 03:26:23'),
+(2774, 'default', 'updated', 'App\\Models\\Capabilities', 1000, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Water Vapor permeability tester Temperature\",\"parameter\":\"27\",\"procedure\":\"39\",\"price\":\"2000\",\"accuracy\":\"2.5 C\",\"unit\":\"171\",\"accredited\":\"yes\"},\"old\":{\"name\":\"permea tester\",\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"3000\",\"accuracy\":\"2.5\",\"unit\":\"C\",\"accredited\":\"\"}}', '2021-06-15 03:29:28', '2021-06-15 03:29:28'),
+(2775, 'default', 'deleted', 'App\\Models\\Capabilities', 807, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Photometer\",\"parameter\":\"19\",\"procedure\":\"1\",\"range\":\"40\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"HRC\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:29:43', '2021-06-15 03:29:43'),
+(2776, 'default', 'deleted', 'App\\Models\\Capabilities', 950, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Picnometer\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"100\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"cm3\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:30:09', '2021-06-15 03:30:09'),
+(2777, 'default', 'deleted', 'App\\Models\\Capabilities', 952, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Picnometer\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"25\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:30:24', '2021-06-15 03:30:24'),
+(2778, 'default', 'deleted', 'App\\Models\\Capabilities', 940, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Picnometers\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"1~100\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"mL\\/g\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:30:42', '2021-06-15 03:30:42'),
+(2779, 'default', 'deleted', 'App\\Models\\Capabilities', 949, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pipettor\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"100~1000\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"?L\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:31:01', '2021-06-15 03:31:01'),
+(2780, 'default', 'deleted', 'App\\Models\\Capabilities', 767, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Piston Gauges\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~700\",\"price\":\"18000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 03:31:26', '2021-06-15 03:31:26'),
+(2781, 'default', 'created', 'App\\Models\\Unit', 195, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"24\",\"unit\":\"Bx\"}}', '2021-06-15 03:36:41', '2021-06-15 03:36:41'),
+(2782, 'default', 'updated', 'App\\Models\\Unit', 195, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"\\u00b0Bx\"},\"old\":{\"unit\":\"Bx\"}}', '2021-06-15 03:37:28', '2021-06-15 03:37:28'),
+(2783, 'default', 'created', 'App\\Models\\Unit', 196, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"24\",\"unit\":\"\\u00b0Be\"}}', '2021-06-15 03:37:54', '2021-06-15 03:37:54'),
+(2784, 'default', 'updated', 'App\\Models\\Capabilities', 815, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"22\",\"unit\":\"97\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"unit\":\"Deg Specific Rotation\",\"location\":\"lab\"}}', '2021-06-15 03:40:34', '2021-06-15 03:40:34'),
+(2785, 'default', 'created', 'App\\Models\\Unit', 197, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"20\",\"unit\":\"\\u00b0\"}}', '2021-06-15 03:41:20', '2021-06-15 03:41:20'),
+(2786, 'default', 'updated', 'App\\Models\\Capabilities', 815, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"197\"},\"old\":{\"unit\":\"97\"}}', '2021-06-15 03:43:23', '2021-06-15 03:43:23'),
+(2787, 'default', 'deleted', 'App\\Models\\Capabilities', 816, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Polarimeter\",\"parameter\":\"20\",\"procedure\":\"1\",\"range\":\"0 to 180?\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"Deg Optical Rotation\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 03:43:34', '2021-06-15 03:43:34'),
+(2788, 'default', 'deleted', 'App\\Models\\Capabilities', 817, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Polarimeter\",\"parameter\":\"20\",\"procedure\":\"1\",\"range\":\"20 to 30\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 03:43:56', '2021-06-15 03:43:56'),
+(2789, 'default', 'updated', 'App\\Models\\Capabilities', 815, 'App\\Models\\User', 1, '{\"attributes\":{\"remarks\":\"10, 15, 20 & 26 % Brix Solution will be used for traceability.\"},\"old\":{\"remarks\":\"NA\"}}', '2021-06-15 03:45:04', '2021-06-15 03:45:04'),
+(2790, 'default', 'deleted', 'App\\Models\\Capabilities', 782, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~1100\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:45:24', '2021-06-15 03:45:24'),
+(2791, 'default', 'deleted', 'App\\Models\\Capabilities', 791, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~100\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Kg\\/cm2\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 03:46:06', '2021-06-15 03:46:06'),
+(2792, 'default', 'deleted', 'App\\Models\\Capabilities', 779, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~16\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 03:46:16', '2021-06-15 03:46:16'),
+(2793, 'default', 'deleted', 'App\\Models\\Capabilities', 778, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~2.4\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:46:26', '2021-06-15 03:46:26'),
+(2794, 'default', 'deleted', 'App\\Models\\Capabilities', 774, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~100\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:46:37', '2021-06-15 03:46:37'),
+(2795, 'default', 'deleted', 'App\\Models\\Capabilities', 781, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~345\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 03:46:49', '2021-06-15 03:46:49'),
+(2796, 'default', 'deleted', 'App\\Models\\Capabilities', 794, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~700\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:47:01', '2021-06-15 03:47:01'),
+(2797, 'default', 'deleted', 'App\\Models\\Capabilities', 800, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~1\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:47:14', '2021-06-15 03:47:14'),
+(2798, 'default', 'deleted', 'App\\Models\\Capabilities', 797, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~1200\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 03:47:23', '2021-06-15 03:47:23'),
+(2799, 'default', 'deleted', 'App\\Models\\Capabilities', 799, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~250\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 03:47:36', '2021-06-15 03:47:36'),
+(2800, 'default', 'updated', 'App\\Models\\Capabilities', 783, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"procedure\":\"38\",\"price\":\"1500\",\"unit\":\"6\",\"location\":\"site\"},\"old\":{\"name\":\"Pressure Gauge\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"bar\",\"location\":\"lab\"}}', '2021-06-15 03:50:12', '2021-06-15 03:50:12'),
+(2801, 'default', 'updated', 'App\\Models\\Capabilities', 776, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"price\":\"1500\",\"unit\":\"6\"},\"old\":{\"name\":\"Pressure Gauge\",\"price\":\"5000\",\"unit\":\"bar\"}}', '2021-06-15 03:51:35', '2021-06-15 03:51:35'),
+(2802, 'default', 'updated', 'App\\Models\\Capabilities', 745, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-15 03:52:55', '2021-06-15 03:52:55'),
+(2803, 'default', 'updated', 'App\\Models\\Capabilities', 776, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-15 03:54:00', '2021-06-15 03:54:00'),
+(2804, 'default', 'updated', 'App\\Models\\Capabilities', 745, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-15 03:55:08', '2021-06-15 03:55:08'),
+(2805, 'default', 'created', 'App\\Models\\Capabilities', 1017, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"parameter\":\"17\",\"procedure\":\"38\",\"range\":null,\"price\":\"1500\",\"accuracy\":\"0.1 % FS\",\"unit\":\"6\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 03:58:03', '2021-06-15 03:58:03'),
+(2806, 'default', 'created', 'App\\Models\\Capabilities', 1018, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"parameter\":\"17\",\"procedure\":\"38\",\"range\":null,\"price\":\"2500\",\"accuracy\":\"0.1 % FS\",\"unit\":\"6\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 04:01:01', '2021-06-15 04:01:01'),
+(2807, 'default', 'created', 'App\\Models\\Procedure', 75, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"API 527\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Seat Tightness of Pressure Reliving Devices\"}}', '2021-06-15 16:17:37', '2021-06-15 16:17:37'),
+(2808, 'default', 'created', 'App\\Models\\Procedure', 76, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"API RP 576\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Recommend Practice for Inspection of Pressure Reliving Devices\"}}', '2021-06-15 16:19:16', '2021-06-15 16:19:16'),
+(2809, 'default', 'deleted', 'App\\Models\\Capabilities', 773, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Meter\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~20\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 17:37:42', '2021-06-15 17:37:42'),
+(2810, 'default', 'updated', 'App\\Models\\Capabilities', 795, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Relief Valve < 6\\\" Flange Size\",\"procedure\":\"76\",\"price\":\"4000\",\"unit\":\"6\"},\"old\":{\"name\":\"Pressure Relief Valve\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"bar\"}}', '2021-06-15 18:00:41', '2021-06-15 18:00:41'),
+(2811, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-15 18:09:55', '2021-06-15 18:09:55'),
+(2812, 'default', 'updated', 'App\\Models\\Role', 2, 'App\\Models\\User', 19, '{\"attributes\":{\"permissions\":\"customer-index,customer-create,customer-edit,customer-view,customer-delete,items-index,items-create,items-update,items-delete,items-add-non-listed,items-update-non-listed,settings-index,roles-index,roles-create,roles-edit,roles-delete,preferences-index,add-preference,update-preference,staff-details,staff-index,staff-create,staff-edit,staff-view,department-index,department-create,designation-index,designation-create,designation-edit,department-edit,calibration-management,parameter-index,delete-units,capabilities-delete,add-grouped-capabilities,edit-grouped-capabilities,delete-grouped-capabilities,parameter-create,parameter-edit,parameter-delete,asset-index,asset-create,asset-edit,asset-delete,capabilities-create,capabilities-edit,capabilities-view,capabilities-delete,create-units,update-units,add-procedure,update-procedure,create-asset-group,update-asset-group,capabilities-index,grouped-capabilities,manage-reference-index,procedure-index,units-index,mytask-index,uncertainties-index,asset-groups,dashboard-index,manage-jobs,manage-jobs-index,jobs-index,add-pending,print-pending-tech-review,create-job,delete-job,add-recieving,update-receiving,create-scheduling,edit-scheduling,finance-accounts,index-coa,journal-vouchers,create-payment-voucher,update-payment-voucher,view-payment-voucher,print-payment-voucher,create-coa,update-coa,delete-coa,view-coa,add-journal-vouchers,edit-journal-vouchers,print-journal-vouchers,add-sales-invoice,view-sales-invoice,add-receipt-voucher,edit-receipt-voucher,view-receipt-voucher,print-receipt-voucher,add-purchase-invoice,edit-purchase-invoice,view-purchase-invoice,print-purchase-invoice,acc-level-one-index,acc-level-two-index,acc-level-three-index,sales-invoice,receipt-voucher,purchase-invoice,vouchers-index,journal-index,document-control,sop-index,create-sop,update-sop,forms-index,purchase,indent-index,vendors-index,purchase-order,material-receiving-index,rfq,generate-requests-index,quote-create,quote-edit,quote-view,quote-send-to-customer,quote-print-details,quote-accept,quote-revised,quote-close,pending-index,quote-index,pendings-no-facility,hr-index,requisition-index,interview-appraisal-index,emp-contract-index,emp-joining-index,employee-orientation-index,leave-application-index,inventory-index,inventory-categories-index,inventories-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews\"},\"old\":{\"permissions\":\"customer-index,customer-create,customer-edit,customer-view,customer-delete,items-index,items-create,items-update,items-delete,items-add-non-listed,items-update-non-listed,mytask-index,mytask-view,start-mytask,end-mytask,get-certificate,settings-index,roles-index,roles-create,roles-edit,roles-delete,preferences-index,add-preference,update-preference,staff-details,staff-index,staff-create,staff-edit,staff-view,department-index,department-create,designation-index,designation-create,designation-edit,department-edit,calibration-management,parameter-index,parameter-create,parameter-edit,parameter-delete,asset-index,asset-create,asset-edit,asset-delete,capabilities-index,capabilities-create,capabilities-edit,capabilities-view,capabilities-delete,manage-reference-index,procedure-index,units-index,uncertainties-index,add-procedure,update-procedure,asset-groups,create-asset-group,update-asset-group,dashboard-index,manage-jobs,jobs-index,scheduling-index,manage-jobs-index,add-pending,print-pending-tech-review,create-job,delete-job,add-recieving,update-receiving,create-scheduling,edit-scheduling,finance-accounts,invoicing-ledger-index,add-job-invoice-receiving,update-job-invoice-receiving,acc-level-one-index,acc-level-two-index,acc-level-three-index,acc-level-four-index,vouchers-index,document-control,sop-index,create-sop,update-sop,forms-index,purchase,indent-index,material-receiving-index,rfq,generate-requests-index,quote-create,quote-edit,quote-view,quote-send-to-customer,quote-print-details,quote-accept,quote-revised,quote-close,pending-index,pendings-no-facility,quote-index\"}}', '2021-06-15 18:11:44', '2021-06-15 18:11:44'),
+(2813, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-15 18:13:11', '2021-06-15 18:13:11'),
+(2814, 'default', 'updated', 'App\\Models\\Unit', 6, 'App\\Models\\User', 2, '{\"attributes\":[],\"old\":[]}', '2021-06-15 18:57:01', '2021-06-15 18:57:01'),
+(2815, 'default', 'updated', 'App\\Models\\Unit', 6, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"Bar\"},\"old\":{\"unit\":\"psi\"}}', '2021-06-15 18:59:29', '2021-06-15 18:59:29'),
+(2816, 'default', 'created', 'App\\Models\\Unit', 198, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"psi\"}}', '2021-06-15 19:02:07', '2021-06-15 19:02:07'),
+(2817, 'default', 'created', 'App\\Models\\Unit', 199, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"hPa\"}}', '2021-06-15 19:03:51', '2021-06-15 19:03:51'),
+(2818, 'default', 'updated', 'App\\Models\\Unit', 6, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"kPa\"},\"old\":{\"unit\":\"Bar\"}}', '2021-06-15 19:04:38', '2021-06-15 19:04:38'),
+(2819, 'default', 'updated', 'App\\Models\\Unit', 6, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"Bar\"},\"old\":{\"unit\":\"kPa\"}}', '2021-06-15 19:13:09', '2021-06-15 19:13:09'),
+(2820, 'default', 'updated', 'App\\Models\\Unit', 6, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"kPa\"},\"old\":{\"unit\":\"Bar\"}}', '2021-06-15 19:13:50', '2021-06-15 19:13:50'),
+(2821, 'default', 'created', 'App\\Models\\Unit', 200, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"Bar\"}}', '2021-06-15 19:14:36', '2021-06-15 19:14:36'),
+(2822, 'default', 'updated', 'App\\Models\\Unit', 6, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"MPa\"},\"old\":{\"unit\":\"kPa\"}}', '2021-06-15 19:15:31', '2021-06-15 19:15:31'),
+(2823, 'default', 'created', 'App\\Models\\Unit', 201, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"kPa\"}}', '2021-06-15 19:16:13', '2021-06-15 19:16:13'),
+(2824, 'default', 'created', 'App\\Models\\Unit', 202, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"mBar\"}}', '2021-06-15 19:17:10', '2021-06-15 19:17:10'),
+(2825, 'default', 'created', 'App\\Models\\Unit', 203, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"Pa\"}}', '2021-06-15 19:18:54', '2021-06-15 19:18:54'),
+(2826, 'default', 'updated', 'App\\Models\\Capabilities', 785, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"4000\",\"unit\":\"200\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"mbar\",\"location\":\"lab\"}}', '2021-06-15 19:20:02', '2021-06-15 19:20:02'),
+(2827, 'default', 'created', 'App\\Models\\Unit', 204, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"kg\\/cm\\u00b2\"}}', '2021-06-15 19:20:53', '2021-06-15 19:20:53'),
+(2828, 'default', 'created', 'App\\Models\\Unit', 205, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"mmHg\"}}', '2021-06-15 19:22:06', '2021-06-15 19:22:06'),
+(2829, 'default', 'created', 'App\\Models\\Unit', 206, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"inHg\"}}', '2021-06-15 19:26:06', '2021-06-15 19:26:06'),
+(2830, 'default', 'updated', 'App\\Models\\Capabilities', 785, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"6000\",\"location\":\"lab\"},\"old\":{\"price\":\"4000\",\"location\":\"site\"}}', '2021-06-15 19:26:17', '2021-06-15 19:26:17'),
+(2831, 'default', 'updated', 'App\\Models\\Capabilities', 757, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"67\",\"unit\":\"200\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"unit\":\"bar\",\"location\":\"lab\"}}', '2021-06-15 19:27:21', '2021-06-15 19:27:21'),
+(2832, 'default', 'updated', 'App\\Models\\Capabilities', 784, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"6000\",\"unit\":\"200\"},\"old\":{\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"bar\"}}', '2021-06-15 19:28:20', '2021-06-15 19:28:20'),
+(2833, 'default', 'updated', 'App\\Models\\Capabilities', 599, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"17\",\"procedure\":\"38\",\"price\":\"1500\",\"unit\":\"200\",\"location\":\"site\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"2000\",\"unit\":\"bar\",\"location\":\"lab\"}}', '2021-06-15 19:32:09', '2021-06-15 19:32:09'),
+(2834, 'default', 'updated', 'App\\Models\\Capabilities', 600, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"21\",\"procedure\":\"9\",\"price\":\"1500\",\"unit\":\"48\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"2000\",\"unit\":\"RPM\",\"accredited\":\"no\"}}', '2021-06-15 19:33:46', '2021-06-15 19:33:46'),
+(2835, 'default', 'updated', 'App\\Models\\Capabilities', 598, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"27\",\"procedure\":\"40\",\"price\":\"2500\",\"unit\":\"171\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"2000\",\"unit\":\"?C\"}}', '2021-06-15 19:34:59', '2021-06-15 19:34:59'),
+(2836, 'default', 'created', 'App\\Models\\Unit', 207, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"mmH2O\"}}', '2021-06-15 19:35:06', '2021-06-15 19:35:06'),
+(2837, 'default', 'deleted', 'App\\Models\\Capabilities', 674, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Random Tumble Pilling Tester Time\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"1800\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 19:37:24', '2021-06-15 19:37:24'),
+(2838, 'default', 'deleted', 'App\\Models\\Capabilities', 672, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Random Tumble Pilling Tester Diameter\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"143\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 19:37:37', '2021-06-15 19:37:37'),
+(2839, 'default', 'deleted', 'App\\Models\\Capabilities', 673, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Random Tumble Pilling Tester Depth\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"152\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 19:37:45', '2021-06-15 19:37:45'),
+(2840, 'default', 'updated', 'App\\Models\\Capabilities', 486, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-15 19:38:11', '2021-06-15 19:38:11'),
+(2841, 'default', 'updated', 'App\\Models\\Capabilities', 1009, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"81\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"17\",\"accredited\":\"no\"}}', '2021-06-15 19:38:23', '2021-06-15 19:38:23'),
+(2842, 'default', 'updated', 'App\\Models\\Capabilities', 487, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"81\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"21\",\"accredited\":\"no\"}}', '2021-06-15 19:38:36', '2021-06-15 19:38:36'),
+(2843, 'default', 'updated', 'App\\Models\\Capabilities', 488, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-15 19:38:56', '2021-06-15 19:38:56'),
+(2844, 'default', 'updated', 'App\\Models\\Unit', 207, 'App\\Models\\User', 2, '{\"attributes\":[],\"old\":[]}', '2021-06-15 19:39:33', '2021-06-15 19:39:33'),
+(2845, 'default', 'deleted', 'App\\Models\\Capabilities', 389, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Process Calibrator Volt AC Measure\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"1~300\",\"price\":\"2000\",\"accuracy\":\"0.1\",\"unit\":\"V\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 19:40:04', '2021-06-15 19:40:04'),
+(2846, 'default', 'deleted', 'App\\Models\\Capabilities', 834, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Refrectometer\",\"parameter\":\"22\",\"procedure\":\"1\",\"range\":\"5% to 26%\",\"price\":\"0\",\"accuracy\":\"0.1\",\"unit\":\"% Brix\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 19:40:38', '2021-06-15 19:40:38'),
+(2847, 'default', 'updated', 'App\\Models\\Unit', 199, 'App\\Models\\User', 2, '{\"attributes\":[],\"old\":[]}', '2021-06-15 19:41:08', '2021-06-15 19:41:08'),
+(2848, 'default', 'deleted', 'App\\Models\\Capabilities', 3, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Core Loss Tester   (G Type, S Type)\",\"parameter\":\"68\",\"procedure\":\"10\",\"range\":\"10~110\",\"price\":\"4000\",\"accuracy\":\"1 % of Indicated Value\",\"unit\":\"59\",\"remarks\":\"Cal with Manufacturer Supplied Metal Disk with Certified %IACS Value\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 19:42:37', '2021-06-15 19:42:37'),
+(2849, 'default', 'deleted', 'App\\Models\\Capabilities', 737, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Recovery Tank   (35 Ton)\",\"parameter\":\"16\",\"procedure\":\"1\",\"range\":\"0.5~1.23\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 19:43:03', '2021-06-15 19:43:03'),
+(2850, 'default', 'updated', 'App\\Models\\Unit', 207, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"mmH\\u2082O\"},\"old\":{\"unit\":\"mmH2O\"}}', '2021-06-15 19:43:13', '2021-06-15 19:43:13'),
+(2851, 'default', 'updated', 'App\\Models\\Capabilities', 833, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"23\",\"unit\":\"98\",\"location\":\"site\"},\"old\":{\"procedure\":\"1\",\"unit\":\"Ratio\",\"location\":\"lab\"}}', '2021-06-15 19:43:58', '2021-06-15 19:43:58'),
+(2852, 'default', 'created', 'App\\Models\\Unit', 208, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"inH\\u2082O\"}}', '2021-06-15 19:44:31', '2021-06-15 19:44:31'),
+(2853, 'default', 'updated', 'App\\Models\\Capabilities', 882, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Refrigerator \\/ Freezer  Temperature mapping\",\"procedure\":\"39\",\"unit\":\"171\"},\"old\":{\"name\":\"Refrigrator\",\"procedure\":\"1\",\"unit\":\"?C\"}}', '2021-06-15 19:46:56', '2021-06-15 19:46:56'),
+(2854, 'default', 'updated', 'App\\Models\\Unit', 108, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"in\\u00b2\"},\"old\":{\"unit\":\"in2\"}}', '2021-06-15 19:47:47', '2021-06-15 19:47:47'),
+(2855, 'default', 'updated', 'App\\Models\\Unit', 92, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"mS\\/cm\\u00b2\"},\"old\":{\"unit\":\"mS\\/cm2\"}}', '2021-06-15 19:49:15', '2021-06-15 19:49:15'),
+(2856, 'default', 'deleted', 'App\\Models\\Capabilities', 759, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Relief Valve  ? 6 \\\" Dia\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0 ~ 400 \",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 19:49:22', '2021-06-15 19:49:22'),
+(2857, 'default', 'deleted', 'App\\Models\\Capabilities', 760, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Relief Valve  ? 12 \\\" Dia\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~ 100\",\"price\":\"10000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 19:49:44', '2021-06-15 19:49:44'),
+(2858, 'default', 'updated', 'App\\Models\\Unit', 108, 'App\\Models\\User', 2, '{\"attributes\":[],\"old\":[]}', '2021-06-15 19:50:12', '2021-06-15 19:50:12'),
+(2859, 'default', 'updated', 'App\\Models\\Unit', 118, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"cm\\u00b2\"},\"old\":{\"unit\":\"cm2\"}}', '2021-06-15 19:50:53', '2021-06-15 19:50:53'),
+(2860, 'default', 'updated', 'App\\Models\\Capabilities', 899, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"RTD Sensor PT100 Type\",\"procedure\":\"38\",\"price\":\"4000\",\"unit\":\"171\"},\"old\":{\"name\":\"RTD\",\"procedure\":\"1\",\"price\":\"3000\",\"unit\":\"?C\"}}', '2021-06-15 19:52:29', '2021-06-15 19:52:29'),
+(2861, 'default', 'deleted', 'App\\Models\\Capabilities', 903, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"RTD Calibrator\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-20~300\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 19:52:47', '2021-06-15 19:52:47'),
+(2862, 'default', 'deleted', 'App\\Models\\Capabilities', 679, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"RTD Loop Calibrator DC Current\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"4~22\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"mA\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 19:53:07', '2021-06-15 19:53:07'),
+(2863, 'default', 'updated', 'App\\Models\\Unit', 33, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5F\"},\"old\":{\"unit\":\"uF\"}}', '2021-06-15 19:53:14', '2021-06-15 19:53:14'),
+(2864, 'default', 'deleted', 'App\\Models\\Capabilities', 683, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"RTD Loop Calibrator Resistance (Measure Mode)\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"-200~800\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 19:53:47', '2021-06-15 19:53:47'),
+(2865, 'default', 'deleted', 'App\\Models\\Capabilities', 681, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"RTD Loop Calibrator Resistance (Measure Mode)\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"0~4000\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"k?\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 19:53:56', '2021-06-15 19:53:56'),
+(2866, 'default', 'deleted', 'App\\Models\\Capabilities', 682, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"RTD Loop Calibrator Resistance (Source Mode)\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"-200~800\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 19:54:05', '2021-06-15 19:54:05'),
+(2867, 'default', 'updated', 'App\\Models\\Unit', 150, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5A\"},\"old\":{\"unit\":\"uA\"}}', '2021-06-15 19:54:15', '2021-06-15 19:54:15'),
+(2868, 'default', 'deleted', 'App\\Models\\Capabilities', 680, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"RTD Loop Calibrator Resistance (Source Mode)\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"0~4000\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 19:54:15', '2021-06-15 19:54:15'),
+(2869, 'default', 'updated', 'App\\Models\\Unit', 152, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5A\"},\"old\":{\"unit\":\"uA\"}}', '2021-06-15 19:54:34', '2021-06-15 19:54:34'),
+(2870, 'default', 'updated', 'App\\Models\\Unit', 3, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"kgf\"},\"old\":{\"unit\":\"Kgf\"}}', '2021-06-15 19:55:22', '2021-06-15 19:55:22'),
+(2871, 'default', 'updated', 'App\\Models\\Unit', 76, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"ton\"},\"old\":{\"unit\":\"Ton\"}}', '2021-06-15 19:55:51', '2021-06-15 19:55:51'),
+(2872, 'default', 'updated', 'App\\Models\\Unit', 78, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"lbf\"},\"old\":{\"unit\":\"lbF\"}}', '2021-06-15 19:56:26', '2021-06-15 19:56:26'),
+(2873, 'default', 'updated', 'App\\Models\\Unit', 106, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5H\"},\"old\":{\"unit\":\"uH\"}}', '2021-06-15 19:57:34', '2021-06-15 19:57:34');
+INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `subject_id`, `causer_type`, `causer_id`, `properties`, `created_at`, `updated_at`) VALUES
+(2874, 'default', 'created', 'App\\Models\\Unit', 209, 'App\\Models\\User', 2, '{\"attributes\":{\"parameter\":\"37\",\"unit\":\"mH\"}}', '2021-06-15 19:58:52', '2021-06-15 19:58:52'),
+(2875, 'default', 'deleted', 'App\\Models\\Capabilities', 731, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Safty Harness with Lanyard\",\"parameter\":\"16\",\"procedure\":\"1\",\"range\":\"0.5~1.17\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 19:59:35', '2021-06-15 19:59:35'),
+(2876, 'default', 'deleted', 'App\\Models\\Capabilities', 916, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Screw Driver\",\"parameter\":\"28\",\"procedure\":\"1\",\"range\":\"1~20\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"Nm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 19:59:46', '2021-06-15 19:59:46'),
+(2877, 'default', 'updated', 'App\\Models\\Capabilities', 726, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"33\",\"procedure\":\"67\",\"unit\":\"189\",\"remarks\":\"MPI and Visual Inspection of Shackles.\"},\"old\":{\"parameter\":\"16\",\"procedure\":\"1\",\"unit\":\"T\",\"remarks\":\"NA\"}}', '2021-06-15 20:01:31', '2021-06-15 20:01:31'),
+(2878, 'default', 'updated', 'App\\Models\\Unit', 85, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5W\\/cm\\u00b2\"},\"old\":{\"unit\":\"uW\\/cm2\"}}', '2021-06-15 20:02:42', '2021-06-15 20:02:42'),
+(2879, 'default', 'updated', 'App\\Models\\Unit', 156, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"mW\\/cm\\u00b2\"},\"old\":{\"unit\":\"mW\\/cm2\"}}', '2021-06-15 20:04:10', '2021-06-15 20:04:10'),
+(2880, 'default', 'updated', 'App\\Models\\Unit', 111, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5m\"},\"old\":{\"unit\":\"um\"}}', '2021-06-15 20:05:08', '2021-06-15 20:05:08'),
+(2881, 'default', 'updated', 'App\\Models\\Capabilities', 993, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"84\",\"procedure\":\"67\",\"price\":\"2000\",\"unit\":\"105\",\"location\":\"site\"},\"old\":{\"parameter\":\"32\",\"procedure\":\"1\",\"price\":\"6000\",\"unit\":\"mm & RPM\",\"location\":\"lab\"}}', '2021-06-15 20:05:18', '2021-06-15 20:05:18'),
+(2882, 'default', 'updated', 'App\\Models\\Unit', 176, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"in\"},\"old\":{\"unit\":\"In\"}}', '2021-06-15 20:05:56', '2021-06-15 20:05:56'),
+(2883, 'default', 'deleted', 'App\\Models\\Capabilities', 856, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Sound Level Calibrator\",\"parameter\":\"26\",\"procedure\":\"1\",\"range\":\"20~114\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"dB\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 20:11:32', '2021-06-15 20:11:32'),
+(2884, 'default', 'updated', 'App\\Models\\Unit', 137, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"Gauss\"},\"old\":{\"unit\":\"gauss\"}}', '2021-06-15 20:20:41', '2021-06-15 20:20:41'),
+(2885, 'default', 'updated', 'App\\Models\\Unit', 96, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"mG\"},\"old\":{\"unit\":\"milli Guass\"}}', '2021-06-15 20:21:26', '2021-06-15 20:21:26'),
+(2886, 'default', 'updated', 'App\\Models\\Unit', 138, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"kG\"},\"old\":{\"unit\":\"kgauss\"}}', '2021-06-15 20:21:49', '2021-06-15 20:21:49'),
+(2887, 'default', 'updated', 'App\\Models\\Unit', 96, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"milli Gauss\"},\"old\":{\"unit\":\"mG\"}}', '2021-06-15 20:23:06', '2021-06-15 20:23:06'),
+(2888, 'default', 'updated', 'App\\Models\\Unit', 138, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"kilo Gauss\"},\"old\":{\"unit\":\"kG\"}}', '2021-06-15 20:23:27', '2021-06-15 20:23:27'),
+(2889, 'default', 'updated', 'App\\Models\\Unit', 136, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"g\\/cm\\u00b3\"},\"old\":{\"unit\":\"g\\/cm3\"}}', '2021-06-15 20:24:36', '2021-06-15 20:24:36'),
+(2890, 'default', 'updated', 'App\\Models\\Unit', 101, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"kg\\/m\\u00b3\"},\"old\":{\"unit\":\"kg\\/m3\"}}', '2021-06-15 20:25:01', '2021-06-15 20:25:01'),
+(2891, 'default', 'updated', 'App\\Models\\Unit', 112, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5\\u03a9\"},\"old\":{\"unit\":\"u\\u03a9\"}}', '2021-06-15 20:25:55', '2021-06-15 20:25:55'),
+(2892, 'default', 'updated', 'App\\Models\\Unit', 109, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"m\\u00b2\\/m\\u00b2\"},\"old\":{\"unit\":\"m2\\/m2\"}}', '2021-06-15 20:26:57', '2021-06-15 20:26:57'),
+(2893, 'default', 'updated', 'App\\Models\\Unit', 188, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"m\\/sec\\u00b2\"},\"old\":{\"unit\":\"m\\/sec2\"}}', '2021-06-15 20:28:07', '2021-06-15 20:28:07'),
+(2894, 'default', 'updated', 'App\\Models\\Unit', 144, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5V\"},\"old\":{\"unit\":\"uV\"}}', '2021-06-15 20:28:41', '2021-06-15 20:28:41'),
+(2895, 'default', 'deleted', 'App\\Models\\Capabilities', 931, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Stop Watch\",\"parameter\":\"29\",\"procedure\":\"1\",\"range\":\"0~600\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 20:48:28', '2021-06-15 20:48:28'),
+(2896, 'default', 'updated', 'App\\Models\\Capabilities', 855, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"18\",\"unit\":\"47\"},\"old\":{\"procedure\":\"1\",\"unit\":\"dB\"}}', '2021-06-15 20:49:59', '2021-06-15 20:49:59'),
+(2897, 'default', 'updated', 'App\\Models\\Capabilities', 955, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"62\",\"price\":\"1500\",\"unit\":\"63\"},\"old\":{\"procedure\":\"1\",\"price\":\"6000\",\"unit\":\"mL\"}}', '2021-06-15 20:52:24', '2021-06-15 20:52:24'),
+(2898, 'default', 'deleted', 'App\\Models\\Capabilities', 990, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Specific Gravity Flask\",\"parameter\":\"24\",\"procedure\":\"1\",\"range\":\"100\",\"price\":\"1500\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 20:52:43', '2021-06-15 20:52:43'),
+(2899, 'default', 'deleted', 'App\\Models\\Capabilities', 808, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Spectrophotometer UV\\/Vis\",\"parameter\":\"19\",\"procedure\":\"1\",\"range\":\"0~100\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"D\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 20:52:59', '2021-06-15 20:52:59'),
+(2900, 'default', 'updated', 'App\\Models\\Unit', 147, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5V\"},\"old\":{\"unit\":\"uV\"}}', '2021-06-15 20:53:03', '2021-06-15 20:53:03'),
+(2901, 'default', 'updated', 'App\\Models\\Unit', 154, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5L\"},\"old\":{\"unit\":\"uL\"}}', '2021-06-15 20:53:42', '2021-06-15 20:53:42'),
+(2902, 'default', 'updated', 'App\\Models\\Unit', 56, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"\\u00b5m\"},\"old\":{\"unit\":\"um\"}}', '2021-06-15 20:54:09', '2021-06-15 20:54:09'),
+(2903, 'default', 'updated', 'App\\Models\\Capabilities', 849, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"80\",\"procedure\":\"67\",\"price\":\"3000\",\"unit\":\"194\"},\"old\":{\"parameter\":\"25\",\"procedure\":\"1\",\"price\":\"2500\",\"unit\":\"kM\\/H\"}}', '2021-06-15 20:54:15', '2021-06-15 20:54:15'),
+(2904, 'default', 'deleted', 'App\\Models\\Capabilities', 728, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Storage Vessel\",\"parameter\":\"16\",\"procedure\":\"1\",\"range\":\"0.5~1.14\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 20:54:31', '2021-06-15 20:54:31'),
+(2905, 'default', 'updated', 'App\\Models\\Unit', 80, 'App\\Models\\User', 2, '{\"attributes\":{\"unit\":\"m\\u00b3\\/h\"},\"old\":{\"unit\":\"m3\\/h\"}}', '2021-06-15 20:55:23', '2021-06-15 20:55:23'),
+(2906, 'default', 'updated', 'App\\Models\\Capabilities', 820, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"9\",\"unit\":\"48\",\"location\":\"lab\"},\"old\":{\"procedure\":\"1\",\"unit\":\"RPM\",\"location\":\"site\"}}', '2021-06-15 20:56:46', '2021-06-15 20:56:46'),
+(2907, 'default', 'updated', 'App\\Models\\Capabilities', 883, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Temperature Switch\",\"procedure\":\"67\",\"unit\":\"171\"},\"old\":{\"name\":\"Switch\",\"procedure\":\"1\",\"unit\":\"?C\"}}', '2021-06-15 20:58:44', '2021-06-15 20:58:44'),
+(2908, 'default', 'deleted', 'App\\Models\\Capabilities', 818, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Tachometer Optical\",\"parameter\":\"21\",\"procedure\":\"1\",\"range\":\"0.1~99999\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 20:59:05', '2021-06-15 20:59:05'),
+(2909, 'default', 'updated', 'App\\Models\\Capabilities', 819, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Tachometer Contact Type\",\"procedure\":\"9\",\"price\":\"3000\",\"unit\":\"48\"},\"old\":{\"name\":\"Tachometer Contact\",\"procedure\":\"1\",\"price\":\"2500\",\"unit\":\"RPM\"}}', '2021-06-15 20:59:55', '2021-06-15 20:59:55'),
+(2910, 'default', 'deleted', 'App\\Models\\Capabilities', 821, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Tachometer Reed \",\"parameter\":\"21\",\"procedure\":\"1\",\"range\":\"1~300\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 21:00:41', '2021-06-15 21:00:41'),
+(2911, 'default', 'updated', 'App\\Models\\Capabilities', 656, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Tap Density Meter\",\"parameter\":\"2\",\"procedure\":\"67\",\"price\":\"2500\",\"unit\":\"60\"},\"old\":{\"name\":\"Tap Density Meter Count\",\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"Count\"}}', '2021-06-15 21:02:47', '2021-06-15 21:02:47'),
+(2912, 'default', 'updated', 'App\\Models\\Capabilities', 657, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"86\",\"procedure\":\"60\",\"price\":\"1000\",\"unit\":\"103\",\"location\":\"site\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"sec\",\"location\":\"lab\"}}', '2021-06-15 21:03:35', '2021-06-15 21:03:35'),
+(2913, 'default', 'updated', 'App\\Models\\Capabilities', 656, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"86\",\"price\":\"1500\"},\"old\":{\"parameter\":\"2\",\"price\":\"2500\"}}', '2021-06-15 21:03:51', '2021-06-15 21:03:51'),
+(2914, 'default', 'updated', 'App\\Models\\Capabilities', 1004, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"81\",\"unit\":\"176\"},\"old\":{\"parameter\":\"3\",\"unit\":\"62\"}}', '2021-06-15 21:04:28', '2021-06-15 21:04:28'),
+(2915, 'default', 'deleted', 'App\\Models\\Capabilities', 793, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~400\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Kg\\/cm2\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 21:07:52', '2021-06-15 21:07:52'),
+(2916, 'default', 'deleted', 'App\\Models\\Capabilities', 792, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~250\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Kg\\/cm2\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:08:11', '2021-06-15 21:08:11'),
+(2917, 'default', 'deleted', 'App\\Models\\Capabilities', 792, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~250\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Kg\\/cm2\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:08:11', '2021-06-15 21:08:11'),
+(2918, 'default', 'deleted', 'App\\Models\\Capabilities', 787, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~1.6\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Kg\\/cm2\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 21:08:21', '2021-06-15 21:08:21'),
+(2919, 'default', 'deleted', 'App\\Models\\Capabilities', 790, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~60\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Kg\\/cm2\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:08:31', '2021-06-15 21:08:31'),
+(2920, 'default', 'deleted', 'App\\Models\\Capabilities', 788, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~10\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Kg\\/cm2\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:08:40', '2021-06-15 21:08:40'),
+(2921, 'default', 'deleted', 'App\\Models\\Capabilities', 789, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Test Pressure Gauge\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~25\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Kg\\/cm2\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 21:08:49', '2021-06-15 21:08:49'),
+(2922, 'default', 'updated', 'App\\Models\\Capabilities', 508, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-15 21:09:55', '2021-06-15 21:09:55'),
+(2923, 'default', 'updated', 'App\\Models\\Capabilities', 746, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-15 21:10:57', '2021-06-15 21:10:57'),
+(2924, 'default', 'updated', 'App\\Models\\Capabilities', 466, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-15 21:11:35', '2021-06-15 21:11:35'),
+(2925, 'default', 'updated', 'App\\Models\\Capabilities', 744, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-15 21:12:00', '2021-06-15 21:12:00'),
+(2926, 'default', 'updated', 'App\\Models\\Capabilities', 1009, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"17\",\"unit\":\"200\"},\"old\":{\"parameter\":\"81\",\"unit\":\"6\"}}', '2021-06-15 21:12:55', '2021-06-15 21:12:55'),
+(2927, 'default', 'updated', 'App\\Models\\Capabilities', 780, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-15 21:13:23', '2021-06-15 21:13:23'),
+(2928, 'default', 'updated', 'App\\Models\\Capabilities', 765, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-15 21:13:51', '2021-06-15 21:13:51'),
+(2929, 'default', 'updated', 'App\\Models\\Capabilities', 455, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-15 21:14:19', '2021-06-15 21:14:19'),
+(2930, 'default', 'updated', 'App\\Models\\Capabilities', 768, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-15 21:14:49', '2021-06-15 21:14:49'),
+(2931, 'default', 'updated', 'App\\Models\\Capabilities', 522, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-15 21:15:34', '2021-06-15 21:15:34'),
+(2932, 'default', 'deleted', 'App\\Models\\Capabilities', 866, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Temperature Controller\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-200~1200\",\"price\":\"4500\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:16:30', '2021-06-15 21:16:30'),
+(2933, 'default', 'deleted', 'App\\Models\\Capabilities', 860, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Thermal Resistance Detector\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-20~650\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:17:05', '2021-06-15 21:17:05'),
+(2934, 'default', 'deleted', 'App\\Models\\Capabilities', 861, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Thermcouple J, K, T\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-20~650\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 21:17:17', '2021-06-15 21:17:17'),
+(2935, 'default', 'deleted', 'App\\Models\\Capabilities', 908, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Thermocouples Measurement & Source\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-200~1600\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:18:15', '2021-06-15 21:18:15'),
+(2936, 'default', 'updated', 'App\\Models\\Capabilities', 862, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Thermocouple Sensor J, K & T\",\"procedure\":\"40\",\"price\":\"4000\",\"unit\":\"171\"},\"old\":{\"name\":\"Thermcouple R & S\",\"procedure\":\"1\",\"price\":\"8500\",\"unit\":\"?C\"}}', '2021-06-15 21:20:17', '2021-06-15 21:20:17'),
+(2937, 'default', 'deleted', 'App\\Models\\Capabilities', 813, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Tintometer\",\"parameter\":\"19\",\"procedure\":\"1\",\"range\":\"5~18\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"ppm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 21:21:12', '2021-06-15 21:21:12'),
+(2938, 'default', 'updated', 'App\\Models\\Capabilities', 922, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"6\",\"procedure\":\"64\",\"price\":\"12000\",\"unit\":\"78\",\"location\":\"lab\"},\"old\":{\"parameter\":\"28\",\"procedure\":\"1\",\"price\":\"10000\",\"unit\":\"Ft\\/Lbs\",\"location\":\"site\"}}', '2021-06-15 21:25:10', '2021-06-15 21:25:10'),
+(2939, 'default', 'deleted', 'App\\Models\\Capabilities', 771, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Indicators\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~700\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 21:25:53', '2021-06-15 21:25:53'),
+(2940, 'default', 'updated', 'App\\Models\\Capabilities', 928, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench < 250 Nm\",\"procedure\":\"3\",\"price\":\"4000\",\"unit\":\"160\",\"location\":\"lab\",\"accredited\":\"no\"},\"old\":{\"name\":\"Torque Wrench\",\"procedure\":\"1\",\"price\":\"12000\",\"unit\":\"Nm\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:27:35', '2021-06-15 21:27:35'),
+(2941, 'default', 'updated', 'App\\Models\\Capabilities', 927, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench < 600 Nm\",\"price\":\"4500\",\"unit\":\"160\",\"accredited\":\"no\"},\"old\":{\"name\":\"Torque Wrench\",\"price\":\"12000\",\"unit\":\"Nm\",\"accredited\":\"yes\"}}', '2021-06-15 21:28:27', '2021-06-15 21:28:27'),
+(2942, 'default', 'updated', 'App\\Models\\Capabilities', 929, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench < 1000 Nm\",\"procedure\":\"3\",\"price\":\"5000\",\"unit\":\"160\",\"accredited\":\"no\"},\"old\":{\"name\":\"Torque Wrench\",\"procedure\":\"1\",\"price\":\"12000\",\"unit\":\"Nm\",\"accredited\":\"yes\"}}', '2021-06-15 21:29:26', '2021-06-15 21:29:26'),
+(2943, 'default', 'updated', 'App\\Models\\Capabilities', 927, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"3\"},\"old\":{\"procedure\":\"1\"}}', '2021-06-15 21:29:45', '2021-06-15 21:29:45'),
+(2944, 'default', 'updated', 'App\\Models\\Capabilities', 926, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench < 1500 Nm\",\"procedure\":\"3\",\"price\":\"6000\",\"unit\":\"160\",\"accredited\":\"no\"},\"old\":{\"name\":\"Torque Wrench\",\"procedure\":\"1\",\"price\":\"12000\",\"unit\":\"Nm\",\"accredited\":\"yes\"}}', '2021-06-15 21:31:09', '2021-06-15 21:31:09'),
+(2945, 'default', 'updated', 'App\\Models\\Capabilities', 923, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench Testers < 301 Nm\",\"procedure\":\"67\",\"price\":\"6000\",\"unit\":\"160\",\"accredited\":\"no\"},\"old\":{\"name\":\"Torque Wrench Testers\",\"procedure\":\"1\",\"price\":\"7500\",\"unit\":\"Nm\",\"accredited\":\"yes\"}}', '2021-06-15 21:32:25', '2021-06-15 21:32:25'),
+(2946, 'default', 'updated', 'App\\Models\\Capabilities', 924, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench Testers < 1001 Nm\",\"procedure\":\"67\",\"price\":\"10000\",\"unit\":\"160\",\"location\":\"lab\",\"accredited\":\"no\"},\"old\":{\"name\":\"Torque Wrench Testers\",\"procedure\":\"1\",\"price\":\"12000\",\"unit\":\"Nm\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:33:26', '2021-06-15 21:33:26'),
+(2947, 'default', 'updated', 'App\\Models\\Capabilities', 926, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench < 1501 Nm\"},\"old\":{\"name\":\"Torque Wrench < 1500 Nm\"}}', '2021-06-15 21:33:42', '2021-06-15 21:33:42'),
+(2948, 'default', 'updated', 'App\\Models\\Capabilities', 929, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench < 1001 Nm\"},\"old\":{\"name\":\"Torque Wrench < 1000 Nm\"}}', '2021-06-15 21:33:56', '2021-06-15 21:33:56'),
+(2949, 'default', 'updated', 'App\\Models\\Capabilities', 927, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench < 601 Nm\"},\"old\":{\"name\":\"Torque Wrench < 600 Nm\"}}', '2021-06-15 21:34:09', '2021-06-15 21:34:09'),
+(2950, 'default', 'updated', 'App\\Models\\Capabilities', 928, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Torque Wrench < 251 Nm\"},\"old\":{\"name\":\"Torque Wrench < 250 Nm\"}}', '2021-06-15 21:34:21', '2021-06-15 21:34:21'),
+(2951, 'default', 'deleted', 'App\\Models\\Capabilities', 755, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Transducer\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"-1~700 \",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 21:34:39', '2021-06-15 21:34:39'),
+(2952, 'default', 'deleted', 'App\\Models\\Capabilities', 884, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Transmitter\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"-20~650\",\"price\":\"6500\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:34:57', '2021-06-15 21:34:57'),
+(2953, 'default', 'deleted', 'App\\Models\\Capabilities', 756, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Transmitter\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"-1~700 \",\"price\":\"7500\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 21:35:09', '2021-06-15 21:35:09'),
+(2954, 'default', 'updated', 'App\\Models\\Capabilities', 453, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-15 21:47:26', '2021-06-15 21:47:26'),
+(2955, 'default', 'deleted', 'App\\Models\\Capabilities', 703, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Tumble Dryer Speed\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"20~40\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"RPM\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 21:47:55', '2021-06-15 21:47:55'),
+(2956, 'default', 'deleted', 'App\\Models\\Capabilities', 702, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Tumble Dryer Temperature\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"0~100\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 22:04:16', '2021-06-15 22:04:16'),
+(2957, 'default', 'deleted', 'App\\Models\\Capabilities', 704, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Tumble Dryer Time\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"300~600\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"sec\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 22:04:48', '2021-06-15 22:04:48'),
+(2958, 'default', 'updated', 'App\\Models\\Capabilities', 934, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"67\",\"price\":\"7000\",\"unit\":\"131\",\"remarks\":\"0, 10 & 500 NTU available.\"},\"old\":{\"procedure\":\"1\",\"price\":\"8500\",\"unit\":\"NTU\",\"remarks\":\"NA\"}}', '2021-06-15 22:08:24', '2021-06-15 22:08:24'),
+(2959, 'default', 'deleted', 'App\\Models\\Capabilities', 933, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Turbidity Meter\",\"parameter\":\"30\",\"procedure\":\"1\",\"range\":\"0~2000\",\"price\":\"8500\",\"accuracy\":\"0.1\",\"unit\":\"NTU\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:08:36', '2021-06-15 22:08:36'),
+(2960, 'default', 'updated', 'App\\Models\\Capabilities', 775, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"1500\",\"unit\":\"200\",\"location\":\"site\",\"accredited\":\"yes\"},\"old\":{\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"bar\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:10:11', '2021-06-15 22:10:11'),
+(2961, 'default', 'deleted', 'App\\Models\\Capabilities', 777, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Vacuum Pump\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~-1\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:10:49', '2021-06-15 22:10:49'),
+(2962, 'default', 'updated', 'App\\Models\\Capabilities', 992, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"67\",\"unit\":\"129\"},\"old\":{\"procedure\":\"1\",\"unit\":\"mm\\/sec\"}}', '2021-06-15 22:12:13', '2021-06-15 22:12:13'),
+(2963, 'default', 'updated', 'App\\Models\\Capabilities', 991, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"67\",\"unit\":\"129\"},\"old\":{\"procedure\":\"1\",\"unit\":\"mm\\/sec\"}}', '2021-06-15 22:13:31', '2021-06-15 22:13:31'),
+(2964, 'default', 'deleted', 'App\\Models\\Capabilities', 994, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Vibrators\",\"parameter\":\"32\",\"procedure\":\"1\",\"range\":\"100 mm\\/Sec\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"mm\\/Sec\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 22:13:45', '2021-06-15 22:13:45'),
+(2965, 'default', 'updated', 'App\\Models\\Capabilities', 802, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"2000\",\"unit\":\"200\",\"location\":\"lab\"},\"old\":{\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"psi\",\"location\":\"site\"}}', '2021-06-15 22:18:16', '2021-06-15 22:18:16'),
+(2966, 'default', 'updated', 'App\\Models\\Capabilities', 772, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"38\",\"price\":\"3000\",\"unit\":\"200\",\"remarks\":\"02 Gauges one Vacuum and One Pressure 7 bar.\"},\"old\":{\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"bar\",\"remarks\":\"NA\"}}', '2021-06-15 22:22:23', '2021-06-15 22:22:23'),
+(2967, 'default', 'deleted', 'App\\Models\\Capabilities', 891, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Vissichiller Refrigerator\",\"parameter\":\"27\",\"procedure\":\"1\",\"range\":\"2~8\",\"price\":\"3000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:22:43', '2021-06-15 22:22:43'),
+(2968, 'default', 'deleted', 'App\\Models\\Capabilities', 967, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"50\",\"price\":\"1200\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:27:57', '2021-06-15 22:27:57'),
+(2969, 'default', 'deleted', 'App\\Models\\Capabilities', 968, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"100\",\"price\":\"1200\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:28:07', '2021-06-15 22:28:07'),
+(2970, 'default', 'deleted', 'App\\Models\\Capabilities', 966, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"25\",\"price\":\"1200\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:28:15', '2021-06-15 22:28:15'),
+(2971, 'default', 'deleted', 'App\\Models\\Capabilities', 969, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"250\",\"price\":\"1200\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:28:25', '2021-06-15 22:28:25'),
+(2972, 'default', 'deleted', 'App\\Models\\Capabilities', 972, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"2000\",\"price\":\"1500\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:28:40', '2021-06-15 22:28:40'),
+(2973, 'default', 'deleted', 'App\\Models\\Capabilities', 964, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"10\",\"price\":\"1200\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:28:50', '2021-06-15 22:28:50'),
+(2974, 'default', 'deleted', 'App\\Models\\Capabilities', 965, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"20\",\"price\":\"1200\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:28:58', '2021-06-15 22:28:58'),
+(2975, 'default', 'deleted', 'App\\Models\\Capabilities', 970, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"500\",\"price\":\"1200\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:29:07', '2021-06-15 22:29:07'),
+(2976, 'default', 'deleted', 'App\\Models\\Capabilities', 971, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Volumetrc Flask\",\"parameter\":\"31\",\"procedure\":\"1\",\"range\":\"1000\",\"price\":\"1200\",\"accuracy\":\"0.1\",\"unit\":\"mL\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:29:16', '2021-06-15 22:29:16'),
+(2977, 'default', 'updated', 'App\\Models\\Capabilities', 947, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"85\",\"procedure\":\"62\",\"price\":\"1500\",\"unit\":\"153\"},\"old\":{\"parameter\":\"31\",\"procedure\":\"1\",\"price\":\"6000\",\"unit\":\"mL\"}}', '2021-06-15 22:33:01', '2021-06-15 22:33:01'),
+(2978, 'default', 'updated', 'App\\Models\\Capabilities', 828, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"9\",\"unit\":\"48\",\"accredited\":\"yes\"},\"old\":{\"procedure\":\"1\",\"unit\":\"RPM\",\"accredited\":\"no\"}}', '2021-06-15 22:34:31', '2021-06-15 22:34:31'),
+(2979, 'default', 'updated', 'App\\Models\\Capabilities', 700, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Washing Tank RPM\",\"parameter\":\"21\",\"price\":\"2000\",\"unit\":\"48\",\"accredited\":\"yes\"},\"old\":{\"name\":\"Washing Tank Speed\",\"parameter\":\"14\",\"price\":\"5000\",\"unit\":\"RPM\",\"accredited\":\"no\"}}', '2021-06-15 22:36:13', '2021-06-15 22:36:13'),
+(2980, 'default', 'updated', 'App\\Models\\Capabilities', 700, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-15 22:36:53', '2021-06-15 22:36:53'),
+(2981, 'default', 'updated', 'App\\Models\\Capabilities', 699, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"27\",\"procedure\":\"43\",\"price\":\"3000\",\"unit\":\"171\",\"location\":\"site\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"?C\",\"location\":\"lab\"}}', '2021-06-15 22:38:28', '2021-06-15 22:38:28'),
+(2982, 'default', 'updated', 'App\\Models\\Capabilities', 701, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"86\",\"procedure\":\"60\",\"price\":\"1000\",\"unit\":\"103\",\"location\":\"site\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"14\",\"procedure\":\"1\",\"price\":\"5000\",\"unit\":\"sec\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:39:14', '2021-06-15 22:39:14'),
+(2983, 'default', 'deleted', 'App\\Models\\Capabilities', 915, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Watch\",\"parameter\":\"28\",\"procedure\":\"1\",\"range\":\"1~10\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"Nm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:40:29', '2021-06-15 22:40:29'),
+(2984, 'default', 'deleted', 'App\\Models\\Capabilities', 739, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Weekly Tank   (50 Ton)\",\"parameter\":\"16\",\"procedure\":\"1\",\"range\":\"0.5~1.25\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:40:55', '2021-06-15 22:40:55'),
+(2985, 'default', 'deleted', 'App\\Models\\Capabilities', 735, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Weekly Water   (70 Ton)\",\"parameter\":\"16\",\"procedure\":\"1\",\"range\":\"0.5~1.21\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:41:05', '2021-06-15 22:41:05'),
+(2986, 'default', 'deleted', 'App\\Models\\Capabilities', 796, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Weight Indicator\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~1000\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 22:41:32', '2021-06-15 22:41:32'),
+(2987, 'default', 'deleted', 'App\\Models\\Capabilities', 770, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Weight Indicators\",\"parameter\":\"17\",\"procedure\":\"1\",\"range\":\"0~700\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"bar\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 22:41:42', '2021-06-15 22:41:42'),
+(2988, 'default', 'updated', 'App\\Models\\Capabilities', 426, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Whirling Hygrometer Temp\",\"parameter\":\"86\"},\"old\":{\"name\":\"Whirling Hygromete Temp\",\"parameter\":\"27\"}}', '2021-06-15 22:42:15', '2021-06-15 22:42:15'),
+(2989, 'default', 'updated', 'App\\Models\\Capabilities', 427, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Whirling Hygrometer %RH\"},\"old\":{\"name\":\"Whirling Hygromete %RH\"}}', '2021-06-15 22:42:35', '2021-06-15 22:42:35'),
+(2990, 'default', 'deleted', 'App\\Models\\Capabilities', 840, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Whirling Psychrometer\",\"parameter\":\"23\",\"procedure\":\"1\",\"range\":\"1~60\",\"price\":\"2000\",\"accuracy\":\"0.1\",\"unit\":\"%RH\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-15 22:44:01', '2021-06-15 22:44:01'),
+(2991, 'default', 'deleted', 'App\\Models\\Capabilities', 684, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Whirling Psychrometer Dry Bulb\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"20~50\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-15 22:44:25', '2021-06-15 22:44:25'),
+(2992, 'default', 'deleted', 'App\\Models\\Capabilities', 685, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Whirling Psychrometer Wet Bulb\",\"parameter\":\"14\",\"procedure\":\"1\",\"range\":\"20~50\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"?C\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-15 22:44:35', '2021-06-15 22:44:35'),
+(2993, 'default', 'deleted', 'App\\Models\\Capabilities', 851, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Wind Speed\",\"parameter\":\"25\",\"procedure\":\"1\",\"range\":\"0.1~20\",\"price\":\"2500\",\"accuracy\":\"0.1\",\"unit\":\"m\\/Sec\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:44:50', '2021-06-15 22:44:50'),
+(2994, 'default', 'deleted', 'App\\Models\\Capabilities', 811, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Whitness Meter\",\"parameter\":\"19\",\"procedure\":\"1\",\"range\":\"5~16\",\"price\":\"4000\",\"accuracy\":\"0.1\",\"unit\":\"ppm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-15 22:47:37', '2021-06-15 22:47:37'),
+(2995, 'default', 'created', 'App\\Models\\Procedure', 77, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"BS EN 13414-1\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Slings for General Lifting Services\"}}', '2021-06-15 22:51:24', '2021-06-15 22:51:24'),
+(2996, 'default', 'created', 'App\\Models\\Procedure', 78, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"ASTM E709-1\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Standard Guide for Magnetic Particle Inspection\"}}', '2021-06-15 22:53:19', '2021-06-15 22:53:19'),
+(2997, 'default', 'created', 'App\\Models\\Procedure', 79, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"BS EN 1492-1\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-std\",\"description\":\"Textile Slings for General Lifting Services\"}}', '2021-06-15 22:57:49', '2021-06-15 22:57:49'),
+(2998, 'default', 'created', 'App\\Models\\Procedure', 80, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"BS ISO 5766: 1990\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Pallet stackers and high-lift platform trucks. Stability tests\"}}', '2021-06-15 23:04:13', '2021-06-15 23:04:13'),
+(2999, 'default', 'updated', 'App\\Models\\Capabilities', 276, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"80\",\"unit\":\"189\"},\"old\":{\"procedure\":\"66\",\"unit\":\"76\"}}', '2021-06-15 23:05:13', '2021-06-15 23:05:13'),
+(3000, 'default', 'updated', 'App\\Models\\Role', 1, 'App\\Models\\User', 19, '{\"attributes\":{\"permissions\":\"customer-index,customer-create,customer-edit,customer-view,customer-delete,items-index,items-create,items-update,items-delete,items-add-non-listed,items-update-non-listed,mytask-index,settings-index,business-lines,menu-index,menu-create,menu-edit,menu-delete,roles-index,roles-create,roles-edit,roles-delete,preferences-index,add-preference,update-preference,activity-log-index,staff-details,staff-index,staff-create,staff-edit,staff-view,department-index,department-create,designation-index,designation-create,designation-edit,department-edit,calibration-management,parameter-index,delete-units,capabilities-delete,add-grouped-capabilities,edit-grouped-capabilities,delete-grouped-capabilities,parameter-create,parameter-edit,parameter-delete,asset-index,asset-create,asset-edit,asset-delete,capabilities-create,capabilities-edit,capabilities-view,capabilities-delete,create-units,update-units,add-procedure,update-procedure,create-asset-group,update-asset-group,capabilities-index,grouped-capabilities,manage-reference-index,procedure-index,units-index,uncertainties-index,asset-groups,dashboard-index,manage-jobs,manage-jobs-index,jobs-index,add-pending,print-pending-tech-review,create-job,delete-job,add-recieving,update-receiving,create-scheduling,edit-scheduling,finance-accounts,index-coa,journal-vouchers,create-payment-voucher,update-payment-voucher,view-payment-voucher,print-payment-voucher,create-coa,update-coa,delete-coa,view-coa,add-journal-vouchers,edit-journal-vouchers,print-journal-vouchers,acc-level-one-index,acc-level-two-index,acc-level-three-index,sales-invoice,receipt-voucher,purchase-invoice,vouchers-index,journal-index,document-control,sop-index,create-sop,update-sop,forms-index,purchase,indent-index,vendors-index,purchase-order,material-receiving-index,rfq,generate-requests-index,no-facility-index,no-facility-add,no-facility-edit,no-facility-delete,quote-create,quote-edit,quote-view,quote-send-to-customer,quote-print-details,quote-accept,quote-revised,quote-close,pending-index,quote-index,pendings-no-facility,hr-index,requisition-index,interview-appraisal-index,emp-contract-index,emp-joining-index,employee-orientation-index,leave-application-index,inventory-index,inventory-categories-index,inventories-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews\"},\"old\":{\"permissions\":\"customer-index,customer-create,customer-edit,customer-view,customer-delete,items-index,items-create,items-update,items-delete,items-add-non-listed,items-update-non-listed,settings-index,business-lines,menu-index,menu-create,menu-edit,menu-delete,roles-index,roles-create,roles-edit,roles-delete,preferences-index,add-preference,update-preference,activity-log-index,staff-details,staff-index,staff-create,staff-edit,staff-view,department-index,department-create,designation-index,designation-create,designation-edit,department-edit,calibration-management,delete-units,capabilities-delete,grouped-capabilities,add-grouped-capabilities,edit-grouped-capabilities,delete-grouped-capabilities,parameter-index,parameter-create,parameter-edit,parameter-delete,asset-index,asset-create,asset-edit,asset-delete,capabilities-index,capabilities-create,capabilities-edit,capabilities-view,capabilities-delete,manage-reference-index,procedure-index,units-index,uncertainties-index,create-units,update-units,add-procedure,update-procedure,asset-groups,create-asset-group,update-asset-group,mytask-index,dashboard-index,manage-jobs,manage-jobs-index,jobs-index,add-pending,print-pending-tech-review,create-job,delete-job,add-recieving,update-receiving,create-scheduling,edit-scheduling,finance-accounts,index-coa,journal-vouchers,create-payment-voucher,update-payment-voucher,view-payment-voucher,print-payment-voucher,create-coa,update-coa,delete-coa,view-coa,add-journal-vouchers,edit-journal-vouchers,print-journal-vouchers,acc-level-one-index,acc-level-two-index,acc-level-three-index,sales-invoice,receipt-voucher,purchase-invoice,vouchers-index,journal-index,document-control,sop-index,create-sop,update-sop,forms-index,purchase,indent-index,vendors-index,purchase-order,material-receiving-index,rfq,generate-requests-index,quote-create,quote-edit,quote-view,quote-send-to-customer,quote-print-details,quote-accept,quote-revised,quote-close,pending-index,quote-index,pendings-no-facility,hr-index,requisition-index,interview-appraisal-index,emp-contract-index,emp-joining-index,employee-orientation-index,leave-application-index,inventory-index,inventory-categories-index,inventories-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews\"}}', '2021-06-15 23:22:06', '2021-06-15 23:22:06'),
+(3001, 'default', 'deleted', 'App\\Models\\Menu', 57, 'App\\Models\\User', 19, '{\"attributes\":{\"name\":\"No Facility\",\"slug\":\"pendings-no-facility\",\"icon\":\"fa fa-\",\"status\":\"1\",\"url\":\"no-facility\",\"position\":\"3\",\"parent_id\":\"138\",\"has_child\":\"1\"}}', '2021-06-15 23:23:46', '2021-06-15 23:23:46'),
+(3002, 'default', 'created', 'App\\Models\\Parameter', 89, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Load Testing\",\"parent\":null}}', '2021-06-16 00:08:10', '2021-06-16 00:08:10'),
+(3003, 'default', 'created', 'App\\Models\\Unit', 210, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"89\",\"unit\":\"ton\"}}', '2021-06-16 00:08:43', '2021-06-16 00:08:43'),
+(3004, 'default', 'updated', 'App\\Models\\Capabilities', 276, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"89\",\"unit\":\"210\"},\"old\":{\"parameter\":\"33\",\"unit\":\"189\"}}', '2021-06-16 00:09:52', '2021-06-16 00:09:52'),
+(3005, 'default', 'created', 'App\\Models\\Unit', 211, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"6\",\"unit\":\"cN\"}}', '2021-06-16 00:10:54', '2021-06-16 00:10:54'),
+(3006, 'default', 'updated', 'App\\Models\\Capabilities', 270, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"211\"},\"old\":{\"unit\":\"3\"}}', '2021-06-16 00:15:13', '2021-06-16 00:15:13'),
+(3007, 'default', 'updated', 'App\\Models\\Capabilities', 534, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-16 00:15:50', '2021-06-16 00:15:50'),
+(3008, 'default', 'updated', 'App\\Models\\Capabilities', 346, 'App\\Models\\User', 1, '{\"attributes\":{\"location\":\"site\"},\"old\":{\"location\":\"lab\"}}', '2021-06-16 00:16:48', '2021-06-16 00:16:48'),
+(3009, 'default', 'updated', 'App\\Models\\Capabilities', 346, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"49\"},\"old\":{\"procedure\":\"50\"}}', '2021-06-16 00:17:26', '2021-06-16 00:17:26'),
+(3010, 'default', 'deleted', 'App\\Models\\Capabilities', 919, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Wrenches\",\"parameter\":\"28\",\"procedure\":\"1\",\"range\":\"300~600\",\"price\":\"5000\",\"accuracy\":\"0.1\",\"unit\":\"Nm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-16 00:17:45', '2021-06-16 00:17:45'),
+(3011, 'default', 'deleted', 'App\\Models\\Capabilities', 920, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Wrenches\",\"parameter\":\"28\",\"procedure\":\"1\",\"range\":\"600~1200\",\"price\":\"6000\",\"accuracy\":\"0.1\",\"unit\":\"Nm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-16 00:17:54', '2021-06-16 00:17:54'),
+(3012, 'default', 'deleted', 'App\\Models\\Capabilities', 918, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Wrenches\",\"parameter\":\"28\",\"procedure\":\"1\",\"range\":\"30~300\",\"price\":\"4500\",\"accuracy\":\"0.1\",\"unit\":\"Nm\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-16 00:18:04', '2021-06-16 00:18:04'),
+(3013, 'default', 'deleted', 'App\\Models\\Capabilities', 917, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Wrenches\",\"parameter\":\"28\",\"procedure\":\"1\",\"range\":\"10~100\",\"price\":\"3500\",\"accuracy\":\"0.1\",\"unit\":\"Nm\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-16 00:18:17', '2021-06-16 00:18:17'),
+(3014, 'default', 'updated', 'App\\Models\\Capabilities', 520, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"13\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"81\",\"accredited\":\"no\"}}', '2021-06-16 00:18:48', '2021-06-16 00:18:48'),
+(3015, 'default', 'updated', 'App\\Models\\Capabilities', 503, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-16 00:19:38', '2021-06-16 00:19:38'),
+(3016, 'default', 'updated', 'App\\Models\\Capabilities', 502, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-16 00:19:56', '2021-06-16 00:19:56'),
+(3017, 'default', 'deleted', 'App\\Models\\Capabilities', 727, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Wire Sling\",\"parameter\":\"16\",\"procedure\":\"1\",\"range\":\"0.5~1.13\",\"price\":\"1000\",\"accuracy\":\"0.1\",\"unit\":\"T\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-16 00:20:24', '2021-06-16 00:20:24'),
+(3018, 'default', 'updated', 'App\\Models\\Capabilities', 741, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"33\",\"procedure\":\"77\",\"price\":\"850\",\"unit\":\"189\",\"location\":\"site\"},\"old\":{\"parameter\":\"16\",\"procedure\":\"1\",\"price\":\"1000\",\"unit\":\"T\",\"location\":\"lab\"}}', '2021-06-16 00:22:41', '2021-06-16 00:22:41'),
+(3019, 'default', 'updated', 'App\\Models\\Capabilities', 282, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"16\"},\"old\":{\"procedure\":\"66\"}}', '2021-06-16 00:23:21', '2021-06-16 00:23:21'),
+(3020, 'default', 'updated', 'App\\Models\\Capabilities', 426, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"27\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"86\",\"accredited\":\"no\"}}', '2021-06-16 00:24:53', '2021-06-16 00:24:53'),
+(3021, 'default', 'updated', 'App\\Models\\Capabilities', 426, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"3000\"},\"old\":{\"price\":\"2000\"}}', '2021-06-16 00:25:33', '2021-06-16 00:25:33'),
+(3022, 'default', 'updated', 'App\\Models\\Capabilities', 426, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"2000\"},\"old\":{\"price\":\"3000\"}}', '2021-06-16 00:26:12', '2021-06-16 00:26:12'),
+(3023, 'default', 'updated', 'App\\Models\\Capabilities', 267, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Weight Indicator with Load Cell\",\"unit\":\"3\"},\"old\":{\"name\":\"Weight Indicator\",\"unit\":\"78\"}}', '2021-06-16 00:50:16', '2021-06-16 00:50:16'),
+(3024, 'default', 'updated', 'App\\Models\\Capabilities', 267, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"78\"},\"old\":{\"unit\":\"3\"}}', '2021-06-16 00:51:12', '2021-06-16 00:51:12');
+INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `subject_id`, `causer_type`, `causer_id`, `properties`, `created_at`, `updated_at`) VALUES
+(3025, 'default', 'updated', 'App\\Models\\Capabilities', 328, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"6\",\"price\":\"40000\",\"remarks\":\"Dead Load to be arranged by customer.\"},\"old\":{\"parameter\":\"13\",\"price\":\"50000\",\"remarks\":\"NA\"}}', '2021-06-16 00:52:49', '2021-06-16 00:52:49'),
+(3026, 'default', 'updated', 'App\\Models\\Capabilities', 621, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"6\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"27\",\"accredited\":\"no\"}}', '2021-06-16 00:59:29', '2021-06-16 00:59:29'),
+(3027, 'default', 'updated', 'App\\Models\\Capabilities', 623, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"202\",\"location\":\"lab\"},\"old\":{\"unit\":\"6\",\"location\":\"site\"}}', '2021-06-16 01:01:06', '2021-06-16 01:01:06'),
+(3028, 'default', 'updated', 'App\\Models\\Capabilities', 187, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Water Repellency Test Set Hole Size and Dispenser Height\"},\"old\":{\"name\":\"Water Repellency Test Set\"}}', '2021-06-16 01:03:32', '2021-06-16 01:03:32'),
+(3029, 'default', 'updated', 'App\\Models\\Capabilities', 700, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"81\",\"procedure\":\"9\"},\"old\":{\"parameter\":\"21\",\"procedure\":\"1\"}}', '2021-06-16 01:36:05', '2021-06-16 01:36:05'),
+(3030, 'default', 'updated', 'App\\Models\\Capabilities', 440, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"1500\"},\"old\":{\"price\":\"2000\"}}', '2021-06-16 01:37:55', '2021-06-16 01:37:55'),
+(3031, 'default', 'updated', 'App\\Models\\Capabilities', 434, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"31\",\"price\":\"750\"},\"old\":{\"parameter\":\"86\",\"price\":\"1000\"}}', '2021-06-16 01:38:24', '2021-06-16 01:38:24'),
+(3032, 'default', 'updated', 'App\\Models\\Capabilities', 435, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"31\",\"procedure\":\"60\",\"price\":\"750\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"86\",\"procedure\":\"1\",\"price\":\"1000\",\"accredited\":\"no\"}}', '2021-06-16 01:39:15', '2021-06-16 01:39:15'),
+(3033, 'default', 'updated', 'App\\Models\\Capabilities', 434, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"86\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"31\",\"accredited\":\"no\"}}', '2021-06-16 01:40:14', '2021-06-16 01:40:14'),
+(3034, 'default', 'updated', 'App\\Models\\Capabilities', 441, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"86\",\"accredited\":\"yes\"},\"old\":{\"parameter\":\"27\",\"accredited\":\"no\"}}', '2021-06-16 01:40:46', '2021-06-16 01:40:46'),
+(3035, 'default', 'updated', 'App\\Models\\Capabilities', 441, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"27\"},\"old\":{\"parameter\":\"86\"}}', '2021-06-16 01:41:35', '2021-06-16 01:41:35'),
+(3036, 'default', 'updated', 'App\\Models\\Capabilities', 700, 'App\\Models\\User', 1, '{\"attributes\":{\"parameter\":\"21\",\"price\":\"1500\"},\"old\":{\"parameter\":\"81\",\"price\":\"2000\"}}', '2021-06-16 01:42:39', '2021-06-16 01:42:39'),
+(3037, 'default', 'updated', 'App\\Models\\Capabilities', 850, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"3000\",\"unit\":\"200\"},\"old\":{\"price\":\"4500\",\"unit\":\"6\"}}', '2021-06-16 16:30:41', '2021-06-16 16:30:41'),
+(3038, 'default', 'updated', 'App\\Models\\Capabilities', 416, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-16 16:33:13', '2021-06-16 16:33:13'),
+(3039, 'default', 'updated', 'App\\Models\\Capabilities', 416, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-16 16:33:59', '2021-06-16 16:33:59'),
+(3040, 'default', 'updated', 'App\\Models\\Capabilities', 418, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-16 16:35:16', '2021-06-16 16:35:16'),
+(3041, 'default', 'updated', 'App\\Models\\Capabilities', 416, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"1250\"},\"old\":{\"price\":\"2000\"}}', '2021-06-16 16:36:32', '2021-06-16 16:36:32'),
+(3042, 'default', 'updated', 'App\\Models\\Capabilities', 418, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"1250\"},\"old\":{\"price\":\"2000\"}}', '2021-06-16 16:37:59', '2021-06-16 16:37:59'),
+(3043, 'default', 'updated', 'App\\Models\\Capabilities', 417, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"2500\",\"unit\":\"200\"},\"old\":{\"price\":\"2000\",\"unit\":\"6\"}}', '2021-06-16 16:38:51', '2021-06-16 16:38:51'),
+(3044, 'default', 'updated', 'App\\Models\\Capabilities', 709, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"2500\",\"unit\":\"202\",\"accredited\":\"yes\"},\"old\":{\"price\":\"3000\",\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 16:40:08', '2021-06-16 16:40:08'),
+(3045, 'default', 'updated', 'App\\Models\\Capabilities', 553, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"3000\",\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"price\":\"2500\",\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 16:45:26', '2021-06-16 16:45:26'),
+(3046, 'default', 'updated', 'App\\Models\\Capabilities', 803, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"2500\",\"unit\":\"205\",\"accredited\":\"yes\"},\"old\":{\"price\":\"3000\",\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 16:46:15', '2021-06-16 16:46:15'),
+(3047, 'default', 'updated', 'App\\Models\\Capabilities', 522, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-16 16:46:44', '2021-06-16 16:46:44'),
+(3048, 'default', 'updated', 'App\\Models\\Capabilities', 763, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"6000\",\"unit\":\"200\",\"location\":\"site\"},\"old\":{\"price\":\"3000\",\"unit\":\"6\",\"location\":\"lab\"}}', '2021-06-16 16:48:32', '2021-06-16 16:48:32'),
+(3049, 'default', 'updated', 'App\\Models\\Capabilities', 1014, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"2500\",\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"price\":\"2000\",\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 16:49:19', '2021-06-16 16:49:19'),
+(3050, 'default', 'updated', 'App\\Models\\Capabilities', 758, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-16 16:50:13', '2021-06-16 16:50:13'),
+(3051, 'default', 'updated', 'App\\Models\\Capabilities', 565, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 16:51:07', '2021-06-16 16:51:07'),
+(3052, 'default', 'updated', 'App\\Models\\Capabilities', 786, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\"},\"old\":{\"unit\":\"6\"}}', '2021-06-16 16:51:50', '2021-06-16 16:51:50'),
+(3053, 'default', 'updated', 'App\\Models\\Capabilities', 801, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"202\",\"accredited\":\"yes\"},\"old\":{\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 16:56:31', '2021-06-16 16:56:31'),
+(3054, 'default', 'updated', 'App\\Models\\Capabilities', 583, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\",\"remarks\":\"02 Pressure Gauges\",\"accredited\":\"yes\"},\"old\":{\"unit\":\"6\",\"remarks\":\"NA\",\"accredited\":\"no\"}}', '2021-06-16 16:57:25', '2021-06-16 16:57:25'),
+(3055, 'default', 'updated', 'App\\Models\\Capabilities', 780, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-16 17:03:21', '2021-06-16 17:03:21'),
+(3056, 'default', 'updated', 'App\\Models\\Capabilities', 638, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 17:03:54', '2021-06-16 17:03:54'),
+(3057, 'default', 'updated', 'App\\Models\\Capabilities', 762, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"208\"},\"old\":{\"unit\":\"6\"}}', '2021-06-16 17:04:50', '2021-06-16 17:04:50'),
+(3058, 'default', 'updated', 'App\\Models\\Capabilities', 766, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 17:05:19', '2021-06-16 17:05:19'),
+(3059, 'default', 'updated', 'App\\Models\\Capabilities', 745, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 0.6 %\",\"unit\":\"200\"},\"old\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"unit\":\"6\"}}', '2021-06-16 17:08:11', '2021-06-16 17:08:11'),
+(3060, 'default', 'updated', 'App\\Models\\Capabilities', 783, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Compound Accuracy Class > 0.6 %\",\"unit\":\"200\"},\"old\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"unit\":\"6\"}}', '2021-06-16 17:09:19', '2021-06-16 17:09:19'),
+(3061, 'default', 'updated', 'App\\Models\\Capabilities', 775, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-16 17:10:35', '2021-06-16 17:10:35'),
+(3062, 'default', 'updated', 'App\\Models\\Capabilities', 1018, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 0.6 %\",\"unit\":\"200\"},\"old\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"unit\":\"6\"}}', '2021-06-16 17:11:38', '2021-06-16 17:11:38'),
+(3063, 'default', 'updated', 'App\\Models\\Capabilities', 1018, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"1500\"},\"old\":{\"price\":\"2500\"}}', '2021-06-16 17:11:56', '2021-06-16 17:11:56'),
+(3064, 'default', 'updated', 'App\\Models\\Capabilities', 776, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 0.6 %\",\"procedure\":\"38\",\"unit\":\"200\"},\"old\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"procedure\":\"1\",\"unit\":\"6\"}}', '2021-06-16 17:13:12', '2021-06-16 17:13:12'),
+(3065, 'default', 'updated', 'App\\Models\\Capabilities', 1017, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Accuracy Class > 0.6 %\",\"price\":\"2500\",\"unit\":\"200\"},\"old\":{\"name\":\"Pressure Gauge Accuracy Class > 1%\",\"price\":\"1500\",\"unit\":\"6\"}}', '2021-06-16 17:14:05', '2021-06-16 17:14:05'),
+(3066, 'default', 'updated', 'App\\Models\\Capabilities', 754, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Digital < 701 bar\",\"price\":\"4500\",\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"name\":\"Pressure Gauge Digital > 6000 psi\",\"price\":\"6000\",\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 17:15:33', '2021-06-16 17:15:33'),
+(3067, 'default', 'updated', 'App\\Models\\Capabilities', 753, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Pressure Gauge Digital > 700 Bar\",\"price\":\"6000\",\"unit\":\"200\"},\"old\":{\"name\":\"Pressure Gauge Digital < 6000 psi\",\"price\":\"4000\",\"unit\":\"6\"}}', '2021-06-16 17:17:32', '2021-06-16 17:17:32'),
+(3068, 'default', 'updated', 'App\\Models\\Capabilities', 795, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"4500\",\"unit\":\"200\"},\"old\":{\"price\":\"4000\",\"unit\":\"6\"}}', '2021-06-16 17:18:17', '2021-06-16 17:18:17'),
+(3069, 'default', 'updated', 'App\\Models\\Capabilities', 785, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"5000\",\"location\":\"site\"},\"old\":{\"price\":\"6000\",\"location\":\"lab\"}}', '2021-06-16 17:19:20', '2021-06-16 17:19:20'),
+(3070, 'default', 'updated', 'App\\Models\\Capabilities', 784, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-16 17:21:08', '2021-06-16 17:21:08'),
+(3071, 'default', 'updated', 'App\\Models\\Capabilities', 1009, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"1000\"},\"old\":{\"price\":\"1500\"}}', '2021-06-16 17:21:52', '2021-06-16 17:21:52'),
+(3072, 'default', 'updated', 'App\\Models\\Capabilities', 607, 'App\\Models\\User', 1, '{\"attributes\":{\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 17:22:43', '2021-06-16 17:22:43'),
+(3073, 'default', 'updated', 'App\\Models\\Capabilities', 573, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"1000\",\"unit\":\"200\",\"accredited\":\"yes\"},\"old\":{\"price\":\"1500\",\"unit\":\"6\",\"accredited\":\"no\"}}', '2021-06-16 17:23:37', '2021-06-16 17:23:37'),
+(3074, 'default', 'updated', 'App\\Models\\Capabilities', 574, 'App\\Models\\User', 1, '{\"attributes\":{\"procedure\":\"76\",\"unit\":\"200\"},\"old\":{\"procedure\":\"38\",\"unit\":\"6\"}}', '2021-06-16 17:26:24', '2021-06-16 17:26:24'),
+(3075, 'default', 'updated', 'App\\Models\\Capabilities', 466, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-16 17:28:02', '2021-06-16 17:28:02'),
+(3076, 'default', 'updated', 'App\\Models\\Capabilities', 415, 'App\\Models\\User', 1, '{\"attributes\":{\"accredited\":\"yes\"},\"old\":{\"accredited\":\"no\"}}', '2021-06-16 17:43:49', '2021-06-16 17:43:49');
 
 -- --------------------------------------------------------
 
@@ -3094,6 +3601,11 @@ CREATE TABLE `assetgroups` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `assetgroups`
+--
+
+TRUNCATE TABLE `assetgroups`;
 -- --------------------------------------------------------
 
 --
@@ -3127,6 +3639,11 @@ CREATE TABLE `assets` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `assets`
+--
+
+TRUNCATE TABLE `assets`;
 --
 -- Dumping data for table `assets`
 --
@@ -3445,6 +3962,11 @@ CREATE TABLE `assetspecifications` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `assetspecifications`
+--
+
+TRUNCATE TABLE `assetspecifications`;
 -- --------------------------------------------------------
 
 --
@@ -3466,6 +3988,11 @@ CREATE TABLE `attendances` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `attendances`
+--
+
+TRUNCATE TABLE `attendances`;
 --
 -- Dumping data for table `attendances`
 --
@@ -3512,6 +4039,11 @@ CREATE TABLE `balancedataentries` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `balancedataentries`
+--
+
+TRUNCATE TABLE `balancedataentries`;
 -- --------------------------------------------------------
 
 --
@@ -3525,6 +4057,11 @@ CREATE TABLE `business_lines` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `business_lines`
+--
+
+TRUNCATE TABLE `business_lines`;
 --
 -- Dumping data for table `business_lines`
 --
@@ -3576,6 +4113,11 @@ CREATE TABLE `calculatorentries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `calculatorentries`
+--
+
+TRUNCATE TABLE `calculatorentries`;
+--
 -- Dumping data for table `calculatorentries`
 --
 
@@ -3620,13 +4162,18 @@ CREATE TABLE `capabilities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `capabilities`
+--
+
+TRUNCATE TABLE `capabilities`;
+--
 -- Dumping data for table `capabilities`
 --
 
 INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `min_range`, `max_range`, `accredited_min_range`, `accredited_max_range`, `price`, `accuracy`, `unit`, `remarks`, `location`, `accredited`, `calculator`, `is_group`, `group_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'Conductivity Meter', 1, 15, '84~12880', '84', '12880', '1413', '12880', 4000, '0.1% of IV', '5', 'To Convert ppm to uS/cm divide ppm by 0.67', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-06 22:41:54'),
 (2, 'TDS Meter', 77, 15, '1380', '1382', '1382', '1382', '1382', 4000, '0.1% of IV', '175', 'To Convert uS/cm to ppm multiply uS/cm by 0.67', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 17:34:20'),
-(3, 'Core Loss Tester   (G Type, S Type)', 68, 10, '10~110', '7', '103', NULL, NULL, 4000, '1 % of Indicated Value', '59', 'Cal with Manufacturer Supplied Metal Disk with Certified %IACS Value', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 17:38:17'),
+(3, 'Core Loss Tester   (G Type, S Type)', 68, 10, '10~110', '7', '103', NULL, NULL, 4000, '1 % of Indicated Value', '59', 'Cal with Manufacturer Supplied Metal Disk with Certified %IACS Value', 'lab', 'no', 'general-calculator', 0, NULL, '2021-06-15 19:42:37', NULL, '2021-06-15 19:42:37'),
 (4, 'Iron Meter', 1, 1, '10~110', '0', '0', NULL, NULL, 4000, '0.1', '% IACS', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-06 20:54:12', NULL, '2021-06-06 20:54:12'),
 (5, 'Tap Density', 2, 10, '1~1000', '0', '500', NULL, NULL, 2500, '0.1 % of IV', '60', 'Select Tap and count with Tachometer in Number Mode', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-06 22:51:36'),
 (6, 'Colony Count', 2, 10, '1~1000', '0', '500', NULL, NULL, 2500, '0.1 of IV', '60', 'Touch Stylus on Magnifying Glass in Each Box and Tele Your Count with Indicator', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-06 22:53:57'),
@@ -3810,7 +4357,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (184, 'Shrinkage Scale Index to Center Length', 3, 1, '253', '0', '0', NULL, NULL, 3000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-07 20:15:03', NULL, '2021-06-07 20:15:03'),
 (185, 'Shrinkage Scale Width', 3, 1, '78.7', '0', '0', NULL, NULL, 3000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-07 20:15:16', NULL, '2021-06-07 20:15:16'),
 (186, 'Embroidery Wooden Frame Dia', 81, 29, '6', '4', '4', '4', '4', 1000, '0.1 Inch', '176', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:44:33'),
-(187, 'Water Repellency Test Set', 81, 29, '49', '0.86', '155', NULL, NULL, 4000, '0.5 mm', '113', '0.86 Dia, 155 Height, 250 ml water, 25~30 Sec Discharge, 45 Angle', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:45:04'),
+(187, 'Water Repellency Test Set Hole Size and Dispenser Height', 81, 29, '49', '0.86', '155', '1', '155', 4000, '0.5 mm', '113', '0.86 Dia, 155 Height, 250 ml water, 25~30 Sec Discharge, 45 Angle', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 01:03:32'),
 (188, 'Aluminum Spray Nozzle Diameter', 3, 1, '37', '0', '0', NULL, NULL, 3000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-07 20:27:36', NULL, '2021-06-07 20:27:36'),
 (189, 'Aluminum Spray Nozzle Hole Size', 3, 1, '0.86', '0', '0', NULL, NULL, 3000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-07 20:27:49', NULL, '2021-06-07 20:27:49'),
 (190, 'Square Set Long Side Length Angle', 81, 29, '100~330', '0', '12', '0', '12', 2000, '0.05', '176', '90 Degree Angle to be Measured with Protractor.', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:46:01'),
@@ -3852,8 +4399,8 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (226, 'Ampere Meter AC/DC', 73, 8, '0~1100', '0', '1000', '0', '1000', 2500, '1 A', '151', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:56:27'),
 (227, 'Resistance Meter', 82, 8, '0~10', '0', '1000000', '0', '1000000', 2500, '100 Ohm', '121', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:57:12'),
 (228, 'Resistance Box', 82, 8, '0~100', '0.1', '100000', '0.1', '100000', 4000, '1 Ohm', '121', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:57:33'),
-(229, 'Insulation Resistance Meter', 82, 8, '1~10000', '10', '10000', '10', '10000', 4500, '10 M Ohm', '124', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:58:09'),
-(230, 'Insulation Resistance Box', 82, 8, '0~1000', '10', '1000', '10', '1000', 5000, '10 M Ohm', '124', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:58:45'),
+(229, 'Insulation Resistance Meter', 82, 8, '1~10000', '10', '10000', '10', '10000', 4500, '10 M Ohm', '124', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, '2021-06-15 02:14:10', NULL, '2021-06-15 02:14:10'),
+(230, 'Insulation Resistance Box', 76, 8, '0~1000', '10', '1000', '10', '1000', 3000, '10 M Ohm', '124', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:17:08'),
 (231, 'Capacitance Meter', 52, 8, '1~10000', '0.01', '1000', '0.01', '1000', 2500, '0.1', '119', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 19:59:57'),
 (232, 'Capacitance Box', 52, 8, '0.0001~100', '0.01', '1000', '0.01', '1000', 4000, '1 nF', '119', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 20:01:56'),
 (233, 'Inductance Meter', 37, 8, '100~10000000', '100', '1000000', NULL, NULL, 2500, '50 uH', '106', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 20:02:35'),
@@ -3862,7 +4409,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (236, 'Frequency Generator', 48, 1, '0.001~3.5E9', '0.0001', '200', '0.0001', '200', 6000, '0.0001', '170', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 20:04:26'),
 (237, 'Power Meter/Analyzer', 65, 30, '100~20000', '0', '20', NULL, NULL, 8000, '0.01 kW', '73', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 22:30:59'),
 (238, 'Energy Meter/Analyzer', 66, 30, '0.1~200', '0', '100', NULL, NULL, 6000, '0.01 kWH', '168', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 20:32:23'),
-(239, 'Insulation Resistance Tester (@250V, 500V, 1000V)', 82, 8, '0~1000', '10', '10000', '10', '10000', 4500, '10 M Ohm', '124', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 20:33:00'),
+(239, 'Insulation Resistance Tester (@250V, 500V, 1000V)', 76, 8, '0~1000', '250', '1000', '250', '1000', 1500, '0.1 %', '143', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:16:42'),
 (240, 'Oil Insulation Breakdown Tester', 76, 66, '0~80', '1', '70', '1', '40', 12000, '1 kV', '145', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 20:33:59'),
 (241, 'RTD Meter/Calibrator', 27, 8, '-200~850', '-200', '800', '-20', '650', 4500, '0.1 C', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 20:34:30'),
 (242, 'Thermocouple Meter/Calibrator', 27, 46, '-200~1600', '-20', '1700', '-20', '650', 6000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 20:34:48'),
@@ -3891,22 +4438,22 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `min_range`, `max_range`, `accredited_min_range`, `accredited_max_range`, `price`, `accuracy`, `unit`, `remarks`, `location`, `accredited`, `calculator`, `is_group`, `group_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (265, 'Box Compression Tester', 6, 64, '0~1000', '0', '1000', NULL, NULL, 6000, '0.5 KgF', '3', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 23:52:01'),
 (266, 'Compressive Strength Testing Machine', 6, 64, '0~1500', '0', '1500', NULL, NULL, 12000, '0.5 kN', '75', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 18:37:09'),
-(267, 'Weight Indicator', 6, 2, '100~80000', '0', '100000', NULL, NULL, 20000, '2 KgF', '78', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 23:53:49'),
+(267, 'Weight Indicator with Load Cell', 6, 2, '100~80000', '0', '80000', NULL, NULL, 20000, '2 KgF', '78', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:51:12'),
 (268, 'Hydraulic Jacks with Base Plate', 6, 66, '0~5', '0', '10', NULL, NULL, 6000, '0.001', '76', 'Function Check under load, jack should not drop load by 10 for 30 Minutes.', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 18:46:20'),
 (269, 'Hydraulic Jacks Tri Pod', 6, 66, '0~10', '0', '10', NULL, NULL, 6000, '0.001 Ton', '76', 'Functional Check under load, jack should not drop load by 10 mm in 30 Minutes.', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 18:47:54'),
-(270, 'Yarn Tension Meter', 6, 66, '10~100', '0', '0.1 N', NULL, NULL, 3000, '0.001 N', '3', 'Weight up to 1000 g will be hanged with thread for applying tension and should be measured with tension meter.', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 18:58:19'),
+(270, 'Yarn Tension Meter', 6, 66, '10~100', '0', '100 cN', NULL, NULL, 3000, '0.001 N', '211', 'Weight up to 1000 g will be hanged with thread for applying tension and should be measured with tension meter.', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:15:13'),
 (271, 'Dynamometers', 6, 1, '50~15000', '0', '0', NULL, NULL, 8000, '0.1', 'lbs', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-08 18:59:45', NULL, '2021-06-08 18:59:45'),
 (272, 'Cable Tensiometer', 6, 1, '20~100', '0', '0', NULL, NULL, 8000, '0.1', 'lbs', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-08 19:00:05', NULL, '2021-06-08 19:00:05'),
 (273, 'Impact Tester', 6, 66, '1~13', '0', '25', NULL, NULL, 3000, '0.5 KgF', '3', 'Impact Hamer drop weight mass is measured.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 23:54:20'),
 (274, 'Push Pull Gauge', 6, 2, '0~20', '0', '40', NULL, NULL, 3000, '0.2 KgF', '3', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 23:54:41'),
 (275, 'Over Head Load Crane', 33, 1, '1', '0', '20', NULL, NULL, 30000, '0.1', '76', 'Thorough Inspection and Load Testing performed.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 19:25:40'),
-(276, 'Zhegiang Pallet Stacker', 33, 66, '1.6', '0', '2', NULL, NULL, 6000, '0.01 Ton', '76', 'Thorough Inspection and Load Test to be performed.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 19:28:42'),
+(276, 'Zhegiang Pallet Stacker', 89, 80, '1.6', '0', '2', NULL, NULL, 6000, '0.01 Ton', '210', 'Thorough Inspection and Load Test to be performed.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:09:52'),
 (277, 'Zhegiang Stacker', 6, 1, '1', '0', '0', NULL, NULL, 8000, '0.1', 'Ton', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-08 19:28:54', NULL, '2021-06-08 19:28:54'),
 (278, 'Textile Tensile Testing Machine', 6, 64, '10~540', '0', '5', NULL, NULL, 8000, '0.001', '75', 'Load Cell up to 250 N with mass weights and up with tensile load cell.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 19:32:08'),
 (279, 'Hydraulic Jack Tri-Pod', 6, 1, '0~11', '0', '0', NULL, NULL, 8000, '0.1', 'Ton', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-08 19:32:23', NULL, '2021-06-08 19:32:23'),
 (280, 'Anemometers Vane and Hot Wire', 80, 16, '0.001~20', '0', '20', NULL, NULL, 2500, '0.1', '135', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:45:55'),
 (281, 'Rota Meters', 7, 66, '', '0', '200', NULL, NULL, 2500, '0.1 LPM', '63', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 19:43:47'),
-(282, 'Wind Speed Meters', 80, 66, '0.001~20', '0', '50', NULL, NULL, 2500, '0.1 m/s', '135', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 23:56:06'),
+(282, 'Wind Speed Meters', 80, 16, '0.001~20', '0', '50', NULL, NULL, 2500, '0.1 m/s', '135', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:23:21'),
 (283, 'Bio Safety/Laminar/Fume Hoods', 80, 16, '0.001~20', '0', '1.5', NULL, NULL, 2000, '0.1', '135', 'Draft Velocity greater than 0.15 m/s and face velocity 1.5 m/s. Lux and UV if available to be measured.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:08:51'),
 (284, 'Laminar Flow Fume Hoods', 80, 66, '0.001~20', '0', '0.15', NULL, NULL, 3000, '0.1', '135', 'Cross draft velocity of 0.15 m/s and face velocity 1.5 m/s lux and UV to be mesured.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-10 23:57:00'),
 (285, 'Air Samplers', 7, 66, '0.001~20', '0', '200', NULL, NULL, 3000, '0.5 LPM', '63', 'Sampler Air Flow rate should be measured as per selection.', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-08 20:07:29'),
@@ -3952,7 +4499,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (325, 'Plateform Weighing Scale', 13, 50, '0.1~500', '1', '120', '1', '120', 6500, '0.1', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 00:40:21'),
 (326, 'Plateform Weighing Scale', 13, 50, '0.5~1000', '1', '300', '1', '200', 7000, '0.1', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 00:46:47'),
 (327, 'Weighing Bridge', 13, 50, '5~20000', '1', '1500', NULL, NULL, 12000, '0.1', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 00:49:59'),
-(328, 'Weighing Bridge', 13, 50, '5~100000', '1', '40000', NULL, NULL, 50000, '0.1', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 00:58:57'),
+(328, 'Weighing Bridge', 6, 50, '5~100000', '1', '40000', NULL, NULL, 40000, '0.1', '166', 'Dead Load to be arranged by customer.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:52:49'),
 (329, 'Spring Scales', 13, 66, '0.5~100', '0', '200', NULL, NULL, 3000, '0.1', '166', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 01:00:32'),
 (330, 'Batch Plant Chemical Scale', 13, 50, '0~50', '0', '6000', '0', '6000', 4000, '0.1', '165', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 01:13:37'),
 (331, 'Batch Plant Water Scale', 13, 50, '0~500', '0', '250', '0', '200', 8000, '0.1', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 01:14:46'),
@@ -3970,7 +4517,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (343, 'Weighing Indicator', 13, 1, '1000~12500', '0', '0', NULL, NULL, 20000, '0.1', 'Kg', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-11 01:20:13', NULL, '2021-06-11 01:20:13'),
 (344, 'Weighing Indicator', 13, 1, '2500~23000', '0', '0', NULL, NULL, 20000, '0.1', 'Kg', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-11 01:20:26', NULL, '2021-06-11 01:20:26'),
 (345, 'Dumble Weights', 13, 1, '5000~15000', '0', '0', NULL, NULL, 20000, '0.1', 'g', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-11 01:20:45', NULL, '2021-06-11 01:20:45'),
-(346, 'Wrinkle Recovery Tester', 13, 50, '0.2~2', '0', '5000', NULL, NULL, 2500, '0.1', '165', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 02:11:20'),
+(346, 'Wrinkle Recovery Tester', 13, 49, '0.2~2', '0', '5000', NULL, NULL, 2500, '0.1', '165', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:17:26'),
 (347, 'Multimeter Volt DC', 75, 8, 'DC 0~1000 ', '0', '1000', '0', '1000', 1200, '0.1', '146', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 22:28:21'),
 (348, 'Multimeter Volt AC', 76, 8, 'AC 0~1000 ', '0', '1000', '0', '1000', 1200, '0.1', '143', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 22:27:55'),
 (349, 'Multimeter Amps DC', 73, 8, 'DC 0~10 ', '0', '10', '0', '10', 1200, '0.1', '151', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-11 22:32:20'),
@@ -4013,7 +4560,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (386, 'Process Calibrator Frequency Source', 48, 8, '50', '0', '50', '0', '50', 1000, '0.1', '31', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 00:59:16'),
 (387, 'Process Calibrator Volt AC Measure', 76, 8, '0~50', '0', '300', '0', '300', 1000, '0.1', '143', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 01:01:18'),
 (388, 'Process Calibrator Volt DC Voltage Measure', 75, 8, '0~300', '0', '300', '0', '300', 1000, '0.1', '146', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 01:02:27'),
-(389, 'Process Calibrator Volt AC Measure', 14, 1, '1~300', '0', '0', NULL, NULL, 2000, '0.1', 'V', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(389, 'Process Calibrator Volt AC Measure', 14, 1, '1~300', '0', '0', NULL, NULL, 2000, '0.1', 'V', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 19:40:04', NULL, '2021-06-15 19:40:04'),
 (390, 'Process Calibrator mAmps DC Measure', 73, 8, '24', '0', '100', '0', '100', 1000, '0.1', '87', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 01:04:07'),
 (391, 'Process Calibrator Resistance Measure', 82, 8, '40~1000', '0', '10', '0', '10', 1000, '0.1', '123', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 01:18:14'),
 (392, 'Process Calibrator TC Measure Type J, K, S, T', 27, 8, '-200~1600', '0', '1767', NULL, NULL, 1000, '0.1', '171', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 01:23:58'),
@@ -4030,19 +4577,19 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (403, 'Dissolution Apparatus Timer', 86, 60, '300~3600', '0', '90', '0', '90', 3000, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:01:55'),
 (404, 'Dissolution Apparatus Spindle RPM', 21, 9, '30~100', '50', '100', '50', '100', 3000, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:03:13'),
 (405, 'Dissolution Apparatus Spindle Centering, Spacing and Wobbling', 81, 29, '25', '0.5', '25', '1', '25', 3000, '0.1', '113', 'Spindle Centricity within 0.5 mm, Spacing 23~27 mm and Wobble < 1 mm', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:07:44'),
-(406, 'Disintegration Apparatus Stroke Per Minute', 21, 9, '30', '30', '30', '30', '30', 1500, '0.1', '48', 'Stroke Length if measured should be 53~57 mm.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:14:35'),
-(407, 'Disintegration Apparatus Bath Temp.', 27, 43, '37~38', '37', '37', '37', '37', 1500, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:12:40'),
-(408, 'Disintegration Apparatus Time', 86, 60, '30~120', '2', '30', '2', '30', 1500, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:13:54'),
+(406, 'Disintegration Apparatus Stroke Per Minute', 21, 9, '30', '30', '30', '30', '30', 1500, '0.1', '48', 'Stroke Length if measured should be 53~57 mm.', 'site', 'no', 'general-calculator', 0, 1016, NULL, NULL, '2021-06-14 21:19:40'),
+(407, 'Disintegration Apparatus Bath Temp.', 27, 43, '37~38', '37', '37', '37', '37', 1500, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, 1016, NULL, NULL, '2021-06-14 21:19:40'),
+(408, 'Disintegration Apparatus Time', 86, 60, '30~120', '2', '30', '2', '30', 1500, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, 1016, NULL, NULL, '2021-06-14 21:19:40'),
 (409, 'Tablet Hardness Tester Thickness', 81, 29, '1~10', '0', '10', '0', '10', 1000, '0.1', '111', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:18:35'),
 (410, 'Tablet Hardness Tester Diameter', 81, 29, '1~10', '0', '7', '0', '7', 1000, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:19:47'),
 (411, 'Tablet Hardness Tester Force', 6, 2, '600~1300', '5', '30', '5', '30', 2000, '0.1', '3', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 03:20:53'),
 (412, 'Viscometer Spindle RPM', 21, 21, '5~100', '10', '150', '10', '150', 2000, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 17:58:46'),
 (413, 'Viscometer Spindle Timer', 86, 21, '60~300', '60', '300', '60', '300', 1500, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 17:59:54'),
 (414, 'Viscometer Viscosity', 78, 21, '70~2650', '71.23', '2679', NULL, NULL, 4000, '0.1', '140', 'Three values 71.23, 398.4 & 2679 available.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 17:57:03'),
-(415, 'Autoclave Temp Mapping', 27, 39, '121', '121', '121', '121', '121', 5000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 18:12:37'),
-(416, 'Autoclave Pressure Measurement', 17, 38, '15', '15', '15', '15', '15', 2000, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 18:17:25'),
-(417, 'Autoclave PSV', 17, 38, '10', '17.5', '17.5', NULL, NULL, 2000, '0.1', '6', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 19:50:14'),
-(418, 'Autoclave Pressure Switch', 17, 38, '0~120', '17.5', '17.5', NULL, NULL, 2000, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:03:07'),
+(415, 'Autoclave Temp Mapping', 27, 39, '121', '121', '121', '121', '121', 5000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:43:49'),
+(416, 'Autoclave Pressure Measurement', 17, 38, '15', '0', '2', '0', '2', 1250, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:36:32'),
+(417, 'Autoclave PSV', 17, 38, '10', '1.5', '1.5', NULL, NULL, 2500, '0.1', '200', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:38:51'),
+(418, 'Autoclave Pressure Switch', 17, 38, '0~120', '1.2', '1.2', NULL, NULL, 1250, '0.1', '200', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:37:59'),
 (419, 'Laminar Flow Cabinet Flow Rate', 80, 16, '0.1~1', '0', '2', '0', '2', 2000, '0.1', '135', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:13:19'),
 (420, 'Laminar Flow Cabinet Lux Measurement', 10, 17, '500~1000', '0', '1000', '0', '1000', 1000, '0.1', '155', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:14:04'),
 (421, 'Laminar Flow Cabinet DOP Test', 14, 1, '500~1001', '0', '0', NULL, NULL, 2000, '0.1', 'LUX', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-12 20:14:22', NULL, '2021-06-12 20:14:22'),
@@ -4050,22 +4597,22 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (423, 'Denco Air Conditionair %RH', 23, 39, '40~60', '65', '65', NULL, NULL, 2000, '0.1', '99', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:19:15'),
 (424, 'Thermohygrograph Temp', 27, 66, '20~30', '20', '20', '20', '20', 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:20:22'),
 (425, 'Thermohygrograph %RH', 23, 66, '30~70', '65', '65', NULL, NULL, 2000, '0.1', '99', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:21:12'),
-(426, 'Whirling Hygromete Temp', 27, 41, '20~30', '15', '30', '15', '30', 2000, '0.1', '171', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:24:12'),
-(427, 'Whirling Hygromete %RH', 23, 66, '30~70', '50', '70', NULL, NULL, 2000, '0.1', '99', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:25:06'),
+(426, 'Whirling Hygrometer Temp', 27, 41, '20~30', '15', '30', '15', '30', 2000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:26:12'),
+(427, 'Whirling Hygrometer %RH', 23, 66, '30~70', '50', '70', NULL, NULL, 2000, '0.1', '99', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:42:35'),
 (428, 'Fade-ometer CI 3000 Chamber Temp', 27, 39, '30~50', '30', '30', '30', '30', 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:39:16'),
 (429, 'Fade-ometer CI 3000 Chamber %RH', 23, 39, '30~70', '45', '45', NULL, NULL, 2000, '0.1', '99', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:39:58'),
 (430, 'Fade-ometer CI 3000 Black Panel Temp', 27, 39, '30~71', '65', '65', '65', '65', 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:40:41'),
 (431, 'Fade-ometer CI 3000 UV Light Intensity', 61, 17, '30~72', '4.2', '4.2', NULL, NULL, 2000, '0.1', '85', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:50:36'),
 (432, 'Washer Whirlpool Agitator Speed   (Normal)', 21, 9, '86', '86', '86', '86', '86', 1000, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:50:58'),
 (433, 'Washer Whirlpool Agitator Speed   (Delicate)', 21, 9, '27', '27', '27', '27', '27', 1000, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:51:17'),
-(434, 'Washer Whirlpool Washing Time   (Normal)', 86, 60, '16', '16', '16', '16', '16', 1000, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:55:20'),
-(435, 'Washer Whirlpool Washing Time   (Delicate)', 86, 1, '8.5', '8.5', '8.5', '8.5', '8.5', 1000, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:55:07'),
+(434, 'Washer Whirlpool Washing Time   (Normal)', 86, 60, '16', '16', '16', '16', '16', 750, '0.1', '103', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 01:40:14'),
+(435, 'Washer Whirlpool Washing Time   (Delicate)', 31, 60, '8.5', '8.5', '8.5', '8.5', '8.5', 750, '0.1', '103', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 01:39:15'),
 (436, 'Washer Whirlpool Spin Speed   (Normal)', 21, 9, '660', '660', '660', '660', '660', 1000, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:56:21'),
 (437, 'Washer Whirlpool Spin Speed   (Delicate)', 21, 9, '500', '500', '500', '500', '500', 1000, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:57:24'),
 (438, 'Washer Whirlpool Final Spin Time   (Normal)', 86, 60, '5', '5', '5', '5', '5', 1000, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 20:59:17'),
 (439, 'Washer Whirlpool Final Spin Time   (Delicate)', 86, 60, '5', '5', '5', '5', '5', 1000, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 21:00:07'),
-(440, 'Washer Whirlpool Water Level Verification', 31, 10, '100~200', '48', '85', '48', '85', 2000, '0.1', '65', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 21:17:47'),
-(441, 'Washer Whirlpool Wash Tub Temperature (Regular Warm)', 27, 43, '30', '25', '65', '25', '65', 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 21:21:37'),
+(440, 'Washer Whirlpool Water Level Verification', 31, 10, '100~200', '48', '85', '48', '85', 1500, '0.1', '65', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 01:37:55'),
+(441, 'Washer Whirlpool Wash Tub Temperature (Regular Warm)', 27, 43, '30', '25', '65', '25', '65', 2000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 01:41:35'),
 (442, 'Washer Whirlpool Washing Time', 14, 1, '1200', '0', '0', NULL, NULL, 2000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-12 21:21:56', NULL, '2021-06-12 21:21:56'),
 (443, 'Washer Whirlpool Agitation Speed', 14, 1, '72', '0', '0', NULL, NULL, 2000, '0.1', 'SPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-12 21:22:17', NULL, '2021-06-12 21:22:17'),
 (444, 'Washer Whirlpool Spin Time', 14, 1, '720', '0', '0', NULL, NULL, 2000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-12 21:22:32', NULL, '2021-06-12 21:22:32'),
@@ -4077,9 +4624,9 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (450, 'Wascator RPM', 21, 9, '35~1500', '50', '1100', '50', '1100', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 22:56:21'),
 (451, 'Wascator Time', 86, 60, '60~900', '0', '900', '0', '900', 1500, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 22:57:24'),
 (452, 'Tumble Dryer Temp', 27, 39, '30~40', '90', '120', '90', '120', 3000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 23:03:46'),
-(453, 'Tumble Dryer RPM', 21, 9, '60', '30', '30', '30', '30', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 23:04:50'),
+(453, 'Tumble Dryer RPM', 21, 9, '60', '50', '60', '50', '60', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:47:26'),
 (454, 'Tumble Dryer Time', 86, 60, '900~1200', '0', '5', '0', '5', 1500, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 23:05:37'),
-(455, 'Elmendrof Tear Tester Pressure Gauge', 17, 38, '0~10', '0', '87', '0', '87', 1000, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 23:41:33'),
+(455, 'Elmendrof Tear Tester Pressure Gauge', 17, 38, '0~10', '0', '7', '0', '7', 1000, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:14:19'),
 (456, 'Elmendrof Tear Tester Cut Length', 81, 29, '20', '20', '20', '20', '20', 1000, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 23:33:41'),
 (457, 'Elmendrof Tear Tester Counter Weights 1.6, 3.2 & 6.4 kg', 13, 49, '0.96~1.74', '1.6', '6.4', '1.6', '6.4', 2000, '0.1', '166', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 23:47:57'),
 (458, 'Elmendrof Tear Tester Force Verification with Pendulum and Counter Weights.', 6, 66, '0', '1.6', '6.4', NULL, NULL, 1000, '0.1', '3', 'For 1.6, 3.2 and 6.4 kg 0% Check with Basic Pendulum and 50% with Each of these Counter Weights.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-12 23:51:58'),
@@ -4090,7 +4637,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (463, 'Crock Meter Stroke Length', 81, 29, '104', '128', '128', '128', '128', 1000, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 00:08:46'),
 (464, 'Crock Meter Counter Operation for (10 Counts)', 86, 60, '10', '10', '10', '10', '10', 1000, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 00:10:11'),
 (465, 'Crock Meter Force', 6, 2, '9', '0', '10', '0', '10', 2000, '0.1', '114', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 00:11:31'),
-(466, 'Stifness Tester Pressure Gauge', 17, 38, '0~10', '0', '87', '87', '87', 1000, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 00:18:25'),
+(466, 'Stifness Tester Pressure Gauge', 17, 38, '0~10', '0', '6', '0', '6', 1000, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:28:02'),
 (467, 'Stifness Tester Plunger Dia', 81, 29, '25.4', '25', '25', '25', '25', 750, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 00:17:03'),
 (468, 'Stifness Tester Orifice Dia', 81, 29, '38', '38', '38', '38', '38', 750, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 00:18:00'),
 (469, 'Stifness Tester Plunger Force', 6, 2, '5~40', '0.5', '5', '0.5', '5', 1000, '0.1', '3', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 00:20:12'),
@@ -4110,9 +4657,9 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (483, 'ICI Pilling Snagging Tester Box Width  (Left + Right)', 81, 29, '230', '235', '235', '235', '235', 1000, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:11:10'),
 (484, 'ICI Pilling Snagging Tester Box Depth  (Left + Right)', 81, 29, '236', '235', '235', '235', '235', 1000, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:10:49'),
 (485, 'ICI Pilling Snagging Tester RPM', 21, 9, '60', '60', '60', '60', '60', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:12:32'),
-(486, 'Random Tumble Pilling Tester Diameter Depth  (Left + Right)', 81, 29, '143', '146', '152', '146', '152', 1000, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:15:48'),
-(487, 'Random Tumble Pilling Tester RPM', 21, 9, '152', '0', '0', '1250', '1250', 1000, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:17:17'),
-(488, 'Random Tumble Pilling Tester Time Interval', 86, 60, '1800', '30', '30', '30', '30', 1000, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:18:11'),
+(486, 'Random Tumble Pilling Tester Diameter Depth  (Left + Right)', 81, 29, '143', '146', '152', '146', '152', 1000, '0.1', '113', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:38:11'),
+(487, 'Random Tumble Pilling Tester RPM', 81, 9, '152', '0', '0', '1250', '1250', 1000, '0.1', '48', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:38:36'),
+(488, 'Random Tumble Pilling Tester Time Interval', 86, 60, '1800', '30', '30', '30', '30', 1000, '0.1', '103', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:38:56'),
 (489, 'Ozone Test Chamber Timer', 86, 60, '10800', '0', '60', '0', '60', 1500, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:25:59'),
 (490, 'Ozone Test Chamber Ozone Concentration', 8, 12, '0.045~0.090', '10', '100', NULL, NULL, 2000, '0.1', '178', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:27:09'),
 (491, 'Laboratory Wringer Padder Press (Weights)', 13, 49, '0.5~2', '0.5', '2', '0.5', '2', 2000, '0.1', '183', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:35:36'),
@@ -4126,13 +4673,13 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (499, 'ISO Perspiration Tester Plates Width', 14, 1, '60', '0', '0', NULL, NULL, 2000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-13 19:44:44', NULL, '2021-06-13 19:44:44'),
 (500, 'Stretch Recovery Board Scale Length', 81, 29, '10~500', '0', '1150', '0', '1150', 2000, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:48:07'),
 (501, 'Stretch Recovery Board Hanger and Weights', 13, 49, '1360', '0.160', '3.0', '0.160', '3.0', 4000, '0.1', '183', 'Hanger 0.160, weight 1 and 3 lbm Qty 05 Each.', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:51:00'),
-(502, 'Wise Shaker RPM', 21, 9, '20~70', '30', '90', '30', '90', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:52:50'),
-(503, 'Wise Shaker Timer', 86, 60, '1800~9000', '0', '60', '0', '60', 1500, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 19:53:28'),
+(502, 'Wise Shaker RPM', 21, 9, '20~70', '30', '90', '30', '90', 1500, '0.1', '48', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:19:56'),
+(503, 'Wise Shaker Timer', 86, 60, '1800~9000', '0', '60', '0', '60', 1500, '0.1', '103', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:19:38'),
 (504, 'Abrasion Tester Thread Weights', 14, 1, '250~750', '0', '0', NULL, NULL, 2000, '0.1', 'g', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
 (505, 'Abrasion Tester Thread No. of Strokes', 14, 1, '30~60', '0', '0', NULL, NULL, 2000, '0.1', 'SPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
 (506, 'Universal Strength Tester Force', 6, 64, '9.7~2500', '0', '5000', NULL, NULL, 8000, '0.1', '3', '04 Load Cells i.e, 100, 250m, 500 & 5000 N', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 20:23:32'),
 (507, 'Universal Strength Tester Speed @ 100 mm/min', 80, 10, '60~120', '100', '100', NULL, NULL, 2000, '0.1', '184', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 20:22:49'),
-(508, 'Universal Strength Tester Pressure', 17, 38, '5~16', '0', '100', '0', '100', 1500, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 20:24:46'),
+(508, 'Universal Strength Tester Pressure', 17, 38, '5~16', '0', '7', '0', '7', 1500, '0.1', '200', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:09:55'),
 (509, 'Universal Strength Tester Clamp Grip Width Length', 81, 29, '26~51', '25', '50', '25', '50', 1500, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 20:28:35'),
 (510, 'Universal Strength Tester Clamp Grip Width', 14, 1, '38~40', '0', '0', NULL, NULL, 2000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-13 20:28:51', NULL, '2021-06-13 20:28:51'),
 (511, 'Martindale Pilling/Abrasion Tester Rotaional Speed (Left Pivot + Right Pivot)', 21, 9, '47', '47', '47', '47', '47', 1000, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 20:30:49'),
@@ -4144,9 +4691,9 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (517, 'Time for 16 Revolutions', 86, 60, '19.8', '20', '20', '20', '20', 1500, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 21:20:17'),
 (518, 'Parallelism of Plate and Abrading Table', 81, 29, '101.45~101.60', '97.25', '97.5', '97.25', '97.25', 1500, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 21:22:54'),
 (519, 'Wrap Reel Turn Counts', 2, 9, '80', '100', '100', NULL, NULL, 1000, '0.1', '60', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 21:25:28'),
-(520, 'Wrap Reel Wheel Length in One Cycle', 81, 29, '1.5', '1000', '1000', '1000', '1000', 2000, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 21:26:15'),
+(520, 'Wrap Reel Wheel Length in One Cycle', 13, 29, '1.5', '1000', '1000', '1000', '1000', 2000, '0.1', '113', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:18:48'),
 (521, 'Burst Strength Tester Orifice Dia', 14, 1, '2.5', '0', '0', NULL, NULL, 2000, '0.1', 'Yards', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-13 21:37:01', NULL, '2021-06-13 21:37:01'),
-(522, 'Burst Strength Tester Burst Pressure', 17, 38, '3.5', '0', '800', '0', '800', 4000, '0.1', '6', 'For Paper 200 psi and for Cardboard 800 psi.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 21:35:59'),
+(522, 'Burst Strength Tester Burst Pressure', 17, 38, '3.5', '0', '200', '0', '200', 4000, '0.1', '200', 'For Paper 200 psi and for Cardboard 800 psi.', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:46:44'),
 (523, 'Falmability Test Chamber Time', 86, 60, '4.5', '0', '40', '0', '40', 1500, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 21:45:23'),
 (524, 'Falmability Test Chamber Angle', 43, 66, '5.5', '45', '45', NULL, NULL, 1500, '0.1', '61', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 21:46:09'),
 (525, 'Flammability Test Chamber Flame Height', 81, 29, '6.5', '15', '15', '15', '15', 1500, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 21:47:21'),
@@ -4159,7 +4706,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (531, 'Kinematic Viscometer Temperature', 27, 43, '40', '40', '40', '40', '40', 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 22:07:18'),
 (532, 'Kinematic Viscometer Time', 86, 60, '30~1800', '30', '1800', '30', '1800', 2000, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 22:08:08'),
 (533, 'Yarn Lea Winder Counts', 2, 9, '80', '100', '100', NULL, NULL, 1500, '0.1', '60', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 22:12:59'),
-(534, 'Yarn Lea Winder Dia', 81, 29, '54', '1000', '1000', '1000', '1000', 1500, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 22:14:03'),
+(534, 'Yarn Lea Winder Dia', 81, 29, '54', '1000', '1000', '1000', '1000', 1500, '0.1', '113', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:15:50'),
 (535, 'Blade Cut Tester Cut Length', 81, 29, '50', '50', '50', '50', '50', 1500, '0.1', '113', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 22:18:25'),
 (536, 'Blade Cut Tester Speed', 80, 66, '25', '20', '30', NULL, NULL, 1500, '0.1', '185', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 22:21:12'),
 (537, 'Blade Cut Tester Downward Force', 6, 66, '5', '5', '5', NULL, NULL, 1500, '0.1', '114', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 22:23:04'),
@@ -4178,7 +4725,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (550, 'Blister Machine Temp Controller Low Up Forming', 27, 1, '100~150', '80', '120', '80', '120', 5000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:04:53'),
 (551, 'Blister Machine Temp Controller   (Lower Forming)', 14, 1, '100~150', '0', '0', NULL, NULL, 2000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-13 23:05:16', NULL, '2021-06-13 23:05:16'),
 (552, 'Blister Machine Temp Controller   (Heat Seal)', 27, 1, '150~180', '100', '170', '100', '170', 2500, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:07:57'),
-(553, 'Blister Machine Main Forming & Sealing Pressure', 17, 38, '0~10', '0', '160', '0', '160', 2500, '0.1', '6', '03 PG for main, forming and sealing pressure.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:11:36'),
+(553, 'Blister Machine Main Forming & Sealing Pressure', 17, 38, '0~10', '0', '15', '0', '15', 3000, '0.1', '200', '03 PG for main, forming and sealing pressure.', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:45:26'),
 (554, 'Blister Machine Forming Pressure', 14, 1, '0~10', '0', '0', NULL, NULL, 2000, '0.1', 'Bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-13 23:11:50', NULL, '2021-06-13 23:11:50'),
 (555, 'Blister Machine Sealing Pressure', 14, 1, '0~10', '0', '0', NULL, NULL, 2000, '0.1', 'Bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-13 23:12:02', NULL, '2021-06-13 23:12:02'),
 (556, 'Double Cone Mixer RPM', 21, 9, '10~60', '10', '14', '10', '14', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:13:59'),
@@ -4190,7 +4737,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (562, 'Digital Clamp Meter Resistance', 14, 1, '1~10000000', '0', '0', NULL, NULL, 2000, '0.1', '?', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-13 23:16:16', NULL, '2021-06-13 23:16:16'),
 (563, 'Digital Clamp Meter Capacitance', 14, 1, '0.05~1', '0', '0', NULL, NULL, 2000, '0.1', '?F', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-13 23:16:25', NULL, '2021-06-13 23:16:25'),
 (564, 'Digital Clamp Meter Frequency', 14, 1, '10~1000', '0', '0', NULL, NULL, 2000, '0.1', 'Hz', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-13 23:16:34', NULL, '2021-06-13 23:16:34'),
-(565, 'CVC Labelling Machine Pressure', 17, 38, '0~15', '0', '250', '0', '250', 1500, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:22:53'),
+(565, 'CVC Labelling Machine Pressure', 17, 38, '0~15', '0', '20', '0', '20', 1500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:51:07'),
 (566, 'CVC Labelling Machine RPM', 21, 9, '50~150', '60', '60', '60', '60', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:23:37'),
 (567, 'Homogenizer RPM', 21, 9, '600~3000', '0', '3000', '0', '3000', 1500, '0.1', '48', '3000 RPM will be achieved at 50 Hz.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:39:30'),
 (568, 'Homogenizer Timer', 86, 60, '60~1800', '0', '30', '0', '30', 1500, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:38:31'),
@@ -4198,8 +4745,8 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (570, 'Moisture Analyzer Mass', 13, 50, '0.01~120', '0', '220', '0', '220', 4000, '0.1', '165', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:48:02'),
 (571, 'Moisture Analyzer Time', 86, 31, '600', '0', '60', '0', '60', 1000, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:49:52'),
 (572, 'Steam Jacketed Kettle Temp', 27, 40, '0~300', '0', '300', '0', '300', 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:53:37'),
-(573, 'Steam Jacketed Kettle Pressure', 17, 38, '0~15', '0', '200', '0', '200', 1500, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:55:27'),
-(574, 'Steam Jacketed Kettle PSV', 17, 38, '0~5', '40', '40', NULL, NULL, 3000, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-13 23:57:46'),
+(573, 'Steam Jacketed Kettle Pressure', 17, 38, '0~15', '0', '30', '0', '30', 1000, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:23:37'),
+(574, 'Steam Jacketed Kettle PSV', 17, 76, '0~5', '30', '30', NULL, NULL, 3000, '0.1', '200', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:26:24'),
 (575, 'Steam Jacketed Kettle RPM', 21, 9, '30~1000', '1000', '1000', '1000', '1000', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:00:26'),
 (576, 'pH Meter', 18, 20, '4.01~7.01', '4', '10', '4', '10', 3000, '0.1', '46', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:01:39'),
 (577, 'pH Meter Temperature', 27, 40, '20~30', '20', '30', '20', '30', 1500, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:02:30'),
@@ -4208,7 +4755,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (580, 'Fluid Bed Dryer Timer', 86, 60, '300~3600', '45', '90', '45', '90', 1500, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:44:36'),
 (581, 'Fluid Bed Dryer Material In, Out & Material Temperature', 27, 40, '40~100', '40', '120', '40', '120', 7500, '0.1', '171', '03 Temperature Controller for Steam In, out and Material.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:42:00'),
 (582, 'Fluid Bed Dryer Outlet Temperature', 14, 1, '40~100', '0', '0', NULL, NULL, 2000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 00:42:19', NULL, '2021-06-14 00:42:19'),
-(583, 'Fluid Bed Dryer In & Out Steam Pressure', 17, 38, '0~10', '0', '360', '0', '360', 3000, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:43:40'),
+(583, 'Fluid Bed Dryer In & Out Steam Pressure', 17, 38, '0~10', '0', '25', '0', '25', 3000, '0.1', '200', '02 Pressure Gauges', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:57:25'),
 (584, 'Fluid Bed Dryer Air Pressure', 14, 1, '0~1', '0', '0', NULL, NULL, 2000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 00:44:50', NULL, '2021-06-14 00:44:50'),
 (585, 'Fluid Bed Dryer Air Pressure', 14, 1, '0~1', '0', '0', NULL, NULL, 2000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 00:45:10', NULL, '2021-06-14 00:45:10'),
 (586, 'Capsule Filling Machine RPM', 21, 9, '10~100', '70', '120', '70', '120', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:48:30'),
@@ -4223,16 +4770,16 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (595, 'Air Storage Tanks Temp', 14, 1, '0~150', '0', '0', NULL, NULL, 2000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 01:13:06', NULL, '2021-06-14 01:13:06'),
 (596, 'Air Storage Tanks Pressure', 14, 1, '0~25', '0', '0', NULL, NULL, 2000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 01:13:22', NULL, '2021-06-14 01:13:22'),
 (597, 'Production Machine Timer', 86, 60, '60~3600', '300', '900', '300', '900', 1500, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:19:11'),
-(598, 'Production Machine TC', 14, 1, '0~150', '0', '0', NULL, NULL, 2000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(599, 'Production Machine PG', 14, 1, '0~15', '0', '0', NULL, NULL, 2000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(600, 'Production Machine RPM', 14, 1, '10~60', '0', '0', NULL, NULL, 2000, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(598, 'Production Machine TC', 27, 40, '0~150', '0', '150', '0', '150', 2500, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:34:59'),
+(599, 'Production Machine PG', 17, 38, '0~15', '0', '35', '0', '35', 1500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:32:09'),
+(600, 'Production Machine RPM', 21, 9, '10~60', '0', '200', '0', '200', 1500, '0.1', '48', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:33:46'),
 (601, 'High Shear Wet Mixer Agitator & Chopper', 21, 9, '300~700', '20', '700', '20', '700', 3000, '0.1', '48', '20~100 RPM for Agitator 300~700 RPM for Chopper.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:17:57'),
 (602, 'High Shear Wet Mixer Agitator', 14, 1, '20~100', '0', '0', NULL, NULL, 2000, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 01:18:12', NULL, '2021-06-14 01:18:12'),
 (603, 'High Shear Wet Mixer Time', 86, 60, '300~900', '300', '900', '300', '900', 1500, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:20:16'),
 (604, 'Stability Chamber Temp mapping', 27, 39, '15~40', '20', '50', '20', '50', 4000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:25:07'),
 (605, 'Stability Chamber %RH mapping', 23, 39, '30~75', '50', '80', '50', '80', 4000, '0.1', '99', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:25:55'),
 (606, 'Skerman Ointment Mixer TC', 27, 40, '0~100', '30', '100', '30', '100', 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:28:29'),
-(607, 'Skerman Ointment Mixer Pressure Gauge', 17, 38, '0~10', '0', '100', '0', '100', 1500, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:37:21'),
+(607, 'Skerman Ointment Mixer Pressure Gauge', 17, 38, '0~10', '0', '30', '0', '30', 1500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:22:43'),
 (608, 'Skerman Ointment Mixer RPM', 21, 9, '10~60', '20', '60', '20', '60', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:38:36'),
 (609, 'Steam Boiler Temperature', 14, 1, '0~400', '0', '0', NULL, NULL, 2000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 01:39:30', NULL, '2021-06-14 01:39:30'),
 (610, 'Steam Boiler Pressure', 14, 1, '0~25', '0', '0', NULL, NULL, 2000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 01:39:49', NULL, '2021-06-14 01:39:49'),
@@ -4242,13 +4789,13 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (614, 'Gerber Machine RPM', 14, 1, '60~1200', '0', '0', NULL, NULL, 2000, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 01:47:10', NULL, '2021-06-14 01:47:10'),
 (615, 'Kjheldal Digestor Temp', 27, 5, '200~500', '550', '800', NULL, NULL, 4000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:53:21'),
 (616, 'Kjheldal Digestor Volume', 85, 1, '50~200', '50', '500', NULL, NULL, 1500, '0.1', '153', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:54:00'),
-(617, 'Fusing Machine Temperature', 14, 1, '50~201', '0', '0', NULL, NULL, 2000, '0.1', 'mL', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(618, 'Fusing Machine Pressure', 14, 1, '50~202', '0', '0', NULL, NULL, 2000, '0.1', 'mL', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(617, 'Fusing Machine Temperature', 86, 60, '50~201', '6', '12', '6', '12', 1500, '0.1', '103', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 21:14:34'),
+(618, 'Fusing Machine Temperature', 27, 40, '50~202', '130', '130', NULL, NULL, 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 21:13:52'),
 (619, 'Surface Acquisition System Pressure', 17, 38, '0~350', '0', '100', '0', '100', 3000, '0.1', '6', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:59:02'),
 (620, 'Surface Acquisition System Temperature', 27, 40, '0~100', '0', '100', '0', '100', 4000, '0.1', '171', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:00:13'),
-(621, 'Weather Station Temperature (Inside + Outside)', 27, 40, '10~30', '20', '40', '20', '40', 3000, '0.1', '171', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:02:58'),
+(621, 'Weather Station Temperature (Inside + Outside)', 6, 40, '10~30', '20', '40', '20', '40', 3000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:59:29'),
 (622, 'Weather Station Humidity', 23, 39, '30~70', '40', '70', '40', '70', 2000, '0.1', '99', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:04:07'),
-(623, 'Weather Station Atmospheric Pressure', 17, 38, '1013 ? 20', '14.35', '14.80', NULL, NULL, 2000, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:33:14'),
+(623, 'Weather Station Atmospheric Pressure', 17, 38, '1013 ? 20', '990', '1020', NULL, NULL, 2000, '0.1', '202', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 01:01:06'),
 (624, 'Weaterh Station Rain Gauge', 81, 29, '5~25', '0', '50', '0', '50', 1000, '0.1', '113', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:05:56'),
 (625, 'Weather Station Wind Velosity', 80, 16, '0~20', '0', '20', '0', '20', 1500, '0.1', '135', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:06:41'),
 (626, 'Machine Condition Advisor Touch Temp', 27, 40, '0~21', '20', '200', '20', '200', 3000, '0.1', '171', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:09:15'),
@@ -4263,7 +4810,7 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (635, 'Stability Chamber Temperature', 14, 1, '20~40', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 01:21:09', NULL, '2021-06-14 01:21:09'),
 (636, 'Stability Chamber Humidity', 14, 1, '30~70', '0', '0', NULL, NULL, 5000, '0.1', '%RH', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 01:21:19', NULL, '2021-06-14 01:21:19'),
 (637, 'Legger Presser Tempeature', 27, 40, '50~250', '50', '150', '50', '150', 2500, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:20:36'),
-(638, 'Legger Presser Pressure', 17, 38, '0~10', '0', '150', '0', '150', 1500, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:21:28'),
+(638, 'Legger Presser Pressure', 17, 38, '0~10', '0', '10', '0', '10', 1500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:03:54'),
 (639, 'Legger Presser Time', 86, 60, '18', '18', '18', '18', '18', 1500, '0.1', '132', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:22:19'),
 (640, 'COD Reactor Temperature', 14, 1, '50~150', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 02:22:58', NULL, '2021-06-14 02:22:58'),
 (641, 'COD Reactor Time', 14, 1, '600~7200', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 02:23:40', NULL, '2021-06-14 02:23:40'),
@@ -4275,313 +4822,313 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (647, 'Dissolution Test Apparatus External Temperature', 14, 1, '36~38', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 02:34:21', NULL, '2021-06-14 02:34:21'),
 (648, 'Dissolution Test Apparatus Internal Temperature', 14, 1, '36~38', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 02:34:31', NULL, '2021-06-14 02:34:31'),
 (649, 'Dissolution Test Apparatus Internal Time', 14, 1, '300~3600', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 02:34:41', NULL, '2021-06-14 02:34:41'),
-(650, 'Multigas Detector Oxygen (O2)', 14, 1, '20', '0', '0', NULL, NULL, 5000, '0.1', '%', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(651, 'Multigas Detector Methene (LEL)', 14, 1, '50', '0', '0', NULL, NULL, 5000, '0.1', '%', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(652, 'Multigas Detector Carbon Monoxide (CO)', 14, 1, '100', '0', '0', NULL, NULL, 5000, '0.1', 'ppm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(653, 'Multigas Detector Hydrogen Sulfide (H2S)', 14, 1, '25', '0', '0', NULL, NULL, 5000, '0.1', 'ppm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(654, 'Friability Test Apparatus RPM', 14, 1, '25', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(655, 'Friability Test Apparatus Time', 14, 1, '240', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(656, 'Tap Density Meter Count', 14, 1, '500', '0', '0', NULL, NULL, 5000, '0.1', 'Count', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(657, 'Tap Density Meter Time', 14, 1, '100', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(650, 'Multigas Detector Oxygen (O2)', 14, 1, '20', '0', '0', NULL, NULL, 5000, '0.1', '%', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 03:03:38', NULL, '2021-06-15 03:03:38'),
+(651, 'Multigas Detector Methene (LEL)', 14, 1, '50', '0', '0', NULL, NULL, 5000, '0.1', '%', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:03:27', NULL, '2021-06-15 03:03:27'),
+(652, 'Gas Detector Carbon Monoxide (CO)', 8, 26, '100', '100', '500', NULL, NULL, 4000, '0.1', '178', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 03:02:52'),
+(653, 'Multigas Detector Hydrogen Sulfide (H2S)', 14, 1, '25', '0', '0', NULL, NULL, 5000, '0.1', 'ppm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:03:17', NULL, '2021-06-15 03:03:17'),
+(654, 'Friability Test Apparatus RPM', 21, 9, '25', '25', '25', '25', '25', 2000, '0.1', '48', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 21:04:52'),
+(655, 'Friability Test Apparatus Time', 86, 60, '240', '240', '240', '240', '240', 1500, '0.1', '132', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 21:08:09'),
+(656, 'Tap Density Meter', 86, 67, '500', '0', '300', NULL, NULL, 1500, '0.1', '60', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:03:51'),
+(657, 'Tap Density Meter Time', 86, 60, '100', '0', '10', '0', '10', 1000, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:03:35'),
 (658, 'Viscometer Meter Viscosity', 14, 1, '70~2650', '0', '0', NULL, NULL, 5000, '0.1', 'Cp', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-13 22:08:37', NULL, '2021-06-13 22:08:37'),
 (659, 'Viscometer Meter RPM', 14, 1, '5~100', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-13 22:08:47', NULL, '2021-06-13 22:08:47'),
 (660, 'Viscometer Meter Time', 14, 1, '60~300', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-13 22:09:01', NULL, '2021-06-13 22:09:01'),
 (661, 'Viscometer Meter Temperature', 14, 1, '20~30', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-13 22:09:20', NULL, '2021-06-13 22:09:20'),
-(662, 'Insulation Tester Resistance', 14, 1, '10M?~1G?', '0', '0', NULL, NULL, 5000, '0.1', '?', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(663, 'Insulation Tester AC Voltage', 14, 1, '100~600', '0', '0', NULL, NULL, 5000, '0.1', 'AC Volt', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(664, 'Insulation Tester DC Voltage', 14, 1, '100~600', '0', '0', NULL, NULL, 5000, '0.1', 'DC Volt', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(665, 'ICI Pilling & Snagging Tester Length Left', 14, 1, '230', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(666, 'ICI Pilling & Snagging Tester Length Right', 14, 1, '230', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(667, 'ICI Pilling & Snagging Tester Width Left', 14, 1, '230', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(668, 'ICI Pilling & Snagging Tester Width Right', 14, 1, '230', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(669, 'ICI Pilling & Snagging Tester Depth Left', 14, 1, '236', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(670, 'ICI Pilling & Snagging Tester Depth Right', 14, 1, '236', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(671, 'ICI Pilling & Snagging Tester RPM', 14, 1, '60', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(672, 'Random Tumble Pilling Tester Diameter', 14, 1, '143', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(673, 'Random Tumble Pilling Tester Depth', 14, 1, '152', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(674, 'Random Tumble Pilling Tester Time', 14, 1, '1800', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(662, 'Insulation Tester Resistance', 14, 1, '10M?~1G?', '0', '0', NULL, NULL, 5000, '0.1', '?', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 02:13:51', NULL, '2021-06-15 02:13:51'),
+(663, 'Insulation Tester AC Voltage', 14, 1, '100~600', '0', '0', NULL, NULL, 5000, '0.1', 'AC Volt', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 02:13:09', NULL, '2021-06-15 02:13:09'),
+(664, 'Insulation Tester DC Voltage', 14, 1, '100~600', '0', '0', NULL, NULL, 5000, '0.1', 'DC Volt', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 02:13:20', NULL, '2021-06-15 02:13:20'),
+(665, 'ICI Pilling & Snagging Tester Length Left', 14, 1, '230', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:07:52', NULL, '2021-06-15 02:07:52'),
+(666, 'ICI Pilling & Snagging Tester Length Right', 14, 1, '230', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 02:08:03', NULL, '2021-06-15 02:08:03'),
+(667, 'ICI Pilling & Snagging Tester Width Left', 14, 1, '230', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:08:35', NULL, '2021-06-15 02:08:35'),
+(668, 'ICI Pilling & Snagging Tester Width Right', 14, 1, '230', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 02:08:47', NULL, '2021-06-15 02:08:47'),
+(669, 'ICI Pilling & Snagging Tester Depth Left', 14, 1, '236', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:07:28', NULL, '2021-06-15 02:07:28'),
+(670, 'ICI Pilling & Snagging Tester Depth Right', 14, 1, '236', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 02:07:43', NULL, '2021-06-15 02:07:43'),
+(671, 'ICI Pilling & Snagging Tester RPM', 14, 1, '60', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:08:26', NULL, '2021-06-15 02:08:26'),
+(672, 'Random Tumble Pilling Tester Diameter', 14, 1, '143', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 19:37:37', NULL, '2021-06-15 19:37:37'),
+(673, 'Random Tumble Pilling Tester Depth', 14, 1, '152', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 19:37:45', NULL, '2021-06-15 19:37:45'),
+(674, 'Random Tumble Pilling Tester Time', 14, 1, '1800', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 19:37:24', NULL, '2021-06-15 19:37:24'),
 (675, 'Bio Safety Cabinet Air Velosity', 14, 1, '0.1~3', '0', '0', NULL, NULL, 5000, '0.1', 'm/s', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 03:09:07', NULL, '2021-06-14 03:09:07'),
 (676, 'Bio Safety/Laminar/Fume  hood Lux', 10, 17, '250~350', '0', '5000', NULL, NULL, 2000, '0.1', '155', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:10:21'),
 (677, 'Bio Safety/Laminar/Fume Hood UV Light', 61, 17, '0.01~0.02', '0', '2', NULL, NULL, 2000, '0.1', '156', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:11:42'),
 (678, 'Bio Safety Cabinet Dimension', 14, 1, '60~100', '0', '0', NULL, NULL, 5000, '0.1', 'cm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 03:09:17', NULL, '2021-06-14 03:09:17'),
-(679, 'RTD Loop Calibrator DC Current', 14, 1, '4~22', '0', '0', NULL, NULL, 5000, '0.1', 'mA', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(680, 'RTD Loop Calibrator Resistance (Source Mode)', 14, 1, '0~4000', '0', '0', NULL, NULL, 5000, '0.1', '?', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(681, 'RTD Loop Calibrator Resistance (Measure Mode)', 14, 1, '0~4000', '0', '0', NULL, NULL, 5000, '0.1', 'k?', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(682, 'RTD Loop Calibrator Resistance (Source Mode)', 14, 1, '-200~800', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(683, 'RTD Loop Calibrator Resistance (Measure Mode)', 14, 1, '-200~800', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(684, 'Whirling Psychrometer Dry Bulb', 14, 1, '20~50', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(685, 'Whirling Psychrometer Wet Bulb', 14, 1, '20~50', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(686, 'Friability Tester RPM', 14, 1, '25', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(687, 'Friability Tester Time', 14, 1, '240', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(688, 'High Shear Wet Mixer Speed', 14, 1, '10~60', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(689, 'High Shear Wet Mixer Time', 14, 1, '600~1800', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(690, 'Penetrometer Needle Stem Length', 14, 1, '38', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(691, 'Penetrometer Main Needle Length', 14, 1, '36', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(692, 'Penetrometer Needle Tip (Taper)', 14, 1, '5.6', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(693, 'Penetrometer Needle Stem Thickness', 14, 1, '3.17', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(694, 'Penetrometer Tip Thickness', 14, 1, '0.15', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(695, 'Penetrometer Disk Weight', 14, 1, '50~100', '0', '0', NULL, NULL, 5000, '0.1', 'g', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(696, 'Penetrometer Needle Weight', 14, 1, '2.52', '0', '0', NULL, NULL, 5000, '0.1', 'g', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(697, 'Earth Tester Resistance Measurement', 14, 1, '0~2000', '0', '0', NULL, NULL, 5000, '0.1', '?', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(698, 'Earth Tester AC Volt @ 50Hz Measurement', 14, 1, '0~190', '0', '0', NULL, NULL, 5000, '0.1', 'V', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(699, 'Washing Tank Temperature', 14, 1, '0~160', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(700, 'Washing Tank Speed', 14, 1, '100~200', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(701, 'Washing Tank Time', 14, 1, '300~600', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(702, 'Tumble Dryer Temperature', 14, 1, '0~100', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(703, 'Tumble Dryer Speed', 14, 1, '20~40', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(704, 'Tumble Dryer Time', 14, 1, '300~600', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(705, 'Centrifuge Speed', 14, 1, '500~2000', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(706, 'Centrifuge Time', 14, 1, '600~3600', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(679, 'RTD Loop Calibrator DC Current', 14, 1, '4~22', '0', '0', NULL, NULL, 5000, '0.1', 'mA', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 19:53:07', NULL, '2021-06-15 19:53:07'),
+(680, 'RTD Loop Calibrator Resistance (Source Mode)', 14, 1, '0~4000', '0', '0', NULL, NULL, 5000, '0.1', '?', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 19:54:15', NULL, '2021-06-15 19:54:15'),
+(681, 'RTD Loop Calibrator Resistance (Measure Mode)', 14, 1, '0~4000', '0', '0', NULL, NULL, 5000, '0.1', 'k?', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 19:53:56', NULL, '2021-06-15 19:53:56'),
+(682, 'RTD Loop Calibrator Resistance (Source Mode)', 14, 1, '-200~800', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 19:54:05', NULL, '2021-06-15 19:54:05'),
+(683, 'RTD Loop Calibrator Resistance (Measure Mode)', 14, 1, '-200~800', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 19:53:47', NULL, '2021-06-15 19:53:47'),
+(684, 'Whirling Psychrometer Dry Bulb', 14, 1, '20~50', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 22:44:25', NULL, '2021-06-15 22:44:25'),
+(685, 'Whirling Psychrometer Wet Bulb', 14, 1, '20~50', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:44:35', NULL, '2021-06-15 22:44:35'),
+(686, 'Friability Tester RPM', 14, 1, '25', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 21:08:23', NULL, '2021-06-14 21:08:23'),
+(687, 'Friability Tester Time', 14, 1, '240', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 21:08:32', NULL, '2021-06-14 21:08:32'),
+(688, 'High Shear Wet Mixer Speed', 14, 1, '10~60', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 01:01:17', NULL, '2021-06-15 01:01:17'),
+(689, 'High Shear Wet Mixer Time', 14, 1, '600~1800', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 01:01:31', NULL, '2021-06-15 01:01:31'),
+(690, 'Penetrometer Needle Stem Length', 14, 1, '38', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 03:25:30', NULL, '2021-06-15 03:25:30'),
+(691, 'Penetrometer Main Needle Length', 14, 1, '36', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:25:20', NULL, '2021-06-15 03:25:20'),
+(692, 'Penetrometer Needle Tip (Taper)', 14, 1, '5.6', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 03:25:53', NULL, '2021-06-15 03:25:53'),
+(693, 'Penetrometer Needle Stem Thickness', 14, 1, '3.17', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:25:43', NULL, '2021-06-15 03:25:43'),
+(694, 'Penetrometer Tip Thickness', 14, 1, '0.15', '0', '0', NULL, NULL, 5000, '0.1', 'mm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 03:26:23', NULL, '2021-06-15 03:26:23'),
+(695, 'Penetrometer Disk Weight', 14, 1, '50~100', '0', '0', NULL, NULL, 5000, '0.1', 'g', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 03:24:59', NULL, '2021-06-15 03:24:59'),
+(696, 'Penetrometer Needle Weight', 14, 1, '2.52', '0', '0', NULL, NULL, 5000, '0.1', 'g', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:26:07', NULL, '2021-06-15 03:26:07'),
+(697, 'Earth Tester Resistance Measurement', 14, 1, '0~2000', '0', '0', NULL, NULL, 5000, '0.1', '?', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 20:43:20', NULL, '2021-06-14 20:43:20'),
+(698, 'Earth Tester AC Volt @ 50Hz Measurement', 14, 1, '0~190', '0', '0', NULL, NULL, 5000, '0.1', 'V', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 20:43:10', NULL, '2021-06-14 20:43:10'),
+(699, 'Washing Tank Temperature', 27, 43, '0~160', '60', '60', '60', '60', 3000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:38:28'),
+(700, 'Washing Tank RPM', 21, 9, '100~200', '200', '200', '200', '200', 1500, '0.1', '48', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 01:42:39'),
+(701, 'Washing Tank Time', 86, 60, '300~600', '0', '5', '0', '5', 1000, '0.1', '103', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:39:14'),
+(702, 'Tumble Dryer Temperature', 14, 1, '0~100', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 22:04:16', NULL, '2021-06-15 22:04:16'),
+(703, 'Tumble Dryer Speed', 14, 1, '20~40', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 21:47:55', NULL, '2021-06-15 21:47:55'),
+(704, 'Tumble Dryer Time', 14, 1, '300~600', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 22:04:48', NULL, '2021-06-15 22:04:48'),
+(705, 'Centrifuge Speed', 14, 1, '500~2000', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 18:46:50', NULL, '2021-06-14 18:46:50'),
+(706, 'Centrifuge Time', 14, 1, '600~3600', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 18:51:03', NULL, '2021-06-14 18:51:03'),
 (707, 'Barometer Temperature', 14, 1, '15~40', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 02:50:40', NULL, '2021-06-14 02:50:40'),
 (708, 'Barometer Humidity', 14, 1, '30~70', '0', '0', NULL, NULL, 5000, '0.1', '%RH', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 02:50:22', NULL, '2021-06-14 02:50:22'),
-(709, 'Barometer Pressure', 17, 38, '980~1033', '14.5', '15.0', '14.5', '15.0', 3000, '0.1', '6', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:52:01'),
-(710, 'Oven Temperature', 14, 1, '50~300', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(711, 'Oven Time', 14, 1, '600~10800', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(709, 'Barometer Pressure', 17, 38, '980~1033', '990', '1020', '0', '0', 2500, '0.1', '202', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:40:08'),
+(710, 'Oven Temperature', 14, 1, '50~300', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:19:25', NULL, '2021-06-15 03:19:25'),
+(711, 'Oven Time', 14, 1, '600~10800', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:19:34', NULL, '2021-06-15 03:19:34'),
 (712, 'Gerber Machine RPM', 21, 9, '1100', '1100', '1100', '1100', '1100', 1500, '0.1', '48', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:45:06'),
 (713, 'Gerber Machine Temperature', 27, 39, '65', '65', '75', '65', '75', 2500, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:46:05'),
 (714, 'Gerber Machine Time', 86, 60, '300~900', '5', '15', '5', '15', 1500, '0.1', '103', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 01:47:00'),
-(715, 'Double Cone Mixer Speed', 14, 1, '10~30', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(716, 'Double Cone Mixer Time', 14, 1, '60~3600', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(717, 'Gauss Meter', 15, 1, 'DC 0~1000 ', '0', '0', NULL, NULL, 1000, '0.1', 'V', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(715, 'Double Cone Mixer Speed', 14, 1, '10~30', '0', '0', NULL, NULL, 5000, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 20:37:36', NULL, '2021-06-14 20:37:36'),
+(716, 'Double Cone Mixer Time', 14, 1, '60~3600', '0', '0', NULL, NULL, 5000, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 20:37:48', NULL, '2021-06-14 20:37:48'),
+(717, 'Gauss Meter', 15, 67, 'DC 0~1000 ', '0', '2000', NULL, NULL, 4000, '0.1', '137', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 23:00:20'),
 (718, 'Metal Detector Portable', 15, 1, 'AC 0~1000 ', '0', '0', NULL, NULL, 1000, '0.1', 'V', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
 (719, 'Metal Detecting Machine', 15, 1, 'DC 0~10 ', '0', '0', NULL, NULL, 1000, '0.1', 'A', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(720, 'Magnetic Trap', 15, 1, 'AC 0~10', '0', '0', NULL, NULL, 1000, '0.1', 'A', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(720, 'Magnetic Trap', 15, 1, 'AC 0~10', '0', '0', NULL, NULL, 1000, '0.1', 'A', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 02:37:17', NULL, '2021-06-15 02:37:17'),
 (721, 'Cable / Pipe Locator', 87, 66, '0~50 M', '0', '0', NULL, NULL, 3000, '0.1', '191', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:25:04'),
-(722, 'Magnetic Yoke', 15, 1, '10', '0', '0', NULL, NULL, 1000, '0.1', 'kg ', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(723, 'Iron Loss Tester', 15, 1, '0.5~1.9', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(722, 'Magnetic Yoke', 13, 67, '10', '10', '10', NULL, NULL, 2000, '0.1', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:38:15'),
+(723, 'Iron Loss Tester', 15, 1, '0.5~1.9', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:17:57', NULL, '2021-06-15 02:17:57'),
 (724, 'Material Storage Rack', 16, 1, '0.5~1.10', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(725, 'Over Head Load Crane', 16, 1, '0.5~1.11', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(726, 'Shackle', 16, 1, '0.5~1.12', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(727, 'Wire Sling', 16, 1, '0.5~1.13', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(728, 'Storage Vessel', 16, 1, '0.5~1.14', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(729, 'Man Basket', 16, 1, '0.5~1.15', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(730, 'Fork Lifter', 16, 1, '0.5~1.16', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(731, 'Safty Harness with Lanyard', 16, 1, '0.5~1.17', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(732, 'Fall Protection Rope', 16, 1, '0.5~1.18', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(725, 'Electric Over Head Travelling Crane 5 Ton', 33, 1, '0.5~1.11', '0', '0', NULL, NULL, 7500, '0.1', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 03:24:26'),
+(726, 'Shackle', 33, 67, '0.5~1.12', '0', '0', NULL, NULL, 1000, '0.1', '189', 'MPI and Visual Inspection of Shackles.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 20:01:31'),
+(727, 'Wire Sling', 16, 1, '0.5~1.13', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-16 00:20:24', NULL, '2021-06-16 00:20:24'),
+(728, 'Storage Vessel', 16, 1, '0.5~1.14', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 20:54:31', NULL, '2021-06-15 20:54:31'),
+(729, 'Man Basket', 33, 72, '0.5~1.15', '0', '0', NULL, NULL, 6000, '0.1', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:43:42'),
+(730, 'Fork Lifter', 33, 71, '0.5~1.16', '0', '0', NULL, NULL, 6500, '0.1', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 21:02:19'),
+(731, 'Safty Harness with Lanyard', 16, 1, '0.5~1.17', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 19:59:35', NULL, '2021-06-15 19:59:35'),
+(732, 'Fall Protection Rope', 33, 66, '0.5~1.18', '0', '0', NULL, NULL, 1000, '0.1', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:50:45'),
 (733, 'Cargo Lift Inspection and Load Testing', 60, 3, '0.5~1.19', '0', '0', NULL, NULL, 7000, '0.1', '190', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:29:38'),
-(734, 'Distillate Water Tank   (3 Ton)', 16, 1, '0.5~1.20', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(735, 'Weekly Water   (70 Ton)', 16, 1, '0.5~1.21', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(736, 'Hot Water Tank   (27 Ton)', 16, 1, '0.5~1.22', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(737, 'Recovery Tank   (35 Ton)', 16, 1, '0.5~1.23', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(738, 'Caustic Tank   (35 Ton)', 16, 1, '0.5~1.24', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(739, 'Weekly Tank   (50 Ton)', 16, 1, '0.5~1.25', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(740, 'Condensate Tank   (9 Ton)', 16, 1, '0.5~1.26', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(741, 'Wire Rope Sling', 16, 1, '0.5~1.27', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(742, 'Chain Block', 16, 1, '0.5~1.28', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(743, 'Gauge Analogue', 17, 1, '-1.0~20.0 ', '0', '0', NULL, NULL, 1500, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(744, 'Gauge Analogue', 17, 1, '0~700', '0', '0', NULL, NULL, 2000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(745, 'Gauge Analogue', 17, 1, '0~1200', '0', '0', NULL, NULL, 2500, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(746, 'Gauge Analogue', 17, 1, '0~1700', '0', '0', NULL, NULL, 4500, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(747, 'Gauge Test ', 17, 1, '-1.0~20.0 ', '0', '0', NULL, NULL, 2500, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(748, 'Gauge Test ', 17, 1, '0~700', '0', '0', NULL, NULL, 3500, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(749, 'Gauge Test ', 17, 1, '0~1200', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(750, 'Gauge Test ', 17, 1, '0~1700', '0', '0', NULL, NULL, 7500, '0.1', 'bar', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(751, 'Gauge Digital ', 17, 1, '-1.0~20.0 ', '0', '0', NULL, NULL, 3000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(752, 'Gauge Digital ', 17, 1, '0~700', '0', '0', NULL, NULL, 4000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(753, 'Gauge Digital ', 17, 1, '0~1200', '0', '0', NULL, NULL, 6000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(754, 'Gauge Digital ', 17, 1, '0~1700', '0', '0', NULL, NULL, 8000, '0.1', 'bar', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(755, 'Transducer', 17, 1, '-1~700 ', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(756, 'Transmitter', 17, 1, '-1~700 ', '0', '0', NULL, NULL, 7500, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(757, 'Pressure Switch', 17, 1, '-1~700 ', '0', '0', NULL, NULL, 4000, '0.1', 'bar', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(758, 'Control Valve', 17, 1, '2', '0', '0', NULL, NULL, 15000, '0.1', 'bar', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(759, 'Relief Valve  ? 6 \" Dia', 17, 1, '0 ~ 400 ', '0', '0', NULL, NULL, 6000, '0.1', 'bar', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(760, 'Relief Valve  ? 12 \" Dia', 17, 1, '0~ 100', '0', '0', NULL, NULL, 10000, '0.1', 'bar', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(761, 'Manometers', 17, 1, '-1 ~ 3 ', '0', '0', NULL, NULL, 1000, '0.1', 'InchH2O', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(762, 'Guage Magnihelic', 17, 1, '-1 ~ 3 ', '0', '0', NULL, NULL, 1000, '0.1', 'InchH2O', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(763, 'Chart Recorder 2 Pen', 17, 1, '-1~700 ', '0', '0', NULL, NULL, 8000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(764, 'Chart Recorder 2 Pen', 17, 1, '0~1200', '0', '0', NULL, NULL, 12000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(765, 'Hydro Testing', 17, 1, '0~400', '0', '0', NULL, NULL, 7500, '0.1', 'bar', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(766, 'Pressure Calibrator Digital', 17, 38, '-1.0~20.0 ', '0', '10000', '0', '10000', 6000, '0.1', '6', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:26:41'),
-(767, 'Piston Gauges', 17, 1, '0~700', '0', '0', NULL, NULL, 18000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(768, 'Dead Weights Tester', 17, 1, '0~1200', '0', '0', NULL, NULL, 30000, '0.1', 'bar', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(734, 'Distillate Water Tank   (3 Ton)', 16, 1, '0.5~1.20', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 20:36:45', NULL, '2021-06-14 20:36:45'),
+(735, 'Weekly Water   (70 Ton)', 16, 1, '0.5~1.21', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 22:41:05', NULL, '2021-06-15 22:41:05'),
+(736, 'Hot Water Tank   (27 Ton)', 16, 1, '0.5~1.22', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 01:03:38', NULL, '2021-06-15 01:03:38'),
+(737, 'Recovery Tank   (35 Ton)', 16, 1, '0.5~1.23', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 19:43:03', NULL, '2021-06-15 19:43:03'),
+(738, 'Caustic Tank   (35 Ton)', 33, 66, '0.5~1.24', '0', '0', NULL, NULL, 10000, '0.1', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 18:48:58'),
+(739, 'Weekly Tank   (50 Ton)', 16, 1, '0.5~1.25', '0', '0', NULL, NULL, 1000, '0.1', 'T', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 22:40:55', NULL, '2021-06-15 22:40:55'),
+(740, 'Condensate Tank   (9 Ton)', 33, 69, '0.5~1.26', '0', '0', NULL, NULL, 6000, '0.1', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:07:10'),
+(741, 'Wire Rope Sling', 33, 77, '0.5~1.27', '0', '0', NULL, NULL, 850, '0.1', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 00:22:41'),
+(742, 'Chain Block', 33, 70, '0.5~1.28', '0', '0', NULL, NULL, 6000, '0.1', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 18:55:44'),
+(743, 'Gauge Analogue', 17, 1, '-1.0~20.0 ', '0', '0', NULL, NULL, 1500, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 22:53:04', NULL, '2021-06-14 22:53:04'),
+(744, 'Test Pressure Gauge Accuracy Class < 1 % FS', 17, 38, '0~700', '0', '700', '0', '700', 4000, '0.1', '200', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:12:00'),
+(745, 'Pressure Gauge Accuracy Class > 0.6 %', 17, 38, '0~1200', '0', '35', '0', '35', 1500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:08:11'),
+(746, 'Test Pressure Gauge Accuracy Class < 1 % FS', 17, 38, '0~1700', '0', '1200', '0', '1000', 6000, '0.1', '200', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:10:57'),
+(747, 'Gauge Test ', 17, 1, '-1.0~20.0 ', '0', '0', NULL, NULL, 2500, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 22:57:27', NULL, '2021-06-14 22:57:27'),
+(748, 'Gauge Test ', 17, 1, '0~700', '0', '0', NULL, NULL, 3500, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 22:57:55', NULL, '2021-06-14 22:57:55'),
+(749, 'Gauge Test ', 17, 1, '0~1200', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 22:58:08', NULL, '2021-06-14 22:58:08'),
+(750, 'Gauge Test ', 17, 1, '0~1700', '0', '0', NULL, NULL, 7500, '0.1', 'bar', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 22:57:41', NULL, '2021-06-14 22:57:41'),
+(751, 'Gauge Digital ', 17, 1, '-1.0~20.0 ', '0', '0', NULL, NULL, 3000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 22:56:48', NULL, '2021-06-14 22:56:48'),
+(752, 'Gauge Digital ', 17, 1, '0~700', '0', '0', NULL, NULL, 4000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 22:57:06', NULL, '2021-06-14 22:57:06'),
+(753, 'Pressure Gauge Digital > 700 Bar', 17, 38, '0~1200', '0', '1200', '0', '1200', 6000, '0.1', '200', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:17:32'),
+(754, 'Pressure Gauge Digital < 701 bar', 17, 38, '0~1700', '0', '700', '0', '700', 4500, '0.1', '200', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:15:33'),
+(755, 'Transducer', 17, 1, '-1~700 ', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 21:34:39', NULL, '2021-06-15 21:34:39'),
+(756, 'Transmitter', 17, 1, '-1~700 ', '0', '0', NULL, NULL, 7500, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 21:35:09', NULL, '2021-06-15 21:35:09'),
+(757, 'Pressure Switch', 17, 67, '-1~700 ', '0', '70', NULL, NULL, 4000, '0.1', '200', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:27:21'),
+(758, 'Control Valve', 17, 66, '2', '0', '2', '0', '2', 8000, '0.1', '200', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:50:13'),
+(759, 'Relief Valve  ? 6 \" Dia', 17, 1, '0 ~ 400 ', '0', '0', NULL, NULL, 6000, '0.1', 'bar', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 19:49:22', NULL, '2021-06-15 19:49:22'),
+(760, 'Relief Valve  ? 12 \" Dia', 17, 1, '0~ 100', '0', '0', NULL, NULL, 10000, '0.1', 'bar', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 19:49:44', NULL, '2021-06-15 19:49:44'),
+(761, 'Manometers', 17, 38, '-1 ~ 3 ', '0.0018', '0.108', NULL, NULL, 850, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 00:57:47'),
+(762, 'Magnihelic Pressure Gauge', 17, 38, '-1 ~ 3 ', '-0.5', '3.0', NULL, NULL, 850, '0.1', '208', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:04:50'),
+(763, 'Chart Recorder Pressure', 17, 38, '-1~700 ', '0', '700', '0', '700', 6000, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:48:32'),
+(764, 'Chart Recorder 2 Pen', 17, 1, '0~1200', '0', '0', NULL, NULL, 12000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 18:56:07', NULL, '2021-06-14 18:56:07'),
+(765, 'Hydro Testing', 17, 38, '0~400', '0', '400', '0', '400', 6000, '0.1', '200', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:13:51'),
+(766, 'Pressure Calibrator Digital', 17, 38, '-1.0~20.0 ', '0', '700', '0', '700', 6000, '0.1', '200', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:05:19'),
+(767, 'Piston Gauges', 17, 1, '0~700', '0', '0', NULL, NULL, 18000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 03:31:26', NULL, '2021-06-15 03:31:26'),
+(768, 'Dead Weights Tester', 17, 38, '0~1200', '0', '1200', '0', '1200', 25000, '0.1', '200', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:14:49'),
 (769, 'Baro Meter', 17, 1, '800~1100', '0', '0', NULL, NULL, 3000, '0.1', 'mbar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 02:50:05', NULL, '2021-06-14 02:50:05'),
-(770, 'Weight Indicators', 17, 1, '0~700', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(771, 'Torque Indicators', 17, 1, '0~700', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(772, 'Video Jet Printer', 17, 1, '0~10', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(773, 'Pressure Meter', 17, 1, '0~20', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(774, 'Pressure Gauge', 17, 1, '0~100', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(775, 'Vacuum Gauge', 17, 1, '0~-1', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(776, 'Pressure Gauge', 17, 1, '0~14', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(777, 'Vacuum Pump', 17, 1, '0~-1', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(778, 'Pressure Gauge', 17, 1, '0~2.4', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(779, 'Pressure Gauge', 17, 1, '0~16', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(780, 'Leak Test Apparatus', 17, 1, '0~-1', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(781, 'Pressure Gauge', 17, 1, '0~345', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(782, 'Pressure Gauge', 17, 1, '0~1100', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(783, 'Pressure Gauge', 17, 1, '0~1034', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(784, 'Pressure Transmitter', 17, 1, '0~10', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(785, 'Pressure Sensor', 17, 1, '930~1050', '0', '0', NULL, NULL, 5000, '0.1', 'mbar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(786, 'Differential Pressure Sensor', 17, 1, '0~5', '0', '0', NULL, NULL, 5000, '0.1', 'mbar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(787, 'Test Pressure Gauge', 17, 1, '0~1.6', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(788, 'Test Pressure Gauge', 17, 1, '0~10', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(789, 'Test Pressure Gauge', 17, 1, '0~25', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(790, 'Test Pressure Gauge', 17, 1, '0~60', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(791, 'Test Pressure Gauge', 17, 1, '0~100', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(792, 'Test Pressure Gauge', 17, 1, '0~250', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(793, 'Test Pressure Gauge', 17, 1, '0~400', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(794, 'Pressure Gauge', 17, 1, '0~700', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(795, 'Pressure Relief Valve', 17, 1, '10', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(796, 'Weight Indicator', 17, 1, '0~1000', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(797, 'Pressure Gauge', 17, 1, '0~1200', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(798, 'Air Compressor', 17, 1, '12', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 02:37:31', NULL, '2021-06-14 02:37:31'),
-(799, 'Pressure Gauge', 17, 1, '0~250', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(800, 'Pressure Gauge', 17, 1, '0~1', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(801, 'Flow Transmitter', 17, 1, '0~4000', '0', '0', NULL, NULL, 5000, '0.1', 'mmH2O', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(802, 'Tyre Pressure Gauge', 17, 1, '0~150', '0', '0', NULL, NULL, 5000, '0.1', 'psi', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(803, 'BP Apparatus', 17, 38, '0~300', '0', '100', '0', '100', 3000, '0.1', '6', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:17:49'),
-(804, 'Digital BP Apparatus', 17, 1, '0~210', '0', '0', NULL, NULL, 5000, '0.1', 'mmHg', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(805, 'pH Meter', 18, 1, '4~10', '0', '0', NULL, NULL, 4000, '0.1', 'pH', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 00:02:59', NULL, '2021-06-14 00:02:59'),
-(806, 'ORP Meter', 18, 20, '470', '470', '470', NULL, NULL, 4000, '0.1', '187', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 00:33:43'),
-(807, 'Photometer', 19, 1, '40', '0', '0', NULL, NULL, 3000, '0.1', 'HRC', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(808, 'Spectrophotometer UV/Vis', 19, 1, '0~100', '0', '0', NULL, NULL, 4000, '0.1', 'D', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(809, 'Colori Meter', 19, 1, '0~100', '0', '0', NULL, NULL, 4000, '0.1', 'D', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(810, 'Flame Photometer (Sodium & Potassium Ion)', 19, 1, '5~15', '0', '0', NULL, NULL, 4000, '0.1', 'ppm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(811, 'Whitness Meter', 19, 1, '5~16', '0', '0', NULL, NULL, 4000, '0.1', 'ppm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(812, 'Gloss Meter', 19, 1, '5~17', '0', '0', NULL, NULL, 4000, '0.1', 'ppm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(813, 'Tintometer', 19, 1, '5~18', '0', '0', NULL, NULL, 4000, '0.1', 'ppm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(814, 'Multiparameter Bench Photometer', 19, 1, '5~18', '0', '0', NULL, NULL, 4000, '0.1', '', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(815, 'Polarimeter', 20, 1, '-180? to 180?', '0', '0', NULL, NULL, 4000, '0.1', 'Deg Specific Rotation', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(816, 'Polarimeter', 20, 1, '0 to 180?', '0', '0', NULL, NULL, 4000, '0.1', 'Deg Optical Rotation', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(817, 'Polarimeter', 20, 1, '20 to 30', '0', '0', NULL, NULL, 4000, '0.1', '?C', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(818, 'Tachometer Optical', 21, 1, '0.1~99999', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(819, 'Tachometer Contact', 21, 1, '0.1~10000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(820, 'Stroboscope', 21, 1, '0.1~99999', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(821, 'Tachometer Reed ', 21, 1, '1~300', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(822, 'Centrifuge Machine', 21, 1, '0.1~5000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(823, 'Motor', 21, 1, '0.1~10000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(824, 'Batch Counter', 2, 67, '10~100', '0', '2500', NULL, NULL, 2500, '0.1', '60', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:52:52'),
-(825, 'Cube Mixer', 21, 1, '6~16', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(826, 'Oscillating Granulator', 21, 1, '10~60', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(827, 'Cursher Machine', 21, 1, '500~3600', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(828, 'Vortex Mixer', 21, 1, '100~3000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(829, 'Centrigugal Machine', 21, 1, '500~5000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(830, 'Optical Tachometer', 21, 1, '50~30000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(831, 'Hydro Spinner', 21, 1, '100~750', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(832, 'Digital Inductive Timing Light', 21, 1, '100~6000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL);
+(770, 'Weight Indicators', 17, 1, '0~700', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 22:41:42', NULL, '2021-06-15 22:41:42'),
+(771, 'Torque Indicators', 17, 1, '0~700', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 21:25:53', NULL, '2021-06-15 21:25:53'),
+(772, 'Video Jet Printer', 17, 38, '0~10', '-0.95', '7', '-0.60', '7', 3000, '0.1', '200', '02 Gauges one Vacuum and One Pressure 7 bar.', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:22:23'),
+(773, 'Pressure Meter', 17, 1, '0~20', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 17:37:42', NULL, '2021-06-15 17:37:42'),
+(774, 'Pressure Gauge', 17, 1, '0~100', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:46:37', NULL, '2021-06-15 03:46:37'),
+(775, 'Vacuum Gauge', 17, 38, '0~-1', '-0.95', '0', '-0.60', '0', 1500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:10:35'),
+(776, 'Pressure Gauge Accuracy Class > 0.6 %', 17, 38, '0~14', '0', '200', '0', '200', 1500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:13:12'),
+(777, 'Vacuum Pump', 17, 1, '0~-1', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 22:10:49', NULL, '2021-06-15 22:10:49'),
+(778, 'Pressure Gauge', 17, 1, '0~2.4', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:46:26', NULL, '2021-06-15 03:46:26'),
+(779, 'Pressure Gauge', 17, 1, '0~16', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 03:46:16', NULL, '2021-06-15 03:46:16'),
+(780, 'Leak Test Apparatus', 17, 38, '0~-1', '0', '-1.0', '0', '-0.6', 2500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:03:21'),
+(781, 'Pressure Gauge', 17, 1, '0~345', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 03:46:49', NULL, '2021-06-15 03:46:49'),
+(782, 'Pressure Gauge', 17, 1, '0~1100', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:45:24', NULL, '2021-06-15 03:45:24'),
+(783, 'Pressure Gauge Compound Accuracy Class > 0.6 %', 17, 38, '0~1034', '-0.95', '20', '-0.6', '20', 1500, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:09:19'),
+(784, 'Pressure Transmitter', 17, 38, '0~10', '0', '700', '0', '700', 6000, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:21:08'),
+(785, 'Pressure Sensor', 17, 38, '930~1050', '0', '200', '0', '200', 5000, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:19:20'),
+(786, 'Differential Pressure Sensor', 17, 38, '0~5', '0', '7', '0', '7', 2000, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:51:50'),
+(787, 'Test Pressure Gauge', 17, 1, '0~1.6', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 21:08:21', NULL, '2021-06-15 21:08:21'),
+(788, 'Test Pressure Gauge', 17, 1, '0~10', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 21:08:40', NULL, '2021-06-15 21:08:40'),
+(789, 'Test Pressure Gauge', 17, 1, '0~25', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 21:08:49', NULL, '2021-06-15 21:08:49'),
+(790, 'Test Pressure Gauge', 17, 1, '0~60', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 21:08:31', NULL, '2021-06-15 21:08:31'),
+(791, 'Test Pressure Gauge', 17, 1, '0~100', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 03:46:06', NULL, '2021-06-15 03:46:06'),
+(792, 'Test Pressure Gauge', 17, 1, '0~250', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 21:08:10', NULL, '2021-06-15 21:08:10'),
+(793, 'Test Pressure Gauge', 17, 1, '0~400', '0', '0', NULL, NULL, 5000, '0.1', 'Kg/cm2', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 21:07:52', NULL, '2021-06-15 21:07:52'),
+(794, 'Pressure Gauge', 17, 1, '0~700', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:47:01', NULL, '2021-06-15 03:47:01'),
+(795, 'Pressure Relief Valve < 6\" Flange Size', 17, 76, '10', '0', '300', NULL, NULL, 4500, '0.1', '200', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 17:18:17'),
+(796, 'Weight Indicator', 17, 1, '0~1000', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 22:41:32', NULL, '2021-06-15 22:41:32'),
+(797, 'Pressure Gauge', 17, 1, '0~1200', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 03:47:23', NULL, '2021-06-15 03:47:23');
 INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `min_range`, `max_range`, `accredited_min_range`, `accredited_max_range`, `price`, `accuracy`, `unit`, `remarks`, `location`, `accredited`, `calculator`, `is_group`, `group_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(833, 'Refrectometer', 22, 1, '0~1.333', '0', '0', NULL, NULL, 4000, '0.1', 'Ratio', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(834, 'Refrectometer', 22, 1, '5% to 26%', '0', '0', NULL, NULL, 0, '0.1', '% Brix', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(835, 'Hygrometer Whirling', 23, 1, '20~70', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(836, 'Hygrometer Graph', 23, 1, '20~70', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(837, 'Dew Point Meter', 23, 1, '20~70', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(798, 'Air Compressor', 17, 1, '12', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 02:37:31', NULL, '2021-06-14 02:37:31'),
+(799, 'Pressure Gauge', 17, 1, '0~250', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 03:47:36', NULL, '2021-06-15 03:47:36'),
+(800, 'Pressure Gauge', 17, 1, '0~1', '0', '0', NULL, NULL, 5000, '0.1', 'bar', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:47:14', NULL, '2021-06-15 03:47:14'),
+(801, 'Flow Transmitter DP Only', 17, 38, '0~4000', '0', '700', '0', '700', 6000, '0.1', '202', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:56:31'),
+(802, 'Tyre Pressure Gauge', 17, 38, '0~150', '0', '250', '0', '250', 2000, '0.1', '200', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:18:16'),
+(803, 'BP Apparatus', 17, 38, '0~300', '0', '350', '0', '350', 2500, '0.1', '205', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:46:15'),
+(804, 'Digital BP Apparatus', 17, 1, '0~210', '0', '0', NULL, NULL, 5000, '0.1', 'mmHg', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 20:11:51', NULL, '2021-06-14 20:11:51'),
+(805, 'pH Meter', 18, 1, '4~10', '0', '0', NULL, NULL, 4000, '0.1', 'pH', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 00:02:59', NULL, '2021-06-14 00:02:59'),
+(806, 'ORP / mV Meter', 18, 20, '470', '470', '470', NULL, NULL, 4000, '0.1', '187', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 03:06:55'),
+(807, 'Photometer', 19, 1, '40', '0', '0', NULL, NULL, 3000, '0.1', 'HRC', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:29:43', NULL, '2021-06-15 03:29:43'),
+(808, 'Spectrophotometer UV/Vis', 19, 1, '0~100', '0', '0', NULL, NULL, 4000, '0.1', 'D', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 20:52:59', NULL, '2021-06-15 20:52:59'),
+(809, 'Colori Meter', 19, 1, '0~100', '0', '0', NULL, NULL, 4000, '0.1', 'D', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 19:04:41', NULL, '2021-06-14 19:04:41'),
+(810, 'Flame Photometer (Sodium & Potassium Ion)', 38, 25, '5~15', '0', '50', NULL, NULL, 5000, '0.1', '115', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:52:21'),
+(811, 'Whitness Meter', 19, 1, '5~16', '0', '0', NULL, NULL, 4000, '0.1', 'ppm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 22:47:37', NULL, '2021-06-15 22:47:37'),
+(812, 'Gloss Meter', 88, 67, '5~17', '0', '100', NULL, NULL, 3000, '0.1', '192', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 00:53:54'),
+(813, 'Tintometer', 19, 1, '5~18', '0', '0', NULL, NULL, 4000, '0.1', 'ppm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 21:21:12', NULL, '2021-06-15 21:21:12'),
+(814, 'Multiparameter Bench Photometer', 19, 1, '5~18', '0', '0', NULL, NULL, 4000, '0.1', '', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 03:06:10', NULL, '2021-06-15 03:06:10'),
+(815, 'Polarimeter', 20, 22, '-180? to 180?', '6', '18', NULL, NULL, 4000, '0.1', '197', '10, 15, 20 & 26 % Brix Solution will be used for traceability.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 03:45:04'),
+(816, 'Polarimeter', 20, 1, '0 to 180?', '0', '0', NULL, NULL, 4000, '0.1', 'Deg Optical Rotation', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 03:43:34', NULL, '2021-06-15 03:43:34'),
+(817, 'Polarimeter', 20, 1, '20 to 30', '0', '0', NULL, NULL, 4000, '0.1', '?C', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:43:56', NULL, '2021-06-15 03:43:56'),
+(818, 'Tachometer Optical', 21, 1, '0.1~99999', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 20:59:05', NULL, '2021-06-15 20:59:05'),
+(819, 'Tachometer Contact Type', 21, 9, '0.1~10000', '0', '5000', '0', '5000', 3000, '0.1', '48', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 20:59:55'),
+(820, 'Stroboscope', 21, 9, '0.1~99999', '0', '99999', '0', '99999', 2500, '0.1', '48', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 20:56:46'),
+(821, 'Tachometer Reed ', 21, 1, '1~300', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 21:00:41', NULL, '2021-06-15 21:00:41'),
+(822, 'Centrifuge Machine', 21, 1, '0.1~5000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 18:46:34', NULL, '2021-06-14 18:46:34'),
+(823, 'Motor', 21, 1, '0.1~10000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:00:56', NULL, '2021-06-15 03:00:56'),
+(824, 'Batch Counter', 2, 67, '10~100', '0', '2500', NULL, NULL, 2500, '0.1', '60', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:52:52'),
+(825, 'Cube Mixer', 21, 9, '6~16', '10', '20', '10', '20', 2000, '0.1', '48', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:12:47'),
+(826, 'Oscillating Granulator', 21, 9, '10~60', '30', '100', '30', '100', 2500, '0.1', '48', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 03:17:29'),
+(827, 'Cursher Machine', 21, 9, '500~3600', '350', '3650', '350', '3650', 2500, '0.1', '48', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:14:24'),
+(828, 'Vortex Mixer', 21, 9, '100~3000', '100', '3000', '100', '3000', 2500, '0.1', '48', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:34:31'),
+(829, 'Centrigugal Machine', 21, 1, '500~5000', '0', '0', NULL, NULL, 2500, '0.1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 18:47:06', NULL, '2021-06-14 18:47:06'),
+(830, 'Optical Tachometer', 21, 9, '50~30000', '1', '99999', '1', '99999', 2500, '0.1', '48', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 03:15:14'),
+(831, 'Hydro Spinner', 21, 9, '100~750', '500', '500', '500', '500', 2500, '0.1', '48', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:04:19'),
+(832, 'Digital Inductive Timing Light', 21, 9, '100~6000', '0', '100000', '0', '100000', 3000, '0.1', '48', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:13:00'),
+(833, 'Refrectometer', 22, 23, '0~1.333', '1.0', '1.120', NULL, NULL, 4000, '0.1', '98', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:43:58'),
+(834, 'Refrectometer', 22, 1, '5% to 26%', '0', '0', NULL, NULL, 0, '0.1', '% Brix', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 19:40:38', NULL, '2021-06-15 19:40:38'),
+(835, 'Hygrometer Whirling', 23, 1, '20~70', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:06:35', NULL, '2021-06-15 02:06:35'),
+(836, 'Hygrometer Graph', 23, 1, '20~70', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 02:05:34', NULL, '2021-06-15 02:05:34'),
+(837, 'Dew Point Meter', 23, 1, '20~70', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 19:25:49', NULL, '2021-06-14 19:25:49'),
 (838, 'Stability Chambers', 23, 1, '20~70', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 01:21:29', NULL, '2021-06-14 01:21:29'),
-(839, 'Dry Wet Hygrometer', 23, 1, '20~70', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(840, 'Whirling Psychrometer', 23, 1, '1~60', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(841, 'Density Meters', 24, 1, '1~1000', '0', '0', NULL, NULL, 1500, '0.1', 'KG/CM3', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(842, 'Hydrometers', 24, 1, '0.60~1.50', '0', '0', NULL, NULL, 2500, '0.1', 'Ratio', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(839, 'Dry Wet Hygrometer', 23, 41, '20~70', '20', '70', '20', '70', 3000, '0.1', '99', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:42:28'),
+(840, 'Whirling Psychrometer', 23, 1, '1~60', '0', '0', NULL, NULL, 2000, '0.1', '%RH', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 22:44:01', NULL, '2021-06-15 22:44:01'),
+(841, 'Density Meters', 24, 1, '1~1000', '0', '0', NULL, NULL, 1500, '0.1', 'KG/CM3', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 19:24:44', NULL, '2021-06-14 19:24:44'),
+(842, 'Hydrometers', 24, 1, '0.60~1.50', '0', '0', NULL, NULL, 2500, '0.1', 'Ratio', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 01:23:40', NULL, '2021-06-15 01:23:40'),
 (843, 'Baum Hydro Meter', 24, 19, '0~70', '0.8', '1.2', NULL, NULL, 2500, '0.1', '100', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:03:01'),
-(844, 'Hydrometer', 24, 1, '0.7~1', '0', '0', NULL, NULL, 2500, '0.1', 'g/mL', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(845, 'Fluid Density Balance', 24, 1, '6~22', '0', '0', NULL, NULL, 2500, '0.1', 'lb/gal', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(846, 'Hydrometer', 24, 1, '0.5~1.2', '0', '0', NULL, NULL, 2500, '0.1', 'g/mL', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(847, 'Hydrometer', 24, 1, '1.0~1.2', '0', '0', NULL, NULL, 2500, '0.1', 'g/mL', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(848, 'Odometer', 25, 1, '0.1~220', '0', '0', NULL, NULL, 2500, '0.1', 'kM/H', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(849, 'Speed Gun', 25, 1, '0.1~220', '0', '0', NULL, NULL, 2500, '0.1', 'kM/H', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(850, 'Air Speed Indicator via Pitot Static Pressure', 17, 38, '0.1~750', '0', '10', '0', '10', 4500, '0.1', '6', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:44:15'),
-(851, 'Wind Speed', 25, 1, '0.1~20', '0', '0', NULL, NULL, 2500, '0.1', 'm/Sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
+(844, 'Hydrometer', 24, 1, '0.7~1', '0', '0', NULL, NULL, 2500, '0.1', 'g/mL', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 01:23:30', NULL, '2021-06-15 01:23:30'),
+(845, 'Fluid Density Balance', 24, 1, '6~22', '0', '0', NULL, NULL, 2500, '0.1', 'lb/gal', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 20:57:25', NULL, '2021-06-14 20:57:25'),
+(846, 'Hydrometer', 24, 1, '0.5~1.2', '0', '0', NULL, NULL, 2500, '0.1', 'g/mL', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 01:23:16', NULL, '2021-06-15 01:23:16'),
+(847, 'Hydrometer', 24, 19, '1.0~1.2', '0.3', '1.5', NULL, NULL, 2500, '0.1', '100', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 01:14:24'),
+(848, 'Odometer', 80, 67, '0.1~220', '0', '260', NULL, NULL, 2500, '0.1', '194', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 03:14:00'),
+(849, 'Speed Gun', 80, 67, '0.1~220', '0', '260', NULL, NULL, 3000, '0.1', '194', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 20:54:15'),
+(850, 'Air Speed Indicator via Pitot Static Pressure', 17, 38, '0.1~750', '0', '0.7', '0', '0.7', 3000, '0.1', '200', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-16 16:30:41'),
+(851, 'Wind Speed', 25, 1, '0.1~20', '0', '0', NULL, NULL, 2500, '0.1', 'm/Sec', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 22:44:50', NULL, '2021-06-15 22:44:50'),
 (852, 'Anemometer Vane', 25, 1, '0.1~20', '0', '0', NULL, NULL, 2500, '0.1', 'm/Sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-14 02:46:11', NULL, '2021-06-14 02:46:11'),
 (853, 'Anemometer Hot Wire', 25, 1, '0.1~20', '0', '0', NULL, NULL, 2500, '0.1', 'm/Sec', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 02:45:19', NULL, '2021-06-14 02:45:19'),
-(854, 'Hot Wire Anemometer', 25, 1, '0.1~20', '0', '0', NULL, NULL, 0, '0.1', 'm/Sec', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(855, 'Sound Level Meter', 26, 1, '20~114', '0', '0', NULL, NULL, 2500, '0.1', 'dB', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(856, 'Sound Level Calibrator', 26, 1, '20~114', '0', '0', NULL, NULL, 2500, '0.1', 'dB', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(857, 'Noise Survey', 26, 1, '20~114', '0', '0', NULL, NULL, 2500, '0.1', 'dB', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(858, 'Liquid in Glass Thermometer', 27, 1, '-20~400', '0', '0', NULL, NULL, 2500, '0.1', '?C', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(859, 'Thermometer Mechanical', 27, 1, '-20~650', '0', '0', NULL, NULL, 2500, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(860, 'Thermal Resistance Detector', 27, 1, '-20~650', '0', '0', NULL, NULL, 4000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(861, 'Thermcouple J, K, T', 27, 1, '-20~650', '0', '0', NULL, NULL, 4000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(862, 'Thermcouple R & S', 27, 1, '300~1700', '0', '0', NULL, NULL, 8500, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(863, 'Digital Thermometer', 27, 1, '-20~650', '0', '0', NULL, NULL, 6000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(864, 'IR Thermometer', 27, 1, '-20~650', '0', '0', NULL, NULL, 4500, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(865, 'IR Thermometer High Range', 27, 1, '300~2500', '0', '0', NULL, NULL, 8000, '0.1', '?C', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(866, 'Temperature Controller', 27, 1, '-200~1200', '0', '0', NULL, NULL, 4500, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(867, 'Chart Recorder 2 Pen', 27, 1, '-20~650', '0', '0', NULL, NULL, 6000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(868, 'Chart Recorder 6 Pen', 27, 1, '-20~650', '0', '0', NULL, NULL, 10000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(869, 'Chart Recorder 12 Pen', 27, 1, '-20~650', '0', '0', NULL, NULL, 15000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(870, 'Data Logger 2 Channel', 27, 1, '-20~650', '0', '0', NULL, NULL, 6000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(871, 'Data Logger 6 Channel', 27, 1, '-20~650', '0', '0', NULL, NULL, 10000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(872, 'Data Logger 12 Channel', 27, 1, '-20~650', '0', '0', NULL, NULL, 15000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(873, 'Thermohygrometer', 27, 1, '-20 ~ 50', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-11-26 16:33:23'),
-(874, 'Data Logger', 27, 1, '-20 ~ 50         ', '0', '0', NULL, NULL, 3000, '0.1', '?C                         ', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(854, 'Hot Wire Anemometer', 25, 1, '0.1~20', '0', '0', NULL, NULL, 0, '0.1', 'm/Sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 01:04:06', NULL, '2021-06-15 01:04:06'),
+(855, 'Sound Level Meter', 26, 18, '20~114', '114', '114', NULL, NULL, 2500, '0.1', '47', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 20:49:59'),
+(856, 'Sound Level Calibrator', 26, 1, '20~114', '0', '0', NULL, NULL, 2500, '0.1', 'dB', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 20:11:32', NULL, '2021-06-15 20:11:32'),
+(857, 'Noise Survey', 26, 1, '20~114', '0', '0', NULL, NULL, 2500, '0.1', 'dB', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:07:58', NULL, '2021-06-15 03:07:58'),
+(858, 'Liquid in Glass Thermometer', 27, 41, '-20~400', '-20', '400', '-10', '350', 2000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:54:36'),
+(859, 'Thermometer Mechanical', 27, 1, '-20~650', '0', '0', NULL, NULL, 2500, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 19:34:07', NULL, '2021-06-14 19:34:07'),
+(860, 'Thermal Resistance Detector', 27, 1, '-20~650', '0', '0', NULL, NULL, 4000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 21:17:05', NULL, '2021-06-15 21:17:05'),
+(861, 'Thermcouple J, K, T', 27, 1, '-20~650', '0', '0', NULL, NULL, 4000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 21:17:17', NULL, '2021-06-15 21:17:17'),
+(862, 'Thermocouple Sensor J, K & T', 27, 40, '300~1700', '-20', '650', '-20', '650', 4000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:20:17'),
+(863, 'Digital Thermometer', 27, 40, '-20~650', '-20', '650', '-20', '650', 4500, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:44:22'),
+(864, 'IR Thermometer', 27, 44, '-20~650', '25', '500', '50', '500', 4000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:53:08'),
+(865, 'IR Thermometer High Range', 27, 1, '300~2500', '0', '0', NULL, NULL, 8000, '0.1', '?C', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 19:46:41', NULL, '2021-06-14 19:46:41'),
+(866, 'Temperature Controller', 27, 1, '-200~1200', '0', '0', NULL, NULL, 4500, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 21:16:30', NULL, '2021-06-15 21:16:30'),
+(867, 'Chart Recorder Temperature', 27, 40, '-20~650', '25', '650', '25', '650', 5000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:00:36'),
+(868, 'Chart Recorder 6 Pen Temperature', 27, 40, '-20~650', '25', '650', '25', '650', 12000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:02:19'),
+(869, 'Chart Recorder 12 Pen Temperature', 27, 40, '-20~650', '25', '650', '25', '650', 18000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:03:04'),
+(870, 'Data Logger 2 Channel', 27, 1, '-20~650', '0', '0', NULL, NULL, 6000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 19:16:52', NULL, '2021-06-14 19:16:52'),
+(871, 'Data Logger 6 Channel', 27, 40, '-20~650', '-20', '350', '-20', '350', 10000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:17:36'),
+(872, 'Data Logger 12 Channel', 27, 40, '-20~650', '-20', '350', '-20', '350', 20000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:18:22'),
+(873, 'Thermohygrometer', 27, 1, '-20 ~ 50', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 01:05:44', NULL, '2021-06-15 01:05:44'),
+(874, 'Data Logger Temperature 2 Channel', 27, 40, '-20 ~ 50         ', '-20', '350', '-20', '350', 4000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:16:38'),
 (875, 'Liquid Bath Temperature', 27, 43, '-20~650', '-20', '150', '-20', '95', 4000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:56:00'),
-(876, 'Hot Plate', 27, 1, '-20~650', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(877, 'Dry Block Calibrator', 27, 1, '-20~650', '0', '0', NULL, NULL, 7500, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(876, 'Hot Plate', 27, 1, '-20~650', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 01:03:18', NULL, '2021-06-15 01:03:18'),
+(877, 'Dry Block Calibrator', 27, 4, '-20~650', '-20', '650', '-20', '650', 6500, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:39:56'),
 (878, 'Melting Point Apparatus', 27, 1, '50~300', '0', '0', NULL, NULL, 0, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(879, 'Incubator', 27, 1, '-20~650', '0', '0', NULL, NULL, 6000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(880, 'Oven', 27, 1, '-20~650', '0', '0', NULL, NULL, 6000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(881, 'Furnace', 27, 1, '300~1200', '0', '0', NULL, NULL, 5000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(882, 'Refrigrator', 27, 1, '-20~20', '0', '0', NULL, NULL, 6000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(883, 'Switch', 27, 1, '-20~650', '0', '0', NULL, NULL, 4000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(884, 'Transmitter', 27, 1, '-20~650', '0', '0', NULL, NULL, 6500, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(885, 'Hygrometer Whirling', 27, 1, '0~50', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(886, 'Hygrometer Graph', 27, 1, '0~50', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(887, 'Dew Point Meter', 27, 1, '0~50', '0', '0', NULL, NULL, 3000, '0.1', '55', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-01 04:54:21'),
+(879, 'Incubator Cool Hot & COD', 27, 39, '-20~650', '10', '50', '10', '50', 6000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:11:30'),
+(880, 'Oven Hot Air', 27, 39, '-20~650', '25', '250', '25', '250', 6000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 03:19:09'),
+(881, 'Furnace Hi Temperature', 27, 42, '300~1200', '50', '1100', '50', '1100', 5000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:45:51'),
+(882, 'Refrigerator / Freezer  Temperature mapping', 27, 39, '-20~20', '-20', '20', '-20', '20', 6000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:46:56'),
+(883, 'Temperature Switch', 27, 67, '-20~650', '25', '350', '25', '350', 4000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 20:58:44'),
+(884, 'Transmitter', 27, 1, '-20~650', '0', '0', NULL, NULL, 6500, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 21:34:57', NULL, '2021-06-15 21:34:57'),
+(885, 'Hygrometer Whirling', 27, 1, '0~50', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:06:18', NULL, '2021-06-15 02:06:18'),
+(886, 'Hygrometer Graph', 27, 1, '0~50', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 02:06:02', NULL, '2021-06-15 02:06:02'),
+(887, 'Dew Point Meter', 27, 40, '0~50', '0', '30', '0', '30', 3000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:26:38'),
 (888, 'Water Bath', 27, 1, '30~95', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 02:53:57', NULL, '2021-06-14 02:53:57'),
-(889, 'Dry Heat Sterlizer', 27, 1, '100~300', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(889, 'Dry Heat Sterlizer', 27, 39, '100~300', '50', '250', '50', '250', 7000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:41:33'),
 (890, 'BOD Incubator', 27, 1, '20~40', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 03:13:00', NULL, '2021-06-14 03:13:00'),
-(891, 'Vissichiller Refrigerator', 27, 1, '2~8', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(891, 'Vissichiller Refrigerator', 27, 1, '2~8', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:22:43', NULL, '2021-06-15 22:22:43'),
 (892, 'Liquid Bath Rotary Evaporator', 27, 43, '40~60', '40', '90', '40', '90', 4000, '0.1', '1', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:58:02'),
-(893, 'Digestor', 27, 1, '50~500', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(894, 'Dry Block Heater', 27, 1, '40~100', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(895, 'Electric Furnace', 27, 1, '300~1000', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(896, 'Dry & Wet Thermometer', 27, 1, '15~50', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(897, 'Dry Block Calibrator', 27, 1, '50~350', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(898, 'Temperature Gauge', 27, 1, '0~200', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(899, 'RTD', 27, 1, '20~100', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(893, 'Digestor', 27, 1, '50~500', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 20:07:47', NULL, '2021-06-14 20:07:47'),
+(894, 'Dry Block Heater', 27, 1, '40~100', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 20:38:47', NULL, '2021-06-14 20:38:47'),
+(895, 'Electric Furnace', 27, 1, '300~1000', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 20:44:19', NULL, '2021-06-14 20:44:19'),
+(896, 'Dry & Wet Thermometer', 27, 41, '15~50', '10', '50', '10', '50', 3000, '0.1', '171', '02 Thermometer one for Dry and one for Wet.', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:51:08'),
+(897, 'Dry Block Calibrator', 27, 1, '50~350', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 20:39:01', NULL, '2021-06-14 20:39:01'),
+(898, 'Temperature Gauge', 27, 6, '0~200', '-20', '650', '-20', '650', 2500, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:32:06'),
+(899, 'RTD Sensor PT100 Type', 27, 38, '20~100', '-20', '650', '-20', '650', 4000, '0.1', '171', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 19:52:29'),
 (900, 'AutoClave Sensors', 27, 1, '100~130', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 00:57:43', NULL, '2021-06-14 00:57:43'),
 (901, 'Water Bath', 27, 1, '30~105', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 02:53:41', NULL, '2021-06-14 02:53:41'),
 (902, 'Melt Flow Index', 27, 1, 'Amb~200', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(903, 'RTD Calibrator', 27, 1, '-20~300', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(903, 'RTD Calibrator', 27, 1, '-20~300', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 19:52:47', NULL, '2021-06-15 19:52:47'),
 (904, 'Air Aging Oven', 27, 1, '50~150', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 02:37:17', NULL, '2021-06-14 02:37:17'),
-(905, 'Heavy Duty Oven', 27, 1, '50~200', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(905, 'Heavy Duty Oven', 27, 1, '50~200', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 01:00:55', NULL, '2021-06-15 01:00:55'),
 (906, 'Caravell Chiller', 27, 39, '2~8', '4', '4', '4', '4', 6000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:27:48'),
-(907, 'Dry Block Calibrator', 27, 1, '35~650', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(908, 'Thermocouples Measurement & Source', 27, 1, '-200~1600', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(909, 'Filled System Dial Thermometer', 27, 1, '0~600', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(910, 'Filled System Dial Thermometer', 27, 1, '0~350', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(911, 'Filled System Dial Thermometer', 27, 1, '0~500', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(912, 'Hot Plate', 27, 1, '50~350', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(913, 'Dial Thermometer', 27, 1, '0~600', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(907, 'Dry Block Calibrator', 27, 1, '35~650', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 20:38:30', NULL, '2021-06-14 20:38:30'),
+(908, 'Thermocouples Measurement & Source', 27, 1, '-200~1600', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 21:18:15', NULL, '2021-06-15 21:18:15'),
+(909, 'Filled System Dial Thermometer', 27, 1, '0~600', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 19:35:11', NULL, '2021-06-14 19:35:11'),
+(910, 'Filled System Dial Thermometer', 27, 1, '0~350', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-14 19:33:11', NULL, '2021-06-14 19:33:11'),
+(911, 'Filled System Dial Thermometer', 27, 1, '0~500', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 19:33:24', NULL, '2021-06-14 19:33:24'),
+(912, 'Hot Plate with Magnetic Stirrer', 27, 67, '50~350', '25', '250', '25', '250', 3000, '0.1', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:33:38'),
+(913, 'Dial Thermometer', 27, 1, '0~600', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 19:33:51', NULL, '2021-06-14 19:33:51'),
 (914, 'Melting Point Apparatus', 27, 1, '50~300', '0', '0', NULL, NULL, 3000, '0.1', '?C', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(915, 'Watch', 28, 1, '1~10', '0', '0', NULL, NULL, 2500, '0.1', 'Nm', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(916, 'Screw Driver', 28, 1, '1~20', '0', '0', NULL, NULL, 3000, '0.1', 'Nm', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(917, 'Wrenches', 28, 1, '10~100', '0', '0', NULL, NULL, 3500, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(918, 'Wrenches', 28, 1, '30~300', '0', '0', NULL, NULL, 4500, '0.1', 'Nm', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(919, 'Wrenches', 28, 1, '300~600', '0', '0', NULL, NULL, 5000, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(920, 'Wrenches', 28, 1, '600~1200', '0', '0', NULL, NULL, 6000, '0.1', 'Nm', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(921, 'Indicator/Meter', 28, 1, '10~100', '0', '0', NULL, NULL, 4000, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(922, 'Tong Gauge', 28, 1, '200~20000', '0', '0', NULL, NULL, 10000, '0.1', 'Ft/Lbs', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(923, 'Torque Wrench Testers', 28, 1, '10~400', '0', '0', NULL, NULL, 7500, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(924, 'Torque Wrench Testers', 28, 1, '30~1500', '0', '0', NULL, NULL, 12000, '0.1', 'Nm', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(915, 'Watch', 28, 1, '1~10', '0', '0', NULL, NULL, 2500, '0.1', 'Nm', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 22:40:29', NULL, '2021-06-15 22:40:29'),
+(916, 'Screw Driver', 28, 1, '1~20', '0', '0', NULL, NULL, 3000, '0.1', 'Nm', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 19:59:46', NULL, '2021-06-15 19:59:46'),
+(917, 'Wrenches', 28, 1, '10~100', '0', '0', NULL, NULL, 3500, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-16 00:18:17', NULL, '2021-06-16 00:18:17'),
+(918, 'Wrenches', 28, 1, '30~300', '0', '0', NULL, NULL, 4500, '0.1', 'Nm', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-16 00:18:04', NULL, '2021-06-16 00:18:04'),
+(919, 'Wrenches', 28, 1, '300~600', '0', '0', NULL, NULL, 5000, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-16 00:17:45', NULL, '2021-06-16 00:17:45'),
+(920, 'Wrenches', 28, 1, '600~1200', '0', '0', NULL, NULL, 6000, '0.1', 'Nm', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-16 00:17:54', NULL, '2021-06-16 00:17:54'),
+(921, 'Indicator/Meter', 28, 1, '10~100', '0', '0', NULL, NULL, 4000, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 02:12:27', NULL, '2021-06-15 02:12:27'),
+(922, 'Tong Gauge', 6, 64, '200~20000', '0', '60000', NULL, NULL, 12000, '0.1', '78', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:25:10'),
+(923, 'Torque Wrench Testers < 301 Nm', 28, 67, '10~400', '0', '300', NULL, NULL, 6000, '0.1', '160', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:32:25'),
+(924, 'Torque Wrench Testers < 1001 Nm', 28, 67, '30~1500', '0', '1000', NULL, NULL, 10000, '0.1', '160', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:33:26'),
 (925, 'Torque Testers for Bottle Cap', 28, 3, '5~25', '1', '5', NULL, NULL, 4000, '0.1', '160', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:15:36'),
-(926, 'Torque Wrench', 28, 1, '8~55', '0', '0', NULL, NULL, 12000, '0.1', 'Nm', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(927, 'Torque Wrench', 28, 1, '20~100', '0', '0', NULL, NULL, 12000, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(928, 'Torque Wrench', 28, 1, '80~400', '0', '0', NULL, NULL, 12000, '0.1', 'Nm', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(929, 'Torque Wrench', 28, 1, '160~800', '0', '0', NULL, NULL, 12000, '0.1', 'Nm', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(930, 'Timer', 29, 1, '0~300', '0', '0', NULL, NULL, 800, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(931, 'Stop Watch', 29, 1, '0~600', '0', '0', NULL, NULL, 1000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(932, 'Master Timer', 29, 1, '0~3600', '0', '0', NULL, NULL, 0, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(933, 'Turbidity Meter', 30, 1, '0~2000', '0', '0', NULL, NULL, 8500, '0.1', 'NTU', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(934, 'Turbidity Meter', 30, 1, '0~200', '0', '0', NULL, NULL, 8500, '0.1', 'NTU', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(935, 'Flask', 31, 1, '10~1000', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(926, 'Torque Wrench < 1501 Nm', 28, 3, '8~55', '0', '1500 Nm', NULL, NULL, 6000, '0.1', '160', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:33:42'),
+(927, 'Torque Wrench < 601 Nm', 28, 3, '20~100', '0', '600', NULL, NULL, 4500, '0.1', '160', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:34:09'),
+(928, 'Torque Wrench < 251 Nm', 28, 3, '80~400', '0', '250', NULL, NULL, 4000, '0.1', '160', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:34:21'),
+(929, 'Torque Wrench < 1001 Nm', 28, 3, '160~800', '0', '1000', NULL, NULL, 5000, '0.1', '160', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 21:33:56'),
+(930, 'Timer', 29, 1, '0~300', '0', '0', NULL, NULL, 800, '0.1', 'sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 02:48:15', NULL, '2021-06-15 02:48:15'),
+(931, 'Stop Watch', 29, 1, '0~600', '0', '0', NULL, NULL, 1000, '0.1', 'sec', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 20:48:28', NULL, '2021-06-15 20:48:28'),
+(932, 'Stop Watch / Timer', 86, 60, '0~3600', '0', '3600', '0', '3600', 1500, '0.1', '132', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:48:05'),
+(933, 'Turbidity Meter', 30, 1, '0~2000', '0', '0', NULL, NULL, 8500, '0.1', 'NTU', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 22:08:36', NULL, '2021-06-15 22:08:36'),
+(934, 'Turbidity Meter', 30, 67, '0~200', '0', '500', '0', '500', 7000, '0.1', '131', '0, 10 & 500 NTU available.', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:08:24'),
+(935, 'Volumetric Flask', 85, 62, '10~1000', '5', '1000', '5', '1000', 1250, '0.1', '153', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:55:38'),
 (936, 'Measuring Cylinders', 31, 1, '10~1000', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
 (937, 'Measuring Cylinders', 31, 1, '10~2000', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
 (938, 'Volume Beakers', 31, 62, '10~1000', '5', '1000', '5', '1000', 1000, '0.1', '63', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 03:06:49'),
-(939, 'Density Bottles', 31, 1, '1~100', '0', '0', NULL, NULL, 1000, '0.1', 'mL/g', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(940, 'Picnometers', 31, 1, '1~100', '0', '0', NULL, NULL, 1000, '0.1', 'mL/g', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(941, 'Micro Pipette', 31, 1, '0~1000', '0', '0', NULL, NULL, 2500, '0.1', '?L', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(942, 'Glass Pipettes', 31, 1, '0~100', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(943, 'Glass Burettes', 31, 1, '0~100', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(939, 'Density Bottles', 85, 62, '1~100', '25', '25', '25', '25', 1500, '0.1', '153', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 19:23:28'),
+(940, 'Picnometers', 31, 1, '1~100', '0', '0', NULL, NULL, 1000, '0.1', 'mL/g', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:30:42', NULL, '2021-06-15 03:30:42'),
+(941, 'Micro Pipette', 85, 73, '0~1000', '0.01', '1000', NULL, NULL, 2000, '0.1', '154', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 02:59:21'),
+(942, 'Glass Pipettes', 31, 1, '0~100', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 00:39:09', NULL, '2021-06-15 00:39:09'),
+(943, 'Glass Burettes', 31, 62, '0~100', '0', '50', '0', '50', 2000, '0.1', '63', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 23:12:18'),
 (944, 'Auto Dispensor', 31, 62, '0~100', '0', '50', '0', '50', 2000, '0.1', '63', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:47:30'),
-(945, 'Fuel Dispensor', 31, 1, '1~50', '0', '0', NULL, NULL, 6000, '0.1', 'Litre', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(946, 'Mixing Vessels', 31, 1, '50~400', '0', '0', NULL, NULL, 6000, '0.1', 'Litre', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(947, 'Volume Syringe', 31, 1, '1~5', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(945, 'Fuel Dispensor', 31, 1, '1~50', '0', '0', NULL, NULL, 6000, '0.1', 'Litre', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-14 21:11:06', NULL, '2021-06-14 21:11:06'),
+(946, 'Mixing Vessels', 31, 1, '50~400', '0', '0', NULL, NULL, 6000, '0.1', 'Litre', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 03:00:41', NULL, '2021-06-15 03:00:41'),
+(947, 'Volume Syringe', 85, 62, '1~5', '1', '25', '1', '25', 1500, '0.1', '153', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:33:01'),
 (948, 'Auto Measure', 31, 62, '1', '1', '10', '1', '10', 1500, '0.1', '63', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 02:49:10'),
-(949, 'Pipettor', 31, 1, '100~1000', '0', '0', NULL, NULL, 6000, '0.1', '?L', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(950, 'Picnometer', 31, 1, '100', '0', '0', NULL, NULL, 6000, '0.1', 'cm3', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(951, 'Fuel Dispensor', 31, 1, '1~5', '0', '0', NULL, NULL, 6000, '0.1', 'Litre', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(952, 'Picnometer', 31, 1, '25', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(953, 'Mixing Vessel', 31, 1, '50~300', '0', '0', NULL, NULL, 6000, '0.1', 'Ltr', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, NULL),
-(954, 'Nassler Cylinder', 31, 1, '100', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
-(955, 'Specific Gravity Bottle', 31, 1, '25', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
+(949, 'Pipettor', 31, 1, '100~1000', '0', '0', NULL, NULL, 6000, '0.1', '?L', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:31:01', NULL, '2021-06-15 03:31:01'),
+(950, 'Picnometer', 31, 1, '100', '0', '0', NULL, NULL, 6000, '0.1', 'cm3', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:30:09', NULL, '2021-06-15 03:30:09'),
+(951, 'Fuel Dispensor', 31, 67, '1~5', '1', '50', '1', '50', 6000, '0.1', '65', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 21:10:54'),
+(952, 'Picnometer', 31, 1, '25', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:30:24', NULL, '2021-06-15 03:30:24'),
+(953, 'Mixing Vessel', 31, 1, '50~300', '0', '0', NULL, NULL, 6000, '0.1', 'Ltr', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 03:00:30', NULL, '2021-06-15 03:00:30'),
+(954, 'Nassler Cylinder', 31, 1, '100', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, '2021-06-15 03:12:52', NULL, '2021-06-15 03:12:52'),
+(955, 'Specific Gravity Bottle', 31, 62, '25', '25', '25', '25', '25', 1500, '0.1', '63', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 20:52:24'),
 (956, 'Measuring Cylinder', 31, 1, '5', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
 (957, 'Measuring Cylinder', 31, 1, '10', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
 (958, 'Measuring Cylinder', 31, 1, '25', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'site', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
@@ -4590,15 +5137,15 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (961, 'Measuring Cylinder', 31, 1, '250', '0', '0', NULL, NULL, 6000, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, NULL),
 (962, 'Measuring Cylinder', 31, 1, '500', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-11-17 16:56:30'),
 (963, 'Measuring Cylinder', 31, 1, '1000', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-11-17 16:55:12'),
-(964, 'Volumetrc Flask', 31, 1, '10', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 08:02:50'),
-(965, 'Volumetrc Flask', 31, 1, '20', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 08:00:09'),
-(966, 'Volumetrc Flask', 31, 1, '25', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 07:56:55'),
-(967, 'Volumetrc Flask', 31, 1, '50', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 07:53:36'),
-(968, 'Volumetrc Flask', 31, 1, '100', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 07:52:32'),
-(969, 'Volumetrc Flask', 31, 1, '250', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 07:44:58'),
-(970, 'Volumetrc Flask', 31, 1, '500', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 07:40:41'),
-(971, 'Volumetrc Flask', 31, 1, '1000', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 07:09:04'),
-(972, 'Volumetrc Flask', 31, 1, '2000', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-11-17 16:58:22'),
+(964, 'Volumetrc Flask', 31, 1, '10', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:28:50', NULL, '2021-06-15 22:28:50'),
+(965, 'Volumetrc Flask', 31, 1, '20', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:28:58', NULL, '2021-06-15 22:28:58'),
+(966, 'Volumetrc Flask', 31, 1, '25', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:28:15', NULL, '2021-06-15 22:28:15'),
+(967, 'Volumetrc Flask', 31, 1, '50', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:27:57', NULL, '2021-06-15 22:27:57'),
+(968, 'Volumetrc Flask', 31, 1, '100', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:28:07', NULL, '2021-06-15 22:28:07'),
+(969, 'Volumetrc Flask', 31, 1, '250', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:28:25', NULL, '2021-06-15 22:28:25'),
+(970, 'Volumetrc Flask', 31, 1, '500', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:29:07', NULL, '2021-06-15 22:29:07'),
+(971, 'Volumetrc Flask', 31, 1, '1000', '0', '0', NULL, NULL, 1200, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:29:16', NULL, '2021-06-15 22:29:16'),
+(972, 'Volumetrc Flask', 31, 1, '2000', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 22:28:40', NULL, '2021-06-15 22:28:40'),
 (973, 'Measuring Pipette', 31, 1, '1', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 06:46:44'),
 (974, 'Measuring Pipette', 31, 1, '2', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 06:46:12'),
 (975, 'Measuring Pipette', 31, 1, '5', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 06:45:45'),
@@ -4612,35 +5159,38 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (983, 'Bulb Pipette', 31, 1, '20', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 03:20:48', NULL, '2021-06-14 03:20:48'),
 (984, 'Bulb Pipette', 31, 1, '25', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 03:20:20', NULL, '2021-06-14 03:20:20'),
 (985, 'Bulb Pipette', 31, 1, '50', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 03:20:34', NULL, '2021-06-14 03:20:34'),
-(986, 'Micro Pipette', 31, 1, '0~1000', '0', '0', NULL, NULL, 2000, '0.1', 'uL', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, '2020-10-24 06:16:06'),
-(987, 'Digital Auto Dispensor', 31, 1, '100', '0', '0', NULL, NULL, 2000, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 06:11:51'),
-(988, 'Micro Biological Air Sampler', 7, 1, '100 LPM', '0', '0', NULL, NULL, 4000, '0.1', 'LPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, '2020-10-24 06:08:26'),
-(989, 'Digital Titrator', 31, 1, '10', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 06:04:54'),
-(990, 'Specific Gravity Flask', 24, 1, '100', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, NULL, NULL, '2020-10-24 06:02:03'),
-(991, 'Vibration Meter', 32, 1, '200 mm/sec', '0', '0', NULL, NULL, 4000, '0.1', 'mm/sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, '2020-10-24 05:59:28'),
-(992, 'Velocity Pickup', 32, 1, '200 mm/sec', '0', '0', NULL, NULL, 4000, '0.1', 'mm/sec', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, '2020-10-24 05:37:48'),
-(993, 'Sieve Shaker', 32, 1, '25 mm @ 280 RPM', '0', '0', NULL, NULL, 6000, '0.1', 'mm & RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, '2020-10-24 05:32:38'),
-(994, 'Vibrators', 32, 1, '100 mm/Sec', '0', '0', NULL, NULL, 2500, '0.1', 'mm/Sec', 'NA', 'site', 'no', NULL, 0, NULL, NULL, NULL, '2020-10-24 05:25:19'),
-(995, 'Magnetic Stirer', 21, 1, '500', '0', '0', NULL, NULL, 2500, '1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, NULL, NULL, '2020-10-24 05:20:34'),
-(997, 'Coordinate Measuring Machine', 3, 1, '0~1000', '0', '0', NULL, NULL, 10000, '0.05', 'mm', 'Can be calibrated with Gauge Blocks Dim 001 and 25 Sphere Ball', 'site', 'no', NULL, 0, NULL, NULL, '2020-10-11 07:14:12', '2020-10-24 05:13:04'),
+(986, 'Micro Pipette', 31, 1, '0~1000', '0', '0', NULL, NULL, 2000, '0.1', 'uL', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:59:36', NULL, '2021-06-15 02:59:36'),
+(987, 'Digital Auto Dispensor', 31, 1, '100', '0', '0', NULL, NULL, 2000, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-14 20:10:53', NULL, '2021-06-14 20:10:53'),
+(988, 'Micro Biological Air Sampler', 7, 1, '100 LPM', '0', '0', NULL, NULL, 4000, '0.1', 'LPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:50:35', NULL, '2021-06-15 02:50:35'),
+(989, 'Digital Titrator Volumetric', 31, 62, '10', '0.5', '2.5', '1.0', '2.5', 2000, '0.1', '63', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-14 20:36:21'),
+(990, 'Specific Gravity Flask', 24, 1, '100', '0', '0', NULL, NULL, 1500, '0.1', 'mL', 'NA', 'lab', 'yes', NULL, 0, NULL, '2021-06-15 20:52:43', NULL, '2021-06-15 20:52:43'),
+(991, 'Vibration Meter', 32, 67, '200 mm/sec', '0', '200', NULL, NULL, 4000, '0.1', '129', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:13:31'),
+(992, 'Velocity Pickup', 32, 67, '200 mm/sec', '0', '200', NULL, NULL, 4000, '0.1', '129', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 22:12:13'),
+(993, 'Sieve Shaker', 84, 67, '25 mm @ 280 RPM', '0', '3', NULL, NULL, 2000, '0.1', '105', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, NULL, '2021-06-15 20:05:18'),
+(994, 'Vibrators', 32, 1, '100 mm/Sec', '0', '0', NULL, NULL, 2500, '0.1', 'mm/Sec', 'NA', 'site', 'no', NULL, 0, NULL, '2021-06-15 22:13:45', NULL, '2021-06-15 22:13:45'),
+(995, 'Magnetic Stirer', 21, 1, '500', '0', '0', NULL, NULL, 2500, '1', 'RPM', 'NA', 'lab', 'no', NULL, 0, NULL, '2021-06-15 02:36:32', NULL, '2021-06-15 02:36:32'),
+(997, 'Coordinate Measuring Machine', 3, 1, '0~1000', '0', '0', NULL, NULL, 10000, '0.05', 'mm', 'Can be calibrated with Gauge Blocks Dim 001 and 25 Sphere Ball', 'site', 'no', NULL, 0, NULL, '2021-06-14 19:08:40', '2020-10-11 07:14:12', '2021-06-14 19:08:40'),
 (998, 'Air Particle Counter', 7, 1, '0', '0', '0', NULL, NULL, 3000, '3', 'Count', 'Only Zero Calibration with 0 Cal Filter Kit.', 'lab', 'no', NULL, 0, NULL, '2021-06-14 02:37:46', '2020-10-20 08:15:29', '2021-06-14 02:37:46'),
-(999, 'FTIR Spectrophotometer', 19, 1, '0.05~1', '0', '0', NULL, NULL, 8000, '0.02', 'Abs', 'Calibration by Polysterene Films', 'site', '', NULL, 0, NULL, NULL, '2020-12-06 17:31:38', '2020-12-06 17:31:38'),
-(1000, 'permea tester', 14, 1, '25~300', '0', '0', NULL, NULL, 3000, '2.5', 'C', 'Bare plate Temperature', 'site', '', NULL, 0, NULL, NULL, '2020-12-31 20:08:06', '2020-12-31 20:08:06'),
-(1001, 'MV Meter', 5, 8, '0~700', '0', '0', NULL, NULL, 3000, '0.1', 'mV', 'can be calibrated with process calibrator E-004', 'lab', 'on', NULL, 0, NULL, NULL, '2021-01-07 18:05:41', '2021-01-07 18:05:41'),
+(999, 'FTIR Spectrophotometer', 19, 1, '0.05~1', '0', '0', NULL, NULL, 8000, '0.02', 'Abs', 'Calibration by Polysterene Films', 'site', '', NULL, 0, NULL, '2021-06-14 21:09:29', '2020-12-06 17:31:38', '2021-06-14 21:09:29'),
+(1000, 'Water Vapor permeability tester Temperature', 27, 39, '25~300', '20', '60', '20', '60', 2000, '2.5 C', '171', 'Bare plate Temperature', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2020-12-31 20:08:06', '2021-06-15 03:29:28'),
+(1001, 'MV Meter', 5, 8, '0~700', '0', '0', NULL, NULL, 3000, '0.1', 'mV', 'can be calibrated with process calibrator E-004', 'lab', 'on', NULL, 0, NULL, '2021-06-15 03:06:32', '2021-01-07 18:05:41', '2021-06-15 03:06:32'),
 (1002, 'LPC', 2, 7, '15~15000', '0', '0', NULL, NULL, 5000, '10', '3', 'nil', 'lab', '', NULL, 0, NULL, NULL, '2021-02-03 16:58:41', '2021-02-03 16:58:41'),
-(1003, 'Gas Chromatograph', 19, 14, '0~100', '0', '0', NULL, NULL, 6000, '1%', '40', 'Can be done with cal gases', 'site', '', NULL, 0, NULL, NULL, '2021-06-02 23:50:55', '2021-06-02 23:50:55'),
-(1004, 'Teflon and Metal Drift', 3, 29, NULL, '3.423', '6.5', '3.423', '6.5', 2000, '0.01 Inch', '62', 'NIL', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-07 19:15:51', '2021-06-07 19:15:51'),
+(1003, 'Gas Chromatograph', 19, 14, '0~100', '0', '0', NULL, NULL, 6000, '1%', '40', 'Can be done with cal gases', 'site', '', NULL, 0, NULL, '2021-06-14 21:16:58', '2021-06-02 23:50:55', '2021-06-14 21:16:58'),
+(1004, 'Teflon and Metal Drift', 81, 29, NULL, '3.423', '6.5', '3.423', '6.5', 2000, '0.01 Inch', '176', 'NIL', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-07 19:15:51', '2021-06-15 21:04:28'),
 (1005, 'Teflon and Metal Drift', 3, 29, NULL, '3.423', '6.5', '3.423', '6.5', 2000, '0.01 Inch', '62', 'NIL', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-07 19:16:20', '2021-06-07 19:16:20'),
 (1006, 'Teflon and Metal Drift', 3, 29, NULL, '8.845', '18.54', '8.845', '18.54', 3000, '0.02 Inch', '62', 'NIL', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-07 19:17:03', '2021-06-07 19:17:03'),
 (1007, 'AATC Perspiration Tester', 14, 0, NULL, '0', '0', '0', '0', 0, '0', '0', '04 Parameters to be calibrated for this tester.', 'site', '--', '0', 1, NULL, NULL, '2021-06-11 20:23:54', '2021-06-11 20:23:54'),
 (1008, 'Viscometer Temperature', 27, 21, NULL, '25', '25', '25', '25', 2500, '0.5', '171', 'Temperature Probe should be calibrated at 25 C.', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-12 18:08:33', '2021-06-12 18:08:33'),
-(1009, 'Random Tumble Pilling Tester Pressure', 17, 38, NULL, '0', '15', '0', '15', 1500, '0.1', '6', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-13 19:19:26', '2021-06-13 19:19:26'),
+(1009, 'Random Tumble Pilling Tester Pressure', 17, 38, NULL, '0', '7', '0', '7', 1000, '0.1', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-13 19:19:26', '2021-06-16 17:21:52'),
 (1010, 'Ozone Test Chamber Temperature', 27, 39, NULL, '5', '70', '5', '70', 2000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-13 19:28:27', '2021-06-13 19:28:27'),
 (1011, 'Ozone Test Chamber Temperature', 23, 39, NULL, '35', '95', NULL, NULL, 2000, '0.1', '99', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-13 19:29:03', '2021-06-13 19:29:03'),
 (1012, 'Pilling Standard Weight', 13, 49, NULL, '2500', '2500', '2500', '2500', 1000, '0.1', '165', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-13 21:17:04', '2021-06-13 21:17:04'),
 (1013, 'Peel Off Strength Speed', 80, 66, NULL, '50', '500', NULL, NULL, 1500, '0.1', '184', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-13 22:38:43', '2021-06-13 22:38:43'),
-(1014, 'Coater China/Thai Air Source and Gun pressure', 17, 38, NULL, '0', '220', '0', '220', 2000, '0.6', '6', '02 Pressure for Compressed Air and Gun.', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-14 01:09:39', '2021-06-14 01:09:39'),
-(1015, 'Liquid Bath Ultrasonic', 27, 43, NULL, '25', '95', '25', '95', 3000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-14 02:59:23', '2021-06-14 02:59:23');
+(1014, 'Coater China/Thai Air Source and Gun pressure', 17, 38, NULL, '0', '15', '0', '15', 2500, '0.6', '200', '02 Pressure for Compressed Air and Gun.', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-14 01:09:39', '2021-06-16 16:49:19'),
+(1015, 'Liquid Bath Ultrasonic', 27, 43, NULL, '25', '95', '25', '95', 3000, '0.1', '171', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-14 02:59:23', '2021-06-14 02:59:23'),
+(1016, 'Disintegration Apparatus', 14, 0, NULL, '0', '0', '0', '0', 0, '0', '0', 'No Remarks', 'site', '--', '0', 1, NULL, NULL, '2021-06-14 21:19:40', '2021-06-14 21:19:40'),
+(1017, 'Pressure Gauge Accuracy Class > 0.6 %', 17, 38, NULL, '0', '700', '0', '700', 2500, '0.1 % FS', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-15 03:58:03', '2021-06-16 17:14:05'),
+(1018, 'Pressure Gauge Accuracy Class > 0.6 %', 17, 38, NULL, '0', '70', '0', '70', 1500, '0.1 % FS', '200', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-15 04:01:01', '2021-06-16 17:11:56');
 
 -- --------------------------------------------------------
 
@@ -4656,6 +5206,11 @@ CREATE TABLE `capabilitiesgroups` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `capabilitiesgroups`
+--
+
+TRUNCATE TABLE `capabilitiesgroups`;
 --
 -- Dumping data for table `capabilitiesgroups`
 --
@@ -4680,6 +5235,11 @@ CREATE TABLE `certificates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `certificates`
+--
+
+TRUNCATE TABLE `certificates`;
+--
 -- Dumping data for table `certificates`
 --
 
@@ -4703,6 +5263,11 @@ CREATE TABLE `clauses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `clauses`
+--
+
+TRUNCATE TABLE `clauses`;
+--
 -- Dumping data for table `clauses`
 --
 
@@ -4723,6 +5288,11 @@ CREATE TABLE `columns` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `columns`
+--
+
+TRUNCATE TABLE `columns`;
 -- --------------------------------------------------------
 
 --
@@ -4738,6 +5308,11 @@ CREATE TABLE `cost_centers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `cost_centers`
+--
+
+TRUNCATE TABLE `cost_centers`;
 -- --------------------------------------------------------
 
 --
@@ -4772,6 +5347,11 @@ CREATE TABLE `customers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `customers`
+--
+
+TRUNCATE TABLE `customers`;
 --
 -- Dumping data for table `customers`
 --
@@ -5060,6 +5640,11 @@ CREATE TABLE `dataentries` (
   `data` longtext COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `dataentries`
+--
+
+TRUNCATE TABLE `dataentries`;
 -- --------------------------------------------------------
 
 --
@@ -5074,6 +5659,11 @@ CREATE TABLE `departments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `departments`
+--
+
+TRUNCATE TABLE `departments`;
 --
 -- Dumping data for table `departments`
 --
@@ -5101,6 +5691,11 @@ CREATE TABLE `designations` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `designations`
+--
+
+TRUNCATE TABLE `designations`;
 --
 -- Dumping data for table `designations`
 --
@@ -5145,6 +5740,11 @@ CREATE TABLE `dialgauge_entries` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `dialgauge_entries`
+--
+
+TRUNCATE TABLE `dialgauge_entries`;
 -- --------------------------------------------------------
 
 --
@@ -5176,6 +5776,11 @@ CREATE TABLE `empcontracts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `empcontracts`
+--
+
+TRUNCATE TABLE `empcontracts`;
+--
 -- Dumping data for table `empcontracts`
 --
 
@@ -5197,6 +5802,11 @@ CREATE TABLE `expensecategories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `expensecategories`
+--
+
+TRUNCATE TABLE `expensecategories`;
 -- --------------------------------------------------------
 
 --
@@ -5214,6 +5824,11 @@ CREATE TABLE `expenses` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `expenses`
+--
+
+TRUNCATE TABLE `expenses`;
 -- --------------------------------------------------------
 
 --
@@ -5230,6 +5845,11 @@ CREATE TABLE `failed_jobs` (
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `failed_jobs`
+--
+
+TRUNCATE TABLE `failed_jobs`;
 -- --------------------------------------------------------
 
 --
@@ -5251,6 +5871,11 @@ CREATE TABLE `formsandformats` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `formsandformats`
+--
+
+TRUNCATE TABLE `formsandformats`;
 --
 -- Dumping data for table `formsandformats`
 --
@@ -5282,6 +5907,11 @@ CREATE TABLE `generaldataentries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `generaldataentries`
+--
+
+TRUNCATE TABLE `generaldataentries`;
+--
 -- Dumping data for table `generaldataentries`
 --
 
@@ -5304,6 +5934,11 @@ CREATE TABLE `grn` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `grn`
+--
+
+TRUNCATE TABLE `grn`;
 -- --------------------------------------------------------
 
 --
@@ -5321,6 +5956,11 @@ CREATE TABLE `grn_vouchers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `grn_vouchers`
+--
+
+TRUNCATE TABLE `grn_vouchers`;
 -- --------------------------------------------------------
 
 --
@@ -5343,6 +5983,11 @@ CREATE TABLE `incubatordataentries` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `incubatordataentries`
+--
+
+TRUNCATE TABLE `incubatordataentries`;
 -- --------------------------------------------------------
 
 --
@@ -5369,6 +6014,11 @@ CREATE TABLE `incubatormappings` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `incubatormappings`
+--
+
+TRUNCATE TABLE `incubatormappings`;
 -- --------------------------------------------------------
 
 --
@@ -5385,6 +6035,11 @@ CREATE TABLE `intermediatechecksofassets` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `intermediatechecksofassets`
+--
+
+TRUNCATE TABLE `intermediatechecksofassets`;
 -- --------------------------------------------------------
 
 --
@@ -5410,6 +6065,11 @@ CREATE TABLE `inventories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `inventories`
+--
+
+TRUNCATE TABLE `inventories`;
 --
 -- Dumping data for table `inventories`
 --
@@ -5439,6 +6099,11 @@ CREATE TABLE `inventories_quantity` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `inventories_quantity`
+--
+
+TRUNCATE TABLE `inventories_quantity`;
 --
 -- Dumping data for table `inventories_quantity`
 --
@@ -5474,6 +6139,11 @@ CREATE TABLE `inventorycategories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `inventorycategories`
+--
+
+TRUNCATE TABLE `inventorycategories`;
+--
 -- Dumping data for table `inventorycategories`
 --
 
@@ -5507,6 +6177,11 @@ CREATE TABLE `invoices` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `invoices`
+--
+
+TRUNCATE TABLE `invoices`;
+--
 -- Dumping data for table `invoices`
 --
 
@@ -5532,6 +6207,11 @@ CREATE TABLE `invoice_vs_receipts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `invoice_vs_receipts`
+--
+
+TRUNCATE TABLE `invoice_vs_receipts`;
 --
 -- Dumping data for table `invoice_vs_receipts`
 --
@@ -5559,6 +6239,11 @@ CREATE TABLE `inv_payments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `inv_payments`
+--
+
+TRUNCATE TABLE `inv_payments`;
+--
 -- Dumping data for table `inv_payments`
 --
 
@@ -5566,42 +6251,6 @@ INSERT INTO `inv_payments` (`id`, `invoice_id`, `payment_id`, `created_at`, `upd
 (2, 10, 19, '2021-05-25 14:28:29', '2021-05-25 14:28:29'),
 (3, 12, 20, '2021-05-25 14:39:18', '2021-05-25 14:39:18'),
 (4, 13, 21, '2021-05-25 14:41:39', '2021-05-25 14:41:39');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `items`
---
-
-CREATE TABLE `items` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `quote_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `parameter` int(11) NOT NULL,
-  `capability` int(11) NOT NULL,
-  `not_available` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `accredited` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `range` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` int(11) NOT NULL,
-  `unit` int(11) DEFAULT NULL,
-  `quantity` int(11) NOT NULL,
-  `rf_checks` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `rf_reason` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `items`
---
-
-INSERT INTO `items` (`id`, `quote_id`, `status`, `parameter`, `capability`, `not_available`, `location`, `accredited`, `range`, `price`, `unit`, `quantity`, `rf_checks`, `rf_reason`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 17, 746, NULL, 'site', 'yes', '0~250', 2250, NULL, 1, NULL, NULL, NULL, '2021-06-02 23:17:50', '2021-06-03 00:04:27'),
-(2, 1, 0, 18, 805, NULL, 'site', 'yes', '4~10', 3600, NULL, 1, NULL, NULL, NULL, '2021-06-02 23:29:08', '2021-06-03 00:04:27'),
-(3, 1, 2, 19, 1003, NULL, 'site', 'no', '0~100', 5400, NULL, 1, '1,1,1', NULL, NULL, '2021-06-02 23:33:02', '2021-06-03 00:04:27'),
-(4, 1, 3, 0, 0, 'Air Partical Analyzer', 'site', 'no', '0', 0, NULL, 1, '0,0,0', 'Facility Not Available.', NULL, '2021-06-02 23:51:41', '2021-06-02 23:53:03');
 
 -- --------------------------------------------------------
 
@@ -5638,6 +6287,11 @@ CREATE TABLE `jobitems` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `jobitems`
+--
+
+TRUNCATE TABLE `jobitems`;
+--
 -- Dumping data for table `jobitems`
 --
 
@@ -5661,6 +6315,11 @@ CREATE TABLE `jobs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `jobs`
+--
+
+TRUNCATE TABLE `jobs`;
 --
 -- Dumping data for table `jobs`
 --
@@ -5686,6 +6345,11 @@ CREATE TABLE `journals` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `journals`
+--
+
+TRUNCATE TABLE `journals`;
 --
 -- Dumping data for table `journals`
 --
@@ -5715,6 +6379,11 @@ CREATE TABLE `journal_details` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `journal_details`
+--
+
+TRUNCATE TABLE `journal_details`;
 --
 -- Dumping data for table `journal_details`
 --
@@ -5758,6 +6427,11 @@ CREATE TABLE `leave_applications` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `leave_applications`
+--
+
+TRUNCATE TABLE `leave_applications`;
 -- --------------------------------------------------------
 
 --
@@ -5779,6 +6453,11 @@ CREATE TABLE `ligentries` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `ligentries`
+--
+
+TRUNCATE TABLE `ligentries`;
 -- --------------------------------------------------------
 
 --
@@ -5803,6 +6482,11 @@ CREATE TABLE `log_reviews` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `log_reviews`
+--
+
+TRUNCATE TABLE `log_reviews`;
 --
 -- Dumping data for table `log_reviews`
 --
@@ -5848,6 +6532,11 @@ CREATE TABLE `managereferences` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `managereferences`
+--
+
+TRUNCATE TABLE `managereferences`;
 --
 -- Dumping data for table `managereferences`
 --
@@ -6633,6 +7322,11 @@ CREATE TABLE `materialreceivings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `materialreceivings`
+--
+
+TRUNCATE TABLE `materialreceivings`;
+--
 -- Dumping data for table `materialreceivings`
 --
 
@@ -6664,6 +7358,11 @@ CREATE TABLE `menus` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `menus`
+--
+
+TRUNCATE TABLE `menus`;
 --
 -- Dumping data for table `menus`
 --
@@ -6725,7 +7424,7 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `status`, `url`, `position`, 
 (54, 'Update Non-Listed', 'items-update-non-listed', 'fa fa-', 0, '#', 1, '49', 0, NULL, '2020-10-19 01:47:49', '2020-10-19 01:47:49'),
 (55, 'Request Review', 'pending-index', 'fa fa-spinner', 1, 'pendings', 1, '138', 1, NULL, '2020-10-19 01:58:24', '2021-02-03 16:46:08'),
 (56, 'Store Pendings', 'pendings-store', 'fa fa-', 0, '#', 1, '55', 0, NULL, '2020-10-19 02:22:00', '2020-10-19 02:22:00'),
-(57, 'No Facility', 'pendings-no-facility', 'fa fa-', 1, 'no-facility', 3, '138', 1, NULL, '2020-10-19 02:22:42', '2021-02-02 20:13:40'),
+(57, 'No Facility', 'pendings-no-facility', 'fa fa-', 1, 'no-facility', 3, '138', 1, '2021-06-15 23:23:46', '2020-10-19 02:22:42', '2021-06-15 23:23:46'),
 (58, 'All Jobs', 'jobs-index', 'fa fa-tasks', 1, 'jobs', 1, '95', 1, NULL, '2020-10-19 02:59:25', '2020-12-05 03:32:33'),
 (59, 'View Jobs', 'jobs-view', 'fa fa-', 0, '#', 1, '58', 0, NULL, '2020-10-19 03:14:08', '2020-10-19 03:14:08'),
 (60, 'Print Jobform', 'print-jobform', 'fa fa-', 0, '#', 1, '58', 0, NULL, '2020-10-19 03:14:52', '2020-10-19 03:14:52'),
@@ -6734,7 +7433,7 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `status`, `url`, `position`, 
 (65, 'View Scheduling', 'scheduling-view', 'fa fa-', 0, '#', 1, '64', 0, NULL, '2020-10-19 03:58:04', '2020-10-19 03:58:04'),
 (66, 'Assign Lab Task (add)', 'create-lab-task-assign', 'fa fa-', 0, '#', 1, '64', 0, NULL, '2020-10-19 04:14:40', '2020-10-19 04:14:40'),
 (67, 'Assign Lab Task (update)', 'create-lab-task-assign', 'fa fa-', 0, '#', 1, '64', 0, NULL, '2020-10-19 04:15:02', '2020-10-19 04:15:02'),
-(68, 'My Tasks', 'mytask-index', 'feather icon-align-justify', 1, 'mytasks', 7, '93', 0, NULL, '2020-10-19 04:23:07', '2021-06-05 10:22:01'),
+(68, 'My Tasks', 'mytask-index', 'feather icon-align-justify', 1, 'mytasks', 7, NULL, 0, NULL, '2020-10-19 04:23:07', '2021-06-14 10:09:12'),
 (69, 'View My Tasks', 'mytask-view', 'fa fa-', 0, '#', 1, '68', 0, NULL, '2020-10-19 04:35:45', '2020-10-20 02:32:18'),
 (70, 'Start My Task', 'start-mytask', 'fa fa-', 0, '#', 1, '68', 0, NULL, '2020-10-20 02:29:47', '2020-10-20 02:32:56'),
 (71, 'End My Task', 'end-mytask', 'fa fa-', 0, '#', 1, '68', 0, NULL, '2020-10-20 02:30:05', '2020-10-20 02:33:06'),
@@ -6747,7 +7446,7 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `status`, `url`, `position`, 
 (78, 'Invoicing Ledger', 'invoicing-ledger-index', 'fa fa-dollar-sign', 1, 'invoicing-ledger', 1, '97', 1, '2021-06-08 04:12:16', '2020-10-28 07:14:55', '2021-06-08 04:12:16'),
 (80, 'Add Jobs', 'jobs-create', 'fa fa-', 0, '#', 1, '76', 0, NULL, '2020-10-29 02:51:02', '2020-10-29 02:51:02'),
 (81, 'Delete Jobs', 'jobs-delete', 'fa fa-', 0, '#', 1, '76', 0, NULL, '2020-10-29 02:51:26', '2020-10-29 02:51:26'),
-(82, 'Settings', 'settings-index', 'feather icon-settings', 1, 'settings', 8, NULL, 1, NULL, '2020-10-29 02:57:19', '2021-06-05 10:20:26'),
+(82, 'Settings', 'settings-index', 'feather icon-settings', 1, 'settings', 8, NULL, 1, NULL, '2020-10-29 02:57:19', '2021-06-14 10:08:37'),
 (83, 'Manage Expenses', 'expenses-index', 'fa fa-money-bill-alt', 1, 'expenses', 1, '97', 1, '2021-01-22 20:11:08', '2020-11-02 12:14:45', '2021-01-22 20:11:08'),
 (84, 'Manage Ref. Data', 'manage-reference-index', 'fa fa-globe', 1, 'manage-reference', 4, '93', 1, NULL, '2020-11-04 01:50:47', '2021-06-11 07:41:30'),
 (86, 'Procedure', 'procedure-index', 'fa fa-recycle', 1, 'procedures', 5, '93', 1, NULL, '2020-11-11 08:16:28', '2021-06-11 07:41:33'),
@@ -6755,10 +7454,10 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `status`, `url`, `position`, 
 (88, 'Manage Uncertainties', 'uncertainties-index', 'fa fa-question-circle', 1, 'uncertainties', 7, '93', 1, NULL, '2020-11-12 23:21:14', '2021-06-11 07:41:38'),
 (89, 'Column', 'column-index', 'fa fa-columns', 1, 'columns', 1, '93', 1, '2021-01-19 07:05:43', '2020-11-14 01:30:40', '2021-01-19 07:05:43'),
 (91, 'testin', 'testing-index', 'fa fa-', 0, '#', 1, '1', 0, '2020-12-05 02:21:17', '2020-12-05 01:21:16', '2020-12-05 02:21:17'),
-(92, 'Staff', 'staff-details', 'feather icon-user', 1, '#', 5, NULL, 1, NULL, '2020-12-05 02:21:59', '2021-06-05 10:26:26'),
-(93, 'Cal Management', 'calibration-management', 'feather icon-menu', 1, '#', 6, NULL, 1, NULL, '2020-12-05 03:07:59', '2021-06-05 10:24:04'),
+(92, 'Staff', 'staff-details', 'feather icon-user', 1, '#', 3, NULL, 1, NULL, '2020-12-05 02:21:59', '2021-06-14 10:08:52'),
+(93, 'Cal Management', 'calibration-management', 'feather icon-menu', 1, '#', 5, NULL, 1, NULL, '2020-12-05 03:07:59', '2021-06-14 10:09:07'),
 (94, 'Dashboard', 'dashboard-index', 'feather icon-home', 1, '/', 1, NULL, 0, NULL, '2020-12-05 03:25:07', '2021-06-05 09:49:39'),
-(95, 'Order Management', 'manage-jobs', 'feather icon-maximize', 1, '#', 4, NULL, 1, NULL, '2020-12-05 03:31:11', '2021-06-05 10:25:07'),
+(95, 'Order Management', 'manage-jobs', 'feather icon-maximize', 1, '#', 6, NULL, 1, NULL, '2020-12-05 03:31:11', '2021-06-14 10:09:10'),
 (96, 'Expense Categories', 'expense-categories', 'fa fa-list-alt', 1, 'expenses_categories', 1, '97', 1, '2021-01-22 20:10:59', '2020-12-05 04:05:22', '2021-01-22 20:10:59'),
 (97, 'Finance & Accounts', 'finance-accounts', 'feather icon-more-horizontal', 1, '#', 9, NULL, 1, NULL, '2020-12-05 04:08:28', '2021-06-05 10:27:15'),
 (98, 'Create Expense Category', 'create-expense-category', 'fa fa-`', 1, '#', 1, '97', 0, '2021-01-22 20:11:23', '2020-12-05 07:48:37', '2021-01-22 20:11:23'),
@@ -6801,7 +7500,7 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `status`, `url`, `position`, 
 (135, 'Update Preference', 'update-preference', 'fa fa-', 1, '#', 1, '82', 0, NULL, '2020-12-19 16:02:24', '2020-12-19 16:02:24'),
 (136, 'Material Receivings', 'material-receiving-index', 'fa fa-', 1, 'material_receiving', 3, '131', 1, NULL, '2020-12-19 20:05:37', '2021-04-30 10:21:27'),
 (137, 'Capabilities Group', 'capabilities-group-index', 'fa fa-', 1, 'capabilities/group', 1, '93', 1, '2021-01-19 07:06:32', '2021-01-10 18:02:08', '2021-01-19 07:06:32'),
-(138, 'Request Management', 'rfq', 'feather icon-help-circle', 1, '#', 3, NULL, 1, NULL, '2021-01-10 20:03:35', '2021-06-05 10:26:07'),
+(138, 'Request Management', 'rfq', 'feather icon-help-circle', 1, '#', 4, NULL, 1, NULL, '2021-01-10 20:03:35', '2021-06-14 10:09:01'),
 (139, 'HR Management', 'hr-index', 'feather icon-users', 1, '#', 11, NULL, 1, NULL, '2021-01-11 20:55:04', '2021-06-10 05:08:36'),
 (140, 'Requisition', 'requisition-index', 'fa fa-', 1, 'requisition', 1, '139', 1, NULL, '2021-01-12 17:03:35', '2021-01-12 17:03:35'),
 (141, 'Interview Appraisal', 'interview-appraisal-index', 'fa fa-', 1, 'interview-appraisal', 1, '139', 1, NULL, '2021-01-12 19:06:34', '2021-01-12 19:06:34'),
@@ -6858,7 +7557,11 @@ INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `status`, `url`, `position`, 
 (194, 'Grouped Capabilities', 'grouped-capabilities', 'fa fa-', 1, 'grouped-capabilities', 3, '93', 1, NULL, '2021-06-11 05:57:58', '2021-06-11 07:41:29'),
 (195, 'Add Grouped Capabilities', 'add-grouped-capabilities', 'fa fa-', 1, '#', 0, '93', 0, NULL, '2021-06-11 05:58:20', '2021-06-11 05:58:20'),
 (196, 'Edit Grouped Capabilities', 'edit-grouped-capabilities', 'fa fa-', 1, '#', 0, '93', 0, NULL, '2021-06-11 05:58:31', '2021-06-11 05:58:31'),
-(197, 'Delete Grouped Capabilities', 'delete-grouped-capabilities', 'fa fa-', 1, '#', 0, '93', 0, NULL, '2021-06-11 05:59:09', '2021-06-11 05:59:09');
+(197, 'Delete Grouped Capabilities', 'delete-grouped-capabilities', 'fa fa-', 1, '#', 0, '93', 0, NULL, '2021-06-11 05:59:09', '2021-06-11 05:59:09'),
+(198, 'No facility', 'no-facility-index', 'fa fa-', 1, 'no-facility', 0, '138', 1, NULL, '2021-06-15 08:06:16', '2021-06-15 08:06:16'),
+(199, 'Add No facility', 'no-facility-add', 'fa fa-', 1, '#', 0, '138', 0, NULL, '2021-06-15 08:07:28', '2021-06-15 08:07:28'),
+(200, 'Edit No facility', 'no-facility-edit', 'fa fa-', 1, '#', 0, '138', 0, NULL, '2021-06-15 10:16:31', '2021-06-15 10:16:31'),
+(201, 'Delete No facility', 'no-facility-delete', 'fa fa-', 1, '#', 0, '138', 0, NULL, '2021-06-15 10:16:44', '2021-06-15 10:16:44');
 
 -- --------------------------------------------------------
 
@@ -6880,6 +7583,11 @@ CREATE TABLE `micrometer_entries` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `micrometer_entries`
+--
+
+TRUNCATE TABLE `micrometer_entries`;
 -- --------------------------------------------------------
 
 --
@@ -6892,6 +7600,11 @@ CREATE TABLE `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `migrations`
+--
+
+TRUNCATE TABLE `migrations`;
 --
 -- Dumping data for table `migrations`
 --
@@ -6941,20 +7654,20 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `nofacilities` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `capability` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `item_id` int(11) NOT NULL,
+  `parameter` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `customer` int(11) NOT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `nofacilities`
+-- Truncate table before insert `nofacilities`
 --
 
-INSERT INTO `nofacilities` (`id`, `capability`, `item_id`, `created_at`, `updated_at`) VALUES
-(1, 'FTIR', 4, '2021-02-03 16:49:27', '2021-02-03 16:49:27'),
-(2, 'FTIR Spectrophotometer', 5, '2021-03-10 20:06:20', '2021-03-10 20:06:20'),
-(3, 'Air Partical Analyzer', 4, '2021-06-02 23:53:03', '2021-06-02 23:53:03');
-
+TRUNCATE TABLE `nofacilities`;
 -- --------------------------------------------------------
 
 --
@@ -6972,6 +7685,11 @@ CREATE TABLE `notifications` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `notifications`
+--
+
+TRUNCATE TABLE `notifications`;
 --
 -- Dumping data for table `notifications`
 --
@@ -7009,6 +7727,11 @@ CREATE TABLE `oauth_access_tokens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `oauth_access_tokens`
+--
+
+TRUNCATE TABLE `oauth_access_tokens`;
+--
 -- Dumping data for table `oauth_access_tokens`
 --
 
@@ -7030,6 +7753,11 @@ CREATE TABLE `oauth_auth_codes` (
   `expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `oauth_auth_codes`
+--
+
+TRUNCATE TABLE `oauth_auth_codes`;
 -- --------------------------------------------------------
 
 --
@@ -7050,6 +7778,11 @@ CREATE TABLE `oauth_clients` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `oauth_clients`
+--
+
+TRUNCATE TABLE `oauth_clients`;
 --
 -- Dumping data for table `oauth_clients`
 --
@@ -7072,6 +7805,11 @@ CREATE TABLE `oauth_personal_access_clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `oauth_personal_access_clients`
+--
+
+TRUNCATE TABLE `oauth_personal_access_clients`;
+--
 -- Dumping data for table `oauth_personal_access_clients`
 --
 
@@ -7091,6 +7829,11 @@ CREATE TABLE `oauth_refresh_tokens` (
   `expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `oauth_refresh_tokens`
+--
+
+TRUNCATE TABLE `oauth_refresh_tokens`;
 -- --------------------------------------------------------
 
 --
@@ -7106,6 +7849,11 @@ CREATE TABLE `parameters` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `parameters`
+--
+
+TRUNCATE TABLE `parameters`;
 --
 -- Dumping data for table `parameters`
 --
@@ -7197,7 +7945,9 @@ INSERT INTO `parameters` (`id`, `name`, `parent`, `deleted_at`, `created_at`, `u
 (84, 'Vibration Displacement', NULL, NULL, '2021-06-10 01:13:52', '2021-06-10 01:13:52'),
 (85, 'Volume Glassware', NULL, NULL, '2021-06-10 01:50:27', '2021-06-10 01:50:27'),
 (86, 'Time Interval', NULL, NULL, '2021-06-10 21:22:14', '2021-06-10 21:22:14'),
-(87, 'Operational Check', NULL, NULL, '2021-06-14 03:22:01', '2021-06-14 03:22:01');
+(87, 'Operational Check', NULL, NULL, '2021-06-14 03:22:01', '2021-06-14 03:22:01'),
+(88, 'Surface Gloss', NULL, NULL, '2021-06-15 00:51:46', '2021-06-15 00:51:46'),
+(89, 'Load Testing', NULL, NULL, '2021-06-16 00:08:10', '2021-06-16 00:08:10');
 
 -- --------------------------------------------------------
 
@@ -7211,6 +7961,11 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `password_resets`
+--
+
+TRUNCATE TABLE `password_resets`;
 -- --------------------------------------------------------
 
 --
@@ -7223,6 +7978,11 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `permissions`
+--
+
+TRUNCATE TABLE `permissions`;
 -- --------------------------------------------------------
 
 --
@@ -7243,6 +8003,11 @@ CREATE TABLE `po` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `po`
+--
+
+TRUNCATE TABLE `po`;
 -- --------------------------------------------------------
 
 --
@@ -7257,6 +8022,11 @@ CREATE TABLE `po_vouchers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `po_vouchers`
+--
+
+TRUNCATE TABLE `po_vouchers`;
 -- --------------------------------------------------------
 
 --
@@ -7273,6 +8043,11 @@ CREATE TABLE `preferences` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `preferences`
+--
+
+TRUNCATE TABLE `preferences`;
 --
 -- Dumping data for table `preferences`
 --
@@ -7308,6 +8083,11 @@ CREATE TABLE `preventivechecklists` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `preventivechecklists`
+--
+
+TRUNCATE TABLE `preventivechecklists`;
 -- --------------------------------------------------------
 
 --
@@ -7327,6 +8107,11 @@ CREATE TABLE `preventivemaintenancerecords` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `preventivemaintenancerecords`
+--
+
+TRUNCATE TABLE `preventivemaintenancerecords`;
 -- --------------------------------------------------------
 
 --
@@ -7343,6 +8128,11 @@ CREATE TABLE `procedures` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `procedures`
+--
+
+TRUNCATE TABLE `procedures`;
 --
 -- Dumping data for table `procedures`
 --
@@ -7415,7 +8205,19 @@ INSERT INTO `procedures` (`id`, `name`, `uncertainties`, `description`, `deleted
 (65, 'AIMS-TM-LCP-ITS-08', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Conductivity and TDS Meters', NULL, '2021-06-06 22:40:33', '2021-06-06 22:40:33'),
 (66, 'Operational Manual', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Unit Under Calibration', NULL, '2021-06-06 23:00:19', '2021-06-06 23:00:19'),
 (67, 'Operational Manual For', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Unit Under Calibration', NULL, '2021-06-06 23:04:10', '2021-06-06 23:04:10'),
-(68, 'ASME 17.2: 2010', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Inspection Procedure for Lifts and Elevators', NULL, '2021-06-14 03:30:52', '2021-06-14 03:30:52');
+(68, 'ASME 17.2: 2010', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Inspection Procedure for Lifts and Elevators', NULL, '2021-06-14 03:30:52', '2021-06-14 03:30:52'),
+(69, 'ISO 16809: 2012', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Ultrasonic Thickness Measurement', NULL, '2021-06-14 18:49:54', '2021-06-14 18:49:54'),
+(70, 'ISO 3832: 2005', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Hand Operated Chain Pully Blocks Inspection', NULL, '2021-06-14 18:54:30', '2021-06-14 18:54:30'),
+(71, 'BS 3726, 4430 Part 2 & 4436', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Specification for counterbalanced lift trucks - stability - basic tests', NULL, '2021-06-14 21:01:10', '2021-06-14 21:01:10'),
+(72, 'BS EN 14502-1:2010', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Lifting Equipment Used for Lifting People at Work', NULL, '2021-06-15 02:42:17', '2021-06-15 02:42:17'),
+(73, 'ISO 8655-8', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Piston Operated Volumetric Apparatus', NULL, '2021-06-15 02:57:38', '2021-06-15 02:57:38'),
+(74, 'BS 7121-2', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Safe use of Crane Operation inspection and Testing', NULL, '2021-06-15 03:23:27', '2021-06-15 03:23:27'),
+(75, 'API 527', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Seat Tightness of Pressure Reliving Devices', NULL, '2021-06-15 16:17:37', '2021-06-15 16:17:37'),
+(76, 'API RP 576', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Recommend Practice for Inspection of Pressure Reliving Devices', NULL, '2021-06-15 16:19:16', '2021-06-15 16:19:16'),
+(77, 'BS EN 13414-1', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Slings for General Lifting Services', NULL, '2021-06-15 22:51:24', '2021-06-15 22:51:24'),
+(78, 'ASTM E709-1', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Standard Guide for Magnetic Particle Inspection', NULL, '2021-06-15 22:53:19', '2021-06-15 22:53:19'),
+(79, 'BS EN 1492-1', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-std', 'Textile Slings for General Lifting Services', NULL, '2021-06-15 22:57:49', '2021-06-15 22:57:49'),
+(80, 'BS ISO 5766: 1990', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Pallet stackers and high-lift platform trucks. Stability tests', NULL, '2021-06-15 23:04:13', '2021-06-15 23:04:13');
 
 -- --------------------------------------------------------
 
@@ -7446,6 +8248,11 @@ CREATE TABLE `purchaseindentitems` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `purchaseindentitems`
+--
+
+TRUNCATE TABLE `purchaseindentitems`;
 -- --------------------------------------------------------
 
 --
@@ -7471,6 +8278,11 @@ CREATE TABLE `purchaseindents` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `purchaseindents`
+--
+
+TRUNCATE TABLE `purchaseindents`;
 -- --------------------------------------------------------
 
 --
@@ -7490,6 +8302,11 @@ CREATE TABLE `purchase_vendors` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `purchase_vendors`
+--
+
+TRUNCATE TABLE `purchase_vendors`;
 --
 -- Dumping data for table `purchase_vendors`
 --
@@ -7514,6 +8331,11 @@ CREATE TABLE `quoterevisionlogs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `quoterevisionlogs`
+--
+
+TRUNCATE TABLE `quoterevisionlogs`;
 --
 -- Dumping data for table `quoterevisionlogs`
 --
@@ -7553,12 +8375,59 @@ CREATE TABLE `quotes` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `quotes`
+--
+
+TRUNCATE TABLE `quotes`;
+--
 -- Dumping data for table `quotes`
 --
 
 INSERT INTO `quotes` (`id`, `cid`, `customer_id`, `type`, `rfq_mode`, `rfq_mode_details`, `approval_mode`, `approval_mode_details`, `approval_date`, `status`, `turnaround`, `remarks`, `reminder`, `tm`, `principal`, `revision`, `sendtocustomer_date`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, '', 47, 'SITE', 'walk-in', 'Mr. Ahmed Hassan walked in with 03 items on 2/6/2021.', 'By Walk-in', 'Mr. Hassan appeared at AIMS Lab with items on 7th Jun, 2021.', '2021-06-02', 3, '3', 'Please check schedule before sending items to aims Lab.', 0, 1, 'Syed Zohaib Shah', 2, '2021-06-02', NULL, '2021-06-02 23:15:27', '2021-06-03 00:20:28'),
-(2, 'QTN/000002', 71, NULL, 'email', 'y', NULL, NULL, NULL, 0, '', NULL, 0, 1, 'Muhammad Afzal', 0, NULL, NULL, '2021-06-05 18:39:11', '2021-06-05 18:39:11');
+(2, 'QTN/000002', 71, 'SITE', 'email', 'y', NULL, NULL, NULL, 0, '', NULL, 0, 1, 'Muhammad Afzal', 0, NULL, NULL, '2021-06-05 18:39:11', '2021-06-14 18:25:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quote_items`
+--
+
+CREATE TABLE `quote_items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `quote_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `parameter` int(11) NOT NULL,
+  `capability` int(11) NOT NULL,
+  `not_available` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `accredited` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `range` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) NOT NULL,
+  `unit` int(11) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
+  `rf_checks` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `rf_reason` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Truncate table before insert `quote_items`
+--
+
+TRUNCATE TABLE `quote_items`;
+--
+-- Dumping data for table `quote_items`
+--
+
+INSERT INTO `quote_items` (`id`, `quote_id`, `status`, `parameter`, `capability`, `not_available`, `location`, `accredited`, `range`, `price`, `unit`, `quantity`, `rf_checks`, `rf_reason`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 17, 746, NULL, 'site', 'yes', '0~250', 2250, NULL, 1, NULL, NULL, NULL, '2021-06-02 23:17:50', '2021-06-03 00:04:27'),
+(2, 1, 0, 18, 805, NULL, 'site', 'yes', '4~10', 3600, NULL, 1, NULL, NULL, NULL, '2021-06-02 23:29:08', '2021-06-03 00:04:27'),
+(3, 1, 2, 19, 1003, NULL, 'site', 'no', '0~100', 5400, NULL, 1, '1,1,1', NULL, NULL, '2021-06-02 23:33:02', '2021-06-03 00:04:27'),
+(4, 1, 3, 0, 0, 'Air Partical Analyzer', 'site', 'no', '0', 0, NULL, 1, '0,0,0', 'Facility Not Available.', NULL, '2021-06-02 23:51:41', '2021-06-02 23:53:03'),
+(5, 2, 0, 14, 1007, NULL, 'site', 'no', '0', 3500, 0, 1, NULL, NULL, NULL, '2021-06-14 18:25:05', '2021-06-14 18:25:05');
 
 -- --------------------------------------------------------
 
@@ -7579,6 +8448,11 @@ CREATE TABLE `receiving_ledgers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `receiving_ledgers`
+--
+
+TRUNCATE TABLE `receiving_ledgers`;
 --
 -- Dumping data for table `receiving_ledgers`
 --
@@ -7607,6 +8481,11 @@ CREATE TABLE `requisitions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `requisitions`
+--
+
+TRUNCATE TABLE `requisitions`;
 -- --------------------------------------------------------
 
 --
@@ -7623,12 +8502,17 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `roles`
+--
+
+TRUNCATE TABLE `roles`;
+--
 -- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `permissions`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'customer-index,customer-create,customer-edit,customer-view,customer-delete,items-index,items-create,items-update,items-delete,items-add-non-listed,items-update-non-listed,settings-index,business-lines,menu-index,menu-create,menu-edit,menu-delete,roles-index,roles-create,roles-edit,roles-delete,preferences-index,add-preference,update-preference,activity-log-index,staff-details,staff-index,staff-create,staff-edit,staff-view,department-index,department-create,designation-index,designation-create,designation-edit,department-edit,calibration-management,delete-units,capabilities-delete,grouped-capabilities,add-grouped-capabilities,edit-grouped-capabilities,delete-grouped-capabilities,parameter-index,parameter-create,parameter-edit,parameter-delete,asset-index,asset-create,asset-edit,asset-delete,capabilities-index,capabilities-create,capabilities-edit,capabilities-view,capabilities-delete,manage-reference-index,procedure-index,units-index,uncertainties-index,create-units,update-units,add-procedure,update-procedure,asset-groups,create-asset-group,update-asset-group,mytask-index,dashboard-index,manage-jobs,manage-jobs-index,jobs-index,add-pending,print-pending-tech-review,create-job,delete-job,add-recieving,update-receiving,create-scheduling,edit-scheduling,finance-accounts,index-coa,journal-vouchers,create-payment-voucher,update-payment-voucher,view-payment-voucher,print-payment-voucher,create-coa,update-coa,delete-coa,view-coa,add-journal-vouchers,edit-journal-vouchers,print-journal-vouchers,acc-level-one-index,acc-level-two-index,acc-level-three-index,sales-invoice,receipt-voucher,purchase-invoice,vouchers-index,journal-index,document-control,sop-index,create-sop,update-sop,forms-index,purchase,indent-index,vendors-index,purchase-order,material-receiving-index,rfq,generate-requests-index,quote-create,quote-edit,quote-view,quote-send-to-customer,quote-print-details,quote-accept,quote-revised,quote-close,pending-index,quote-index,pendings-no-facility,hr-index,requisition-index,interview-appraisal-index,emp-contract-index,emp-joining-index,employee-orientation-index,leave-application-index,inventory-index,inventory-categories-index,inventories-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews', NULL, '2020-09-27 19:44:39', '2021-06-11 19:40:24'),
-(2, 'Admin', 'customer-index,customer-create,customer-edit,customer-view,customer-delete,items-index,items-create,items-update,items-delete,items-add-non-listed,items-update-non-listed,mytask-index,mytask-view,start-mytask,end-mytask,get-certificate,settings-index,roles-index,roles-create,roles-edit,roles-delete,preferences-index,add-preference,update-preference,staff-details,staff-index,staff-create,staff-edit,staff-view,department-index,department-create,designation-index,designation-create,designation-edit,department-edit,calibration-management,parameter-index,parameter-create,parameter-edit,parameter-delete,asset-index,asset-create,asset-edit,asset-delete,capabilities-index,capabilities-create,capabilities-edit,capabilities-view,capabilities-delete,manage-reference-index,procedure-index,units-index,uncertainties-index,add-procedure,update-procedure,asset-groups,create-asset-group,update-asset-group,dashboard-index,manage-jobs,jobs-index,scheduling-index,manage-jobs-index,add-pending,print-pending-tech-review,create-job,delete-job,add-recieving,update-receiving,create-scheduling,edit-scheduling,finance-accounts,invoicing-ledger-index,add-job-invoice-receiving,update-job-invoice-receiving,acc-level-one-index,acc-level-two-index,acc-level-three-index,acc-level-four-index,vouchers-index,document-control,sop-index,create-sop,update-sop,forms-index,purchase,indent-index,material-receiving-index,rfq,generate-requests-index,quote-create,quote-edit,quote-view,quote-send-to-customer,quote-print-details,quote-accept,quote-revised,quote-close,pending-index,pendings-no-facility,quote-index', NULL, '2020-09-27 20:03:57', '2021-01-25 17:25:48'),
+(1, 'Super Admin', 'customer-index,customer-create,customer-edit,customer-view,customer-delete,items-index,items-create,items-update,items-delete,items-add-non-listed,items-update-non-listed,mytask-index,settings-index,business-lines,menu-index,menu-create,menu-edit,menu-delete,roles-index,roles-create,roles-edit,roles-delete,preferences-index,add-preference,update-preference,activity-log-index,staff-details,staff-index,staff-create,staff-edit,staff-view,department-index,department-create,designation-index,designation-create,designation-edit,department-edit,calibration-management,parameter-index,delete-units,capabilities-delete,add-grouped-capabilities,edit-grouped-capabilities,delete-grouped-capabilities,parameter-create,parameter-edit,parameter-delete,asset-index,asset-create,asset-edit,asset-delete,capabilities-create,capabilities-edit,capabilities-view,capabilities-delete,create-units,update-units,add-procedure,update-procedure,create-asset-group,update-asset-group,capabilities-index,grouped-capabilities,manage-reference-index,procedure-index,units-index,uncertainties-index,asset-groups,dashboard-index,manage-jobs,manage-jobs-index,jobs-index,add-pending,print-pending-tech-review,create-job,delete-job,add-recieving,update-receiving,create-scheduling,edit-scheduling,finance-accounts,index-coa,journal-vouchers,create-payment-voucher,update-payment-voucher,view-payment-voucher,print-payment-voucher,create-coa,update-coa,delete-coa,view-coa,add-journal-vouchers,edit-journal-vouchers,print-journal-vouchers,acc-level-one-index,acc-level-two-index,acc-level-three-index,sales-invoice,receipt-voucher,purchase-invoice,vouchers-index,journal-index,document-control,sop-index,create-sop,update-sop,forms-index,purchase,indent-index,vendors-index,purchase-order,material-receiving-index,rfq,generate-requests-index,no-facility-index,no-facility-add,no-facility-edit,no-facility-delete,quote-create,quote-edit,quote-view,quote-send-to-customer,quote-print-details,quote-accept,quote-revised,quote-close,pending-index,quote-index,pendings-no-facility,hr-index,requisition-index,interview-appraisal-index,emp-contract-index,emp-joining-index,employee-orientation-index,leave-application-index,inventory-index,inventory-categories-index,inventories-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews', NULL, '2020-09-27 19:44:39', '2021-06-15 23:22:06'),
+(2, 'Admin', 'customer-index,customer-create,customer-edit,customer-view,customer-delete,items-index,items-create,items-update,items-delete,items-add-non-listed,items-update-non-listed,settings-index,roles-index,roles-create,roles-edit,roles-delete,preferences-index,add-preference,update-preference,staff-details,staff-index,staff-create,staff-edit,staff-view,department-index,department-create,designation-index,designation-create,designation-edit,department-edit,calibration-management,parameter-index,delete-units,capabilities-delete,add-grouped-capabilities,edit-grouped-capabilities,delete-grouped-capabilities,parameter-create,parameter-edit,parameter-delete,asset-index,asset-create,asset-edit,asset-delete,capabilities-create,capabilities-edit,capabilities-view,capabilities-delete,create-units,update-units,add-procedure,update-procedure,create-asset-group,update-asset-group,capabilities-index,grouped-capabilities,manage-reference-index,procedure-index,units-index,mytask-index,uncertainties-index,asset-groups,dashboard-index,manage-jobs,manage-jobs-index,jobs-index,add-pending,print-pending-tech-review,create-job,delete-job,add-recieving,update-receiving,create-scheduling,edit-scheduling,finance-accounts,index-coa,journal-vouchers,create-payment-voucher,update-payment-voucher,view-payment-voucher,print-payment-voucher,create-coa,update-coa,delete-coa,view-coa,add-journal-vouchers,edit-journal-vouchers,print-journal-vouchers,add-sales-invoice,view-sales-invoice,add-receipt-voucher,edit-receipt-voucher,view-receipt-voucher,print-receipt-voucher,add-purchase-invoice,edit-purchase-invoice,view-purchase-invoice,print-purchase-invoice,acc-level-one-index,acc-level-two-index,acc-level-three-index,sales-invoice,receipt-voucher,purchase-invoice,vouchers-index,journal-index,document-control,sop-index,create-sop,update-sop,forms-index,purchase,indent-index,vendors-index,purchase-order,material-receiving-index,rfq,generate-requests-index,quote-create,quote-edit,quote-view,quote-send-to-customer,quote-print-details,quote-accept,quote-revised,quote-close,pending-index,quote-index,pendings-no-facility,hr-index,requisition-index,interview-appraisal-index,emp-contract-index,emp-joining-index,employee-orientation-index,leave-application-index,inventory-index,inventory-categories-index,inventories-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews', NULL, '2020-09-27 20:03:57', '2021-06-15 18:11:44'),
 (3, 'Proposal', 'session-index,session-create,session-edit,session-send-to-customer,session-complete,session-view,quote-index,quotes-index,quote-edit,quote-delete', '2020-12-21 17:31:54', '2020-09-27 20:21:01', '2020-12-21 17:31:54'),
 (4, 'Accounting & Finance', 'customer-index,customer-create,customer-edit,customer-view,customer-delete,settings-index,staff-details,calibration-management,dashboard-index,manage-jobs,finance-accounts,invoicing-ledger-index,expenses-index,expense-categories,create-expense-category,update-expense-category,add-expenses,update-expense,add-job-invoice-receiving,update-job-invoice-receiving', NULL, '2020-12-21 17:33:08', '2020-12-23 18:37:39'),
 (5, 'Technician', 'customer-index,customer-create,customer-edit,customer-view,customer-delete,mytask-index,mytask-view,start-mytask,end-mytask,get-certificate,calibration-management,asset-index,asset-create,asset-edit,asset-delete,dashboard-index,log-reviews', NULL, '2020-12-23 12:20:55', '2021-06-03 17:08:22'),
@@ -7648,6 +8532,11 @@ CREATE TABLE `scope_of_supplies` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `scope_of_supplies`
+--
+
+TRUNCATE TABLE `scope_of_supplies`;
 --
 -- Dumping data for table `scope_of_supplies`
 --
@@ -7681,6 +8570,11 @@ CREATE TABLE `sops` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `sops`
+--
+
+TRUNCATE TABLE `sops`;
 --
 -- Dumping data for table `sops`
 --
@@ -7761,6 +8655,11 @@ CREATE TABLE `spectrophotometerentries` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `spectrophotometerentries`
+--
+
+TRUNCATE TABLE `spectrophotometerentries`;
 -- --------------------------------------------------------
 
 --
@@ -7774,6 +8673,11 @@ CREATE TABLE `suggestions` (
   `optional_assets` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `suggestions`
+--
+
+TRUNCATE TABLE `suggestions`;
 --
 -- Dumping data for table `suggestions`
 --
@@ -7861,6 +8765,11 @@ CREATE TABLE `uncertainties` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `uncertainties`
+--
+
+TRUNCATE TABLE `uncertainties`;
+--
 -- Dumping data for table `uncertainties`
 --
 
@@ -7899,22 +8808,27 @@ CREATE TABLE `units` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `units`
+--
+
+TRUNCATE TABLE `units`;
+--
 -- Dumping data for table `units`
 --
 
 INSERT INTO `units` (`id`, `parameter`, `unit`, `primary_`, `factor_add`, `factor_multiply`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 27, '°F', '171', '-32', '0.56', NULL, '2020-12-03 12:30:17', '2021-06-10 02:22:36'),
-(3, 6, 'Kgf', '114', '0', '9.8065', NULL, '2020-12-08 17:38:41', '2021-06-10 00:27:16'),
+(3, 6, 'kgf', '114', '0', '9.8065', NULL, '2020-12-08 17:38:41', '2021-06-15 19:55:22'),
 (5, 1, 'µS/cm', NULL, '0', '0', NULL, '2020-12-11 19:08:48', '2021-06-09 20:24:19'),
-(6, 17, 'psi', NULL, '0', '0.0689', NULL, '2020-12-11 19:28:32', '2021-06-10 00:07:44'),
+(6, 17, 'MPa', '200', '0', '10', NULL, '2020-12-11 19:28:32', '2021-06-15 19:15:31'),
 (31, 48, 'kHz', '169', '0', '1000', NULL, '2020-12-14 12:04:25', '2021-06-10 02:19:35'),
-(33, 52, 'uF', NULL, '0', '1000', NULL, '2020-12-14 12:04:58', '2021-06-09 23:15:04'),
+(33, 52, 'µF', NULL, '0', '1', NULL, '2020-12-14 12:04:58', '2021-06-15 19:53:14'),
 (40, 28, 'fl-lb', '160', '0', '0.738', NULL, '2020-12-25 20:59:38', '2021-06-10 02:05:40'),
 (44, 77, 'ppt', '175', '0', '1000', NULL, '2020-12-25 21:09:52', '2021-06-10 02:33:22'),
 (46, 18, 'pH', NULL, '0', '0', NULL, '2020-12-25 21:18:19', '2020-12-25 21:18:19'),
 (47, 26, 'dB', NULL, '0', '0', NULL, '2020-12-26 13:58:01', '2020-12-26 13:58:01'),
 (48, 21, 'RPM', NULL, '0', '0', NULL, '2020-12-26 14:00:47', '2020-12-26 14:00:47'),
-(56, 70, 'um', '173', '0', '1000', NULL, '2021-03-26 19:19:39', '2021-06-10 02:24:20'),
+(56, 70, 'µm', '173', '0', '1000', NULL, '2021-03-26 19:19:39', '2021-06-15 20:54:09'),
 (57, 69, 'A', NULL, '0', '1', NULL, '2021-03-26 19:20:25', '2021-06-09 18:55:42'),
 (58, 69, '%T', NULL, '0', '1', NULL, '2021-03-26 19:20:46', '2021-06-09 18:55:16'),
 (59, 68, '% IACS', NULL, '0', '1', NULL, '2021-06-06 21:15:52', '2021-06-09 18:53:21'),
@@ -7927,43 +8841,43 @@ INSERT INTO `units` (`id`, `parameter`, `unit`, `primary_`, `factor_add`, `facto
 (73, 65, 'kW', NULL, '0', '0.001', NULL, '2021-06-08 01:37:20', '2021-06-09 23:59:45'),
 (74, 64, 'W/kG', NULL, '0', '1', NULL, '2021-06-08 01:37:36', '2021-06-09 18:37:18'),
 (75, 6, 'kN', '114', '0', '1000', NULL, '2021-06-08 18:25:02', '2021-06-10 00:27:51'),
-(76, 6, 'Ton', '114', '0', '9806.65', NULL, '2021-06-08 18:25:16', '2021-06-10 00:29:39'),
+(76, 6, 'ton', '114', '0', '9806.65', NULL, '2021-06-08 18:25:16', '2021-06-15 19:55:51'),
 (77, 13, 'mg', '165', '0', '0.001', NULL, '2021-06-08 18:25:39', '2021-06-10 02:14:28'),
-(78, 6, 'lbF', '114', '0', '4.448', NULL, '2021-06-08 18:31:15', '2021-06-10 00:36:53'),
-(80, 54, 'm3/h', NULL, '0', '0.06', NULL, '2021-06-08 19:42:58', '2021-06-09 23:58:43'),
+(78, 6, 'lbf', '114', '0', '4.448', NULL, '2021-06-08 18:31:15', '2021-06-15 19:56:26'),
+(80, 54, 'm³/h', NULL, '0', '1', NULL, '2021-06-08 19:42:58', '2021-06-15 20:55:23'),
 (82, 9, 'Shore D', NULL, '0', '1', NULL, '2021-06-08 21:10:26', '2021-06-08 21:10:26'),
-(85, 61, 'uW/cm2', NULL, '0', '0.001', NULL, '2021-06-08 23:25:13', '2021-06-09 23:51:30'),
+(85, 61, 'µW/cm²', NULL, '0', '1', NULL, '2021-06-08 23:25:13', '2021-06-15 20:02:42'),
 (87, 73, 'mA', '151', '0', '0.001', NULL, '2021-06-09 20:02:58', '2021-06-10 01:47:17'),
 (88, 74, 'mA', '149', '0', '0.001', NULL, '2021-06-09 20:03:22', '2021-06-10 01:46:16'),
 (89, 75, 'mV', '146', '0', '0.001', NULL, '2021-06-09 20:06:42', '2021-06-10 01:39:36'),
 (90, 76, 'mV', '143', '0', '0.001', NULL, '2021-06-09 20:07:02', '2021-06-10 01:37:58'),
 (91, 7, 'lb/hr', '142', '0', '0.4535', NULL, '2021-06-09 20:27:54', '2021-06-10 01:36:53'),
-(92, 1, 'mS/cm2', '5', '0', '1000', NULL, '2021-06-09 20:30:04', '2021-06-10 00:47:28'),
+(92, 1, 'mS/cm²', '5', '0', '1000', NULL, '2021-06-09 20:30:04', '2021-06-15 19:49:15'),
 (93, 11, 'St', '93', '0', '100', NULL, '2021-06-09 20:36:15', '2021-06-10 01:35:52'),
 (94, 78, 'Pa s', NULL, '0', '0.001', NULL, '2021-06-09 20:37:54', '2021-06-09 23:28:14'),
 (95, 12, 'cm', NULL, '0', '10', NULL, '2021-06-09 20:38:58', '2021-06-09 23:24:29'),
-(96, 15, 'milli Guass', '137', '0', '0.001', NULL, '2021-06-09 20:40:41', '2021-06-10 01:30:37'),
+(96, 15, 'milli Gauss', '137', '0', '0.001', NULL, '2021-06-09 20:40:41', '2021-06-15 20:23:06'),
 (97, 20, 'rad', '97', '0', '57.3', NULL, '2021-06-09 20:46:23', '2021-06-10 00:32:39'),
 (98, 22, 'Nos.', NULL, '0', '1', NULL, '2021-06-09 21:29:21', '2021-06-09 21:29:21'),
 (99, 23, '%RH', NULL, '0', '1', NULL, '2021-06-09 21:30:49', '2021-06-09 21:30:49'),
 (100, 24, 'Nos.', NULL, '0', '1', NULL, '2021-06-09 21:33:13', '2021-06-09 21:33:13'),
-(101, 79, 'kg/m3', '136', '0', '1000', NULL, '2021-06-09 21:33:33', '2021-06-10 01:29:14'),
+(101, 79, 'kg/m³', '136', '0', '1000', NULL, '2021-06-09 21:33:33', '2021-06-15 20:25:01'),
 (102, 80, 'knot', '135', '0', '1.9438', NULL, '2021-06-09 21:36:27', '2021-06-10 01:26:55'),
 (103, 86, 'min', '132', '0', '60', NULL, '2021-06-09 21:38:21', '2021-06-10 01:20:04'),
 (104, 30, 'FTU', NULL, '0', '1', NULL, '2021-06-09 21:38:59', '2021-06-10 01:19:14'),
 (105, 84, 'mm', NULL, '0', '1', NULL, '2021-06-09 21:40:12', '2021-06-10 01:16:38'),
-(106, 37, 'uH', '128', '0', '0.000001', NULL, '2021-06-09 21:43:08', '2021-06-10 01:10:33'),
+(106, 37, 'µH', '128', '0', '0.000001', NULL, '2021-06-09 21:43:08', '2021-06-15 19:57:34'),
 (107, 38, 'ppt', '115', '0', '1000', NULL, '2021-06-09 21:47:33', '2021-06-10 00:35:55'),
-(108, 40, 'in2', NULL, '0', '1', NULL, '2021-06-09 21:49:43', '2021-06-10 00:49:45'),
-(109, 42, 'm2/m2', '127', '0', '1', NULL, '2021-06-09 21:51:29', '2021-06-10 01:09:36'),
-(111, 81, 'um', '113', '0', '0.001', NULL, '2021-06-09 21:56:09', '2021-06-10 00:25:26'),
-(112, 82, 'uΩ', '121', '0', '0.000001', NULL, '2021-06-09 21:58:50', '2021-06-10 01:02:35'),
+(108, 40, 'in²', NULL, '0', '1', NULL, '2021-06-09 21:49:43', '2021-06-15 19:50:12'),
+(109, 42, 'm²/m²', '127', '0', '1', NULL, '2021-06-09 21:51:29', '2021-06-15 20:26:57'),
+(111, 81, 'µm', '113', '0', '0.001', NULL, '2021-06-09 21:56:09', '2021-06-15 20:05:08'),
+(112, 82, 'µΩ', '121', '0', '0.000001', NULL, '2021-06-09 21:58:50', '2021-06-15 20:25:55'),
 (113, 81, 'mm', NULL, '0', '1', NULL, '2021-06-10 00:24:50', '2021-06-10 00:24:50'),
 (114, 6, 'N', NULL, '0', '1', NULL, '2021-06-10 00:26:42', '2021-06-10 00:26:42'),
 (115, 38, 'ppm', NULL, '0', '1', NULL, '2021-06-10 00:35:19', '2021-06-10 00:35:19'),
 (116, 81, 'm', '113', '0', '1000', NULL, '2021-06-10 00:39:49', '2021-06-10 00:39:49'),
 (117, 81, 'cm', '113', '0', '10', NULL, '2021-06-10 00:41:30', '2021-06-10 00:41:30'),
-(118, 40, 'cm2', '108', '0', '0.155', NULL, '2021-06-10 00:50:08', '2021-06-10 00:51:07'),
+(118, 40, 'cm²', '108', '0', '0.155', NULL, '2021-06-10 00:50:08', '2021-06-15 19:50:53'),
 (119, 52, 'nF', '33', '0', '0.001', NULL, '2021-06-10 00:51:49', '2021-06-10 00:51:49'),
 (120, 52, 'pF', '33', '0', '0.000001', NULL, '2021-06-10 00:52:33', '2021-06-10 00:52:33'),
 (121, 82, 'Ω', NULL, '0', '1', NULL, '2021-06-10 01:01:36', '2021-06-10 01:01:36'),
@@ -7980,27 +8894,27 @@ INSERT INTO `units` (`id`, `parameter`, `unit`, `primary_`, `factor_add`, `facto
 (132, 86, 's', NULL, '0', '1', NULL, '2021-06-10 01:19:49', '2021-06-10 21:37:03'),
 (133, 86, 'hr', '132', '0', '3600', NULL, '2021-06-10 01:20:21', '2021-06-10 01:20:21'),
 (135, 80, 'm/s', NULL, '0', '1', NULL, '2021-06-10 01:26:41', '2021-06-10 01:26:41'),
-(136, 79, 'g/cm3', NULL, '0', '1', NULL, '2021-06-10 01:29:04', '2021-06-10 01:29:04'),
-(137, 15, 'gauss', NULL, '0', '1', NULL, '2021-06-10 01:30:20', '2021-06-10 01:30:20'),
-(138, 15, 'kgauss', '137', '0', '1000', NULL, '2021-06-10 01:31:29', '2021-06-10 01:31:29'),
+(136, 79, 'g/cm³', NULL, '0', '1', NULL, '2021-06-10 01:29:04', '2021-06-15 20:24:36'),
+(137, 15, 'Gauss', NULL, '0', '1', NULL, '2021-06-10 01:30:20', '2021-06-15 20:20:41'),
+(138, 15, 'kilo Gauss', '137', '0', '1000', NULL, '2021-06-10 01:31:29', '2021-06-15 20:23:27'),
 (139, 12, 'm', '95', '0', '100', NULL, '2021-06-10 01:32:07', '2021-06-10 01:32:07'),
 (140, 78, 'cP', '94', '0', '0.001', NULL, '2021-06-10 01:34:16', '2021-06-12 17:54:56'),
 (141, 11, 'cSt', NULL, '0', '1', NULL, '2021-06-10 01:35:30', '2021-06-10 01:35:30'),
 (142, 7, 'kg/hr', NULL, '0', '1', NULL, '2021-06-10 01:36:31', '2021-06-10 01:36:31'),
 (143, 76, 'V', NULL, '0', '1', NULL, '2021-06-10 01:37:46', '2021-06-10 01:37:46'),
-(144, 76, 'uV', '143', '0', '0.000001', NULL, '2021-06-10 01:38:25', '2021-06-10 01:38:25'),
+(144, 76, 'µV', '143', '0', '0.000001', NULL, '2021-06-10 01:38:25', '2021-06-15 20:28:41'),
 (145, 76, 'kV', '143', '0', '1000', NULL, '2021-06-10 01:38:41', '2021-06-10 01:38:41'),
 (146, 75, 'V', NULL, '0', '1', NULL, '2021-06-10 01:39:12', '2021-06-10 01:39:12'),
-(147, 75, 'uV', '146', '0', '0.000001', NULL, '2021-06-10 01:40:11', '2021-06-10 01:40:11'),
+(147, 75, 'µV', '146', '0', '0.000001', NULL, '2021-06-10 01:40:11', '2021-06-15 20:53:03'),
 (148, 75, 'kV', '146', '0', '1000', NULL, '2021-06-10 01:45:25', '2021-06-10 01:45:25'),
 (149, 74, 'A', NULL, '0', '1', NULL, '2021-06-10 01:46:03', '2021-06-10 01:46:03'),
-(150, 74, 'uA', '149', '0', '0.000001', NULL, '2021-06-10 01:46:48', '2021-06-10 01:46:48'),
+(150, 74, 'µA', '149', '0', '0.000001', NULL, '2021-06-10 01:46:48', '2021-06-15 19:54:15'),
 (151, 73, 'A', NULL, '0', '1', NULL, '2021-06-10 01:47:10', '2021-06-10 01:47:10'),
-(152, 73, 'uA', '151', '0', '0.000001', NULL, '2021-06-10 01:47:41', '2021-06-10 01:47:41'),
+(152, 73, 'µA', '151', '0', '0.000001', NULL, '2021-06-10 01:47:41', '2021-06-15 19:54:34'),
 (153, 85, 'mL', NULL, '0', '1', NULL, '2021-06-10 01:51:05', '2021-06-10 01:51:05'),
-(154, 85, 'uL', '153', '0', '0.001', NULL, '2021-06-10 01:51:31', '2021-06-10 01:51:31'),
+(154, 85, 'µL', '153', '0', '0.001', NULL, '2021-06-10 01:51:31', '2021-06-15 20:53:42'),
 (155, 10, 'lx', NULL, '0', '1', NULL, '2021-06-10 01:52:07', '2021-06-10 01:52:07'),
-(156, 61, 'mW/cm2', '85', '0', '1000', NULL, '2021-06-10 01:53:21', '2021-06-10 01:53:21'),
+(156, 61, 'mW/cm²', '85', '0', '1000', NULL, '2021-06-10 01:53:21', '2021-06-15 20:04:10'),
 (157, 55, 'HRC', NULL, '0', '1', NULL, '2021-06-10 01:55:40', '2021-06-10 01:55:40'),
 (158, 56, 'MOHS', NULL, '0', '1', NULL, '2021-06-10 01:56:32', '2021-06-10 01:56:32'),
 (159, 69, 'nm', '159', '0', '1', NULL, '2021-06-10 01:59:16', '2021-06-13 22:54:31'),
@@ -8020,7 +8934,7 @@ INSERT INTO `units` (`id`, `parameter`, `unit`, `primary_`, `factor_add`, `facto
 (173, 70, 'nm', NULL, '0', '1', NULL, '2021-06-10 02:23:43', '2021-06-10 02:23:43'),
 (174, 4, '%', NULL, '0', '1', NULL, '2021-06-10 02:31:42', '2021-06-10 02:31:42'),
 (175, 77, 'ppm', NULL, '0', '1', NULL, '2021-06-10 02:33:00', '2021-06-10 02:33:00'),
-(176, 81, 'In', '113', '0', '25.4', NULL, '2021-06-10 18:06:01', '2021-06-10 18:06:51'),
+(176, 81, 'in', '113', '0', '25.4', NULL, '2021-06-10 18:06:01', '2021-06-15 20:05:56'),
 (177, 81, 'ft', '113', '0', '304.8', NULL, '2021-06-10 18:07:55', '2021-06-10 18:07:55'),
 (178, 8, 'ppm', NULL, '0', '1', NULL, '2021-06-10 23:59:27', '2021-06-10 23:59:27'),
 (179, 8, '% Volume', '178', '0', '10000', NULL, '2021-06-11 00:01:49', '2021-06-11 00:01:49'),
@@ -8032,10 +8946,30 @@ INSERT INTO `units` (`id`, `parameter`, `unit`, `primary_`, `factor_add`, `facto
 (185, 80, 'mm/s', '135', '0', '0.001', NULL, '2021-06-13 22:20:50', '2021-06-13 22:20:50'),
 (186, 69, 'nm', NULL, '0', '1', NULL, '2021-06-13 22:55:29', '2021-06-13 22:55:29'),
 (187, 18, 'mV', '46', '0', '0.017', NULL, '2021-06-14 00:30:30', '2021-06-14 00:30:30'),
-(188, 83, 'm/sec2', NULL, '0', '1', NULL, '2021-06-14 02:12:09', '2021-06-14 02:12:09'),
+(188, 83, 'm/sec²', NULL, '0', '1', NULL, '2021-06-14 02:12:09', '2021-06-15 20:28:07'),
 (189, 33, 'NR', NULL, '0', '1', NULL, '2021-06-14 03:22:53', '2021-06-14 03:22:53'),
 (190, 60, 'NR', NULL, '0', '1', NULL, '2021-06-14 03:23:11', '2021-06-14 03:23:11'),
-(191, 87, 'NR', NULL, '0', '1', NULL, '2021-06-14 03:23:31', '2021-06-14 03:23:31');
+(191, 87, 'NR', NULL, '0', '1', NULL, '2021-06-14 03:23:31', '2021-06-14 03:23:31'),
+(192, 88, 'GU', NULL, '0', '1', NULL, '2021-06-15 00:52:12', '2021-06-15 00:52:12'),
+(193, 52, 'mF', '33', '0', '1000', NULL, '2021-06-15 01:19:39', '2021-06-15 01:19:39'),
+(194, 80, 'km/hr', NULL, '0', '3.6', NULL, '2021-06-15 03:10:49', '2021-06-15 03:10:49'),
+(195, 24, '°Bx', '100', '0', '1', NULL, '2021-06-15 03:36:41', '2021-06-15 03:37:28'),
+(196, 24, '°Be', '100', '0', '1', NULL, '2021-06-15 03:37:54', '2021-06-15 03:37:54'),
+(197, 20, '°', NULL, '0', '1', NULL, '2021-06-15 03:41:20', '2021-06-15 03:41:20'),
+(198, 17, 'psi', '6', '0', '0.0689476', NULL, '2021-06-15 19:02:07', '2021-06-15 19:02:07'),
+(199, 17, 'hPa', '200', '0', '0.001', NULL, '2021-06-15 19:03:51', '2021-06-15 19:41:08'),
+(200, 17, 'Bar', NULL, '0', '1', NULL, '2021-06-15 19:14:36', '2021-06-15 19:14:36'),
+(201, 17, 'kPa', '200', '0', '0.01', NULL, '2021-06-15 19:16:13', '2021-06-15 19:16:13'),
+(202, 17, 'mBar', '200', '0', '0.001', NULL, '2021-06-15 19:17:10', '2021-06-15 19:17:10'),
+(203, 17, 'Pa', '200', '0', '0.00001', NULL, '2021-06-15 19:18:54', '2021-06-15 19:18:54'),
+(204, 17, 'kg/cm²', '200', '0', '0.980665', NULL, '2021-06-15 19:20:53', '2021-06-15 19:20:53'),
+(205, 17, 'mmHg', '200', '0', '0.00133322', NULL, '2021-06-15 19:22:06', '2021-06-15 19:22:06'),
+(206, 17, 'inHg', '200', '0', '0.0338639', NULL, '2021-06-15 19:26:06', '2021-06-15 19:26:06'),
+(207, 17, 'mmH₂O', '200', '0', '0.0000980665', NULL, '2021-06-15 19:35:06', '2021-06-15 19:43:13'),
+(208, 17, 'inH₂O', '200', '0', '0.0024884', NULL, '2021-06-15 19:44:31', '2021-06-15 19:44:31'),
+(209, 37, 'mH', '128', '0', '0.001', NULL, '2021-06-15 19:58:52', '2021-06-15 19:58:52'),
+(210, 89, 'ton', NULL, '0', '1', NULL, '2021-06-16 00:08:43', '2021-06-16 00:08:43'),
+(211, 6, 'cN', '114', '0', '0.01', NULL, '2021-06-16 00:10:54', '2021-06-16 00:10:54');
 
 -- --------------------------------------------------------
 
@@ -8068,6 +9002,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Truncate table before insert `users`
+--
+
+TRUNCATE TABLE `users`;
+--
 -- Dumping data for table `users`
 --
 
@@ -8081,7 +9020,7 @@ INSERT INTO `users` (`id`, `user_type`, `designation`, `department`, `fname`, `l
 (7, 5, 10, 3, 'Shahid', 'Murtaza', 'Ghulam Murtaza', NULL, NULL, '03074063832', '35202-9939011-1', 'House # 9 gali 1Block sohail, jamil park multan road chungi Lahore City District Lahore Pakistan', 'shahidmurtaza5@gmail.com', NULL, '$2y$10$qajY6DR5C4zxcmSALHnojuiauRIWOdwR3GCA4hnjIRi30jW5yDpCK', '1991-12-16', '2020-07-15', '', NULL, '2021-02-03 00:28:32', '2021-02-03 00:28:32'),
 (8, 6, 18, 3, 'Tanveer', 'Hussain', 'Jahangir Hussain', NULL, '1622708482.png', '03124364710', '35202-4390615-5', 'MOH Ghous-e-Azam, AQAB G School Mahey Road, Sarai-alamgir.', 'paripakar94@gmail.com', NULL, '$2y$10$x8CBG3Bc3SBslfmSAvyOBuJEed3C/DHiB145Wu6J5PR5iOQ5uUViW', '1994-07-10', '2016-11-10', '', NULL, '2021-02-03 00:51:23', '2021-06-03 20:21:22'),
 (9, 5, 9, 3, 'Taimoor', 'Hassan', 'Imtiaz Ahmed', NULL, NULL, '03027694833', '38403-1086570-7', 'House # 22\r\nC-Block', 'taimur2299@gmail.com', NULL, '$2y$10$xQczco/C07yhRgJJwk48yuVsN5cDIfjWh/Z9VGn.XT0zk5/JO6gAm', '1998-04-01', '2017-04-01', '1608817907-Taimoor Hassan.jpg', NULL, '2020-12-24 20:51:47', '2020-12-24 20:51:47'),
-(10, 5, 10, 3, 'Muhammad', 'Imran', 'M.Tufail', NULL, NULL, '0300637059', '38403-8181855-9', '1 Unit colony Bahawalpur.', 'zimran9976@gmail.com', NULL, '$2y$10$kz1tRnj1vBONB6pHEPkiM.0CvzAvJerR06FOtTRBTGoZdcDkJ.1sW', '1990-08-18', '2019-04-01', '1608816066-imran.PNG', 'qCO2A4b0mfd81MRGzB52BXkHsnPztUXxR8VerE5tnS3W3xt1ZktSlYccnuq2', '2020-12-23 12:19:10', '2021-06-02 17:25:51'),
+(10, 5, 10, 3, 'Muhammad', 'Imran', 'M.Tufail', NULL, NULL, '0300637059', '38403-8181855-9', '1 Unit colony Bahawalpur.', 'zimran9976@gmail.com', NULL, '$2y$10$kz1tRnj1vBONB6pHEPkiM.0CvzAvJerR06FOtTRBTGoZdcDkJ.1sW', '1990-08-18', '2019-04-01', '1608816066-imran.PNG', 'COpMUz8dOddzZ4EX1piCh9D9GEm9TiJDwrVc7qsljSGoeSxPh269LNy1GsWx', '2020-12-23 12:19:10', '2021-06-02 17:25:51'),
 (11, 5, 10, 3, 'Ahmad', 'Bukhsh', 'Respected Father', NULL, NULL, '03020002467', '00000-0000000-0', 'House # 22\r\nC-Block', 'ahmad.bakhsh@lims.com', NULL, '$2y$10$V.rKwC72TGnFgKGNGeWJbOZ9ZGhDPeRKl92i1DAGkIXbYFAJSPH8i', '1985-01-01', '2017-01-01', '1608817077-Ahmad Bakhsh.jpg', NULL, '2020-12-24 20:32:54', '2020-12-24 20:37:57'),
 (12, 4, 15, 6, 'Mumtaz', 'Bashir', 'Muhammad Bashir', NULL, NULL, '03004407910', '35202-0976792-5', '22 c Sabzazar Lahore', 'acc.aimscal@gmail.com', NULL, '$2y$10$qn5RPnEO6Cf9dnm/Uf5qDeolwwm2P5Jarmjm4GQ0M.I0duDxOPk1m', '1978-02-02', '2018-02-12', '1608814217-Mumtaz Bhai Sign.png', NULL, '2020-10-11 23:37:41', '2020-12-24 19:50:17'),
 (13, 1, 14, 5, 'Kanza', 'Imtiaz', 'Imtiaz Ahmed', NULL, NULL, '03214717284', '38403-5536975-4', 'House # 324, Block R-3, Johar Town, Lahore.', 'pm@aimscal.com', NULL, '$2y$10$8d9xI4p4rzRpBvE6417pF.ce3XVd3luO68IsJN58Hmk.qzbNvj8Ha', '1996-09-17', '2019-01-01', '1608815027-kanza.PNG', 'ajhH3K4NptpeLp63qSU7JJvFD3rvdG2DRvbAnrWav5CofnZAnqUJUVsLC69q', '2020-10-20 06:21:04', '2020-12-24 20:03:47'),
@@ -8089,7 +9028,7 @@ INSERT INTO `users` (`id`, `user_type`, `designation`, `department`, `fname`, `l
 (15, 5, 10, 3, 'Ali', 'Akhtar', 'Muhammad Zia', NULL, NULL, '03495688605', '34202-6652422-3', 'Village Nandwal Thesil Kharian District Gujrat', 'moonraja499@gmail.com', NULL, '$2y$10$R8q/HEYNenqAECsVK35YNu.OShUbDoHMURCz5LcI1Kp5ZPpGK5Cku', '2000-02-01', '2020-02-03', '1608816099-Ali Akhtar.jpg', NULL, '2020-12-24 12:13:14', '2020-12-24 20:21:39'),
 (16, 7, 16, 6, 'Ahmed', 'Raza', 'Muhammad Azam', NULL, NULL, '03124310035', '34202-1128221-5', 'District Gujrat Tehsil Khariyan Post office sarsal village singla.', 'acc.aimscal2021@gmail.com', NULL, '$2y$10$ZYZa05UFMO3fZzKuaX5heu6fkAUeZT.5lYRQ9Vqs3bo1kysApfhWa', '2002-06-01', '2020-09-02', '1608816016-Ahmad Raza.jpg', NULL, '2020-12-21 17:31:24', '2021-06-08 03:14:44'),
 (18, 5, 9, 3, 'Ejaz', 'Manzoor Adil', 'Respected Father', NULL, NULL, '03334837528', '00000-0000000-0', 'House # 22\r\nC-Block', 'ejaz.manzoor@lims.com', NULL, '$2y$10$HPp.3AaNPXoPPXnIoVhmb.s3vJWYdm6joxNEccIW3uLAReN612Yz.', '1965-01-01', '2019-01-01', '', NULL, '2020-12-24 21:00:28', '2020-12-24 21:00:28'),
-(19, 1, 1, 7, 'Muhammad', 'Azeem', 'Mansab Ali', NULL, '1623213572.png', '03040647306', '33100-1231231-7', 'Nishat Mills Faisalabad', 'emazeem07@gmail.com', NULL, '$2y$10$02gYWclv66IMTZmlwkDjBeJinwNQrtN0q.fVjfzlPzkJFQBENVd/a', '1998-08-13', '2020-09-13', '1623386360-azeem signature.png', 'xE92U2vRF3c4M25ClQK7MuqIvdC8CAWpsSpvvps69pnFans3AELmywM8ZmH1', NULL, '2021-06-11 16:39:20'),
+(19, 1, 1, 7, 'Muhammad', 'Azeem', 'Mansab Ali', NULL, '1623213572.png', '03040647306', '33100-1231231-7', 'Nishat Mills Faisalabad', 'emazeem07@gmail.com', NULL, '$2y$10$02gYWclv66IMTZmlwkDjBeJinwNQrtN0q.fVjfzlPzkJFQBENVd/a', '1998-08-13', '2020-09-13', '1623386360-azeem signature.png', 'QSwrvgN5xkyBdyHye6x1cYmN61Nh2yWDvZ38u6SLMwfzXZRZjL7wjZzih1mN', NULL, '2021-06-11 16:39:20'),
 (20, 5, 10, 3, 'Ahmad', 'Mustafa', 'Respected Father', NULL, NULL, '0123145678', '00000-0000000-0', 'House # 22\r\nC-Block', 'rajamustafa837@gmail.com', NULL, '$2y$10$b0rJi06LHtHzeRjxsSuUkOntpgoOE.InMF1sN.HBtJ8.g5eh2ExkO', '1998-01-01', '2020-10-01', '1608818277-Ahmad Mustafa.jpg', NULL, '2020-12-24 20:57:57', '2021-06-02 19:36:07'),
 (21, 5, 10, 3, 'Faizan', 'Ahmed', 'Pir Buksh', NULL, NULL, '03314361796', '35202-7515994-5', 'E-36, PCSIR Colony Ferozpur Road, Lahore.', 'faizanmalik12337838@gmail.com', NULL, '$2y$10$s.OQpyN3xYwk0nw7I9Zjx.4yQEKvyMwGpES2dVzwnNWkn45Ru8e4K', '2002-10-15', '2020-07-01', '1608816138-Faizan.jpg', NULL, '2020-12-24 19:41:15', '2020-12-24 20:22:18');
 
@@ -8118,6 +9057,11 @@ CREATE TABLE `vendors` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `vendors`
+--
+
+TRUNCATE TABLE `vendors`;
 -- --------------------------------------------------------
 
 --
@@ -8138,6 +9082,11 @@ CREATE TABLE `vernierentries` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `vernierentries`
+--
+
+TRUNCATE TABLE `vernierentries`;
 -- --------------------------------------------------------
 
 --
@@ -8161,6 +9110,11 @@ CREATE TABLE `volumeentries` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `volumeentries`
+--
+
+TRUNCATE TABLE `volumeentries`;
 -- --------------------------------------------------------
 
 --
@@ -8175,6 +9129,11 @@ CREATE TABLE `voucherassets` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `voucherassets`
+--
+
+TRUNCATE TABLE `voucherassets`;
 -- --------------------------------------------------------
 
 --
@@ -8191,6 +9150,11 @@ CREATE TABLE `zvalues` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Truncate table before insert `zvalues`
+--
+
+TRUNCATE TABLE `zvalues`;
 --
 -- Indexes for dumped tables
 --
@@ -8404,12 +9368,6 @@ ALTER TABLE `inv_payments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `items`
---
-ALTER TABLE `items`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `jobitems`
 --
 ALTER TABLE `jobitems`
@@ -8607,6 +9565,12 @@ ALTER TABLE `quotes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `quote_items`
+--
+ALTER TABLE `quote_items`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `receiving_ledgers`
 --
 ALTER TABLE `receiving_ledgers`
@@ -8722,7 +9686,7 @@ ALTER TABLE `acc_level_twos`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2592;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3077;
 
 --
 -- AUTO_INCREMENT for table `assetgroups`
@@ -8752,7 +9716,7 @@ ALTER TABLE `business_lines`
 -- AUTO_INCREMENT for table `capabilities`
 --
 ALTER TABLE `capabilities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1016;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1019;
 
 --
 -- AUTO_INCREMENT for table `capabilitiesgroups`
@@ -8875,12 +9839,6 @@ ALTER TABLE `inv_payments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `items`
---
-ALTER TABLE `items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT for table `jobitems`
 --
 ALTER TABLE `jobitems`
@@ -8938,7 +9896,7 @@ ALTER TABLE `materialreceivings`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT for table `micrometer_entries`
@@ -8956,7 +9914,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nofacilities`
 --
 ALTER TABLE `nofacilities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -8974,7 +9932,7 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `parameters`
 --
 ALTER TABLE `parameters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `po`
@@ -9010,7 +9968,7 @@ ALTER TABLE `preventivemaintenancerecords`
 -- AUTO_INCREMENT for table `procedures`
 --
 ALTER TABLE `procedures`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `purchaseindentitems`
@@ -9041,6 +9999,12 @@ ALTER TABLE `quoterevisionlogs`
 --
 ALTER TABLE `quotes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `quote_items`
+--
+ALTER TABLE `quote_items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `requisitions`
@@ -9082,7 +10046,7 @@ ALTER TABLE `uncertainties`
 -- AUTO_INCREMENT for table `units`
 --
 ALTER TABLE `units`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -9120,7 +10084,3 @@ ALTER TABLE `voucherassets`
 ALTER TABLE `zvalues`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

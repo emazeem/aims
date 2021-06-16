@@ -210,7 +210,7 @@ class QuoteItemController extends Controller
         $item->price=$request->price;
         $item->quantity=$request->quantity;
         $item->save();
-        $items=Item::where('quote_id',$request->quote_id)->where('status',0)->get();
+        $items=QuoteItem::where('quote_id',$request->quote_id)->where('status',0)->get();
         $lab=0;$site=0;
         foreach($items as $value){
             if ($value->location=='site'){$site=1;}
@@ -284,23 +284,6 @@ class QuoteItemController extends Controller
         }else{}
         return response()->json(['success'=>'Item Updated successfully']);
 
-    }
-    public function updateNA(Request $request){
-        $this->validate(request(), [
-            'name' => 'required',
-            'quantity' => 'required',
-            'parameter' => 'required',
-        ],[
-            'name.required' => 'Parameter field is required *',
-            'quantity.required' => 'Quantity field is required *',
-            'parameter.required' => 'Quantity field is required *',
-        ]);
-        $item=Item::find($request->id);
-        $item->not_available=$request->name;
-        $item->quantity=$request->quantity;
-        $item->parameter=$request->parameter;
-        $item->save();
-        return response()->json(['success'=>'Updated successfully']);
     }
     public function getCapabilities($id){
         $data['capabilities']=Capabilities::where('parameter', $id)
