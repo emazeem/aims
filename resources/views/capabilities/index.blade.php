@@ -76,7 +76,7 @@
                 "Paginate": true,
 
                 "order": [[0, 'asc']],
-                "pageLength": 25,
+                "pageLength": 100,
                 "ajax": {
                     "url": "{{ route('capabilities.fetch') }}",
                     "dataType": "json",

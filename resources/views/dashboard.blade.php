@@ -345,13 +345,16 @@
 
 
         <div class="col-12 mt-2">
+
             <h4 class="font-weight-light">Events and Deadlines</h4>
             {!! $calendar->calendar() !!}
             {!! $calendar->script() !!}
         </div>
     </div>
+
     <script>
         $(document).ready(function (e) {
+
             $.ajax({
                 url: "{{route('dashboard.get.location')}}",
                 type: 'POST',
