@@ -128,7 +128,7 @@ class CapabilitiesController extends Controller
         $capabilities->calculator=$request->add_calculator;
         $capabilities->accuracy=$request->add_accuracy;
         $capabilities->location=$request->add_location;
-        $capabilities->accredited=($request->add_accredited)?"yes":"no";
+        $capabilities->accredited=$request->edit_accredited;
         $capabilities->price=$request->add_price;
         $capabilities->remarks=$request->add_remarks;
         $capabilities->procedure=$request->add_procedure;
@@ -136,7 +136,6 @@ class CapabilitiesController extends Controller
         return response()->json(['success'=> 'Capability added successfully']);
     }
     public function update(Request $request){
-        //dd($request->all());
         $this->authorize('capabilities-edit');
         $this->validate(request(), [
             'edit_name' => 'required',
@@ -174,7 +173,7 @@ class CapabilitiesController extends Controller
         $capabilities->accredited_max_range=$request->edit_acc_max_range;
         $capabilities->max_range=$request->edit_max_range;
         $capabilities->location=$request->edit_location;
-        $capabilities->accredited=($request->edit_accredited)?"yes":"no";
+        $capabilities->accredited=$request->edit_accredited;
         $capabilities->unit=$request->edit_unit;
         $capabilities->accuracy=$request->edit_accuracy;
         $capabilities->price=$request->edit_price;

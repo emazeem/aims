@@ -96,10 +96,14 @@
                         </div>
                     </div>
                     <div class="col-6"></div>
-                    <div class="col-6 p-1 m-0 form-check">
-                        <div class="checkbox float-right checkbox-fill d-inline">
-                            <input type="checkbox" name="edit_accredited" id="edit_accredited">
-                            <label class="cr" for="edit_accredited">Accredited</label>
+                    <div class="form-group col-6 p-1 m-0">
+                        <label for="edit_accredited" class=" control-label">Accredited</label>
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="edit_accredited" name="edit_accredited">
+                                <option selected disabled>Select Location</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-12 text-right">
@@ -159,11 +163,7 @@
                     $('#edit_price').val(data.price);
                     $('#edit_remarks').val(data.remarks);
                     $('#edit_location').val(data.location);
-                    if(data.accredited=='yes'){
-                        $("#edit_accredited").prop('checked', true);
-                    }else {
-                        $("#edit_accredited").prop('checked', false);
-                    }
+                    $("#edit_accredited").val(data.accredited);
                     $('#edit_unit').empty();
                     $('#edit_unit').append('<option disabled selected>--Select Units</option>');
                     $.each(data['units'], function(key, value) {
