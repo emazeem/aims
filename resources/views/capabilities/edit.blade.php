@@ -181,7 +181,6 @@
             var button=$('.cap-update-btn');
             var previous=$('.cap-update-btn').html();
             button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
-
             e.preventDefault();
             $.ajax({
                 url: "{{route('capabilities.update')}}",
@@ -190,6 +189,12 @@
                 contentType: false,
                 cache: false,
                 processData:false,
+                statusCode: {
+                    401: function () {
+                        swal("Failed", "This unit is not under this parameter", "error");
+                        return false;
+                    }
+                },
                 success: function(data)
                 {
                     button.attr('disabled',null).html(previous);

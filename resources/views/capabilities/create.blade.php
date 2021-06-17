@@ -134,6 +134,12 @@
                 contentType: false,
                 cache: false,
                 processData:false,
+                statusCode: {
+                    401: function () {
+                        swal("Failed", "This unit is not under this parameter", "error");
+                        return false;
+                    }
+                },
                 success: function(data)
                 {
                     button.attr('disabled',null).html(previous);

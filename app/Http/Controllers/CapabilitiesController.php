@@ -91,7 +91,6 @@ class CapabilitiesController extends Controller
 
     }
     public function store(Request $request){
-        dd($request->all());
         $this->authorize('capabilities-create');
         $this->validate(request(), [
             'add_name' => 'required',
@@ -118,6 +117,11 @@ class CapabilitiesController extends Controller
             'add_procedure.required' => 'Procedure field is required *',
             'add_calculator.required' => 'Procedure field is required *',
         ]);
+        $unit=Unit::find($request->add_unit);
+        if ($request->add_parameter!=$unit->parameter){
+            return response()->json(['error'=>'----'],401);
+        }
+
         $capabilities=new Capabilities();
         $capabilities->name=$request->add_name;
         $capabilities->parameter=$request->add_parameter;
@@ -165,6 +169,12 @@ class CapabilitiesController extends Controller
             'edit_calculator.required' => 'Calculator field is required *',
 
         ]);
+
+        $unit=Unit::find($request->edit_unit);
+        if ($request->edit_parameter!=$unit->parameter){
+            return response()->json(['error'=>'----'],401);
+        }
+
         $capabilities=Capabilities::find($request->id);
         $capabilities->name=$request->edit_name;
         $capabilities->parameter=$request->edit_parameter;
