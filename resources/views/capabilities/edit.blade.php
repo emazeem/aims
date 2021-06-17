@@ -151,8 +151,8 @@
                     $('#edit_capabilities_modal').modal('toggle');
                     $('#edit_id').val(data.id);
                     $('#edit_name').val(data.name);
-                    //$('#edit_parameter').val(data.parameter).trigger('change');
-                    $('#edit_parameter').find("option[value='"+data.parameter+"']").attr("selected","selected");
+                    $('#edit_parameter').val(data.parameter);
+                    //$('#edit_parameter').find("option[value='"+data.parameter+"']").attr("selected","selected");
                     $('#edit_procedure').val(data.procedure).trigger('change');
                     $('#edit_min_range').val(data.min_range);
                     $('#edit_acc_min_range').val(data.accredited_min_range);
