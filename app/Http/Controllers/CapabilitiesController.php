@@ -10,6 +10,7 @@ use App\Models\Procedure;
 use App\Models\Suggestion;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
@@ -74,16 +75,22 @@ class CapabilitiesController extends Controller
 
                 $action=null;
                 $token=csrf_token();
-                $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                if (Auth::user()->can('capabilities-delete')){
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method=\"post\" role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
                       </form>";
+                }
+                if (Auth::user()->can('capabilities-view')){
+                    $action.="<a title='Detail' class='btn btn-sm btn-primary' href=".url('/capabilities/view/'. $data->id) ." data-id='".$data->id ."'><i class='fa fa-eye'></i></a>";
+                }
+                if (Auth::user()->can('capabilities-edit')){
+                    $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='".$data->id."'><i class='fa fa-edit'></i></button>";
+                }
 
-                return "&emsp;
-                    <a title='Detail' class='btn btn-sm btn-primary' href='" . url('/capabilities/view/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
-                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='fa fa-edit'></i></button>                 ".$action;
+                return $action;
 
             })
             ->rawColumns(['options','@'])

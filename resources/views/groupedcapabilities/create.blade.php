@@ -68,19 +68,11 @@
                     contentType: false,
                     cache: false,
                     processData:false,
-                    statusCode: {
-                        403: function() {
-                            $(".loading").fadeOut();
-                            swal("Failed", "Access Denied" , "error");
-                            return false;
-                        }
-                    },
                     success: function(data)
                     {
                         button.attr('disabled',null).html(previous);
                         swal('success',data.success,'success').then((value) => {
-                            $('#add_capabilities').modal('hide');
-                            $("#example").DataTable().ajax.reload(null,false);
+                            window.location.href='{{URL::previous()}}';
                         });
 
                     },

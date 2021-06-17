@@ -19,8 +19,8 @@
                                 class="fa fa-eye"></i> Parameters</a>
                 @endcan
                 @can('add-grouped-capabilities')
-                    <a class="btn float-right btn-sm btn-primary add-grouped-capability mt-2 shadow-sm"
-                       style="display: none" href><i class="feather icon-plus-circle"></i> Grouped Capabilities</a>
+                        <a class="btn float-left btn-sm btn-primary add-grouped-capability mt-2 shadow-sm"
+                           style="display: none" href><i class="feather icon-plus-circle"></i> Grouped Capabilities</a>
                 @endcan
 
             </span>
@@ -147,6 +147,7 @@
                 $('.actions:checked').each(function (i) {
                     val[i] = $(this).attr('data-id');
                 });
+                console.log(val.length);
                 if (val.length == 0) {
                     $('.add-grouped-capability').css('display', 'none');
                 } else {
