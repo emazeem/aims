@@ -198,5 +198,9 @@ class CapabilitiesController extends Controller
         $item->delete();
         return response()->json(['success'=> 'Capability deleted successfully']);
     }
+    public function prints(){
+        $capabilities = Capabilities::orderBy('name','ASC')->get();
+        return view('capabilities.print',compact('capabilities'));
+    }
     //
 }

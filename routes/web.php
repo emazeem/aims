@@ -97,6 +97,7 @@ Route::group(['prefix'=> 'capabilities'],function() {
     Route::post('/update/',[App\Http\Controllers\CapabilitiesController::class, 'update'])->middleware('auth')->name('capabilities.update');
     Route::delete('/delete',[App\Http\Controllers\CapabilitiesController::class, 'delete'])->middleware('auth')->name('capabilities.delete');
     Route::get('/view/{id}',[App\Http\Controllers\CapabilitiesController::class, 'show'])->middleware('auth')->name('capabilities.show');
+    Route::get('/print',[App\Http\Controllers\CapabilitiesController::class, 'prints'])->middleware('auth')->name('capabilities.print');
 });
 
 Route::group(['prefix'=> 'grouped-capabilities'],function() {

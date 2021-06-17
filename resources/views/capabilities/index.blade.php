@@ -8,6 +8,10 @@
 
                 @can('capabilities-create')
                     <a class="btn float-right add-capability-modal btn-sm btn-primary mt-2 shadow-sm" href><i class="fa fa-plus"></i> Capabilities</a>
+
+                    <a class="btn float-right btn-sm mt-2 btn-success shadow-sm"
+                       href="{{route('capabilities.print')}}"><i class="feather icon-printer"></i> Capabilities</a>
+
                 @endcan
 
                 @can('parameter-index')
@@ -18,6 +22,7 @@
                     <a class="btn float-right btn-sm btn-primary add-grouped-capability mt-2 shadow-sm"
                        style="display: none" href><i class="feather icon-plus-circle"></i> Grouped Capabilities</a>
                 @endcan
+
             </span>
         </div>
     </div>
