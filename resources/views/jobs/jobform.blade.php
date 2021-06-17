@@ -68,11 +68,11 @@
         <div class="row custom-border p-2">
             <div class="col-3 row my-1 font-sm">
                 <div class="col-4">Job#:</div>
-                <div class="col-8 custom-bottom-border text-center">JN/{{date('y',strtotime($job->created_at))}}/{{$job->id}}</div>
+                <div class="col-8 custom-bottom-border text-center">{{$job->cid}}</div>
             </div>
             <div class="col-2 row my-1 font-sm ">
                 <div class="col-3">Date:</div>
-                <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y')}}</div>
+                <div class="col-9 custom-bottom-border  text-center">{{$job->created_at->format('d-m-Y')}}</div>
             </div>
             <div class="col-4 row my-1 font-sm ">
                 <div class="col-7">Work order / Quotation #</div>
@@ -139,10 +139,10 @@
                     <tr>
                         <td class="font-md">{{$i}}</td>
                         @php $i++; @endphp
-                        <td class="font-md">{{\App\Models\Item::find($labjob->item_id)->capabilities->name}}</td>
+                        <td class="font-md">{{\App\Models\QuoteItem::find($labjob->item_id)->capabilities->name}}</td>
                         <td class="font-md">{{$labjob->eq_id}}</td>
                         <td class="font-md">{{$labjob->model}}</td>
-                        <td class="font-md">{{$labjob->jobs->quotes->turnaround}}</td>
+                        <td class="font-md">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
                         <td class="font-md">{{$labjob->accessories}}</td>
                         <td class="font-md">{{$labjob->visual_inspection}}</td>
                     </tr>
@@ -154,7 +154,8 @@
                         <td class="font-md">{{$sitejob->item->capabilities->name}}</td>
                         <td class="font-md">{{$sitejob->eq_id}}</td>
                         <td class="font-md">{{$sitejob->model}}</td>
-                        <td class="font-md">{{$sitejob->jobs->quotes->turnaround}}</td>
+                        <td class="font-md">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
+
                         <td class="font-md">{{$sitejob->accessories}}</td>
                         <td class="font-md">{{$sitejob->visual_inspection}}</td>
                     </tr>

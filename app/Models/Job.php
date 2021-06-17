@@ -9,7 +9,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Job extends Model
 {
     use HasFactory,LogsActivity;
-
+    protected $dates=['created_at'];
     public function quotes(){
         return $this->belongsTo('App\Models\Quotes','quote_id');
     }

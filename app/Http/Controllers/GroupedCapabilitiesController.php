@@ -15,7 +15,7 @@ class GroupedCapabilitiesController extends Controller
         return view('groupedcapabilities.index');
     }
     public function fetch(){
-        $this->authorize('capabilities-index');
+        $this->authorize('grouped-capabilities');
         $data=Capabilities::with('parameters')->where('is_group',1)->get();
         //dd($data);
         return DataTables::of($data)
@@ -66,7 +66,7 @@ class GroupedCapabilitiesController extends Controller
         return view('groupedcapabilities.create',compact('selections'));
     }
     public function edit($id){
-        $this->authorize('edit-grouped-capabilities');
+        //$this->authorize('edit-grouped-capabilities');
         $edit=Capabilities::find($id);
         $underlying=[];
         foreach (Capabilities::where('group_id',$id)->get() as $item){

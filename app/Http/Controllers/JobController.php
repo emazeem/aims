@@ -22,7 +22,7 @@ class JobController extends Controller
         $data=Job::with('quotes')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
-                return $data->id;
+                return $data->cid;
             })
             ->addColumn('quote', function ($data) {
                 return $data->quotes->cid;
