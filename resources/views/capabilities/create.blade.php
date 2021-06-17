@@ -11,13 +11,14 @@
                 <form id="add_capabilities_form" class="form-horizontal row">
                     @csrf
                     <div class="form-group col-6 p-1 m-0">
-                        <label for="add_name" class="control-label">Enter Name of Capability</label>
+                        <label for="add_name" class="control-label">Type Name of Capability</label>
                         <input type="text" class="form-control" id="add_name" name="add_name" placeholder="Enter Name of Capability">
                     </div>
                     <div class="form-group col-6 p-1 m-0">
                         <label for="add_parameter" class="control-label">Parameter</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control select-2-capability" style="width: 100%" id="add_parameter" name="add_parameter">
+                                <option disabled="disabled" selected>--Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
                                 @endforeach
@@ -29,6 +30,7 @@
                         <label for="add_procedure" class=" control-label">Procedure</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control select-2-procedure" style="width: 100%" id="add_procedure" name="add_procedure">
+                                <option disabled="disabled" selected>--Select Procedure</option>
                                 @foreach($procedures as $procedure)
                                     <option value="{{$procedure->id}}">{{$procedure->name}}-{{$procedure->description}}</option>
                                 @endforeach
@@ -55,6 +57,7 @@
                         <label for="add_calculator" class=" control-label">Calculator</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="add_calculator" name="add_calculator">
+                                <option disabled="disabled" selected>--Select Calculator</option>
                                 @foreach($calculators as $calculator)
                                     <option value="{{$calculator->slug}}">{{$calculator->name}}</option>
                                 @endforeach
@@ -84,6 +87,7 @@
                         <label for="add_location" class=" control-label">Location</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="add_location" name="add_location">
+                                <option disabled="disabled" selected>--Select Location</option>
                                 <option value="site">site</option>
                                 <option value="lab">lab</option>
                             </select>
@@ -101,6 +105,7 @@
                         <label for="add_accredited" class=" control-label">Accredited</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="add_accredited" name="add_accredited">
+                                <option disabled="disabled" selected>--Select Accredited</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -186,22 +191,23 @@
         $(document).on('click','.add-capability-modal',function (e) {
             e.preventDefault();
             $('#add_name').val('');
-            $('#add_parameter').prepend('<option disabled selected>--Select Parameter</option>');
-            $('#add_procedure').prepend('<option disabled selected>--Select Procedure</option>');
+            $('#add_parameter').find("option[disabled='disabled']").attr("selected","selected");
+            $('#add_procedure').find("option[disabled='disabled']").attr("selected","selected");
             $('#add_min_range').val('');
             $('#add_acc_min_range').val('');
             $('#add_max_range').val('');
             $('#add_acc_max_range').val('');
 
-            $('#add_calculator').prepend('<option disabled selected>--Select Calculator</option>');
+            $('#add_calculator').find("option[disabled='disabled']").attr("selected","selected");
+
             $('#add_unit').empty();
             $('#add_unit').append('<option disabled selected>--Select Unit</option>');
             $('#add_accuracy').val('');
             $('#add_price').val('');
             $('#add_remarks').val('');
-            $('#add_location').prepend('<option disabled selected>--Select Location</option>');
-            $('#add_accredited').prepend('<option selected disabled>--Select Accredited</option>');
 
+            $('#add_location').find("option[disabled='disabled']").attr("selected","selected");
+            $('#add_accredited').find("option[disabled='disabled']").attr("selected","selected");
 
             $('#add_capabilities_form')[0].reset();
             $('#add_capabilities').modal('show');

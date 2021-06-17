@@ -13,13 +13,14 @@
                     @csrf
                     <input type="hidden" id="edit_id" name="id">
                     <div class="form-group col-6 p-1 m-0">
-                        <label for="edit_name" class=" control-label">Enter Name of Capability</label>
+                        <label for="edit_name" class=" control-label">Type Name of Capability</label>
                         <input type="text" class="form-control" id="edit_name" name="edit_name" placeholder="Name">
                     </div>
                     <div class="form-group col-6 p-1 m-0">
                         <label for="edit_parameter" class=" control-label">Parameter</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control select-2-parameter-edit" id="edit_parameter" style="width: 100%" name="edit_parameter">
+                                <option disabled="disabled" selected>--Select Parameter</option>
                                 @foreach($parameters as $parameter)
                                     <option value="{{$parameter->id}}">{{$parameter->name}}</option>
                                 @endforeach
@@ -30,6 +31,7 @@
                         <label for="edit_procedure" class=" control-label">Procedure</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control select-2-procedure-edit"  style="width: 100%" id="edit_procedure" name="edit_procedure">
+                                <option disabled="disabled" selected>--Select Procedure</option>
                                 @foreach($procedures as $procedure)
                                     <option value="{{$procedure->id}}">{{$procedure->name}}-{{$procedure->description}}</option>
                                 @endforeach
@@ -57,7 +59,7 @@
                         <label for="edit_calculator" class=" control-label">Calculator</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="edit_calculator" name="edit_calculator">
-                                <option selected disabled>Select Calculator</option>
+                                <option selected disabled="disabled">--Select Calculator</option>
                                 @foreach($calculators as $calculator)
                                     <option value="{{$calculator->slug}}">{{$calculator->name}}</option>
                                 @endforeach
@@ -89,7 +91,7 @@
                         <label for="edit_location" class=" control-label">Location</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="edit_location" name="edit_location">
-                                <option selected disabled>Select Location</option>
+                                <option selected disabled="disabled">--Select Location</option>
                                 <option value="site">site</option>
                                 <option value="lab">lab</option>
                             </select>
@@ -100,7 +102,7 @@
                         <label for="edit_accredited" class=" control-label">Accredited</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="edit_accredited" name="edit_accredited">
-                                <option selected disabled>--Select Accredited</option>
+                                <option selected disabled="disabled">--Select Accredited</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -120,21 +122,23 @@
     $(document).ready(function () {
         $(document).on('click', '.edit', function() {
             $('#edit_name').val('');
-            $('#edit_parameter').prepend('<option disabled selected>--Select Parameter</option>');
-            $('#edit_procedure').prepend('<option disabled selected>--Select Procedure</option>');
+            $('#edit_parameter').find("option[disabled='disabled']").attr("selected","selected");
+            $('#edit_procedure').find("option[disabled='disabled']").attr("selected","selected");
+
             $('#edit_min_range').val('');
             $('#edit_acc_min_range').val('');
             $('#edit_max_range').val('');
             $('#edit_acc_max_range').val('');
-            $('#edit_calculator').prepend('<option disabled selected>--Select Calculator</option>');
-            $('#edit_unit').empty();
-            $('#edit_unit').append('<option disabled selected>--Select Unit</option>');
+            $('#edit_calculator').find("option[disabled='disabled']").attr("selected","selected");
+
+            //1$('#edit_unit').empty();
+            //1$('#edit_unit').append('<option disabled selected>--Select Unit</option>');
+
             $('#edit_accuracy').val('');
             $('#edit_price').val('');
             $('#edit_remarks').val('');
-            $('#edit_location').prepend('<option disabled selected>--Select Location</option>');
-            $('#edit_accredited').val('');
-            $('#edit_accredited').prop('checked', false);
+            $('#edit_location').find("option[disabled='disabled']").attr("selected","selected");
+            $('#edit_accredited').find("option[disabled='disabled']").attr("selected","selected");
             $('#edit_capabilities_form')[0].reset();
 
             var id = $(this).attr('data-id');
@@ -145,9 +149,6 @@
                 dataType : "json",
                 success: function(data)
                 {
-                    $.each(data['units'], function(key, value) {
-                        $('#edit_unit').append('<option value="'+value.id+'" >'+ value.unit +'</option>');
-                    });
                     $('#edit_capabilities_modal').modal('toggle');
                     $('#edit_id').val(data.id);
                     $('#edit_name').val(data.name);
@@ -164,6 +165,7 @@
                     $('#edit_remarks').val(data.remarks);
                     $('#edit_location').val(data.location);
                     $("#edit_accredited").val(data.accredited);
+
                     $('#edit_unit').empty();
                     $('#edit_unit').append('<option disabled selected>--Select Units</option>');
                     $.each(data['units'], function(key, value) {
