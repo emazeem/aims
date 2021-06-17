@@ -148,7 +148,7 @@
                     $('#edit_id').val(data.id);
                     $('#edit_name').val(data.name);
                     //$('#edit_parameter').val(data.parameter).trigger('change');
-                    $('#edit_parameter').find("option[value="+data.parameter+"]").attr("selected","selected");
+                    $('#edit_parameter').find("option[value='"+data.parameter+"']").attr("selected","selected");
                     $('#edit_procedure').val(data.procedure).trigger('change');
                     $('#edit_min_range').val(data.min_range);
                     $('#edit_acc_min_range').val(data.accredited_min_range);
@@ -170,7 +170,7 @@
                         $('#edit_unit').append('<option value="'+value.id+'">'+ value.unit +'</option>');
                     });
 
-                    $(".select-2-parameter-edit").select2();
+                    //$(".select-2-parameter-edit").select2();
                     $(".select-2-procedure-edit").select2();
                     $('#edit_unit').val(data.unit).trigger('change');
                     //Populating Form Data to Edit Ends
