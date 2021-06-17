@@ -100,7 +100,7 @@
                         <label for="edit_accredited" class=" control-label">Accredited</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="edit_accredited" name="edit_accredited">
-                                <option selected disabled>Select Location</option>
+                                <option selected disabled>--Select Accredited</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>

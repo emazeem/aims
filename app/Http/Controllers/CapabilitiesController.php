@@ -91,6 +91,7 @@ class CapabilitiesController extends Controller
 
     }
     public function store(Request $request){
+        dd($request->all());
         $this->authorize('capabilities-create');
         $this->validate(request(), [
             'add_name' => 'required',

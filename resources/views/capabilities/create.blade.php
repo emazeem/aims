@@ -90,10 +90,21 @@
                         </div>
                     </div>
                     <div class="col-6"></div>
-                    <div class="col-6 p-1 m-0 form-check">
+                    {{--<div class="col-6 p-1 m-0 form-check">
                         <div class="checkbox float-right checkbox-fill d-inline">
                             <input type="checkbox" name="add_accredited" id="add_accredited">
                             <label class="cr" for="add_accredited">Accredited</label>
+                        </div>
+                    </div>
+                    --}}
+                    <div class="form-group col-6 p-1 m-0">
+                        <label for="edit_accredited" class=" control-label">Accredited</label>
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="add_accredited" name="add_accredited">
+                                <option selected disabled>Select Location</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-12 text-right">
@@ -184,8 +195,9 @@
             $('#add_price').val('');
             $('#add_remarks').val('');
             $('#add_location').prepend('<option disabled selected>--Select Location</option>');
-            $('#add_accredited').val('');
-            $('#add_accredited').prop('checked', false);
+            $('#add_accredited').prepend('');
+
+
             $('#add_capabilities_form')[0].reset();
             $('#add_capabilities').modal('show');
         });
