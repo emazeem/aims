@@ -153,7 +153,6 @@ class GroupedCapabilitiesController extends Controller
             $default->group_id=0;
             $default->save();
         }
-
         foreach ($request->underlying as $id){
             $cap=Capabilities::find($id);
             $cap->group_id=$groupedcapabilities->id;
