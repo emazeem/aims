@@ -271,12 +271,9 @@
             </div>
             <div class="form-group col-12">
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary btn-sm float-right items-save-btn"><i
-                                class="fa fa-save"></i> Save
-                    </button>
+                    <button type="submit" class="btn btn-primary btn-sm float-right items-save-btn"><i class="fa fa-save"></i> Save</button>
                 </div>
             </div>
-
         </form>
     </div>
 </div>

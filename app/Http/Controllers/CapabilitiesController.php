@@ -36,25 +36,11 @@ class CapabilitiesController extends Controller
         $data=Capabilities::with('parameters')->where('is_group',0)->get();
         return DataTables::of($data)
             ->addColumn('@', function ($data) {
-                $groupedIDs=[];
-                $groups=Capabilities::where('group_id','!=',0)->get();
-                foreach ($groups as $group){
-                    $groupedIDs[]=$group->id;
-                }
-                if (in_array($data->id,$groupedIDs)){
-                    return "
-                <div class='checkbox checkbox-fill d-inline'>
-                     <input type='checkbox' data-id='".$data->id."' name='action[]' class='actions' id='actions".$data->id."' checked>
-                     <label class='cr' for='actions".$data->id."'></label>                 
-                </div>";
-                }else{
-                    return "
+                return "
                 <div class='checkbox checkbox-fill d-inline'>
                      <input type='checkbox' data-id='".$data->id."' name='action[]' class='actions' id='actions".$data->id."'>
                      <label class='cr' for='actions".$data->id."'></label>                 
                 </div>";
-                }
-
             })
             ->addColumn('name', function ($data) {
                 return $data->name;

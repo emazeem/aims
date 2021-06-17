@@ -287,6 +287,7 @@ class QuoteItemController extends Controller
     }
     public function getCapabilities($id){
         $data['capabilities']=Capabilities::where('parameter', $id)
+            ->where('group_id',0)
             ->orderBy('name','ASC')
             ->pluck('id', 'name')
             ->all();
