@@ -7,8 +7,7 @@
             <span class="float-right ">
 
                 @can('capabilities-create')
-                    <a class="btn float-right btn-sm btn-primary mt-2 shadow-sm" href="#" data-toggle="modal"
-                       data-target="#add_capabilities"><i class="fa fa-plus"></i> Capabilities</a>
+                    <a class="btn float-right add-capability-modal btn-sm btn-primary mt-2 shadow-sm" href><i class="fa fa-plus"></i> Capabilities</a>
                 @endcan
 
                 @can('parameter-index')

@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-12">
 
-        <h3 class="pull-left border-bottom pb-1"><i class="fa fa-list"></i> Activity Log</h3>
+        <h3 class="font-weight-light pb-1"><i class="fa fa-list"></i> Activity Log</h3>
         <a href="{{route('activitylog.show')}}" class="btn float-right mt-1 btn-sm btn-primary shadow-sm"><i class="fa fa-eye"></i> Activity Log</a>
 
     </div>

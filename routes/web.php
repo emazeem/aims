@@ -669,7 +669,8 @@ Route::group(['prefix'=> 'receipt-voucher'],function(){
 
 Route::group(['prefix'=> 'activity-log'],function(){
     Route::get('/',[App\Http\Controllers\ActivityLogController::class, 'index'])->middleware('auth')->name('activitylog.index');
-    Route::get('/show',[App\Http\Controllers\ActivityLogController::class, 'show'])->middleware('auth')->name('activitylog.show');
+    Route::get('show',[App\Http\Controllers\ActivityLogController::class, 'show'])->middleware('auth')->name('activitylog.show');
+    Route::post('/show-page/{page?}',[App\Http\Controllers\ActivityLogController::class, 'show_fetch'])->middleware('auth')->name('activitylog.show.fetch');
     Route::post('/',[App\Http\Controllers\ActivityLogController::class, 'fetch'])->middleware('auth')->name('activitylog.fetch');
 });
 Route::group(['prefix'=> 'journal'],function(){

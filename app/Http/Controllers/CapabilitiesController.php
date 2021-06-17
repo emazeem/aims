@@ -93,45 +93,45 @@ class CapabilitiesController extends Controller
     public function store(Request $request){
         $this->authorize('capabilities-create');
         $this->validate(request(), [
-            'name' => 'required',
-            'category' => 'required',
-            'min_range' => 'required',
-            'max_range' => 'required',
-            'unit' => 'required',
-            'accuracy' => 'required',
-            'price' => 'required',
-            'remarks' => 'required',
-            'location' => 'required',
-            'procedure' => 'required',
-            'calculator' => 'required',
+            'add_name' => 'required',
+            'add_parameter' => 'required',
+            'add_min_range' => 'required',
+            'add_max_range' => 'required',
+            'add_unit' => 'required',
+            'add_accuracy' => 'required',
+            'add_price' => 'required',
+            'add_remarks' => 'required',
+            'add_location' => 'required',
+            'add_procedure' => 'required',
+            'add_calculator' => 'required',
         ],[
-            'name.required' => 'Name field is required *',
-            'category.required' => 'Category field is required *',
-            'min_range.required' => 'Min Range field is required *',
-            'max_range.required' => 'Max Range field is required *',
-            'unit.required' => 'Unit field is required *',
-            'accuracy.required' => 'Accuracy field is required *',
-            'price.required' => 'Price field is required *',
-            'remarks.required' => 'Remarks field is required *',
-            'location.required' => 'Location field is required *',
-            'procedure.required' => 'Procedure field is required *',
-            'calculator.required' => 'Procedure field is required *',
+            'add_name.required' => 'Name field is required *',
+            'add_parameter.required' => 'Parameter field is required *',
+            'add_min_range.required' => 'Min Range field is required *',
+            'add_max_range.required' => 'Max Range field is required *',
+            'add_unit.required' => 'Unit field is required *',
+            'add_accuracy.required' => 'Accuracy field is required *',
+            'add_price.required' => 'Price field is required *',
+            'add_remarks.required' => 'Remarks field is required *',
+            'add_location.required' => 'Location field is required *',
+            'add_procedure.required' => 'Procedure field is required *',
+            'add_calculator.required' => 'Procedure field is required *',
         ]);
         $capabilities=new Capabilities();
-        $capabilities->name=$request->name;
-        $capabilities->parameter=$request->category;
-        $capabilities->min_range=$request->min_range;
-        $capabilities->accredited_min_range=$request->acc_min_range;
-        $capabilities->accredited_max_range=$request->acc_max_range;
-        $capabilities->max_range=$request->max_range;
-        $capabilities->unit=$request->unit;
-        $capabilities->calculator=$request->calculator;
-        $capabilities->accuracy=$request->accuracy;
-        $capabilities->location=$request->location;
-        $capabilities->accredited=($request->accredited)?"yes":"no";
-        $capabilities->price=$request->price;
-        $capabilities->remarks=$request->remarks;
-        $capabilities->procedure=$request->procedure;
+        $capabilities->name=$request->add_name;
+        $capabilities->parameter=$request->add_parameter;
+        $capabilities->min_range=$request->add_min_range;
+        $capabilities->accredited_min_range=$request->add_acc_min_range;
+        $capabilities->accredited_max_range=$request->add_acc_max_range;
+        $capabilities->max_range=$request->add_max_range;
+        $capabilities->unit=$request->add_unit;
+        $capabilities->calculator=$request->add_calculator;
+        $capabilities->accuracy=$request->add_accuracy;
+        $capabilities->location=$request->add_location;
+        $capabilities->accredited=($request->add_accredited)?"yes":"no";
+        $capabilities->price=$request->add_price;
+        $capabilities->remarks=$request->add_remarks;
+        $capabilities->procedure=$request->add_procedure;
         $capabilities->save();
         return response()->json(['success'=> 'Capability added successfully']);
     }
@@ -139,48 +139,48 @@ class CapabilitiesController extends Controller
         //dd($request->all());
         $this->authorize('capabilities-edit');
         $this->validate(request(), [
-            'name' => 'required',
-            'category' => 'required',
-            'min_range' => 'required',
-            'max_range' => 'required',
-            'unit' => 'required',
-            'accuracy' => 'required',
-            'price' => 'required',
-            'remarks' => 'required',
-            'location' => 'required',
-            'procedure' => 'required',
-            'calculator' => 'required',
+            'edit_name' => 'required',
+            'edit_parameter' => 'required',
+            'edit_min_range' => 'required',
+            'edit_max_range' => 'required',
+            'edit_unit' => 'required',
+            'edit_accuracy' => 'required',
+            'edit_price' => 'required',
+            'edit_remarks' => 'required',
+            'edit_location' => 'required',
+            'edit_procedure' => 'required',
+            'edit_calculator' => 'required',
 
         ],[
-            'name.required' => 'Name field is required *',
-            'category.required' => 'Category field is required *',
-            'min_range.required' => 'Min Range field is required *',
-            'max_range.required' => 'Max Range field is required *',
-            'unit.required' => 'Unit field is required *',
-            'accuracy.required' => 'Accuracy field is required *',
-            'price.required' => 'Price field is required *',
-            'remarks.required' => 'Remarks field is required *',
-            'location.required' => 'Location field is required *',
-            'procedure.required' => 'Procedure field is required *',
-            'calculator.required' => 'Calculator field is required *',
+            'edit_name.required' => 'Name field is required *',
+            'edit_parameter.required' => 'Parameter field is required *',
+            'edit_min_range.required' => 'Min Range field is required *',
+            'edit_max_range.required' => 'Max Range field is required *',
+            'edit_unit.required' => 'Unit field is required *',
+            'edit_accuracy.required' => 'Accuracy field is required *',
+            'edit_price.required' => 'Price field is required *',
+            'edit_remarks.required' => 'Remarks field is required *',
+            'edit_location.required' => 'Location field is required *',
+            'edit_procedure.required' => 'Procedure field is required *',
+            'edit_calculator.required' => 'Calculator field is required *',
 
         ]);
         $capabilities=Capabilities::find($request->id);
-        $capabilities->name=$request->name;
-        $capabilities->parameter=$request->category;
+        $capabilities->name=$request->edit_name;
+        $capabilities->parameter=$request->edit_parameter;
 
-        $capabilities->min_range=$request->min_range;
-        $capabilities->accredited_min_range=$request->acc_min_range;
-        $capabilities->accredited_max_range=$request->acc_max_range;
-        $capabilities->max_range=$request->max_range;
-        $capabilities->location=$request->location;
-        $capabilities->accredited=($request->accredited)?"yes":"no";
-        $capabilities->unit=$request->unit;
-        $capabilities->accuracy=$request->accuracy;
-        $capabilities->price=$request->price;
-        $capabilities->remarks=$request->remarks;
-        $capabilities->procedure=$request->procedure;
-        $capabilities->calculator=$request->calculator;
+        $capabilities->min_range=$request->edit_min_range;
+        $capabilities->accredited_min_range=$request->edit_acc_min_range;
+        $capabilities->accredited_max_range=$request->edit_acc_max_range;
+        $capabilities->max_range=$request->edit_max_range;
+        $capabilities->location=$request->edit_location;
+        $capabilities->accredited=($request->edit_accredited)?"yes":"no";
+        $capabilities->unit=$request->edit_unit;
+        $capabilities->accuracy=$request->edit_accuracy;
+        $capabilities->price=$request->edit_price;
+        $capabilities->remarks=$request->edit_remarks;
+        $capabilities->procedure=$request->edit_procedure;
+        $capabilities->calculator=$request->edit_calculator;
         $capabilities->save();
         return response()->json(['success'=> 'Capability updated successfully']);
 
