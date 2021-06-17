@@ -98,10 +98,9 @@
                     </div>
                     --}}
                     <div class="form-group col-6 p-1 m-0">
-                        <label for="edit_accredited" class=" control-label">Accredited</label>
+                        <label for="add_accredited" class=" control-label">Accredited</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="add_accredited" name="add_accredited">
-                                <option selected disabled>Select Location</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
@@ -195,7 +194,7 @@
             $('#add_price').val('');
             $('#add_remarks').val('');
             $('#add_location').prepend('<option disabled selected>--Select Location</option>');
-            $('#add_accredited').prepend('');
+            $('#add_accredited').prepend('<option selected disabled>--Select Accredited</option>');
 
 
             $('#add_capabilities_form')[0].reset();

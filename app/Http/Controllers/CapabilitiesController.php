@@ -129,7 +129,7 @@ class CapabilitiesController extends Controller
         $capabilities->calculator=$request->add_calculator;
         $capabilities->accuracy=$request->add_accuracy;
         $capabilities->location=$request->add_location;
-        $capabilities->accredited=$request->edit_accredited;
+        $capabilities->accredited=$request->add_accredited;
         $capabilities->price=$request->add_price;
         $capabilities->remarks=$request->add_remarks;
         $capabilities->procedure=$request->add_procedure;
