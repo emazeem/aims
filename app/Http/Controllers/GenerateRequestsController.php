@@ -25,6 +25,7 @@ class GenerateRequestsController extends Controller
     public function get_principal($id){
         $user=Customer::find($id);
         $user->prin_name=explode('**',$user->prin_name);
+        dd($user);
         return response()->json($user);
     }
     public function fetch(){

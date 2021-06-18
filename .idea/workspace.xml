@@ -59,7 +59,7 @@
           <entry key="css" value="361" />
           <entry key="html" value="580" />
           <entry key="js" value="3" />
-          <entry key="php" value="69937" />
+          <entry key="php" value="69959" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
@@ -69,7 +69,7 @@
           <entry key="CSS" value="362" />
           <entry key="HTML" value="615" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="27223" />
+          <entry key="PHP" value="27245" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -102,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/generate_requests/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            <state relative-caret-position="208">
+              <caret line="90" column="24" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -111,8 +111,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GenerateRequestsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            <state relative-caret-position="230">
+              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -131,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add_parameter</find>
       <find>add_procedure</find>
       <find>edit_unit</find>
       <find>edit_parameter</find>
@@ -161,6 +160,7 @@
       <find>grouped</find>
       <find>$data</find>
       <find>addrow</find>
+      <find>customer</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -624,12 +624,12 @@
       <workItem from="1623739010365" duration="14341000" />
       <workItem from="1623817777628" duration="19093000" />
       <workItem from="1623840445522" duration="37265000" />
-      <workItem from="1623941508779" duration="13247000" />
+      <workItem from="1623941508779" duration="13491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="523911000" />
+    <option name="totallyTimeSpent" value="524155000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -644,7 +644,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18154311" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18154311" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -997,15 +997,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/generate_requests/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        <state relative-caret-position="208">
+          <caret line="90" column="24" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GenerateRequestsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        <state relative-caret-position="230">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
