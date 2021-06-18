@@ -13,6 +13,29 @@ use Yajra\DataTables\DataTables;
 class CustomerController extends Controller
 {
     public function index(){
+        $customers= Customer::all();
+        foreach ($customers as $customer) {
+            //echo count(explode('**',$customer->prin_phone));
+            foreach (explode('**',$customer->prin_email) as $item){
+                echo $item.'/';
+            }
+            echo '<br>';
+            $customer->prin_name=str_replace(',','**',$customer->prin_name);
+            $customer->prin_email=str_replace(',','**',$customer->prin_email);
+            $customer->prin_phone=str_replace(',','**',$customer->prin_phone);
+
+            $customer->prin_name=str_replace('****','**',$customer->prin_name);
+            $customer->prin_email=str_replace('****','**',$customer->prin_email);
+            $customer->prin_phone=str_replace('****','**',$customer->prin_phone);
+
+            $customer->prin_name=str_replace('******','**',$customer->prin_name);
+            $customer->prin_email=str_replace('******','**',$customer->prin_email);
+            $customer->prin_phone=str_replace('******','**',$customer->prin_phone);
+
+
+            $customer->save();
+        }
+        dd($customers);
         $saletaxes=Preference::where('category',1)->get();
         $this->authorize('customer-index');
         return view('customers.index',compact('saletaxes'));
@@ -68,15 +91,15 @@ class CustomerController extends Controller
         $show->tax_case=$tax_case;
         $colors=['badge-primary','badge-dark','badge-warning'];
         $principals=null;
-        foreach (explode(',',$show->prin_name) as $key=>$item) {
+        foreach (explode('**',$show->prin_name) as $key=>$item) {
             $principals.='<span class="badge '.$colors[$key].'">'.$item.'</span><br>';
         }
         $phones=null;
-        foreach (explode(',',$show->prin_phone) as $k=>$item) {
+        foreach (explode('**',$show->prin_phone) as $k=>$item) {
             $phones.='<span class="badge '.$colors[$k].'">'.$item.'</span><br>';
         }
         $emails=null;
-        foreach (explode(',',$show->prin_email) as $k=>$item) {
+        foreach (explode('**',$show->prin_email) as $k=>$item) {
             $emails.='<span class="badge '.$colors[$k].'">'.$item.'</span><br>';
         }
         $show->prin_name=$principals;
@@ -123,7 +146,6 @@ class CustomerController extends Controller
 
     }
     public function store(Request $request){
-        //dd($request->all());
         $this->authorize('customer-create');
         $this->validate(request(), [
             'name' => 'required',
@@ -160,9 +182,9 @@ class CustomerController extends Controller
             $customer->region=$request->region;
             $customer->pay_terms=$request->pay_way;
             $customer->bill_to_address=$request->bill_to_address;
-            $customer->prin_name=implode(',',$request->prin_name);
-            $customer->prin_phone=implode(',',$request->prin_phone);
-            $customer->prin_email=implode(',',$request->prin_email);
+            $customer->prin_name=implode('**',$request->prin_name);
+            $customer->prin_phone=implode('**',$request->prin_phone);
+            $customer->prin_email=implode('**',$request->prin_email);
 
             if ($request->pur_name or $request->pur_phone[0] or $request->pur_phone[1] or $request->pur_email ){
                 $this->validate(request(), [
@@ -203,9 +225,9 @@ class CustomerController extends Controller
             $customer->region=$request->region;
             $customer->bill_to_address=$request->bill_to_address;
             $customer->pay_terms=$request->pay_way;
-            $customer->prin_name=implode(',',array_filter($request->prin_name));
-            $customer->prin_phone=implode(',',array_filter($request->prin_phone));
-            $customer->prin_email=implode(',',array_filter($request->prin_email));
+            $customer->prin_name=implode('**',array_filter($request->prin_name));
+            $customer->prin_phone=implode('**',array_filter($request->prin_phone));
+            $customer->prin_email=implode('**',array_filter($request->prin_email));
 
             if ($request->pur_name or $request->pur_phone[0] or $request->pur_phone[1] or $request->pur_email ){
                 $this->validate(request(), [

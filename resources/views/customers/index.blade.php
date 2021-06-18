@@ -9,7 +9,6 @@
             <h5 class="m-b-10 font-weight-light float-left"><i class="feather icon-user"></i> Customers</h5>
             <a href class="btn btn-sm add btn-primary shadow-sm float-right"><i class="fa fa-plus-circle"></i> Customer</a>
         </div>
-
     <div class="col-12">
         <table id="example" class="table dt-responsive table-hover bg-white display nowrap table-sm" cellspacing="0" width="100%">
             <thead>
