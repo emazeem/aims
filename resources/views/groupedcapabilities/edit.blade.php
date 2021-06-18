@@ -41,7 +41,7 @@
                     <label for="underlying" class=" control-label">Underlying Capabilities</label>
                     <div class="form-check form-check-inline" style="width: 100%">
                         <select class="form-control js-example-basic-multiple" style="width: 100%" id="underlying" name="underlying[]" multiple>
-                            @foreach(\App\Models\Capabilities::orderBy('name','ASC')->where('parameter',14)->get() as $item)
+                            @foreach(\App\Models\Capabilities::orderBy('name','ASC')->get() as $item)
                                 <option value="{{$item->id}}" {{in_array($item->id,$underlying)?'selected':''}}>{{$item->name}}</option>
                             @endforeach
                         </select>
@@ -80,8 +80,7 @@
                     {
                         button.attr('disabled',null).html(previous);
                         swal('success',data.success,'success').then((value) => {
-                            $('#add_capabilities').modal('hide');
-                            $("#example").DataTable().ajax.reload(null,false);
+                            window.location.href = '{{URL::previous()}}';
                         });
 
                     },

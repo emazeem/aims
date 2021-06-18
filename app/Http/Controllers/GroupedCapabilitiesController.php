@@ -66,7 +66,7 @@ class GroupedCapabilitiesController extends Controller
         return view('groupedcapabilities.create',compact('selections'));
     }
     public function edit($id){
-        //$this->authorize('edit-grouped-capabilities');
+        $this->authorize('edit-grouped-capabilities');
         $edit=Capabilities::find($id);
         $underlying=[];
         foreach (Capabilities::where('group_id',$id)->get() as $item){
@@ -168,7 +168,6 @@ class GroupedCapabilitiesController extends Controller
             $default->group_id=0;
             $default->save();
         }
-
         $item->delete();
         return response()->json(['success'=> 'Grouped Capability deleted successfully']);
     }

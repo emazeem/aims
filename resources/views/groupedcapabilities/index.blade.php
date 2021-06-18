@@ -73,7 +73,7 @@
             InitTable();
             $(document).on('click', '.delete', function (e) {
                 swal({
-                    title: "Are you sure to delete this capability?",
+                    title: "Are you sure to delete this grouped capability?",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
