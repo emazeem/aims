@@ -14,7 +14,7 @@ class CustomerController extends Controller
 {
     public function index(){
         $customers= Customer::all();
-        foreach ($customers as $customer) {
+        /*foreach ($customers as $customer) {
             //echo count(explode('**',$customer->prin_phone));
             foreach (explode('**',$customer->prin_email) as $item){
                 echo $item.'/';
@@ -35,7 +35,8 @@ class CustomerController extends Controller
 
             $customer->save();
         }
-        dd($customers);
+        dd($customers);*/
+
         $saletaxes=Preference::where('category',1)->get();
         $this->authorize('customer-index');
         return view('customers.index',compact('saletaxes'));
@@ -141,7 +142,7 @@ class CustomerController extends Controller
 
                 return $action;
             })
-            ->rawColumns(['options','prin_name','prin_phone'])
+            ->rawColumns(['options'])
             ->make(true);
 
     }
