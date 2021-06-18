@@ -13,46 +13,6 @@ use Yajra\DataTables\DataTables;
 class CustomerController extends Controller
 {
     public function index(){
-        $customers= Customer::all();
-        foreach ($customers as $customer) {
-            //echo count(explode('**',$customer->prin_phone));
-            /*foreach (explode('**',$customer->prin_email) as $item){
-                //echo $item;
-            }
-            echo '<br>';*/
-            $customer->pur_phone=str_replace(',','**',$customer->pur_phone);
-            $customer->acc_phone=str_replace(',','**',$customer->acc_phone);
-            $customer->pur_phone=str_replace('****','**',$customer->pur_phone);
-            $customer->acc_phone=str_replace('****','**',$customer->acc_phone);
-            $customer->pur_phone=str_replace('******','**',$customer->pur_phone);
-            $customer->acc_phone=str_replace('******','**',$customer->acc_phone);
-            if ($customer->pur_phone=="**"){
-                $customer->pur_phone=null;
-            }
-            if ($customer->acc_phone=="**"){
-                $customer->acc_phone=null;
-            }
-            $customer->save();
-
-            /*
-
-            $customer->prin_name=str_replace(',','**',$customer->prin_name);
-            $customer->prin_email=str_replace(',','**',$customer->prin_email);
-            $customer->prin_phone=str_replace(',','**',$customer->prin_phone);
-
-            $customer->prin_name=str_replace('****','**',$customer->prin_name);
-            $customer->prin_email=str_replace('****','**',$customer->prin_email);
-            $customer->prin_phone=str_replace('****','**',$customer->prin_phone);
-
-            $customer->prin_name=str_replace('******','**',$customer->prin_name);
-            $customer->prin_email=str_replace('******','**',$customer->prin_email);
-            $customer->prin_phone=str_replace('******','**',$customer->prin_phone);*/
-
-
-            //$customer->save();
-        }
-        dd($customers);
-
         $saletaxes=Preference::where('category',1)->get();
         $this->authorize('customer-index');
         return view('customers.index',compact('saletaxes'));
