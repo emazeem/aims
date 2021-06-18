@@ -180,7 +180,7 @@
             <div class="col-2 font-10 ">Phone:</div>
             <div class="col-10 font-10  custom-bottom-border">{{auth()->user()->phone}}</div>
             <div class="col-2 font-10 ">Quote#:</div>
-            <div class="col-10 font-10  custom-bottom-border">{{'QTN/'.date('y',strtotime($session->created_at)).'/'.$session->id}}</div>
+            <div class="col-10 font-10  custom-bottom-border">{{$session->cid}}</div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-3 font-10">Subject /Description:</div>
