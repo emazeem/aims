@@ -276,7 +276,6 @@
                 <tr>
                     <th>Sr#</th>
                     <th>Description</th>
-                    <th>Parameter</th>
                     <th>Range</th>
                     <th>Accredited</th>
                     <th>Location</th>
@@ -296,16 +295,9 @@
                             @else
                                 {{$quote->capabilities->name}}</td>
                             @endif
-
                         <td class="font-11">
-                            @if($quote->status==0 or $quote->status==2)
-                                {{$quote->parameters->name}}
-                            @else
-                                ---
-                            @endif
-                        </td>
-                        <td class="font-11">
-                            @if($quote->status==0 or $quote->status==2){{$quote->parameter==14?'Multi Parameter':$quote->range}}@else --- @endif</td>
+                            @php $range=explode(',',$quote->range); @endphp
+                            @if($quote->status==0 or $quote->status==2){{$quote->parameter==14?'Multi Parameter':$range[0].'~'.$range[1].\App\Models\Unit::find($quote->unit)->unit}}@else --- @endif</td>
                         <td class="font-11">
                             @if($quote->status==0 or $quote->status==2){{$quote->accredited}}@else --- @endif</td>
                         <td class="font-11">
