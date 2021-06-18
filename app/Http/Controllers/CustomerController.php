@@ -50,9 +50,9 @@ class CustomerController extends Controller
         $this->authorize('customer-edit');
         $edit=Customer::find($request->id);
 
-        $pnames=explode(',',$edit->prin_name);
-        $pphones=explode(',',$edit->prin_phone);
-        $pemails=explode(',',$edit->prin_email);
+        $pnames=explode('**',$edit->prin_name);
+        $pphones=explode('**',$edit->prin_phone);
+        $pemails=explode('**',$edit->prin_email);
 
         $purphones=explode(',',$edit->pur_phone);
         $accphones=explode(',',$edit->acc_phone);
