@@ -152,7 +152,7 @@
             <div class="col-10 font-10  custom-bottom-border">{{$session->customers->address}}</div>
             <div class="col-2 font-10 ">Phone:</div>
             <div class="col-10  font-10 custom-bottom-border">
-                @php $principals=explode(',',$session->customers->prin_name);$pphones=explode(',',$session->customers->prin_phone); @endphp
+                @php $principals=explode('**',$session->customers->prin_name);$pphones=explode('**',$session->customers->prin_phone); @endphp
                 @if($session->principal==$principals[0])
                     {{$pphones[0]}}
                 @elseif($session->principal==$principals[1])
@@ -163,7 +163,7 @@
             </div>
             <div class="col-2 font-10 ">Email</div>
             <div class="col-10  font-10 custom-bottom-border">
-                @php $principals=explode(',',$session->customers->prin_name);$pemails=explode(',',$session->customers->prin_email); @endphp
+                @php $principals=explode('**',$session->customers->prin_name);$pemails=explode('**',$session->customers->prin_email); @endphp
                 @if($session->principal==$principals[0])
                     {{$pemails[0]}}
                 @elseif($session->principal==$principals[1])

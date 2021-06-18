@@ -29,7 +29,7 @@
                 @endif
             @endif
             @if($show->status>0)
-                    <a href="{{url('/quotes/view/'.$show->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> AIMS/QT/{{date('y')}}/{{$show->id}}</a>
+                    <a href="{{url('/quotes/view/'.$show->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> {{$show->cid}}</a>
             @endif
         </div>
     </div>

@@ -282,6 +282,7 @@ Route::group(['prefix'=> 'items'],function() {
     Route::get('/compare-ranges/{min}/{max}/{capability}',[App\Http\Controllers\QuoteItemController::class, 'compare_ranges'])->middleware('auth')->name('items.compare_ranges');
     Route::post('',[App\Http\Controllers\QuoteItemController::class, 'fetch'])->middleware('auth')->name('items.fetch');
     Route::post('/store',[App\Http\Controllers\QuoteItemController::class, 'store'])->middleware('auth')->name('items.store');
+    Route::post('/editNA',[App\Http\Controllers\QuoteItemController::class, 'editNA'])->middleware('auth')->name('items.editNA');
     Route::post('/updateNA',[App\Http\Controllers\QuoteItemController::class, 'updateNA'])->middleware('auth')->name('items.updateNA');
     Route::get('/edit/{session}/{id}',[App\Http\Controllers\QuoteItemController::class, 'edit'])->middleware('auth')->name('items.edit');
     Route::post('/update',[App\Http\Controllers\QuoteItemController::class, 'update'])->middleware('auth')->name('items.update');
