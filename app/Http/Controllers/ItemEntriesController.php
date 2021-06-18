@@ -27,8 +27,6 @@ class ItemEntriesController extends Controller
             'visualinspection'=>'required',
         ]);
 
-
-
         $item=QuoteItem::find($request->id);
 
         $jobitem = new Jobitem();

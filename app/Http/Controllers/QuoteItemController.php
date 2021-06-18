@@ -52,6 +52,9 @@ class QuoteItemController extends Controller
                 if (isset($data->not_available)){
                     return '';
                 }
+                if ($data->parameter==14){
+                    return 'Multi';
+                }
                 return $data->range;
             })
             ->addColumn('location', function ($data) {

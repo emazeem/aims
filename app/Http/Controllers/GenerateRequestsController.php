@@ -22,12 +22,6 @@ class GenerateRequestsController extends Controller
 
         return view('generate_requests.index',compact('customers','tms','capabilities','parameters'));
     }
-    public function get_principal($id){
-        $user=Customer::find($id);
-        $user->prin_name=explode('**',$user->prin_name);
-        dd($user);
-        return response()->json($user);
-    }
     public function fetch(){
         $this->authorize('quote-index');
         $data=Quotes::with('customers')->where('status',0)->get();
