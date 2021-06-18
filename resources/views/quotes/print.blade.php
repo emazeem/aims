@@ -333,11 +333,11 @@
                         @php $subtotal=$subtotal+$prices[$group]; @endphp
                 @endforeach
                 <tr>
-                    <th colspan="8">Total Service Charges</th>
+                    <th colspan="7">Total Service Charges</th>
                     <th colspan="2" class="text-right">{{number_format($subtotal)}}</th>
                 </tr>
                 <tr>
-                    <th colspan="8">{{\App\Models\Preference::find($session->customers->region)->name}} ({{\App\Models\Preference::find($session->customers->region)->value}}%)</th>
+                    <th colspan="7">{{\App\Models\Preference::find($session->customers->region)->name}} ({{\App\Models\Preference::find($session->customers->region)->value}}%)</th>
                     <th colspan="2" class="text-right">
 
                         @php $tax=$subtotal*(\App\Models\Preference::find($session->customers->region)->value/100);@endphp
