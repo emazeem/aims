@@ -54,8 +54,10 @@ class QuoteItemController extends Controller
                 }
                 if ($data->parameter==14){
                     return 'Multi';
+                }else{
+                    $range=explode(',',$data->range);
+                    return $range[0].'~'.$range[1].' '.Unit::find($data->unit)->unit;
                 }
-                return $data->min_range.'~'.$data->max_range.' '.Unit::find($data->unit)->unit;
             })
             ->addColumn('location', function ($data) {
                 if (isset($data->not_available)){
