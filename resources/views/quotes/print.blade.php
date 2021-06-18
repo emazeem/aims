@@ -77,7 +77,7 @@
                     <td class="font-11"></td>
                     <td class="font-11">{{$session->users->fname}} {{$session->users->lname}}</td>
                     <td class="font-11">
-                        <img src="{{Storage::disk('local')->url('public/signature/'.$session->users->id.'/'.$session->users->signature)}}" width="80" class="img-fluid">
+                        <img style="object-fit: cover" src="{{Storage::disk('local')->url('public/signature/'.$session->users->id.'/'.$session->users->signature)}}" width="80" class="img-fluid">
                     </td>
                     <td class="font-11">{{auth()->user()->fname}} {{auth()->user()->lname}}</td>
                     <td class="font-11">
