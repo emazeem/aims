@@ -43,8 +43,6 @@
 <script>
 
     function InitTable() {
-        $(".loading").fadeIn();
-
         $('#example').DataTable({
             responsive: true,
             "bDestroy": true,
