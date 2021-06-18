@@ -44,7 +44,7 @@ class QuoteItemController extends Controller
                     foreach ($data->capabilities->multis as $multi) {
                         $title.=$multi->name.'-';
                     }
-                    return '<span class="text-danger" title="'.$title.'">'.$data->capabilities->name.'</span>';
+                    return '<span title="'.$title.'">'.$data->capabilities->name.'</span>';
                 }
                 return $data->capabilities->name;
             })
@@ -55,7 +55,7 @@ class QuoteItemController extends Controller
                 if ($data->parameter==14){
                     return 'Multi';
                 }
-                return $data->range;
+                return $data->min_range.'~'.$data->max_range.' '.Unit::find($data->unit)->unit;
             })
             ->addColumn('location', function ($data) {
                 if (isset($data->not_available)){
