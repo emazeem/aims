@@ -30,8 +30,8 @@ class CustomerController extends Controller
         $pphones=explode('**',$edit->prin_phone);
         $pemails=explode('**',$edit->prin_email);
 
-        $purphones=explode(',',$edit->pur_phone);
-        $accphones=explode(',',$edit->acc_phone);
+        $purphones=explode('**',$edit->pur_phone);
+        $accphones=explode('**',$edit->acc_phone);
 
         $edit->prin_name_1=$pnames[0];
         $edit->prin_name_2=count($pnames)==2?$pnames[1]:'';
@@ -171,7 +171,7 @@ class CustomerController extends Controller
 
                 ]);
                 $customer->pur_name=$request->pur_name;
-                $customer->pur_phone=implode(',',$request->pur_phone);
+                $customer->pur_phone=implode('**',array_filter($request->pur_phone));
                 $customer->pur_email=$request->pur_email;
             }
             if ($request->acc_name or $request->acc_phone[0] or $request->acc_phone[1] or $request->acc_email ){
@@ -183,7 +183,7 @@ class CustomerController extends Controller
                 ]);
 
                 $customer->acc_name=$request->acc_name;
-                $customer->acc_phone=implode(',',$request->acc_phone);
+                $customer->acc_phone=implode('**',array_filter($request->acc_phone));
                 $customer->acc_email=$request->acc_email;
             }
             $customer->save();
@@ -213,7 +213,7 @@ class CustomerController extends Controller
                     'pur_name.required' => 'Purchase Name field is required *',
                 ]);
                 $customer->pur_name=$request->pur_name;
-                $customer->pur_phone=implode(',',array_filter($request->pur_phone));
+                $customer->pur_phone=implode('**',array_filter($request->pur_phone));
                 $customer->pur_email=$request->pur_email;
             }
             if ($request->acc_name or $request->acc_phone[0] or $request->acc_phone[1] or $request->acc_email ){
@@ -224,7 +224,7 @@ class CustomerController extends Controller
                     'acc_name.required' => 'Account Name field is required *',
                 ]);
                 $customer->acc_name=$request->acc_name;
-                $customer->acc_phone=implode(',',array_filter($request->acc_phone));
+                $customer->acc_phone=implode('**',array_filter($request->acc_phone));
                 $customer->acc_email=$request->acc_email;
             }
 
