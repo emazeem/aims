@@ -2,7 +2,7 @@
     <div class="modal-dialog  modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title" id="show-customer"> <i class="fa fa-eye"></i> Show Customer</h5>
+                <h5 class="modal-title font-weight-light" id="show-customer"> <i class="feather icon-plus-circle"></i> Show Customer</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <i class="feather icon-x-circle"></i>
                 </button>
