@@ -42,6 +42,8 @@ class CapabilitiesController extends Controller
                      <input type='checkbox' name='action[]' disabled checked>
                      <label class='cr' for='actions".$data->id."'></label>                 
                 </div>";
+                }if ($data->is_group==1){
+                    return null;
                 }
                 else{
                     return "
