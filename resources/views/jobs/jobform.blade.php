@@ -91,8 +91,8 @@
                 <div class="col-10 custom-bottom-border">{{$job->quotes->customers->address}}</div>
             </div>
             <div class="col-5 row my-1 ">
-                <div class="col-4">Contact Person:</div>
-                <div class="col-8 custom-bottom-border">{{$job->quotes->principal}}</div>
+                <div class="col-5">Contact Person:</div>
+                <div class="col-7 custom-bottom-border">{{$job->quotes->principal}}</div>
             </div>
             <div class="col-4 row my-1 ">
                 <div class="col-5">Contact #:</div>
