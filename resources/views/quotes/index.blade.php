@@ -43,7 +43,7 @@
           <th>Action</th>
       </tr>
       </thead>
-      <tbody class="text-capitalize">
+      <tbody>
       </tbody>
       <tfoot>
       <tr>
