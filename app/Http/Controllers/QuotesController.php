@@ -49,6 +49,18 @@ class QuotesController extends Controller
             ->addColumn('customer', function ($data) {
                 return $data->customers->reg_name;
             })
+            ->addColumn('principal', function ($data) {
+                $principals=null;
+                $principals.=$data->principals->name;
+                if ($data->principals->email){
+                    $principals.='<br>'.$data->principals->email;
+                }
+                if ($data->principals->phone){
+                    $principals.='<br>'.$data->principals->phone;
+                }
+                return $principals;
+            })
+
             ->addColumn('location', function ($data) {
                 return ucfirst($data->location);
             })
@@ -111,7 +123,7 @@ class QuotesController extends Controller
 
                 return "&emsp;".$action;
             })
-            ->rawColumns(['options','status'])
+            ->rawColumns(['options','status','principal'])
             ->make(true);
     }
     public function store(Request $request){

@@ -36,6 +36,7 @@
       <tr>
         <th>ID</th>
         <th>Customer</th>
+        <th>Principal</th>
         <th>Total Items</th>
         <th>Type</th>
           <th>Status</th>
@@ -48,6 +49,7 @@
       <tr>
           <th>ID</th>
           <th>Customer</th>
+          <th>Principal</th>
           <th>Total Items</th>
           <th>Type</th>
           <th>Status</th>
@@ -83,6 +85,7 @@
             "columns": [
                 { "data": "id" },
                 { "data": "customer" },
+                { "data": "principal" },
                 { "data": "total" },
                 { "data": "type" },
                 { "data": "status" },
