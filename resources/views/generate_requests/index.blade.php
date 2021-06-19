@@ -97,16 +97,9 @@
                     dataType: "json",
                     success:function(data) {
                         $('select[name="principal"]').empty();
-                        if (data.prin_name[0]!=null){
-                            $('select[name="principal"]').append('<option value="'+ data.prin_name[0] +'">'+ data.prin_name[0] +'</option>');
-                        }
-                        if (data.prin_name[1]!=null){
-                            $('select[name="principal"]').append('<option value="'+ data.prin_name[1] +'">'+ data.prin_name[1] +'</option>');
-                        }
-                        if (data.prin_name[2]!=null){
-                            $('select[name="principal"]').append('<option value="'+ data.prin_name[2] +'">'+ data.prin_name[2] +'</option>');
-                        }
-
+                        $.each(data,function (index,value) {
+                            $('select[name="principal"]').append('<option value="'+ value.id +'">'+ value.name +'</option>');
+                        });
                     }
                 });
             }else{

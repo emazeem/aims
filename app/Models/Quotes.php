@@ -23,6 +23,12 @@ class Quotes extends Model
         return $this->belongsTo('App\Models\Capabilities','capability')->withDefault();
         //
     }
+    public function principals(){
+        return $this->belongsTo('App\Models\CustomerContact','principal')->withDefault();
+        //
+    }
+
+
     public function items(){
         return $this->hasMany('App\Models\QuoteItem','quote_id');
         //

@@ -21,9 +21,11 @@ class QuotesController extends Controller
         return view('quotes.index',compact('customers','tms'));
     }
     public function get_principal($id){
-        $user=Customer::find($id);
-        $user->prin_name=explode('**',$user->prin_name);
-        return response()->json($user);
+        $customer=Customer::where('id',$id)->with('contacts',function ($query){
+            $query->where('type','principal');
+        })->first();
+        $contact=$customer['contacts'];
+        return response()->json($contact);
     }
     public function fetch(Request $request){
         $this->authorize('quote-index');

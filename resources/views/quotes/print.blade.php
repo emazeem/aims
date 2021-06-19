@@ -76,7 +76,7 @@
                     <td class="font-11 b text-center"></td>
                 </tr>
                 <tr>
-                    <td class="font-11">{{$session->principal}}</td>
+                    <td class="font-11">{{$session->principals->name}}</td>
                     <td class="font-11"></td>
                     <td class="font-11">{{$session->users->fname}} {{$session->users->lname}}</td>
                     <td class="font-11">
@@ -150,30 +150,16 @@
             <p class="font-12 col-12 b"><span class="mr-5">1</span>  INFORMATION FORM:</p>
 
             <div class="col-2 font-10 ">To:</div>
-            <div class="col-10  font-10 custom-bottom-border"><p class="col-8  p-0 m-0 float-left">{{$session->customers->reg_name}}</p><p class="col-1 p-0 m-0 float-left">Attention;</p><p class="col-3 p-0 m-0 text-right float-left">{{$session->principal}}</p></div>
+            <div class="col-10  font-10 custom-bottom-border"><p class="col-8  p-0 m-0 float-left">{{$session->customers->reg_name}}</p><p class="col-1 p-0 m-0 float-left">Attention;</p><p class="col-3 p-0 m-0 text-right float-left">{{$session->principals->name}}</p></div>
             <div class="col-2 font-10 ">Address:</div>
             <div class="col-10 font-10  custom-bottom-border">{{$session->customers->address}}</div>
             <div class="col-2 font-10 ">Phone:</div>
             <div class="col-10  font-10 custom-bottom-border">
-                @php $principals=explode('**',$session->customers->prin_name);$pphones=explode('**',$session->customers->prin_phone); @endphp
-                @if($session->principal==$principals[0])
-                    {{$pphones[0]}}
-                @elseif($session->principal==$principals[1])
-                    {{$pphones[1]}}
-                @else
-                    {{$pphones[2]}}
-                @endif
+                {{$session->principals->phone}}
             </div>
             <div class="col-2 font-10 ">Email</div>
             <div class="col-10  font-10 custom-bottom-border">
-                @php $principals=explode('**',$session->customers->prin_name);$pemails=explode('**',$session->customers->prin_email); @endphp
-                @if($session->principal==$principals[0])
-                    {{$pemails[0]}}
-                @elseif($session->principal==$principals[1])
-                    {{$pemails[1]}}
-                @else
-                    {{$pemails[2]}}
-                @endif
+                {{$session->principals->email}}
             </div>
 
 

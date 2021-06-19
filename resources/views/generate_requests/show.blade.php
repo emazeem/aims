@@ -48,6 +48,21 @@
                     </td>
                 </tr>
                 <tr>
+                    <td><b>Principal</b></td>
+                    <td>
+                        {{$show->principals->name}}
+                        @if($show->principals->email)
+                            <br>
+                            {{$show->principals->email?$show->principals->email:null}}
+                        @endif
+                        @if($show->principals->phone)
+                            <br>
+                            {{$show->principals->phone?$show->principals->phone:null}}
+                        @endif
+                    </td>
+                </tr>
+
+                <tr>
                     <td><b>Status</b></td>
                     <td>
                         @if($show->status==0)

@@ -92,30 +92,18 @@
             </div>
             <div class="col-5 row my-1 ">
                 <div class="col-5">Contact Person:</div>
-                <div class="col-7 custom-bottom-border">{{$job->quotes->principal}}</div>
+                <div class="col-7 custom-bottom-border">{{$job->quotes->principals->name}}</div>
             </div>
             <div class="col-4 row my-1 ">
                 <div class="col-5">Contact #:</div>
                 <div class="col-7 custom-bottom-border">
-                    @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_phone_1}}
-                    @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_phone_2}}
-                    @else
-                        {{$job->quotes->customers->prin_phone_3}}
-                    @endif
+                    {{$job->quotes->principals->phone}}
                 </div>
             </div>
             <div class="col-3 row my-1">
                 <div class="col-4">Email :</div>
                 <div class="col-8 custom-bottom-border">
-                    @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_email_1}}
-                    @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_email_2}}
-                    @else
-                        {{$job->quotes->customers->prin_email_3}}
-                    @endif
+                    {{$job->quotes->principals->email}}
                 </div>
             </div>
             <div class="col-12 text-center">

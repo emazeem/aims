@@ -61,7 +61,6 @@ class GenerateRequestsController extends Controller
             ->make(true);
     }
     public function store(Request $request){
-        //dd($request->all());
         $this->authorize('quote-create');
         $this->validate(request(), [
             'customer' => 'required',

@@ -129,5 +129,4 @@
     @include('customers.create')
     @include('customers.show')
     @include('customercontact')
-
 @endsection
