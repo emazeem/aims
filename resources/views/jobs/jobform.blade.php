@@ -72,7 +72,7 @@
             </div>
             <div class="col-2 row my-1">
                 <div class="col-3">Date:</div>
-                <div class="col-9 custom-bottom-border  text-center">{{$job->created_at->format('d-m-Y')}}</div>
+                <div class="col-9 custom-bottom-border  text-center font-sm">{{$job->created_at->format('d-m-Y')}}</div>
             </div>
             <div class="col-6 row my-1 font-sm">
                 <div class="col-4">Work order / Quotation #</div>
