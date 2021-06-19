@@ -41,6 +41,11 @@ Route::group(['prefix'=> 'customers'],function() {
     Route::post('/store',[App\Http\Controllers\CustomerController::class, 'store'])->middleware('auth')->name('customers.store');
     Route::delete('delete',[App\Http\Controllers\CustomerController::class, 'destroy'])->middleware('auth')->name('customers.destroy');
 });
+Route::group(['prefix'=> 'customers_contact'],function() {
+    Route::post('store',[App\Http\Controllers\CustomerContactController::class, 'store'])->middleware('auth')->name('customers.contact.store');
+    Route::delete('delete',[App\Http\Controllers\CustomerContactController::class, 'destroy'])->middleware('auth')->name('customers.contact.destroy');
+});
+
 Route::group(['prefix'=> 'purchase-order'],function() {
     Route::get('',[App\Http\Controllers\PoController::class, 'index'])->middleware('auth')->name('po');
     Route::get('/create/{id}',[App\Http\Controllers\PoController::class, 'create'])->middleware('auth')->name('po.create');

@@ -41,44 +41,15 @@
                         "<tr><th>Industry</th><td>" + data.industry + "</td></tr>"+
                         "<tr><th>Plant</th><td>" + data.plant + "</td></tr>"+
                         "<tr><th>Region</th><td>" + data.region + "</td></tr>"+
-                        "<tr><th>Tax Case</th><td>" + data.tax_case + "</td></tr>"+
-                        "<tr><th>Principal Name</th><td>" + data.prin_name + "</td></tr>"+
-                        "<tr><th>Principal Email</th><td>" + data.prin_email + "</td></tr>"+
-                        "<tr><th>Principal Phone</th><td>" + data.prin_phone + "</td></tr>"
+                        "<tr><th>Tax Case</th><td>" + data.tax_case + "</td></tr>"
                     );
-                    if (data.pur_name){
+                    $.each(data['contacts'], function (index, contact) {
+                        var phone = (contact.phone) ? " > "+contact.phone : "" ;
+                        var email = (contact.email) ? " > "+contact.email : "" ;
                         $('.customer-show').append(
-                            "<tr><th>Purchase Name</th><td>" + data.pur_name + "</td></tr>"
+                            "<tr id='"+contact.id+"'><th class='text-capitalize'>"+contact.type+" </th><td>" + contact.name  + phone + email + " <i data-id='"+contact.id+"' style='cursor: pointer' class='delete-contact feather icon-delete text-danger'></i></td></tr>"
                         );
-                    }
-                    if (data.pur_email){
-                        $('.customer-show').append(
-                            "<tr><th>Purchase Email</th><td>" + data.pur_email + "</td></tr>"
-                        );
-                    }
-                    if (data.pur_phone){
-                        $('.customer-show').append(
-                            "<tr><th>Purchase Phone</th><td>" + data.pur_phone + "</td></tr>"
-                        );
-                    }
-
-                    if (data.acc_name){
-                        $('.customer-show').append(
-                            "<tr><th>Account Name</th><td>" + data.acc_name + "</td></tr>"
-
-                        );
-                    }
-
-                    if (data.acc_email){
-                        $('.customer-show').append(
-                            "<tr><th>Account Email</th><td>" + data.acc_email + "</td></tr>"
-                        );
-                    }
-
-                    if (data.acc_phone){
-                        $('.customer-show').append(
-                            "<tr><th>Account Phone</th><td>" + data.acc_phone + "</td></tr>");
-                    }
+                    })
 
                 }
             });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Chartofaccount;
 use App\Models\Customer;
+use App\Models\CustomerContact;
 use App\Models\Preference;
 use App\Models\User;
 use App\Notifications\CustomerNotification;
@@ -13,9 +14,42 @@ use Yajra\DataTables\DataTables;
 class CustomerController extends Controller
 {
     public function index(){
+        $customers=Customer::all();
+        foreach ($customers as $customer){
+            if ($customer->acc_name){
+                $contact=new CustomerContact();
+                $contact->customer_id=$customer->id;
+                $contact->type='account';
+                $contact->name=$customer->acc_name;
+                $contact->email=$customer->acc_email;
+                $contact->phone=$customer->acc_phone;
+                $contact->save();
+            }
+            if ($customer->pur_name){
+                $contact=new CustomerContact();
+                $contact->customer_id=$customer->id;
+                $contact->type='purchase';
+                $contact->name=$customer->pur_name;
+                $contact->email=$customer->pur_email;
+                $contact->phone=$customer->pur_phone;
+                $contact->save();
+            }
+            foreach (explode('**',$customer->prin_name) as $principal) {
+                $contact=new CustomerContact();
+                $contact->customer_id=$customer->id;
+                $contact->type='principal';
+                $contact->name=$principal;
+                $contact->email=$customer->pur_email;
+                $contact->phone=$customer->pur_phone;
+                $contact->save();
+            }
+        }
+        //dd(1);
+
         $saletaxes=Preference::where('category',1)->get();
         $this->authorize('customer-index');
-        return view('customers.index',compact('saletaxes'));
+        $customers=Customer::orderBy('reg_name','ASC')->get();
+        return view('customers.index',compact('saletaxes','customers'));
     }
     public function create(){
         $this->authorize('customer-create');
@@ -25,32 +59,6 @@ class CustomerController extends Controller
     public function edit(Request $request){
         $this->authorize('customer-edit');
         $edit=Customer::find($request->id);
-
-        $pnames=explode('**',$edit->prin_name);
-        $pphones=explode('**',$edit->prin_phone);
-        $pemails=explode('**',$edit->prin_email);
-
-        $purphones=explode('**',$edit->pur_phone);
-        $accphones=explode('**',$edit->acc_phone);
-
-        $edit->prin_name_1=$pnames[0];
-        $edit->prin_name_2=count($pnames)==2?$pnames[1]:'';
-        $edit->prin_name_3=count($pnames)==3?$pnames[2]:'';
-
-        $edit->prin_phone_1=$pphones[0];
-        $edit->prin_phone_2=count($pphones)==2?$pphones[1]:'';
-        $edit->prin_phone_3=count($pphones)==3?$pphones[2]:'';
-
-        $edit->prin_email_1=$pemails[0];
-        $edit->prin_email_2=count($pemails)==2?$pemails[1]:'';
-        $edit->prin_email_3=count($pemails)==3?$pemails[2]:'';
-
-        $edit->pur_phone_1=$purphones[0];
-        $edit->pur_phone_2=count($purphones)==2?$purphones[1]:'';
-
-        $edit->pur_email_1=$purphones[0];
-        $edit->pur_email_2=count($purphones)==2?$purphones[1]:'';
-
         return response()->json($edit);
     }
 
@@ -66,22 +74,7 @@ class CustomerController extends Controller
             $tax_case="<b>Case-3 : Income Tax At SOURCE + Service Tax By AIMS</b>";
         }
         $show->tax_case=$tax_case;
-        $colors=['badge-primary','badge-dark','badge-warning'];
-        $principals=null;
-        foreach (explode('**',$show->prin_name) as $key=>$item) {
-            $principals.='<span class="badge '.$colors[$key].'">'.$item.'</span><br>';
-        }
-        $phones=null;
-        foreach (explode('**',$show->prin_phone) as $k=>$item) {
-            $phones.='<span class="badge '.$colors[$k].'">'.$item.'</span><br>';
-        }
-        $emails=null;
-        foreach (explode('**',$show->prin_email) as $k=>$item) {
-            $emails.='<span class="badge '.$colors[$k].'">'.$item.'</span><br>';
-        }
-        $show->prin_name=$principals;
-        $show->prin_phone=$phones;
-        $show->prin_email=$emails;
+        $show['contacts']=$show->contacts;
         return response()->json($show);
     }
     public function fetch(Request $request){
@@ -135,7 +128,7 @@ class CustomerController extends Controller
             'plant' => 'required',
             'region' => 'required',
             'tax_case' => 'required',
-            'prin_name.0' => 'required',
+
         ],[
             'name.required' => 'Company Name field is required *',
             'region.required' => 'Region field is required *',
@@ -143,7 +136,9 @@ class CustomerController extends Controller
             'address.required' => 'Company Address field is required *',
             'pay_type.required' => 'Payment Type field is required *',
             'pay_way.required' => 'Payment Way field is required *',
-            'prin_name.0.required' => 'Principal Name field is required *',
+            'industry.required' => 'Industry field is required *',
+            'credit_limit.required' => 'Credit Limit field is required *',
+
         ]);
         if ($request->id){
             $customer=Customer::find($request->id);
@@ -159,33 +154,7 @@ class CustomerController extends Controller
             $customer->region=$request->region;
             $customer->pay_terms=$request->pay_way;
             $customer->bill_to_address=$request->bill_to_address;
-            $customer->prin_name=implode('**',$request->prin_name);
-            $customer->prin_phone=implode('**',$request->prin_phone);
-            $customer->prin_email=implode('**',$request->prin_email);
 
-            if ($request->pur_name or $request->pur_phone[0] or $request->pur_phone[1] or $request->pur_email ){
-                $this->validate(request(), [
-                    'pur_name' => 'required',
-                ],[
-                    'pur_name.required' => 'Purchase Name field is required *',
-
-                ]);
-                $customer->pur_name=$request->pur_name;
-                $customer->pur_phone=implode('**',array_filter($request->pur_phone));
-                $customer->pur_email=$request->pur_email;
-            }
-            if ($request->acc_name or $request->acc_phone[0] or $request->acc_phone[1] or $request->acc_email ){
-                $this->validate(request(), [
-                    'acc_name' => 'required',
-
-                ],[
-                    'acc_name.required' => 'Account Name field is required *',
-                ]);
-
-                $customer->acc_name=$request->acc_name;
-                $customer->acc_phone=implode('**',array_filter($request->acc_phone));
-                $customer->acc_email=$request->acc_email;
-            }
             $customer->save();
             return response()->json(['success'=>'Customer updated successfully']);
 
@@ -202,32 +171,6 @@ class CustomerController extends Controller
             $customer->region=$request->region;
             $customer->bill_to_address=$request->bill_to_address;
             $customer->pay_terms=$request->pay_way;
-            $customer->prin_name=implode('**',array_filter($request->prin_name));
-            $customer->prin_phone=implode('**',array_filter($request->prin_phone));
-            $customer->prin_email=implode('**',array_filter($request->prin_email));
-
-            if ($request->pur_name or $request->pur_phone[0] or $request->pur_phone[1] or $request->pur_email ){
-                $this->validate(request(), [
-                    'pur_name' => 'required',
-                ],[
-                    'pur_name.required' => 'Purchase Name field is required *',
-                ]);
-                $customer->pur_name=$request->pur_name;
-                $customer->pur_phone=implode('**',array_filter($request->pur_phone));
-                $customer->pur_email=$request->pur_email;
-            }
-            if ($request->acc_name or $request->acc_phone[0] or $request->acc_phone[1] or $request->acc_email ){
-                $this->validate(request(), [
-                    'acc_name' => 'required',
-
-                ],[
-                    'acc_name.required' => 'Account Name field is required *',
-                ]);
-                $customer->acc_name=$request->acc_name;
-                $customer->acc_phone=implode('**',array_filter($request->acc_phone));
-                $customer->acc_email=$request->acc_email;
-            }
-
             $acc = new Chartofaccount();
             $acc->code4 = 000;
             $acc->code3 = 3;

@@ -25,7 +25,7 @@
                 <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid p-1">
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
-                <p class="text-center b font-24" style="margin-top: 40px">QUOTATION</p>
+                <h1 class="text-center b" style="margin-top: 40px">QUOTATION</h1>
             </div>
             <div class="col-3 row custom-border font-9 p-0">
                 <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04</p>
@@ -40,7 +40,10 @@
             </div>
         </div>
         <div class="col-12 text-center">
-            <p class=" font-14 b my-4">AL-MEEZAN INDUSTRIAL METROLOGY SERVICES     (AIMS)</p>
+            <div class='mt-3'></div>
+            <span class="font-10 ">Quote # {{$session->cid}}  <span class="ml-5"> Date : {{date('d-m-Y',time())}}</span></span>
+            <div class='mt-1'></div>
+            <p class=" font-14 b">AL-MEEZAN INDUSTRIAL METROLOGY SERVICES     (AIMS)</p>
         </div>
         <div class="row py-3">
             <div class="col-3 font-11 b">Document Type:</div>
@@ -179,8 +182,6 @@
             <div class="col-10  font-10 custom-bottom-border">{{auth()->user()->fname}} {{auth()->user()->lname}}</div>
             <div class="col-2 font-10 ">Phone:</div>
             <div class="col-10 font-10  custom-bottom-border">{{auth()->user()->phone}}</div>
-            <div class="col-2 font-10 ">Quote#:</div>
-            <div class="col-10 font-10  custom-bottom-border">{{$session->cid}}</div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-3 font-10">Subject /Description:</div>
@@ -262,7 +263,6 @@
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.7 - To arrange payment as per given payment terms and conditions.</span></p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">6.8 - To sign visit sign work sheet / time sheet of AIMS in order to confirm completion of site Job.</span></p>
             <p class="font-12  mt-1 col-12 float-left b"><span class="mr-5">7</span>  PRICE PROPOSAL:</p>
-            <p class="font-12 text-right col-12 b float-right">Date : <span class="custom-bottom-border">{{date('d-m-Y',time())}}</span></p>
         </div>
         <div class="row py-3">
             <div class="col-2 font-10 b">Currency:</div>
@@ -355,12 +355,12 @@
                 </tbody>
             </table>
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">8</span> TENTATIVE TURNAROUND TIME:</p>
-            <p class="font-10 line-height col-12 ml-5 pl-2"><span>{{$session->turnaround}} working days from receipt of job/site of schedule by AIMS</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">{{$session->turnaround}} working days from receipt of job/site of schedule by AIMS</span></p>
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">9</span> TERMS & CONDITIONS:</p>
-            <p class="font-10 line-height col-12"><span>9.1 -	Price basis is Ex works Pakistan unless otherwise mentioned anywhere in the body of this quote.</span></p>
-            <p class="font-10 line-height col-12"><span>9.2 -	AIMS prices are applicable for the quoted quantities, in case of any variation, AIMS reserve the rights to change unit prices.</span></p>
-            <p class="font-10 line-height col-12"><span class="">9.3 -	For each non-calibrateable item sent by customer, AIMS will charge @ 20% of calibration charges for wasted manhours. Additionally for site job transportation will be charges as per actual.</span></p>
-            <p class="font-10 line-height col-12"><span>9.4 - Terms of payment:</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">9.1 -	Price basis is Ex works Pakistan unless otherwise mentioned anywhere in the body of this quote.</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">9.2 -	AIMS prices are applicable for the quoted quantities, in case of any variation, AIMS reserve the rights to change unit prices.</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">9.3 -	For each non-calibrateable item sent by customer, AIMS will charge @ 20% of calibration charges for wasted manhours. Additionally for site job transportation will be charges as per actual.</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">9.4 - Terms of payment:</span></p>
             <div class="ml-5">
                 <p class="ml-5 font-10 col-12 pl-2"><input type="checkbox" {{($session->customers->customer_type=="cash" and $session->customers->pay_terms=="advance")?"checked":""}}> Cash/cheque advance  before starting job.</p>
                 <p class="ml-5 font-10 col-12 pl-2"><input type="checkbox" {{($session->customers->customer_type=="cash" and $session->customers->pay_terms=="against delivery")?"checked":""}}> Cash/cheque against delivery of calibration certificates.</p>
@@ -379,22 +379,25 @@
             </div>
 
 
-            <p class="font-10 line-height col-12"><span>9.5 -	In case of Bank Transfer to AIMS account, any bank charges  will be borne by customer.</span></p>
-            <p class="font-10 line-height col-12"><span>9.6 -	Cancellation of order after receipt of your confirmed PO and return of goods are not accepted.</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">9.5 -	In case of Bank Transfer to AIMS account, any bank charges  will be borne by customer.</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">9.6 -	Cancellation of order after receipt of your confirmed PO and return of goods are not accepted.</span></p>
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">10</span> BANK DETAILS:</p>
-            <p class="font-10 line-height col-12"><span>Account Title:			AI-Meezan Industrial Metrology Services</span></p>
-            <p class="font-10 line-height col-12"><span>Bank: 			Meezan Bank,   Sabzazaar Branch</span></p>
-            <p class="font-10 line-height col-12"><span>Account #:  			0256 0102439271</span></p>
-            <p class="font-10 line-height col-12"><span>IBAN :  			PK97 MEZN 0002 5601 0243 9271</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">Account Title:			AI-Meezan Industrial Metrology Services</></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">Bank: 			Meezan Bank,   Sabzazaar Branch</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">Account #:  			0256 0102439271</span></p>
+            <p class="font-10 line-height col-12"><span class="ml-5 pl-2">IBAN :  			PK97 MEZN 0002 5601 0243 9271</span></p>
 
             <p class="font-12  mt-1 col-12 b"><span class="mr-5">11</span> VALIDITY:</p>
             <p class="font-10 line-height col-12"><span class="ml-5 pl-2">11.1 - This quotation is valid sixty (60) calendar days from the date of this offer.</span></p>
-            <div class="col-7 ">
-                <p class="font-11 line-height col-12 b mt-4">Al- Meezan Industrial Meterology Services</p>
-                <p class="font-11 line-height col-12 b "><span class="custom-bottom-border">Date :  {{date('d-m-Y',time())}}</span></p>
-            </div>
-            <div class="col-4 mb-5 text-right">
+            <div class="col-12 mb-5 text-right">
                 <img src="{{url('/img/AIMS.png')}}" width="150" class="img-fluid ">
+            </div>
+            <div class="col-12 custom-bottom-border"></div>
+            <div class="col-12 text-center mt-2">
+                <p class="font-11 line-height font-12 col-12">Al- Meezan Industrial Meterology Services</p>
+                <p class="font-11 line-height font-12 col-12 ">
+                    58-B, OPF Soceity, Lahore, Pakistan, Tel : +92 42 35324659, email: info@aimscal.com, website: www.aimscal.com
+                </p>
             </div>
         </div>
     </div>

@@ -65,7 +65,7 @@
 
                         $('select[name="single_capability"]').append('<option disabled selected>--Select Capability</option>');
                         $.each(data['capabilities'], function (key, value) {
-                            $('select[name="single_capability"]').append('<option value="' + value.id + '">' + value.name +' > '+ value.max_range + '</option>');
+                            $('select[name="single_capability"]').append('<option value="' + value.id + '">' + value.name +' - '+ value.max_range + '</option>');
                         });
                         $('select[name="single_unit"]').empty();
 
@@ -198,7 +198,7 @@
 
                     $('#single_edit_capability').append('<option disabled selected>--Select Capability</option>');
                     $.each(data['capabilities'], function (key, value) {
-                        $('#single_edit_capability').append('<option value="' + value.id + '">' + value.name +' > '+ value.max_range + '</option>');
+                        $('#single_edit_capability').append('<option value="' + value.id + '">' + value.name +' - '+ value.max_range + '</option>');
                     });
 
                     $('#single_edit_unit').append('<option disabled selected>--Select Unit of Measure</option>');

@@ -4,7 +4,7 @@
         $("#add_multi_parameter_form").on('submit',(function(e) {
 
             var button=$('.multi-add-btn');
-            var previous=$('.mutli-add-btn').html();
+            var previous=$('.multi-add-btn').html();
             button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
 
             e.preventDefault();
@@ -20,7 +20,9 @@
                     button.attr('disabled',null).html(previous);
                     $('#add_multi_parameter_form').modal('hide');
                     swal('success', data.success, 'success').then((value) => {
+                        $('#add_multi').modal('hide');
                         InitTable();
+
                     });
                 },
                 error: function(xhr)
@@ -54,6 +56,7 @@
                     button.attr('disabled',null).html(previous);
                     $('#edit_multi_parameter_form').modal('hide');
                     swal('success', data.success, 'success').then((value) => {
+                        $('#edit_multi').modal('hide');
                         InitTable();
                     });
                 },

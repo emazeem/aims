@@ -19,6 +19,8 @@ class Customer extends Model
     protected $table='customers';
     protected static $logAttributes = ["reg_name","ntn","region","address","credit_limit","customer_type","pay_terms","prin_name_1","prin_phone_1", "prin_email_1", "prin_name_2", "prin_phone_2", "prin_email_2", "prin_name_3", "prin_phone_3", "prin_email_3", "pur_name", "pur_phone", "pur_email", "acc_name", "acc_phone", "acc_email", "deleted_at", "created_at", "updated_at"];
     protected static $logOnlyDirty = true;
-
+    public function contacts(){
+        return $this->hasMany('App\Models\CustomerContact','customer_id','id');
+    }
 
 }

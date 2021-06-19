@@ -60,24 +60,6 @@
                     $('#pay_type').val(data.customer_type);
                     $('#pay_way').append('<option value'+data.pay_terms+' selected>'+data.pay_terms+'</option>');
                     $('#tax_case').val(data.tax_case);
-                    $('#principal-name-1').val(data.prin_name_1);
-                    $('#principal-phone-1').val(data.prin_phone_1);
-                    $('#principal-email-1').val(data.prin_email_1);
-                    $('#principal-name-2').val(data.prin_name_2);
-                    $('#principal-phone-2').val(data.prin_phone_2);
-                    $('#principal-email-2').val(data.prin_email_2);
-                    $('#principal-name-3').val(data.prin_name_3);
-                    $('#principal-phone-3').val(data.prin_phone_3);
-                    $('#principal-email-3').val(data.prin_email_3);
-                    $('#purchase-name').val(data.pur_name);
-                    $('#purchase-email').val(data.pur_email);
-                    $('#purchase-phone-1').val(data.pur_phone_1);
-                    $('#purchase-phone-2').val(data.pur_phone_2);
-
-                    $('#account-name').val(data.acc_name);
-                    $('#account-email').val(data.acc_email);
-                    $('#account-phone-1').val(data.acc_phone_1);
-                    $('#account-phone-2').val(data.acc_phone_2);
                     $('#credit_limit').val(data.credit_limit);
                     $('#industry').val(data.industry);
                     $('#plant').val(data.plant);
@@ -216,103 +198,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-4 col-12">
-                        <label for="principal" class="col-form-label">Principal Contact</label>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-name-1" name="prin_name[]"
-                                   placeholder="Name" autocomplete="off" value="{{old('prin_name.0')}}">
 
-
-                        </div>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-phone-1" name="prin_phone[]"
-                                   placeholder="Phone" autocomplete="off" value="{{old('prin_phone.0')}}">
-
-                        </div>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-email-1" name="prin_email[]"
-                                   placeholder="Email" autocomplete="off" value="{{old('prin_email.0')}}">
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <label for="principal" class="col-form-label">Principal Contact</label>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-name-2" name="prin_name[]"
-                                   placeholder="Name" autocomplete="off" value="{{old('prin_name.1')}}">
-                        </div>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-phone-2" name="prin_phone[]"
-                                   placeholder="Phone" autocomplete="off" value="{{old('prin_phone.1')}}">
-                        </div>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-email-2" name="prin_email[]"
-                                   placeholder="Email" autocomplete="off" value="{{old('prin_email.1')}}">
-                        </div>
-
-
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <label for="principal" class="col-form-label">Principal Contact</label>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-name-3" name="prin_name[]"
-                                   placeholder="Name" autocomplete="off" value="{{old('prin_name.2')}}">
-
-                        </div>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-phone-3" name="prin_phone[]"
-                                   placeholder="Phone" autocomplete="off" value="{{old('prin_phone.2')}}">
-                        </div>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="principal-email-3" name="prin_email[]"
-                                   placeholder="Email" autocomplete="off" value="{{old('prin_email.2')}}">
-
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-12 bg-white">
-                        <label for="purchase" class="col-form-label">Purchase Contact</label>
-
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="purchase-name" name="pur_name" placeholder="Name"
-                                   autocomplete="off" value="{{old('pur_name')}}">
-
-                        </div>
-
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="purchase-phone-1" name="pur_phone[]"
-                                   placeholder="Phone" autocomplete="off" value="{{old('pur_phone.0')}}">
-                        </div>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="purchase-phone-2" name="pur_phone[]"
-                                   placeholder="Phone" autocomplete="off" value="{{old('pur_phone.1')}}">
-                        </div>
-
-
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="purchase-email" name="pur_email"
-                                   placeholder="Email" autocomplete="off" value="{{old('pur_email')}}">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-12 bg-white">
-                        <label for="account" class="col-form-label">Accounts Payable</label>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="account-name" name="acc_name" placeholder="Name"
-                                   autocomplete="off" value="{{old('acc_name')}}">
-                        </div>
-
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="account-phone-1" name="acc_phone[]"
-                                   placeholder="Phone" autocomplete="off" value="{{old('acc_phone.0')}}">
-                        </div>
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="account-phone-2" name="acc_phone[]"
-                                   placeholder="Phone" autocomplete="off" value="{{old('acc_phone.1')}}">
-                        </div>
-
-                        <div class="form-group m-0">
-                            <input type="text" class="form-control" id="account-email" name="acc_email"
-                                   placeholder="Email" autocomplete="off" value="{{old('acc_email')}}">
-                        </div>
-                    </div>
             </div>
             <div class="modal-footer text-right bg-light">
                 <button type="submit" class="btn btn-sm btn-primary float-right customer-save-btn"><i class="fa fa-save"></i> Save</button>

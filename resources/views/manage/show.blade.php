@@ -125,7 +125,7 @@
 
         });
     </script>
-    @include('jobs.create')
+{{--    @include('jobs.create')--}}
 @endsection
 
 

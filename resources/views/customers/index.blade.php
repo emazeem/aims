@@ -1,37 +1,54 @@
 @extends('layouts.master')
 @section('content')
-
-
     <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+
+    @if(Session::has('success'))
+        <script>
+            $(document).ready(function () {
+                swal("Done!", '{{Session('success')}}', "success");
+            });
+        </script>
+    @endif
+    @if(Session::has('failed'))
+        <script>
+            $(document).ready(function () {
+                swal("Sorry!", '{{Session('failed')}}', "error");
+            });
+        </script>
+    @endif
 
     <div class="row">
         <div class="col-12 mb-2">
             <h5 class="m-b-10 font-weight-light float-left"><i class="feather icon-user"></i> Customers</h5>
-            <a href class="btn btn-sm add btn-primary shadow-sm float-right"><i class="fa fa-plus-circle"></i> Customer</a>
+            <button type="button" class="btn btn-sm btn-primary shadow-sm float-right mt-2" data-toggle="modal"
+                    data-target="#add_contact"><i class="feather icon-plus-circle"></i> Add Contacts
+            </button>
+            <a href class="btn btn-sm add btn-success mx-1 shadow-sm float-right mt-2"><i class="fa fa-plus-circle"></i> Customer</a>
         </div>
-    <div class="col-12">
-        <table id="example" class="table dt-responsive table-hover bg-white display nowrap table-sm" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Registered Name</th>
-                <th>Address</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody class="text-capitalize">
-            </tbody>
-            <tfoot>
-            <tr>
-                <th>ID</th>
-                <th>Registered Name</th>
-                <th>Address</th>
-                <th>Action</th>
-            </tr>
-            </tfoot>
-        </table>
+        <div class="col-12">
+            <table id="example" class="table dt-responsive table-hover bg-white display nowrap table-sm" cellspacing="0"
+                   width="100%">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Registered Name</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody class="text-capitalize">
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Registered Name</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+                </tfoot>
+            </table>
 
-    </div>
+        </div>
 
     </div>
 
@@ -89,14 +106,14 @@
                                 data: form_data,
                                 success: function (data) {
                                     swal('success', data.success, 'success').then((value) => {
-                                        $("#example").DataTable().ajax.reload(null,false);
+                                        $("#example").DataTable().ajax.reload(null, false);
                                     });
 
                                 },
                                 error: function (xhr) {
-                                    var error='';
+                                    var error = '';
                                     $.each(xhr.responseJSON.errors, function (key, item) {
-                                        error+=item;
+                                        error += item;
                                     });
                                     swal("Failed", error, "error");
                                 },
@@ -111,5 +128,6 @@
     </script>
     @include('customers.create')
     @include('customers.show')
+    @include('customercontact')
 
 @endsection
