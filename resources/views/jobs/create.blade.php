@@ -45,6 +45,7 @@
                         </div>
                     </td>
                     <td>
+
                         @if($item->quantity > $jobitems)
                         <a href="#" title="Store Entry" data-id="{{$item->id}}" data-target="{{$job->id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i></a>
                         @endif

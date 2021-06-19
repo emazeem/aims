@@ -7,7 +7,7 @@
             });
         </script>
     @endif
-    <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
+    {{--<div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
         <h1 class="h3 mb-0 border-bottom"><i class="fa fa-pencil"></i> Edit Items</h1>
 
     </div>
@@ -197,6 +197,7 @@
         });
 
     </script>
+    --}}
     <div class="modal fade" id="add_na" tabindex="-1" role="dialog" aria-labelledby="add_na" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">

@@ -14,6 +14,7 @@ use Yajra\DataTables\DataTables;
 class GenerateRequestsController extends Controller
 {
     public function index(){
+
         $this->authorize('quote-index');
         $customers=Customer::orderBY('reg_name')->get();
         $tms=User::whereIn('id',[1,2,4,6,19])->get();

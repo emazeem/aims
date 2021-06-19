@@ -17,18 +17,7 @@
     @endif
 
     <div class="col-12">
-        <ol class="breadcrumb col-12">
-            <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{url('/mytasks')}}">My Tasks</a></li>
-            @if($location==0)
-                <li class="breadcrumb-item"><a href="{{url('mytasks/view/'.$show->id)}}">Task Detail</a></li>
-            @endif
-            @if($location==1)
-                <li class="breadcrumb-item"><a href="{{url('mytasks/s_view/'.$show->id)}}">Task Detail</a></li>
-            @endif
-        </ol>
-
-        <h4><i class="fa fa-eye"></i> My Task Details</h4>
+        <h4 class='font-weight-light'><i class="feather icon-eye"></i> My Task Details</h4>
         @if($show->status==2)
             <form method="post" action="{{route('mytasks.start')}}">
                 @csrf

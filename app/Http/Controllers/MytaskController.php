@@ -38,8 +38,11 @@ class MytaskController extends Controller
 
         $data=Jobitem::all()->where('assign_user',auth()->user()->id);
         return DataTables::of($data)
-            ->addColumn('id', function ($data) {
-                return $data->id;
+            ->addColumn('job', function ($data) {
+                return $data->jobs->cid;
+            })
+            ->addColumn('model', function ($data) {
+                return $data->model;
             })
             ->addColumn('uuc', function ($data) {
                 return $data->item->capabilities->name;
@@ -47,12 +50,19 @@ class MytaskController extends Controller
             ->addColumn('eqid', function ($data) {
                 return $data->eq_id;
             })
-            ->addColumn('start', function ($data) {
-                return $data->start;
+            ->addColumn('date', function ($data) {
+                return $data->start.' to '.$data->end;
             })
-            ->addColumn('end', function ($data) {
-                return $data->end;
+            ->addColumn('asset', function ($data) {
+
+                $assets=Asset::whereIn('id',explode(',',$data->assign_assets))->get();
+                $standard=null;
+                foreach ($assets as $asset) {
+                    $standard=$asset->code.'<i class="feather icon-chevron-right"></i>'.$asset->name.'<br>'.$standard;
+                }
+                return $standard;
             })
+
             ->addColumn('status', function ($data) {
                 if ($data->status==2){
                     $status= "<b class=\"text-danger\">Pending</b>";
@@ -77,7 +87,7 @@ class MytaskController extends Controller
                 return "&emsp;".$action;
 
             })
-            ->rawColumns(['options','parameter','status'])
+            ->rawColumns(['options','parameter','asset','status'])
             ->make(true);
 
     }
@@ -93,8 +103,8 @@ class MytaskController extends Controller
         $data=Jobitem::all()->whereIn('id',$skip_ids)->where('type',1);
         return DataTables::of($data)
 
-            ->addColumn('id', function ($data) {
-                return $data->id;
+            ->addColumn('job', function ($data) {
+                return $data->jobs->cid;
             })
             ->addColumn('uuc', function ($data) {
                 return $data->item->capabilities->name;
@@ -102,11 +112,21 @@ class MytaskController extends Controller
             ->addColumn('eqid', function ($data) {
                 return $data->eq_id;
             })
-            ->addColumn('start', function ($data) {
-                return $data->start;
+            ->addColumn('model', function ($data) {
+                return $data->model;
             })
-            ->addColumn('end', function ($data) {
-                return $data->end;
+
+            ->addColumn('asset', function ($data) {
+
+                $assets=Asset::whereIn('id',explode(',',$data->group_assets))->get();
+                $standard=null;
+                foreach ($assets as $asset) {
+                    $standard=$asset->code.'<i class="feather icon-chevron-right"></i>'.$asset->name.'<br>'.$standard;
+                }
+                return $standard;
+            })
+            ->addColumn('date', function ($data) {
+                return $data->start.' to '.$data->end;
             })
             ->addColumn('status', function ($data) {
                 if ($data->status==1){

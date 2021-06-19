@@ -16,6 +16,7 @@ use Yajra\DataTables\Facades\DataTables;
 class QuoteItemController extends Controller
 {
     public function index(){
+
         return view('items.index');
     }
     public function create($id){
@@ -124,17 +125,21 @@ class QuoteItemController extends Controller
             ->rawColumns(['options','parameter','status','capability'])
             ->make(true);
     }
-    public function edit($session,$id){
+    public function edit(Request $request){
         $this->authorize('items-create');
-        $edit=QuoteItem::find($id);
-        $session=Quotes::find($session);
-        $capabilities=Capabilities::all();
-        $parameters=Parameter::all();
-        return view('items.edit',compact('session','parameters','capabilities','edit'));
+        $edit=QuoteItem::find($request->id);
+        $range=explode(',',$edit->range);
+        $edit['min_range']=$range[0];
+        $edit['max_range']=$range[1];
+        $edit['capabilities']=Capabilities::where('parameter',$edit->parameter)->get();
+        $edit['units']=Unit::where('parameter',$edit->parameter)->get();
+
+        return response()->json($edit);
     }
     public function store(Request $request){
 
         $this->authorize('items-create');
+
         //non-listed
         if (isset($request->non_listed)){
             if ($request->non_listed==1){
@@ -182,108 +187,110 @@ class QuoteItemController extends Controller
         }
         //listed items
         $this->validate(request(), [
-            'parameter' => 'required',
-            'capability' => 'required',
-            'range.0' => 'required',
-            'range.1' => 'required',
-            'price' => 'required',
-            'quantity' => 'required',
-            'location' => 'required',
-            'accredited' => 'required',
-
+            'single_parameter' => 'required',
+            'single_capability' => 'required',
+            'single_range.0' => 'required',
+            'single_range.1' => 'required',
+            'single_price' => 'required',
+            'single_quantity' => 'required',
+            'single_location' => 'required',
+            'single_accredited' => 'required',
+            'single_unit' => 'required',
         ],[
-            'parameter.required' => 'Parameter field is required *',
-            'capability.required' => 'Capability field is required *',
-            'range.0.required' => 'Min Range field is required *',
-            'range.1.required' => 'Max Range field is required *',
-            'price.required' => 'Price field is required *',
-            'quantity.required' => 'Quantity field is required *',
-            'location.required' => 'Location field is required *',
-            'accredited.required' => 'Accredited field is required *',
+            'single_parameter.required' => 'Parameter field is required *',
+            'single_capability.required' => 'Capability field is required *',
+            'single_range.0.required' => 'Min Range field is required *',
+            'single_range.1.required' => 'Max Range field is required *',
+            'single_price.required' => 'Price field is required *',
+            'single_quantity.required' => 'Quantity field is required *',
+            'single_location.required' => 'Location field is required *',
+            'single_accredited.required' => 'Accredited field is required *',
+            'single_unit.required' => 'Unit field is required *',
         ]);
         //change status 0 to 1 for empty to adding state of quote
         $item=new QuoteItem();
-        $item->quote_id=$request->quote_id;
+        $item->quote_id=$request->single_quote_id;
         $item->not_available=null;
-        $item->location=$request->location;
-        $item->accredited=$request->accredited;
-        $item->unit=$request->unit?$request->unit:null;
-        $item->parameter=$request->parameter;
-        $item->capability=$request->capability;
-        $item->range=implode(',',$request->range);
+        $item->location=$request->single_location;
+        $item->accredited=$request->single_accredited;
+        $item->unit=$request->single_unit;
+        $item->parameter=$request->single_parameter;
+        $item->capability=$request->single_capability;
+        $item->range=implode(',',$request->single_range);
         $item->status=0;
-        $item->price=$request->price;
-        $item->quantity=$request->quantity;
+        $item->price=$request->single_price;
+        $item->quantity=$request->single_quantity;
         $item->save();
-        $items=QuoteItem::where('quote_id',$request->quote_id)->where('status',0)->get();
+        $items=QuoteItem::where('quote_id',$request->single_quote_id)->where('status',0)->get();
         $lab=0;$site=0;
         foreach($items as $value){
             if ($value->location=='site'){$site=1;}
             if ($value->location=='lab'){$lab=1;}
         }
         if ($lab==1 and $site==1){
-            $q=Quotes::find($request->quote_id);
+            $q=Quotes::find($request->single_quote_id);
             $q->type='BOTH';
             $q->save();
         }if ($lab==1 and $site==0){
-            $q=Quotes::find($request->quote_id);
+            $q=Quotes::find($request->single_quote_id);
             $q->type='LAB';
             $q->save();
         }if ($site==1 and $lab==0){
-            $q=Quotes::find($request->quote_id);
+            $q=Quotes::find($request->single_quote_id);
             $q->type='SITE';
             $q->save();
         }else{}
         return response()->json(['success'=> 'Item added successfully']);
     }
     public function update(Request $request){
-
-
+        //dd($request->all());
         $this->validate(request(), [
-            'parameter' => 'required',
-            'capability' => 'required',
-            'range.0' => 'required',
-            'range.1' => 'required',
-            'price' => 'required',
-            'quantity' => 'required',
-            'location' => 'required',
-            'accredited' => 'required',
+            'single_edit_parameter' => 'required',
+            'single_edit_capability' => 'required',
+            'single_edit_range.0' => 'required',
+            'single_edit_range.1' => 'required',
+            'single_edit_price' => 'required',
+            'single_edit_quantity' => 'required',
+            'single_edit_location' => 'required',
+            'single_edit_accredited' => 'required',
+            'single_edit_unit' => 'required',
         ],[
-            'parameter.required' => 'Parameter field is required *',
-            'capability.required' => 'Capability field is required *',
-            'range.0.required' => 'Min Range field is required *',
-            'range.1.required' => 'Max Range field is required *',
-            'price.required' => 'Price field is required *',
-            'quantity.required' => 'Quantity field is required *',
-            'location.required' => 'Location field is required *',
-            'accredited.required' => 'Accredited field is required *',
+            'single_edit_parameter.required' => 'Parameter field is required *',
+            'single_edit_capability.required' => 'Capability field is required *',
+            'single_edit_range.0.required' => 'Min Range field is required *',
+            'single_edit_range.1.required' => 'Max Range field is required *',
+            'single_edit_price.required' => 'Price field is required *',
+            'single_edit_quantity.required' => 'Quantity field is required *',
+            'single_edit_location.required' => 'Location field is required *',
+            'single_edit_accredited.required' => 'Accredited field is required *',
+            'single_edit_unit.required' => 'Unit field is required *',
         ]);
-        $item=QuoteItem::find($request->edit_id);
-        $item->parameter=$request->parameter;
+        $item=QuoteItem::find($request->edit_single_item_id);
+        $item->parameter=$request->single_edit_parameter;
         $item->not_available=null;
-        $item->capability=$request->capability;
-        $item->location=$request->location;
-        $item->accredited=$request->accredited;
-        $item->price=$request->price;
-        $item->quantity=$request->quantity;
+        $item->capability=$request->single_edit_capability;
+        $item->location=$request->single_edit_location;
+        $item->accredited=$request->single_edit_accredited;
+        $item->price=$request->single_edit_price;
+        $item->quantity=$request->single_edit_quantity;
         //dd($item);
         $item->save();
-        $items=QuoteItem::where('quote_id',$request->quote_id)->where('status',0)->get();
+        $items=QuoteItem::where('quote_id',$request->single_quote_id)->where('status',0)->get();
         $lab=0;$site=0;
         foreach($items as $value){
             if ($value->location=='site'){$site=1;}
             if ($value->location=='lab'){$lab=1;}
         }
         if ($lab==1 and $site==1){
-            $q=Quotes::find($request->quote_id);
+            $q=Quotes::find($request->single_quote_id);
             $q->type='BOTH';
             $q->save();
         }if ($lab==1 and $site==0){
-            $q=Quotes::find($request->quote_id);
+            $q=Quotes::find($request->single_quote_id);
             $q->type='LAB';
             $q->save();
         }if ($site==1 and $lab==0){
-            $q=Quotes::find($request->quote_id);
+            $q=Quotes::find($request->single_quote_id);
             $q->type='SITE';
             $q->save();
         }else{}
@@ -292,10 +299,10 @@ class QuoteItemController extends Controller
     }
     public function getCapabilities($id){
         $data['capabilities']=Capabilities::where('parameter', $id)
-            ->where('group_id',null)
+        /*    ->where('group_id',null)*/
             ->orderBy('name','ASC')
-            ->pluck('id', 'name')
-            ->all();
+            ->get();
+
         $data['unit']=Unit::where('parameter', $id)
             ->orderBy('unit','ASC')
             ->pluck('id', 'unit')
@@ -307,6 +314,8 @@ class QuoteItemController extends Controller
         $editNA['capability_name']=$editNA->not_available;
         return response()->json($editNA);
     }
+
+
     public function getPrice($id){
         $data=Capabilities::find($id);
         if ($data->accredited=='yes'){
@@ -334,11 +343,20 @@ class QuoteItemController extends Controller
     }
     public function compare_ranges($min,$max,$id){
         $capability=Capabilities::find($id);
-        if ($capability->accredited_min_range<=$min){
+        if ($min<$capability->accredited_min_range){
             return response()->json(['error'=>'Your Min Range is LOW']);
-        }else if ($capability->accredited_max_range>=$max){
+        }
+        else if ($min>$capability->accredited_max_range){
+            return response()->json(['error'=>'Your Min Range is HIGH']);
+        }
+        else if ($max>$capability->accredited_max_range){
             return response()->json(['error'=>'Your Max Range is HIGH']);
-        } else if ($capability->accredited_max_range>=$max &&$capability->accredited_min_range<=$min ){
+        }
+        else if ($max<$capability->accredited_min_range){
+            return response()->json(['error'=>'Your Max Range is LOW']);
+        }
+
+        else if ($min>=$capability->accredited_min_range && $max<=$capability->accredited_max_range ){
             return response()->json(['success'=>'Accredited']);
         }
     }

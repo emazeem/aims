@@ -207,7 +207,6 @@
     <script>
 
         function InitTable() {
-            $(".loading").fadeIn();
             var id = '{{$id}}';
             $('#example').DataTable({
                 responsive: true,
@@ -290,7 +289,7 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $(document).on('click', '.edit', function (e) {
+            /*$(document).on('click', '.edit', function (e) {
                 e.preventDefault();
                 var id = $(this).attr('data-id');
 
@@ -303,21 +302,13 @@
                         $(".loading").fadeIn();
                     },
                     success: function (data) {
-                        $('#edit_item_id').val(data.id);
-                        $('.item_btn').val('Update');
-                        $('#parameter').val(data.parameter);
-                        $('#capability').append('<option selected value="'+data.capability+'">'+data.capability_name+'</option>');
-                        $('#range').val(data.range);
-                        $('#price').val(data.price);
-                        $('#location').val(data.location);
-                        $('#accredited').val(data.accredited);
-                        $('#quantity').val(data.quantity);
+
                         //Populating Form Data to Edit Ends
                     },
                     error: function () {
                     },
                 });
-            });
+            });*/
 
 
             InitTable();
@@ -384,7 +375,7 @@
 
     </script>
     @if($show->status==0)
-        @include('items.create')
+        @include('quoteitems.create')
         @include('non_listed.index')
         @include('non_listed.create')
         @include('grouped_items.index')

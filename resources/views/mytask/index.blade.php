@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function() {
@@ -9,35 +9,33 @@
         </script>
     @endif
     <div class="row">
-        <ol class="breadcrumb col-12">
-            <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{url('/mytasks')}}">My Tasks</a></li>
-        </ol>
-        <h4><i class="fa fa-tasks"></i> Lab Tasks</h4>
         <div class="col-12">
+            <h4 class="font-weight-light"><i class="feather icon-list"></i> Lab Tasks</h4>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
 
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Job</th>
                     <th>UUC</th>
+                    <th>Model</th>
                     <th>Eq ID</th>
-                    <th>Start</th>
-                    <th>End</th>
+                    <th>Asset</th>
+                    <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </thead>
-                <tbody class="text-capitalize">
+                <tbody>
 
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
+                    <th>Job</th>
                     <th>UUC</th>
+                    <th>Model</th>
                     <th>Eq ID</th>
-                    <th>Start</th>
-                    <th>End</th>
+                    <th>Asset</th>
+                    <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -46,18 +44,18 @@
 
         </div>
     </div>
-    <hr>
     <div class="row">
-        <h4><i class="fa fa-tasks"></i> Site Tasks</h4>
         <div class="col-12">
+            <h4 class="font-weight-light"><i class="feather icon-list"></i> Site Tasks</h4>
             <table id="example2" class="table table-bordered bg-white text-dark table-sm display nowrap" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Job</th>
                     <th>UUC</th>
+                    <th>Model</th>
                     <th>Eq ID</th>
-                    <th>Start</th>
-                    <th>End</th>
+                    <th>Asset</th>
+                    <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -67,11 +65,12 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
+                    <th>Job</th>
                     <th>UUC</th>
+                    <th>Model</th>
                     <th>Eq ID</th>
-                    <th>Start</th>
-                    <th>End</th>
+                    <th>Asset</th>
+                    <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -102,11 +101,12 @@
                     "data":{ _token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    { "data": "id" },
+                    { "data": "job" },
                     { "data": "uuc" },
+                    { "data": "model" },
                     { "data": "eqid" },
-                    { "data": "start" },
-                    { "data": "end" },
+                    { "data": "asset" },
+                    { "data": "date" },
                     { "data": "status" },
                     { "data": "options" ,"orderable":false},
                 ]
@@ -128,11 +128,12 @@
                     "data":{ _token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    { "data": "id" },
+                    { "data": "job" },
                     { "data": "uuc" },
+                    { "data": "model" },
                     { "data": "eqid" },
-                    { "data": "start" },
-                    { "data": "end" },
+                    { "data": "asset" },
+                    { "data": "date" },
                     { "data": "status" },
                     { "data": "options" ,"orderable":false},
                 ]

@@ -31,7 +31,7 @@
                     <th >Range</th>
                     <td>{{$show->min_range.'-'.$show->max_range}}</td>
                 </tr>
-                @if($show->accredited_min_range)
+                @if($show->accredited=='yes')
                 <tr>
                     <th >Accredit Range</th>
                     <td>{{$show->accredited_min_range.'-'.$show->accredited_max_range}}</td>

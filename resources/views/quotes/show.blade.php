@@ -423,37 +423,6 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $(document).on('click', '.edit', function () {
-                var id = $(this).attr('data-id');
-
-                $.ajax({
-                    "url": "{{url('/items/editNA')}}",
-                    type: "POST",
-                    data: {'id': id, _token: '{{csrf_token()}}'},
-                    dataType: "json",
-                    beforeSend: function () {
-                        $(".loading").fadeIn();
-                    },
-                    statusCode: {
-                        403: function () {
-                            $(".loading").fadeOut();
-                            swal("Failed", "Permission deneid for this action.", "error");
-                            return false;
-                        }
-                    },
-                    success: function (data) {
-                        $('#edit_na').modal('toggle');
-                        $('#edit_id').val(data.id);
-                        $('#edit_name').val(data.not_available);
-                        $('#edit_quantity').val(data.quantity);
-                        //Populating Form Data to Edit Ends
-                    },
-                    error: function () {
-                    },
-                });
-            });
-
-
             $("#edit_na_form").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
