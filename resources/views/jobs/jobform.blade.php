@@ -223,7 +223,7 @@
                             </div>
                             <div class="col-8 text-center custom-bottom-border px-5" style="height: 50px">
                                 <span class="text-right">
-                                    <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="120" class="img-fluid">
+                                    <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="90" class="img-fluid">
                                 </span>
                             </div>
                             <div class="col-3">
