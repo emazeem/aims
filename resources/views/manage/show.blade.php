@@ -104,7 +104,7 @@
                                 success: function(data)
                                 {
                                     swal('success',data.success,'success').then((value) => {
-                                        $('.detail-table').load();
+                                        location.reload();
                                     });
 
                                 },

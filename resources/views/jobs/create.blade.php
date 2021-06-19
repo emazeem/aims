@@ -192,7 +192,7 @@
 
                         <div class="form-group col-12  float-left">
                             <label for="accessories">Accessories</label>
-                            <input type="text" class="form-control" id="model" name="accessories" placeholder="Accessories" autocomplete="off" value="NILL">
+                            <input type="text" class="form-control" id="model" name="accessories" placeholder="Accessories" autocomplete="off" value="NIL">
                         </div>
                         <div class="form-group col-12  float-left">
                             <label for="visualinspection">Visual Inspection</label>

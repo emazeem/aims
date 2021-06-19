@@ -66,21 +66,21 @@
     <div class="col-12 font-style mt-2">
 
         <div class="row custom-border p-2">
-            <div class="col-3 row my-1 font-sm">
+            <div class="col-2 row my-1 font-sm">
                 <div class="col-4">Job#:</div>
                 <div class="col-8 custom-bottom-border text-center">{{$job->cid}}</div>
             </div>
             <div class="col-2 row my-1 font-sm ">
-                <div class="col-3">Date:</div>
-                <div class="col-9 custom-bottom-border  text-center">{{$job->created_at->format('d-m-Y')}}</div>
+                <div class="col-4">Date:</div>
+                <div class="col-8 custom-bottom-border  text-center">{{$job->created_at->format('d-m-Y')}}</div>
             </div>
-            <div class="col-4 row my-1 font-sm ">
-                <div class="col-7">Work order / Quotation #</div>
-                <div class="col-5 custom-bottom-border  text-center">{{$job->quotes->approval_mode_details}}</div>
+            <div class="col-6 row my-1 font-sm ">
+                <div class="col-4">Work order / Quotation #</div>
+                <div class="col-8 custom-bottom-border  text-center">{{$job->quotes->approval_mode_details}}</div>
             </div>
-            <div class="col-3 row my-1 font-sm ">
-                <div class="col-3">Dated:</div>
-                <div class="col-9 custom-bottom-border  text-center">{{date('d-m-Y',strtotime($job->quotes->approval_date))}}</div>
+            <div class="col-2 row my-1 font-sm ">
+                <div class="col-4">Dated:</div>
+                <div class="col-8 custom-bottom-border  text-center">{{date('d-m-Y',strtotime($job->quotes->approval_date))}}</div>
             </div>
             <div class="col-12 row my-1 font-sm ">
                 <div class="col-2">Customer Name:</div>
