@@ -14,7 +14,7 @@ use Yajra\DataTables\DataTables;
 class CustomerController extends Controller
 {
     public function index(){
-        $customers=Customer::all();
+/*        $customers=Customer::all();
         foreach ($customers as $customer){
             if ($customer->acc_name){
                 $contact=new CustomerContact();
@@ -49,7 +49,7 @@ class CustomerController extends Controller
                 $contact->save();
             }
         }
-        dd('contacts saved');
+        dd('contacts saved');*/
         $saletaxes=Preference::where('category',1)->get();
         $this->authorize('customer-index');
         $customers=Customer::orderBy('reg_name','ASC')->get();
