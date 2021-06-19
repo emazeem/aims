@@ -34,18 +34,22 @@ class CustomerController extends Controller
                 $contact->phone=$customer->pur_phone;
                 $contact->save();
             }
-            foreach (explode('**',$customer->prin_name) as $principal) {
+            foreach (explode('**',$customer->prin_name) as $k=>$principal) {
+
+                $pemail=explode('**',$customer->prin_email);
+                $pphone=explode('**',$customer->prin_phone);
+
+
                 $contact=new CustomerContact();
                 $contact->customer_id=$customer->id;
                 $contact->type='principal';
                 $contact->name=$principal;
-                $contact->email=$customer->pur_email;
-                $contact->phone=$customer->pur_phone;
+                $contact->email=array_key_exists($k, $pemail)==true?$pemail[$k]:null;
+                $contact->phone=array_key_exists($k, $pphone)==true?$pphone[$k]:null;
                 $contact->save();
             }
         }
-        //dd(1);
-
+        dd('contacts saved');
         $saletaxes=Preference::where('category',1)->get();
         $this->authorize('customer-index');
         $customers=Customer::orderBy('reg_name','ASC')->get();
@@ -64,7 +68,11 @@ class CustomerController extends Controller
 
     public function show(Request $request){
         $this->authorize('customer-view');
-        $show=Customer::find($request->id);
+
+        $show=Customer::where('id',$request->id)->with(['contacts' => function ($q) {
+            $q->orderBy('type','ASC');
+        }])->first();
+
         $show->region=\App\Models\Preference::find($show->region)->name;
         if($show->tax_case==1){
             $tax_case="<b>Case-1 : Income Tax By AIMS + Service Tax By AIMS</b>";
@@ -98,7 +106,7 @@ class CustomerController extends Controller
                 }
 
                 if (Auth::user()->can('customer-view')) {
-                    $action.="<a title='Show Customer' class='btn view-customer btn-sm btn-success' href data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                    $action.="<a title='Show Customer' class='btn view-customer btn-sm btn-success' href data-id='".$data->id."'><i class='fa fa-eye'></i></a>";
                 }
                 if (Auth::user()->can('customer-delete')){
                     $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
