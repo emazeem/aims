@@ -11,14 +11,12 @@ class SuggestionController extends Controller
         $this->authorize('add-suggestions');
         $this->validate($request,[
             'parameter'=>'required',
-            'asset'=>'required',
-            'optassets'=>'required',
+            'assets'=>'required',
         ]);
         $suggestions=new Suggestion();
         $suggestions->capabilities=$request->capability;
-        $suggestions->asset=$request->asset;
-        $optassets=implode(',',$request->optassets);
-        $suggestions->optional_assets=$optassets;
+        $assets=implode(',',$request->assets);
+        $suggestions->assets=$assets;
         $suggestions->save();
         return response()->json(['success'=>'Suggestion added successfully']);
     }

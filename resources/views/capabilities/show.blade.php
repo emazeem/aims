@@ -68,21 +68,16 @@
                 <h5 class="font-weight-light pb-1"><i class="feather icon-help-circle"></i> Suggestions</h5>
                 <table class="table table-sm bg-white table-hover">
                     <tr>
+                        <th>Sug#</th>
                         <th>Assets</th>
-                        <th>Opt. Assets</th>
                         <th>Action</th>
                     </tr>
-                    @foreach($show->suggestions as $suggestion)
+                    @foreach($show->suggestions as $k=>$suggestion)
                         <tr>
-                            <td>
-                                <small class="badge ">
-                                    {{$suggestion->assets->name}}
 
-                                    ( {{$suggestion->assets->code}} )
-                                </small>
-                            </td>
+                            <td>Sug#{{$k+1}}</td>
                             <td>
-                                @foreach(explode(',',$suggestion->optional_assets) as $asset)
+                                @foreach(explode(',',$suggestion->assets) as $asset)
                                     <small class="badge ">
                                         {{\App\Models\Asset::find($asset)->name}}
                                         <b>( {{\App\Models\Asset::find($asset)->code}} )</b></small>
@@ -148,19 +143,14 @@
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
-                            $('select[name="optassets[]"]').empty();
+                            $('select[name="assets[]"]').empty();
                             $.each(data, function (index, value) {
-                                $('select[name="optassets[]"]').append('<option value="' + value.id + '">' + value.code + '-' + value.name + '</option>');
+                                $('select[name="assets[]"]').append('<option value="' + value.id + '">' + value.code + '-' + value.name + '</option>');
                             });
-                            $('select[name="asset"]').empty();
-                            $.each(data, function (index, value) {
-                                $('select[name="asset"]').append('<option value="' + value.id + '">' + value.code + '-' + value.name + '</option>');
-                            });
-
                         }
                     });
                 } else {
-                    $('select[name="optassets[]"]').empty();
+                    $('select[name="assets[]"]').empty();
                 }
             });
             $(document).on('click', '.delete', function (e) {
@@ -236,24 +226,12 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label for="asset" class="col-12 text-xs control-label">Select Asset</label>
+                            <label for="assets" class="col-12 text-xs control-label">Select Assets</label>
                             <div class="form-check col-12" style="width: 100%">
-                                <select class="form-control" id="asset" name="asset">
-                                    <option selected disabled="disabled">--Select Asset</option>
+                                <select class="form-control opt-assets-select-2" style="width: 100%" multiple id="assets" name="assets[]">
                                     @foreach(\App\Models\Asset::all() as $asset)
                                         <option value="{{$asset->id}}">{{$asset->name}}</option>
                                     @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <label for="optassets" class="col-12 text-xs control-label">Select Opt Assets</label>
-                            <div class="form-check col-12">
-                                <select class="form-control opt-assets-select-2" id="optassets" name="optassets[]"
-                                        multiple
-                                        style="width: 100%;font-size: 10px">
-
                                 </select>
                             </div>
                         </div>
