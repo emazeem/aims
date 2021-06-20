@@ -62,10 +62,24 @@
                     </tr>
                 @endif
             </table>
-
         </div>
-        @if(count($show->suggestions)>0)
-            <div class="col-12 table-responsive">
+        <div class="col-12">
+            @if($previous)
+                <span class="float-left">
+                    <a href="{{url('capabilities/view/'.$previous->id)}}" class="btn bg-white  btn-light border btn-sm"><i
+                                class="fa fa-angle-left"></i> Previous </a>
+                </span>
+            @endif
+            @if($next)
+                <span class="float-right">
+                    <a href="{{url('/capabilities/view/'.$next->id)}}" class="btn  bg-white btn-light border btn-sm"> Next <i
+                                class="fa fa-angle-right"></i></a>
+                </span>
+            @endif
+        </div>
+
+    @if(count($show->suggestions)>0)
+            <div class="col-12 table-responsive mt-2">
                 <h5 class="font-weight-light pb-1"><i class="feather icon-help-circle"></i> Suggestions</h5>
                 <table class="table table-sm bg-white table-hover">
                     <tr>

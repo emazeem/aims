@@ -23,8 +23,6 @@ class LogReviewController extends Controller
     public function show($id){
         $this->authorize('view-log-reviews');
         $show=LogReview::find($id);
-        $next=$show->next();
-        $previous=$show->previous();
         return view('logreview.show',compact('show','next','previous'));
     }
 
