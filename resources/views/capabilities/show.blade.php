@@ -20,7 +20,7 @@
         <div class="col-12">
             <h3 class="float-left font-weight-light pb-1"><i class="feather icon-eye"></i> Capability Details</h3>
             <span class="float-right">
-                @can('add-suggestion')
+                @can('add-suggestions')
                     <a data-toggle="modal" data-target="#add_suggestion"><i class="feather icon-help-circle"></i> Add Suggestion</a>
                 @endcan
         </span>
@@ -30,48 +30,48 @@
             <table class="table bg-white table-responsive-sm border-0 table-hover font-13" width="100%">
 
                 <tr>
-                    <th width="20%" >Name</th>
+                    <th width="20%">Name</th>
                     <td width="80%">{{$show->name}}</td>
                 </tr>
                 <tr>
-                    <th >Parameter</th>
+                    <th>Parameter</th>
                     <td>{{$show->parameters->name}}</td>
                 </tr>
                 <tr>
-                    <th >Range</th>
+                    <th>Range</th>
                     <td>{{$show->min_range.'-'.$show->max_range}}</td>
                 </tr>
                 @if($show->accredited=='yes')
-                <tr>
-                    <th >Accredit Range</th>
-                    <td>{{$show->accredited_min_range.'-'.$show->accredited_max_range}}</td>
+                    <tr>
+                        <th>Accredit Range</th>
+                        <td>{{$show->accredited_min_range.'-'.$show->accredited_max_range}}</td>
 
-                </tr>
+                    </tr>
                 @endif
 
                 <tr>
-                    <th >Price</th>
+                    <th>Price</th>
                     <td>{{$show->price}}</td>
                 </tr>
                 <tr>
-                    <th >Unit</th>
+                    <th>Unit</th>
                     <td>{{$show->units->unit}}</td>
                 </tr>
                 <tr>
-                    <th >Accuracy</th>
+                    <th>Accuracy</th>
                     <td>{{$show->accuracy}}</td>
                 </tr>
                 <tr>
-                    <th >Location</th>
+                    <th>Location</th>
                     <td class="text-capitalize">{{$show->location}}</td>
                 </tr>
                 <tr>
-                    <th >Accredited</th>
+                    <th>Accredited</th>
                     <td class="text-capitalize font-weight-bold">{{$show->accredited}}</td>
                 </tr>
 
                 <tr>
-                    <th >Remarks</th>
+                    <th>Remarks</th>
                     <td>{{$show->remarks}}</td>
                 </tr>
 
@@ -104,11 +104,14 @@
                                 @endforeach
                             </td>
                             <td>
-                                <form id="delete-suggestion" method="post">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$suggestion->id}}">
-                                    <a class="btn btn-outline-danger btn-sm delete" href="javascript:void(0)"><i class="fa fa-trash"></i></a>
-                                </form>
+                                @can('delete-suggestions')
+                                    <form id="delete-suggestion" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{$suggestion->id}}">
+                                        <a class="btn btn-outline-danger btn-sm delete" href="javascript:void(0)"><i
+                                                    class="fa fa-trash"></i></a>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
@@ -218,7 +221,8 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-light" id="edit_session"><i class="feather icon-plus-circle"></i> Suggestions</h5>
+                    <h5 class="modal-title font-weight-light" id="edit_session"><i class="feather icon-plus-circle"></i>
+                        Suggestions</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                     </button>
@@ -261,7 +265,8 @@
                         <div class="row mt-2">
                             <label for="optassets" class="col-12 text-xs control-label">Select Opt Assets</label>
                             <div class="form-check col-12">
-                                <select class="form-control opt-assets-select-2" id="optassets" name="optassets[]" multiple
+                                <select class="form-control opt-assets-select-2" id="optassets" name="optassets[]"
+                                        multiple
                                         style="width: 100%;font-size: 10px">
 
                                 </select>
@@ -271,7 +276,9 @@
                 <div class="modal-footer p-2">
 
                     <div class="col-12 text-right">
-                        <button class="btn btn-primary btn-sm suggestion-save-btn" type="submit"><i class="feather icon-save"></i> Save</button>
+                        <button class="btn btn-primary btn-sm suggestion-save-btn" type="submit"><i
+                                    class="feather icon-save"></i> Save
+                        </button>
                     </div>
                     </form>
                 </div>
