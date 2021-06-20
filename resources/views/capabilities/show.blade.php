@@ -18,63 +18,49 @@
     </script>
     <div class="row">
         <div class="col-12">
-            <h3 class="float-left font-weight-light pb-1"><i class="feather icon-eye"></i> Capability Details</h3>
+            <h4 class="float-left font-weight-light pb-1"><i class="feather icon-eye"></i> Capability Details</h4>
             <span class="float-right">
                 @can('add-suggestions')
                     <a data-toggle="modal" data-target="#add_suggestion"><i class="feather icon-help-circle"></i> Add Suggestion</a>
                 @endcan
         </span>
         </div>
-        <div class="col-12">
-
-            <table class="table bg-white table-responsive-sm border-0 table-hover font-13" width="100%">
+        <div class="col-12 table-responsive-sm">
+            <table class="table bg-white table-bordered border-0 table-hover font-13" width="100%">
 
                 <tr>
-                    <th width="20%">Name</th>
-                    <td width="80%">{{$show->name}}</td>
-                </tr>
-                <tr>
+                    <th>Name</th>
+                    <td>{{$show->name}}</td>
                     <th>Parameter</th>
                     <td>{{$show->parameters->name}}</td>
                 </tr>
                 <tr>
-                    <th>Range</th>
-                    <td>{{$show->min_range.'-'.$show->max_range}}</td>
-                </tr>
-                @if($show->accredited=='yes')
-                    <tr>
-                        <th>Accredit Range</th>
-                        <td>{{$show->accredited_min_range.'-'.$show->accredited_max_range}}</td>
-
-                    </tr>
-                @endif
-
-                <tr>
                     <th>Price</th>
                     <td>{{$show->price}}</td>
-                </tr>
-                <tr>
                     <th>Unit</th>
                     <td>{{$show->units->unit}}</td>
                 </tr>
                 <tr>
                     <th>Accuracy</th>
                     <td>{{$show->accuracy}}</td>
-                </tr>
-                <tr>
                     <th>Location</th>
                     <td class="text-capitalize">{{$show->location}}</td>
                 </tr>
                 <tr>
                     <th>Accredited</th>
                     <td class="text-capitalize font-weight-bold">{{$show->accredited}}</td>
-                </tr>
-
-                <tr>
                     <th>Remarks</th>
                     <td>{{$show->remarks}}</td>
                 </tr>
 
+                <tr>
+                    <th>Range</th>
+                    <td>{{$show->min_range.'-'.$show->max_range}}</td>
+                @if($show->accredited=='yes')
+                        <th>Accredit Range</th>
+                        <td>{{$show->accredited_min_range.'-'.$show->accredited_max_range}}</td>
+                    </tr>
+                @endif
             </table>
 
         </div>
