@@ -218,8 +218,7 @@ class CapabilitiesController extends Controller
         $this->authorize('capabilities-view');
         $parameters=Parameter::all();
         $show=Capabilities::find($id);
-        $suggestions=Suggestion::where('capabilities',$id)->get();
-        return view('capabilities.show',compact('show','parameters','suggestions'));
+        return view('capabilities.show',compact('show','parameters'));
     }
     public function delete(Request $request){
         $this->authorize('capabilities-delete');

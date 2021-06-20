@@ -10,15 +10,16 @@ class SuggestionController extends Controller
     public function create(Request $request){
         $this->validate($request,[
             'parameter'=>'required',
+            'asset'=>'required',
             'optassets'=>'required',
         ]);
         $suggestions=new Suggestion();
         $suggestions->capabilities=$request->capability;
-        $suggestions->parameter=$request->parameter;
+        $suggestions->asset=$request->asset;
         $optassets=implode(',',$request->optassets);
         $suggestions->optional_assets=$optassets;
         $suggestions->save();
-        return redirect()->back()->with('success','Suggestion added successfully');
+        return response()->json(['success'=>'Suggestion added successfully']);
     }
     public function destroy(Request $request){
         Suggestion::find($request->id)->delete();

@@ -27,6 +27,10 @@ class Capabilities extends Model
     public function multis(){
         return $this->hasMany( self::class, 'group_id', 'id' );
     }
+    public function suggestions(){
+        return $this->hasMany( 'App\Models\Suggestion', 'capabilities', 'id' );
+    }
+
     protected static $logAttributes = ["name","parameter","procedure","range","price","accuracy","unit","remarks","location","accredited"];
     protected static $logOnlyDirty = true;
 }
