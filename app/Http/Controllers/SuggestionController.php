@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class SuggestionController extends Controller
 {
     public function create(Request $request){
+        $this->authorize('add-suggestions');
         $this->validate($request,[
             'parameter'=>'required',
             'asset'=>'required',
@@ -22,6 +23,7 @@ class SuggestionController extends Controller
         return response()->json(['success'=>'Suggestion added successfully']);
     }
     public function destroy(Request $request){
+        $this->authorize('delete-suggestions');
         Suggestion::find($request->id)->delete();
         return response()->json(['success'=>'Suggestion deleted successfully']);
 

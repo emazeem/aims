@@ -20,7 +20,9 @@
         <div class="col-12">
             <h3 class="float-left font-weight-light pb-1"><i class="feather icon-eye"></i> Capability Details</h3>
             <span class="float-right">
-            <a href="" data-toggle="modal" data-target="#add_suggestion"><i class="fa fa-question"></i> Add Suggestion</a>
+                @can('add-suggestion')
+                    <a data-toggle="modal" data-target="#add_suggestion"><i class="feather icon-help-circle"></i> Add Suggestion</a>
+                @endcan
         </span>
         </div>
         <div class="col-12">

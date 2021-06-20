@@ -977,7 +977,18 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-
+        Gate::define('add-suggestions', function ($user) {
+            if (in_array('add-suggestions',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('delete-suggestions', function ($user) {
+            if (in_array('delete-suggestions',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
         Gate::define('capabilities-create', function ($user) {
             if (in_array('capabilities-create',explode(',',$user->roles->permissions))){
                 return true;
