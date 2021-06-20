@@ -335,6 +335,7 @@ class AssetController extends Controller
 
     public function update($id, Request $request)
     {
+
         $this->validate(request(), [
             'name' => 'required',
             'parameter' => 'required',

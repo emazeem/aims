@@ -59,17 +59,17 @@
           <entry key="css" value="361" />
           <entry key="html" value="580" />
           <entry key="js" value="3" />
-          <entry key="php" value="77442" />
+          <entry key="php" value="77655" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="46993" />
+          <entry key="Blade" value="47057" />
           <entry key="CSS" value="362" />
           <entry key="HTML" value="616" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="30412" />
+          <entry key="PHP" value="30561" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -78,17 +78,17 @@
           <entry key="css" value="17" />
           <entry key="html" value="16" />
           <entry key="js" value="7" />
-          <entry key="php" value="1265" />
+          <entry key="php" value="1273" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="722" />
+          <entry key="Blade" value="723" />
           <entry key="CSS" value="17" />
           <entry key="HTML" value="16" />
           <entry key="JavaScript" value="7" />
-          <entry key="PHP" value="543" />
+          <entry key="PHP" value="550" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -100,24 +100,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/capabilities/show.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/assets/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
-              <folding>
-                <element signature="e#7507#8856#0#HTML" />
-                <element signature="e#11358#11377#0#HTML" expanded="true" />
-                <element signature="e#10557#10576#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="350">
+              <caret line="283" column="33" selection-start-line="283" selection-start-column="33" selection-end-line="283" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SuggestionController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AssetController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="252">
+              <caret line="337" column="28" selection-start-line="337" selection-start-column="28" selection-end-line="337" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -125,26 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="385" column="3" selection-start-line="385" selection-start-column="3" selection-end-line="385" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1210">
-              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/LogReview.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="26" column="5" selection-start-line="17" selection-start-column="4" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="362">
+              <caret line="130" column="26" lean-forward="true" selection-start-line="130" selection-start-column="26" selection-end-line="130" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -160,9 +137,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>6.8</find>
-      <find>9.1</find>
-      <find>working</find>
       <find>save</find>
       <find>exampleModalCenterTitle</find>
       <find>customercon</find>
@@ -190,6 +164,9 @@
       <find>suggestion-save-btn</find>
       <find>previous</find>
       <find>assets</find>
+      <find>other_parameter</find>
+      <find>assetcontrol</find>
+      <find>update</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -222,8 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/assets/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/groupedcapabilities/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/roles/edit.blade.php" />
@@ -266,13 +241,15 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
         <option value="$PROJECT_DIR$/resources/views/quotes/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/tasks/labjob.blade.php" />
-        <option value="$PROJECT_DIR$/app/Models/Suggestion.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Models/Capabilities.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SuggestionController.php" />
         <option value="$PROJECT_DIR$/resources/views/capabilities/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Suggestion.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AssetController.php" />
+        <option value="$PROJECT_DIR$/resources/views/assets/edit.blade.php" />
       </list>
     </option>
   </component>
@@ -490,6 +467,13 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="capabilities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -545,7 +529,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="generate&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;quote&#9;null&#9;null&#10;genera&#9;null&#9;null&#10;we&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;web&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;quo&#9;null&#9;null&#10;AUTH&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;jobcont&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;job&#9;null&#9;null&#10;quotecontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/QuotesController.php&#10;quoteitem&#9;null&#9;null&#10;groupe&#9;null&#9;null&#10;role&#9;null&#9;null&#10;roles&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/roles&#10;authser&#9;null&#9;null&#10;log&#9;null&#9;null&#10;jobcontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;quotecon&#9;null&#9;null&#10;pending&#9;null&#9;null&#10;item&#9;null&#9;null&#10;itemc&#9;null&#9;null&#10;mast&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;design&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/designation.blade.php&#10;designation&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/database/old migrations/2020_09_23_164727_create_designations_table.php&#10;styl&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/css/styling.css&#10;mytas&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/mytask&#10;manage&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/manage-menus.blade.php&#10;assets&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/assets&#10;proced&#9;null&#9;null&#10;capa&#9;null&#9;null&#10;styling&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/styling.css&#10;logre&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/logreview&#10;style&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/style.css&#10;chart.js&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/js/pages/chart.js&#10;itemco&#9;null&#9;null&#10;gener&#9;null&#9;null&#10;depart&#9;null&#9;null&#10;profile&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/profile.blade.php&#10;parameter&#9;null&#9;null&#10;aut&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;select2&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/plugins/select2.min.css&#10;reques&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;das&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/DashboardControlller.php&#10;web.p&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;menu&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/menu-list.blade.php&#10;master&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;dashboard&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/dashboard.blade.php&#10;jobc&#9;null&#9;null&#10;quotes&#9;null&#9;null&#10;purchaseinv&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="asset&#9;null&#9;null&#10;generate&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;quote&#9;null&#9;null&#10;genera&#9;null&#9;null&#10;we&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;web&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;quo&#9;null&#9;null&#10;AUTH&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;jobcont&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;job&#9;null&#9;null&#10;quotecontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/QuotesController.php&#10;quoteitem&#9;null&#9;null&#10;groupe&#9;null&#9;null&#10;role&#9;null&#9;null&#10;roles&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/roles&#10;authser&#9;null&#9;null&#10;log&#9;null&#9;null&#10;jobcontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;quotecon&#9;null&#9;null&#10;pending&#9;null&#9;null&#10;item&#9;null&#9;null&#10;itemc&#9;null&#9;null&#10;mast&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;design&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/designation.blade.php&#10;designation&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/database/old migrations/2020_09_23_164727_create_designations_table.php&#10;styl&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/css/styling.css&#10;mytas&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/mytask&#10;manage&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/manage-menus.blade.php&#10;assets&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/assets&#10;proced&#9;null&#9;null&#10;capa&#9;null&#9;null&#10;styling&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/styling.css&#10;logre&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/logreview&#10;style&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/style.css&#10;chart.js&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/js/pages/chart.js&#10;itemco&#9;null&#9;null&#10;gener&#9;null&#9;null&#10;depart&#9;null&#9;null&#10;profile&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/profile.blade.php&#10;parameter&#9;null&#9;null&#10;aut&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;select2&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/plugins/select2.min.css&#10;reques&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;das&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/DashboardControlller.php&#10;web.p&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;menu&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/menu-list.blade.php&#10;master&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;dashboard&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/dashboard.blade.php&#10;jobc&#9;null&#9;null&#10;quotes&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -648,12 +632,12 @@
       <workItem from="1623817777628" duration="19093000" />
       <workItem from="1623840445522" duration="37265000" />
       <workItem from="1623941508779" duration="53112000" />
-      <workItem from="1624180767625" duration="5483000" />
+      <workItem from="1624180767625" duration="6975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="569259000" />
+    <option name="totallyTimeSpent" value="570751000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -717,20 +701,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/groupedcapabilities/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="47" column="22" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/journalvoucher/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="111" column="24" selection-start-line="93" selection-start-column="14" selection-end-line="111" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccLevelOneController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1056" />
@@ -993,13 +963,6 @@
         <state relative-caret-position="-3060" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Suggestion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
@@ -1021,6 +984,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SuggestionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Capabilities.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-164">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LogReviewController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1210">
@@ -1028,46 +1005,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="385" column="3" selection-start-line="385" selection-start-column="3" selection-end-line="385" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Capabilities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="219" column="38" lean-forward="true" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
+        <state relative-caret-position="-12">
+          <caret line="208" column="46" selection-start-line="208" selection-start-column="46" selection-end-line="208" selection-end-column="46" />
           <folding>
             <element signature="e#41#69#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SuggestionController.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Suggestion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="242">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/capabilities/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+        <state relative-caret-position="44">
+          <caret line="2" selection-start-line="2" selection-end-line="3" />
           <folding>
             <element signature="e#7507#8856#0#HTML" />
             <element signature="e#11358#11377#0#HTML" expanded="true" />
             <element signature="e#10557#10576#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="130" column="26" lean-forward="true" selection-start-line="130" selection-start-column="26" selection-end-line="130" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AssetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="337" column="28" selection-start-line="337" selection-start-column="28" selection-end-line="337" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/assets/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="283" column="33" selection-start-line="283" selection-start-column="33" selection-end-line="283" selection-end-column="33" />
         </state>
       </provider>
     </entry>

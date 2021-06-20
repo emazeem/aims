@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function() {
@@ -249,7 +250,7 @@
                 <label for="other_parameter" class="col-12 control-label">Other Parameter</label>
                 <div class="col-12">
                     <div class="form-check form-check-inline" style="width: 100%">
-                        <select class="form-control" id="other_parameter" name="other_parameter[]" multiple>
+                        <select class="form-control other-parameter-select-2" id="other_parameter" name="other_parameter[]" multiple>
                             @foreach($parameters as $parameter)
                                 <option value="{{$parameter->id}}" {{(in_array($parameter->id,explode(',',$edit->other_parameter)))?'selected':''}}>{{$parameter->name}}</option>
                             @endforeach
@@ -261,30 +262,26 @@
                       </span>
                     @endif
                 </div>
-                <div class="col-12 my-2">
-                    <button type="submit" class="btn btn-success pull-right btn-sm "><i class="fa fa-refresh"></i> Update</button>
-                    <a href="{{ URL::previous() }}" class="btn btn-light border btn-sm pull-right"><i class="fa fa-angle-left"></i> Back</a>
-                </div>
+            </div>
 
+            <div class="col-12 my-2">
+                <button type="submit" class="btn btn-success float-right btn-sm "><i class="feather icon-refresh-cw"></i> Update</button>
+                <a href="{{ URL::previous() }}" class="btn btn-light border btn-sm pull-right"><i class="fa fa-angle-left"></i> Back</a>
             </div>
         </form>
     </div>
-
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script>
-        $('#other_parameter').select2({
-            placeholder: 'Select Other Parameters'
-        });
         $(document).ready(function () {
+            $('.other-parameter-select-2').select2({
+                placeholder: 'Select Other Parameters'
+            });
             $("#edit_asset_form").on('submit',(function(e) {
                 e.preventDefault();
                 var button=$(this).find('input[type="submit"],button');
                 var previous=$(button).html();
                 button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
                 $.ajax({
-                    url: "{{url('/assets/update/'.$edit->id)}}",
+                    url: "{{url('asset/update/'.$edit->id)}}",
                     type: "POST",
                     data:  new FormData(this),
                     contentType: false,

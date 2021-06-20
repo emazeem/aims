@@ -217,7 +217,8 @@ class CapabilitiesController extends Controller
     public function show($id){
         $this->authorize('capabilities-view');
         $parameters=Parameter::all();
-        $show=Capabilities::find($id);
+        $show=Capabilities::with('suggestions')->where('id',$id)->first();
+        dd($show->suggestions->assets);
         return view('capabilities.show',compact('show','parameters'));
     }
     public function delete(Request $request){

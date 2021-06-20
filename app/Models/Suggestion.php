@@ -10,6 +10,7 @@ class Suggestion extends Model
     use HasFactory;
     public $timestamps=false;
     public function assets(){
+        dd($this);
         return $this->belongsTo('App\Models\Asset','asset','id')->withDefault();
     }
 }
