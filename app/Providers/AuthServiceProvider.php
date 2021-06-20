@@ -955,6 +955,19 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('asset-show', function ($user) {
+            if (in_array('asset-show',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('asset-delete', function ($user) {
+            if (in_array('asset-delete',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
         Gate::define('asset-groups', function ($user) {
             if (in_array('asset-groups',explode(',',$user->roles->permissions))){
                 return true;

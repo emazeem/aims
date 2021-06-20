@@ -8,6 +8,7 @@ use App\Models\Intermediatechecksofasset;
 use App\Models\Parameter;
 use App\Models\Preventivemaintenancerecord;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
@@ -15,13 +16,15 @@ use Yajra\DataTables\DataTables;
 class AssetController extends Controller
 {
     //
-    public function index()
-    {   $assets = Asset::all();
+    public function index(){
+        $this->authorize('asset-index');
+        $assets = Asset::all();
         return view('assets.index', compact('assets'));
     }
 
     public function fetch()
     {
+        $this->authorize('asset-index');
         $data = Asset::with('parameters')->get();
         //dd($data);
         return DataTables::of($data)
@@ -69,15 +72,20 @@ class AssetController extends Controller
             ->addColumn('options', function ($data) {
 
                 $token=csrf_token();
-                $action="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/asset/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
-                $action.="<a title='Show' class='btn btn-sm btn-warning' href='" . url('/asset/show/' . $data->id) . "'><i class='fa fa-eye'></i></a>";
-                $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
+                if (Auth::user()->can('asset-edit')){
+                    $action="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/asset/edit/' . $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                }
+                if (Auth::user()->can('asset-show')){
+                    $action.="<a title='Show' class='btn btn-sm btn-warning' href='" . url('/asset/show/' . $data->id) . "'><i class='fa fa-eye'></i></a>";
+                }
+                if (Auth::user()->can('asset-delete')){
+                    $action.="<a class='btn btn-danger btn-sm delete' href='#' data-id='{$data->id}'><i class='fa fa-trash'></i></a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
                       <input name=\"id\" type=\"hidden\" value=\"$data->id\">
                       <input name=\"_method\" type=\"hidden\" value=\"DELETE\">
                       </form>";
-
+                }
                 return $action;
             })
             ->rawColumns(['options', 'status'])
@@ -87,12 +95,14 @@ class AssetController extends Controller
 
     public function create()
     {
+        $this->authorize('asset-create');
         $parameters = Parameter::all();
         return view('assets.create', compact('parameters'));
     }
 
     public function edit($id)
     {
+        $this->authorize('asset-edit');
         $edit = Asset::find($id);
         $parameters = Parameter::all();
         return view('assets.edit', compact('parameters', 'edit'));
@@ -100,7 +110,7 @@ class AssetController extends Controller
 
     public function show($id)
     {
-
+        $this->authorize('asset-show');
         $show = Asset::find($id);
         $parameters = Parameter::all();
         $specifications = Assetspecification::with('columns')->where('asset_id', $id)->get();
@@ -273,6 +283,7 @@ class AssetController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('asset-create');
         $this->validate(request(), [
             'name' => 'required',
             'parameter' => 'required',
@@ -336,6 +347,7 @@ class AssetController extends Controller
     public function update($id, Request $request)
     {
 
+        $this->authorize('asset-edit');
         $this->validate(request(), [
             'name' => 'required',
             'parameter' => 'required',
@@ -398,6 +410,7 @@ class AssetController extends Controller
 
     }
     public function destroy(Request $request){
+        $this->authorize('asset-delete');
         Asset::find($request->id)->delete();
         return response()->json(['success'=>'Deleted Successfully']);
     }

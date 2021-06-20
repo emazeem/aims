@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -272,19 +273,17 @@
                 </div>
             </div>
             <div class="col-12 my-2">
-                <button type="submit" class="btn btn-success pull-right btn-sm "><i class="fa fa-plus-square"></i> Add</button>
+                <button type="submit" class="btn btn-success float-right btn-sm "><i class="feather icon-plus-circle"></i> Add</button>
                 <a href="{{ URL::previous() }}" class="btn btn-light border btn-sm pull-right"><i class="fa fa-angle-left"></i> Back</a>
             </div>
         </form>
     </div>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
     <script>
-        $('#other_parameter').select2({
-            placeholder: 'Select Other Parameters'
-        });
         $(document).ready(function () {
+            $('#other_parameter').select2({
+                placeholder: 'Select Other Parameters'
+            });
             $("#add_asset_form").on('submit',(function(e) {
                 e.preventDefault();
                 var button=$(this).find('input[type="submit"],button');
