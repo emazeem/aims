@@ -26,7 +26,7 @@
                 <button class="btn btn-success btn-sm " type="submit"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Start</button>
             </form>
         @endif
-        @if($show->status==4)
+        @if($show->status==3)
             <form method="post" action="{{route('mytasks.end')}}">
                 @csrf
                 <input type="hidden" name="location" value="{{$location}}">

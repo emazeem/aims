@@ -16,6 +16,7 @@
                 <thead>
                 <tr>
                     <th>Job</th>
+                    <th>Customer</th>
                     <th>UUC</th>
                     <th>Model</th>
                     <th>Eq ID</th>
@@ -31,6 +32,7 @@
                 <tfoot>
                 <tr>
                     <th>Job</th>
+                    <th>Customer</th>
                     <th>UUC</th>
                     <th>Model</th>
                     <th>Eq ID</th>
@@ -51,6 +53,7 @@
                 <thead>
                 <tr>
                     <th>Job</th>
+                    <th>Customer</th>
                     <th>UUC</th>
                     <th>Model</th>
                     <th>Eq ID</th>
@@ -66,6 +69,7 @@
                 <tfoot>
                 <tr>
                     <th>Job</th>
+                    <th>Customer</th>
                     <th>UUC</th>
                     <th>Model</th>
                     <th>Eq ID</th>
@@ -102,6 +106,7 @@
                 },
                 "columns": [
                     { "data": "job" },
+                    { "data": "customer" },
                     { "data": "uuc" },
                     { "data": "model" },
                     { "data": "eqid" },
@@ -129,6 +134,7 @@
                 },
                 "columns": [
                     { "data": "job" },
+                    { "data": "customer" },
                     { "data": "uuc" },
                     { "data": "model" },
                     { "data": "eqid" },

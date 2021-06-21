@@ -41,9 +41,14 @@ class MytaskController extends Controller
             ->addColumn('job', function ($data) {
                 return $data->jobs->cid;
             })
+            ->addColumn('customer', function ($data) {
+                return $data->jobs->quotes->customers->reg_name;
+            })
+
             ->addColumn('model', function ($data) {
                 return $data->model;
             })
+
             ->addColumn('uuc', function ($data) {
                 return $data->item->capabilities->name;
             })
@@ -106,6 +111,10 @@ class MytaskController extends Controller
             ->addColumn('job', function ($data) {
                 return $data->jobs->cid;
             })
+            ->addColumn('customer', function ($data) {
+                return $data->jobs->quotes->customers->reg_name;
+            })
+
             ->addColumn('uuc', function ($data) {
                 return $data->item->capabilities->name;
             })

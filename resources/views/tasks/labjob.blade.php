@@ -122,6 +122,7 @@
                     button.attr('disabled', null).html(previous);
                     swal('success', data.success, 'success').then((value) => {
                         $('#assign-lab-task').modal('hide');
+                        location.reload();
                     });
 
                 },
