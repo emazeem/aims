@@ -103,6 +103,8 @@ Route::group(['prefix'=> 'capabilities'],function() {
     Route::delete('/delete',[App\Http\Controllers\CapabilitiesController::class, 'delete'])->middleware('auth')->name('capabilities.delete');
     Route::get('/view/{id}',[App\Http\Controllers\CapabilitiesController::class, 'show'])->middleware('auth')->name('capabilities.show');
     Route::get('/print',[App\Http\Controllers\CapabilitiesController::class, 'prints'])->middleware('auth')->name('capabilities.print');
+    Route::get('/respective-assets/{id}',[App\Http\Controllers\CapabilitiesController::class, 'respectiveassets'])->middleware('auth')->name('capabilities.respectiveassets');
+
 });
 
 Route::group(['prefix'=> 'grouped-capabilities'],function() {
@@ -296,6 +298,7 @@ Route::group(['prefix'=> 'items'],function() {
     Route::post('/nofacility',[App\Http\Controllers\QuoteItemController::class, 'nofacility'])->middleware('auth')->name('items.nofacility');
     Route::post('/store_multi',[App\Http\Controllers\QuoteItemController::class, 'store_multi'])->middleware('auth')->name('items.store_multi');
     Route::post('/update_multi',[App\Http\Controllers\QuoteItemController::class, 'update_multi'])->middleware('auth')->name('items.update_multi');
+
 });
 Route::group(['prefix'=> 'pendings'],function() {
     Route::get('',[App\Http\Controllers\PendingRequestController::class, 'index'])->middleware('auth')->name('pendings');

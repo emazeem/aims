@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Asset;
 use App\Models\Capabilities;
 use App\Models\Parameter;
 use App\Models\Preference;
@@ -216,9 +217,8 @@ class CapabilitiesController extends Controller
     }
     public function show($id){
         $this->authorize('capabilities-view');
-        $parameters=Parameter::all();
+        $parameters=Parameter::orderBy('name','ASC')->get();
         $show=Capabilities::with('suggestions')->where('id',$id)->first();
-        dd($show->suggestions->assets);
         return view('capabilities.show',compact('show','parameters'));
     }
     public function delete(Request $request){
@@ -230,6 +230,21 @@ class CapabilitiesController extends Controller
     public function prints(){
         $capabilities = Capabilities::orderBy('name','ASC')->get();
         return view('capabilities.print',compact('capabilities'));
+    }
+    public function respectiveassets($id){
+        $ids=[];
+        foreach (Asset::all() as $asset){
+            if ($asset->other_parameter){
+                if (in_array($id,explode(',',$asset->other_parameter))){
+                    $ids[]=$asset->parameter;
+                }
+            }
+        }
+
+        $ids=array_unique($ids);
+        $assets=Asset::whereIn('parameter',$ids)->get();
+        dd($assets);
+        return response()->json($assets);
     }
     //
 }

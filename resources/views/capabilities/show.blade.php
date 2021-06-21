@@ -139,7 +139,7 @@
                 var parameter = $(this).val();
                 if (parameter) {
                     $.ajax({
-                        url: '{{url('scheduling/tasks/respective-assets')}}/' + parameter,
+                        url: '{{url('capabilities/respective-assets')}}/' + parameter,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
