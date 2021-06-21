@@ -243,7 +243,7 @@
                                             @else
                                                 <p class="m-0">↪ <b>Started : </b>{{$labjob->started_at}}</p>
                                             @endif
-                                            @if($labjob->status<5)
+                                            @if($labjob->status<4)
                                                 <span class="badge badge-info px-3 py-2 m-1">Not Ended yet</span>
                                             @else
                                                 <p class="m-0">↪ <b>Ended : </b>{{$labjob->ended_at}}</p>
