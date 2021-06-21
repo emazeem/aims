@@ -59,17 +59,17 @@
           <entry key="css" value="361" />
           <entry key="html" value="580" />
           <entry key="js" value="3" />
-          <entry key="php" value="78849" />
+          <entry key="php" value="78897" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="47620" />
+          <entry key="Blade" value="47663" />
           <entry key="CSS" value="362" />
           <entry key="HTML" value="616" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="31192" />
+          <entry key="PHP" value="31197" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -78,17 +78,17 @@
           <entry key="css" value="17" />
           <entry key="html" value="16" />
           <entry key="js" value="7" />
-          <entry key="php" value="1289" />
+          <entry key="php" value="1291" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="733" />
+          <entry key="Blade" value="734" />
           <entry key="CSS" value="17" />
           <entry key="HTML" value="16" />
           <entry key="JavaScript" value="7" />
-          <entry key="PHP" value="556" />
+          <entry key="PHP" value="557" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -109,23 +109,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/logreview/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="148" selection-start-line="148" selection-end-line="154" />
-              <folding>
-                <element signature="e#6335#6514#0#HTML" />
-                <element signature="e#6554#7625#0#HTML" />
-              </folding>
+            <state relative-caret-position="452">
+              <caret line="215" selection-start-line="215" selection-end-line="215" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="720" column="67" selection-start-line="720" selection-start-column="67" selection-end-line="720" selection-end-column="67" />
+            <state relative-caret-position="320">
+              <caret line="110" column="26" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
               <folding>
                 <element signature="e#28985#29821#0#HTML" />
               </folding>
@@ -133,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/jobs/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="199" column="44" selection-start-line="199" selection-start-column="44" selection-end-line="199" selection-end-column="44" />
+            <state relative-caret-position="-78">
+              <caret line="197" column="98" lean-forward="true" selection-start-line="197" selection-start-column="98" selection-end-line="197" selection-end-column="98" />
             </state>
           </provider>
         </entry>
@@ -215,7 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/roles/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" />
         <option value="$PROJECT_DIR$/resources/views/items/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Job.php" />
@@ -263,9 +258,10 @@
         <option value="$PROJECT_DIR$/resources/views/tasks/labjob.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mytask/index.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" />
         <option value="$PROJECT_DIR$/resources/views/logreview/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MytaskController.php" />
         <option value="$PROJECT_DIR$/resources/views/mytask/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/jobs/show.blade.php" />
       </list>
     </option>
   </component>
@@ -655,12 +651,12 @@
       <workItem from="1623817777628" duration="19093000" />
       <workItem from="1623840445522" duration="37265000" />
       <workItem from="1623941508779" duration="53112000" />
-      <workItem from="1624180767625" duration="13876000" />
+      <workItem from="1624180767625" duration="15048000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="577652000" />
+    <option name="totallyTimeSpent" value="578824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -979,13 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/jobs/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="145" column="24" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/tasks/labjob.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -1026,20 +1015,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="318" column="17" selection-start-line="318" selection-start-column="17" selection-end-line="318" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="199" column="44" selection-start-line="199" selection-start-column="44" selection-end-line="199" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/logreview/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -1051,13 +1026,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="318" column="17" selection-start-line="318" selection-start-column="17" selection-end-line="318" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MytaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="215" selection-start-line="215" selection-end-line="215" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/mytask/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="720" column="67" selection-start-line="720" selection-start-column="67" selection-end-line="720" selection-end-column="67" />
+        <state relative-caret-position="320">
+          <caret line="110" column="26" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
           <folding>
             <element signature="e#28985#29821#0#HTML" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/jobs/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="197" column="98" lean-forward="true" selection-start-line="197" selection-start-column="98" selection-end-line="197" selection-end-column="98" />
         </state>
       </provider>
     </entry>

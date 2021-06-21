@@ -190,13 +190,11 @@
 
                                                     <span class="badge badge-success">Assigned</span>
                                                 @elseif($labjob->status==3)
-
                                                     <span class="badge badge-success">Started</span>
                                                 @elseif($labjob->status==4)
-
-                                                    <span class="badge badge-success">Calculated</span>
+                                                    <span class="badge badge-success">Ended</span>
+{{--                                                    <span class="badge badge-success">Calculated</span>--}}
                                                 @elseif($labjob->status==5)
-
                                                     <span class="badge badge-success">Ended</span>
                                                 @endif
                                             </p>
@@ -205,7 +203,9 @@
                                             <p class="m-0">↪ <b>Capability : </b>{{\App\Models\Capabilities::find($labjob->item->capability)->name}}</p>
                                             <p class="m-0">↪ <b>Range : </b>{{$labjob->item->range}}</p>
                                             <p class="m-0">↪ <b>Accredited : </b>{{$labjob->item->accredited}}</p>
-
+                                            @if($labjob->cid)
+                                                <p class="m-0">↪ <b>Certificate # : </b>{{$labjob->cid}}</p>
+                                            @endif
                                             @if($labjob->status<1)
                                                 <span class="badge badge-info px-3 py-2 m-1">Waiting for store entry</span>
                                             @else

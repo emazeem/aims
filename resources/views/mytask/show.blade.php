@@ -108,7 +108,7 @@
                 @endif
                 <tr>
                     <th>Capability</th>
-                    <td>{{$show->item->capability.$show->item->capabilities->name.' '.$show->item->capabilities->range}}</td>
+                    <td>{{$show->item->capabilities->name.' '.$show->item->capabilities->range}}</td>
                 </tr>
                 <tr>
                     <th>Procedure</th>
