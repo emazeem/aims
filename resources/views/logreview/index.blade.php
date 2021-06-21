@@ -125,6 +125,7 @@
             e.preventDefault();
             var button=$('.log-save-btn');
             var previous=$(button).html();
+
             button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
             $.ajax({
                 url: "{{route('log_reviews.store')}}",
@@ -189,6 +190,7 @@
                 });
 
         });
+
     });
 </script>
 

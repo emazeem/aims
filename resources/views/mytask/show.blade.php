@@ -19,37 +19,54 @@
     <div class="col-12">
         <h4 class='font-weight-light'><i class="feather icon-eye"></i> My Task Details</h4>
         @if($show->status==2)
-            <form method="post" action="{{route('mytasks.start')}}">
+            <form method="post" id="task-start-form">
                 @csrf
                 <input type="hidden" name="id" value="{{$show->id}}">
                 <input type="hidden" name="location" value="{{$location}}">
-                <button class="btn btn-success btn-sm " type="submit"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Start</button>
-            </form>
-        @endif
-        @if($show->status==3)
-            <form method="post" action="{{route('mytasks.end')}}">
-                @csrf
-                <input type="hidden" name="location" value="{{$location}}">
-                <input type="hidden" name="id" value="{{$show->id}}">
-                <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-hourglass-start"
-                                                                                   aria-hidden="true"></i> End
+                <button class="btn btn-success btn-sm task-start-btn" type="submit"><i class="fa fa-hourglass-start"
+                                                                                       aria-hidden="true"></i> Start
                 </button>
             </form>
         @endif
+        @if($show->status==3)
+            <form method="post" id="task-end-form" class="row float-left mr-5">
+                @csrf
+                <input type="hidden" name="location" value="{{$location}}">
+                <input type="hidden" name="id" value="{{$show->id}}">
+                <input type="hidden" name="cc" value="1">
+                <button class="btn btn-danger btn-sm task-end-btn" type="submit"><i class="fa fa-hourglass-start"
+                                                                        aria-hidden="true"></i> End CC
+                </button>
+            </form>
+            <form method="post" id="task-end-form" class="row float-left mr-5">
+                @csrf
+                <input type="hidden" name="location" value="{{$location}}">
+                <input type="hidden" name="cc" value="0">
+                <input type="hidden" name="id" value="{{$show->id}}">
+                <button class="btn btn-danger btn-sm task-end-btn" type="submit"><i class="fa fa-hourglass-start"
+                                                                       aria-hidden="true"></i> End RR
+                </button>
+            </form>
+
+        @endif
         @if($show->status==5)
-        <form method="post" action="{{route('getcertificate')}}">
-            @csrf
-            <input type="hidden" name="location" value="{{$location}}">
-            <input type="hidden" name="id" value="{{$show->id}}">
-            <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-file" aria-hidden="true"></i> Certificate</button>
-        </form>
+            <form method="post" action="{{route('getcertificate')}}">
+                @csrf
+                <input type="hidden" name="location" value="{{$location}}">
+                <input type="hidden" name="id" value="{{$show->id}}">
+                <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-file" aria-hidden="true"></i>
+                    Certificate
+                </button>
+            </form>
         @endif
         @if($show->status==3)
-             <a href="{{route('calculator.data.entry.create',[$location,$show->id])}}" class="btn btn-sm btn-success"><i class="fa fa-calculator"></i> Data Entry for Cal</a>
+            <a href="{{route('calculator.data.entry.create',[$location,$show->id])}}" class="btn btn-sm btn-success"><i
+                        class="fa fa-calculator"></i> Data Entry for Cal</a>
         @endif
         @if($location==1)
             @if($show->status==1)
-                <a href="#" data-id="{{$show->id}}" class="btn add btn-danger btn-sm"><i class="fa fa-plus"></i> Add Detail</a>
+                <a href="#" data-id="{{$show->id}}" class="btn add btn-danger btn-sm"><i class="fa fa-plus"></i> Add
+                    Detail</a>
             @endif
         @endif
     </div>
@@ -66,10 +83,29 @@
         </div>
         <div class="col-12">
             <table class="table table-bordered table-sm table-hover bg-white    ">
-                <tr >
-                    <th  width="50%">ID</th>
-                    <td  width="50%">{{$show->id}}</td>
+                <tr>
+                    <th width="50%">ID</th>
+                    <td width="50%">{{$show->id}}</td>
                 </tr>
+                <tr>
+                    <th width="50%">Customer</th>
+                    <td width="50%">{{$show->jobs->quotes->customers->reg_name}}</td>
+                </tr>
+                @if($show->cc)
+                    <tr>
+                        <th width="50%">Certificate Status</th>
+                        <td width="50%"><span
+                                    class="badge badge-info p-2">{{$show->cc==0?'Rejection Report' : 'Certificate Report'}}</span>
+                        </td>
+                    </tr>
+                @endif
+                @if($show->cid)
+                    <tr>
+                        <th width="50%">Certificate #</th>
+                        <td width="50%">{{$show->cid}}</td>
+                    </tr>
+
+                @endif
                 <tr>
                     <th>Capability</th>
                     <td>{{$show->item->capability.$show->item->capabilities->name.' '.$show->item->capabilities->range}}</td>
@@ -147,18 +183,24 @@
 
             @if($show->general)
                 <h4><i class="fa fa-eye"></i> General Entry</h4>
-            @if($show->item->capabilities->calculator=='incubator-calculator')
-                    <a href="{{route('incubator.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Incubator Entries</a>
-                    @elseif($show->item->capabilities->calculator=='volume-calculator')
-                    <a href="{{route('volume.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Volume Entries</a>
-                    @elseif($show->item->capabilities->calculator=='spectrophotometer-calculator')
-                    <a href="{{route('spectro.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Spectrophotometer Entries</a>
+                @if($show->item->capabilities->calculator=='incubator-calculator')
+                    <a href="{{route('incubator.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Incubator
+                        Entries</a>
+                @elseif($show->item->capabilities->calculator=='volume-calculator')
+                    <a href="{{route('volume.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Volume
+                        Entries</a>
+                @elseif($show->item->capabilities->calculator=='spectrophotometer-calculator')
+                    <a href="{{route('spectro.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Spectrophotometer
+                        Entries</a>
                 @elseif($show->item->capabilities->calculator=='vernier-caliper-calculator')
-                    <a href="{{route('vernier.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Vernier Calliper Entries</a>
+                    <a href="{{route('vernier.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Vernier
+                        Calliper Entries</a>
                 @elseif($show->item->capabilities->calculator=='micrometer-calculator')
-                    <a href="{{route('micrometer.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Micrometer Entries</a>
+                    <a href="{{route('micrometer.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Micrometer
+                        Entries</a>
                 @elseif($show->item->capabilities->calculator=='dial-gauge-calculator')
-                    <a href="{{route('dialgauge.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Dial Gauge Entries</a>
+                    <a href="{{route('dialgauge.calculator',[$show->general->id])}}" class="btn btn-sm btn-success">Dial
+                        Gauge Entries</a>
 
                 @endif
                 <table class="table table-bordered table-sm table-hover bg-white    ">
@@ -179,16 +221,16 @@
                         <td>{{$show->general->end_humidity}}%RH</td>
                     </tr>
                     @if($show->general->start_atmospheric_pressure)
-                    <tr>
-                        <th>Start Atmospheric Pressure</th>
-                        <td>{{$show->general->start_atmospheric_pressure}} hPa</td>
-                    </tr>
+                        <tr>
+                            <th>Start Atmospheric Pressure</th>
+                            <td>{{$show->general->start_atmospheric_pressure}} hPa</td>
+                        </tr>
                     @endif
                     @if($show->general->end_atmospheric_pressure)
-                    <tr>
-                        <th>End Atmospheric Pressure</th>
-                        <td>{{$show->general->end_atmospheric_pressure}} hPa</td>
-                    </tr>
+                        <tr>
+                            <th>End Atmospheric Pressure</th>
+                            <td>{{$show->general->end_atmospheric_pressure}} hPa</td>
+                        </tr>
                     @endif
                     @if($show->item->capabilities->calculator=='balance-calculator')
                         <tr>
@@ -261,127 +303,134 @@
                     @endif
                 </table>
 
-            @if(count($show->general->incubatorentries)>0)
-                <table class="table table-bordered table-sm table-hover bg-white">
-                    <tr>
-                        <th>x1</th>
-                        <th>x2</th>
-                        <th>x3</th>
-                        <th>Set Value</th>
-                        <th>UUC Indication</th>
-                    </tr>
-                    @foreach($show->general->incubatorentries as $k=>$mapping)
-                        @if($k==0)
-                            ASSET : {{\App\Models\Asset::find($mapping->asset_id)->name}}<br>
-                            UNIT : {{\App\Models\Unit::find($mapping->unit)->unit}}<br>
-                        @endif
+                @if(count($show->general->incubatorentries)>0)
+                    <table class="table table-bordered table-sm table-hover bg-white">
                         <tr>
-                            <td>{{$mapping->x1}}</td>
-                            <td>{{$mapping->x2}}</td>
-                            <td>{{$mapping->x3}}</td>
-                            <td>{{$mapping->set_value}}</td>
-                            <td>{{$mapping->uuc_indication}}</td>
+                            <th>x1</th>
+                            <th>x2</th>
+                            <th>x3</th>
+                            <th>Set Value</th>
+                            <th>UUC Indication</th>
                         </tr>
-                    @endforeach
-                </table>
-                @endif
-            @if(count($show->general->mappings)>0)
-                <table class="table table-bordered table-sm table-hover bg-white    ">
-                    <tr>
-                        <th>Interval</th>
-                        <th>UUC</th>
-                        <th>Ch#1</th>
-                        <th>Ch#2</th>
-                        <th>Ch#3</th>
-                        <th>Ch#4</th>
-                        <th>Ch#5</th>
-                        <th>Ch#6</th>
-                        <th>Ch#7</th>
-                        <th>Ch#8</th>
-                        <th>Ch#9</th>
-                        <th>Ch#10</th>
-                    </tr>
-                    @foreach($show->general->mappings as $mapping)
-                        @if($mapping->time_interval==0)
-
-                            @php $data=json_decode($mapping->data,true); @endphp
-                            START TIME : {{$data['start_time']}}<br>
-                            END TIME : {{$data['end_time']}}<br>
-                            NORMAL CENTRAL PROB : {{$data['end_time']}}<br>
-                            BLACK CENTRAL PROB : {{$data['end_time']}}
-                            @else
+                        @foreach($show->general->incubatorentries as $k=>$mapping)
+                            @if($k==0)
+                                ASSET : {{\App\Models\Asset::find($mapping->asset_id)->name}}<br>
+                                UNIT : {{\App\Models\Unit::find($mapping->unit)->unit}}<br>
+                            @endif
                             <tr>
-                                <td>{{$mapping->time_interval}}</td>
-                                <td>{{$mapping->uuc_reading}}</td>
-                                <td>{{$mapping->channel_1}}</td>
-                                <td>{{$mapping->channel_2}}</td>
-                                <td>{{$mapping->channel_3}}</td>
-                                <td>{{$mapping->channel_4}}</td>
-                                <td>{{$mapping->channel_5}}</td>
-                                <td>{{$mapping->channel_6}}</td>
-                                <td>{{$mapping->channel_7}}</td>
-                                <td>{{$mapping->channel_8}}</td>
-                                <td>{{$mapping->channel_9}}</td>
-                                <td>{{$mapping->channel_10}}</td>
+                                <td>{{$mapping->x1}}</td>
+                                <td>{{$mapping->x2}}</td>
+                                <td>{{$mapping->x3}}</td>
+                                <td>{{$mapping->set_value}}</td>
+                                <td>{{$mapping->uuc_indication}}</td>
                             </tr>
-                        @endif
+                        @endforeach
+                    </table>
+                @endif
+                @if(count($show->general->mappings)>0)
+                    <table class="table table-bordered table-sm table-hover bg-white    ">
+                        <tr>
+                            <th>Interval</th>
+                            <th>UUC</th>
+                            <th>Ch#1</th>
+                            <th>Ch#2</th>
+                            <th>Ch#3</th>
+                            <th>Ch#4</th>
+                            <th>Ch#5</th>
+                            <th>Ch#6</th>
+                            <th>Ch#7</th>
+                            <th>Ch#8</th>
+                            <th>Ch#9</th>
+                            <th>Ch#10</th>
+                        </tr>
+                        @foreach($show->general->mappings as $mapping)
+                            @if($mapping->time_interval==0)
 
-                    @endforeach
-                </table>
+                                @php $data=json_decode($mapping->data,true); @endphp
+                                START TIME : {{$data['start_time']}}<br>
+                                END TIME : {{$data['end_time']}}<br>
+                                NORMAL CENTRAL PROB : {{$data['end_time']}}<br>
+                                BLACK CENTRAL PROB : {{$data['end_time']}}
+                            @else
+                                <tr>
+                                    <td>{{$mapping->time_interval}}</td>
+                                    <td>{{$mapping->uuc_reading}}</td>
+                                    <td>{{$mapping->channel_1}}</td>
+                                    <td>{{$mapping->channel_2}}</td>
+                                    <td>{{$mapping->channel_3}}</td>
+                                    <td>{{$mapping->channel_4}}</td>
+                                    <td>{{$mapping->channel_5}}</td>
+                                    <td>{{$mapping->channel_6}}</td>
+                                    <td>{{$mapping->channel_7}}</td>
+                                    <td>{{$mapping->channel_8}}</td>
+                                    <td>{{$mapping->channel_9}}</td>
+                                    <td>{{$mapping->channel_10}}</td>
+                                </tr>
+                            @endif
+
+                        @endforeach
+                    </table>
                 @endif
             @endif
         </div>
     </div>
 
     {{$show->item->capabilities->calculator}}
-     {{--for general calculator--}}
+    {{--for general calculator--}}
     @if($show->item->capabilities->calculator=='general-calculator')
         @if($dataentrie)
             @if(count($dataentrie->child)>0)
-            <div class="col-12">
-            <a href="{{route('general.calculator.print_worksheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
-            <a href="{{route('general.calculator.print_certificate',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Certificate</a>
-            <a href="{{route('general.calculator.print_uncertainty',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Uncertainty</a>
-            <a href="{{route('general.calculator.print_dataentrysheet',[$location,$show->id])}}" class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Data Entry Sheet</a>
-            </div>
+                <div class="col-12">
+                    <a href="{{route('general.calculator.print_worksheet',[$location,$show->id])}}"
+                       class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Worksheet</a>
+                    <a href="{{route('general.calculator.print_certificate',[$location,$show->id])}}"
+                       class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Certificate</a>
+                    <a href="{{route('general.calculator.print_uncertainty',[$location,$show->id])}}"
+                       class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Uncertainty</a>
+                    <a href="{{route('general.calculator.print_dataentrysheet',[$location,$show->id])}}"
+                       class="btn btn-primary btn-sm"><i class="fa fa-print"></i> Data Entry Sheet</a>
+                </div>
             @endif
             <div class="col-12 table-responsive">
-            <table class="table table-hover table-bordered table-sm bg-white">
-                <tr>
-                    <th colspan="2">
-                        {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} {
-                        {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
-                        --}}
-                        @if($show->item->capabilities->procedures->name=='ASTM E2847-11')
-                            <a href="{{route('ir.calculator',[$dataentrie->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
-                        @elseif($show->item->capabilities->procedures->name=='ASTM E77')
-                            <a href="{{route('lig.calculator',[$dataentrie->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
-                        @else
-                            <a href="{{route('general.calculator',[$dataentrie->id])}}" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
-                        @endif
-
-                    </th>
-                </tr>
-                @foreach($dataentrie->child as $dataentry)
+                <table class="table table-hover table-bordered table-sm bg-white">
                     <tr>
+                        <th colspan="2">
+                            {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} {
+                            {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
+                            --}}
+                            @if($show->item->capabilities->procedures->name=='ASTM E2847-11')
+                                <a href="{{route('ir.calculator',[$dataentrie->id])}}"
+                                   class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                            @elseif($show->item->capabilities->procedures->name=='ASTM E77')
+                                <a href="{{route('lig.calculator',[$dataentrie->id])}}"
+                                   class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                            @else
+                                <a href="{{route('general.calculator',[$dataentrie->id])}}"
+                                   class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></a>
+                            @endif
 
-                        <td>
-                            {{$dataentry->fixed_value}}
-                        </td>
-                        <th>
-                            <span class="badge badge-dark p-2">{{$dataentry->x1}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x2}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x3}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x4}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
                         </th>
-
                     </tr>
-                @endforeach
+                    @foreach($dataentrie->child as $dataentry)
+                        <tr>
 
-            </table>
-        </div>
+                            <td>
+                                {{$dataentry->fixed_value}}
+                            </td>
+                            <th>
+                                <span class="badge badge-dark p-2">{{$dataentry->x1}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x2}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x3}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x4}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
+                            </th>
+
+                        </tr>
+                    @endforeach
+
+                </table>
+            </div>
         @endif
     @endif
 
@@ -389,67 +438,69 @@
 
     @if($show->item->capabilities->calculator=='balance-calculator')
 
-    @if($dataentrie)
+        @if($dataentrie)
 
-        <div class="col-12 table-responsive">
-            <table class="table table-hover table-bordered table-sm bg-white">
+            <div class="col-12 table-responsive">
+                <table class="table table-hover table-bordered table-sm bg-white">
 
-                <tr>
-                    <th colspan="2" class="h6">
-                        {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} { {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
-                        --}}
-                        <form method="get" action="{{route('balance.calculator',[$dataentrie->id])}}">
-                            {{--@csrf--}}
-                            <div class="form-group col-md-6">
-                                <label for="assets" class="control-label">Assets</label>
-                                <select class="form-control" id="assets" name="assets">
-                                    <option selected disabled>Assets</option>
-                                    @foreach($assets as $asset)
-                                        <option value="{{$asset->id}}">{{$asset->name}} ({{$asset->code}}) ({{$asset->range}})
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @if ($errors->has('assets'))
-                                    <span class="text-danger"><strong>{{ $errors->first('assets') }}</strong></span>
-                                @endif
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="units" class=" control-label">Units</label>
-                                <select class="form-control " id="units" name="units">
-                                    <option selected disabled>Select Unit</option>
-                                </select>
-                                @if ($errors->has('units'))
-                                    <span class="text-danger"><strong>{{ $errors->first('units') }}</strong></span>
-                                @endif
-                            </div>
-                            {{--<input type="text" value="" id="mulitplying_factor" name="mulitplying_factor">
-                            <input type="text" value="" id="adding_factor" name="adding_factor">
-                            <input type="text" value="" id="ref_unit" name="ref_unit">--}}
-                            <button type="submit" class="btn btn-sm btn-light pull-right border"><i class="fa fa-plus"></i></button>
-                        </form>
-                    </th>
-                </tr>
-                @foreach($dataentrie->child as $dataentry)
                     <tr>
-                        <td>
-                            {{$dataentry->fixed_value}}
-                        </td>
-                        <th>
-                            <span class="badge badge-dark p-2">{{$dataentry->x1}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x2}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x3}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x4}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
-                            <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
+                        <th colspan="2" class="h6">
+                            {{--{{\App\Models\Asset::find($dataentries->asset_id)->name}} { {{\App\Models\Asset::find($dataentries->asset_id)->code}} }
+                            --}}
+                            <form method="get" action="{{route('balance.calculator',[$dataentrie->id])}}">
+                                {{--@csrf--}}
+                                <div class="form-group col-md-6">
+                                    <label for="assets" class="control-label">Assets</label>
+                                    <select class="form-control" id="assets" name="assets">
+                                        <option selected disabled>Assets</option>
+                                        @foreach($assets as $asset)
+                                            <option value="{{$asset->id}}">{{$asset->name}} ({{$asset->code}})
+                                                ({{$asset->range}})
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('assets'))
+                                        <span class="text-danger"><strong>{{ $errors->first('assets') }}</strong></span>
+                                    @endif
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="units" class=" control-label">Units</label>
+                                    <select class="form-control " id="units" name="units">
+                                        <option selected disabled>Select Unit</option>
+                                    </select>
+                                    @if ($errors->has('units'))
+                                        <span class="text-danger"><strong>{{ $errors->first('units') }}</strong></span>
+                                    @endif
+                                </div>
+                                {{--<input type="text" value="" id="mulitplying_factor" name="mulitplying_factor">
+                                <input type="text" value="" id="adding_factor" name="adding_factor">
+                                <input type="text" value="" id="ref_unit" name="ref_unit">--}}
+                                <button type="submit" class="btn btn-sm btn-light pull-right border"><i
+                                            class="fa fa-plus"></i></button>
+                            </form>
                         </th>
-
                     </tr>
-                @endforeach
+                    @foreach($dataentrie->child as $dataentry)
+                        <tr>
+                            <td>
+                                {{$dataentry->fixed_value}}
+                            </td>
+                            <th>
+                                <span class="badge badge-dark p-2">{{$dataentry->x1}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x2}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x3}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x4}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x5}}</span>
+                                <span class="badge badge-dark p-2">{{$dataentry->x6}}</span>
+                            </th>
 
-            </table>
-        </div>
+                        </tr>
+                    @endforeach
 
-    @endif
+                </table>
+            </div>
+
+        @endif
     @endif
 
     <div class="modal fade" id="add_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -531,15 +582,18 @@
                             <input type="hidden" value="" id="edit_id" name="id">
                             <div class="form-group col-12  float-left">
                                 <label for="make">Make</label>
-                                <input type="text" class="form-control" id="edit_make" name="make" placeholder="make" autocomplete="off" value="">
+                                <input type="text" class="form-control" id="edit_make" name="make" placeholder="make"
+                                       autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
                                 <label for="edit_model">Model</label>
-                                <input type="text" class="form-control" id="edit_model" name="model" placeholder="Model" autocomplete="off" value="">
+                                <input type="text" class="form-control" id="edit_model" name="model" placeholder="Model"
+                                       autocomplete="off" value="">
                             </div>
                             <div class="form-group col-12  float-left">
                                 <label for="serial">Serial #</label>
-                                <input type="text" class="form-control" id="edit_serial" name="serial" placeholder="Serial #" autocomplete="off" value="">
+                                <input type="text" class="form-control" id="edit_serial" name="serial"
+                                       placeholder="Serial #" autocomplete="off" value="">
                             </div>
 
 
@@ -579,6 +633,7 @@
                 $('#add_id').val(id);
                 $('#add_details').modal('toggle');
             });
+
             $("#add_details_form").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -614,8 +669,8 @@
                             $('select[name="units"]').empty();
                             $('select[name="units"]').append('<option disabled selected>Select Respective Units</option>');
                             $.each(data['units'], function (key, value) {
-                                if (key!='show_channels'){
-                                    $('select[name="units"]').append('<option value="'+ value.id +'">'+ value.unit +'</option>');
+                                if (key != 'show_channels') {
+                                    $('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
                                 }
                                 //$('select[name="units"]').append('<option value="' + value.id + '">' + value.unit + '</option>');
 
@@ -626,6 +681,96 @@
                     $('select[name="units"]').empty();
                 }
             });
+            $(document).on('click', '.task-start-btn', function (e) {
+                e.preventDefault();
+                swal({
+                    title: "Are you sure to start this task?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            e.preventDefault();
+                            var button=$('.task-start-btn');
+                            var previous=$(button).html();
+
+                            button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+
+                            var request_method = $("#task-start-form").attr("method");
+                            var form_data = $("#task-start-form").serialize();
+
+                            $.ajax({
+                                url: "{{route('mytasks.start')}}",
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
+                                success: function (data) {
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                    });
+
+                                },
+                                error: function (data) {
+                                    button.attr('disabled',null).html(previous);
+                                    var error='';
+                                    $.each(xhr.responseJSON.errors, function (key, item) {
+                                        error+=item;
+                                    });
+                                    swal("Failed", error, "error");
+                                },
+                            });
+
+                        }
+                    });
+
+            });
+            $(document).on('click', '.task-end-btn', function (e) {
+                e.preventDefault();
+                swal({
+                    title: "Are you sure to end this task?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            e.preventDefault();
+                            var button=$('.task-end-btn');
+                            var previous=$(button).html();
+
+                            button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+
+                            var request_method = $("#task-end-form").attr("method");
+                            var form_data = $("#task-end-form").serialize();
+
+                            $.ajax({
+                                url: "{{route('mytasks.end')}}",
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
+                                success: function (data) {
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                    });
+
+                                },
+                                error: function (data) {
+                                    button.attr('disabled',null).html(previous);
+                                    var error='';
+                                    $.each(xhr.responseJSON.errors, function (key, item) {
+                                        error+=item;
+                                    });
+                                    swal("Failed", error, "error");
+                                },
+                            });
+
+                        }
+                    });
+
+            });
+
+
         });
     </script>
 @endsection

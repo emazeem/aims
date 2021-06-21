@@ -197,15 +197,25 @@ class MytaskController extends Controller
         $start->status=3;
         $start->started_at=date('Y-m-d H:i:s');
         $start->save();
-        return redirect()->back()->with('success','Task has been started');
+        return response()->json(['success'=>'Task has been started']);
     }
     public function end(Request $request){
         $start=Jobitem::find($request->id);
         $start->status=4;
         $start->ended_at=date('Y-m-d H:i:s');
+        $start->cc=$request->cc;
+        $prefix=null;
+        if ($request->cc==0){
+            $prefix='RR/';
+        }
+        if ($request->cc==1){
+            $prefix='CC/';
+        }
+        $start->cid=$prefix.str_pad($start->id, 7, '0', STR_PAD_LEFT);
         $start->save();
-        return redirect()->back()->with('success','Task has been ended');
+        return response()->json(['success'=>'Task has been ended. Certificate # '.$start->cid.' # has been assigned to this item']);
     }
+
     public function getLabCertificate(Request $request){
 
         if ($request->location==0){

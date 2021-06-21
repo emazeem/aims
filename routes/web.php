@@ -316,7 +316,7 @@ Route::group(['prefix'=> 'mytasks'],function() {
     Route::post('site',[App\Http\Controllers\MytaskController::class, 's_fetch'])->middleware('auth')->name('s_mytasks.fetch');
     Route::get('view/{id}',[App\Http\Controllers\MytaskController::class, 'show'])->middleware('auth')->name('mytasks.show');
     Route::get('s_view/{id}',[App\Http\Controllers\MytaskController::class, 's_show'])->middleware('auth')->name('mytasks.s_show');
-    Route::post('/start',[App\Http\Controllers\MytaskController::class, 'start'])->middleware('auth')->name('mytasks.start');
+    Route::post('start',[App\Http\Controllers\MytaskController::class, 'start'])->middleware('auth')->name('mytasks.start');
     Route::post('/end',[App\Http\Controllers\MytaskController::class, 'end'])->middleware('auth')->name('mytasks.end');
 });
 Route::group(['prefix'=> 'jobs'],function() {
