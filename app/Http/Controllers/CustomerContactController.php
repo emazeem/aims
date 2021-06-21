@@ -16,9 +16,9 @@ class CustomerContactController extends Controller
             'add_contact_name' => 'required',
 
         ],[
-            'add_contact_customer.required' => 'Account Name field is required *',
-            'add_contact_type.required' => 'Account Name field is required *',
-            'add_contact_name.required' => 'Account Name field is required *',
+            'add_contact_customer.required' => 'Contact Customer field is required *',
+            'add_contact_type.required' => 'Contact Type field is required *',
+            'add_contact_name.required' => 'Contact Name field is required *',
         ]);
         $contact=new CustomerContact();
         $contact->customer_id=$request->add_contact_customer;

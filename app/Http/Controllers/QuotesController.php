@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\CustomerContact;
 use App\Models\QuoteItem;
 use App\Models\Quoterevisionlog;
 use App\Models\Quotes;
@@ -276,17 +277,19 @@ class QuotesController extends Controller
         return response()->json($session);
     }
     public function purchase_details(Request $request){
-        $this->validate(request(),[
-            'pur_name'=>'required',
-            'pur_phone'=>'required',
-            'pur_email'=>'required',
+        $this->validate(request(), [
+            'pur_name' => 'required',
+        ],[
+            'pur_name.required' => 'Purchase Name field is required *',
         ]);
-        $customer=Customer::find($request->customer);
-        $customer->pur_name=$request->pur_name;
-        $customer->pur_phone=implode('-',$request->pur_phone);
-        $customer->pur_email=$request->pur_email;
-        $customer->save();
-        return redirect()->back()->with('success','Customer purchase details updated successfully');
+        $contact=new CustomerContact();
+        $contact->customer_id=$request->customer;
+        $contact->type='purchase';
+        $contact->name=$request->pur_name;
+        $contact->email=$request->pur_phone?$request->pur_phone:null;
+        $contact->phone=$request->pur_email?$request->pur_email:null;
+        $contact->save();
+        return response()->json(['success'=>'Customer purchase details updated successfully']);
     }
     public function approval_details(Request $request){
         //$this->authorize('quote-print-details');
@@ -314,7 +317,7 @@ class QuotesController extends Controller
             $customer->pur_email=($request->pur_email)?$request->pur_email:null;
             $customer->save();
         }*/
-        return back()->with('success','Quote details added successfully');
+        return response()->json(['success'=>'Quote details updated successfully']);
     }
 
     public function prints($id){

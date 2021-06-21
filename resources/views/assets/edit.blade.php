@@ -222,6 +222,8 @@
                             <option selected disabled>Select Status</option>
                             <option value="0" {{($edit->code==0)?'selected':''}}>Available</option>
                             <option value="1" {{($edit->code==1)?'selected':''}}>Assigned</option>
+                            <option value="2" {{($edit->code==2)?'selected':''}}>Out of Order</option>
+                            <option value="3" {{($edit->code==3)?'selected':''}}>Sent for Calibration</option>
                         </select>
                     </div>
                     @if ($errors->has('status'))

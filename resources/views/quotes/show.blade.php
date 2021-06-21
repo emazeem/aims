@@ -1,5 +1,9 @@
 @extends('layouts.master')
 @section('content')
+    @php
+        $purchase= $show->customers->contacts->where('type','purchase');
+    @endphp
+
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -30,7 +34,7 @@
                 @if($show->status<3)
                     <a title='Revise' class='btn btn-outline-danger btn-sm revise' href='#' data-id='{{$show->id}}'><i class='fa fa-spinner'></i> Revise</a>
                     @if($show->approval_mode)
-                        @if($show->customers->pur_name)
+                        @if(count($purchase)>0)
                             <a title='Approve' class='btn btn-outline-success btn-sm approved' href='#' data-id='{{$show->id}}'><i class='fa fa-check'></i> Approve</a>
                         @endif
                     @endif
@@ -137,22 +141,19 @@
                     <a href="#approval_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
                        aria-expanded="true" aria-controls="collapseCardExample">
                         <h6 class="m-0 font-weight-bold text-primary">{{(empty($show->approval_mode))?"Add":"Update"}}
-                            Customer Approval
-                            Details </h6>
+                            Customer Approval</h6>
                     </a>
                     <!-- Card Content - Collapse -->
                     <div class="collapse" id="approval_card">
                         <div class="card-body">
-                            <form action="{{url('/quotes/approval_details')}}" method="post">
+                            <form id="quote-approve-form" method="post">
                                 @csrf
                                 <div class="row">
                                     <input type="hidden" name="id" value="{{$show->id}}">
                                     <div class="col-12">
                                         <div class="font-italic form-group p-0 m-0">
                                             <label class="" id="approval_date">Approval Date</label>
-                                            <?php
-                                            $date = date('Y-m-d');
-                                            ?>
+                                            <?php$date = date('Y-m-d');?>
                                             <input type="date" class="form-control " id="approval_date"
                                                    name="approval_date"
                                                    autocomplete="off"
@@ -192,7 +193,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" type="submit">Add Approval Details</button>
+                                <button class="btn btn-primary approve-quote-save-btn" type="submit">{{(empty($show->approval_mode))?"Add":"Update"}} Approval Details</button>
                             </form>
 
                         </div>
@@ -202,69 +203,44 @@
                     <!-- Card Header - Accordion -->
                     <a href="#purchase_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
                        aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">{{(!$show->customers->pur_name)?'Add':'Update'}}
+                        <h6 class="m-0 font-weight-bold text-primary">{{(count($purchase)==0)?'Add':'Update'}}
                             Purchase Details</h6>
                     </a>
                     <!-- Card Content - Collapse -->
                     <div class="collapse" id="purchase_card">
                         <div class="card-body">
-                            <form action="{{url('/quotes/purchase_details')}}" method="post">
+                            <ul>
+                                @foreach($show->customers->contacts as $contact)
+                                    @if($contact->type=='purchase')
+                                        <li>{{$contact->name.' '.$contact->email.' '.$contact->phone}}</li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                            <form action="{{url('quotes/purchase_details')}}" id="add-purchase-form" method="post">
                                 @csrf
                                 <input type="hidden" value="{{$show->customers->id}}" name="customer">
                                 <div class="row ">
-                                    <div class="col-12 bg-white border ">
+                                    <div class="col-8 bg-white">
                                         <label for="purchase" class="col-form-label">Purchase Contact</label>
-
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="purchase" name="pur_name"
-                                                   placeholder="Name" autocomplete="off"
-                                                   value="{{old('pur_name',$show->customers->pur_name?$show->customers->pur_name: null)}}">
-                                            @if ($errors->has('pur_name'))
-                                                <span class="text-danger">
-                          <strong>{{ $errors->first('pur_name') }}</strong>
-                      </span>
-                                            @endif
-
-                                        </div>
-
-                                        <?php
-                                        $purchase_phones = null;
-
-                                        if (isset($show->customers->pur_phone)) {
-                                            $purchase_phones = explode('-', $show->customers->pur_phone);
-                                        }
-                                        if(!isset($purchase_phones[0])){
-                                            $purchase_phones[0]=null;
-                                        }
-                                        if(!isset($purchase_phones[1])){
-                                            $purchase_phones[1]=null;
-                                        }
-
-
-                                        ?>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="pur_phone"
-                                                   name="pur_phone[]"
-                                                   placeholder="Phone" autocomplete="off"
-                                                   value="{{old('pur_phone',$purchase_phones?$purchase_phones[0]:null)}}">
+                                                   placeholder="Name">
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="pur_phone"
-                                                   name="pur_phone[]"
-                                                   placeholder="Phone (opt)" autocomplete="off"
-                                                   value="{{old('pur_phone',count($purchase_phones)==2?$purchase_phones[1]:null)}}">
+                                                   name="pur_phone"
+                                                   placeholder="Phone">
                                         </div>
-
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="purchase" name="pur_email"
-                                                   placeholder="Email" autocomplete="off"
-                                                   value="{{old('pur_email',$show->customers->pur_email?$show->customers->pur_email: null)}}">
+                                                   placeholder="Email">
+                                        </div>
+                                        <div class="text-right">
+                                            <button class="btn btn-primary add-purchase-btn" type="submit">{{(count($purchase)==0)?'Add':'Update'}} Purchase Details</button>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="text-right">
-                                    <button class="btn btn-primary" type="submit">Add Purchase Details</button>
+
                                 </div>
                             </form>
                         </div>
@@ -469,6 +445,66 @@
                     }
                 });
             }));
+            $("#quote-approve-form").on('submit', (function (e) {
+                e.preventDefault();
+                var button=$('.approve-quote-save-btn');
+                var previous=$('.approve-quote-save-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                $.ajax({
+                    url: "{{url('quotes/approval_details')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
+                    },
+                    error: function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+            $("#add-purchase-form").on('submit', (function (e) {
+                e.preventDefault();
+                var button=$('.add-purchase-btn');
+                var previous=$('.add-purchase-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                $.ajax({
+                    url: "{{url('quotes/purchase_details')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
+                    },
+                    error: function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+
+
         });
         $(document).ready(function () {
             InitTable();

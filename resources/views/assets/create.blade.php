@@ -232,6 +232,8 @@
                             <option selected disabled>Select Status</option>
                             <option value="0">Available</option>
                             <option value="1">Assigned</option>
+                            <option value="2">Out of Order</option>
+                            <option value="3">Sent for Calibration</option>
                         </select>
                     </div>
                     @if ($errors->has('status'))
