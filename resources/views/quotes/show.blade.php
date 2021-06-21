@@ -153,7 +153,7 @@
                                     <div class="col-12">
                                         <div class="font-italic form-group p-0 m-0">
                                             <label class="" id="approval_date">Approval Date</label>
-                                            <?php$date = date('Y-m-d');?>
+                                            <?php $date = date('Y-m-d'); ?>
                                             <input type="date" class="form-control " id="approval_date"
                                                    name="approval_date"
                                                    autocomplete="off"

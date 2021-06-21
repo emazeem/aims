@@ -59,17 +59,17 @@
           <entry key="css" value="361" />
           <entry key="html" value="580" />
           <entry key="js" value="3" />
-          <entry key="php" value="79638" />
+          <entry key="php" value="79704" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="48226" />
+          <entry key="Blade" value="48284" />
           <entry key="CSS" value="362" />
           <entry key="HTML" value="616" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="31375" />
+          <entry key="PHP" value="31383" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -102,10 +102,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/quotes/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="211" column="31" selection-start-line="211" selection-start-column="31" selection-end-line="211" selection-end-column="31" />
+            <state relative-caret-position="309">
+              <caret line="159" column="109" selection-start-line="159" selection-start-column="60" selection-end-line="159" selection-end-column="109" />
               <folding>
-                <element signature="e#5634#10098#0#HTML" />
                 <element signature="e#14628#16267#0#HTML" />
                 <element signature="e#16337#17857#0#HTML" />
                 <element signature="e#18008#19062#0#HTML" />
@@ -128,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="290" column="25" selection-start-line="290" selection-start-column="25" selection-end-line="290" selection-end-column="25" />
+            <state relative-caret-position="188">
+              <caret line="282" column="44" selection-start-line="282" selection-start-column="44" selection-end-line="282" selection-end-column="44" />
               <folding>
                 <element signature="e#40#64#0#PHP" expanded="true" />
               </folding>
@@ -157,7 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>select-2</find>
       <find>show</find>
       <find>add_suggestion_form</find>
       <find>suggestion-save-btn</find>
@@ -187,6 +185,7 @@
       <find>quote-approve-form</find>
       <find>purchase</find>
       <find>pur_name</find>
+      <find>add-purchase-btn</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -268,8 +267,8 @@
         <option value="$PROJECT_DIR$/resources/views/assets/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerContactController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
         <option value="$PROJECT_DIR$/resources/views/quotes/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QuotesController.php" />
       </list>
     </option>
   </component>
@@ -666,12 +665,12 @@
       <workItem from="1623817777628" duration="19093000" />
       <workItem from="1623840445522" duration="37265000" />
       <workItem from="1623941508779" duration="53112000" />
-      <workItem from="1624180767625" duration="19756000" />
+      <workItem from="1624180767625" duration="20067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583532000" />
+    <option name="totallyTimeSpent" value="583843000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1062,8 +1061,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="290" column="25" selection-start-line="290" selection-start-column="25" selection-end-line="290" selection-end-column="25" />
+        <state relative-caret-position="188">
+          <caret line="282" column="44" selection-start-line="282" selection-start-column="44" selection-end-line="282" selection-end-column="44" />
           <folding>
             <element signature="e#40#64#0#PHP" expanded="true" />
           </folding>
@@ -1072,10 +1071,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/quotes/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="211" column="31" selection-start-line="211" selection-start-column="31" selection-end-line="211" selection-end-column="31" />
+        <state relative-caret-position="309">
+          <caret line="159" column="109" selection-start-line="159" selection-start-column="60" selection-end-line="159" selection-end-column="109" />
           <folding>
-            <element signature="e#5634#10098#0#HTML" />
             <element signature="e#14628#16267#0#HTML" />
             <element signature="e#16337#17857#0#HTML" />
             <element signature="e#18008#19062#0#HTML" />
