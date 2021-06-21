@@ -1,7 +1,11 @@
 <div class="col-12">
     <h4 class="float-left font-weight-light"><i class="feather icon-plus-circle"></i> Quote Items</h4>
+    <a class="btn float-right btn-sm btn-primary assign-site-btn mt-2 shadow-sm"
+       style="display: none" href><i class="feather icon-plus-circle"></i> Assign</a>
+
 </div>
 <div class="col-12 table-responsive">
+
     <table class="table table-hover bg-white table-bordered table-sm mt-2">
         <thead>
         <tr>
@@ -50,7 +54,10 @@
                             <a href="#" title="Store Entry" data-id="{{$item->id}}" data-target="{{$job->id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i></a>
                         @endif
                         @else
-                            Site item
+                            <div class='checkbox checkbox-fill d-inline'>
+                                <input type='checkbox' data-id='{{$item->id}}' name='action[]' class='actions' id='actions{{$item->id}}'>
+                                <label class='cr' for='actions{{$item->id}}'></label>
+                            </div>
                         @endif
                     </td>
                 </tr>
@@ -61,6 +68,27 @@
 </div>
 <script>
     $(document).ready(function() {
+        $(document).on('click', '.actions', function (e) {
+            var val = [];
+            $('.actions:checked').each(function (i) {
+                val[i] = $(this).attr('data-id');
+            });
+            console.log(val.length);
+            if (val.length == 0) {
+                $('.assign-site-btn').css('display', 'none');
+            } else {
+                $('.assign-site-btn').css('display', 'block');
+            }
+        });
+        $(document).on('click', '.assign-site-btn', function (e) {
+            e.preventDefault();
+            var val = [];
+            $('.actions:checked').each(function (i) {
+                val[i] = $(this).attr('data-id');
+            });
+            //window.location.href = '{{url('grouped-capabilities/create')}}/' + val;
+        });
+
         $(document).on('click', '.add', function () {
             var id = $(this).attr('data-id');
             var job = $(this).attr('data-target');

@@ -243,7 +243,6 @@ class CapabilitiesController extends Controller
 
         $ids=array_unique($ids);
         $assets=Asset::whereIn('parameter',$ids)->get();
-        dd($assets);
         return response()->json($assets);
     }
     //

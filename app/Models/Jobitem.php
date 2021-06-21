@@ -25,6 +25,7 @@ class Jobitem extends Model
     {
         return $this->belongsTo('App\Models\Job', 'job_id');
     }
+
     public function general()
     {
         return $this->belongsTo('App\Models\Calculatorentries', 'id','job_type_id');

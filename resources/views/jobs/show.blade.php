@@ -223,7 +223,7 @@
                                                 <p class="m-0">↪ <b>End : </b>{{$labjob->end}}</p>
                                                 <p class="m-0">↪ <b>Assign User : </b>
                                                 @if($labjob->assign_user)
-                                                    {{\App\Models\User::find($labjob->assign_user)->fname}}{{\App\Models\User::find($labjob->assign_user)->lname}}
+                                                    {{\App\Models\User::find($labjob->assign_user)->fname}} {{\App\Models\User::find($labjob->assign_user)->lname}}
                                                 @endif
                                             </p>
                                                 <p class="m-0">↪ <b>Assign Asset : </b>

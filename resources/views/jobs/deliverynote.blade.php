@@ -52,26 +52,18 @@
             <div class="col-6 my-1 font-11 ">Customer Name:  <span class="custom-bottom-border px-md-5 ">{{$job->quotes->customers->reg_name}}</span></div>
             <div class="col-6 my-1 font-11 ">Address:  <span class="custom-bottom-border px-md-5 ">{{$job->quotes->customers->address}}</span></div>
 
-            <div class="col-12 my-1 font-11 ">Contact Person:  <span class="custom-bottom-border " style="width: 100%;box-sizing: border-box">{{$job->quotes->principal}}</span></div>
+            <div class="col-12 my-1 font-11 ">Contact Person:  <span class="custom-bottom-border " style="width: 100%;box-sizing: border-box">
+                                        {{$job->quotes->principals->name}}
+
+                </span></div>
             <div class="col-6 my-1 font-11 ">Contact #:
                 <span class="custom-bottom-border px-md-5">
-                    @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_phone_1}}
-                    @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_phone_2}}
-                    @else
-                        {{$job->quotes->customers->prin_phone_3}}
-                    @endif
+                                        {{$job->quotes->principals->phone}}
+
                 </span>
             </div>
             <div class="col-6 my-1 font-11 ">Email:  <span class="custom-bottom-border px-md-5" >
-                    @if($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_email_1}}
-                    @elseif($job->quotes->principal==$job->quotes->customers->prin_name_1)
-                        {{$job->quotes->customers->prin_email_2}}
-                    @else
-                        {{$job->quotes->customers->prin_email_3}}
-                    @endif
+                    {{$job->quotes->principals->email}}
                 </span>
             </div>
         </div>
@@ -98,7 +90,7 @@
                         @php $i++; @endphp
                         <td class="font-11">{{$labjob->item->capabilities->name}}</td>
                         <td class="font-11">{{$labjob->eq_id}}</td>
-                        <td class="font-11">{{$labjob->certificate}}</td>
+                        <td class="font-11">{{$labjob->cid}}</td>
                         <td class="font-11">{{$labjob->accessories}}</td>
                         <td class="font-11">{{$labjob->visual_inspection}}</td>
                     </tr>
