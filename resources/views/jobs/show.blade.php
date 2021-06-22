@@ -50,9 +50,9 @@
                     <th>Status</th>
                     <td>
                         @if($job->status==0)
-                            <span class="badge badge-primary px-2 py-1">Pending</span>
+                            <span class="badge badge-danger px-2 py-1">Pending</span>
                         @else
-                            <span class="badge badge-primary px-2 py-1">Complete</span>
+                            <span class="badge badge-primary px-2 py-1">Closed</span>
                         @endif
                     </td>
                 </tr>
@@ -74,13 +74,70 @@
                     <td>{{$job->quotes->turnaround}} Days</td>
                 </tr>
             </table>
+            @can('complete-job')
+                @if($job->status==0)
+                    @if($close==true)
+                    <form method="post" id="complete-job-form" class="float-right">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$job->id}}">
+                        <button class="btn btn-danger btn-sm complete-job-btn" type="submit"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Close</button>
+                    </form>
+                    @endif
+                @endif
+            @endcan
+
         </div>
-        @include('jobs.create')
+        @if($job->status==0)
+            @include('jobs.create')
+        @endif
     </div>
     <script>
         'use strict';
         $(document).ready(function () {
+            $(document).on('click', '.complete-job-btn', function (e) {
+                e.preventDefault();
+                swal({
+                    title: "Are you sure to close this job?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            e.preventDefault();
+                            var button=$('.complete-job-btn');
+                            var previous=$(button).html();
 
+                            button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+
+                            var request_method = $("#complete-job-form").attr("method");
+                            var form_data = $("#complete-job-form").serialize();
+
+                            $.ajax({
+                                url: "{{route('jobs.complete')}}",
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
+                                success: function (data) {
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                    });
+
+                                },
+                                error: function (xhr) {
+                                    button.attr('disabled',null).html(previous);
+                                    var error='';
+                                    $.each(xhr.responseJSON.errors, function (key, item) {
+                                        error+=item;
+                                    });
+                                    swal("Failed", error, "error");
+                                },
+                            });
+
+                        }
+                    });
+
+            });
 
             $('.select-2-users').select2();
             $('.select-2-asset').select2();
@@ -150,7 +207,8 @@
             </div>
         </div>
     </div>
-    @include('tasks.labjob')
+
+    @include('assign_item.labjob')
 
 
     <div class="x_content">
@@ -178,20 +236,21 @@
                                         <div class="card-header">
                                             <a href="#" data-id="{{$labjob->id}}" data-type="lab"
                                                class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
+                                            @if($job->status==0)
+                                            @can('create-lab-task-assign')
                                             <button type="button" data-id="{{$labjob->id}}"
                                                     class="btn btn-sm btn-light border pull-right assign-lab-task"><i
                                                         class="fa fa-plus-square"></i> Assign
                                             </button>
-                                            @if($labjob->status>0)
-                                                <a href="#" data-id="{{$labjob->id}}"
-                                                   class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i>
-                                                    Receiving</a>
-                                            @elseif($labjob->status==0)
-                                                <a href="#" data-id="{{$labjob->id}}"
-                                                   class="btn add btn-light border btn-sm"><i class="fa fa-plus"></i>
-                                                    Receiving</a>
-                                            @endif
-
+                                            @endcan
+                                            @can('lab-item-receiving-update')
+                                                @if($labjob->status>0)
+                                                    <a href="#" data-id="{{$labjob->id}}"
+                                                       class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i>
+                                                        Receiving</a>
+                                                @endif
+                                            @endcan
+                                                @endif
                                         </div>
                                         <div class="card-body">
 

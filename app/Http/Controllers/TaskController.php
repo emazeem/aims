@@ -53,6 +53,7 @@ class TaskController extends Controller
         }
         $tasks=Jobitem::find($request->id);
         if ($tasks->type==0){
+            $this->authorize('create-lab-task-assign');
             $this->validate($request,[
                 'start'=>'required',
                 'end'=>'required',
@@ -68,6 +69,7 @@ class TaskController extends Controller
             $tasks->save();
         }
         if ($tasks->type==1){
+            $this->authorize('create-site-task-assign');
             $this->validate($request,[
                 'user'=>'required',
                 'assets'=>'required',
@@ -116,6 +118,7 @@ return response()->json(['success'=>'Tasks assigned successfully']);
             $job->group_users=$users;
             $job->save();
         }*/
+
         return response()->json(['success'=> 'Site job has planed successfully']);
 
     }

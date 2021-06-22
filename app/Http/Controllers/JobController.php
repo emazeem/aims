@@ -79,6 +79,7 @@ class JobController extends Controller
         $jobs=Job::where('quote_id',$id)->get();
         $job_ids=[];
         $assigned_items=[];
+        $close=true;
         foreach ($jobs as $job){
             $job_ids[]=$job->id;
         }
@@ -87,16 +88,23 @@ class JobController extends Controller
             $labs=Jobitem::where('job_id',$job_id)->where('type',0)->get();
             foreach ($labs as $lab){
                 $assigned_items[]=$lab->item_id;
+                if ($job->status<4){
+                    $close=false;
+                }
+
             }
             $sites=Jobitem::where('job_id',$job_id)->where('type',1)->get();
             foreach ($sites as $site){
                 $assigned_items[]=$site->item_id;
+                if ($job->status<4){
+                    $close=false;
+                }
             }
         }
         $assigned_items=array_unique($assigned_items);
         $assigned_items=array_values($assigned_items);
 
-        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items'));
+        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close'));
     }
     public function print_job_form($id){
         $this->authorize('print-job-form');
@@ -156,5 +164,12 @@ class JobController extends Controller
         $job->save();
         return response()->json(['success'=>'Job # '.$job->cid.' created successfully!']);
     }
+    public function complete(Request $request){
+        $job =Job::find($request->id);
+        $job->status = 1;
+        $job->save();
+        return response()->json(['success'=>'Job # '.$job->cid.' is completed successfully!']);
+    }
+
     //
 }

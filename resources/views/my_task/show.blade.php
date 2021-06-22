@@ -27,6 +27,7 @@
                                                                                        aria-hidden="true"></i> Start
                 </button>
             </form>
+
         @endif
         @if($show->status==3)
             <form method="post" id="task-end-form" class="row float-left mr-5">

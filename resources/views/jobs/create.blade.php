@@ -51,8 +51,10 @@
                     <td>
                         @if($item->location=='lab')
                         @if($item->quantity > $jobitems)
+                            @can('lab-item-receiving-store')
                             <a href="#" title="Store Entry" data-id="{{$item->id}}" data-target="{{$job->id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i></a>
-                        @endif
+                                @endcan
+                            @endif
                         @else
                             <div class='checkbox checkbox-fill d-inline'>
                                 <input type='checkbox' data-id='{{$item->id}}' name='action[]' class='actions' id='actions{{$item->id}}'>
@@ -248,9 +250,9 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Update Details</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-refresh-cw"></i> Update Details</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                 </button>
             </div>
             <div class="modal-body">
@@ -286,15 +288,17 @@
                         </div>
 
 
-                        <div class="col-3">
-                            <button class="btn btn-primary" type="submit">Update</button>
-                        </div>
+
 
                     </div>
 
-                </form>
             </div>
             <div class="modal-footer">
+                <div class="col-3">
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </div>
+                </form>
+
             </div>
         </div>
     </div>

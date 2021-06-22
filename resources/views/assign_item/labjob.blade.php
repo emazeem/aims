@@ -4,9 +4,9 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Assign Lab Task</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-x-circle"></i> Assign Lab Task</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
+                    <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                 </button>
             </div>
 

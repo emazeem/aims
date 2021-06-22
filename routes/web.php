@@ -258,30 +258,23 @@ Route::group(['prefix'=> 'generate-requests'],function() {
     Route::post('/complete/',[App\Http\Controllers\GenerateRequestsController::class, 'complete'])->middleware('auth')->name('generaterequests.complete');
 });
 
-Route::group(['prefix'=> '/item/entries'],function() {
-    Route::get('/{id}',[App\Http\Controllers\ItemEntriesController::class, 'index'])->name('checkin');
+Route::group(['prefix'=> '/item_entries'],function() {
     Route::get('create/{type}/{id}',[App\Http\Controllers\ItemEntriesController::class, 'create'])->name('checkin.create');
     Route::post('store',[App\Http\Controllers\ItemEntriesController::class, 'store'])->name('checkin.store');
     Route::post('store/site',[App\Http\Controllers\ItemEntriesController::class, 'storesite'])->name('checkin.storesite');
     Route::post('edit/{id}',[App\Http\Controllers\ItemEntriesController::class, 'edit'])->name('checkin.edit');
     Route::post('update',[App\Http\Controllers\ItemEntriesController::class, 'update'])->name('checkin.update');
 });
-
-Route::group(['prefix'=> 'scheduling'],function() {
-    Route::group(['prefix'=> 'labs'],function() {
-        Route::get('/{id}',[App\Http\Controllers\SchedulingController::class, 'show'])->middleware('auth')->name('lab');
-    });
-    Route::group(['prefix'=> 'tasks'],function() {
-        Route::get('assign_site/{job_id}/{items}',[App\Http\Controllers\TaskController::class, 'site_assign'])->middleware('auth')->name('tasks.site_assign');
-        Route::post('assign_site_job',[App\Http\Controllers\TaskController::class, 'siteassignjobs'])->middleware('auth')->name('tasks.siteassignjobs');
-        Route::get('create/{id}',[App\Http\Controllers\TaskController::class, 'create'])->middleware('auth')->name('tasks.create');
-        Route::get('edit/{id}',[App\Http\Controllers\TaskController::class, 'edit'])->middleware('auth')->name('tasks.edit');
-        Route::get('/respective-assets/{id}',[App\Http\Controllers\TaskController::class, 'respectiveassets'])->middleware('auth')->name('tasks.respectiveassets');
-        Route::post('store',[App\Http\Controllers\TaskController::class, 'store'])->middleware('auth')->name('tasks.store');
-    });
-    Route::get('',[App\Http\Controllers\SchedulingController::class, 'index'])->middleware('auth')->name('scheduling');
-    Route::post('',[App\Http\Controllers\SchedulingController::class, 'fetch'])->middleware('auth')->name('scheduling.fetch');
+Route::group(['prefix'=> 'tasks'],function() {
+    Route::get('assign_site/{job_id}/{items}',[App\Http\Controllers\TaskController::class, 'site_assign'])->middleware('auth')->name('tasks.site_assign');
+    Route::post('assign_site_job',[App\Http\Controllers\TaskController::class, 'siteassignjobs'])->middleware('auth')->name('tasks.siteassignjobs');
+    Route::get('create/{id}',[App\Http\Controllers\TaskController::class, 'create'])->middleware('auth')->name('tasks.create');
+    Route::get('edit/{id}',[App\Http\Controllers\TaskController::class, 'edit'])->middleware('auth')->name('tasks.edit');
+    Route::get('/respective-assets/{id}',[App\Http\Controllers\TaskController::class, 'respectiveassets'])->middleware('auth')->name('tasks.respectiveassets');
+    Route::post('store',[App\Http\Controllers\TaskController::class, 'store'])->middleware('auth')->name('tasks.store');
 });
+
+
 Route::group(['prefix'=> 'items'],function() {
     Route::get('show/{id}',[App\Http\Controllers\QuoteItemController::class, 'show'])->middleware('auth')->name('items.show');
     Route::get('',[App\Http\Controllers\QuoteItemController::class, 'index'])->middleware('auth')->name('items');
@@ -352,6 +345,7 @@ Route::group(['prefix'=> 'jobs'],function() {
     Route::get('/view/{id}',[App\Http\Controllers\JobController::class, 'view'])->middleware('auth')->name('jobs.view');
     Route::post('',[App\Http\Controllers\JobController::class, 'fetch'])->middleware('auth')->name('jobs.fetch');
     Route::post('store',[App\Http\Controllers\JobController::class, 'store'])->middleware('auth')->name('jobs.store');
+    Route::post('complete',[App\Http\Controllers\JobController::class, 'complete'])->middleware('auth')->name('jobs.complete');
 });
 Route::group(['prefix'=> 'certificates'],function() {
     Route::get('',[App\Http\Controllers\CertificateController::class, 'index'])->middleware('auth')->name('certificates');

@@ -8,15 +8,14 @@ use Illuminate\Http\Request;
 
 class ItemEntriesController extends Controller
 {
-    public function index($id){
-        $jobs=Jobitem::with('item')->where('job_id',$id)->where('type',0)->get();
-        return view('itementries.show',compact('jobs'));
-    }
+
     public function edit($id){
+        $this->authorize('lab-item-receiving-update');
         $edit=Jobitem::find($id);
         return response()->json($edit);
     }
     public function store(Request $request){
+        $this->authorize('lab-item-receiving-store');
         $this->validate($request,[
             'eq_id'=>'required_without:serial',
             'serial'=>'required_without:eq_id',
@@ -51,6 +50,7 @@ class ItemEntriesController extends Controller
 
     }
     public function update(Request $request){
+        $this->authorize('lab-item-receiving-store');
         $this->validate($request,[
             'eq_id'=>'required_without:serial',
             'serial'=>'required_without:eq_id',
@@ -72,24 +72,4 @@ class ItemEntriesController extends Controller
         return response()->json(['success'=>'Updated successfully']);
 
     }
-
-    public function storesite(Request $request){
-        $this->validate($request,[
-            'eq_id'=>'required',
-            'model'=>'required',
-            'visualinspection'=>'required',
-        ]);
-        $details=Jobitem::find($request->id);
-        $details->eq_id=$request->eq_id;
-        $details->serial=$request->serial;
-        $details->make=$request->make;
-        $details->model=$request->model;
-        $details->status=2;
-        $details->accessories=$request->accessories;
-        $details->visual_inspection=$request->visualinspection;
-
-        $details->save();
-        return response()->json(['success'=>'Added successfully']);
-    }
-    //
 }

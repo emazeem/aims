@@ -755,6 +755,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('complete-job', function ($user) {
+            if (in_array('complete-job',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
         Gate::define('jobs-view', function ($user) {
             if (in_array('jobs-view',explode(',',$user->roles->permissions))){
                 return true;
@@ -779,6 +786,27 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('lab-item-receiving-store', function ($user) {
+            if (in_array('lab-item-receiving-store',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('lab-item-receiving-update', function ($user) {
+            if (in_array('lab-item-receiving-update',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('create-lab-task-assign', function ($user) {
+            if (in_array('create-lab-task-assign',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
+
 
     }
 
@@ -1309,6 +1337,20 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('site-item-receiving-store', function ($user) {
+            if (in_array('site-item-receiving-store',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('site-item-receiving-update', function ($user) {
+            if (in_array('site-item-receiving-update',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
 
         Gate::define('mytask-view', function ($user) {
             if (in_array('mytask-view',explode(',',$user->roles->permissions))){

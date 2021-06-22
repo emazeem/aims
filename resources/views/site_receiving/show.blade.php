@@ -225,14 +225,14 @@
             <div class="card">
                 <div class="card-header">
                     <a href="#" data-id="{{$sitejob->id}}" data-type="lab" class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
+                    @can('create-site-task-assign')
                     <button type="button" data-id="{{$sitejob->id}}" class="btn btn-sm btn-light border pull-right assign-site-task"><i class="fa fa-plus-square"></i> Assign</button>
-
-                @if($sitejob->status>0)
+                    @endcan
+                @can('site-item-receiving-update')
+                    @if($sitejob->status>0)
                         <a href="#" data-id="{{$sitejob->id}}" class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i> Receiving</a>
-                    @elseif($sitejob->status==0)
-                        <a href="#" data-id="{{$sitejob->id}}" class="btn add btn-light border btn-sm"><i class="fa fa-plus"></i> Receiving</a>
                     @endif
-
+                    @endcan
                 </div>
                 <div class="card-body">
                     <p class="m-0">↪ <b>Parameter : </b>{{\App\Models\Parameter::find($sitejob->item->parameter)->name}}</p>
@@ -296,9 +296,9 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Update Details</h5>
+                    <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-refresh-cw"></i> Update Details</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                     </button>
                 </div>
                 <div class="modal-body">
