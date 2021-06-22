@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Chartofaccount;
 use App\Models\Invoice;
 use App\Models\Item;
+use App\Models\Job;
 use App\Models\Jobitem;
 use App\Models\Journal;
 use App\Models\JournalDetails;
+use App\Models\QuoteItem;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
@@ -18,9 +20,11 @@ class InvoiceController extends Controller
         $this->validate(request(), [
             'id'=>'required'
         ]);
+        $job=Job::find($request->id);
+        $job->status=2;
         $invoice=new Invoice();
         $invoice->job_id=$request->id;
-        $invoice->title='INVOICE # '.str_pad($request->id,5,0,STR_PAD_LEFT);
+        $invoice->title='INV/'.str_pad($request->id,6,0,STR_PAD_LEFT);
         $invoice->save();
         //$customr_acc=Chartofaccount::where('acc_code',$invoice->job->quotes->customers->acc_code)->first();
 
@@ -42,7 +46,7 @@ class InvoiceController extends Controller
         }
         $items=array_unique($unique_lab_items);
         $items=array_values($items);
-        $items=Item::whereIn('id',$items)->get();
+        $items=QuoteItem::whereIn('id',$items)->get();
 
         foreach($items as $item){
             $service_charges=$service_charges+($item->price*$item->quantity);
@@ -66,7 +70,7 @@ class InvoiceController extends Controller
         $acc_receivable=new JournalDetails();
         $acc_receivable->parent_id=$journal->id;
         $acc_receivable->acc_code=$invoice->job->quotes->customers->acc_code;
-        $acc_receivable->narration='ACCOUNTS RECEIVABLE OF '.strtoupper($invoice->job->quotes->customers->reg_name);
+        $acc_receivable->narration='ACCOUNTS RECEIVABLE OF '.strtoupper($invoice->job->quotes->customers->reg_name).' against '.$invoice->title;
         $acc_receivable->dr=$service_charges+$regional_tax_charges;
         $acc_receivable->save();
         //Revenue -> Sales -> Calibration services Cr.
@@ -83,7 +87,7 @@ class InvoiceController extends Controller
         $service_tax->narration=$invoice->job->quotes->customers->regions->name.' OF '.$invoice->title;
         $service_tax->cr=$regional_tax_charges;
         $service_tax->save();
-
+        $job->save();
         return response()->json(['success'=>'Invoice created successfully']);
     }
 }

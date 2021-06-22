@@ -48,7 +48,7 @@ class SalesInvoiceController extends Controller
     }
     public function create_fetch(){
         $this->authorize('add-sales-invoice');
-        $data=Job::with('quotes')->get();
+        $data=Job::with('quotes')->where('status',1)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->cid;
@@ -57,22 +57,9 @@ class SalesInvoiceController extends Controller
                 return $data->quotes->cid;
             })
             ->addColumn('customer', function ($data) {
-                return $data->quotes->customers->reg_name;
+                return '<span class="view-customer text-primary" data-id="'.$data->quotes->customers->id.'">'.$data->quotes->customers->reg_name.'</span>';
             })
-            ->addColumn('type', function ($data) {
-                $check=null;
-                $items=Jobitem::where('job_id',$data->id)->get();
-                $check=[];
-                foreach ($items as $item){
-                    $check[]=$item->type;
-                }
-                $type=null;
-                $check=array_unique($check);
-                if ($check==[0]){$type='LAB';}
-                else if ($check==[1]){$type='SITE';}
-                else {$type='SPLIT';}
-                return $type;
-            })
+
             ->addColumn('status', function ($data) {
                 if ($data->status==0){
                     $status= '<b class="badge badge-danger">Pending</b>';
@@ -86,7 +73,7 @@ class SalesInvoiceController extends Controller
                 $invoice_exist=Invoice::where('job_id',$data->id)->count();
                 $action=null;
                 $token=csrf_token();
-                if ($invoice_exist){
+                if ($invoice_exist==0){
                     $action.="<a class='btn btn-danger btn-sm invoice-store' title='Create Invoice' href='#' data-id='{$data->id}'><i class='fa fa-plus'></i> Invoice</a>
                     <form id=\"form$data->id\" method='post' role='form'>
                       <input name=\"_token\" type=\"hidden\" value=\"$token\">
@@ -102,7 +89,7 @@ class SalesInvoiceController extends Controller
                 }
                 return $action;
             })
-            ->rawColumns(['options','status'])
+            ->rawColumns(['options','status','customer'])
             ->make(true);
     }
     //

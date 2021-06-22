@@ -50,8 +50,7 @@ class JobController extends Controller
             ->addColumn('status', function ($data) {
                 if ($data->status==0){
                     $status= '<b class="badge badge-danger px-2 py-1 mt-2">Pending</b>';
-                }
-                if ($data->status==1){
+                }else {
                     $status= '<b class="badge badge-success px-2 py-1 mt-2">Complete</b>';
                 }
                 return $status;

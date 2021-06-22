@@ -26,11 +26,9 @@
 
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Job</th>
                     <th>Quote ID</th>
                     <th>Customer</th>
-                    <th>Type</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -38,11 +36,9 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
+                    <th>Job</th>
                     <th>Quote ID</th>
                     <th>Customer</th>
-                    <th>Type</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -53,8 +49,6 @@
     <script>
 
         function InitTable() {
-            $(".loading").fadeIn();
-
             $('#example').DataTable({
                 responsive: true,
                 "bDestroy": true,
@@ -73,8 +67,6 @@
                     {"data": "id"},
                     {"data": "quote"},
                     {"data": "customer"},
-                    {"data": "type"},
-                    {"data": "status"},
                     {"data": "options", "orderable": false},
                 ]
             });
@@ -123,4 +115,5 @@
             });
         });
     </script>
+    @include('customers.show')
 @endsection
