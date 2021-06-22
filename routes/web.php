@@ -264,13 +264,14 @@ Route::group(['prefix'=> '/item/entries'],function() {
     Route::post('store',[App\Http\Controllers\ItemEntriesController::class, 'store'])->name('checkin.store');
     Route::post('store/site',[App\Http\Controllers\ItemEntriesController::class, 'storesite'])->name('checkin.storesite');
     Route::post('edit/{id}',[App\Http\Controllers\ItemEntriesController::class, 'edit'])->name('checkin.edit');
+    Route::post('update',[App\Http\Controllers\ItemEntriesController::class, 'update'])->name('checkin.update');
 });
 Route::group(['prefix'=> 'scheduling'],function() {
     Route::group(['prefix'=> 'labs'],function() {
         Route::get('/{id}',[App\Http\Controllers\SchedulingController::class, 'show'])->middleware('auth')->name('lab');
     });
     Route::group(['prefix'=> 'tasks'],function() {
-        Route::get('assign_site/{job_id}',[App\Http\Controllers\TaskController::class, 'site_assign'])->middleware('auth')->name('tasks.site_assign');
+        Route::get('assign_site/{job_id}/{items}',[App\Http\Controllers\TaskController::class, 'site_assign'])->middleware('auth')->name('tasks.site_assign');
         Route::post('assign_site_job',[App\Http\Controllers\TaskController::class, 'siteassignjobs'])->middleware('auth')->name('tasks.siteassignjobs');
         Route::get('create/{id}',[App\Http\Controllers\TaskController::class, 'create'])->middleware('auth')->name('tasks.create');
         Route::get('edit/{id}',[App\Http\Controllers\TaskController::class, 'edit'])->middleware('auth')->name('tasks.edit');
@@ -309,16 +310,28 @@ Route::group(['prefix'=> 'pendings'],function() {
     Route::post('/store',[App\Http\Controllers\PendingRequestController::class, 'store'])->middleware('auth')->name('pendings.store');
     Route::get('/view/{id}',[App\Http\Controllers\PendingRequestController::class, 'show'])->middleware('auth')->name('pendings.show');
 });
-Route::group(['prefix'=> 'mytasks'],function() {
-    Route::get('',[App\Http\Controllers\MytaskController::class, 'index'])->middleware('auth')->name('mytasks');
-    Route::post('/getcertificate',[App\Http\Controllers\MytaskController::class, 'getLabCertificate'])->middleware('auth')->name('getcertificate');
-    Route::post('',[App\Http\Controllers\MytaskController::class, 'fetch'])->middleware('auth')->name('mytasks.fetch');
-    Route::post('site',[App\Http\Controllers\MytaskController::class, 's_fetch'])->middleware('auth')->name('s_mytasks.fetch');
+Route::group(['prefix'=> 'lab_task'],function() {
+    Route::get('',[App\Http\Controllers\MytaskController::class, 'index_lab'])->middleware('auth')->name('lab.task');
+    Route::post('lab',[App\Http\Controllers\MytaskController::class, 'fetch_lab'])->middleware('auth')->name('lab.task.fetch');
     Route::get('view/{id}',[App\Http\Controllers\MytaskController::class, 'show'])->middleware('auth')->name('mytasks.show');
-    Route::get('s_view/{id}',[App\Http\Controllers\MytaskController::class, 's_show'])->middleware('auth')->name('mytasks.s_show');
     Route::post('start',[App\Http\Controllers\MytaskController::class, 'start'])->middleware('auth')->name('mytasks.start');
     Route::post('/end',[App\Http\Controllers\MytaskController::class, 'end'])->middleware('auth')->name('mytasks.end');
 });
+
+Route::group(['prefix'=> 'site_task'],function() {
+    Route::get('',[App\Http\Controllers\MytaskController::class, 'index_site'])->middleware('auth')->name('site.task');
+    Route::post('site',[App\Http\Controllers\MytaskController::class, 'fetch_site'])->middleware('auth')->name('site.task.fetch');
+    Route::post('/getcertificate',[App\Http\Controllers\MytaskController::class, 'getLabCertificate'])->middleware('auth')->name('getcertificate');
+    Route::get('view/{id}',[App\Http\Controllers\MytaskController::class, 'show'])->middleware('auth')->name('mytasks.s_show');
+});
+Route::group(['prefix'=> 'site_receiving'],function() {
+    Route::get('',[App\Http\Controllers\SitePlanController::class, 'index'])->middleware('auth')->name('site.receiving');
+    Route::get('show/{id}',[App\Http\Controllers\SitePlanController::class, 'show'])->middleware('auth')->name('site.receiving.show');
+    Route::post('fetch',[App\Http\Controllers\SitePlanController::class, 'fetch'])->middleware('auth')->name('site.receiving.fetch');
+});
+
+
+
 Route::group(['prefix'=> 'jobs'],function() {
     Route::group(['prefix'=> 'manage'],function() {
         Route::get('',[App\Http\Controllers\ManageJobsController::class, 'index'])->middleware('auth')->name('jobs.manage');

@@ -36,7 +36,7 @@
                     <td>{{$item->range}}</td>
                     <td>{{$item->location}}</td>
                     <td>{{$item->accredited}}</td>
-                    <td class="px-1 mx-0">
+                    <td class="px-1 mx-0 row">
                         <div class="col-12 mx-0 px-0">
                             <span class="font-weight-bold float-left">Total:</span>
                             <span class="float-right ">{{$item->quantity}}</span>
@@ -86,7 +86,8 @@
             $('.actions:checked').each(function (i) {
                 val[i] = $(this).attr('data-id');
             });
-            //window.location.href = '{{url('grouped-capabilities/create')}}/' + val;
+            console.log(val);
+            window.location.href = '{{url('scheduling/tasks/assign_site/'.$job->id)}}/' + val;
         });
 
         $(document).on('click', '.add', function () {
@@ -96,6 +97,7 @@
             $('#add_job').val(job);
             $('#add_details').modal('toggle');
         });
+
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('data-id');
 
@@ -156,7 +158,7 @@
         $("#edit_details_form").on('submit',(function(e) {
             e.preventDefault();
             $.ajax({
-                url: "{{route('checkin.store')}}",
+                url: "{{route('checkin.update')}}",
                 type: "POST",
                 data:  new FormData(this),
                 contentType: false,

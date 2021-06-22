@@ -27,13 +27,10 @@
                 <img src="{{url('/img/AIMS.png')}}" class="mt-2 ml-2" width="100">
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
-                <p class="text-center b font-24 mt-4" style="margin-top: 10px">DELIVERY NOTE
-
-
-                </p>
+                <p class="text-center b font-24 mt-4" style="margin-top: 10px">DELIVERY NOTE</p>
             </div>
             <div class="col-3 row custom-border font-9 p-0">
-                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
+                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-08,</p>
                 <div class="col-12 custom-bottom-border"></div>
                 <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2020</p>
                 <div class="col-12 custom-bottom-border"></div>
@@ -46,9 +43,9 @@
 
         </div>
         <div class="row py-3">
-            <div class="col-3 my-1 font-11">DN#:<span class="custom-bottom-border px-md-5">{{$job->id}}</span></div>
+            <div class="col-3 my-1 font-11">DN#:<span class="custom-bottom-border px-md-5">{{$job->cid}}</span></div>
             <div class="col-3 my-1 font-11 ">Date:<span class="custom-bottom-border px-md-5">{{date('d-m-Y')}}</span></div>
-            <div class="col-6 my-1 font-11 ">Work order / DN # <span class="custom-bottom-border " style="padding-left: 70%"></span></div>
+            <div class="col-6 my-1 font-11 ">Work order / JN # <span class="custom-bottom-border " style="padding-left: 70%"></span></div>
             <div class="col-6 my-1 font-11 ">Customer Name:  <span class="custom-bottom-border px-md-5 ">{{$job->quotes->customers->reg_name}}</span></div>
             <div class="col-6 my-1 font-11 ">Address:  <span class="custom-bottom-border px-md-5 ">{{$job->quotes->customers->address}}</span></div>
 

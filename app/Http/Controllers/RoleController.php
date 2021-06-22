@@ -73,7 +73,7 @@ class RoleController extends Controller
         $roles->name=$request->name;
         $roles->permissions=$permissions;
         $roles->save();
-        return back()->with('success','Role created successfully');
+        return response()->json(['success'=>'Role created successfully']);
     }
     public function update(Request $request){
         //$this->authorize('roles-edit');
@@ -87,7 +87,7 @@ class RoleController extends Controller
         $roles->name=$request->name;
         $roles->permissions=$permissions;
         $roles->save();
-        return back()->with('success','Role updated successfully');
+        return response()->json(['success'=>'Role updated successfully']);
     }
 
     public function destroy(Request $request){

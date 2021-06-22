@@ -16,6 +16,9 @@ class CreateSitePlansTable extends Migration
         Schema::create('site_plans', function (Blueprint $table) {
             $table->id();
             $table->integer('job_id');
+            $table->date('start');
+            $table->date('end');
+            $table->string('quote_items');
             $table->string('assigned_assets');
             $table->string('assigned_users');
             $table->timestamps();

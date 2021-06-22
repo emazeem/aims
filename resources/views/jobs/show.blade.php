@@ -259,34 +259,35 @@
 
             </div>
             <div class="tab-pane fade" id="site" role="tabpanel" aria-labelledby="site-tab">
+                @if(count($job->siteplanings)>0)
+                    @foreach($job->siteplanings as $siteplaning)
+                        @php $all_assets=explode(',',$siteplaning->assigned_assets); @endphp
+                        @if(isset($siteplaning->assigned_assets))
+                            <h5 class="font-weight-light">Assets Assigned</h5>
+                            @foreach($all_assets as $asset)
+                                <span class="badge border px-3 bg-white py-2 m-1">
+                                        {{\App\Models\Asset::find($asset)->name}} ( {{\App\Models\Asset::find($asset)->code}} )
+                                        </span>
+                            @endforeach
+                        @endif
+
+
+                        @php $all_users=explode(',',$siteplaning->assigned_users); @endphp
+                        @if(isset($siteplaning->assigned_users))
+                            <h5 class="font-weight-light">Assigned Users</h5>
+                            @foreach($all_users as $user)
+                                <span class="badge border px-3 bg-white py-2 m-1">
+                                    {{\App\Models\User::find($user)->fname}} {{\App\Models\User::find($user)->lname}}
+                                </span>
+                            @endforeach
+                        @endif
+                    @endforeach
+                @endif
                 @if(count($sitejobs)>0)
                     <div class="row">
                         <div class="col-12 mt-2">
-                            <a href="{{route('tasks.site_assign',[$job->id])}}" title='Assign Site Job' class='btn btn-sm btn-light border assign-site float-right'> <i class="fa fa-plus-square"></i> Assign</a>
-                            @foreach($sitejobs as $sitejob)
-                                @php $all_assets=explode(',',$sitejob->group_assets); @endphp
-                                @if(isset($sitejob->group_assets))
-                                    <h5 class="font-weight-light">Assets Assigned</h5>
-                                @foreach($all_assets as $asset)
-                                        <span class="badge border px-3 bg-white py-2 m-1">
-                                        {{\App\Models\Asset::find($asset)->name}} ( {{\App\Models\Asset::find($asset)->code}} )
-                                        </span>
-                                    @endforeach
-                                @endif
+                            {{--<a href="{{route('tasks.site_assign',[$job->id])}}" title='Assign Site Job' class='btn btn-sm btn-light border assign-site float-right'> <i class="fa fa-plus-square"></i> Assign</a>--}}
 
-
-                                @php $all_users=explode(',',$sitejob->group_users); @endphp
-                                @if(isset($sitejob->group_users))
-                                    <h5 class="font-weight-light">Assigned Users</h5>
-                                    @foreach($all_users as $user)
-                                        <span class="badge border px-3 bg-white py-2 m-1">
-                                        {{\App\Models\User::find($user)->fname}} {{\App\Models\User::find($user)->lname}}
-                                        </span>
-                                    @endforeach
-
-                                @endif
-                                @break
-                            @endforeach
                         </div>
                     @foreach($sitejobs as $sitejob)
                             <div class="col-md-4 col-12 mt-1">
@@ -303,9 +304,9 @@
                                             @if($sitejob->status==0)
                                                 <span class="badge badge-primary">Pending</span>
                                             @elseif($sitejob->status==1)
-                                                <span class="badge badge-success">Assigned</span>
+                                                <span class="badge badge-success">Received</span>
                                             @elseif($sitejob->status==2)
-                                                <span class="badge badge-danger">Checked-in</span>
+                                                <span class="badge badge-danger">Assigned</span>
                                             @elseif($sitejob->status==3)
                                                 <span class="badge badge-success">Started</span>
                                             @elseif($sitejob->status==4)
@@ -332,18 +333,9 @@
                                             <p class="m-0">↪ <b>Start : </b>{{$sitejob->start}}</p>
                                             <p class="m-0">↪ <b>End : </b>{{$sitejob->end}}</p>
                                             <p class="m-0">↪ <b>Assign User : </b>
-                                                @if($labjob->assign_user)
-                                                    {{\App\Models\User::find($sitejob->assign_user)->fname}}{{\App\Models\User::find($sitejob->assign_user)->lname}}
-                                                @endif
+
                                             </p>
                                             <p class="m-0">↪ <b>Assign Asset : </b>
-                                                <br>
-                                                @if($sitejob->assign_assets)
-                                                    @php $assets=explode(',',$sitejob->assign_assets); @endphp
-                                                    @foreach($assets as $asset)
-                                                        <span class="badge badge-info py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
-                                                    @endforeach
-                                                @endif
 
                                             </p>
                                         @endif

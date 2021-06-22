@@ -1246,12 +1246,31 @@ class AuthServiceProvider extends ServiceProvider
 
     public function mytasks()
     {
-        Gate::define('mytask-index', function ($user) {
-            if (in_array('mytask-index',explode(',',$user->roles->permissions))){
+        Gate::define('my-task-index', function ($user) {
+            if (in_array('my-task-index',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
+        Gate::define('lab-task-index', function ($user) {
+            if (in_array('lab-task-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('site-task-index', function ($user) {
+            if (in_array('site-task-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('site-receiving-index', function ($user) {
+            if (in_array('site-receiving-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
         Gate::define('mytask-view', function ($user) {
             if (in_array('mytask-view',explode(',',$user->roles->permissions))){
                 return true;

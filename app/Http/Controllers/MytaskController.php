@@ -28,15 +28,19 @@ use Yajra\DataTables\Facades\DataTables;
 
 class MytaskController extends Controller
 {
-    public function index(){
-        $this->authorize('mytask-index');
-        return view('mytask.index');
+    public function index_lab(){
+        $this->authorize('lab-task-index');
+        return view('my_task.index_lab');
+    }
+    public function index_site(){
+        $this->authorize('site-task-index');
+        return view('my_task.index_site');
     }
 
-    public function fetch(Request $request){
-        $this->authorize('mytask-index');
 
-        $data=Jobitem::all()->where('assign_user',auth()->user()->id);
+    public function fetch_lab(Request $request){
+        $this->authorize('lab-task-index');
+        $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',0);
         return DataTables::of($data)
             ->addColumn('job', function ($data) {
                 return $data->jobs->cid;
@@ -88,7 +92,7 @@ class MytaskController extends Controller
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
-                $action.="<a title='View' class='btn btn-sm btn-success' href='" . url('/mytasks/view/'.$data->id) . "'><i class='fa fa-eye'></i></a>";
+                $action.="<a title='View' class='btn btn-sm btn-success' href='" . url('/lab_task/view/'.$data->id) . "'><i class='fa fa-eye'></i></a>";
                 return "&emsp;".$action;
 
             })
@@ -96,23 +100,20 @@ class MytaskController extends Controller
             ->make(true);
 
     }
-    public function s_fetch(Request $request){
-        $this->authorize('mytask-index');
-        $filters=Jobitem::all()->where('type',1);
-        $skip_ids=array();
-        foreach ($filters as $filter) {
-            if (in_array(auth()->user()->id,explode(',',$filter->group_users))){
-                $skip_ids[]=$filter->id;
-            }
-        }
-        $data=Jobitem::all()->whereIn('id',$skip_ids)->where('type',1);
-        return DataTables::of($data)
 
+    public function fetch_site(Request $request){
+        $this->authorize('site-task-index');
+        $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',1);
+        return DataTables::of($data)
             ->addColumn('job', function ($data) {
                 return $data->jobs->cid;
             })
             ->addColumn('customer', function ($data) {
                 return $data->jobs->quotes->customers->reg_name;
+            })
+
+            ->addColumn('model', function ($data) {
+                return $data->model;
             })
 
             ->addColumn('uuc', function ($data) {
@@ -121,26 +122,20 @@ class MytaskController extends Controller
             ->addColumn('eqid', function ($data) {
                 return $data->eq_id;
             })
-            ->addColumn('model', function ($data) {
-                return $data->model;
+            ->addColumn('date', function ($data) {
+                return $data->start.' to '.$data->end;
             })
-
             ->addColumn('asset', function ($data) {
 
-                $assets=Asset::whereIn('id',explode(',',$data->group_assets))->get();
+                $assets=Asset::whereIn('id',explode(',',$data->assign_assets))->get();
                 $standard=null;
                 foreach ($assets as $asset) {
                     $standard=$asset->code.'<i class="feather icon-chevron-right"></i>'.$asset->name.'<br>'.$standard;
                 }
                 return $standard;
             })
-            ->addColumn('date', function ($data) {
-                return $data->start.' to '.$data->end;
-            })
+
             ->addColumn('status', function ($data) {
-                if ($data->status==1){
-                    $status= "<b class=\"text-danger\">Pending</b>";
-                }
                 if ($data->status==2){
                     $status= "<b class=\"text-danger\">Pending</b>";
                 }
@@ -148,39 +143,34 @@ class MytaskController extends Controller
                     $status= "<b class=\"text-success\">Started</b>";
                 }
                 if ($data->status==4){
-                    $status= "<b class=\"text-success\">Requirements</b>";
+                    $status= "<b class=\"text-success\">Completed</b>";
                 }
-
                 if ($data->status==5){
                     $status= "<b class=\"text-success\">Completed</b>";
                 }
-                if ($data->status==6){
-                    $status= "<b class=\"text-success\">Completed</b>";
-                }
+
                 return $status;
             })
 
             ->addColumn('options', function ($data) {
                 $token=csrf_token();
                 $action=null;
-                $action.="<a title='View' class='btn btn-sm btn-success' href='" . url('/mytasks/view/'.$data->id) . "'><i class='fa fa-eye'></i></a>";
+                $action.="<a title='View' class='btn btn-sm btn-success' href='" . url('/site_task/view/'.$data->id) . "'><i class='fa fa-eye'></i></a>";
                 return "&emsp;".$action;
 
             })
-            ->rawColumns(['options','parameter','status'])
+            ->rawColumns(['options','parameter','asset','status'])
             ->make(true);
+
     }
+
+
     public function show($id){
         $this->authorize('mytask-view');
         $show=Jobitem::with('general')->find($id);
         $location=$show->type;
         $parameters=[];
-        if ($location==0){
-            $assets=explode(',',$show->assign_assets);
-        }
-        if ($location==1){
-            $assets=explode(',',$show->group_assets);
-        }
+        $assets=explode(',',$show->assign_assets);
         foreach ($assets as $asset){
             $parameters[]=Asset::find($asset)->parameter;
         }
@@ -189,7 +179,7 @@ class MytaskController extends Controller
         $assets=Asset::whereIn('id',$assets)->get();
         $dataentrie=Calculatorentries::where('job_type_id',$id)->with('child')->first();
 
-        return view('mytask.show',compact('show','location','parameters','assets','dataentrie'));
+        return view('my_task.show',compact('show','location','parameters','assets','dataentrie'));
     }
     public function start(Request $request){
         $this->authorize('start-mytask');

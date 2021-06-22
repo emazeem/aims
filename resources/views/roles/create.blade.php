@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+
     @if(Session::has('success'))
         <script>
             $(document).ready(function() {
@@ -22,7 +23,7 @@
         <h3 class="text-dark font-weight-light"> <i class="feather icon-plus-circle"></i> Add Roles</h3>
         <div class="col-12">
 
-            <form class="form-horizontal" action="{{route('roles.store')}}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" id="add_roles_form" method="post" >
                 @csrf
 
                 <div class="form-group mt-md-4 row">
@@ -84,5 +85,39 @@
             </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#add_roles_form").on('submit',(function(e) {
+                e.preventDefault();
+                var button=$(this).find('input[type="submit"],button');
+                var previous=$(button).html();
+                button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                $.ajax({
+                    url: "{{route('roles.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                        });
+
+                    },
+                    error: function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+        });
+    </script>
 @endsection
 

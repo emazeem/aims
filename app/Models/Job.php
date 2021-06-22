@@ -13,6 +13,10 @@ class Job extends Model
     public function quotes(){
         return $this->belongsTo('App\Models\Quotes','quote_id');
     }
+    public function siteplanings(){
+        return $this->hasMany('App\Models\SitePlan','job_id');
+    }
+
     protected static $logAttributes = ['quotes_id','status'];
     protected static $logOnlyDirty = true;
 

@@ -60,10 +60,34 @@
     @endif
     <div class="row">
         <h3 class="float-left font-weight-light col-12"><i class="feather icon-eye"></i> Job Detail</h3>
-        <div class="col-md-8 col-12">
+        <div class="col-md-6 col-12 table-responsive">
+            <table class="table bg-white table-bordered">
+                <tr>
+                    <th>Job #</th>
+                    <th>Name</th>
+                    <th>Parameter</th>
+                    <th>Quantity</th>
+                </tr>
+
+                @foreach($items as $item)
+
+                    <tr>
+                        <td>{{\App\Models\Job::find($id)->cid}}</td>
+                        <td>{{$item->capabilities->name}}</td>
+                        <td>{{$item->parameters->name}}</td>
+                        <td>{{$item->quantity}}</td>
+                    </tr>
+                @endforeach
+
+            </table>
+        </div>
+        <div class="col-md-6 col-12">
             <form class="form-horizontal " id="assign_site_job_form" method="post">
                 @csrf
                 <input type="hidden" value="{{$id}}" name="id" id="job_id">
+                @foreach($items as $item)
+                    <input type="hidden" value="{{$item->id}}" name="items[]">
+                @endforeach
                 @php $today=date('Y-m-d',time()); @endphp
                 <div class="form-group row">
                     <label for="start" class="col-sm-2 control-label">Start Date</label>

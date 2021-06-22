@@ -6,9 +6,11 @@ use App\Models\Asset;
 use App\Models\Jobitem;
 use App\Models\Labjob;
 use App\Models\Parameter;
+use App\Models\QuoteItem;
 use App\Models\Quotes;
 use App\Models\Session;
 use App\Models\Sitejob;
+use App\Models\SitePlan;
 use App\Models\Suggestion;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -49,21 +51,37 @@ class TaskController extends Controller
         if ($request->start > $request->end){
             return  redirect()->back()->with('error','Start date can not be greater than End date');
         }
-        $this->validate($request,[
-            'start'=>'required',
-            'end'=>'required',
-            'user'=>'required',
-            'assets'=>'required',
-        ]);
-        //dd($request->all());
         $tasks=Jobitem::find($request->id);
-        $tasks->start=$request->start;
-        $tasks->end=$request->end;
-        $tasks->status=2;
-        $tasks->assign_user=$request->user;
-        $tasks->assign_assets=implode(',',$request->assets);
-        $tasks->save();
-        return response()->json(['success'=>'Tasks assigned successfully']);
+        if ($tasks->type==0){
+            $this->validate($request,[
+                'start'=>'required',
+                'end'=>'required',
+                'user'=>'required',
+                'assets'=>'required',
+            ]);
+            //dd($request->all());
+            $tasks->start=$request->start;
+            $tasks->end=$request->end;
+            $tasks->status=2;
+            $tasks->assign_user=$request->user;
+            $tasks->assign_assets=implode(',',$request->assets);
+            $tasks->save();
+        }
+        if ($tasks->type==1){
+            $this->validate($request,[
+                'user'=>'required',
+                'assets'=>'required',
+            ]);
+            $site=SitePlan::where('job_id',$tasks->job_id)->first();
+            $tasks->start=$site->start;
+            $tasks->end=$site->end;
+            $tasks->status=2;
+            $tasks->assign_user=$request->user;
+            $tasks->assign_assets=implode(',',$request->assets);
+            $tasks->save();
+        }
+
+return response()->json(['success'=>'Tasks assigned successfully']);
     }
 
     public function respectiveassets($id){
@@ -71,13 +89,22 @@ class TaskController extends Controller
         return response()->json($assets);
     }
     public function siteassignjobs(Request $request){
+
         $this->validate($request,[
             'start'=>'required',
             'end'=>'required',
             'user'=>'required',
             'assets'=>'required',
         ]);
-        $jobs=Jobitem::where('job_id',$request->id)->where('type',1)->get();
+        $site=new SitePlan();
+        $site->job_id=$request->id;
+        $site->start=$request->start;
+        $site->end=$request->end;
+        $site->assigned_users=implode(',',$request->user);
+        $site->assigned_assets=implode(',',$request->assets);
+        $site->quote_items=implode(',',$request->items);
+        $site->save();
+        /*$jobs=Jobitem::where('job_id',$request->id)->where('type',1)->get();
         foreach ($jobs as $item) {
             $job=Jobitem::find($item->id);
             $job->status=1;
@@ -88,12 +115,13 @@ class TaskController extends Controller
             $users=implode(',',$request->user);
             $job->group_users=$users;
             $job->save();
-        }
-        return response()->json(['success'=> 'Site job has assigned successfully']);
+        }*/
+        return response()->json(['success'=> 'Site job has planed successfully']);
 
     }
-    public function site_assign($id){
-        return view('tasks.sitejob',compact('id'));
+    public function site_assign($id,$items){
+        $items=QuoteItem::whereIn('id',[$items])->get();
+        return view('tasks.sitejob',compact('id','items'));
     }
     //
 }

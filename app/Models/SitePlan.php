@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SitePlan extends Model
 {
     use HasFactory;
+    public function jobs(){
+        return $this->belongsTo('App\Models\Job','job_id');
+    }
 }
