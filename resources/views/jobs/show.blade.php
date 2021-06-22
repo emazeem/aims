@@ -314,7 +314,11 @@
                                                 <span class="badge badge-success">Ended</span>
                                             @endif
                                         </p>
-                                        @if($sitejob->status<1)
+                                        @if($sitejob->cid)
+                                            <p class="m-0">↪ <b>Certificate # : </b>{{$sitejob->cid}}</p>
+                                        @endif
+
+                                    @if($sitejob->status<1)
                                             <span class="badge badge-info px-3 py-2 m-1">Waiting for store entry</span>
                                         @else
                                             <p class="m-0">↪ <b>Equipment ID : </b>{{$sitejob->eq_id}}</p>
@@ -332,9 +336,18 @@
                                             <p class="m-0">↪ <b>Start : </b>{{$sitejob->start}}</p>
                                             <p class="m-0">↪ <b>End : </b>{{$sitejob->end}}</p>
                                             <p class="m-0">↪ <b>Assign User : </b>
-
+                                                @if($sitejob->assign_user)
+                                                    {{\App\Models\User::find($sitejob->assign_user)->fname}} {{\App\Models\User::find($sitejob->assign_user)->lname}}
+                                                @endif
                                             </p>
                                             <p class="m-0">↪ <b>Assign Asset : </b>
+                                                <br>
+                                                @if($sitejob->assign_assets)
+                                                    @php $assets=explode(',',$sitejob->assign_assets); @endphp
+                                                    @foreach($assets as $asset)
+                                                        <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
+                                                    @endforeach
+                                                @endif
 
                                             </p>
                                         @endif
