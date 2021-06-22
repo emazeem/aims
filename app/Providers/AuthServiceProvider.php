@@ -724,18 +724,57 @@ class AuthServiceProvider extends ServiceProvider
 
     public function manage_jobs()
     {
-        Gate::define('manage-jobs-index', function ($user) {
-            if (in_array('manage-jobs-index',explode(',',$user->roles->permissions))){
+
+        Gate::define('order-management', function ($user) {
+            if (in_array('order-management',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;
         });
+        Gate::define('awaiting-job-index', function ($user) {
+            if (in_array('awaiting-job-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('awaiting-job-show', function ($user) {
+            if (in_array('awaiting-job-show',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
+
     }
 
     public function jobs()
     {
         Gate::define('jobs-index', function ($user) {
             if (in_array('jobs-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('jobs-view', function ($user) {
+            if (in_array('jobs-view',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('print-job-form', function ($user) {
+            if (in_array('print-job-form',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('print-delivery-note', function ($user) {
+            if (in_array('print-delivery-note',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('print-gate-pass', function ($user) {
+            if (in_array('print-gate-pass',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;

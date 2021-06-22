@@ -283,7 +283,7 @@
                             @endif
                         <td class="font-11">
                             @php $range=explode(',',$quote->range); @endphp
-                            @if($quote->status==0 or $quote->status==2){{$quote->parameter==14?'Multi Parameter':$range[0].'~'.$range[1].\App\Models\Unit::find($quote->unit)->unit}}@else --- @endif</td>
+                            @if($quote->status==0 or $quote->status==2){{$quote->parameter==14?'Multi Parameter':$range[0].'~'.$range[1].\App\Models\Unit::find($quote->unit)->unit}}@else No Facility @endif</td>
                         <td class="font-11">
                             @if($quote->status==0 or $quote->status==2){{$quote->accredited}}@else --- @endif</td>
                         <td class="font-11">

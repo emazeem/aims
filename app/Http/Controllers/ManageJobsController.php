@@ -10,16 +10,18 @@ use App\Models\Quotes;
 use App\Models\User;
 use App\Notifications\CustomNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 use Yajra\DataTables\DataTables;
 
 class ManageJobsController extends Controller
 {
     public function index(){
+        $this->authorize('awaiting-job-index');
         return view('manage.index');
     }
     public function fetch(){
-        $this->authorize('quote-index');
+        $this->authorize('awaiting-job-index');
         $data=Quotes::with('customers')->where('status',3)->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -51,7 +53,9 @@ class ManageJobsController extends Controller
             })
             ->addColumn('options', function ($data) {
                 $action=null;
-                $action.="<a title='view' href=".url('/jobs/manage/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
+                if (Auth::user()->can('awaiting-job-show')){
+                    $action.="<a title='view' href=".url('/jobs/manage/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
+                }
                 return "&emsp;".$action;
             })
             ->rawColumns(['options','status'])
@@ -59,31 +63,16 @@ class ManageJobsController extends Controller
     }
 
     public function show($id){
+        $this->authorize('awaiting-job-index');
         $show=Quotes::find($id);
-
-
         $jobs=Job::where('quote_id',$id)->get();
-        $job_ids=[];
-        $assigned_items=[];
+        $createjob=true;
         foreach ($jobs as $job){
-            $job_ids[]=$job->id;
-        }
-        foreach ($job_ids as $job_id) {
-            //for lab
-            $labs=Jobitem::where('job_id',$job_id)->where('type',0)->get();
-            foreach ($labs as $lab){
-                $assigned_items[]=$lab->item_id;
-            }
-            $sites=Jobitem::where('job_id',$job_id)->where('type',1)->get();
-            foreach ($sites as $site){
-                $assigned_items[]=$site->item_id;
+            if ($job->status==0){
+                $createjob=false;
             }
         }
-        $assigned_items=array_unique($assigned_items);
-        $assigned_items=array_values($assigned_items);
-        $items=QuoteItem::with('capabilities')->where('quote_id',$id)->get();
-
-        return view('manage.show',compact('show','jobs','id','items','assigned_items'));
+        return view('manage.show',compact('show','jobs','id','createjob'));
     }
     public function get_items(Request $request){
         $items=QuoteItem::with('capabilities')->where('quote_id',$request->id)->get();

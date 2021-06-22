@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class ItemEntriesController extends Controller
 {
     public function index($id){
-
         $jobs=Jobitem::with('item')->where('job_id',$id)->where('type',0)->get();
         return view('itementries.show',compact('jobs'));
     }
@@ -26,9 +25,7 @@ class ItemEntriesController extends Controller
             'accessories'=>'required',
             'visualinspection'=>'required',
         ]);
-
         $item=QuoteItem::find($request->id);
-
         $jobitem = new Jobitem();
         if ($item->location == "site") {
             $jobitem->type=1;

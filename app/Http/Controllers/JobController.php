@@ -9,11 +9,13 @@ use App\Models\QuoteItem;
 use App\Models\SitePlan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class JobController extends Controller
 {
     public function index(){
+        $this->authorize('jobs-index');
         $users=User::all();
         $assets=Asset::all();
         return view('jobs.index',compact('users','assets'));
@@ -55,14 +57,17 @@ class JobController extends Controller
                 return $status;
             })
             ->addColumn('options', function ($data) {
-                $action="<a title='view' href=".url('/jobs/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
+                $action=null;
+                if (Auth::user()->can('jobs-view')){
+                    $action="<a title='view' href=".url('/jobs/view/'.$data->id)." class='btn btn-sm btn-dark'><i class='fa fa-eye'></i></a>";
+                }
                 return $action;
             })
             ->rawColumns(['options','status'])
             ->make(true);
     }
     public function view($id){
-
+        $this->authorize('jobs-view');
         $job=Job::with('quotes')->find($id);
         $labjobs=Jobitem::where('job_id',$id)->where('type',0)->get();
         $sitejobs=Jobitem::where('job_id',$id)->where('type',1)->get();
@@ -94,12 +99,14 @@ class JobController extends Controller
         return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items'));
     }
     public function print_job_form($id){
+        $this->authorize('print-job-form');
         $job=Job::with('quotes')->find($id);
         $labjobs=Jobitem::where('job_id',$id)->where('type',0)->get();
         $sitejobs=Jobitem::where('job_id',$id)->where('type',1)->get();
         return view('jobs.jobform',compact('job','labjobs','sitejobs'));
     }
     public function print_DN($id){
+        $this->authorize('print-delivery-note');
         $job=Job::with('quotes')->find($id);
         $labjobs=Jobitem::where('job_id',$id)->get();
         return view('jobs.deliverynote',compact('job','labjobs'));
@@ -118,6 +125,7 @@ class JobController extends Controller
         return view('jobs.invoice',compact('job','labitems'));
     }
     public function print_gp($id){
+        $this->authorize('print-gate-pass');
         $items=QuoteItem::with('customers')->find($id);
         $job=Job::find($id);
         $plan=SitePlan::where('job_id',$id)->first();

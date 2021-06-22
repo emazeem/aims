@@ -18,7 +18,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3><i class="fa fa-list"></i> All Jobs</h3>
+            <h3 class="font-weight-light"><i class="feather icon-list"></i> All Jobs</h3>
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
                    width="100%">
 

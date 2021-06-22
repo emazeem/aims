@@ -266,6 +266,7 @@ Route::group(['prefix'=> '/item/entries'],function() {
     Route::post('edit/{id}',[App\Http\Controllers\ItemEntriesController::class, 'edit'])->name('checkin.edit');
     Route::post('update',[App\Http\Controllers\ItemEntriesController::class, 'update'])->name('checkin.update');
 });
+
 Route::group(['prefix'=> 'scheduling'],function() {
     Route::group(['prefix'=> 'labs'],function() {
         Route::get('/{id}',[App\Http\Controllers\SchedulingController::class, 'show'])->middleware('auth')->name('lab');

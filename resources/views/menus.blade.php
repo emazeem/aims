@@ -189,6 +189,7 @@
                     $('#edit_menu').modal('hide');
                     swal('success',data.success,'success').then((value) => {
                         $("#example").DataTable().ajax.reload(null,false);
+
                     });
 
                 },
@@ -229,7 +230,7 @@
                             success: function(data)
                             {
                                 swal('success',data.success,'success').then((value) => {
-                                    location.reload();
+                                    $("#example").DataTable().ajax.reload(null,false);
                                 });
 
                             },

@@ -13,15 +13,23 @@
         <div class="col-12">
             <h3 class="float-left font-weight-light"><i class="feather icon-eye"></i> Job Detail</h3>
             <div class="float-right">
-                <a onclick="window.open('{{url('/jobs/print/jobform/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
-                   href="{{url('/jobs/print/jobform/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
-                            class="fa fa-print"></i> JN</a>
-                <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
-                   href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
-                            class="fa fa-print"></i> DN</a>
-                <a title='Gatepass' onclick="window.open('{{url('/jobs/print/GP/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
-                    class='btn btn-sm btn-info' href="{{url('jobs/print/GP/'.$job->id)}}"><i class="fa fa-print"></i> GP</a>
-
+                @can('print-job-form')
+                    <a onclick="window.open('{{url('/jobs/print/jobform/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                       href="{{url('/jobs/print/jobform/'.$job->id)}}" title='Print'
+                       class='pull-left btn btn-sm btn-info'><i
+                                class="fa fa-print"></i> {{$job->cid}}</a>
+                @endcan
+                @can('print-delivery-note')
+                    <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                       href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
+                                class="fa fa-print"></i> DN</a>
+                @endcan
+                @can('print-gate-pass')
+                    <a title='Gatepass'
+                       onclick="window.open('{{url('/jobs/print/GP/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                       class='btn btn-sm btn-info' href="{{url('jobs/print/GP/'.$job->id)}}"><i class="fa fa-print"></i>
+                        GP</a>
+                @endcan
             </div>
         </div>
         <div class="col-12 table-responsive">
@@ -149,10 +157,12 @@
 
         <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="lab-tab" data-toggle="tab" href="#lab" role="tab" aria-controls="home" aria-selected="true">Lab Items</a>
+                <a class="nav-link active" id="lab-tab" data-toggle="tab" href="#lab" role="tab" aria-controls="home"
+                   aria-selected="true">Lab Items</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="site-tab" data-toggle="tab" href="#site" role="tab" aria-controls="profile" aria-selected="false">Site Items</a>
+                <a class="nav-link" id="site-tab" data-toggle="tab" href="#site" role="tab" aria-controls="profile"
+                   aria-selected="false">Site Items</a>
             </li>
 
         </ul>
@@ -168,11 +178,18 @@
                                         <div class="card-header">
                                             <a href="#" data-id="{{$labjob->id}}" data-type="lab"
                                                class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
-                                            <button type="button" data-id="{{$labjob->id}}" class="btn btn-sm btn-light border pull-right assign-lab-task"><i class="fa fa-plus-square"></i> Assign</button>
+                                            <button type="button" data-id="{{$labjob->id}}"
+                                                    class="btn btn-sm btn-light border pull-right assign-lab-task"><i
+                                                        class="fa fa-plus-square"></i> Assign
+                                            </button>
                                             @if($labjob->status>0)
-                                                <a href="#" data-id="{{$labjob->id}}" class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i> Receiving</a>
+                                                <a href="#" data-id="{{$labjob->id}}"
+                                                   class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i>
+                                                    Receiving</a>
                                             @elseif($labjob->status==0)
-                                                <a href="#" data-id="{{$labjob->id}}" class="btn add btn-light border btn-sm"><i class="fa fa-plus"></i> Receiving</a>
+                                                <a href="#" data-id="{{$labjob->id}}"
+                                                   class="btn add btn-light border btn-sm"><i class="fa fa-plus"></i>
+                                                    Receiving</a>
                                             @endif
 
                                         </div>
@@ -192,14 +209,18 @@
                                                     <span class="badge badge-success">Started</span>
                                                 @elseif($labjob->status==4)
                                                     <span class="badge badge-success">Ended</span>
-{{--                                                    <span class="badge badge-success">Calculated</span>--}}
+                                                    {{--                                                    <span class="badge badge-success">Calculated</span>--}}
                                                 @elseif($labjob->status==5)
                                                     <span class="badge badge-success">Ended</span>
                                                 @endif
                                             </p>
 
-                                            <p class="m-0">↪ <b>Parameter : </b>{{\App\Models\Parameter::find($labjob->item->parameter)->name}}</p>
-                                            <p class="m-0">↪ <b>Capability : </b>{{\App\Models\Capabilities::find($labjob->item->capability)->name}}</p>
+                                            <p class="m-0">↪ <b>Parameter
+                                                    : </b>{{\App\Models\Parameter::find($labjob->item->parameter)->name}}
+                                            </p>
+                                            <p class="m-0">↪ <b>Capability
+                                                    : </b>{{\App\Models\Capabilities::find($labjob->item->capability)->name}}
+                                            </p>
                                             <p class="m-0">↪ <b>Range : </b>{{$labjob->item->range}}</p>
                                             <p class="m-0">↪ <b>Accredited : </b>{{$labjob->item->accredited}}</p>
                                             @if($labjob->cid)
@@ -221,20 +242,20 @@
                                                 <p class="m-0">↪ <b>Start : </b>{{$labjob->start}}</p>
                                                 <p class="m-0">↪ <b>End : </b>{{$labjob->end}}</p>
                                                 <p class="m-0">↪ <b>Assign User : </b>
-                                                @if($labjob->assign_user)
-                                                    {{\App\Models\User::find($labjob->assign_user)->fname}} {{\App\Models\User::find($labjob->assign_user)->lname}}
-                                                @endif
-                                            </p>
+                                                    @if($labjob->assign_user)
+                                                        {{\App\Models\User::find($labjob->assign_user)->fname}} {{\App\Models\User::find($labjob->assign_user)->lname}}
+                                                    @endif
+                                                </p>
                                                 <p class="m-0">↪ <b>Assign Asset : </b>
-                                                <br>
-                                                @if($labjob->assign_assets)
-                                                    @php $assets=explode(',',$labjob->assign_assets); @endphp
-                                                    @foreach($assets as $asset)
-                                                        <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
-                                                    @endforeach
-                                                @endif
+                                                    <br>
+                                                    @if($labjob->assign_assets)
+                                                        @php $assets=explode(',',$labjob->assign_assets); @endphp
+                                                        @foreach($assets as $asset)
+                                                            <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
+                                                        @endforeach
+                                                    @endif
 
-                                            </p>
+                                                </p>
                                             @endif
                                             @if($labjob->status<3)
                                                 <span class="badge badge-info px-3 py-2 m-1">Not Started yet</span>
@@ -265,7 +286,8 @@
                             <h5 class="font-weight-light">Assets Assigned</h5>
                             @foreach($all_assets as $asset)
                                 <span class="badge border px-3 bg-white py-2 m-1">
-                                        {{\App\Models\Asset::find($asset)->name}} ( {{\App\Models\Asset::find($asset)->code}} )
+                                        {{\App\Models\Asset::find($asset)->name}}
+                                    ( {{\App\Models\Asset::find($asset)->code}} )
                                         </span>
                             @endforeach
                         @endif
@@ -288,15 +310,20 @@
                             {{--<a href="{{route('tasks.site_assign',[$job->id])}}" title='Assign Site Job' class='btn btn-sm btn-light border assign-site float-right'> <i class="fa fa-plus-square"></i> Assign</a>--}}
 
                         </div>
-                    @foreach($sitejobs as $sitejob)
+                        @foreach($sitejobs as $sitejob)
                             <div class="col-md-4 col-12 mt-1">
                                 <div class="card">
                                     <div class="card-header">
-                                        <a href="#" data-id="{{$sitejob->id}}" data-type="lab" class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
+                                        <a href="#" data-id="{{$sitejob->id}}" data-type="lab"
+                                           class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
                                     </div>
                                     <div class="card-body">
-                                        <p class="m-0">↪ <b>Parameter : </b>{{\App\Models\Parameter::find($sitejob->item->parameter)->name}}</p>
-                                        <p class="m-0">↪ <b>Capability : </b>{{\App\Models\Capabilities::find($sitejob->item->capability)->name}}</p>
+                                        <p class="m-0">↪ <b>Parameter
+                                                : </b>{{\App\Models\Parameter::find($sitejob->item->parameter)->name}}
+                                        </p>
+                                        <p class="m-0">↪ <b>Capability
+                                                : </b>{{\App\Models\Capabilities::find($sitejob->item->capability)->name}}
+                                        </p>
                                         <p class="m-0">↪ <b>Range : </b>{{$sitejob->item->range}}</p>
                                         <p class="m-0">↪ <b>Accredited : </b>{{$sitejob->item->accredited}}</p>
                                         <p class="m-0">↪ <b>Status : </b>
@@ -318,7 +345,7 @@
                                             <p class="m-0">↪ <b>Certificate # : </b>{{$sitejob->cid}}</p>
                                         @endif
 
-                                    @if($sitejob->status<1)
+                                        @if($sitejob->status<1)
                                             <span class="badge badge-info px-3 py-2 m-1">Waiting for store entry</span>
                                         @else
                                             <p class="m-0">↪ <b>Equipment ID : </b>{{$sitejob->eq_id}}</p>

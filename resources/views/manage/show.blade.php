@@ -11,7 +11,11 @@
     <div class="row">
         <div class="col-12">
             <h3 class="font-weight-light float-left"><i class="feather icon-eye"></i> {{$show->cid}}</h3>
-            <button class="btn btn-primary btn-sm float-right create" data-id="{{$show->id}}"><i class="feather icon-plus-circle"></i> JOB</button>
+            @can('create-job')
+                @if($createjob==true)
+                    <button class="btn btn-primary btn-sm float-right create" data-id="{{$show->id}}"><i class="feather icon-plus-circle"></i> JOB</button>
+                @endif
+            @endcan
         </div>
         <div class="col-12">
             <table class="table table-hover bg-white table-bordered table-sm mt-2 detail-table">
@@ -27,7 +31,8 @@
                     <tr>
                         <td><b>All Jobs ({{count($jobs)}})</b></td>
                         <td>
-                            @foreach($jobs as $job)
+                            @can('jobs-view')
+                                @foreach($jobs as $job)
                                 <a class="badge badge-light border hover px-3 p-2 mb-1"
                                    href="{{url('jobs/view/'.$job->id)}}" data-id="{{$job->id}}">
                                     {{$job->cid}}
@@ -42,6 +47,7 @@
                                     <input type="hidden" name="id" value="{{$job->id}}">
                                 </form>
                             @endforeach
+                            @endcan
                         </td>
                     </tr>
                 @endif
@@ -52,7 +58,6 @@
             </table>
         </div>
     </div>
-
     <script>
         $(document).ready(function () {
             $(document).on('click', '.delete', function (e) {
@@ -125,7 +130,6 @@
 
         });
     </script>
-{{--    @include('jobs.create')--}}
 @endsection
 
 
