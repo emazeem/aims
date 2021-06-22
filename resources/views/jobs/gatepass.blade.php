@@ -16,6 +16,9 @@
             display: none;
         }
     }
+    .font-sm{
+        font-size: 12px;
+    }
 </style>
 <body>
 
@@ -50,7 +53,7 @@
                 {{$job->quotes->cid}}
             </div>
             <div class="col-2 font-11 ">Address :</div>
-            <div class="col-6 custom-bottom-border text-center" >
+            <div class="col-6 custom-bottom-border text-center font-sm" >
                 {{$job->quotes->customers->address}}
             </div>
             <div class="col-12 my-2"></div>

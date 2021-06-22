@@ -17,7 +17,7 @@ class GenerateRequestsController extends Controller
 
         $this->authorize('quote-index');
         $customers=Customer::orderBY('reg_name')->get();
-        $tms=User::whereIn('id',[1,2,4,6,19])->get();
+        $tms=User::whereIn('id',[1,8,19])->get();
         $capabilities=Capabilities::all();
         $parameters=Parameter::all();
 

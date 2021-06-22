@@ -59,13 +59,13 @@
           <entry key="css" value="361" />
           <entry key="html" value="580" />
           <entry key="js" value="3" />
-          <entry key="php" value="82521" />
+          <entry key="php" value="82558" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="49615" />
+          <entry key="Blade" value="49652" />
           <entry key="CSS" value="362" />
           <entry key="HTML" value="616" />
           <entry key="JavaScript" value="3" />
@@ -78,7 +78,7 @@
           <entry key="css" value="17" />
           <entry key="html" value="16" />
           <entry key="js" value="7" />
-          <entry key="php" value="1357" />
+          <entry key="php" value="1358" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -88,7 +88,7 @@
           <entry key="CSS" value="17" />
           <entry key="HTML" value="16" />
           <entry key="JavaScript" value="7" />
-          <entry key="PHP" value="587" />
+          <entry key="PHP" value="588" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -108,11 +108,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/jobs/gatepass.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+            <state relative-caret-position="132">
+              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GenerateRequestsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -515,7 +524,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="grouped&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/groupedcapabilities&#10;jobcontroller&#9;null&#9;null&#10;three&#9;null&#9;null&#10;asset&#9;null&#9;null&#10;generate&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;quote&#9;null&#9;null&#10;genera&#9;null&#9;null&#10;we&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;web&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;quo&#9;null&#9;null&#10;AUTH&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;jobcont&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;job&#9;null&#9;null&#10;quotecontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/QuotesController.php&#10;quoteitem&#9;null&#9;null&#10;groupe&#9;null&#9;null&#10;role&#9;null&#9;null&#10;roles&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/roles&#10;authser&#9;null&#9;null&#10;log&#9;null&#9;null&#10;jobcontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;quotecon&#9;null&#9;null&#10;pending&#9;null&#9;null&#10;item&#9;null&#9;null&#10;itemc&#9;null&#9;null&#10;mast&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;design&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/designation.blade.php&#10;designation&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/database/old migrations/2020_09_23_164727_create_designations_table.php&#10;styl&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/css/styling.css&#10;mytas&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/mytask&#10;manage&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/manage-menus.blade.php&#10;assets&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/assets&#10;proced&#9;null&#9;null&#10;capa&#9;null&#9;null&#10;styling&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/styling.css&#10;logre&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/logreview&#10;style&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/style.css&#10;chart.js&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/js/pages/chart.js&#10;itemco&#9;null&#9;null&#10;gener&#9;null&#9;null&#10;depart&#9;null&#9;null&#10;profile&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/profile.blade.php&#10;parameter&#9;null&#9;null&#10;aut&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;select2&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/plugins/select2.min.css&#10;reques&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;das&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/DashboardControlller.php&#10;web.p&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;menu&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/menu-list.blade.php&#10;master&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="gener&#9;null&#9;null&#10;grouped&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/groupedcapabilities&#10;jobcontroller&#9;null&#9;null&#10;three&#9;null&#9;null&#10;asset&#9;null&#9;null&#10;generate&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;quote&#9;null&#9;null&#10;genera&#9;null&#9;null&#10;we&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;web&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;quo&#9;null&#9;null&#10;AUTH&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;jobcont&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;job&#9;null&#9;null&#10;quotecontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/QuotesController.php&#10;quoteitem&#9;null&#9;null&#10;groupe&#9;null&#9;null&#10;role&#9;null&#9;null&#10;roles&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/roles&#10;authser&#9;null&#9;null&#10;log&#9;null&#9;null&#10;jobcontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;quotecon&#9;null&#9;null&#10;pending&#9;null&#9;null&#10;item&#9;null&#9;null&#10;itemc&#9;null&#9;null&#10;mast&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;design&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/designation.blade.php&#10;designation&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/database/old migrations/2020_09_23_164727_create_designations_table.php&#10;styl&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/css/styling.css&#10;mytas&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/mytask&#10;manage&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/manage-menus.blade.php&#10;assets&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/assets&#10;proced&#9;null&#9;null&#10;capa&#9;null&#9;null&#10;styling&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/styling.css&#10;logre&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/logreview&#10;style&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/style.css&#10;chart.js&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/js/pages/chart.js&#10;itemco&#9;null&#9;null&#10;depart&#9;null&#9;null&#10;profile&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/profile.blade.php&#10;parameter&#9;null&#9;null&#10;aut&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;select2&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/plugins/select2.min.css&#10;reques&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;das&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/DashboardControlller.php&#10;web.p&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;menu&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/menu-list.blade.php&#10;master&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -618,12 +627,12 @@
       <workItem from="1623817777628" duration="19093000" />
       <workItem from="1623840445522" duration="37265000" />
       <workItem from="1623941508779" duration="53112000" />
-      <workItem from="1624180767625" duration="35972000" />
+      <workItem from="1624180767625" duration="36452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="599748000" />
+    <option name="totallyTimeSpent" value="600228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -666,13 +675,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/LogReview.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
@@ -1053,8 +1055,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/jobs/gatepass.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+        <state relative-caret-position="132">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GenerateRequestsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
         </state>
       </provider>
     </entry>
