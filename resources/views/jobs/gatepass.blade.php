@@ -47,7 +47,7 @@
             <div class="col-2 font-11 ">Quote Ref :</div>
             <div class="col-4 custom-bottom-border text-center" >
 
-                {{$job->quote_id}}
+                {{$job->quotes->cid}}
             </div>
             <div class="col-2 font-11 ">Address :</div>
             <div class="col-4 custom-bottom-border text-center" >
@@ -56,15 +56,15 @@
             <div class="col-12 my-2"></div>
             <div class="col-2 font-11 ">Job Number :</div>
             <div class="col-2 custom-bottom-border text-center" >
-                {{$job->id}}
+                {{$job->cid}}
             </div>
             <div class="col-2 font-11 ">Start From :</div>
             <div class="col-2 custom-bottom-border text-center" >
-                {{$sitejobs->start}}
+                {{$plan->start}}
             </div>
             <div class="col-2 font-11 ">Date To :</div>
             <div class="col-2 custom-bottom-border text-center" >
-                {{$sitejobs->end}}
+                {{$plan->end}}
             </div>
             <div class="col-12 my-2"></div>
             <div class="col-6 font-11 ">
@@ -98,11 +98,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                @php $i=1;@endphp
-                @foreach($assets as $asset)
+
+                @foreach($assets as $k=>$asset)
                     @php $assetdetails=\App\Models\Asset::find($asset)@endphp
                     <tr>
-                        <td>{{$i}}</td>
+                        <td>{{$k+1}}</td>
                         <td>{{$assetdetails->code}}</td>
                         <td>{{$assetdetails->name}}</td>
                         <td>{{$assetdetails->make}}</td>
@@ -115,7 +115,7 @@
                         <td>-</td>
                         <td>-</td>
                     </tr>
-                    @php $i++; @endphp
+
                 @endforeach
                 </tbody>
             </table>

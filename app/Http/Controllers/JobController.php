@@ -6,6 +6,7 @@ use  App\Models\Asset;
 use App\Models\Job;
 use App\Models\Jobitem;
 use App\Models\QuoteItem;
+use App\Models\SitePlan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -119,9 +120,11 @@ class JobController extends Controller
     public function print_gp($id){
         $items=QuoteItem::with('customers')->find($id);
         $job=Job::find($id);
-        $sitejobs=Jobitem::where('job_id',$id)->first();
-        $assets=explode(',',$sitejobs->group_assets);
-        return view('jobs.gatepass',compact('items','assets','sitejobs','job'));
+        $plan=SitePlan::where('job_id',$id)->first();
+        $sitejobs=QuoteItem::whereIn('id',explode(',',$plan->assigned_assets))->first();
+        $assets=explode(',',$plan->assigned_assets);
+
+        return view('jobs.gatepass',compact('items','assets','sitejobs','job','plan'));
     }
     public function print_jt($loc,$index,$id){
         $tag=Jobitem::find($id);
