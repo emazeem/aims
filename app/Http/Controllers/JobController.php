@@ -71,39 +71,30 @@ class JobController extends Controller
         $job=Job::with('quotes')->find($id);
         $labjobs=Jobitem::where('job_id',$id)->where('type',0)->get();
         $sitejobs=Jobitem::where('job_id',$id)->where('type',1)->get();
-
-
         $items=QuoteItem::with('capabilities')->where('quote_id',$job->quote_id)->get();
-
-
         $jobs=Job::where('quote_id',$id)->get();
         $job_ids=[];
         $assigned_items=[];
         $close=true;
-        foreach ($jobs as $job){
-            $job_ids[]=$job->id;
-        }
-        foreach ($job_ids as $job_id) {
-            //for lab
-            $labs=Jobitem::where('job_id',$job_id)->where('type',0)->get();
-            foreach ($labs as $lab){
-                $assigned_items[]=$lab->item_id;
-                if ($job->status<4){
-                    $close=false;
-                }
 
+        if (count($job->jobitems)==0){
+            $close=false;
+        }
+        foreach ($labjobs as $lab){
+            $assigned_items[]=$lab->item_id;
+            if ($lab->status<4){
+                $close=false;
             }
-            $sites=Jobitem::where('job_id',$job_id)->where('type',1)->get();
-            foreach ($sites as $site){
-                $assigned_items[]=$site->item_id;
-                if ($job->status<4){
-                    $close=false;
-                }
+        }
+
+        foreach ($sitejobs as $site){
+            $assigned_items[]=$site->item_id;
+            if ($site->status<4){
+                $close=false;
             }
         }
         $assigned_items=array_unique($assigned_items);
         $assigned_items=array_values($assigned_items);
-
         return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close'));
     }
     public function print_job_form($id){

@@ -16,6 +16,10 @@ class Job extends Model
     public function siteplanings(){
         return $this->hasMany('App\Models\SitePlan','job_id');
     }
+    public function jobitems(){
+        return $this->hasMany('App\Models\JobItem','job_id');
+    }
+
 
     protected static $logAttributes = ['quotes_id','status'];
     protected static $logOnlyDirty = true;

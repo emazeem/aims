@@ -49,9 +49,11 @@
                 <tr>
                     <th>Status</th>
                     <td>
+
                         @if($job->status==0)
                             <span class="badge badge-danger px-2 py-1">Pending</span>
-                        @else
+                        @endif
+                        @if($job->status==1)
                             <span class="badge badge-primary px-2 py-1">Closed</span>
                         @endif
                     </td>
