@@ -289,7 +289,7 @@
                         <td class="font-11">
                             @if($quote->status==0 or $quote->status==2){{$quote->location}}@else --- @endif</td>
                         <td class="font-11 text-right">
-                            @if($quote->status==0 or $quote->status==2){{number_format($quote->price)}}@else --- @endif</td>
+                            @if($quote->status==0 or $quote->status==2){{number_format($quote->price)}}@else 0 @endif</td>
                         <td class="font-11">{{$quote->quantity}}</td>
                         <td class="font-11 text-right">{{number_format($quote->quantity*$quote->price)}}</td>
                     </tr>
