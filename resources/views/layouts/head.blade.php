@@ -78,7 +78,7 @@
                     <a href="#!" class="dropdown-toggle" data-toggle="dropdown">
                         @if(auth()->user()->profile)
                             <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
-                                 class="img-radius wid-40 hei-40" alt="User-Profile-Image" style="object-fit: cover">
+                                 class="img-radius wid-40 hei-40" alt="User-Profile" style="object-fit: cover">
                         @else
                             <img src="{{url('img/profile.png')}}" class="img-radius wid-40  hei-40" style="object-fit: cover">
                         @endif
@@ -89,7 +89,7 @@
                         <div class="pro-head">
                             @if(auth()->user()->profile)
                                 <img src="{{Storage::disk('local')->url('public/profile/'.auth()->user()->id.'/'.auth()->user()->profile)}}"
-                                     class="img-radius wid-40 hei-40" style="object-fit: cover" alt="User-Profile-Image">
+                                     class="img-radius wid-40 hei-40" style="object-fit: cover" alt="User-Profile">
                             @else
                                 <img src="{{url('img/profile.png')}}" class="img-radius wid-40 hei-40" style="object-fit: cover">
                             @endif
