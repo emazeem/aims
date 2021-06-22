@@ -45,12 +45,12 @@
         </div>
         <div class="row py-3">
             <div class="col-2 font-11 ">Quote Ref :</div>
-            <div class="col-4 custom-bottom-border text-center" >
+            <div class="col-2 custom-bottom-border text-center" >
 
                 {{$job->quotes->cid}}
             </div>
             <div class="col-2 font-11 ">Address :</div>
-            <div class="col-4 custom-bottom-border text-center" >
+            <div class="col-6 custom-bottom-border text-center" >
                 {{$job->quotes->customers->address}}
             </div>
             <div class="col-12 my-2"></div>
