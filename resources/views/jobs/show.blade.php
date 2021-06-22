@@ -19,10 +19,9 @@
                 <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
                    href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
                             class="fa fa-print"></i> DN</a>
-                @if(count($ifassigned)>0)
                 <a title='Gatepass' onclick="window.open('{{url('/jobs/print/GP/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
                     class='btn btn-sm btn-info' href="{{url('jobs/print/GP/'.$job->id)}}"><i class="fa fa-print"></i> GP</a>
-                @endif
+
             </div>
         </div>
         <div class="col-12 table-responsive">

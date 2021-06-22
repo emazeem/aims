@@ -299,7 +299,7 @@ class QuoteItemController extends Controller
     }
     public function getCapabilities($id){
         $data['capabilities']=Capabilities::where('parameter', $id)
-        /*    ->where('group_id',null)*/
+            ->where('group_id',null)
             ->orderBy('name','ASC')
             ->get();
 

@@ -65,7 +65,7 @@ class JobController extends Controller
         $job=Job::with('quotes')->find($id);
         $labjobs=Jobitem::where('job_id',$id)->where('type',0)->get();
         $sitejobs=Jobitem::where('job_id',$id)->where('type',1)->get();
-        $ifassigned=Jobitem::where('job_id',$id)->where('type',1)->where('group_assets',!null)->get();
+
 
         $items=QuoteItem::with('capabilities')->where('quote_id',$job->quote_id)->get();
 
@@ -90,7 +90,7 @@ class JobController extends Controller
         $assigned_items=array_unique($assigned_items);
         $assigned_items=array_values($assigned_items);
 
-        return view('jobs.show',compact('job','labjobs','sitejobs','ifassigned','items','assigned_items'));
+        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items'));
     }
     public function print_job_form($id){
         $job=Job::with('quotes')->find($id);

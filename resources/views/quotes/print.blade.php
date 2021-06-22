@@ -172,7 +172,7 @@
             <div class="col-12 font-10  mt-5"></div>
             <div class="col-3 font-10">Subject /Description:</div>
             <div class="col-9 text-center font-10"> <span><b>Calibration of Test, Measurement and Diagnostic Equipment</b></span></div>
-            <div class="col-12 mt-3 font-10">Dear {{$session->principal}},</div>
+            <div class="col-12 mt-3 font-10">Dear {{$session->principals->name}},</div>
             <p class="col-12 mt-3 font-10">Please find below our competitive proposal for the calibration of your
                 instruments. We hope our offer will be in line with your requirement. Would you require
                 further information/clarification please revert back to undersigned.
