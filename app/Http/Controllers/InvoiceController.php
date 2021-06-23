@@ -70,7 +70,7 @@ class InvoiceController extends Controller
         $acc_receivable=new JournalDetails();
         $acc_receivable->parent_id=$journal->id;
         $acc_receivable->acc_code=$invoice->job->quotes->customers->acc_code;
-        $acc_receivable->narration='ACCOUNTS RECEIVABLE OF '.strtoupper($invoice->job->quotes->customers->reg_name).' against '.$invoice->title;
+        $acc_receivable->narration='ACCOUNTS RECEIVABLE OF '.strtoupper($invoice->job->quotes->customers->reg_name).' AGAINST '.$invoice->title;
         $acc_receivable->dr=$service_charges+$regional_tax_charges;
         $acc_receivable->save();
         //Revenue -> Sales -> Calibration services Cr.
