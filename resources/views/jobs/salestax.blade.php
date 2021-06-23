@@ -40,6 +40,7 @@
             <div class="col-12 py-0 my-0">
                 <p>NTN : <span class="ml-4">{{$job->quotes->customers->ntn}}</span></p>
             </div>
+
             <div class="col-4 py-0 my-0">
                 <p>Date of Issue <span class="custom-bottom-border px-md-5">
                         {{$job->invoices->created_at->format('d-m-Y')}}
@@ -58,7 +59,7 @@
                 <table class="table table-bordered">
                     <tbody>
                     <tr>
-                        <th>Bill / Invoice to: <br>(Company Name)
+                        <th>Bill / Invoice to:
                         </th>
                         <td>{{$job->quotes->customers->reg_name}}</td>
                     </tr>
@@ -107,7 +108,7 @@
                     </tr>
                     <tr>
                         <th>Email:</th>
-                        <td>info@aimscal.com</td>
+                        <td>acc.aimscal2021@gmail.com</td>
                     </tr>
                     </tbody>
                 </table>
@@ -183,7 +184,7 @@
         </div>
         <div class="row py-3">
             <div class="col-6 text-right font-10 b">Payments Terms:</div>
-            <div class="col-2 text-right font-10 b"><input type="checkbox"> Chq.</div>
+            <div class="col-2 text-right font-10 b"><input type="checkbox"> Cheque</div>
             <div class="col-2 text-right font-10 b"><input type="checkbox" {{$job->quotes->customers->customer_type=='cash'?'checked':''}}> Cash</div>
             <div class="col-2 text-right font-10 b"><input type="checkbox" {{$job->quotes->customers->customer_type=='credit'?'checked':''}}> Credit</div>
         </div>
@@ -192,7 +193,7 @@
             <div class="col-8">
                 <p class="col-12 font-10 b">Note: Payable after completion of job</p>
                 <p class="col-12 font-10 mt-4">Kindly telex or send bank draft of the amount to:</p>
-                <p class="col-12 font-10 ">AI-Meezan Industrial Metrology Services, Lahore, Pakistan</p>
+                <p class="col-12 font-10 ">AI-Meezan Industrial Metrology Services</p>
                 <p class="col-12 font-10 b mt-4">Bank: Meezan Bank, Sabzazar Branch, Lahore, Pakistan</p>
                 <p class="col-12 font-10 b">Account #:  0002560102439271</p>
                 <p class="col-12 font-11 mt-4">Swift Code:  
@@ -214,7 +215,7 @@
                 </div>
                 <div class="col-12 font-11">
                     Accounts Dept. AIMS<br>
-                    Address: 58-B OPF Society, Lahore, Pakistan<br>
+                    Address: 58-B OPF Society, Lahore<br>
                     Tel. : +92 42 35324659<br>
                     Email: info@aimscal.com<br>
                     Website: www.aimscal.com
