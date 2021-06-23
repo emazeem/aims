@@ -74,32 +74,24 @@
             </p>
         </div>
         <div class="row">
-            <table class="table table-bordered table-sm font-9">
-                <tr>
-                    <td rowspan="2">$50</td>
-                    <td>January</td>
-                    <td>$100</td>
-                </tr>
-                <tr>
-                    <td>February</td>
-                    <td>$80</td>
-                </tr>
-            </table>
+            
             <table class="table table-bordered table-sm font-9">
                 <thead>
 
                 <tr>
-                    <th class="text-xs text-right" rowspan="2">Equipment In</th>
-                    <th class="text-xs" colspan="2">Equipment Out</th>
+                    <th class="text-xs" rowspan="2">Sr#</th>
+                    <th class="text-xs" rowspan="2">Equipment Description</th>
+                    <th class="text-xs" rowspan="2">Equipment ID # <br>/ Sr #</th>
+
+                    <th class="text-xs" colspan="3">Equipment Out</th>
+                    <th class="text-xs" colspan="3">Equipment In</th>
                 </tr>
                 <tr>
-                    <th class="text-xs" rowspan="2">Sr#</th>
-                    <th class="text-xs">Equipment Description</th>
-                    <th class="text-xs">Equipment ID # / Sr #</th>
+
                     <th class="text-xs">Function Check Value</th>
                     <th class="text-xs">Status</th>
                     <th class="text-xs">Handed Checked By</th>
-                    <th class="text-xs" rowspan="2">Function Check Value</th>
+                    <th class="text-xs">Function Check Value</th>
                     <th class="text-xs">Status</th>
                     <th class="text-xs">Handed Checked By</th>
 
@@ -117,6 +109,10 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+
                     </tr>
 
                 @endforeach
