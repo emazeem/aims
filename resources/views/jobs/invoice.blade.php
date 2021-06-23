@@ -74,7 +74,7 @@
                     </tr>
                     <tr>
                         <th>NTN:</th>
-                        <td>{{$job->quotes->principals->ntn}}</td>
+                        <td>{{$job->quotes->customers->ntn}}</td>
                     </tr>
 
                     </tbody>
