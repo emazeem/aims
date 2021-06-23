@@ -325,7 +325,10 @@ Route::group(['prefix'=> 'site_receiving'],function() {
 });
 
 
-
+Route::group(['prefix'=> 'delivery_note'],function() {
+    Route::post('/store',[App\Http\Controllers\DeliveryNoteController::class, 'store'])->middleware('auth')->name('delivery_note.store');
+    Route::post('/delete',[App\Http\Controllers\DeliveryNoteController::class, 'destroy'])->middleware('auth')->name('delivery_note.delete');
+});
 Route::group(['prefix'=> 'jobs'],function() {
     Route::group(['prefix'=> 'manage'],function() {
         Route::get('',[App\Http\Controllers\ManageJobsController::class, 'index'])->middleware('auth')->name('jobs.manage');

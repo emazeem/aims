@@ -228,7 +228,7 @@
                     @can('create-site-task-assign')
                     <button type="button" data-id="{{$sitejob->id}}" class="btn btn-sm btn-light border pull-right assign-site-task"><i class="fa fa-plus-square"></i> Assign</button>
                     @endcan
-                @can('site-item-receiving-update')
+                    @can('site-item-receiving-update')
                     @if($sitejob->status>0)
                         <a href="#" data-id="{{$sitejob->id}}" class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i> Receiving</a>
                     @endif

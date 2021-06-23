@@ -74,7 +74,6 @@
             </p>
         </div>
         <div class="row">
-            
             <table class="table table-bordered table-sm font-9">
                 <thead>
 
@@ -124,8 +123,6 @@
         <div class="row text-center">
             <p class="col-12 mb-5 custom-border font-11">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission of the company.</p>
         </div>
-
-
     </div>
 </div>
 </body>

@@ -1319,6 +1319,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('create-site-task-assign', function ($user) {
+            if (in_array('create-site-task-assign',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
         Gate::define('lab-task-index', function ($user) {
             if (in_array('lab-task-index',explode(',',$user->roles->permissions))){
                 return true;

@@ -8,7 +8,6 @@
         </script>
     @endif
     <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
-
     <div class="row">
         <div class="col-12">
             <h3 class="float-left font-weight-light"><i class="feather icon-eye"></i> Job Detail</h3>
@@ -20,10 +19,16 @@
                                 class="fa fa-print"></i> {{$job->cid}}</a>
                 @endcan
                 @can('print-delivery-note')
-                    <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                    <a data-toggle="modal" data-target="#add_delivery_note" href class='pull-left btn btn-sm btn-info'><i
+                                class="feather icon-plus-circle"></i> DN</a>
+{{--
+<a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
                        href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
                                 class="fa fa-print"></i> DN</a>
+--}}
+
                 @endcan
+                @include('delivery_note.create')
             </div>
         </div>
         <div class="col-12 table-responsive">
@@ -349,7 +354,7 @@
                                        class='btn btn-sm btn-info float-right' href="{{url('jobs/print/GP/'.$siteplaning->id)}}"><i class="fa fa-print"></i> {{$siteplaning->cid}}</a>
                                 @endcan
                             </div>
-                            <div class="table-responsive">
+                            <div class="table-responsive mb-2">
                                 <table class="table bg-white table-bordered table-hover table-sm">
                                     <tr>
                                         <th>Assigned Assets</th>
