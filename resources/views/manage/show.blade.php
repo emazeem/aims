@@ -12,9 +12,10 @@
         <div class="col-12">
             <h3 class="font-weight-light float-left"><i class="feather icon-eye"></i> {{$show->cid}}</h3>
             @can('create-job')
-                @if($createjob==true)
+
+
                     <button class="btn btn-primary btn-sm float-right create" data-id="{{$show->id}}"><i class="feather icon-plus-circle"></i> JOB</button>
-                @endif
+                
             @endcan
         </div>
         <div class="col-12">
