@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use  App\Models\Asset;
+use App\Models\DeliveryNotes;
 use App\Models\Job;
 use App\Models\Jobitem;
 use App\Models\QuoteItem;
@@ -94,7 +95,13 @@ class JobController extends Controller
         }
         $assigned_items=array_unique($assigned_items);
         $assigned_items=array_values($assigned_items);
-        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close'));
+        $delivered_id=[];
+        foreach ($job->dn as $item) {
+            foreach (explode(',',$item->item) as $d){
+                $delivered_id[]=$d;
+            }
+        }
+        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close','delivered_id'));
     }
     public function print_job_form($id){
         $this->authorize('print-job-form');
@@ -103,13 +110,6 @@ class JobController extends Controller
         $sitejobs=Jobitem::where('job_id',$id)->where('type',1)->get();
         return view('jobs.jobform',compact('job','labjobs','sitejobs'));
     }
-    public function print_DN($id){
-        $this->authorize('print-delivery-note');
-        $job=Job::with('quotes')->find($id);
-        $labjobs=Jobitem::where('job_id',$id)->get();
-        return view('jobs.deliverynote',compact('job','labjobs'));
-    }
-
     public function print_invoice($id){
         $job=Job::find($id);
         $jobitems=Jobitem::where('job_id',$job->id)->pluck('item_id');
@@ -121,6 +121,17 @@ class JobController extends Controller
         $items=array_values($items);
         $labitems=QuoteItem::whereIn('id',$items)->get();
         return view('jobs.invoice',compact('job','labitems'));
+    }
+    public function print_DN($id){
+        $this->authorize('print-delivery-note');
+        $job=Job::with('quotes')->find($id);
+        $items=Jobitem::whereIn('id',explode(',',$id))->get();
+        $dn=0;
+        foreach ($job->dn as $item){
+            $dn=$item->id;
+        }
+        $dn=DeliveryNotes::find($dn);
+        return view('jobs.deliverynote',compact('job','items','dn'));
     }
     public function print_gp($id){
         $this->authorize('print-gate-pass');

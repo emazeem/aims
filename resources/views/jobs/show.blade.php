@@ -19,14 +19,21 @@
                                 class="fa fa-print"></i> {{$job->cid}}</a>
                 @endcan
                 @can('print-delivery-note')
-                    <a data-toggle="modal" data-target="#add_delivery_note" href class='pull-left btn btn-sm btn-info'><i
+                    @if($job->status==2)
+                            <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                               href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
+                                        class="fa fa-print"></i> Merge DN</a>
+                        @endif
+                    @if($job->status==1)
+                    <a data-toggle="modal" data-target="#add_delivery_note" href class='pull-left btn btn-sm btn-success'><i
                                 class="feather icon-plus-circle"></i> DN</a>
-{{--
-<a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
-                       href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
-                                class="fa fa-print"></i> DN</a>
---}}
+                    @endif
+                    @foreach($job->dn as $dn)
+                        <a onclick="window.open('{{url('/delivery_note/print/DN/'.$dn->id)}}','newwindow','width=1100,height=1000');return false;"
+                           href="{{url('/delivery_note/print/DN/'.$dn->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
+                                    class="fa fa-print"></i> {{$dn->cid}}</a>
 
+                    @endforeach
                 @endcan
                 @include('delivery_note.create')
             </div>
@@ -52,9 +59,10 @@
                         @if($job->status==0)
                             <span class="badge badge-danger px-2 py-1">Pending</span>
                         @endif
-                        @if($job->status==1)
+                        @if($job->status>0)
                             <span class="badge badge-primary px-2 py-1">Closed</span>
                         @endif
+
                     </td>
                 </tr>
                 <tr>
@@ -184,7 +192,44 @@
                     window.location.href = 'https://' + url + '/' + type + '/' + id;
                 }, 2000);
             });
+            $("#add_delivery_note_form").on('submit',(function(e) {
+                e.preventDefault();
+                var val = [];
+                $('.delivery_items:checked').each(function (i) {
+                    val[i] = $(this).attr('data-id');
+                });
+                $('#delivery_item_id').val(val);
+                var button=$('.delivery-note-add-btn');
+                var previous=$(button).html();
+                button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                $.ajax({
+                    url: "{{route('delivery_note.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                            $('#add_delivery_note').modal('hide');
+                            location.reload();
+                        });
 
+                    },
+                    error: function(xhr)
+                    {
+
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
         });
     </script>
     <div class="modal fade" id="scan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"

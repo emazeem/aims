@@ -15,8 +15,9 @@ class CreateDeliveryNotesTable extends Migration
     {
         Schema::create('delivery_notes', function (Blueprint $table) {
             $table->id();
+            $table->string('cid')->nullable();
             $table->integer('job_id');
-            $table->integer('item');
+            $table->string('item');
             $table->timestamps();
         });
     }

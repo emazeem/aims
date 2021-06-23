@@ -328,6 +328,8 @@ Route::group(['prefix'=> 'site_receiving'],function() {
 Route::group(['prefix'=> 'delivery_note'],function() {
     Route::post('/store',[App\Http\Controllers\DeliveryNoteController::class, 'store'])->middleware('auth')->name('delivery_note.store');
     Route::post('/delete',[App\Http\Controllers\DeliveryNoteController::class, 'destroy'])->middleware('auth')->name('delivery_note.delete');
+    Route::get('print/DN/{id}',[App\Http\Controllers\DeliveryNoteController::class, 'print_DN'])->middleware('auth')->name('delivery_note.print.DN');
+
 });
 Route::group(['prefix'=> 'jobs'],function() {
     Route::group(['prefix'=> 'manage'],function() {
@@ -340,8 +342,8 @@ Route::group(['prefix'=> 'jobs'],function() {
         Route::post('/delete',[App\Http\Controllers\ManageJobsController::class, 'destroy'])->middleware('auth')->name('jobs.manage.delete');
     });
     Route::get('',[App\Http\Controllers\JobController::class, 'index'])->middleware('auth')->name('jobs');
-    Route::get('print/invoice/{id}',[App\Http\Controllers\JobController::class, 'print_invoice'])->middleware('auth')->name('jobs.print.invoice');
     Route::get('print/DN/{id}',[App\Http\Controllers\JobController::class, 'print_DN'])->middleware('auth')->name('jobs.print.DN');
+    Route::get('print/invoice/{id}',[App\Http\Controllers\JobController::class, 'print_invoice'])->middleware('auth')->name('jobs.print.invoice');
     Route::get('print/GP/{id}',[App\Http\Controllers\JobController::class, 'print_gp'])->middleware('auth')->name('gatepass.print_gp');
     Route::get('print/jobtag/{loc}/{index}/{id}',[App\Http\Controllers\JobController::class, 'print_jt'])->middleware('auth')->name('gatepass.print_gt');
     Route::get('print/jobform/{id}',[App\Http\Controllers\JobController::class, 'print_job_form'])->middleware('auth')->name('jobs.print.job.form');

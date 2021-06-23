@@ -89,7 +89,6 @@
             $('.actions:checked').each(function (i) {
                 val[i] = $(this).attr('data-id');
             });
-            console.log(val);
             window.location.href = '{{url('tasks/assign_site/'.$job->id)}}/' + val;
         });
 
@@ -190,39 +189,7 @@
                 },
             });
         }));
-        $("#add_delivery_note_form").on('submit',(function(e) {
-            e.preventDefault();
-            alert(1);
-            var button=$('#delivery-note-add-btn');
-            var previous=$(button).html();
-            button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
-            $.ajax({
-                url: "{{route('delivery_note.store')}}",
-                type: "POST",
-                data:  new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false,
-                success: function(data)
-                {
-                    button.attr('disabled',null).html(previous);
-                    swal('success',data.success,'success').then((value) => {
-                        $('#add_delivery_note').modal('hide');
-                        location.reload();
-                    });
 
-                },
-                error: function(xhr)
-                {
-                    button.attr('disabled',null).html(previous);
-                    var error='';
-                    $.each(xhr.responseJSON.errors, function (key, item) {
-                        error+=item;
-                    });
-                    swal("Failed", error, "error");
-                }
-            });
-        }));
     });
 </script>
 <div class="modal fade" id="add_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

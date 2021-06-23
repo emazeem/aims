@@ -43,8 +43,8 @@
 
         </div>
         <div class="row py-3">
-            <div class="col-3 my-1 font-11">DN#:<span class="custom-bottom-border">{{$dn->cid}}</span></div>
-            <div class="col-3 my-1 font-11 ">Date:<span class="custom-bottom-border">{{date('d-m-Y')}}</span></div>
+            <div class="col-3 my-1 font-11">DN#:<span class="custom-bottom-border px-md-5">{{$dn->cid}}</span></div>
+            <div class="col-3 my-1 font-11 ">Date:<span class="custom-bottom-border px-md-5">{{date('d-m-Y')}}</span></div>
             <div class="col-6 my-1 font-11 ">Work order / JN # <span class="custom-bottom-border ">{{$job->cid}}</span></div>
             <div class="col-6 my-1 font-11 ">Customer Name:  <span class="custom-bottom-border ">{{$job->quotes->customers->reg_name}}</span></div>
             <div class="col-6 my-1 font-11 ">Address:  <span class="custom-bottom-border">{{$job->quotes->customers->address}}</span></div>
@@ -76,8 +76,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($job->jobitems as $k=>$item)
-                    @if($item->status>3)
+                @foreach($items as $k=>$item)
                     <tr>
                         <td class="font-11">{{$k+1}}</td>
                         <td class="font-11">{{$item->item->capabilities->name}}</td>
@@ -86,7 +85,6 @@
                         <td class="font-11">{{$item->accessories}}</td>
                         <td class="font-11">{{$item->visual_inspection}}</td>
                     </tr>
-                    @endif
                 @endforeach
 
                 </tbody>
@@ -103,8 +101,7 @@
                         <input type="checkbox"> Equipment with sticker & Certificates<br>
                         <input type="checkbox"> Equipment with sticker<br>
                         <input type="checkbox"> Feedback form dispatched<br>
-                        <input type="checkbox"> Equipment only<br>
-                        <input type="checkbox" checked> Certificate(s)
+                        <input type="checkbox"> Equipment only
                     </td>
                     <td>
                         Remarks:
