@@ -110,7 +110,7 @@
 
                     <label for="dob" class="col-sm-2 control-label">Date of Birth</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth" autocomplete="off" value="{{old('dob',$edit->dob)}}">
+                        <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth" autocomplete="off" value="{{old('dob',date('Y-m-d',strtotime($edit->dob)))}}">
                         @if ($errors->has('dob'))
                             <span class="text-danger">
                           <strong>{{ $errors->first('dob') }}</strong>
@@ -122,7 +122,7 @@
 
                     <label for="joining" class="col-sm-2 control-label">Joining Date</label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" id="joining" name="joining" placeholder="Joining Date" autocomplete="off" value="{{old('joining',$edit->joining)}}">
+                        <input type="date" class="form-control" id="joining" name="joining" placeholder="Joining Date" autocomplete="off" value="{{old('joining',date('Y-m-d',strtotime($edit->joining)))}}">
                         @if ($errors->has('joining'))
                             <span class="text-danger">
                           <strong>{{ $errors->first('joining') }}</strong>
