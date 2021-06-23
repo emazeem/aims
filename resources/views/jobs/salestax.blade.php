@@ -184,8 +184,8 @@
         <div class="row py-3">
             <div class="col-6 text-right font-10 b">Payments Terms:</div>
             <div class="col-2 text-right font-10 b"><input type="checkbox"> Chq.</div>
-            <div class="col-2 text-right font-10 b"><input type="checkbox" {{$job->quotes->customers->customer_type=='cash'?'selected':''}}> Cash</div>
-            <div class="col-2 text-right font-10 b"><input type="checkbox" {{$job->quotes->customers->customer_type=='credit'?'selected':''}}> Credit</div>
+            <div class="col-2 text-right font-10 b"><input type="checkbox" {{$job->quotes->customers->customer_type=='cash'?'checked':''}}> Cash</div>
+            <div class="col-2 text-right font-10 b"><input type="checkbox" {{$job->quotes->customers->customer_type=='credit'?'checked':''}}> Credit</div>
         </div>
 
         <div class="row">
