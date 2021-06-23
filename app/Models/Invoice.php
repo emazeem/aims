@@ -11,4 +11,5 @@ class Invoice extends Model
     public function job(){
         return $this->belongsTo('App\Models\Job','job_id');
     }
+    protected $dates=['created_at'];
 }

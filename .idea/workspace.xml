@@ -63,17 +63,17 @@
           <entry key="css" value="361" />
           <entry key="html" value="580" />
           <entry key="js" value="8" />
-          <entry key="php" value="87846" />
+          <entry key="php" value="88101" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="53009" />
+          <entry key="Blade" value="53198" />
           <entry key="CSS" value="362" />
           <entry key="HTML" value="616" />
           <entry key="JavaScript" value="8" />
-          <entry key="PHP" value="34800" />
+          <entry key="PHP" value="34866" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -82,17 +82,17 @@
           <entry key="css" value="17" />
           <entry key="html" value="16" />
           <entry key="js" value="8" />
-          <entry key="php" value="1450" />
+          <entry key="php" value="1456" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="816" />
+          <entry key="Blade" value="817" />
           <entry key="CSS" value="17" />
           <entry key="HTML" value="16" />
           <entry key="JavaScript" value="8" />
-          <entry key="PHP" value="634" />
+          <entry key="PHP" value="639" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -104,67 +104,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/jobs/show.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/jobs/invoice.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="44" column="91" selection-start-line="44" selection-start-column="91" selection-end-line="44" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="72" column="125" selection-start-line="72" selection-start-column="125" selection-end-line="72" selection-end-column="125" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/jobs/deliverynote.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="124" column="55" selection-start-line="124" selection-start-column="55" selection-end-line="124" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/quotes/print.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="82" selection-start-line="82" selection-end-line="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Job.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="330" column="90" selection-start-line="330" selection-start-column="90" selection-end-line="330" selection-end-column="90" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DeliveryNoteController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
-              <folding>
-                <element signature="e#40#69#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="308">
+              <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -172,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="133" column="65" selection-start-line="133" selection-start-column="65" selection-end-line="133" selection-end-column="65" />
+            <state relative-caret-position="208">
+              <caret line="112" column="28" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -189,10 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>s</find>
-      <find>assign_site</find>
-      <find>gatepass</find>
-      <find>new</find>
       <find>cid</find>
       <find>$job</find>
       <find>create-site-task-assign</find>
@@ -219,6 +176,10 @@
       <find>status</find>
       <find>signa</find>
       <find>against</find>
+      <find>sabza</find>
+      <find>Sabza</find>
+      <find>print_in</find>
+      <find>invoice()</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -252,7 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/mytask/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerContactController.php" />
@@ -285,7 +245,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ItemEntriesController.php" />
         <option value="$PROJECT_DIR$/resources/views/salesinvoice/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/head.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SalesInvoiceController.php" />
         <option value="$PROJECT_DIR$/app/Models/SitePlan.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/gatepass.blade.php" />
@@ -294,7 +253,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/QuoteItemController.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/create.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_06_23_122501_create_delivery_notes_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/Job.php" />
         <option value="$PROJECT_DIR$/resources/views/delivery_note/create.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/show.blade.php" />
@@ -303,6 +261,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/DeliveryNoteController.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/deliverynote.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SalesInvoiceController.php" />
+        <option value="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" />
+        <option value="$PROJECT_DIR$/app/Models/Job.php" />
       </list>
     </option>
   </component>
@@ -694,24 +655,24 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="genera&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/GenerateRequestsController.php&#10;hea&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/head.blade.php&#10;jobcont&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;we&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;menus&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/menus.blade.php&#10;gener&#9;null&#9;null&#10;grouped&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/groupedcapabilities&#10;jobcontroller&#9;null&#9;null&#10;three&#9;null&#9;null&#10;asset&#9;null&#9;null&#10;generate&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;quote&#9;null&#9;null&#10;web&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;quo&#9;null&#9;null&#10;AUTH&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;job&#9;null&#9;null&#10;quotecontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/QuotesController.php&#10;quoteitem&#9;null&#9;null&#10;groupe&#9;null&#9;null&#10;role&#9;null&#9;null&#10;roles&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/roles&#10;authser&#9;null&#9;null&#10;log&#9;null&#9;null&#10;jobcontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;quotecon&#9;null&#9;null&#10;pending&#9;null&#9;null&#10;item&#9;null&#9;null&#10;itemc&#9;null&#9;null&#10;mast&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;design&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/designation.blade.php&#10;designation&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/database/old migrations/2020_09_23_164727_create_designations_table.php&#10;styl&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/css/styling.css&#10;mytas&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/mytask&#10;manage&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/manage-menus.blade.php&#10;assets&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/assets&#10;proced&#9;null&#9;null&#10;capa&#9;null&#9;null&#10;styling&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/styling.css&#10;logre&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/logreview&#10;style&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/style.css&#10;chart.js&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/js/pages/chart.js&#10;itemco&#9;null&#9;null&#10;depart&#9;null&#9;null&#10;profile&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/profile.blade.php&#10;parameter&#9;null&#9;null&#10;aut&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;select2&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/plugins/select2.min.css&#10;reques&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;das&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/DashboardControlller.php&#10;web.p&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php" />
+    <property name="SearchEverywhereHistoryKey" value="invoice&#9;null&#9;null&#10;genera&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/GenerateRequestsController.php&#10;hea&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/head.blade.php&#10;jobcont&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;we&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;menus&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/menus.blade.php&#10;gener&#9;null&#9;null&#10;grouped&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/groupedcapabilities&#10;jobcontroller&#9;null&#9;null&#10;three&#9;null&#9;null&#10;asset&#9;null&#9;null&#10;generate&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;quote&#9;null&#9;null&#10;web&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;quo&#9;null&#9;null&#10;AUTH&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;job&#9;null&#9;null&#10;quotecontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/QuotesController.php&#10;quoteitem&#9;null&#9;null&#10;groupe&#9;null&#9;null&#10;role&#9;null&#9;null&#10;roles&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/roles&#10;authser&#9;null&#9;null&#10;log&#9;null&#9;null&#10;jobcontr&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;quotecon&#9;null&#9;null&#10;pending&#9;null&#9;null&#10;item&#9;null&#9;null&#10;itemc&#9;null&#9;null&#10;mast&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;design&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/designation.blade.php&#10;designation&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/database/old migrations/2020_09_23_164727_create_designations_table.php&#10;styl&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/css/styling.css&#10;mytas&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/mytask&#10;manage&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/manage-menus.blade.php&#10;assets&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/assets&#10;proced&#9;null&#9;null&#10;capa&#9;null&#9;null&#10;styling&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/styling.css&#10;logre&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/logreview&#10;style&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/style.css&#10;chart.js&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/js/pages/chart.js&#10;itemco&#9;null&#9;null&#10;depart&#9;null&#9;null&#10;profile&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/profile.blade.php&#10;parameter&#9;null&#9;null&#10;aut&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;select2&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/assets/css/plugins/select2.min.css&#10;reques&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests&#10;das&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/DashboardControlller.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Program Files\xampp\htdocs\aims\database\old migrations" />
-      <recent name="E:\Program Files\xampp\htdocs\aims\resources\views\jobs" />
-      <recent name="E:\Program Files\xampp\htdocs\aims\resources\views\logreview" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Program Files\xampp\htdocs\aims\resources\views\my_task" />
       <recent name="E:\Program Files\xampp\htdocs\aims\resources\views\mytask" />
       <recent name="E:\Program Files\xampp\htdocs\aims\resources\views" />
       <recent name="E:\Program Files\xampp\htdocs\aims\resources\views\capabilities" />
       <recent name="E:\Program Files\xampp\htdocs\aims\resources\views\manage" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Program Files\xampp\htdocs\aims\database\old migrations" />
+      <recent name="E:\Program Files\xampp\htdocs\aims\resources\views\jobs" />
+      <recent name="E:\Program Files\xampp\htdocs\aims\resources\views\logreview" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -798,12 +759,12 @@
       <workItem from="1623840445522" duration="37265000" />
       <workItem from="1623941508779" duration="53112000" />
       <workItem from="1624180767625" duration="48584000" />
-      <workItem from="1624422314266" duration="15600000" />
+      <workItem from="1624422314266" duration="16704000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="627960000" />
+    <option name="totallyTimeSpent" value="629064000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -816,8 +777,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18683812" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18683812" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -845,13 +807,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/groupedcapabilities/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="74" selection-start-line="74" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/jobs/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -943,13 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
           <caret line="68" column="41" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SalesInvoiceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1115,13 +1063,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="133" column="65" selection-start-line="133" selection-start-column="65" selection-end-line="133" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DeliveryNoteController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -1139,13 +1080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Job.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/quotes/print.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1160,10 +1094,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SalesInvoiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/jobs/invoice.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="44" column="91" selection-start-line="44" selection-start-column="91" selection-end-line="44" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="72" column="125" selection-start-line="72" selection-start-column="125" selection-end-line="72" selection-end-column="125" />
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="112" column="28" selection-start-line="112" selection-start-column="28" selection-end-line="112" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Job.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
         </state>
       </provider>
     </entry>

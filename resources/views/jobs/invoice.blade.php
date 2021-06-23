@@ -30,19 +30,19 @@
             </div>
             <div class="col-10 custom-bottom-border text-right p-0">
                 <p class="font-14 b">INVOICE</p>
-                <p class="font-11">NTN & GST # {{$job->quotes->customers->ntn}}</p>
+                <p class="font-11">NTN & GST # 7322733-0</p>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-4">
                 <p>Date of Issue <span class="custom-bottom-border px-md-5">
-                        {{date('d-m-Y')}}
+                        {{$job->invoices->created_at->format('d-m-Y')}}
                     </span></p>
             </div>
             <div class="col-4">
             </div>
             <div class="col-4 text-right">
-                <p>Invoice # <span class="custom-bottom-border px-md-5">{{$job->id}}</span></p>
+                <p>Invoice # <span class="custom-bottom-border px-md-5">{{$job->invoices->title}}</span></p>
             </div>
 
         </div>
@@ -59,17 +59,18 @@
                         <th>Address</th>
                         <td>{{$job->quotes->customers->address}}</td>
                     </tr>
+
                     <tr>
                         <th>Contact Person</th>
-                        <td>{{$job->quotes->principal}}</td>
+                        <td>{{$job->quotes->principals->name}}</td>
                     </tr>
                     <tr>
                         <th>Tel / Fax No.:</th>
-                        <td>0300 4370626</td>
+                        <td>{{$job->quotes->principals->phone}}</td>
                     </tr>
                     <tr>
                         <th>Email:</th>
-                        <td>pharmas32@gmail.com</td>
+                        <td>{{$job->quotes->principals->email}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -81,11 +82,11 @@
                         <th>Customer Ref. No.:<br>
                             (PO / SO / Quote)
                         </th>
-                        <td> PO # Verbal</td>
+                        <td>{{$job->quotes->approval_mode}}<br>{{$job->quotes->rfq_mode_details}}</td>
                     </tr>
                     <tr>
                         <th>AIMS Ref. No.:</th>
-                        <td>JN / 20 / 0197</td>
+                        <td>{{$job->cid}}</td>
                     </tr>
                     <tr>
                         <th>AIMS Contact:</th>
@@ -93,7 +94,7 @@
                     </tr>
                     <tr>
                         <th>Tel./ Fax No.:</th>
-                        <td>{{auth()->user()->phone}}</td>
+                        <td>03060002467</td>
                     </tr>
                     <tr>
                         <th>Email:</th>
@@ -105,7 +106,7 @@
         </div>
         <div class="row py-3">
             <div class="col-6 text-right font-10 b">Currency:</div>
-            <div class="col-2 text-right font-10 b"><input type="checkbox" checked> PKR	</div>
+            <div class="col-2 text-right font-10 b"><input type="checkbox" checked> PKR</div>
             <div class="col-2 text-right font-10 b"><input type="checkbox"> AED</div>
             <div class="col-2 text-right font-10 b"><input type="checkbox"> USD</div>
         </div>
@@ -119,7 +120,7 @@
                 <thead class="text-center">
                 <tr>
                     <th>Sr#</th>
-                    <th >Description</th>
+                    <th>Description</th>
                     <th>Qty</th>
                     <th>Price</th>
                     <th>Total</th>
@@ -129,15 +130,15 @@
                 <tbody class="text-center">
                 @php $i=1; $subtotal=0; $tax=0;@endphp
                 @foreach($labitems as $labitem)
-                <tr>
+                    <tr>
 
-                    <td class="font-11">{{$i}}</td>
-                    <td class="font-11 text-left">{{$labitem->capabilities->name}}</td>
-                    <td class="font-11">{{$labitem->quantity}}</td>
-                    <td class="font-11">{{$labitem->price}}</td>
-                    <td class="font-11">{{$labitem->price*$labitem->quantity}}</td>
-                </tr>
-                @php $i++;$subtotal=$subtotal+($labitem->quantity*$labitem->price); @endphp
+                        <td class="font-11">{{$i}}</td>
+                        <td class="font-11 text-left">{{$labitem->capabilities->name}}</td>
+                        <td class="font-11">{{$labitem->quantity}}</td>
+                        <td class="font-11">{{$labitem->price}}</td>
+                        <td class="font-11">{{$labitem->price*$labitem->quantity}}</td>
+                    </tr>
+                    @php $i++;$subtotal=$subtotal+($labitem->quantity*$labitem->price); @endphp
                 @endforeach
                 <tr>
                     <th class="font-11 text-right" colspan="4">Invoice Total</th>
@@ -157,7 +158,8 @@
                         @elseif($job->quotes->customers->region="IRD")
                             16% @php $tax=16/100; @endphp
                         @endif
-                        PRA Tax on Services</th>
+                        PRA Tax on Services
+                    </th>
                     <td class="font-11">{{($subtotal*$tax)}}</td>
                 </tr>
                 <tr>
@@ -169,20 +171,22 @@
         </div>
         <div class="row py-3">
             <div class="col-6 text-right font-10 b">Payments Terms:</div>
-            <div class="col-2 text-right font-10 b"><input type="checkbox" checked> Chq.	</div>
+            <div class="col-2 text-right font-10 b"><input type="checkbox" checked> Chq.</div>
             <div class="col-2 text-right font-10 b"><input type="checkbox"> Cash</div>
             <div class="col-2 text-right font-10 b"><input type="checkbox"> Credit</div>
         </div>
 
         <div class="row">
             <div class="col-8">
-                <p class="col-12 font-10 b">Note:  Payable after completion of job</p>
+                <p class="col-12 font-10 b">Note: Payable after completion of job</p>
                 <p class="col-12 font-10 mt-4">Kindly telex or send bank draft of the amount to:</p>
                 <p class="col-12 font-10 ">AI-Meezan Industrial Metrology Services, Lahore, Pakistan</p>
-                <p class="col-12 font-10 b mt-4">Bank: Meezan Bank,   Sabzazar Branch, Lahore, Pakistan</p>
+                <p class="col-12 font-10 b mt-4">Bank: Meezan Bank, Sabzazar Branch, Lahore, Pakistan</p>
                 <p class="col-12 font-10 b">Account #:  0002560102439271</p>
                 <p class="col-12 font-11 mt-4">Swift Code:  
-                    <br><small>Kindly email the remittance advice to info@aimscal.com as soon as the money is transferred</small>
+                    <br>
+                    <small>Kindly email the remittance advice to info@aimscal.com as soon as the money is transferred
+                    </small>
             </div>
             <div class="col-4 text-center">
                 <div class="col-12 text-left">
@@ -195,8 +199,8 @@
                 </div>
                 <div class="col-12 font-11">
                     Accounts Dept. AIMS<br>
-                    Address: 22-C, Sabzazar, Lahore, Pakistan<br>
-                    Tel.: +92 42 37497298,<br>
+                    Address: 58-B OPF Society, Lahore, Pakistan<br>
+                    Tel. : +92 42 35324659<br>
                     Email: info@aimscal.com<br>
                     Website: www.aimscal.com
                 </div>
