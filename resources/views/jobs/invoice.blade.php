@@ -137,7 +137,7 @@
                     <tr>
 
                         <td class="font-11">{{$i}}</td>
-                        <td class="font-11 text-left">{{$labitem->capabilities->name}}</td>
+                        <td class="font-11 text-left">Certification of {{$labitem->capabilities->name}}</td>
                         <td class="font-11">{{$labitem->quantity}}</td>
                         <td class="font-11">{{$labitem->price}}</td>
                         <td class="font-11">{{$labitem->price*$labitem->quantity}}</td>
@@ -145,7 +145,7 @@
                     @php $i++;$subtotal=$subtotal+($labitem->quantity*$labitem->price); @endphp
                 @endforeach
                 <tr>
-                    <th class="font-11 text-right" colspan="4">Invoice Total</th>
+                    <th class="font-11 text-right" colspan="4">Total Service Charges</th>
                     <td class="font-11">{{$subtotal}}</td>
                 </tr>
 
@@ -169,7 +169,7 @@
                     $numberToWords = new \NumberToWords\NumberToWords();
                     $numberTransformer = $numberToWords->getNumberTransformer('en');
                     ?>
-                    <th colspan="5"  class="text-capitalize text-left">Total In Words : {{$numberTransformer->toWords($total)}} </th>
+                    <th colspan="5"  class="text-capitalize text-left">Total In Words : {{$numberTransformer->toWords($total)}} Rupees Only </th>
                 </tr>
 
                 </tbody>
@@ -185,7 +185,7 @@
         <div class="row">
             <div class="col-8">
                 <p class="col-12 font-10 b">Note: Payable after completion of job</p>
-                <p class="col-12 font-10 mt-4">Kindly telex or send bank draft of the amount to:</p>
+                <p class="col-12 font-10 mt-4">Kindly issue cheque/cash or credit amount to:</p>
                 <p class="col-12 font-10 ">AI-Meezan Industrial Metrology Services</p>
                 <p class="col-12 font-10 b mt-4">Bank: Meezan Bank, Sabzazar Branch, Lahore, Pakistan</p>
                 <p class="col-12 font-10 b">Account #:  0002560102439271</p>

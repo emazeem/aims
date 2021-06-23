@@ -63,13 +63,13 @@
           <entry key="css" value="361" />
           <entry key="html" value="580" />
           <entry key="js" value="8" />
-          <entry key="php" value="88755" />
+          <entry key="php" value="88786" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="53799" />
+          <entry key="Blade" value="53830" />
           <entry key="CSS" value="362" />
           <entry key="HTML" value="616" />
           <entry key="JavaScript" value="8" />
@@ -124,8 +124,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/jobs/invoice.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="37" column="87" lean-forward="true" selection-start-line="37" selection-start-column="87" selection-end-line="37" selection-end-column="87" />
+            <state relative-caret-position="208">
+              <caret line="210" column="53" selection-start-line="210" selection-start-column="53" selection-end-line="210" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#1;n#div#7;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -136,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/jobs/salestax.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="42" />
+            <state relative-caret-position="208">
+              <caret line="217" column="53" selection-start-line="217" selection-start-column="53" selection-end-line="217" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -153,12 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>App\Models\Item</find>
-      <find>checkbox</find>
-      <find>chekc</find>
-      <find>checkno</find>
-      <find>check</find>
-      <find>jobcontroler</find>
       <find>single_capability</find>
       <find>select-capabilities</find>
       <find>getCap</find>
@@ -183,6 +177,12 @@
       <find>words</find>
       <find>cash</find>
       <find>ntn</find>
+      <find>compan</find>
+      <find>compa</find>
+      <find>chq</find>
+      <find>lahore</find>
+      <find>lahore pa</find>
+      <find>pakistan</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -727,12 +727,12 @@
       <workItem from="1623840445522" duration="37265000" />
       <workItem from="1623941508779" duration="53112000" />
       <workItem from="1624180767625" duration="48584000" />
-      <workItem from="1624422314266" duration="20447000" />
+      <workItem from="1624422314266" duration="20735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="632807000" />
+    <option name="totallyTimeSpent" value="633095000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1082,15 +1082,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/jobs/salestax.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="42" />
+        <state relative-caret-position="208">
+          <caret line="217" column="53" selection-start-line="217" selection-start-column="53" selection-end-line="217" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/jobs/invoice.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="37" column="87" lean-forward="true" selection-start-line="37" selection-start-column="87" selection-end-line="37" selection-end-column="87" />
+        <state relative-caret-position="208">
+          <caret line="210" column="53" selection-start-line="210" selection-start-column="53" selection-end-line="210" selection-end-column="53" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#1;n#div#7;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
