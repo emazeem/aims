@@ -72,6 +72,11 @@
                         <th>Email:</th>
                         <td>{{$job->quotes->principals->email}}</td>
                     </tr>
+                    <tr>
+                        <th>NTN:</th>
+                        <td>{{$job->quotes->principals->ntn}}</td>
+                    </tr>
+
                     </tbody>
                 </table>
             </div>
