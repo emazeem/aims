@@ -86,6 +86,10 @@ class SalesInvoiceController extends Controller
                     $action.="<a title='Show Invoice'
                 onclick=\"window.open('".url('/jobs/print/invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
                 href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-paperclip'></i> Invoice</a>";
+                    $action.="<a title='Show ST Invoice'
+                onclick=\"window.open('".url('/jobs/print/sales_invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
+                href=".url('/jobs/print/sales_invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-paperclip'></i> ST Invoice</a>";
+
                 }
                 return $action;
             })

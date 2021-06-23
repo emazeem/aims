@@ -122,6 +122,19 @@ class JobController extends Controller
         $labitems=QuoteItem::whereIn('id',$items)->get();
         return view('jobs.invoice',compact('job','labitems'));
     }
+    public function print_st_invoice($id){
+        $job=Job::find($id);
+        $jobitems=Jobitem::where('job_id',$job->id)->pluck('item_id');
+        $unique_lab_items=array();
+        foreach ($jobitems as $item){
+            $unique_lab_items[]=$item;
+        }
+        $items=array_unique($unique_lab_items);
+        $items=array_values($items);
+        $labitems=QuoteItem::whereIn('id',$items)->get();
+        return view('jobs.salestax',compact('job','labitems'));
+    }
+
     public function print_DN($id){
         $this->authorize('print-delivery-note');
         $job=Job::with('quotes')->find($id);

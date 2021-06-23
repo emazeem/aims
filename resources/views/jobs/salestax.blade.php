@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>INVOICE {{$job->invoices->title}}</title>
+    <title>Sales Tax Invoice {{$job->invoices->title}}</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -29,12 +28,19 @@
                 <img src="{{url('/img/AIMS.png')}}" class="mt-2 ml-2" width="100">
             </div>
             <div class="col-10 custom-bottom-border text-right p-0">
-                <p class="font-14 b">INVOICE</p>
-                <p class="font-11">NTN & GST # 7322733-0</p>
+                <p class="font-14 b py-0 my-0">SALES TAX INVOICE</p>
+                <p class="font-11 py-0 my-0">NTN & GST # 7322733-0</p>
+                <p class="font-11 py-0 my-0">STRN # 3277876130888</p>
+                @if(\App\Models\Preference::find($job->quotes->customers->region)->name=='PRA')
+                    <p class="font-11 py-0 my-0">AIMS PRA H.S Code - 9816</p>
+                @endif
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-4">
+            <div class="col-12 py-0 my-0">
+                <p>NTN : <span class="ml-4">{{$job->quotes->customers->ntn}}</span></p>
+            </div>
+            <div class="col-4 py-0 my-0">
                 <p>Date of Issue <span class="custom-bottom-border px-md-5">
                         {{$job->invoices->created_at->format('d-m-Y')}}
                     </span></p>
@@ -44,6 +50,7 @@
             <div class="col-4 text-right">
                 <p>Invoice # <span class="custom-bottom-border px-md-5">{{$job->invoices->title}}</span></p>
             </div>
+
 
         </div>
         <div class="row">
@@ -72,10 +79,7 @@
                         <th>Email:</th>
                         <td>{{$job->quotes->principals->email}}</td>
                     </tr>
-                    <tr>
-                        <th>NTN:</th>
-                        <td>{{$job->quotes->customers->ntn}}</td>
-                    </tr>
+
 
                     </tbody>
                 </table>
@@ -159,6 +163,7 @@
 
                         {{$region->name}} Tax on Services
                     </th>
+
                     <td class="font-11">{{($subtotal*$tax)}}</td>
                 </tr>
                 <tr>
