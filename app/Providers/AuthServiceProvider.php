@@ -731,6 +731,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('create-job', function ($user) {
+            if (in_array('create-job',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+
         Gate::define('awaiting-job-index', function ($user) {
             if (in_array('awaiting-job-index',explode(',',$user->roles->permissions))){
                 return true;
