@@ -124,13 +124,10 @@ class JobController extends Controller
     }
     public function print_gp($id){
         $this->authorize('print-gate-pass');
-        $items=QuoteItem::with('customers')->find($id);
-        $job=Job::find($id);
-        $plan=SitePlan::where('job_id',$id)->first();
-        $sitejobs=QuoteItem::whereIn('id',explode(',',$plan->assigned_assets))->first();
-        $assets=explode(',',$plan->assigned_assets);
 
-        return view('jobs.gatepass',compact('items','assets','sitejobs','job','plan'));
+        $plan=SitePlan::where('id',$id)->first();
+        $assets=explode(',',$plan->assigned_assets);
+        return view('jobs.gatepass',compact('assets','plan'));
     }
     public function print_jt($loc,$index,$id){
         $tag=Jobitem::find($id);

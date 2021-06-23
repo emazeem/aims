@@ -89,7 +89,7 @@
                 val[i] = $(this).attr('data-id');
             });
             console.log(val);
-            window.location.href = '{{url('scheduling/tasks/assign_site/'.$job->id)}}/' + val;
+            window.location.href = '{{url('tasks/assign_site/'.$job->id)}}/' + val;
         });
 
         $(document).on('click', '.add', function () {

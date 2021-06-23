@@ -31,10 +31,10 @@
                 <img src="{{url('/img/AIMS.png')}}" class="mt-2 ml-2" width="100">
             </div>
             <div class="col-7 border-left-right-0 custom-border" >
-                <p class="text-center b font-14 mt-5">Gate Pass for Equipment Going Outside of AIMS Cal Lab</p>
+                <p class="text-center b font-14 mt-5">Gate Pass for Equipment Out / In / Function Check / Status (AIMS Cal Lab)</p>
             </div>
             <div class="col-3 row custom-border font-9 p-0">
-                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
+                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-TM-FRM-30</p>
                 <div class="col-12 custom-bottom-border"></div>
                 <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2020</p>
                 <div class="col-12 custom-bottom-border"></div>
@@ -46,37 +46,28 @@
             </div>
 
         </div>
-        <div class="row py-3">
-            <div class="col-2 font-11 ">Quote Ref :</div>
-            <div class="col-2 custom-bottom-border text-center" >
-
-                {{$job->quotes->cid}}
+        <div class="row pt-2">
+            <div class="col-12">
+                <p class="float-left pr-5">Purpose : <span class="custom-bottom-border">Calibration</span></p>
+                <p class="float-left pr-5">Date Out : <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
+                @php $assigne=explode(',',$plan->assigned_users); $assigne=array_reverse($assigne); $umodel=\App\Models\User::class; @endphp
+                <p class="float-left pr-5">Received By : <span class="custom-bottom-border">{{$umodel::find($assigne[0])->fname.' '.$umodel::find($assigne[0])->lname}}</span></p>
+                <p class="float-left pr-5">Time Out : <span class="custom-bottom-border">{{date('H:i A')}}</span></p>
             </div>
-            <div class="col-2 font-11 ">Address :</div>
-            <div class="col-6 custom-bottom-border text-center font-sm" >
-                {{$job->quotes->customers->address}}
+            <div class="col-12">
+                <p class="float-left pr-5">Job # : <span class="custom-bottom-border">{{$plan->jobs->cid}}</span></p>
+                <p class="float-left pr-5">Customer : <span class="custom-bottom-border">{{$plan->jobs->quotes->customers->reg_name}}</span></p>
+                <p class="float-left pr-5">Handed Over By : <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
             </div>
-            <div class="col-12 my-2"></div>
-            <div class="col-2 font-11 ">Job Number :</div>
-            <div class="col-2 custom-bottom-border text-center" >
-                {{$job->cid}}
-            </div>
-            <div class="col-2 font-11 ">Start From :</div>
-            <div class="col-2 custom-bottom-border text-center" >
-                {{$plan->start}}
-            </div>
-            <div class="col-2 font-11 ">Date To :</div>
-            <div class="col-2 custom-bottom-border text-center" >
-                {{$plan->end}}
-            </div>
-            <div class="col-12 my-2"></div>
-            <div class="col-6 font-11 ">
-                Returnable <input type="checkbox" checked>
-            </div>
-            <div class="col-6 font-11 ">
-                Nonreturnable <input type="checkbox">
+            <div class="col-12">
+                <p class="float-left pr-4">Returnable <input type="checkbox" checked></p>
+                <p class="float-left pr-4">Non-Returnable <input type="checkbox"></p>
+                <p class="float-left pr-4">Date In : <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
+                <p class="float-left pr-4">Received Back By : <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
+                <p class="float-left">Time In : <span class="custom-bottom-border">{{date('H:i A')}}</span></p>
             </div>
 
+        </div>
         </div>
         <div class="col-12 text-center">
             <p class=" font-14 b mt-3">Equipment Description
@@ -84,21 +75,36 @@
         </div>
         <div class="row">
             <table class="table table-bordered table-sm font-9">
-                <thead>
                 <tr>
-                    <th class="text-xs">Sr#</th>
-                    <th class="text-xs">Asset Code</th>
-                    <th class="text-xs">Asset Description</th>
-                    <th class="text-xs">Make</th>
-                    <th class="text-xs">Model</th>
-                    <th class="text-xs">Received By</th>
-                    <th class="text-xs">Handed Over By</th>
-                    <th class="text-xs">Function Check Value</th>
-                    <th class="text-xs">Status Before Dispatch</th>
-                    <th class="text-xs">Function Check Value</th>
-                    <th class="text-xs">Status After Dispatch</th>
-                    <th class="text-xs">Function Checked By</th>
+                    <td rowspan="2">$50</td>
+                    <td>January</td>
+                    <td>$100</td>
                 </tr>
+                <tr>
+                    <td>February</td>
+                    <td>$80</td>
+                </tr>
+            </table>
+            <table class="table table-bordered table-sm font-9">
+                <thead>
+
+                <tr>
+                    <th class="text-xs text-right" rowspan="2">Equipment In</th>
+                    <th class="text-xs" colspan="2">Equipment Out</th>
+                </tr>
+                <tr>
+                    <th class="text-xs" rowspan="2">Sr#</th>
+                    <th class="text-xs">Equipment Description</th>
+                    <th class="text-xs">Equipment ID # / Sr #</th>
+                    <th class="text-xs">Function Check Value</th>
+                    <th class="text-xs">Status</th>
+                    <th class="text-xs">Handed Checked By</th>
+                    <th class="text-xs" rowspan="2">Function Check Value</th>
+                    <th class="text-xs">Status</th>
+                    <th class="text-xs">Handed Checked By</th>
+
+                </tr>
+
                 </thead>
                 <tbody>
 
@@ -106,14 +112,8 @@
                     @php $assetdetails=\App\Models\Asset::find($asset)@endphp
                     <tr>
                         <td>{{$k+1}}</td>
-                        <td>{{$assetdetails->code}}</td>
                         <td>{{$assetdetails->name}}</td>
-                        <td>{{$assetdetails->make}}</td>
-                        <td>{{$assetdetails->model}}</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>{{$assetdetails->code}}</td>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>

@@ -106,6 +106,9 @@ return response()->json(['success'=>'Tasks assigned successfully']);
         $site->assigned_assets=implode(',',$request->assets);
         $site->quote_items=implode(',',$request->items);
         $site->save();
+        $site->cid='GP/'.str_pad($site->id, 6, '0', STR_PAD_LEFT);
+        $site->save();
+
         /*$jobs=Jobitem::where('job_id',$request->id)->where('type',1)->get();
         foreach ($jobs as $item) {
             $job=Jobitem::find($item->id);
@@ -123,8 +126,8 @@ return response()->json(['success'=>'Tasks assigned successfully']);
 
     }
     public function site_assign($id,$items){
-        $items=QuoteItem::whereIn('id',[$items])->get();
-        return view('tasks.sitejob',compact('id','items'));
+        $items=QuoteItem::whereIn('id',explode(',',$items))->get();
+        return view('assign_item.sitejob',compact('id','items'));
     }
     //
 }

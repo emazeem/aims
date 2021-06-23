@@ -59,7 +59,6 @@ class SalesInvoiceController extends Controller
             ->addColumn('customer', function ($data) {
                 return '<span class="view-customer text-primary" data-id="'.$data->quotes->customers->id.'">'.$data->quotes->customers->reg_name.'</span>';
             })
-
             ->addColumn('status', function ($data) {
                 if ($data->status==0){
                     $status= '<b class="badge badge-danger">Pending</b>';

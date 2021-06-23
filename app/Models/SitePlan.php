@@ -11,4 +11,7 @@ class SitePlan extends Model
     public function jobs(){
         return $this->belongsTo('App\Models\Job','job_id');
     }
+    public function jobitem(){
+        return $this->belongsTo('App\Models\Jobitem','item_id');
+    }
 }

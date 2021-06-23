@@ -43,23 +43,19 @@
 
         </div>
         <div class="row py-3">
-            <div class="col-3 my-1 font-11">DN#:<span class="custom-bottom-border px-md-5">{{$job->cid}}</span></div>
+            <div class="col-3 my-1 font-11">DN#:<span class="custom-bottom-border px-md-5">DN/000001</span></div>
             <div class="col-3 my-1 font-11 ">Date:<span class="custom-bottom-border px-md-5">{{date('d-m-Y')}}</span></div>
-            <div class="col-6 my-1 font-11 ">Work order / JN # <span class="custom-bottom-border " style="padding-left: 70%"></span></div>
-            <div class="col-6 my-1 font-11 ">Customer Name:  <span class="custom-bottom-border px-md-5 ">{{$job->quotes->customers->reg_name}}</span></div>
-            <div class="col-6 my-1 font-11 ">Address:  <span class="custom-bottom-border px-md-5 ">{{$job->quotes->customers->address}}</span></div>
+            <div class="col-6 my-1 font-11 ">Work order / JN # <span class="custom-bottom-border ">{{$job->cid}}</span></div>
+            <div class="col-6 my-1 font-11 ">Customer Name:  <span class="custom-bottom-border ">{{$job->quotes->customers->reg_name}}</span></div>
+            <div class="col-6 my-1 font-11 ">Address:  <span class="custom-bottom-border">{{$job->quotes->customers->address}}</span></div>
 
-            <div class="col-12 my-1 font-11 ">Contact Person:  <span class="custom-bottom-border " style="width: 100%;box-sizing: border-box">
-                                        {{$job->quotes->principals->name}}
-
-                </span></div>
-            <div class="col-6 my-1 font-11 ">Contact #:
-                <span class="custom-bottom-border px-md-5">
-                                        {{$job->quotes->principals->phone}}
+            <div class="col-4 my-1 font-11 ">Contact Person:  <span class="custom-bottom-border ">{{$job->quotes->principals->name}}</span></div>
+            <div class="col-4 my-1 font-11 ">Contact #:
+                <span class="custom-bottom-border">{{$job->quotes->principals->phone}}
 
                 </span>
             </div>
-            <div class="col-6 my-1 font-11 ">Email:  <span class="custom-bottom-border px-md-5" >
+            <div class="col-4 my-1 font-11 ">Email:  <span class="custom-bottom-border" >
                     {{$job->quotes->principals->email}}
                 </span>
             </div>
