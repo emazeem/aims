@@ -198,8 +198,11 @@
                     For AIMS:
                 </div>
                 <div class="row">
+
                     <div class="col-2"></div>
-                    <div class="col-8 pt-5 mt-5 px-5 custom-bottom-border"></div>
+                    <div class="col-8 pt-5 mt-5 px-5 custom-bottom-border">
+                        <img style="object-fit: cover" src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="120" class="img-fluid">
+                    </div>
                     <div class="col-2"></div>
                 </div>
                 <div class="col-12 font-11">

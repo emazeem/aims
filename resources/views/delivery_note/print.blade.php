@@ -119,23 +119,22 @@
                                 Signature
                             </div>
                             <div class="col-9">
-                                <span class="text-right">____________________________</span>
-                            </div>
-                            <div class="col-3">
-                                Name
-                            </div>
-                            <div class="col-9">
-                                <span class="text-right">____________________________</span>
+                                <span class="text-right">
+                                    <img style="object-fit: cover" src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="80" class="img-fluid">
+                                </span>
                             </div>
                             <div class="col-3">
                                 Date
                             </div>
                             <div class="col-9">
-                                <span class="text-right">____________________________</span>
+                                <span class="text-right custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span>
                             </div>
-
-                        </div>
-
+                            <div class="col-3">
+                                Date
+                            </div>
+                            <div class="col-9">
+                                <span class="text-right custom-bottom-border">{{date('d-m-Y')}}</span>
+                            </div>
                     </td>
 
                     <td class="font-11">
