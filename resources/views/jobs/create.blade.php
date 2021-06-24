@@ -133,6 +133,11 @@
 
         $("#add_details_form").on('submit',(function(e) {
             e.preventDefault();
+
+            var button=$('.item-entry-add-btn');
+            var previous=$('.item-entry-add-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
             $.ajax({
                 url: "{{route('checkin.store')}}",
                 type: "POST",
@@ -142,6 +147,7 @@
                 processData:false,
                 success: function(data)
                 {
+                    button.attr('disabled',null).html(previous);
                     $('#add_details').modal('toggle');
                     swal('success',data.success,'success').then((value) => {
                         location.reload();
@@ -149,6 +155,7 @@
                 },
                 error:  function(xhr, status)
                 {
+                    button.attr('disabled',null).html(previous);
                     var error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;
@@ -159,6 +166,9 @@
         }));
         $("#edit_details_form").on('submit',(function(e) {
             e.preventDefault();
+            var button=$('.item-entry-edit-btn');
+            var previous=$('.item-entry-edit-btn').html();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
             $.ajax({
                 url: "{{route('checkin.update')}}",
                 type: "POST",
@@ -168,20 +178,16 @@
                 processData:false,
                 success: function(data)
                 {
-
-                    if(!data.errors)
-                    {
-                        $('#edit_details').modal('toggle');
-                        swal('success',data.success,'success').then((value) => {
-                            location.reload();
-                        });
-
-                    }
+                    button.attr('disabled',null).html(previous);
+                    $('#edit_details').modal('toggle');
+                    swal('success',data.success,'success').then((value) => {
+                        location.reload();
+                    });
                 },
-                error:  function(xhr, status, error)
+                error:  function(xhr)
                 {
-                    var error;
-                    error=null;
+                    button.attr('disabled',null).html(previous);
+                    var error=null;
                     $.each(xhr.responseJSON.errors, function (key, item) {
                         error+=item;
                     });
@@ -240,7 +246,7 @@
 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" type="submit"><i class="feather icon-save"></i> Save</button>
+                <button class="btn btn-primary item-entry-add-btn" type="submit"><i class="feather icon-save"></i> Save</button>
                 </form>
             </div>
         </div>
@@ -295,7 +301,7 @@
             </div>
             <div class="modal-footer">
                 <div class="col-3">
-                    <button class="btn btn-primary" type="submit">Update</button>
+                    <button class="btn btn-primary item-entry-edit-btn" type="submit"><i class="feather icon-refresh-cw"></i> Update</button>
                 </div>
                 </form>
 
