@@ -63,17 +63,17 @@
           <entry key="css" value="361" />
           <entry key="html" value="580" />
           <entry key="js" value="8" />
-          <entry key="php" value="89527" />
+          <entry key="php" value="89586" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="54501" />
+          <entry key="Blade" value="54526" />
           <entry key="CSS" value="362" />
           <entry key="HTML" value="617" />
           <entry key="JavaScript" value="8" />
-          <entry key="PHP" value="34988" />
+          <entry key="PHP" value="35022" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -82,7 +82,7 @@
           <entry key="css" value="18" />
           <entry key="html" value="16" />
           <entry key="js" value="8" />
-          <entry key="php" value="1486" />
+          <entry key="php" value="1487" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -92,7 +92,7 @@
           <entry key="CSS" value="18" />
           <entry key="HTML" value="16" />
           <entry key="JavaScript" value="8" />
-          <entry key="PHP" value="649" />
+          <entry key="PHP" value="650" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -112,11 +112,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/jobs/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="345" column="108" selection-start-line="345" selection-start-column="103" selection-end-line="345" selection-end-column="108" />
+            <state relative-caret-position="374">
+              <caret line="346" column="131" selection-start-line="346" selection-start-column="131" selection-end-line="346" selection-end-column="131" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Models/Jobitem.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -132,7 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sabza</find>
       <find>Sabza</find>
       <find>print_in</find>
       <find>invoice()</find>
@@ -162,6 +170,7 @@
       <find>set_profile</find>
       <find>edit_details</find>
       <find>visul</find>
+      <find>Inspection</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -195,7 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2021_06_21_135037_create_site_plans_table.php" />
         <option value="$PROJECT_DIR$/resources/views/mytask/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/my_task/index_lab.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/my_task/index_site.blade.php" />
@@ -226,7 +234,6 @@
         <option value="$PROJECT_DIR$/resources/views/jobs/create.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_06_23_122501_create_delivery_notes_table.php" />
         <option value="$PROJECT_DIR$/resources/views/delivery_note/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/jobs/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DeliveryNoteController.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/deliverynote.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php" />
@@ -246,6 +253,8 @@
         <option value="$PROJECT_DIR$/../rubicsol/resources/views/admin/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/jobs/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Models/Jobitem.php" />
       </list>
     </option>
   </component>
@@ -727,12 +736,12 @@
       <workItem from="1623840445522" duration="37265000" />
       <workItem from="1623941508779" duration="53112000" />
       <workItem from="1624180767625" duration="48584000" />
-      <workItem from="1624422314266" duration="28965000" />
+      <workItem from="1624422314266" duration="29343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="641325000" />
+    <option name="totallyTimeSpent" value="641703000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -854,13 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="52" column="66" lean-forward="true" selection-start-line="52" selection-start-column="66" selection-end-line="52" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Jobitem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1117,8 +1119,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/jobs/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="345" column="108" selection-start-line="345" selection-start-column="103" selection-end-line="345" selection-end-column="108" />
+        <state relative-caret-position="374">
+          <caret line="346" column="131" selection-start-line="346" selection-start-column="131" selection-end-line="346" selection-end-column="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Jobitem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>

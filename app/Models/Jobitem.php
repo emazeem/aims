@@ -32,7 +32,7 @@ class Jobitem extends Model
     }
     public function receiving_user()
     {
-        return $this->belongsTo('App\Models\User', 'id','store_incharge_id')->withDefault();
+        return $this->belongsTo('App\Models\User', 'store_incharge_id','id')->withDefault();
     }
 
 
