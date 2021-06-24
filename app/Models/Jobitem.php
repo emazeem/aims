@@ -30,6 +30,11 @@ class Jobitem extends Model
     {
         return $this->belongsTo('App\Models\Calculatorentries', 'id','job_type_id');
     }
+    public function receiving_user()
+    {
+        return $this->belongsTo('App\Models\User', 'id','store_incharge_id')->withDefault();
+    }
+
 
     protected static $logAttributes = ["type", "job_id", "item_id", "eq_id", "serial", "resolution", "accuracy", "range", "model", "make", "accessories", "visual_inspection", "status", "start", "end", "started_at", "ended_at", "assign_user", "assign_assets", "group_users", "group_assets", "certificate"];
     protected static $logOnlyDirty = true;

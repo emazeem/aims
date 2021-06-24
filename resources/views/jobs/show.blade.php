@@ -343,7 +343,8 @@
                                                 <p class="m-0">↪ <b>Make : </b>{{$labjob->make}}</p>
                                                 <p class="m-0">↪ <b>Model : </b>{{$labjob->model}}</p>
                                                 <p class="m-0">↪ <b>Accessories : </b>{{$labjob->accessories}}</p>
-                                                <p class="m-0">↪ <b>Visual Inspection : </b>{{$labjob->eq_id}}</p>
+                                                <p class="m-0">↪ <b>Visual Inspection : </b>{{$labjob->visual_inspection}}</p>
+                                                <p class="m-0">↪ <b>Receiving By : </b>{{$labjob->receiving_user->fname}} {{$labjob->receiving_user->lname}}</p>
                                             @endif
                                             @if($labjob->status<2)
                                                 <span class="badge badge-info px-3 py-2 m-1">Not Assigned yet</span>
@@ -487,7 +488,8 @@
                                                 <p class="m-0">↪ <b>Make : </b>{{$sitejob->make}}</p>
                                                 <p class="m-0">↪ <b>Model : </b>{{$sitejob->model}}</p>
                                                 <p class="m-0">↪ <b>Accessories : </b>{{$sitejob->accessories}}</p>
-                                                <p class="m-0">↪ <b>Visual Inspection : </b>{{$sitejob->eq_id}}</p>
+                                                <p class="m-0">↪ <b>Visual Inspection : </b>{{$sitejob->visual_inspection}}</p>
+                                                <p class="m-0">↪ <b>Receiving By : </b>{{$sitejob->receiving_user->fname}} {{$sitejob->receiving_user->lname}}</p>
                                             @endif
 
 
