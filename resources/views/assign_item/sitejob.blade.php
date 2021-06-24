@@ -59,14 +59,14 @@
         </script>
     @endif
     <div class="row">
-        <h3 class="float-left font-weight-light col-12"><i class="feather icon-eye"></i> Job Detail</h3>
         <div class="col-md-6 col-12 table-responsive">
-            <table class="table bg-white table-bordered">
+            <h3 class="float-left font-weight-light col-12"><i class="feather icon-eye"></i> Job Detail</h3>
+            <table class="table bg-white table-sm">
                 <tr>
                     <th>Job #</th>
                     <th>Name</th>
                     <th>Parameter</th>
-                    <th>Quantity</th>
+                    <th>Qty</th>
                 </tr>
 
                 @foreach($items as $item)
@@ -82,6 +82,7 @@
             </table>
         </div>
         <div class="col-md-6 col-12">
+            <h3 class="float-left font-weight-light col-12"><i class="feather icon-list"></i> Schedule Job</h3>
             <form class="form-horizontal " id="assign_site_job_form" method="post">
                 @csrf
                 <input type="hidden" value="{{$id}}" name="id" id="job_id">

@@ -66,7 +66,6 @@ class ItemEntriesController extends Controller
         $details->serial=$request->serial;
         $details->make=$request->make;
         $details->model=$request->model;
-        $details->store_incharge_id=auth()->user()->id;
         $details->accessories=$request->accessories;
         $details->status=1;
         $details->visual_inspection=$request->visualinspection;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 23, 2021 at 09:32 PM
+-- Generation Time: Jun 24, 2021 at 02:56 AM
 -- Server version: 5.6.51-cll-lve
 -- PHP Version: 7.3.6
 
@@ -335,7 +335,10 @@ INSERT INTO `acc_level_fours` (`id`, `code1`, `code2`, `code3`, `code4`, `acc_co
 (496, 1, 1, 3, '252', '10103252', 'Rivayat Farms', '0', NULL, '2021-06-19 20:41:57', '2021-06-19 20:41:57'),
 (497, 1, 1, 3, '253', '10103253', 'Winlet Pharmaceuticals (Pvt) Ltd', '0', NULL, '2021-06-22 17:28:09', '2021-06-22 17:28:09'),
 (498, 1, 1, 3, '254', '10103254', 'Engro Powergen Thar (Pvt.) Limited', '0', NULL, '2021-06-22 18:34:02', '2021-06-22 18:34:02'),
-(499, 1, 1, 3, '255', '10103255', 'Metropole Laboratories (Pvt) Limited', '0', NULL, '2021-06-22 22:19:47', '2021-06-22 22:19:47');
+(499, 1, 1, 3, '255', '10103255', 'Metropole Laboratories (Pvt) Limited', '0', NULL, '2021-06-22 22:19:47', '2021-06-22 22:19:47'),
+(500, 1, 1, 3, '256', '10103256', 'Future Scientific', '0', NULL, '2021-06-24 16:46:16', '2021-06-24 16:46:16'),
+(501, 1, 1, 3, '257', '10103257', 'EEPCON', '0', NULL, '2021-06-24 17:59:37', '2021-06-24 17:59:37'),
+(502, 1, 1, 3, '258', '10103258', 'Jinn Petroleum (Pvt) Limited', '0', NULL, '2021-06-24 18:55:20', '2021-06-24 18:55:20');
 
 -- --------------------------------------------------------
 
@@ -1467,7 +1470,139 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 (981, 'default', 'updated', 'App\\Models\\Quotes', 12, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-24 07:00:38', '2021-06-24 07:00:38'),
 (982, 'default', 'updated', 'App\\Models\\Quotes', 13, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-24 07:00:43', '2021-06-24 07:00:43'),
 (983, 'default', 'updated', 'App\\Models\\Quotes', 14, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-24 07:00:48', '2021-06-24 07:00:48'),
-(984, 'default', 'updated', 'App\\Models\\Quotes', 15, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-24 07:00:54', '2021-06-24 07:00:54');
+(984, 'default', 'updated', 'App\\Models\\Quotes', 15, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-24 07:00:54', '2021-06-24 07:00:54'),
+(985, 'default', 'created', 'App\\Models\\Chartofaccount', 500, 'App\\Models\\User', 1, '{\"attributes\":{\"code1\":\"1\",\"code2\":\"1\",\"code3\":\"3\",\"acc_code\":\"10103256\",\"title\":\"Future Scientific\"}}', '2021-06-24 16:46:16', '2021-06-24 16:46:16'),
+(986, 'default', 'created', 'App\\Models\\Customer', 256, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"Future Scientific\",\"ntn\":\"2979549-4\",\"region\":\"2\",\"address\":\"FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi\",\"credit_limit\":\"50000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"prin_name_1\":null,\"prin_phone_1\":null,\"prin_email_1\":null,\"prin_name_2\":null,\"prin_phone_2\":null,\"prin_email_2\":null,\"prin_name_3\":null,\"prin_phone_3\":null,\"prin_email_3\":null,\"pur_name\":null,\"pur_phone\":null,\"pur_email\":null,\"acc_name\":null,\"acc_phone\":null,\"acc_email\":null,\"deleted_at\":null,\"created_at\":\"2021-06-24T04:46:16.000000Z\",\"updated_at\":\"2021-06-24T04:46:16.000000Z\"}}', '2021-06-24 16:46:16', '2021-06-24 16:46:16'),
+(987, 'default', 'created', 'App\\Models\\Quotes', 16, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"256\",\"type\":null,\"rfq_mode\":\"whatsapp\",\"rfq_mode_details\":\"Dated 23 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"1\",\"principal\":\"791\",\"revision\":\"0\"}}', '2021-06-24 16:53:32', '2021-06-24 16:53:32'),
+(988, 'default', 'updated', 'App\\Models\\Quotes', 16, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-24 16:53:32', '2021-06-24 16:53:32'),
+(989, 'default', 'created', 'App\\Models\\QuoteItem', 170, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"16\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"1117\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"-20,650\",\"price\":\"4000\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-24 17:03:56', '2021-06-24 17:03:56'),
+(990, 'default', 'updated', 'App\\Models\\Quotes', 16, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"LAB\"},\"old\":{\"type\":null}}', '2021-06-24 17:03:56', '2021-06-24 17:03:56'),
+(991, 'default', 'updated', 'App\\Models\\Quotes', 16, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"5\",\"remarks\":\"NA\"},\"old\":{\"turnaround\":\"\",\"remarks\":null}}', '2021-06-24 17:04:20', '2021-06-24 17:04:20'),
+(992, 'default', 'updated', 'App\\Models\\Quotes', 16, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 17:04:31', '2021-06-24 17:04:31'),
+(993, 'default', 'updated', 'App\\Models\\Quotes', 16, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 17:04:55', '2021-06-24 17:04:55'),
+(994, 'default', 'created', 'App\\Models\\Chartofaccount', 501, 'App\\Models\\User', 1, '{\"attributes\":{\"code1\":\"1\",\"code2\":\"1\",\"code3\":\"3\",\"acc_code\":\"10103257\",\"title\":\"EEPCON\"}}', '2021-06-24 17:59:37', '2021-06-24 17:59:37'),
+(995, 'default', 'created', 'App\\Models\\Customer', 257, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"EEPCON\",\"ntn\":\"7486905 3\",\"region\":\"2\",\"address\":\"53 Multan Rd, Ali Block Rizwan Block Awan Town, Lahore\",\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"prin_name_1\":null,\"prin_phone_1\":null,\"prin_email_1\":null,\"prin_name_2\":null,\"prin_phone_2\":null,\"prin_email_2\":null,\"prin_name_3\":null,\"prin_phone_3\":null,\"prin_email_3\":null,\"pur_name\":null,\"pur_phone\":null,\"pur_email\":null,\"acc_name\":null,\"acc_phone\":null,\"acc_email\":null,\"deleted_at\":null,\"created_at\":\"2021-06-24T05:59:37.000000Z\",\"updated_at\":\"2021-06-24T05:59:37.000000Z\"}}', '2021-06-24 17:59:37', '2021-06-24 17:59:37'),
+(996, 'default', 'created', 'App\\Models\\Jobitem', 6, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"7\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 18:01:22', '2021-06-24 18:01:22'),
+(997, 'default', 'updated', 'App\\Models\\Jobitem', 6, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-107\",\"model\":\"---\",\"make\":\"Taiwan\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 18:01:22', '2021-06-24 18:01:22'),
+(998, 'default', 'created', 'App\\Models\\Jobitem', 7, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"7\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 18:02:16', '2021-06-24 18:02:16'),
+(999, 'default', 'updated', 'App\\Models\\Jobitem', 7, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-108\",\"model\":\"---\",\"make\":\"Taiwan\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 18:02:16', '2021-06-24 18:02:16'),
+(1000, 'default', 'created', 'App\\Models\\Jobitem', 8, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"7\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 18:04:15', '2021-06-24 18:04:15'),
+(1001, 'default', 'updated', 'App\\Models\\Jobitem', 8, 'App\\Models\\User', 24, '{\"attributes\":{\"serial\":\"180300018\",\"model\":\"---\",\"make\":\"Taiwan\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 18:04:15', '2021-06-24 18:04:15'),
+(1002, 'default', 'created', 'App\\Models\\Jobitem', 9, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"7\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 18:05:51', '2021-06-24 18:05:51'),
+(1003, 'default', 'updated', 'App\\Models\\Jobitem', 9, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-110\",\"serial\":\"180300022\",\"model\":\"---\",\"make\":\"Taiwan\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 18:05:51', '2021-06-24 18:05:51'),
+(1004, 'default', 'created', 'App\\Models\\Nofacility', 31, 'App\\Models\\User', 1, '{\"attributes\":{\"capability\":\"Gauge Blocks Set\",\"item_id\":null}}', '2021-06-24 18:07:19', '2021-06-24 18:07:19'),
+(1005, 'default', 'created', 'App\\Models\\Quotes', 17, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"257\",\"type\":null,\"rfq_mode\":\"whatsapp\",\"rfq_mode_details\":\"Dated 23 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"792\",\"revision\":\"0\"}}', '2021-06-24 18:11:13', '2021-06-24 18:11:13'),
+(1006, 'default', 'updated', 'App\\Models\\Quotes', 17, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-24 18:11:13', '2021-06-24 18:11:13'),
+(1007, 'default', 'created', 'App\\Models\\QuoteItem', 171, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"82\",\"capability\":\"228\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0.1,100000\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:12:08', '2021-06-24 18:12:08'),
+(1008, 'default', 'updated', 'App\\Models\\Quotes', 17, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"LAB\"},\"old\":{\"type\":null}}', '2021-06-24 18:12:08', '2021-06-24 18:12:08'),
+(1009, 'default', 'created', 'App\\Models\\Jobitem', 10, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"8\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 18:12:26', '2021-06-24 18:12:26'),
+(1010, 'default', 'updated', 'App\\Models\\Jobitem', 10, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-075\",\"serial\":\"N257763\",\"model\":\"AM-420L\",\"make\":\"Lutron\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 18:12:26', '2021-06-24 18:12:26'),
+(1011, 'default', 'created', 'App\\Models\\QuoteItem', 172, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"3\",\"parameter\":\"81\",\"capability\":\"0\",\"not_available\":\"Gauge Blocks Set\",\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0\",\"price\":\"0\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:12:31', '2021-06-24 18:12:31'),
+(1012, 'default', 'created', 'App\\Models\\QuoteItem', 173, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"17\",\"capability\":\"754\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0,700\",\"price\":\"5000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:13:28', '2021-06-24 18:13:28'),
+(1013, 'default', 'updated', 'App\\Models\\QuoteItem', 173, 'App\\Models\\User', 1, '{\"attributes\":{\"quantity\":\"3\"},\"old\":{\"quantity\":\"1\"}}', '2021-06-24 18:14:02', '2021-06-24 18:14:02'),
+(1014, 'default', 'updated', 'App\\Models\\QuoteItem', 173, 'App\\Models\\User', 1, '{\"attributes\":{\"quantity\":\"4\"},\"old\":{\"quantity\":\"3\"}}', '2021-06-24 18:20:14', '2021-06-24 18:20:14'),
+(1015, 'default', 'created', 'App\\Models\\QuoteItem', 174, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"877\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"-20,650\",\"price\":\"6500\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-24 18:21:17', '2021-06-24 18:21:17'),
+(1016, 'default', 'created', 'App\\Models\\QuoteItem', 175, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"54\",\"capability\":\"288\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,1000\",\"price\":\"10000\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-24 18:22:04', '2021-06-24 18:22:04'),
+(1017, 'default', 'updated', 'App\\Models\\Quotes', 17, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"BOTH\"},\"old\":{\"type\":\"LAB\"}}', '2021-06-24 18:22:04', '2021-06-24 18:22:04'),
+(1018, 'default', 'updated', 'App\\Models\\QuoteItem', 175, 'App\\Models\\User', 1, '{\"attributes\":{\"quantity\":\"1\"},\"old\":{\"quantity\":\"2\"}}', '2021-06-24 18:22:20', '2021-06-24 18:22:20'),
+(1019, 'default', 'created', 'App\\Models\\QuoteItem', 176, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"28\",\"capability\":\"923\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0,300\",\"price\":\"6000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:23:24', '2021-06-24 18:23:24'),
+(1020, 'default', 'created', 'App\\Models\\QuoteItem', 177, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"28\",\"capability\":\"924\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0,1000\",\"price\":\"10000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:24:16', '2021-06-24 18:24:16'),
+(1021, 'default', 'created', 'App\\Models\\QuoteItem', 178, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1116\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"3000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:24:46', '2021-06-24 18:24:46'),
+(1022, 'default', 'created', 'App\\Models\\QuoteItem', 179, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1065\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"9500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:25:28', '2021-06-24 18:25:28'),
+(1023, 'default', 'created', 'App\\Models\\QuoteItem', 180, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1039\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"5000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:25:45', '2021-06-24 18:25:45'),
+(1024, 'default', 'created', 'App\\Models\\QuoteItem', 181, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"864\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"25,500\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:26:01', '2021-06-24 18:26:01'),
+(1025, 'default', 'created', 'App\\Models\\QuoteItem', 182, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"17\",\"capability\":\"776\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0,200\",\"price\":\"1500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:27:37', '2021-06-24 18:27:37'),
+(1026, 'default', 'created', 'App\\Models\\QuoteItem', 183, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"316\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0.001,200\",\"price\":\"8400\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:28:07', '2021-06-24 18:28:07'),
+(1027, 'default', 'created', 'App\\Models\\Capabilities', 1168, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dead Weight 1, 2 & 5 kg\",\"parameter\":\"13\",\"procedure\":\"49\",\"range\":null,\"price\":\"850\",\"accuracy\":\"F2 and below\",\"unit\":\"166\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-24 18:30:26', '2021-06-24 18:30:26'),
+(1028, 'default', 'created', 'App\\Models\\Capabilities', 1169, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dead Weight 10 & 20 kg\",\"parameter\":\"13\",\"procedure\":\"49\",\"range\":null,\"price\":\"1000\",\"accuracy\":\"F2 and below\",\"unit\":\"166\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"yes\"}}', '2021-06-24 18:32:37', '2021-06-24 18:32:37'),
+(1029, 'default', 'created', 'App\\Models\\Capabilities', 1170, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dead Weight 50 kg\",\"parameter\":\"13\",\"procedure\":\"49\",\"range\":null,\"price\":\"2000\",\"accuracy\":\"F2 and below\",\"unit\":\"166\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-24 18:35:53', '2021-06-24 18:35:53'),
+(1030, 'default', 'created', 'App\\Models\\Capabilities', 1171, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dead Weight 500 kg\",\"parameter\":\"13\",\"procedure\":\"49\",\"range\":null,\"price\":\"4000\",\"accuracy\":\"F2 and below\",\"unit\":\"166\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-24 18:37:47', '2021-06-24 18:37:47'),
+(1031, 'default', 'created', 'App\\Models\\Capabilities', 1172, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Dead Weight 1000 kg\",\"parameter\":\"13\",\"procedure\":\"49\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"F2 and below\",\"unit\":\"166\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-24 18:39:41', '2021-06-24 18:39:41'),
+(1032, 'default', 'created', 'App\\Models\\QuoteItem', 184, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"1168\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"1,5\",\"price\":\"850\",\"quantity\":\"4\",\"rf_checks\":null}}', '2021-06-24 18:40:39', '2021-06-24 18:40:39'),
+(1033, 'default', 'created', 'App\\Models\\QuoteItem', 185, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"1169\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"10,20\",\"price\":\"1000\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-24 18:41:11', '2021-06-24 18:41:11'),
+(1034, 'default', 'created', 'App\\Models\\QuoteItem', 186, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"81\",\"capability\":\"32\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0,1000\",\"price\":\"3000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:41:54', '2021-06-24 18:41:54'),
+(1035, 'default', 'created', 'App\\Models\\QuoteItem', 187, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"10\",\"capability\":\"305\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0,5000\",\"price\":\"3000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:42:17', '2021-06-24 18:42:17'),
+(1036, 'default', 'created', 'App\\Models\\QuoteItem', 188, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"86\",\"capability\":\"932\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0,3600\",\"price\":\"1500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:42:30', '2021-06-24 18:42:30'),
+(1037, 'default', 'created', 'App\\Models\\QuoteItem', 189, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"17\",\"status\":\"0\",\"parameter\":\"26\",\"capability\":\"855\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"114,114\",\"price\":\"2500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 18:43:10', '2021-06-24 18:43:10'),
+(1038, 'default', 'updated', 'App\\Models\\QuoteItem', 179, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"6000\"},\"old\":{\"price\":\"9500\"}}', '2021-06-24 18:44:40', '2021-06-24 18:44:40'),
+(1039, 'default', 'updated', 'App\\Models\\Quotes', 17, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"15\"},\"old\":{\"turnaround\":\"\"}}', '2021-06-24 18:45:16', '2021-06-24 18:45:16'),
+(1040, 'default', 'updated', 'App\\Models\\Quotes', 17, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 18:45:39', '2021-06-24 18:45:39'),
+(1041, 'default', 'updated', 'App\\Models\\Quotes', 17, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 18:45:51', '2021-06-24 18:45:51'),
+(1042, 'default', 'created', 'App\\Models\\Chartofaccount', 502, 'App\\Models\\User', 1, '{\"attributes\":{\"code1\":\"1\",\"code2\":\"1\",\"code3\":\"3\",\"acc_code\":\"10103258\",\"title\":\"Jinn Petroleum (Pvt) Limited\"}}', '2021-06-24 18:55:20', '2021-06-24 18:55:20'),
+(1043, 'default', 'created', 'App\\Models\\Customer', 258, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"Jinn Petroleum (Pvt) Limited\",\"ntn\":\"721868 3\",\"region\":\"2\",\"address\":\"22 km main Arifwala Road, adda Shabil, Sahiwal\",\"credit_limit\":\"50000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"prin_name_1\":null,\"prin_phone_1\":null,\"prin_email_1\":null,\"prin_name_2\":null,\"prin_phone_2\":null,\"prin_email_2\":null,\"prin_name_3\":null,\"prin_phone_3\":null,\"prin_email_3\":null,\"pur_name\":null,\"pur_phone\":null,\"pur_email\":null,\"acc_name\":null,\"acc_phone\":null,\"acc_email\":null,\"deleted_at\":null,\"created_at\":\"2021-06-24T06:55:20.000000Z\",\"updated_at\":\"2021-06-24T06:55:20.000000Z\"}}', '2021-06-24 18:55:20', '2021-06-24 18:55:20'),
+(1044, 'default', 'created', 'App\\Models\\Quotes', 18, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"258\",\"type\":null,\"rfq_mode\":\"whatsapp\",\"rfq_mode_details\":\"23 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"793\",\"revision\":\"0\"}}', '2021-06-24 18:58:32', '2021-06-24 18:58:32'),
+(1045, 'default', 'updated', 'App\\Models\\Quotes', 18, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-24 18:58:32', '2021-06-24 18:58:32'),
+(1046, 'default', 'updated', 'App\\Models\\Quotes', 8, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-24 19:00:11', '2021-06-24 19:00:11'),
+(1047, 'default', 'created', 'App\\Models\\Jobitem', 11, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"12\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 19:02:49', '2021-06-24 19:02:49'),
+(1048, 'default', 'updated', 'App\\Models\\Jobitem', 11, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-92\",\"serial\":\"---\",\"model\":\"HTC-2\",\"make\":\"China\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 19:02:49', '2021-06-24 19:02:49'),
+(1049, 'default', 'created', 'App\\Models\\QuoteItem', 190, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"18\",\"status\":\"0\",\"parameter\":\"24\",\"capability\":\"847\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0.3,1.5\",\"price\":\"2500\",\"quantity\":\"10\",\"rf_checks\":null}}', '2021-06-24 19:07:35', '2021-06-24 19:07:35'),
+(1050, 'default', 'updated', 'App\\Models\\Quotes', 18, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"LAB\"},\"old\":{\"type\":null}}', '2021-06-24 19:07:35', '2021-06-24 19:07:35'),
+(1051, 'default', 'created', 'App\\Models\\Jobitem', 12, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"12\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 19:07:38', '2021-06-24 19:07:38'),
+(1052, 'default', 'updated', 'App\\Models\\Jobitem', 12, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-47\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"ZEAL\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 19:07:38', '2021-06-24 19:07:38'),
+(1053, 'default', 'created', 'App\\Models\\QuoteItem', 191, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"18\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"858\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"-20,400\",\"price\":\"2000\",\"quantity\":\"10\",\"rf_checks\":null}}', '2021-06-24 19:08:07', '2021-06-24 19:08:07'),
+(1054, 'default', 'updated', 'App\\Models\\Quotes', 18, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"BOTH\"},\"old\":{\"type\":\"LAB\"}}', '2021-06-24 19:08:07', '2021-06-24 19:08:07'),
+(1055, 'default', 'created', 'App\\Models\\Jobitem', 13, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"12\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 19:08:10', '2021-06-24 19:08:10'),
+(1056, 'default', 'updated', 'App\\Models\\Jobitem', 13, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-68\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"ZEAL\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 19:08:10', '2021-06-24 19:08:10'),
+(1057, 'default', 'created', 'App\\Models\\Jobitem', 14, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"12\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 19:08:36', '2021-06-24 19:08:36'),
+(1058, 'default', 'updated', 'App\\Models\\Jobitem', 14, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-46\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"ZEAL\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 19:08:36', '2021-06-24 19:08:36'),
+(1059, 'default', 'updated', 'App\\Models\\QuoteItem', 191, 'App\\Models\\User', 1, '{\"attributes\":{\"location\":\"lab\"},\"old\":{\"location\":\"site\"}}', '2021-06-24 19:08:38', '2021-06-24 19:08:38'),
+(1060, 'default', 'updated', 'App\\Models\\Quotes', 18, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"LAB\"},\"old\":{\"type\":\"BOTH\"}}', '2021-06-24 19:08:38', '2021-06-24 19:08:38'),
+(1061, 'default', 'updated', 'App\\Models\\Quotes', 18, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"5\"},\"old\":{\"turnaround\":\"\"}}', '2021-06-24 19:08:52', '2021-06-24 19:08:52'),
+(1062, 'default', 'updated', 'App\\Models\\Quotes', 18, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 19:09:02', '2021-06-24 19:09:02'),
+(1063, 'default', 'updated', 'App\\Models\\Quotes', 18, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 19:09:14', '2021-06-24 19:09:14'),
+(1064, 'default', 'created', 'App\\Models\\Jobitem', 15, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"12\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 19:09:38', '2021-06-24 19:09:38'),
+(1065, 'default', 'updated', 'App\\Models\\Jobitem', 15, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-40\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"Zeal\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 19:09:38', '2021-06-24 19:09:38'),
+(1066, 'default', 'updated', 'App\\Models\\Attendance', 27, 'App\\Models\\User', 19, '{\"attributes\":{\"check_out_date\":\"2021-06-24\",\"check_out\":\"12:12:14\",\"status\":\"1\"},\"old\":{\"check_out_date\":\"0000-00-00\",\"check_out\":\"13:08:05\",\"status\":\"0\"}}', '2021-06-24 19:12:14', '2021-06-24 19:12:14'),
+(1067, 'default', 'created', 'App\\Models\\Attendance', 29, 'App\\Models\\User', 19, '{\"attributes\":{\"user_id\":\"19\",\"check_in_date\":\"2021-06-24\",\"check_out_date\":\"0000-00-00\",\"check_in\":\"12:12:20\",\"check_out\":\"12:12:20\",\"day\":\"Thu\",\"worked_hours\":null,\"status\":\"0\",\"leave_id\":null,\"remarks\":\"Present manual marked by user\"}}', '2021-06-24 19:12:20', '2021-06-24 19:12:20'),
+(1068, 'default', 'created', 'App\\Models\\Jobitem', 16, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"2\",\"item_id\":\"11\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-24 19:14:31', '2021-06-24 19:14:31'),
+(1069, 'default', 'updated', 'App\\Models\\Jobitem', 16, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-80\",\"serial\":\"331414780\",\"model\":\"25mm\",\"make\":\"China\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-24 19:14:31', '2021-06-24 19:14:31'),
+(1070, 'default', 'created', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"241\",\"type\":null,\"rfq_mode\":\"email\",\"rfq_mode_details\":\"Dated 24 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"745\",\"revision\":\"0\"}}', '2021-06-24 20:02:14', '2021-06-24 20:02:14'),
+(1071, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-24 20:02:14', '2021-06-24 20:02:14'),
+(1072, 'default', 'created', 'App\\Models\\QuoteItem', 192, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"19\",\"status\":\"0\",\"parameter\":\"6\",\"capability\":\"264\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,500\",\"price\":\"8000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 20:06:15', '2021-06-24 20:06:15'),
+(1073, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"SITE\"},\"old\":{\"type\":null}}', '2021-06-24 20:06:15', '2021-06-24 20:06:15'),
+(1074, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"5\",\"remarks\":\"At Site\"},\"old\":{\"turnaround\":\"\",\"remarks\":null}}', '2021-06-24 20:06:36', '2021-06-24 20:06:36'),
+(1075, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 20:06:44', '2021-06-24 20:06:44'),
+(1076, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 20:06:57', '2021-06-24 20:06:57');
+INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `subject_id`, `causer_type`, `causer_id`, `properties`, `created_at`, `updated_at`) VALUES
+(1077, 'default', 'created', 'App\\Models\\Capabilities', 1173, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Viscosity Tubes\",\"parameter\":\"11\",\"procedure\":\"67\",\"range\":null,\"price\":\"25000\",\"accuracy\":\"0.1\",\"unit\":\"93\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-24 20:23:39', '2021-06-24 20:23:39'),
+(1078, 'default', 'created', 'App\\Models\\Quotes', 20, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"191\",\"type\":null,\"rfq_mode\":\"email\",\"rfq_mode_details\":\"Dated 24 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"582\",\"revision\":\"0\"}}', '2021-06-24 20:24:58', '2021-06-24 20:24:58'),
+(1079, 'default', 'updated', 'App\\Models\\Quotes', 20, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-24 20:24:58', '2021-06-24 20:24:58'),
+(1080, 'default', 'created', 'App\\Models\\QuoteItem', 193, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"20\",\"status\":\"0\",\"parameter\":\"11\",\"capability\":\"1173\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0.5,5.5\",\"price\":\"25000\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-24 20:25:27', '2021-06-24 20:25:27'),
+(1081, 'default', 'updated', 'App\\Models\\Quotes', 20, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"SITE\"},\"old\":{\"type\":null}}', '2021-06-24 20:25:27', '2021-06-24 20:25:27'),
+(1082, 'default', 'updated', 'App\\Models\\Quotes', 20, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"5\",\"remarks\":\"Will be Calibrated at Site.\"},\"old\":{\"turnaround\":\"\",\"remarks\":null}}', '2021-06-24 20:25:52', '2021-06-24 20:25:52'),
+(1083, 'default', 'updated', 'App\\Models\\Quotes', 20, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 20:26:00', '2021-06-24 20:26:00'),
+(1084, 'default', 'updated', 'App\\Models\\Quotes', 20, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 20:26:12', '2021-06-24 20:26:12'),
+(1085, 'default', 'created', 'App\\Models\\Quotes', 21, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"195\",\"type\":null,\"rfq_mode\":\"email\",\"rfq_mode_details\":\"Dated 22 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"786\",\"revision\":\"0\"}}', '2021-06-24 20:30:44', '2021-06-24 20:30:44'),
+(1086, 'default', 'updated', 'App\\Models\\Quotes', 21, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-24 20:30:44', '2021-06-24 20:30:44'),
+(1087, 'default', 'created', 'App\\Models\\QuoteItem', 194, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"880\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"25,250\",\"price\":\"5500\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-24 20:32:16', '2021-06-24 20:32:16'),
+(1088, 'default', 'updated', 'App\\Models\\Quotes', 21, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"SITE\"},\"old\":{\"type\":null}}', '2021-06-24 20:32:16', '2021-06-24 20:32:16'),
+(1089, 'default', 'created', 'App\\Models\\QuoteItem', 195, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"879\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"10,50\",\"price\":\"5500\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-24 20:32:40', '2021-06-24 20:32:40'),
+(1090, 'default', 'created', 'App\\Models\\Capabilities', 1174, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Digestor Block COD\",\"parameter\":\"27\",\"procedure\":\"4\",\"range\":null,\"price\":\"4000\",\"accuracy\":\"0.5\",\"unit\":\"171\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-24 20:35:53', '2021-06-24 20:35:53'),
+(1091, 'default', 'created', 'App\\Models\\QuoteItem', 196, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"1174\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"30,180\",\"price\":\"3500\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-24 20:36:49', '2021-06-24 20:36:49'),
+(1092, 'default', 'created', 'App\\Models\\Capabilities', 1175, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Cool \\/ Hot Cabinets\",\"parameter\":\"27\",\"procedure\":\"39\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"1 C\",\"unit\":\"171\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"yes\"}}', '2021-06-24 20:39:12', '2021-06-24 20:39:12'),
+(1093, 'default', 'created', 'App\\Models\\QuoteItem', 197, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"1175\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"-20,20\",\"price\":\"5000\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-24 20:40:14', '2021-06-24 20:40:14'),
+(1094, 'default', 'created', 'App\\Models\\QuoteItem', 198, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"892\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"40,90\",\"price\":\"4000\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-24 20:40:51', '2021-06-24 20:40:51'),
+(1095, 'default', 'created', 'App\\Models\\QuoteItem', 199, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"882\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"-20,20\",\"price\":\"5000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 20:41:21', '2021-06-24 20:41:21'),
+(1096, 'default', 'created', 'App\\Models\\QuoteItem', 200, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1068\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 20:41:43', '2021-06-24 20:41:43'),
+(1097, 'default', 'created', 'App\\Models\\QuoteItem', 201, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"31\",\"capability\":\"947\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"1,25\",\"price\":\"1500\",\"quantity\":\"4\",\"rf_checks\":null}}', '2021-06-24 20:45:34', '2021-06-24 20:45:34'),
+(1098, 'default', 'updated', 'App\\Models\\Quotes', 21, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"BOTH\"},\"old\":{\"type\":\"SITE\"}}', '2021-06-24 20:45:34', '2021-06-24 20:45:34'),
+(1099, 'default', 'created', 'App\\Models\\QuoteItem', 202, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"321\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0.001,220\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 20:46:01', '2021-06-24 20:46:01'),
+(1100, 'default', 'created', 'App\\Models\\QuoteItem', 203, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"21\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1116\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"3000\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-24 20:47:48', '2021-06-24 20:47:48'),
+(1101, 'default', 'updated', 'App\\Models\\Quotes', 21, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"10\",\"remarks\":\"NA\"},\"old\":{\"turnaround\":\"\",\"remarks\":null}}', '2021-06-24 20:48:06', '2021-06-24 20:48:06'),
+(1102, 'default', 'updated', 'App\\Models\\Quotes', 21, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 20:48:13', '2021-06-24 20:48:13'),
+(1103, 'default', 'updated', 'App\\Models\\Quotes', 21, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 20:48:27', '2021-06-24 20:48:27'),
+(1104, 'default', 'updated', 'App\\Models\\Quotes', 1, 'App\\Models\\User', 1, '{\"attributes\":{\"approval_mode\":\"By PO\",\"approval_mode_details\":\"PO No. LP\\/2021\\/2039 Dated 23 Jun, 2021.\",\"approval_date\":\"2021-06-24\"},\"old\":{\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null}}', '2021-06-24 20:58:11', '2021-06-24 20:58:11'),
+(1105, 'default', 'updated', 'App\\Models\\Quotes', 1, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"3\"},\"old\":{\"status\":\"2\"}}', '2021-06-24 21:00:14', '2021-06-24 21:00:14'),
+(1106, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"revision\":\"1\"},\"old\":{\"status\":\"2\",\"revision\":\"0\"}}', '2021-06-24 21:08:55', '2021-06-24 21:08:55'),
+(1107, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"remarks\":null},\"old\":{\"remarks\":\"At Site\"}}', '2021-06-24 21:09:39', '2021-06-24 21:09:39'),
+(1108, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 21:09:47', '2021-06-24 21:09:47'),
+(1109, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 21:10:36', '2021-06-24 21:10:36'),
+(1110, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"revision\":\"2\"},\"old\":{\"status\":\"2\",\"revision\":\"1\"}}', '2021-06-24 21:15:32', '2021-06-24 21:15:32'),
+(1111, 'default', 'deleted', 'App\\Models\\QuoteItem', 192, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"19\",\"status\":\"0\",\"parameter\":\"6\",\"capability\":\"264\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,500\",\"price\":\"8000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 21:18:25', '2021-06-24 21:18:25'),
+(1112, 'default', 'created', 'App\\Models\\QuoteItem', 204, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"19\",\"status\":\"0\",\"parameter\":\"6\",\"capability\":\"264\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,5\",\"price\":\"8000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 21:20:20', '2021-06-24 21:20:20'),
+(1113, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 21:20:36', '2021-06-24 21:20:36'),
+(1114, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 21:20:46', '2021-06-24 21:20:46'),
+(1115, 'default', 'updated', 'App\\Models\\Jobitem', 9, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-24 21:46:15', '2021-06-24 21:46:15');
 
 -- --------------------------------------------------------
 
@@ -1905,8 +2040,9 @@ INSERT INTO `attendances` (`id`, `user_id`, `check_in_date`, `check_out_date`, `
 (24, 1, '2021-06-07', '2021-06-10', '16:31:39', '11:56:08', 'Mon', 1, NULL, 'Present manual marked by user', '2021-06-07 23:31:39', '2021-06-10 18:56:08'),
 (25, 19, '2021-06-08', '2021-06-10', '08:37:46', '13:08:00', 'Tue', 1, NULL, 'Present manual marked by user', '2021-06-08 15:37:46', '2021-06-10 20:08:00'),
 (26, 1, '2021-06-10', '0000-00-00', '11:56:18', '11:56:18', 'Thu', 0, NULL, 'Present manual marked by user', '2021-06-10 18:56:18', '2021-06-10 18:56:18'),
-(27, 19, '2021-06-10', '0000-00-00', '13:08:05', '13:08:05', 'Thu', 0, NULL, 'Present manual marked by user', '2021-06-10 20:08:05', '2021-06-10 20:08:05'),
-(28, 20, '2021-06-22', '0000-00-00', '16:31:36', '16:31:36', 'Tue', 0, NULL, 'Present manual marked by user', '2021-06-22 23:31:36', '2021-06-22 23:31:36');
+(27, 19, '2021-06-10', '2021-06-24', '13:08:05', '12:12:14', 'Thu', 1, NULL, 'Present manual marked by user', '2021-06-10 20:08:05', '2021-06-24 19:12:14'),
+(28, 20, '2021-06-22', '0000-00-00', '16:31:36', '16:31:36', 'Tue', 0, NULL, 'Present manual marked by user', '2021-06-22 23:31:36', '2021-06-22 23:31:36'),
+(29, 19, '2021-06-24', '0000-00-00', '12:12:20', '12:12:20', 'Thu', 0, NULL, 'Present manual marked by user', '2021-06-24 19:12:20', '2021-06-24 19:12:20');
 
 -- --------------------------------------------------------
 
@@ -2764,7 +2900,15 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (1164, 'Testing Machine Speed', 80, 67, NULL, '1', '200', NULL, NULL, 1500, '0.5', '184', 'NA', 'site', 'no', 'general-calculator', 0, 1166, NULL, '2021-06-24 02:06:48', '2021-06-24 02:21:01'),
 (1165, 'Testing Machine Travel Length', 81, 29, NULL, '0', '1000', '0', '1000', 1500, '0.5', '113', 'NA', 'site', 'yes', 'general-calculator', 0, 1166, NULL, '2021-06-24 02:07:46', '2021-06-24 02:21:01'),
 (1166, 'Testing Machine', 14, 0, NULL, '0', '0', '0', '0', 0, '0', '0', 'Non-Accredit', 'site', '--', '0', 1, NULL, NULL, '2021-06-24 02:12:22', '2021-06-24 02:12:22'),
-(1167, 'Twist Tester', 14, 0, NULL, '0', '0', '0', '0', 0, '0', '0', 'Accredit', 'site', '--', '0', 1, NULL, NULL, '2021-06-24 02:19:00', '2021-06-24 02:19:00');
+(1167, 'Twist Tester', 14, 0, NULL, '0', '0', '0', '0', 0, '0', '0', 'Accredit', 'site', '--', '0', 1, NULL, NULL, '2021-06-24 02:19:00', '2021-06-24 02:19:00'),
+(1168, 'Dead Weight 1, 2 & 5 kg', 13, 49, NULL, '1', '5', '1', '5', 850, 'F2 and below', '166', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-24 18:30:26', '2021-06-24 18:30:26'),
+(1169, 'Dead Weight 10 & 20 kg', 13, 49, NULL, '10', '20', '10', '20', 1000, 'F2 and below', '166', 'NA', 'lab', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-24 18:32:37', '2021-06-24 18:32:37'),
+(1170, 'Dead Weight 50 kg', 13, 49, NULL, '50', '50', NULL, NULL, 2000, 'F2 and below', '166', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-24 18:35:53', '2021-06-24 18:35:53'),
+(1171, 'Dead Weight 500 kg', 13, 49, NULL, '500', '500', NULL, NULL, 4000, 'F2 and below', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-24 18:37:47', '2021-06-24 18:37:47'),
+(1172, 'Dead Weight 1000 kg', 13, 49, NULL, '1000', '1000', NULL, NULL, 6000, 'F2 and below', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-24 18:39:41', '2021-06-24 18:39:41'),
+(1173, 'Viscosity Tubes', 11, 67, NULL, '0.5', '5.5', NULL, NULL, 25000, '0.1', '93', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-24 20:23:39', '2021-06-24 20:23:39'),
+(1174, 'Digestor Block COD', 27, 4, NULL, '30', '180', '30', '180', 4000, '0.5', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-24 20:35:53', '2021-06-24 20:35:53'),
+(1175, 'Cool / Hot Cabinets', 27, 39, NULL, '-20', '20', '-20', '20', 6000, '1 C', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-24 20:39:12', '2021-06-24 20:39:12');
 
 -- --------------------------------------------------------
 
@@ -3147,7 +3291,10 @@ INSERT INTO `customers` (`id`, `reg_name`, `ntn`, `region`, `address`, `bill_to_
 (252, 'Rivayat Farms', '0000000 0', '2', '3.5 Km, Raiwind-Manga Bypass, Lahore', '7 A/K Main Boulevard, Gulberg II, Lahore', 200000, '10103252', 'credit', '30 days', 'Manufacturing Dairy Products', 'Lahore', 3, NULL, '2021-06-19 20:41:57', '2021-06-19 20:41:57'),
 (253, 'Winlet Pharmaceuticals (Pvt) Ltd', '3362195 7', '2', '30- kM, Laksian, Lahore Road Sargodha', 'House No. 73, Block G, Johar Town, Lahore.', 200000, '10103253', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Sargodha', 3, NULL, '2021-06-22 17:28:09', '2021-06-22 18:19:09'),
 (254, 'Engro Powergen Thar (Pvt.) Limited', '0000000 0', '4', 'Tharparkar Distt. Sindh', '16th Floor, The Harbor Front Building, HC # 3, Marine Drive, Block 4, Clifton, Karachi', 200000, '10103254', 'credit', '30 days', 'Power Generation', 'Tharparkar', 4, NULL, '2021-06-22 18:34:02', '2021-06-22 18:34:02'),
-(255, 'Metropole Laboratories (Pvt) Limited', '6425279 8', '2', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 200000, '10103255', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Rawalpindi', 3, NULL, '2021-06-22 22:19:47', '2021-06-22 22:19:47');
+(255, 'Metropole Laboratories (Pvt) Limited', '6425279 8', '2', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 200000, '10103255', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Rawalpindi', 3, NULL, '2021-06-22 22:19:47', '2021-06-22 22:19:47'),
+(256, 'Future Scientific', '2979549-4', '2', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 50000, '10103256', 'credit', '30 days', 'Supplier Lab Equipment and Kits', 'Rawalpindi', 3, NULL, '2021-06-24 16:46:16', '2021-06-24 16:46:16'),
+(257, 'EEPCON', '7486905 3', '2', '53 Multan Rd, Ali Block Rizwan Block Awan Town, Lahore', '53 Multan Rd, Ali Block Rizwan Block Awan Town, Lahore', 200000, '10103257', 'credit', '30 days', 'Services Engineering Manufacturing', 'Lahore', 3, NULL, '2021-06-24 17:59:37', '2021-06-24 17:59:37'),
+(258, 'Jinn Petroleum (Pvt) Limited', '721868 3', '2', '22 km main Arifwala Road, adda Shabil, Sahiwal', '22 km main Arifwala Road, adda Shabil, Sahiwal', 50000, '10103258', 'credit', '30 days', 'Service Petroleum Distribution', 'Sahiwal', 3, NULL, '2021-06-24 18:55:20', '2021-06-24 18:55:20');
 
 -- --------------------------------------------------------
 
@@ -3960,7 +4107,13 @@ INSERT INTO `customer_contacts` (`id`, `customer_id`, `type`, `name`, `email`, `
 (786, 195, 'principal', 'Zeeshan Shafi C & P', 'Zeeshan.Shafi@sgs.com', '0320 4497515', NULL, '2021-06-23 16:53:01', '2021-06-23 16:53:01'),
 (787, 191, 'purchase', 'Muhammad Kashif', '0321 7684402', 'm.kashif414@gmail.com', '2021-06-23 19:27:17', '2021-06-23 18:57:41', '2021-06-23 19:27:17'),
 (788, 191, 'purchase', 'Wahid Munir', 'wahid.munir@transfopower.net', '0301 7904474', NULL, '2021-06-23 19:25:13', '2021-06-23 19:25:13'),
-(789, 191, 'account', 'Hamza Ahmad', 'hamza.ahmad@transfopower.net', '03204882065', NULL, '2021-06-23 19:26:40', '2021-06-23 19:26:40');
+(789, 191, 'account', 'Hamza Ahmad', 'hamza.ahmad@transfopower.net', '03204882065', NULL, '2021-06-23 19:26:40', '2021-06-23 19:26:40'),
+(790, 255, 'account', 'Usman Ahmed', NULL, '0321 5010134', NULL, '2021-06-24 16:41:38', '2021-06-24 16:41:38'),
+(791, 256, 'principal', 'Rabyya Kausar', 'rabyya@futurescientific.com.pk', '0320 0553631', NULL, '2021-06-24 16:49:38', '2021-06-24 16:49:38'),
+(792, 257, 'principal', 'Asim Anwar', 'asim.anwar@eepcon.com', '0304 9763436', NULL, '2021-06-24 18:03:26', '2021-06-24 18:03:26'),
+(793, 258, 'principal', 'Javed Iqbal', 'info@jinnpetroleum.com', '0309 5551865', NULL, '2021-06-24 18:57:03', '2021-06-24 18:57:03'),
+(794, 88, 'purchase', 'Muhammad Bilal', 'supplychain@schazoozaka.com', '056 2312044-46', NULL, '2021-06-24 20:55:59', '2021-06-24 20:55:59'),
+(795, 88, 'account', 'Muhammad Nawaz', 'accounts@schazoozaka.com', '056 2312044-46', NULL, '2021-06-24 20:56:38', '2021-06-24 20:56:38');
 
 -- --------------------------------------------------------
 
@@ -4532,11 +4685,22 @@ CREATE TABLE `jobitems` (
 --
 
 INSERT INTO `jobitems` (`id`, `cid`, `cc`, `type`, `job_id`, `item_id`, `eq_id`, `serial`, `resolution`, `accuracy`, `range`, `model`, `make`, `accessories`, `visual_inspection`, `store_incharge_id`, `status`, `start`, `end`, `started_at`, `ended_at`, `assign_user`, `assign_assets`, `created_at`, `updated_at`) VALUES
-(1, 'CC/0000001', 1, 0, 1, 18, 'SIM-VC-01', '2703202783', NULL, NULL, NULL, '1108-150', 'INSIZE', 'NIL', 'OK', NULL, 4, '2021-06-21', '2021-06-22', '2021-06-21 10:11:34', '2021-06-21 10:56:23', 22, '140', '2021-06-20 14:13:10', '2021-06-22 07:56:23'),
-(2, 'CC/0000002', 1, 0, 1, 19, 'SIM-MM-01', '76625', NULL, NULL, NULL, 'Nil', 'CHUNBRAND', 'NIL', 'OK', NULL, 4, '2021-06-21', '2021-06-22', '2021-06-21 11:27:51', '2021-06-21 11:27:56', 22, '139', '2021-06-20 14:14:21', '2021-06-22 01:27:56'),
-(3, 'CC/0000003', 1, 0, 1, 20, 'SIM-MT-01', 'Nil', NULL, NULL, NULL, 'GWA513', 'AKT', 'NIL', 'OK', NULL, 4, '2021-06-21', '2021-06-22', '2021-06-21 11:28:07', '2021-06-21 11:28:15', 22, '126', '2021-06-20 14:14:49', '2021-06-22 01:28:15'),
-(4, 'CC/0000004', 1, 1, 1, 17, 'SIM-WS-01', '030096', NULL, NULL, NULL, 'ST-102 PLUS', 'Scale Tronix', 'NIL', 'OK', NULL, 4, '2021-06-22', '2021-06-22', '2021-06-22 12:04:10', '2021-06-22 12:04:18', 23, '107', '2021-06-22 19:03:38', '2021-06-22 19:04:18'),
-(5, NULL, NULL, 0, 3, 16, 'TIPL/TTL/HVIT', NULL, NULL, NULL, NULL, '3125', 'KYRITSU', 'NIL', 'OK', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-23 23:49:36', '2021-06-23 23:49:36');
+(1, 'CC/0000001', 1, 0, 1, 18, 'SIM-VC-01', '2703202783', NULL, NULL, NULL, '1108-150', 'INSIZE', 'NIL', 'OK', 24, 4, '2021-06-21', '2021-06-22', '2021-06-21 10:11:34', '2021-06-21 10:56:23', 22, '140', '2021-06-20 14:13:10', '2021-06-22 07:56:23'),
+(2, 'CC/0000002', 1, 0, 1, 19, 'SIM-MM-01', '76625', NULL, NULL, NULL, 'Nil', 'CHUNBRAND', 'NIL', 'OK', 24, 4, '2021-06-21', '2021-06-22', '2021-06-21 11:27:51', '2021-06-21 11:27:56', 22, '139', '2021-06-20 14:14:21', '2021-06-22 01:27:56'),
+(3, 'CC/0000003', 1, 0, 1, 20, 'SIM-MT-01', 'Nil', NULL, NULL, NULL, 'GWA513', 'AKT', 'NIL', 'OK', 24, 4, '2021-06-21', '2021-06-22', '2021-06-21 11:28:07', '2021-06-21 11:28:15', 22, '126', '2021-06-20 14:14:49', '2021-06-22 01:28:15'),
+(4, 'CC/0000004', 1, 1, 1, 17, 'SIM-WS-01', '030096', NULL, NULL, NULL, 'ST-102 PLUS', 'Scale Tronix', 'NIL', 'OK', 24, 4, '2021-06-22', '2021-06-22', '2021-06-22 12:04:10', '2021-06-22 12:04:18', 23, '107', '2021-06-22 19:03:38', '2021-06-22 19:04:18'),
+(5, NULL, NULL, 0, 3, 16, 'TIPL/TTL/HVIT', NULL, NULL, NULL, NULL, '3125', 'KYRITSU', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-23 23:49:36', '2021-06-23 23:49:36'),
+(6, NULL, NULL, 0, 2, 7, 'QC-107', NULL, NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:01:22', '2021-06-24 18:01:22'),
+(7, NULL, NULL, 0, 2, 7, 'QC-108', NULL, NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:02:16', '2021-06-24 18:02:16'),
+(8, NULL, NULL, 0, 2, 7, NULL, '180300018', NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:04:15', '2021-06-24 18:04:15'),
+(9, NULL, NULL, 0, 2, 7, 'QC-110', '180300022', NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:05:51', '2021-06-24 21:46:15'),
+(10, NULL, NULL, 0, 2, 8, 'QC-075', 'N257763', NULL, NULL, NULL, 'AM-420L', 'Lutron', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:12:26', '2021-06-24 18:12:26'),
+(11, NULL, NULL, 0, 2, 12, 'QC-92', '---', NULL, NULL, NULL, 'HTC-2', 'China', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:02:49', '2021-06-24 19:02:49'),
+(12, NULL, NULL, 0, 2, 12, 'QC-47', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:07:38', '2021-06-24 19:07:38'),
+(13, NULL, NULL, 0, 2, 12, 'QC-68', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:08:10', '2021-06-24 19:08:10'),
+(14, NULL, NULL, 0, 2, 12, 'QC-46', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:08:36', '2021-06-24 19:08:36'),
+(15, NULL, NULL, 0, 2, 12, 'QC-40', '---', NULL, NULL, NULL, '---', 'Zeal', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:09:38', '2021-06-24 19:09:38'),
+(16, NULL, NULL, 0, 2, 11, 'QC-80', '331414780', NULL, NULL, NULL, '25mm', 'China', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:14:31', '2021-06-24 19:14:31');
 
 -- --------------------------------------------------------
 
@@ -5901,7 +6065,8 @@ INSERT INTO `nofacilities` (`id`, `capability`, `parameter`, `quantity`, `custom
 (27, 'Tinto Meter / Colori Meter', 98, 1, 12, NULL, NULL, '2021-06-22 20:00:32', '2021-06-22 20:00:32'),
 (28, 'Whiteness Meter', 99, 1, 176, NULL, NULL, '2021-06-22 20:06:22', '2021-06-22 20:06:22'),
 (29, 'Power Meter Fiber Optics', 97, 1, 46, NULL, NULL, '2021-06-22 20:07:34', '2021-06-22 20:07:34'),
-(30, 'Time Domain Reflectometer', 97, 1, 46, NULL, NULL, '2021-06-22 20:08:03', '2021-06-22 20:08:03');
+(30, 'Time Domain Reflectometer', 97, 1, 46, NULL, NULL, '2021-06-22 20:08:03', '2021-06-22 20:08:03'),
+(31, 'Gauge Blocks Set', 81, 1, 257, NULL, NULL, '2021-06-24 18:07:19', '2021-06-24 18:07:19');
 
 -- --------------------------------------------------------
 
@@ -5925,6 +6090,7 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
+('022029c2-afe6-44ab-ac7c-2c88e9b429cd', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000021 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/21\"}}', NULL, '2021-06-24 20:48:13', '2021-06-24 20:48:13'),
 ('02e93b38-185d-4f4e-bd55-3ebc3cdb2d5d', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000013 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/13\"}}', NULL, '2021-06-22 21:43:54', '2021-06-22 21:43:54'),
 ('07ec5d0b-7c56-4000-8b00-67edad41b88e', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000005\",\"redirectURL\":\"\\/quotes\\/view\\/5\"}}', NULL, '2021-06-20 00:04:29', '2021-06-20 00:04:29'),
 ('091de603-a7ba-48a0-b81d-4e4b3cbbfd7f', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000012 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/12\"}}', NULL, '2021-06-22 21:01:23', '2021-06-22 21:01:23'),
@@ -5933,36 +6099,53 @@ INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `
 ('0fe23df6-9df9-44c3-afa0-2fc4a754d9b2', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000009 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/9\"}}', NULL, '2021-06-22 16:44:51', '2021-06-22 16:44:51'),
 ('10702b07-beed-49e5-bd08-cf48a94698ec', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000002 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/2\"}}', NULL, '2021-06-18 22:36:35', '2021-06-18 22:36:35'),
 ('18d3e3b8-cc54-4bf3-9fc6-901eb1452021', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000008 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/8\"}}', NULL, '2021-06-21 17:40:06', '2021-06-21 17:40:06'),
+('2074fc73-912a-4659-8688-0efa3f13dc22', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000001\",\"redirectURL\":\"\\/quotes\\/view\\/1\"}}', NULL, '2021-06-24 21:00:14', '2021-06-24 21:00:14'),
 ('226aca38-4725-4d72-8959-83bb4d6ada0e', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 00:34:40', '2021-06-24 00:34:40'),
 ('2a9ab9f4-d3d5-4fb9-98c0-2577c63c8200', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000004\",\"redirectURL\":\"\\/quotes\\/view\\/4\"}}', NULL, '2021-06-23 19:05:48', '2021-06-23 19:05:48'),
 ('3df507e7-9c1f-4aaa-997c-a3aa42529570', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000003 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/3\"}}', NULL, '2021-06-18 23:10:46', '2021-06-18 23:10:46'),
 ('406d4797-5004-413e-b1bb-38b263836142', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000001 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/1\"}}', NULL, '2021-06-18 22:00:47', '2021-06-18 22:00:47'),
 ('48fedd82-1e0b-4b4c-8987-8e1acedbbbc5', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000002 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/2\"}}', NULL, '2021-06-18 22:36:35', '2021-06-18 22:36:35'),
 ('521924e1-d633-468e-b6b3-f2313a9036ad', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000005 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/5\"}}', NULL, '2021-06-19 01:55:54', '2021-06-19 01:55:54'),
+('596acb11-278f-4128-95ba-ab77933e9151', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 21:09:47', '2021-06-24 21:09:47'),
 ('5a2b1a71-abf5-4ad7-958e-76bb7426fd7e', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000005 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/5\"}}', NULL, '2021-06-19 01:55:54', '2021-06-19 01:55:54'),
+('5aaabf35-073d-47c1-98c4-a4fe48dec9e3', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 21:20:36', '2021-06-24 21:20:36'),
 ('5da3ab55-1143-4fea-aee4-fdc3e118109f', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 02:24:10', '2021-06-24 02:24:10'),
 ('6fada3c4-ef1a-4a3b-be4b-e0b79f761355', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 02:24:10', '2021-06-24 02:24:10'),
 ('6fb90565-9d7c-46c9-857b-bd2843b8efd7', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000012 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/12\"}}', NULL, '2021-06-22 21:01:23', '2021-06-22 21:01:23'),
+('74e78d3a-0e6b-4a02-a6f6-e522cf29b607', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000017 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/17\"}}', NULL, '2021-06-24 18:45:39', '2021-06-24 18:45:39'),
+('758d68dc-806e-4f02-842a-013544ea053f', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 21:20:36', '2021-06-24 21:20:36'),
 ('7c51f87e-4881-42f0-9ba5-39ea1eefb672', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000004 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/4\"}}', NULL, '2021-06-19 00:48:46', '2021-06-19 00:48:46'),
 ('80cfd94c-224c-4c52-83ef-8e5d7b494758', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 00:03:55', '2021-06-24 00:03:55'),
+('81faa871-f51b-4472-94ec-cb8df6942541', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000016 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/16\"}}', NULL, '2021-06-24 17:04:32', '2021-06-24 17:04:32'),
 ('828afde1-bd4b-4d58-a08f-51d2c22e068f', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000004 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/4\"}}', NULL, '2021-06-19 00:48:46', '2021-06-19 00:48:46'),
 ('88b4ec26-c791-453a-90a2-41f569311d2d', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000011 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/11\"}}', NULL, '2021-06-22 18:13:44', '2021-06-22 18:13:44'),
+('8e8be5a8-7e9f-4025-8de1-c8b48b56de17', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000018 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/18\"}}', NULL, '2021-06-24 19:09:03', '2021-06-24 19:09:03'),
+('93b43f77-91c1-4dac-9010-40f39fd325c9', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 20:06:45', '2021-06-24 20:06:45'),
 ('9917a0dd-82d7-478a-95e2-ae1a77d4f1ca', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000007 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/7\"}}', NULL, '2021-06-19 22:30:24', '2021-06-19 22:30:24'),
 ('9a696242-3152-4daa-91d3-a28aabc6067e', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 00:34:40', '2021-06-24 00:34:40'),
 ('9c3e030f-67a8-4dc3-8253-5d8c4836f0de', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 00:03:55', '2021-06-24 00:03:55'),
+('9f579bb6-c282-4ff8-83e5-0ac8f85b12be', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000017 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/17\"}}', NULL, '2021-06-24 18:45:39', '2021-06-24 18:45:39'),
 ('a305d85c-dc6d-4221-b1ce-e54a69f8b2f2', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000014 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/14\"}}', NULL, '2021-06-22 22:51:53', '2021-06-22 22:51:53'),
 ('a8b85594-7334-467b-8650-850d532ca5ed', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000008 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/8\"}}', NULL, '2021-06-21 17:40:06', '2021-06-21 17:40:06'),
+('abf08839-57f0-4875-a376-e2e065e6d797', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 20:06:45', '2021-06-24 20:06:45'),
 ('ad1dd9d5-2060-4b66-8b8b-709894b180e8', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000006 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/6\"}}', NULL, '2021-06-19 16:54:50', '2021-06-19 16:54:50'),
+('b02b65bb-310f-4317-800b-c3712dc14485', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000018 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/18\"}}', NULL, '2021-06-24 19:09:03', '2021-06-24 19:09:03'),
+('b64315ae-b91d-4416-8f8f-3da579fe5008', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000020 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/20\"}}', NULL, '2021-06-24 20:26:00', '2021-06-24 20:26:00'),
 ('b7acc312-9179-448a-ab1d-3ba513a56c92', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000006 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/6\"}}', NULL, '2021-06-19 16:54:50', '2021-06-19 16:54:50'),
+('c28a117d-2dd7-4123-8a66-075213af0f17', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 21:09:47', '2021-06-24 21:09:47'),
+('c33cdc17-7f52-4391-bc30-de81721bdaf2', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000021 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/21\"}}', NULL, '2021-06-24 20:48:13', '2021-06-24 20:48:13'),
 ('c4cbcdff-f50e-4f27-bdd1-dec6f516dba3', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000007 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/7\"}}', NULL, '2021-06-19 22:30:24', '2021-06-19 22:30:24'),
 ('c92e3409-3b11-4a15-858c-ea90bd3ae716', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000011 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/11\"}}', NULL, '2021-06-22 18:13:44', '2021-06-22 18:13:44'),
+('ce968a90-97de-47e9-9cde-8cf1a6cc5c08', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000001\",\"redirectURL\":\"\\/quotes\\/view\\/1\"}}', NULL, '2021-06-24 21:00:14', '2021-06-24 21:00:14'),
 ('cf6aac22-5363-45fc-be18-45b95e09d8dd', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000009 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/9\"}}', NULL, '2021-06-22 16:44:51', '2021-06-22 16:44:51'),
 ('d4adf1f6-306c-4d95-b168-e13c14ed4be6', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000004\",\"redirectURL\":\"\\/quotes\\/view\\/4\"}}', NULL, '2021-06-23 19:05:48', '2021-06-23 19:05:48'),
+('d5cdbdcf-d059-4c30-bc4c-79fe129d6952', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000016 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/16\"}}', NULL, '2021-06-24 17:04:32', '2021-06-24 17:04:32'),
 ('d7214164-1b90-486b-a0bf-e39fcf618f34', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000003 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/3\"}}', NULL, '2021-06-18 23:10:46', '2021-06-18 23:10:46'),
 ('d7298648-9961-495f-b0e6-9ea853a20747', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000005\",\"redirectURL\":\"\\/quotes\\/view\\/5\"}}', NULL, '2021-06-20 00:04:29', '2021-06-20 00:04:29'),
 ('db3b176b-ec93-4f4e-878b-cc945a3908ca', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000010 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/10\"}}', NULL, '2021-06-22 17:07:47', '2021-06-22 17:07:47'),
 ('e2b86354-97e9-4b84-9820-2c9124e51c20', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000014 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/14\"}}', NULL, '2021-06-22 22:51:53', '2021-06-22 22:51:53'),
 ('e32dd7bd-ce5a-49a5-bf59-6a950e9cf652', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000003\",\"redirectURL\":\"\\/quotes\\/view\\/3\"}}', NULL, '2021-06-21 20:16:35', '2021-06-21 20:16:35'),
+('ec0c72c6-8b69-4e34-9d60-823438a21d56', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000020 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/20\"}}', NULL, '2021-06-24 20:26:00', '2021-06-24 20:26:00'),
 ('efd2221f-a59b-4098-8702-2cca4784f628', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000013 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/13\"}}', NULL, '2021-06-22 21:43:54', '2021-06-22 21:43:54'),
 ('f6225824-5463-4af4-a7ee-f9b04a1014fc', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000003\",\"redirectURL\":\"\\/quotes\\/view\\/3\"}}', NULL, '2021-06-21 20:16:35', '2021-06-21 20:16:35');
 
@@ -6617,21 +6800,27 @@ CREATE TABLE `quotes` (
 --
 
 INSERT INTO `quotes` (`id`, `cid`, `customer_id`, `type`, `rfq_mode`, `rfq_mode_details`, `approval_mode`, `approval_mode_details`, `approval_date`, `status`, `turnaround`, `remarks`, `reminder`, `tm`, `principal`, `revision`, `sendtocustomer_date`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'QTN/000001', 88, 'LAB', 'email', 'Mail dated 17 Jun, 2021', NULL, NULL, NULL, 2, '3', 'NIL', 4, 19, '279', 0, '2021-06-18', NULL, '2021-06-18 21:45:10', '2021-06-21 19:00:10'),
+(1, 'QTN/000001', 88, 'LAB', 'email', 'Mail dated 17 Jun, 2021', 'By PO', 'PO No. LP/2021/2039 Dated 23 Jun, 2021.', '2021-06-24', 3, '3', 'NIL', 4, 19, '279', 0, '2021-06-18', NULL, '2021-06-18 21:45:10', '2021-06-24 21:00:14'),
 (2, 'QTN/000002', 137, 'LAB', 'email', 'Email dated 16 Jun, 2021', NULL, NULL, NULL, 2, '5', 'NIL', 4, 19, '415', 0, '2021-06-18', NULL, '2021-06-18 22:32:27', '2021-06-21 19:00:15'),
 (3, 'QTN/000003', 133, 'SPLIT', 'email', 'Mail Dated 16 Jun, 2021', 'By Phone', 'From Mr. Irtiza Abid', '2021-06-21', 3, '10', 'Job already completed quote for PO purpose.', 4, 19, '400', 0, '2021-06-18', NULL, '2021-06-18 22:47:04', '2021-06-21 20:16:35'),
 (4, 'QTN/000004', 191, 'LAB', 'email', 'Dated 18 Jun, 2021', 'By Email', 'Dated 23 Jun, 20219', '2021-06-23', 3, '5', 'Can be calibrated up to 5 kV', 4, 19, '582', 0, '2021-06-18', NULL, '2021-06-19 00:44:45', '2021-06-23 19:05:47'),
 (5, 'QTN/000005', 247, 'SPLIT', 'whatsapp', 'From Rashid Mehmood Cell No. 0300 0998393', 'By Walk-in', 'Tayyab Hussain walked in with Instruments.', '2021-06-19', 3, '5', NULL, 1, 19, '766', 0, '2021-06-18', NULL, '2021-06-19 01:49:18', '2021-06-20 00:04:29'),
 (6, 'QTN/000006', 235, 'BOTH', 'email', 'Dated 16 Jun, 2021', NULL, NULL, NULL, 2, '30', 'All Items will be calibrated at Site. Quote is supposed to be for a single site.', 4, 19, '726', 0, '2021-06-19', NULL, '2021-06-19 16:28:25', '2021-06-22 19:00:12'),
 (7, 'QTN/000007', 252, 'BOTH', 'email', 'Dated 9 Jun, 2021', NULL, NULL, NULL, 2, '15', 'NA', 4, 19, '774', 0, '2021-06-19', NULL, '2021-06-19 20:43:34', '2021-06-22 19:00:17'),
-(8, 'QTN/000008', 241, 'LAB', 'email', '18 Jun, 2021', NULL, NULL, NULL, 2, '5', 'Strain Gauge Meter with Transducers will be calibrated by Applying tensile load.', 3, 19, '745', 0, '2021-06-21', NULL, '2021-06-21 17:37:16', '2021-06-24 07:00:18'),
+(8, 'QTN/000008', 241, 'LAB', 'email', '18 Jun, 2021', NULL, NULL, NULL, 2, '5', 'Strain Gauge Meter with Transducers will be calibrated by Applying tensile load.', 4, 19, '745', 0, '2021-06-21', NULL, '2021-06-21 17:37:16', '2021-06-24 19:00:11'),
 (9, 'QTN/000009', 194, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 2, 19, '590', 0, '2021-06-22', NULL, '2021-06-22 16:42:42', '2021-06-24 07:00:23'),
 (10, 'QTN/000010', 125, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '10', 'Calibration and Adjustment (If required) Maintenance if needed will be charged additionally.', 2, 19, '776', 0, '2021-06-22', NULL, '2021-06-22 16:57:11', '2021-06-24 07:00:28'),
 (11, 'QTN/000011', 253, 'BOTH', 'email', '21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'Part Item will calibrated at site and part at AIMS Lab.', 2, 19, '777', 0, '2021-06-22', NULL, '2021-06-22 17:30:29', '2021-06-24 07:00:33'),
 (12, 'QTN/000012', 254, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'All Items will be calibrated at Site.', 2, 20, '779', 0, '2021-06-22', NULL, '2021-06-22 20:49:33', '2021-06-24 07:00:38'),
 (13, 'QTN/000013', 132, 'BOTH', 'email', '21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'Quoted Prices are as of 2019.', 2, 20, '780', 0, '2021-06-22', NULL, '2021-06-22 21:31:54', '2021-06-24 07:00:43'),
 (14, 'QTN/000014', 255, 'BOTH', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '15', NULL, 2, 20, '781', 0, '2021-06-22', NULL, '2021-06-22 22:22:47', '2021-06-24 07:00:48'),
-(15, 'QTN/000015', 195, 'BOTH', 'email', '22 Jun, 2021', NULL, NULL, NULL, 2, '30', NULL, 1, 20, '786', 5, '2021-06-23', NULL, '2021-06-23 16:54:05', '2021-06-24 07:00:54');
+(15, 'QTN/000015', 195, 'BOTH', 'email', '22 Jun, 2021', NULL, NULL, NULL, 2, '30', NULL, 1, 20, '786', 5, '2021-06-23', NULL, '2021-06-23 16:54:05', '2021-06-24 07:00:54'),
+(16, 'QTN/000016', 256, 'LAB', 'whatsapp', 'Dated 23 Jun, 2021', NULL, NULL, NULL, 2, '5', 'NA', 0, 1, '791', 0, '2021-06-24', NULL, '2021-06-24 16:53:32', '2021-06-24 17:04:55'),
+(17, 'QTN/000017', 257, 'BOTH', 'whatsapp', 'Dated 23 Jun, 2021', NULL, NULL, NULL, 2, '15', NULL, 0, 20, '792', 0, '2021-06-24', NULL, '2021-06-24 18:11:13', '2021-06-24 18:45:51'),
+(18, 'QTN/000018', 258, 'LAB', 'whatsapp', '23 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 0, 20, '793', 0, '2021-06-24', NULL, '2021-06-24 18:58:32', '2021-06-24 19:09:14'),
+(19, 'QTN/000019', 241, 'SITE', 'email', 'Dated 24 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 0, 20, '745', 2, '2021-06-24', NULL, '2021-06-24 20:02:14', '2021-06-24 21:20:46'),
+(20, 'QTN/000020', 191, 'SITE', 'email', 'Dated 24 Jun, 2021', NULL, NULL, NULL, 2, '5', 'Will be Calibrated at Site.', 0, 20, '582', 0, '2021-06-24', NULL, '2021-06-24 20:24:58', '2021-06-24 20:26:12'),
+(21, 'QTN/000021', 195, 'BOTH', 'email', 'Dated 22 Jun, 2021', NULL, NULL, NULL, 2, '10', 'NA', 0, 20, '786', 0, '2021-06-24', NULL, '2021-06-24 20:30:44', '2021-06-24 20:48:27');
 
 -- --------------------------------------------------------
 
@@ -6831,7 +7020,42 @@ INSERT INTO `quote_items` (`id`, `quote_id`, `status`, `parameter`, `capability`
 (166, 15, 0, 14, 1093, NULL, 'site', 'yes', '0', 4500, 0, 1, NULL, NULL, NULL, '2021-06-24 02:16:17', '2021-06-24 02:16:17'),
 (167, 15, 0, 14, 1166, NULL, 'site', 'yes', '0', 3000, 0, 1, NULL, NULL, NULL, '2021-06-24 02:21:27', '2021-06-24 02:21:27'),
 (168, 15, 0, 6, 1163, NULL, 'site', 'no', '0,20', 4000, 258, 1, NULL, NULL, NULL, '2021-06-24 02:22:57', '2021-06-24 02:22:57'),
-(169, 15, 0, 14, 1167, NULL, 'site', 'yes', '0', 3500, 0, 1, NULL, NULL, NULL, '2021-06-24 02:23:46', '2021-06-24 02:23:46');
+(169, 15, 0, 14, 1167, NULL, 'site', 'yes', '0', 3500, 0, 1, NULL, NULL, NULL, '2021-06-24 02:23:46', '2021-06-24 02:23:46'),
+(170, 16, 0, 27, 1117, NULL, 'lab', 'yes', '-20,650', 4000, 171, 3, NULL, NULL, NULL, '2021-06-24 17:03:56', '2021-06-24 17:03:56'),
+(171, 17, 0, 82, 228, NULL, 'lab', 'yes', '0.1,100000', 4000, 121, 1, NULL, NULL, NULL, '2021-06-24 18:12:08', '2021-06-24 18:12:08'),
+(172, 17, 3, 81, 0, 'Gauge Blocks Set', 'site', 'no', '0', 0, NULL, 1, NULL, NULL, NULL, '2021-06-24 18:12:31', '2021-06-24 18:12:31'),
+(173, 17, 0, 17, 754, NULL, 'lab', 'yes', '0,700', 5000, 200, 4, NULL, NULL, NULL, '2021-06-24 18:13:28', '2021-06-24 18:20:14'),
+(174, 17, 0, 27, 877, NULL, 'lab', 'yes', '-20,650', 6500, 171, 2, NULL, NULL, NULL, '2021-06-24 18:21:17', '2021-06-24 18:21:17'),
+(175, 17, 0, 54, 288, NULL, 'site', 'no', '0,1000', 10000, 164, 1, NULL, NULL, NULL, '2021-06-24 18:22:04', '2021-06-24 18:22:20'),
+(176, 17, 0, 28, 923, NULL, 'lab', 'no', '0,300', 6000, 160, 1, NULL, NULL, NULL, '2021-06-24 18:23:24', '2021-06-24 18:23:24'),
+(177, 17, 0, 28, 924, NULL, 'lab', 'no', '0,1000', 10000, 160, 1, NULL, NULL, NULL, '2021-06-24 18:24:16', '2021-06-24 18:24:16'),
+(178, 17, 0, 14, 1116, NULL, 'lab', 'yes', '0', 3000, 0, 1, NULL, NULL, NULL, '2021-06-24 18:24:46', '2021-06-24 18:24:46'),
+(179, 17, 0, 14, 1065, NULL, 'lab', 'yes', '0', 6000, 0, 1, NULL, NULL, NULL, '2021-06-24 18:25:28', '2021-06-24 18:44:40'),
+(180, 17, 0, 14, 1039, NULL, 'lab', 'yes', '0', 5000, 0, 1, NULL, NULL, NULL, '2021-06-24 18:25:45', '2021-06-24 18:25:45'),
+(181, 17, 0, 27, 864, NULL, 'lab', 'yes', '25,500', 4000, 171, 1, NULL, NULL, NULL, '2021-06-24 18:26:01', '2021-06-24 18:26:01'),
+(182, 17, 0, 17, 776, NULL, 'site', 'yes', '0,200', 1500, 200, 1, NULL, NULL, NULL, '2021-06-24 18:27:37', '2021-06-24 18:27:37'),
+(183, 17, 0, 13, 316, NULL, 'lab', 'yes', '0.001,200', 8400, 165, 1, NULL, NULL, NULL, '2021-06-24 18:28:07', '2021-06-24 18:28:07'),
+(184, 17, 0, 13, 1168, NULL, 'lab', 'yes', '1,5', 850, 166, 4, NULL, NULL, NULL, '2021-06-24 18:40:39', '2021-06-24 18:40:39'),
+(185, 17, 0, 13, 1169, NULL, 'lab', 'yes', '10,20', 1000, 166, 3, NULL, NULL, NULL, '2021-06-24 18:41:11', '2021-06-24 18:41:11'),
+(186, 17, 0, 81, 32, NULL, 'lab', 'no', '0,1000', 3000, 111, 1, NULL, NULL, NULL, '2021-06-24 18:41:54', '2021-06-24 18:41:54'),
+(187, 17, 0, 10, 305, NULL, 'lab', 'no', '0,5000', 3000, 155, 1, NULL, NULL, NULL, '2021-06-24 18:42:17', '2021-06-24 18:42:17'),
+(188, 17, 0, 86, 932, NULL, 'site', 'yes', '0,3600', 1500, 132, 1, NULL, NULL, NULL, '2021-06-24 18:42:30', '2021-06-24 18:42:30'),
+(189, 17, 0, 26, 855, NULL, 'lab', 'no', '114,114', 2500, 47, 1, NULL, NULL, NULL, '2021-06-24 18:43:10', '2021-06-24 18:43:10'),
+(190, 18, 0, 24, 847, NULL, 'lab', 'no', '0.3,1.5', 2500, 100, 10, NULL, NULL, NULL, '2021-06-24 19:07:35', '2021-06-24 19:07:35'),
+(191, 18, 0, 27, 858, NULL, 'lab', 'yes', '-20,400', 2000, 171, 10, NULL, NULL, NULL, '2021-06-24 19:08:07', '2021-06-24 19:08:38'),
+(192, 19, 0, 6, 264, NULL, 'site', 'no', '0,500', 8000, 75, 1, NULL, NULL, '2021-06-24 21:18:25', '2021-06-24 20:06:15', '2021-06-24 21:18:25'),
+(193, 20, 0, 11, 1173, NULL, 'site', 'no', '0.5,5.5', 25000, 93, 3, NULL, NULL, NULL, '2021-06-24 20:25:27', '2021-06-24 20:25:27'),
+(194, 21, 0, 27, 880, NULL, 'site', 'yes', '25,250', 5500, 171, 3, NULL, NULL, NULL, '2021-06-24 20:32:16', '2021-06-24 20:32:16'),
+(195, 21, 0, 27, 879, NULL, 'site', 'yes', '10,50', 5500, 171, 2, NULL, NULL, NULL, '2021-06-24 20:32:40', '2021-06-24 20:32:40'),
+(196, 21, 0, 27, 1174, NULL, 'site', 'yes', '30,180', 3500, 171, 2, NULL, NULL, NULL, '2021-06-24 20:36:49', '2021-06-24 20:36:49'),
+(197, 21, 0, 27, 1175, NULL, 'site', 'yes', '-20,20', 5000, 171, 2, NULL, NULL, NULL, '2021-06-24 20:40:14', '2021-06-24 20:40:14'),
+(198, 21, 0, 27, 892, NULL, 'site', 'yes', '40,90', 4000, 171, 2, NULL, NULL, NULL, '2021-06-24 20:40:51', '2021-06-24 20:40:51'),
+(199, 21, 0, 27, 882, NULL, 'site', 'yes', '-20,20', 5000, 171, 1, NULL, NULL, NULL, '2021-06-24 20:41:21', '2021-06-24 20:41:21'),
+(200, 21, 0, 14, 1068, NULL, 'site', 'yes', '0', 4000, 0, 1, NULL, NULL, NULL, '2021-06-24 20:41:43', '2021-06-24 20:41:43'),
+(201, 21, 0, 31, 947, NULL, 'lab', 'yes', '1,25', 1500, 63, 4, NULL, NULL, NULL, '2021-06-24 20:45:34', '2021-06-24 20:45:34'),
+(202, 21, 0, 13, 321, NULL, 'site', 'yes', '0.001,220', 4000, 165, 1, NULL, NULL, NULL, '2021-06-24 20:46:01', '2021-06-24 20:46:01'),
+(203, 21, 0, 14, 1116, NULL, 'lab', 'yes', '0', 3000, 0, 3, NULL, NULL, NULL, '2021-06-24 20:47:48', '2021-06-24 20:47:48'),
+(204, 19, 0, 6, 264, NULL, 'site', 'no', '0,5', 8000, 75, 1, NULL, NULL, NULL, '2021-06-24 21:20:20', '2021-06-24 21:20:20');
 
 -- --------------------------------------------------------
 
@@ -6948,7 +7172,7 @@ CREATE TABLE `site_plans` (
 --
 
 INSERT INTO `site_plans` (`id`, `cid`, `job_id`, `start`, `end`, `quote_items`, `assigned_assets`, `assigned_users`, `created_at`, `updated_at`) VALUES
-(1, 'GP/000001', 1, '2021-06-22', '2021-06-22', '17', '107', '23', '2021-06-22 18:58:28', '2021-06-22 18:58:28');
+(1, 'GP/000001', 1, '2021-06-22', '2021-06-22', '17', '107', '23', '2021-06-23 01:58:28', '2021-06-23 01:58:28');
 
 -- --------------------------------------------------------
 
@@ -8001,7 +8225,7 @@ ALTER TABLE `zvalues`
 -- AUTO_INCREMENT for table `acc_level_fours`
 --
 ALTER TABLE `acc_level_fours`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=500;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=503;
 
 --
 -- AUTO_INCREMENT for table `acc_level_ones`
@@ -8025,7 +8249,7 @@ ALTER TABLE `acc_level_twos`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=985;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1116;
 
 --
 -- AUTO_INCREMENT for table `assetgroups`
@@ -8043,7 +8267,7 @@ ALTER TABLE `assets`
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `business_lines`
@@ -8055,7 +8279,7 @@ ALTER TABLE `business_lines`
 -- AUTO_INCREMENT for table `capabilities`
 --
 ALTER TABLE `capabilities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1168;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1176;
 
 --
 -- AUTO_INCREMENT for table `capabilitiesgroups`
@@ -8073,13 +8297,13 @@ ALTER TABLE `cost_centers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=256;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
 -- AUTO_INCREMENT for table `customer_contacts`
 --
 ALTER TABLE `customer_contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=790;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=796;
 
 --
 -- AUTO_INCREMENT for table `dataentries`
@@ -8193,7 +8417,7 @@ ALTER TABLE `inv_payments`
 -- AUTO_INCREMENT for table `jobitems`
 --
 ALTER TABLE `jobitems`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -8265,7 +8489,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nofacilities`
 --
 ALTER TABLE `nofacilities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -8349,13 +8573,13 @@ ALTER TABLE `quoterevisionlogs`
 -- AUTO_INCREMENT for table `quotes`
 --
 ALTER TABLE `quotes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `quote_items`
 --
 ALTER TABLE `quote_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
 
 --
 -- AUTO_INCREMENT for table `requisitions`
