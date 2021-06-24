@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -249,32 +250,128 @@
     <!-- profile body end -->
         <div class="modal fade" id="changeprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
              aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Upload Profile</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
                     <div class="modal-body">
-
-                        <form method="post" class="dropzone" action="{{url('/set_profile')}}" enctype="multipart/form-data">
+                        <form method="post" class="dropzone" id="set_profile" enctype="multipart/form-data">
                             @csrf
-                            <div class="input-group mb-3">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="profile" id="inputGroupFile01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            <div class="row">
+                                <div class="image-upload-one col-6 align-content-between d-flex">
+                                    <div class="center">
+                                        <div class="form-input">
+                                            <label for="file-ip-1">
+                                                <img id="file-ip-1-preview" src="https://i.ibb.co/ZVFsg37/default.png">
+                                                <button type="button" class="imgRemove" onclick="myImgRemoveFunctionOne()"></button>
+                                            </label>
+
+                                            <input type="file"  name="profile" id="file-ip-1" accept="image/*" onchange="showPreviewOne(event);">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 mx-0 px-0 mt-auto">
+                                    <p><small>Only JPG, JPEG & PNG type of file is accepted.</small></p>
+                                    <button type="submit" class="btn change-profile-btn border btn-success btn-sm rounded"> <span class="v-text">Change Profile</span> </button>
                                 </div>
                             </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-sm btn-primary">Save</button>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
+    <script>
+        $(document).ready(function () {
+            $("#set_profile").on('submit',(function(e) {
+
+                var button = $('.change-profile-btn');
+                var previous = $('.change-profile-btn').html();
+                button.attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                e.preventDefault();
+                $.ajax({
+                    url: "{{url('set_profile')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled', null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                            $('#changeprofile').modal('hide');
+                            location.reload();
+                        });
+
+                    },
+                    error: function(xhr, status, error)
+                    {
+                        button.attr('disabled', null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+        });
+        function showPreviewOne(event){
+            if(event.target.files.length > 0){
+                let src = URL.createObjectURL(event.target.files[0]);
+                let preview = document.getElementById("file-ip-1-preview");
+                preview.src = src;
+                preview.style.display = "block";
+            }
+        }
+        function myImgRemoveFunctionOne() {
+            document.getElementById("file-ip-1-preview").src = "https://i.ibb.co/ZVFsg37/default.png";
+        }
+    </script>
+    <style>
+        .center {
+            display:inline;
+            margin: 3px;
+        }
+        .form-input {
+            width:100px;
+            padding:3px;
+            background:#fff;
+        }
+        .form-input input {
+            display:none;
+        }
+        .form-input label {
+            display:block;
+            width:100px;
+            height: auto;
+            max-height: 100px;
+            background:#333;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+        .form-input img {
+            width:100px;
+            height: 100px;
+            margin: 2px;
+            opacity: .4;
+        }
+        .imgRemove{
+            position: relative;
+            bottom: 114px;
+            left: 68%;
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+            outline: none;
+        }
+        .imgRemove::after{
+            content: ' \21BA';
+            color: #fff;
+            font-weight: 900;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
 @endsection

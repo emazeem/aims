@@ -247,19 +247,16 @@ class UserController extends Controller
 
         //dd($request->profile->extension());
         $this->validate(request(), [
-            'profile'=>'required',
+            'profile'=>'required|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $user=User::find(auth()->user()->id);
         $attachment=time().'.png';
         Storage::disk('local')->put('/public/profile/'.auth()->user()->id.'/'.$attachment, File::get($request->profile));
         $user->profile=$attachment;
         $user->save();
-
         $activity = Activity::all()->last();
         $activity->description;
-
-        return redirect()->back()->with('success', 'Profile Updated Successfully');
-
+        return response()->json(['success'=> 'Profile Updated Successfully']);
     }
     public function profile(){
         $attendances=Attendance::where('user_id',auth()->user()->id)->get();
