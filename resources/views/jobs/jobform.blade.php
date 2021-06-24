@@ -243,7 +243,7 @@
                                 Name
                             </div>
                             <div class="col-8 text-center custom-bottom-border px-5">
-                                <span class="text-right ">{{$job->quotes->principal}}</span>
+                                <span class="text-right ">{{$job->quotes->principals->name}}</span>
                             </div>
                             <div class="col-3">
                                 Date
