@@ -5,17 +5,17 @@ table.table-bordered > thead > tr > th{
     background-color: rgba(128, 128, 128, 0.13);
     padding-top: 0;
     padding-bottom: 0;
-    border:2px solid black;
+    border:1px solid black;
 }
 table.table-bordered > tbody > tr > td{
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     border:2px solid black;
 }
 table.table-bordered > tbody > tr > th{
     padding-top: 0;
     padding-bottom: 0;
-    border:2px solid black;
+    border:1px solid black;
 }
 
 .font-10{

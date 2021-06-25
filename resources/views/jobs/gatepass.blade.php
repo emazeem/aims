@@ -11,13 +11,17 @@
 
 </head>
 <style>
+     
     @media print {
         #printPageButton {
             display: none;
         }
     }
-    .font-sm{
-        font-size: 12px;
+    table.table-bordered > thead > tr > th{
+        border:1px solid black;
+    }
+    table.table-bordered > tbody > tr > td{
+        border:1px solid black;
     }
 </style>
 <body>
@@ -25,105 +29,97 @@
 <button onclick="window.print()" id="printPageButton" class="btn btn-danger btn-sm float-right">Print</button>
 <div class="container">
 
-    <div class="col-12 font-style mt-2">
-        <div class="row">
-            <div class="col-2 text-center custom-border">
-                <img src="{{url('/img/AIMS.png')}}" class="mt-2 ml-2" width="100">
-            </div>
-            <div class="col-7 border-left-right-0 custom-border" >
-                <p class="text-center b font-14 mt-5">Gate Pass for Equipment Out / In / Function Check / Status (AIMS Cal Lab)</p>
-            </div>
-            <div class="col-3 row custom-border font-9 p-0">
-                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-TM-FRM-30</p>
-                <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2020</p>
-                <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 mt-2 mb-1">
-                    Issue # 01
-                    <span class="px-4"></span>
-                    Rev # 02
-                </p>
-            </div>
-
+    <div class="row">
+        <div class="col-2 text-center custom-border">
+            <img src="{{url('/img/AIMS.png')}}" class="mt-2 ml-2" width="100">
         </div>
-        <div class="row pt-2">
-            <div class="col-12">
-                <p class="float-left pr-5">Purpose : <span class="custom-bottom-border">Calibration</span></p>
-                <p class="float-left pr-5">Date Out : <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
-                @php $assigne=explode(',',$plan->assigned_users); $assigne=array_reverse($assigne); $umodel=\App\Models\User::class; @endphp
-                <p class="float-left pr-5">Received By : <span class="custom-bottom-border">{{$umodel::find($assigne[0])->fname.' '.$umodel::find($assigne[0])->lname}}</span></p>
-                <p class="float-left pr-5">Time Out : <span class="custom-bottom-border">{{date('H:i A')}}</span></p>
-            </div>
-            <div class="col-12">
-                <p class="float-left pr-5">Job # : <span class="custom-bottom-border">{{$plan->jobs->cid}}</span></p>
-                <p class="float-left pr-5">Customer : <span class="custom-bottom-border">{{$plan->jobs->quotes->customers->reg_name}}</span></p>
-                <p class="float-left pr-5">Handed Over By : <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
-            </div>
-            <div class="col-12">
-                <p class="float-left pr-4">Returnable <input type="checkbox" checked></p>
-                <p class="float-left pr-4">Non-Returnable <input type="checkbox"></p>
-                <p class="float-left pr-4">Date In : <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
-                <p class="float-left pr-4">Received Back By : <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
-                <p class="float-left">Time In : <span class="custom-bottom-border">{{date('H:i A')}}</span></p>
-            </div>
-
+        <div class="col-7 border-left-right-0 custom-border" >
+            <h4 class="text-center mt-4">Gate Pass for Equipment Out / In / Function Check / Status (AIMS Cal Lab)</h4>
         </div>
-        </div>
-        <div class="col-12 text-center">
-            <p class=" font-14 b mt-3">Equipment Description
+        <div class="col-3 custom-border font-9 p-0">
+            <p class="text-center font-11 col-12 my-1">DOC. # AIMS-TM-FRM-30</p>
+            <div class="col-12 custom-bottom-border"></div>
+            <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2020</p>
+            <div class="col-12 custom-bottom-border"></div>
+            <p class="text-center font-11 col-12 mt-2 mb-1">
+                Issue # 01
+                <span class="px-4">|</span>
+                Rev # 02
             </p>
         </div>
-        <div class="row">
-            <table class="table table-bordered table-sm font-9">
-                <thead>
-
-                <tr>
-                    <th class="text-xs" rowspan="2">Sr#</th>
-                    <th class="text-xs" rowspan="2">Equipment Description</th>
-                    <th class="text-xs" rowspan="2">Equipment ID # <br>/ Sr #</th>
-
-                    <th class="text-xs" colspan="3">Equipment Out</th>
-                    <th class="text-xs" colspan="3">Equipment In</th>
-                </tr>
-                <tr>
-
-                    <th class="text-xs">Function Check Value</th>
-                    <th class="text-xs">Status</th>
-                    <th class="text-xs">Handed Checked By</th>
-                    <th class="text-xs">Function Check Value</th>
-                    <th class="text-xs">Status</th>
-                    <th class="text-xs">Handed Checked By</th>
-
-                </tr>
-
-                </thead>
-                <tbody>
-
-                @foreach($assets as $k=>$asset)
-                    @php $assetdetails=\App\Models\Asset::find($asset)@endphp
-                    <tr>
-                        <td>{{$k+1}}</td>
-                        <td>{{$assetdetails->name}}</td>
-                        <td>{{$assetdetails->code}}</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-
-                    </tr>
-
-                @endforeach
-                </tbody>
-            </table>
+        <div class="col-12 d-flex justify-content-between pt-3">
+            <p class="float-left "><b>Purpose :</b> <span class="custom-bottom-border">Calibration</span></p>
+            <p class="float-left "><b>Date Out :</b> <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
+            @php $assigne=explode(',',$plan->assigned_users); $assigne=array_reverse($assigne); $umodel=\App\Models\User::class; @endphp
+            <p class="float-left "><b>Received By :</b> <span class="custom-bottom-border">{{$umodel::find($assigne[0])->fname.' '.$umodel::find($assigne[0])->lname}}</span></p>
+            <p class="float-left "><b>Time Out :</b> <span class="custom-bottom-border">{{date('H:i A')}}</span></p>
         </div>
-
-
-        <div class="row text-center">
-            <p class="col-12 mb-5 custom-border font-11">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission of the company.</p>
+        <div class="col-12 d-flex justify-content-between">
+            <p class="float-left "><b>Job # :</b> <span class="custom-bottom-border">{{$plan->jobs->cid}}</span></p>
+            <p class="float-left "><b>Customer :</b> <span class="custom-bottom-border">{{$plan->jobs->quotes->customers->reg_name}}</span></p>
+            <p class="float-left "><b>Handed Over By :</b> <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
+        </div>
+        <div class="col-12 d-flex justify-content-between">
+            <p class="float-left"><b>Returnable</b> <input type="checkbox" checked></p>
+            <p class="float-left"><b>Non-Returnable</b> <input type="checkbox"></p>
+            <p class="float-left"><b>Date In :</b> <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
+            <p class="float-left"><b>Received Back By :</b> <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
+            <p class="float-left"><b>Time In :</b> <span class="custom-bottom-border">{{date('H:i A')}}</span></p>
         </div>
     </div>
+    <div class="col-12 text-center">
+        <h4>Equipment Description</h4>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-sm font-9">
+            <thead>
+            <tr>
+                <th class="text-xs" rowspan="2">Sr#</th>
+                <th class="text-xs" rowspan="2">Equipment Description</th>
+                <th class="text-xs" rowspan="2">Equipment ID # <br>/ Sr #</th>
+
+                <th class="text-xs" colspan="3">Equipment Out</th>
+                <th class="text-xs" colspan="3">Equipment In</th>
+            </tr>
+            <tr>
+
+                <th class="text-xs">Function Check Value</th>
+                <th class="text-xs">Status</th>
+                <th class="text-xs">Handed Checked By</th>
+                <th class="text-xs">Function Check Value</th>
+                <th class="text-xs">Status</th>
+                <th class="text-xs">Handed Checked By</th>
+
+            </tr>
+
+            </thead>
+            <tbody>
+
+            @foreach($assets as $k=>$asset)
+                @php $assetdetails=\App\Models\Asset::find($asset)@endphp
+                <tr>
+                    <td>{{$k+1}}</td>
+                    <td>{{$assetdetails->name}}</td>
+                    <td>{{$assetdetails->code}}</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+
+                </tr>
+
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="row text-center">
+        <p class="col-12 mb-5 custom-border font-11">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission of the company.</p>
+    </div>
+</div>
 </div>
 </body>
 </html>
