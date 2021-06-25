@@ -10,8 +10,14 @@ class ItemEntriesController extends Controller
 {
 
     public function edit($id){
-        $this->authorize('lab-item-receiving-update');
         $edit=Jobitem::find($id);
+        if ($edit->type==0){
+            $this->authorize('lab-item-receiving-update');
+        }
+        if ($edit->type==1){
+            $this->authorize('site-item-receiving-update');
+        }
+
         return response()->json($edit);
     }
     public function store(Request $request){
@@ -52,7 +58,7 @@ class ItemEntriesController extends Controller
 
     }
     public function update(Request $request){
-        $this->authorize('lab-item-receiving-store');
+
         $this->validate($request,[
             'eq_id'=>'required_without:serial',
             'serial'=>'required_without:eq_id',
@@ -63,6 +69,13 @@ class ItemEntriesController extends Controller
         ]);
 
         $details=Jobitem::find($request->id);
+        if ($details->type==0){
+            $this->authorize('lab-item-receiving-store');
+        }
+        if ($details->type==1){
+            $this->authorize('site-item-receiving-update');
+        }
+
         $details->eq_id=$request->eq_id;
         $details->serial=$request->serial;
         $details->make=$request->make;
