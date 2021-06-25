@@ -18,10 +18,10 @@ class CreateGatePassesTable extends Migration
             $table->string('cid');
             $table->integer('plan_id');
             $table->timestamp('out');
-            $table->timestamp('in');
+            $table->timestamp('in')->nullable();
             $table->integer('out_handed_over_by');
             $table->integer('out_received_by');
-            $table->integer('in_received_by');
+            $table->integer('in_received_by')->nullable();
             $table->timestamps();
         });
     }

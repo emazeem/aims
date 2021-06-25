@@ -20,9 +20,9 @@
                     <th>UUC</th>
                     <th>Model</th>
                     <th>Eq ID</th>
+                    <th>Status</th>
                     <th>Asset</th>
                     <th>Date</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -36,9 +36,9 @@
                     <th>UUC</th>
                     <th>Model</th>
                     <th>Eq ID</th>
+                    <th>Status</th>
                     <th>Asset</th>
                     <th>Date</th>
-                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -74,9 +74,9 @@
                     { "data": "uuc" },
                     { "data": "model" },
                     { "data": "eqid" },
+                    { "data": "status" },
                     { "data": "asset" },
                     { "data": "date" },
-                    { "data": "status" },
                     { "data": "options" ,"orderable":false},
                 ]
 

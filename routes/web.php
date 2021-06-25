@@ -265,6 +265,11 @@ Route::group(['prefix'=> '/item_entries'],function() {
     Route::post('edit/{id}',[App\Http\Controllers\ItemEntriesController::class, 'edit'])->name('checkin.edit');
     Route::post('update',[App\Http\Controllers\ItemEntriesController::class, 'update'])->name('checkin.update');
 });
+Route::group(['prefix'=> '/gate_pass'],function() {
+    Route::post('get_items',[App\Http\Controllers\GatePassController::class, 'get_items'])->name('gp.get.items');
+    Route::post('store',[App\Http\Controllers\GatePassController::class, 'store'])->name('gp.store');
+});
+
 Route::group(['prefix'=> 'tasks'],function() {
     Route::get('assign_site/{job_id}/{items}',[App\Http\Controllers\TaskController::class, 'site_assign'])->middleware('auth')->name('tasks.site_assign');
     Route::post('assign_site_job',[App\Http\Controllers\TaskController::class, 'siteassignjobs'])->middleware('auth')->name('tasks.siteassignjobs');

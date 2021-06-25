@@ -399,6 +399,10 @@
                                        onclick="window.open('{{url('/jobs/print/GP/'.$siteplaning->id)}}','newwindow','width=1100,height=1000');return false;"
                                        class='btn btn-sm btn-info float-right' href="{{url('jobs/print/GP/'.$siteplaning->id)}}"><i class="fa fa-print"></i> {{$siteplaning->cid}}</a>
                                 @endcan
+                                @can('create-gate-pass')
+                                    <button type="button" class="btn btn-sm btn-primary shadow-sm float-right add-gate-pass" data-id="{{$siteplaning->id}}"><i class="feather icon-plus-circle"></i> Gate Pass</button>
+                                @endcan
+
                             </div>
                             <div class="table-responsive mb-2">
                                 <table class="table bg-white table-bordered table-hover table-sm">
@@ -520,9 +524,11 @@
                                 </div>
                             @endforeach
                         </div>
+
                     @endforeach
                 @endif
             </div>
         </div>
     </div>
+    @include('gatepass.index')
 @endsection

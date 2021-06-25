@@ -86,7 +86,17 @@ class AuthServiceProvider extends ServiceProvider
         $this->asset_requisition();
         $this->logreview();
         $this->payment_vouchers();
+        $this->gatepass();
         //
+    }
+    public function gatepass()
+    {
+        Gate::define('create-gate-pass', function ($user) {
+            if (in_array('create-gate-pass', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
     }
     public function logreview()
     {
@@ -96,6 +106,7 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+
         Gate::define('add-log-reviews', function ($user) {
             if (in_array('add-log-reviews',explode(',',$user->roles->permissions))){
                 return true;

@@ -128,7 +128,7 @@
                         <td class="font-md">{{$i}}</td>
                         @php $i++; @endphp
                         <td class="font-md">{{\App\Models\QuoteItem::find($labjob->item_id)->capabilities->name}}</td>
-                        <td class="font-md">{{$labjob->eq_id}}</td>
+                        <td class="font-md">{{$labjob->eq_id?$labjob->eq_id:$labjob->serial}}</td>
                         <td class="font-md">{{$labjob->model}}</td>
                         <td class="font-md">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
                         <td class="font-md">{{$labjob->accessories}}</td>
@@ -140,7 +140,7 @@
                         <td class="font-md">{{$i}}</td>
                         @php $i++; @endphp
                         <td class="font-md">{{$sitejob->item->capabilities->name}}</td>
-                        <td class="font-md">{{$sitejob->eq_id}}</td>
+                        <td class="font-md">{{$sitejob->eq_id?$sitejob->eq_id:$sitejob->serial}}</td>
                         <td class="font-md">{{$sitejob->model}}</td>
                         <td class="font-md">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
 
