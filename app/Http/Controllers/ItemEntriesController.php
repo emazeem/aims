@@ -15,7 +15,6 @@ class ItemEntriesController extends Controller
         return response()->json($edit);
     }
     public function store(Request $request){
-        $this->authorize('lab-item-receiving-store');
         $this->validate($request,[
             'eq_id'=>'required_without:serial',
             'serial'=>'required_without:eq_id',
@@ -27,10 +26,12 @@ class ItemEntriesController extends Controller
         $item=QuoteItem::find($request->id);
         $jobitem = new Jobitem();
         if ($item->location == "site") {
+            $this->authorize('site-item-receiving-store');
             $jobitem->type=1;
             $jobitem->status=1;
         }
         if ($item->location == "lab") {
+            $this->authorize('lab-item-receiving-store');
             $jobitem->type=0;
         }
         $jobitem->job_id = $request->job;
