@@ -34,6 +34,7 @@
                 <th>Name</th>
                 <th>@</th>
                 <th>Parameter</th>
+                <th>Suggestions</th>
                 <th>Range</th>
                 <th>Price</th>
                 <th>Unit</th>
@@ -53,6 +54,7 @@
                 <th>Name</th>
                 <th>@</th>
                 <th>Parameter</th>
+                <th>Suggestions</th>
                 <th>Range</th>
                 <th>Price</th>
                 <th>Unit</th>
@@ -87,6 +89,7 @@
                     {"data": "name"},
                     {"data": "@", orderable: false, searchable: false},
                     {"data": "parameter"},
+                    {"data": "suggestions"},
                     {"data": "range"},
                     {"data": "price"},
                     {"data": "unit"},
@@ -100,8 +103,8 @@
             });
 
         }
-
         $(document).ready(function () {
+            $('.opt-assets-select-2').select2();
             InitTable();
             $(document).on('click', '.delete', function (e) {
                 swal({
@@ -162,11 +165,39 @@
                 });
                 window.location.href = '{{url('grouped-capabilities/create')}}/' + val;
             });
+            $(document).on('click','.add_suggestion_btn',function () {
+                //data-parameter
+                var parameter = $(this).attr('data-parameter');
 
+                var id = $(this).attr('data-id');
+                var name = $(this).attr('data-capability-name');
+                $('#suggestion_capability').val(id);
+                $('#suggestion_parameter').val(parameter);
+                $('#suggestion_capability_value').val(name);
+
+                if (parameter) {
+                    $.ajax({
+                        url: '{{url('capabilities/respective-assets')}}/' + parameter,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+                            $('#add_suggestion').modal('show');
+                            $('#suggestion_assets').empty();
+                            $.each(data, function (index, value) {
+                                $('#suggestion_assets').append('<option value="' + value.id + '">' + value.code + '-' + value.name + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#suggestion_assets').empty();
+                }
+
+            });
         });
     </script>
     @include('capabilities.create')
     @include('capabilities.edit')
+    @include('suggestions.index')
 @endsection
 
 

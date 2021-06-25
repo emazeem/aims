@@ -47,4 +47,9 @@ class GatePassController extends Controller
         }
         return response()->json(['success'=>'Gate Pass ( '.$gp->cid.') created successfully!']);
     }
+    public function prints($id){
+        $this->authorize('print-gate-pass');
+        $gp=GatePass::find($id);
+        return view('gatepass.print',compact('gp'));
+    }
 }

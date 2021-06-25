@@ -46,13 +46,8 @@
 
         </div>
     </div>
-
-
     <script>
-
         function InitTable() {
-
-
             $('#example').DataTable({
                 responsive: true,
                 "bDestroy": true,

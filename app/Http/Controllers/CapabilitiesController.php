@@ -35,6 +35,10 @@ class CapabilitiesController extends Controller
     public function fetch(){
         $this->authorize('capabilities-index');
         $data=Capabilities::with('parameters')->where('is_group',0)->get();
+        $ip=\request()->ip();
+        if ($ip=='127.0.0.1'){
+            $data=Capabilities::with('parameters')->where('is_group',0)->get()->take(10);
+        }
         return DataTables::of($data)
             ->addColumn('@', function ($data) {
                 if ($data->group_id!=null){
@@ -53,8 +57,26 @@ class CapabilitiesController extends Controller
                      <label class='cr' for='actions".$data->id."'></label>                 
                 </div>";
                 }
-
-
+            })
+            ->addColumn('suggestions', function ($data) {
+                $sug=null;
+                $token=csrf_token();
+                foreach ($data->suggestions as $k=>$suggestion){
+                    $sug.='<div class="col-12 py-1"><small class="badge bg-danger text-light">';
+                    foreach(explode(',',$suggestion->assets) as $asset){
+                        $sug.=Asset::find($asset)->name.'<b>( '.Asset::find($asset)->code.' )</b><br>';
+                    }
+                    if (Auth::user()->can('delete-suggestions')){
+                        $sug.="</small><a class=\"float-right text-danger delete-suggestions\" data-id='{$data->id}' href=\"javascript:void(0)\"><i
+                                                    class=\"fa fa-trash\"></i></a><form id=\"suggestionform$data->id\" method=\"post\" role='form'>
+                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
+                      <input name=\"id\" type=\"hidden\" value=\"$suggestion->id\">
+                      <input name=\"_method\" type=\"hidden\" value=\"POST\">
+                      </form>";
+                    }
+                    $sug.='</div>';
+                }
+                return $sug;
             })
             ->addColumn('name', function ($data) {
                 return $data->name;
@@ -102,11 +124,12 @@ class CapabilitiesController extends Controller
                 if (Auth::user()->can('capabilities-edit')){
                     $action.="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='".$data->id."'><i class='fa fa-edit'></i></button>";
                 }
-
+                if (Auth::user()->can('add-suggestions')){
+                    $action.= '<button data-id="'.$data->id.'" class="btn btn-sm btn-dark add_suggestion_btn" data-parameter="'.$data->parameter.'" data-id="'.$data->id.'" data-capability-name="'.$data->name.'"><i class="feather icon-help-circle"></i></button>';
+                }
                 return $action;
-
             })
-            ->rawColumns(['options','@'])
+            ->rawColumns(['options','@','suggestions'])
             ->make(true);
 
     }

@@ -14,4 +14,8 @@ class SitePlan extends Model
     public function jobitem(){
         return $this->belongsTo('App\Models\Jobitem','item_id');
     }
+    public function gatepasses(){
+        return $this->hasMany('App\Models\GatePass','plan_id','id');
+    }
+
 }

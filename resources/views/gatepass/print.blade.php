@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gate Pass</title>
+    <title>{{$gp->cid}}</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -47,24 +47,24 @@
                 Rev # 02
             </p>
         </div>
+
         <div class="col-12 d-flex justify-content-between pt-3">
             <p class="float-left "><b>Purpose :</b> <span class="custom-bottom-border">Calibration</span></p>
-            <p class="float-left "><b>Date Out :</b> <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
-            @php $assigne=explode(',',$plan->assigned_users); $assigne=array_reverse($assigne); $umodel=\App\Models\User::class; @endphp
-            <p class="float-left "><b>Received By :</b> <span class="custom-bottom-border">{{$umodel::find($assigne[0])->fname.' '.$umodel::find($assigne[0])->lname}}</span></p>
-            <p class="float-left "><b>Time Out :</b> <span class="custom-bottom-border">{{date('H:i A')}}</span></p>
+            <p class="float-left "><b>Date Out :</b> <span class="custom-bottom-border">{{$gp->out->format('d-m-Y')}}</span></p>
+            <p class="float-left "><b>Received By :</b> <span class="custom-bottom-border">{{$gp->outreceivedby->fname.' '.$gp->outreceivedby->lname}}</span></p>
+            <p class="float-left "><b>Time Out :</b> <span class="custom-bottom-border">{{$gp->out->format('h:i A')}}</span></p>
         </div>
         <div class="col-12 d-flex justify-content-between">
-            <p class="float-left "><b>Job # :</b> <span class="custom-bottom-border">{{$plan->jobs->cid}}</span></p>
-            <p class="float-left "><b>Customer :</b> <span class="custom-bottom-border">{{$plan->jobs->quotes->customers->reg_name}}</span></p>
-            <p class="float-left "><b>Handed Over By :</b> <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
+            <p class="float-left "><b>Job # :</b> <span class="custom-bottom-border">{{$gp->plan->jobs->cid}}</span></p>
+            <p class="float-left "><b>Customer :</b> <span class="custom-bottom-border">{{$gp->plan->jobs->quotes->customers->reg_name}}</span></p>
+            <p class="float-left "><b>Handed Over By :</b> <span class="custom-bottom-border">{{$gp->outreceivedfrom->fname.' '.$gp->outreceivedfrom->lname}}</span></p>
         </div>
         <div class="col-12 d-flex justify-content-between">
             <p class="float-left"><b>Returnable</b> <input type="checkbox" checked></p>
             <p class="float-left"><b>Non-Returnable</b> <input type="checkbox"></p>
             <p class="float-left"><b>Date In :</b> <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
             <p class="float-left"><b>Received Back By :</b> <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
-            <p class="float-left"><b>Time In :</b> <span class="custom-bottom-border">{{date('H:i A')}}</span></p>
+            <p class="float-left"><b>Time In :</b> <span class="custom-bottom-border">{{date('h:i A')}}</span></p>
         </div>
     </div>
     <div class="col-12 text-center">
@@ -94,9 +94,8 @@
 
             </thead>
             <tbody>
-
-            @foreach($assets as $k=>$asset)
-                @php $assetdetails=\App\Models\Asset::find($asset)@endphp
+            @foreach($gp->gpitems as $k=>$asset)
+                @php $assetdetails=\App\Models\Asset::find($asset->item_id)@endphp
                 <tr>
                     <td>{{$k+1}}</td>
                     <td>{{$assetdetails->name}}</td>

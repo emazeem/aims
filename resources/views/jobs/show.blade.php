@@ -394,15 +394,35 @@
                         <div class="col-12 card bg-light">
                             <div class="card-header">
                                 <h4 class="font-weight-light card-title float-left">Planning # {{$k+1}}</h4>
-                                @can('print-gate-pass')
-                                    <a title='Gatepass'
-                                       onclick="window.open('{{url('/jobs/print/GP/'.$siteplaning->id)}}','newwindow','width=1100,height=1000');return false;"
-                                       class='btn btn-sm btn-info float-right' href="{{url('jobs/print/GP/'.$siteplaning->id)}}"><i class="fa fa-print"></i> {{$siteplaning->cid}}</a>
-                                @endcan
                                 @can('create-gate-pass')
                                     <button type="button" class="btn btn-sm btn-primary shadow-sm float-right add-gate-pass" data-id="{{$siteplaning->id}}"><i class="feather icon-plus-circle"></i> Gate Pass</button>
                                 @endcan
-
+                            </div>
+                            <div class="table-responsive mb-2">
+                                @can('print-gate-pass')
+                                <table class="table bg-white table-bordered table-hover table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Date Out</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($siteplaning->gatepasses as $gatepass)
+                                        <tr>
+                                            <td>{{$gatepass->cid}}</td>
+                                            <td>{{$gatepass->out->format('d-m-Y h:i A')}}</td>
+                                            <td>
+                                                <a title='Gatepass'
+                                                   onclick="window.open('{{url('gate_pass/print/'.$gatepass->id)}}','newwindow','width=1100,height=1000');return false;"
+                                                   class='btn btn-sm btn-info' href="{{url('gate_pass/print/'.$gatepass->id)}}"><i class="fa fa-print"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                                @endcan
                             </div>
                             <div class="table-responsive mb-2">
                                 <table class="table bg-white table-bordered table-hover table-sm">

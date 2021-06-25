@@ -146,13 +146,6 @@ class JobController extends Controller
         $dn=DeliveryNotes::find($dn);
         return view('jobs.deliverynote',compact('job','items','dn'));
     }
-    public function print_gp($id){
-        $this->authorize('print-gate-pass');
-
-        $plan=SitePlan::where('id',$id)->first();
-        $assets=explode(',',$plan->assigned_assets);
-        return view('jobs.gatepass',compact('assets','plan'));
-    }
     public function print_jt($loc,$index,$id){
         $tag=Jobitem::find($id);
         $total=0;

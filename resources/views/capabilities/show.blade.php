@@ -90,6 +90,7 @@
                                         <input type="hidden" name="id" value="{{$suggestion->id}}">
                                         <a class="btn btn-outline-danger btn-sm delete" href="javascript:void(0)"><i
                                                     class="fa fa-trash"></i></a>
+
                                     </form>
                                 @endcan
                             </td>
