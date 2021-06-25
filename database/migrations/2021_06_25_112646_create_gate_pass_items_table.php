@@ -15,6 +15,7 @@ class CreateGatePassItemsTable extends Migration
     {
         Schema::create('gate_pass_items', function (Blueprint $table) {
             $table->id();
+            $table->integer('gp_id');
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@ class QuotesController extends Controller
     }
     public function get_principal($id){
         $customer=Customer::where('id',$id)->with('contacts',function ($query){
-            $query->where('type','principal');
+            $query->where('type','principal')->orwhere('type','purchase');
         })->first();
         $contact=$customer['contacts'];
         return response()->json($contact);

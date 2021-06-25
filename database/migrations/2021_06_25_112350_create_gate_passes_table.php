@@ -15,6 +15,7 @@ class CreateGatePassesTable extends Migration
     {
         Schema::create('gate_passes', function (Blueprint $table) {
             $table->id();
+            $table->string('cid');
             $table->integer('plan_id');
             $table->timestamp('out');
             $table->timestamp('in');
@@ -24,7 +25,6 @@ class CreateGatePassesTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
