@@ -25,10 +25,27 @@
             <div class="loader-fill"></div>
         </div>
     </div>
+    <style>
+        #overlay{
+            position:fixed;
+            z-index:99999;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            background:rgba(0,0,0,0.9);
+            transition: 1s 0.4s;
+            width: 100%;
+            opacity: 0.9;
+            display: none;
+        }
+    </style>
+
     @include('layouts.menu-list')
     @include('layouts.head')
     <div class="pcoded-main-container">
         <div class="pcoded-content">
+            <img src="{{url('/assets/images/loading-anim.gif')}}" alt="" id="overlay" class="loader-gif">
             @yield('content')
         </div>
     </div>

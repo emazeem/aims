@@ -35,11 +35,6 @@ class CapabilitiesController extends Controller
     public function fetch(){
         $this->authorize('capabilities-index');
         $data=Capabilities::with('parameters')->where('is_group',0)->get();
-        $ip=\request()->ip();
-        if ($ip=='127.0.0.1'){
-            $data=Capabilities::with('parameters')->where('is_group',0)->get()->take(10);
-        }
-        $data=Capabilities::with('parameters')->where('is_group',0)->get();
         return DataTables::of($data)
             ->addColumn('@', function ($data) {
                 if ($data->group_id!=null){

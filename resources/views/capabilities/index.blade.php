@@ -180,8 +180,15 @@
                         url: '{{url('capabilities/respective-assets')}}/' + parameter,
                         type: "GET",
                         dataType: "json",
+                        beforeSend : function()
+                        {
+                            $(".loader-gif").fadeIn();
+                        },
                         success: function (data) {
-                            $('#add_suggestion').modal('show');
+                            $(".loader-gif").fadeOut();
+                            setTimeout(function() {
+                                $('#add_suggestion').modal('show');
+                            }, 1000);
                             $('#suggestion_assets').empty();
                             $.each(data, function (index, value) {
                                 $('#suggestion_assets').append('<option value="' + value.id + '">' + value.code + '-' + value.name + '</option>');
@@ -189,6 +196,7 @@
                         }
                     });
                 } else {
+                    $(".loader-gif").fadeOut();
                     $('#suggestion_assets').empty();
                 }
 

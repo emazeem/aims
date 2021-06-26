@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-
     <style>
         .parameter-vs-assets::-webkit-scrollbar {
             height: 5px;
@@ -15,10 +14,7 @@
             outline: 1px solid #136bf7;
         }
     </style>
-
     <script src="{{url('/assets/js/1.10.1/jquery.min.js')}}"></script>
-
-
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
