@@ -97,6 +97,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('gp-items-in-out-index', function ($user) {
+            if (in_array('gp-items-in-out-index', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+
     }
     public function logreview()
     {

@@ -105,6 +105,15 @@
         }
         $(document).ready(function () {
             $('.opt-assets-select-2').select2();
+
+            $(".opt-assets-select-2").on("select2:select", function (evt) {
+                var element = evt.params.data.element;
+                var $element = $(element);
+
+                $element.detach();
+                $(this).append($element);
+                $(this).trigger("change");
+            });
             InitTable();
             $(document).on('click', '.delete', function (e) {
                 swal({

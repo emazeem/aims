@@ -106,7 +106,6 @@ Route::group(['prefix'=> 'capabilities'],function() {
     Route::get('/respective-assets/{id}',[App\Http\Controllers\CapabilitiesController::class, 'respectiveassets'])->middleware('auth')->name('capabilities.respectiveassets');
 
 });
-
 Route::group(['prefix'=> 'grouped-capabilities'],function() {
     Route::get('',[App\Http\Controllers\GroupedCapabilitiesController::class, 'index'])->middleware('auth')->name('grouped.capabilities');
     Route::get('create/{id?}',[App\Http\Controllers\GroupedCapabilitiesController::class, 'create'])->middleware('auth')->name('grouped.capabilities.create');
@@ -115,7 +114,6 @@ Route::group(['prefix'=> 'grouped-capabilities'],function() {
     Route::post('update',[App\Http\Controllers\GroupedCapabilitiesController::class, 'update'])->middleware('auth')->name('grouped.capabilities.update');
     Route::post('',[App\Http\Controllers\GroupedCapabilitiesController::class, 'fetch'])->middleware('auth')->name('grouped.capabilities.fetch');
     Route::delete('/delete',[App\Http\Controllers\GroupedCapabilitiesController::class, 'delete'])->middleware('auth')->name('grouped.capabilities.delete');
-
 });
 
 Route::group(['prefix'=> 'asset'],function() {
