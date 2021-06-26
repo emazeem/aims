@@ -131,8 +131,8 @@
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="approval_basis" name="approval_basis">
-                                <option selected disabled>Select Approval Basis</option>
-                                <option value="email">Email</option>
+                                <option selected disabled>--Select Approval Basis</option>
+                                <option value="general-vendor-purpose">General Vendor Purpose</option>
                             </select>
                         </div>
                         @if ($errors->has('approval_basis'))
@@ -147,7 +147,7 @@
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="status" name="status">
-                                <option selected disabled>Select Status</option>
+                                <option selected disabled>--Select Status</option>
                                 <option value="0">Inactive</option>
                                 <option value="1">Active</option>
                             </select>
@@ -160,7 +160,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="expiry_date" class="col-sm-2 control-label">Expiry_Date</label>
+                    <label for="expiry_date" class="col-sm-2 control-label">Validity Date</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control" id="expiry_date" name="expiry_date" placeholder="expiry_date"
                                autocomplete="off" value="{{old('expiry_date')}}">
