@@ -62,9 +62,9 @@
         <div class="col-12 d-flex justify-content-between">
             <p class="float-left"><b>Returnable</b> <input type="checkbox" checked></p>
             <p class="float-left"><b>Non-Returnable</b> <input type="checkbox"></p>
-            <p class="float-left"><b>Date In :</b> <span class="custom-bottom-border">{{date('d-m-Y')}}</span></p>
-            <p class="float-left"><b>Received Back By :</b> <span class="custom-bottom-border">{{auth()->user()->fname.' '.auth()->user()->lname}}</span></p>
-            <p class="float-left"><b>Time In :</b> <span class="custom-bottom-border">{{date('h:i A')}}</span></p>
+            <p class="float-left"><b>Date In :</b> <span class="custom-bottom-border">{{$gp->in->format('d-m-Y')}}</span></p>
+            <p class="float-left"><b>Received Back By :</b> <span class="custom-bottom-border">{{$gp->inreceivedby->fname.' '.$gp->inreceivedby->lname}}</span></p>
+            <p class="float-left"><b>Time In :</b> <span class="custom-bottom-border">{{$gp->in->format('h:i A')}}</span></p>
         </div>
     </div>
     <div class="col-12 text-center">
@@ -82,16 +82,13 @@
                 <th class="text-xs" colspan="3">Equipment In</th>
             </tr>
             <tr>
-
                 <th class="text-xs">Function Check Value</th>
                 <th class="text-xs">Status</th>
                 <th class="text-xs">Handed Checked By</th>
                 <th class="text-xs">Function Check Value</th>
                 <th class="text-xs">Status</th>
                 <th class="text-xs">Handed Checked By</th>
-
             </tr>
-
             </thead>
             <tbody>
             @foreach($gp->gpitems as $k=>$asset)
@@ -100,15 +97,13 @@
                     <td>{{$k+1}}</td>
                     <td>{{$assetdetails->name}}</td>
                     <td>{{$assetdetails->code}}</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-
+                    <td>{{$asset->out_fcv}}</td>
+                    <td>{{$asset->out_status}}</td>
+                    <td>{{$asset->fcbout->fname.' '.$asset->fcbout->lname}}</td>
+                    <td>{{$asset->in_fcv}}</td>
+                    <td>{{$asset->in_status}}</td>
+                    <td>{{$asset->fcbin->fname.' '.$asset->fcbin->lname}}</td>
                 </tr>
-
             @endforeach
             </tbody>
         </table>

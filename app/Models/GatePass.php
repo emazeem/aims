@@ -14,6 +14,10 @@ class GatePass extends Model
     public function outreceivedby(){
         return $this->belongsTo('App\Models\User','out_handed_over_by','id')->withDefault();
     }
+    public function inreceivedby(){
+        return $this->belongsTo('App\Models\User','in_received_by','id')->withDefault();
+    }
+
     public function outreceivedfrom(){
         return    $this->belongsTo('App\Models\User','out_received_by','id')->withDefault();
     }
@@ -21,5 +25,5 @@ class GatePass extends Model
         return $this->belongsTo('App\Models\SitePlan','plan_id','id')->withDefault();
     }
 
-    protected $dates=['out'];
+    protected $dates=['out','in'];
 }

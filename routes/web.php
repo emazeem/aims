@@ -263,11 +263,18 @@ Route::group(['prefix'=> '/item_entries'],function() {
     Route::post('edit/{id}',[App\Http\Controllers\ItemEntriesController::class, 'edit'])->name('checkin.edit');
     Route::post('update',[App\Http\Controllers\ItemEntriesController::class, 'update'])->name('checkin.update');
 });
-Route::group(['prefix'=> '/gate_pass'],function() {
+Route::group(['prefix'=> 'gate_pass'],function() {
+    Route::group(['prefix'=> 'items'],function() {
+        Route::post('out',[App\Http\Controllers\GatePassItemController::class, 'out'])->name('gp.items.out');
+        Route::post('in',[App\Http\Controllers\GatePassItemController::class, 'in'])->name('gp.items.in');
+    });
+    Route::get('',[App\Http\Controllers\GatePassController::class, 'index'])->name('gp.index');
+    Route::post('/',[App\Http\Controllers\GatePassController::class, 'fetch'])->name('gp.fetch');
     Route::post('get_items',[App\Http\Controllers\GatePassController::class, 'get_items'])->name('gp.get.items');
-    Route::post('store',[App\Http\Controllers\GatePassController::class, 'store'])->name('gp.store');
-    Route::get('/print/{id}',[App\Http\Controllers\GatePassController::class, 'prints'])->middleware('auth')->name('gp.print');
-
+    Route::post('store_out',[App\Http\Controllers\GatePassController::class, 'store_out'])->name('gp.store.out');
+    Route::post('store_in',[App\Http\Controllers\GatePassController::class, 'store_in'])->name('gp.store.in');
+    Route::get('print/{id}',[App\Http\Controllers\GatePassController::class, 'prints'])->middleware('auth')->name('gp.print');
+    Route::get('check-in-out/{id}',[App\Http\Controllers\GatePassController::class, 'check_in_out'])->middleware('auth')->name('gp.check.in.out');
 });
 
 Route::group(['prefix'=> 'tasks'],function() {

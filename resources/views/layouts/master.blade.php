@@ -71,7 +71,7 @@
     or Route::currentRouteName()=='interview_appraisal.index' or Route::currentRouteName()=='emp_joining.index' or Route::currentRouteName()=='emp_orientation.index' or Route::currentRouteName()=='leave_application.index' or Route::currentRouteName()=='acc_level_one'
     or Route::currentRouteName()=='acc_level_two'or Route::currentRouteName()=='acc_level_three'or Route::currentRouteName()=='acc_level_four'or Route::currentRouteName()=='vouchers' or Route::currentRouteName()=='sales.invoice'or Route::currentRouteName()=='vendors' or Route::currentRouteName()=='po'  or Route::currentRouteName()=='sales.receipt.vouchers'or Route::currentRouteName()=='journal.index' or Route::currentRouteName()=='generaterequests'
     or Route::currentRouteName()=='inventory.category.index' or Route::currentRouteName()=='inventory.index' or Route::currentRouteName()=='business.line' or Route::currentRouteName()=='purchase.invoice'  or Route::currentRouteName()=='journal.vouchers' or Route::currentRouteName()=='sales.invoice.create' or Route::currentRouteName()=='purchase.invoice.create'
-    or Route::currentRouteName()=='vouchers.all' or Route::currentRouteName()=='log_reviews' or Route::currentRouteName()=='grouped.capabilities')
+    or Route::currentRouteName()=='vouchers.all' or Route::currentRouteName()=='log_reviews' or Route::currentRouteName()=='grouped.capabilities' or Route::currentRouteName()=='gp.index')
         <link rel="stylesheet" type="text/css" href="{{url('css/datatables.min.css')}}"/>
         <link rel="stylesheet" type="text/css" href="{{url('css/responsive.dataTables.min.css')}}">
         <script type="text/javascript" src="{{url('js/datatables.min.js')}}"></script>

@@ -103,6 +103,13 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('gate-pass-items-checkin-checkout', function ($user) {
+            if (in_array('gate-pass-items-checkin-checkout', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+
 
     }
     public function logreview()

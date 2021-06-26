@@ -404,7 +404,8 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Date Out</th>
+                                        <th>Date/Time Out</th>
+                                        <th>Date/Time In</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -413,10 +414,12 @@
                                         <tr>
                                             <td>{{$gatepass->cid}}</td>
                                             <td>{{$gatepass->out->format('d-m-Y h:i A')}}</td>
+                                            <td>{{$gatepass->in?$gatepass->in->format('d-m-Y h:i A'):''}}</td>
                                             <td>
                                                 <a title='Gatepass'
                                                    onclick="window.open('{{url('gate_pass/print/'.$gatepass->id)}}','newwindow','width=1100,height=1000');return false;"
                                                    class='btn btn-sm btn-info' href="{{url('gate_pass/print/'.$gatepass->id)}}"><i class="fa fa-print"></i></a>
+                                                <button class="btn btn-sm btn-success gp-item-receive" data-id="{{$gatepass->id}}"> GP Receiving <i class="feather icon-chevron-down"></i></button>
                                             </td>
                                         </tr>
                                     @endforeach
