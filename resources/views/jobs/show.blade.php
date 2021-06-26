@@ -416,10 +416,21 @@
                                             <td>{{$gatepass->out->format('d-m-Y h:i A')}}</td>
                                             <td>{{$gatepass->in?$gatepass->in->format('d-m-Y h:i A'):''}}</td>
                                             <td>
+                                                <?php
+                                                $showgp=true;
+                                                    foreach ($gatepass->gpitems as $i){
+                                                        if ($i->out_fcb==null){
+                                                            $showgp=false;
+                                                        }
+                                                    }
+                                                ?>
+                                            @if($showgp==true)
                                                 <a title='Gatepass'
                                                    onclick="window.open('{{url('gate_pass/print/'.$gatepass->id)}}','newwindow','width=1100,height=1000');return false;"
                                                    class='btn btn-sm btn-info' href="{{url('gate_pass/print/'.$gatepass->id)}}"><i class="fa fa-print"></i></a>
-                                                <button class="btn btn-sm btn-success gp-item-receive" data-id="{{$gatepass->id}}"> GP Receiving <i class="feather icon-chevron-down"></i></button>
+                                                    <button class="btn btn-sm btn-success gp-item-receive" data-id="{{$gatepass->id}}"> GP Receiving <i class="feather icon-chevron-down"></i></button>
+                                                @endif
+
                                             </td>
                                         </tr>
                                     @endforeach

@@ -10,20 +10,18 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="pull-left border-bottom pb-1"><i class="fa fa-plus-circle"></i> Add Vendor</h3>
-            <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right" data-toggle="modal" data-target="#add_scopeofsupply"><i class="fa fa-plus-circle"></i> Scope Of Supply</button>
-
+            <h3 class="float-left font-weight-light"><i class="feather icon-plus-circle"></i> Add Vendor</h3>
+            <button type="button" class="btn btn-sm btn-primary shadow-sm float-right" data-toggle="modal" data-target="#add_scopeofsupply"><i class="fa fa-plus-circle"></i> Scope Of Supply</button>
         </div>
         <div class="col-12">
-
             <form class="form-horizontal" action="{{route('vendors.store')}}" method="post"
                   enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group row">
-                    <label for="reg_no" class="col-sm-2 control-label">Reg No</label>
+                    <label for="reg_no" class="col-sm-2 control-label">CNIC/NTN #</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="reg_no" name="reg_no" placeholder="Reg No"
+                        <input type="text" class="form-control" id="reg_no" name="reg_no" placeholder="CNIC/NTN #"
                                autocomplete="off" value="{{old('reg_no')}}">
                         @if ($errors->has('reg_no'))
                             <span class="text-danger">
@@ -256,7 +254,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="modal-footer bg-light p-2">
+                <div class="modal-footer p-2">
                     <button class="btn btn-success btn-sm" type="submit"><i class="fa fa-save"></i> Save</button>
                 </div>
                 </form>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 24, 2021 at 02:56 AM
+-- Generation Time: Jun 26, 2021 at 12:39 AM
 -- Server version: 5.6.51-cll-lve
 -- PHP Version: 7.3.6
 
@@ -338,7 +338,11 @@ INSERT INTO `acc_level_fours` (`id`, `code1`, `code2`, `code3`, `code4`, `acc_co
 (499, 1, 1, 3, '255', '10103255', 'Metropole Laboratories (Pvt) Limited', '0', NULL, '2021-06-22 22:19:47', '2021-06-22 22:19:47'),
 (500, 1, 1, 3, '256', '10103256', 'Future Scientific', '0', NULL, '2021-06-24 16:46:16', '2021-06-24 16:46:16'),
 (501, 1, 1, 3, '257', '10103257', 'EEPCON', '0', NULL, '2021-06-24 17:59:37', '2021-06-24 17:59:37'),
-(502, 1, 1, 3, '258', '10103258', 'Jinn Petroleum (Pvt) Limited', '0', NULL, '2021-06-24 18:55:20', '2021-06-24 18:55:20');
+(502, 1, 1, 3, '258', '10103258', 'Jinn Petroleum (Pvt) Limited', '0', NULL, '2021-06-24 18:55:20', '2021-06-24 18:55:20'),
+(503, 1, 1, 3, '259', '10103259', 'Million Classic Cable (Pvt) Limited', '0', NULL, '2021-06-26 16:40:13', '2021-06-26 16:40:13'),
+(504, 1, 1, 3, '260', '10103260', 'English Biscuit Manufacturers (PVT) Limited', '0', NULL, '2021-06-26 16:43:50', '2021-06-26 16:43:50'),
+(505, 1, 1, 3, '261', '10103261', 'Hextar Industries (Pvt) Limited', '0', NULL, '2021-06-26 16:56:53', '2021-06-26 16:56:53'),
+(506, 1, 1, 3, '262', '10103262', 'Punjab Food Authority', '0', NULL, '2021-06-26 17:01:44', '2021-06-26 17:01:44');
 
 -- --------------------------------------------------------
 
@@ -1602,7 +1606,326 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 (1112, 'default', 'created', 'App\\Models\\QuoteItem', 204, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"19\",\"status\":\"0\",\"parameter\":\"6\",\"capability\":\"264\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,5\",\"price\":\"8000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-24 21:20:20', '2021-06-24 21:20:20'),
 (1113, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-24 21:20:36', '2021-06-24 21:20:36'),
 (1114, 'default', 'updated', 'App\\Models\\Quotes', 19, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-24 21:20:46', '2021-06-24 21:20:46'),
-(1115, 'default', 'updated', 'App\\Models\\Jobitem', 9, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-24 21:46:15', '2021-06-24 21:46:15');
+(1115, 'default', 'updated', 'App\\Models\\Jobitem', 9, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-24 21:46:15', '2021-06-24 21:46:15'),
+(1116, 'default', 'updated', 'App\\Models\\Quotes', 9, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:18', '2021-06-25 07:00:18'),
+(1117, 'default', 'updated', 'App\\Models\\Quotes', 10, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:23', '2021-06-25 07:00:23'),
+(1118, 'default', 'updated', 'App\\Models\\Quotes', 11, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:28', '2021-06-25 07:00:28'),
+(1119, 'default', 'updated', 'App\\Models\\Quotes', 12, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:33', '2021-06-25 07:00:33'),
+(1120, 'default', 'updated', 'App\\Models\\Quotes', 13, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:39', '2021-06-25 07:00:39'),
+(1121, 'default', 'updated', 'App\\Models\\Quotes', 14, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:44', '2021-06-25 07:00:44'),
+(1122, 'default', 'updated', 'App\\Models\\Quotes', 15, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:49', '2021-06-25 07:00:49'),
+(1123, 'default', 'updated', 'App\\Models\\Quotes', 16, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:54', '2021-06-25 07:00:54'),
+(1124, 'default', 'updated', 'App\\Models\\Quotes', 17, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:00:59', '2021-06-25 07:00:59'),
+(1125, 'default', 'updated', 'App\\Models\\Quotes', 18, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:01:04', '2021-06-25 07:01:04'),
+(1126, 'default', 'updated', 'App\\Models\\Quotes', 19, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:01:09', '2021-06-25 07:01:09'),
+(1127, 'default', 'updated', 'App\\Models\\Quotes', 20, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:01:14', '2021-06-25 07:01:14'),
+(1128, 'default', 'updated', 'App\\Models\\Quotes', 21, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 07:01:19', '2021-06-25 07:01:19'),
+(1129, 'default', 'updated', 'App\\Models\\Attendance', 29, 'App\\Models\\User', 19, '{\"attributes\":{\"check_out_date\":\"2021-06-25\",\"check_out\":\"09:07:14\",\"status\":\"1\"},\"old\":{\"check_out_date\":\"0000-00-00\",\"check_out\":\"12:12:20\",\"status\":\"0\"}}', '2021-06-25 16:07:14', '2021-06-25 16:07:14'),
+(1130, 'default', 'created', 'App\\Models\\Attendance', 30, 'App\\Models\\User', 19, '{\"attributes\":{\"user_id\":\"19\",\"check_in_date\":\"2021-06-25\",\"check_out_date\":\"0000-00-00\",\"check_in\":\"09:07:18\",\"check_out\":\"09:07:18\",\"day\":\"Fri\",\"worked_hours\":null,\"status\":\"0\",\"leave_id\":null,\"remarks\":\"Present manual marked by user\"}}', '2021-06-25 16:07:18', '2021-06-25 16:07:18'),
+(1131, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":{\"profile\":\"1624595040.png\"},\"old\":{\"profile\":\"1623213572.png\"}}', '2021-06-25 16:24:00', '2021-06-25 16:24:00'),
+(1132, 'default', 'created', 'App\\Models\\Quotes', 22, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"237\",\"type\":null,\"rfq_mode\":\"whatsapp\",\"rfq_mode_details\":\"Call Dated 24 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"732\",\"revision\":\"0\"}}', '2021-06-25 16:59:12', '2021-06-25 16:59:12'),
+(1133, 'default', 'updated', 'App\\Models\\Quotes', 22, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-25 16:59:12', '2021-06-25 16:59:12'),
+(1134, 'default', 'created', 'App\\Models\\QuoteItem', 205, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"26\",\"capability\":\"855\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"114,114\",\"price\":\"2500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 16:59:37', '2021-06-25 16:59:37'),
+(1135, 'default', 'updated', 'App\\Models\\Quotes', 22, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"LAB\"},\"old\":{\"type\":null}}', '2021-06-25 16:59:37', '2021-06-25 16:59:37'),
+(1136, 'default', 'created', 'App\\Models\\QuoteItem', 206, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"863\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"-20,650\",\"price\":\"4500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:00:09', '2021-06-25 17:00:09'),
+(1137, 'default', 'created', 'App\\Models\\QuoteItem', 207, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1116\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"3000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:32:17', '2021-06-25 17:32:17'),
+(1138, 'default', 'created', 'App\\Models\\QuoteItem', 208, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"321\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0.001,220\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:32:52', '2021-06-25 17:32:52'),
+(1139, 'default', 'updated', 'App\\Models\\Quotes', 22, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"BOTH\"},\"old\":{\"type\":\"LAB\"}}', '2021-06-25 17:32:52', '2021-06-25 17:32:52'),
+(1140, 'default', 'created', 'App\\Models\\QuoteItem', 209, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1094\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"7000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:33:17', '2021-06-25 17:33:17'),
+(1141, 'default', 'created', 'App\\Models\\QuoteItem', 210, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1068\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:34:00', '2021-06-25 17:34:00'),
+(1142, 'default', 'created', 'App\\Models\\QuoteItem', 211, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1034\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:34:18', '2021-06-25 17:34:18'),
+(1143, 'default', 'created', 'App\\Models\\QuoteItem', 212, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"1174\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"30,180\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:38:02', '2021-06-25 17:38:02'),
+(1144, 'default', 'created', 'App\\Models\\QuoteItem', 213, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"879\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"10,50\",\"price\":\"6000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:40:00', '2021-06-25 17:40:00'),
+(1145, 'default', 'created', 'App\\Models\\QuoteItem', 214, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"880\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"25,250\",\"price\":\"6000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:40:21', '2021-06-25 17:40:21'),
+(1146, 'default', 'created', 'App\\Models\\QuoteItem', 215, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"323\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0,35\",\"price\":\"4500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:41:00', '2021-06-25 17:41:00'),
+(1147, 'default', 'created', 'App\\Models\\QuoteItem', 216, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"4\",\"capability\":\"222\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,21\",\"price\":\"8000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 17:41:26', '2021-06-25 17:41:26'),
+(1148, 'default', 'updated', 'App\\Models\\QuoteItem', 210, 'App\\Models\\User', 1, '{\"attributes\":{\"quantity\":\"3\"},\"old\":{\"quantity\":\"1\"}}', '2021-06-25 17:41:52', '2021-06-25 17:41:52'),
+(1149, 'default', 'created', 'App\\Models\\QuoteItem', 217, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"17\",\"capability\":\"1018\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0,70\",\"price\":\"1500\",\"quantity\":\"7\",\"rf_checks\":null}}', '2021-06-25 17:52:01', '2021-06-25 17:52:01'),
+(1150, 'default', 'created', 'App\\Models\\Capabilities', 1176, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flue Gas Analyzer NO\",\"parameter\":\"8\",\"procedure\":\"12\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"0.5\",\"unit\":\"178\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-25 17:54:18', '2021-06-25 17:54:18'),
+(1151, 'default', 'created', 'App\\Models\\Capabilities', 1177, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flue Gas Analyzer NO\",\"parameter\":\"8\",\"procedure\":\"12\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"0.5\",\"unit\":\"178\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-25 18:03:05', '2021-06-25 18:03:05'),
+(1152, 'default', 'created', 'App\\Models\\Capabilities', 1178, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flue Gas Analyzer NO2\",\"parameter\":\"8\",\"procedure\":\"12\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"5 ppm\",\"unit\":\"178\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-25 18:09:16', '2021-06-25 18:09:16'),
+(1153, 'default', 'created', 'App\\Models\\Capabilities', 1179, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flue Gas Analyzer CO\",\"parameter\":\"8\",\"procedure\":\"12\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"5\",\"unit\":\"178\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-25 18:12:23', '2021-06-25 18:12:23'),
+(1154, 'default', 'created', 'App\\Models\\Capabilities', 1180, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flue Gas Analyzer SO2\",\"parameter\":\"8\",\"procedure\":\"12\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"5 ppm\",\"unit\":\"178\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-25 18:14:04', '2021-06-25 18:14:04'),
+(1155, 'default', 'created', 'App\\Models\\Capabilities', 1181, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flue Gas Analyzer CO2\",\"parameter\":\"8\",\"procedure\":\"12\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"5 ppm\",\"unit\":\"178\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-25 18:15:50', '2021-06-25 18:15:50'),
+(1156, 'default', 'created', 'App\\Models\\Capabilities', 1182, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flue Gas Analyzer O2\",\"parameter\":\"8\",\"procedure\":\"12\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"5 ppm\",\"unit\":\"178\",\"remarks\":\"NA\",\"location\":\"lab\",\"accredited\":\"no\"}}', '2021-06-25 18:20:26', '2021-06-25 18:20:26'),
+(1157, 'default', 'created', 'App\\Models\\Capabilities', 1183, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Flue Gas Analyzer\",\"parameter\":\"14\",\"procedure\":\"0\",\"range\":null,\"price\":\"0\",\"accuracy\":\"0\",\"unit\":\"0\",\"remarks\":\"Non-Accredit\",\"location\":\"lab\",\"accredited\":\"--\"}}', '2021-06-25 18:22:42', '2021-06-25 18:22:42'),
+(1158, 'default', 'updated', 'App\\Models\\Capabilities', 1179, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:22:42', '2021-06-25 18:22:42'),
+(1159, 'default', 'updated', 'App\\Models\\Capabilities', 1177, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:22:42', '2021-06-25 18:22:42'),
+(1160, 'default', 'updated', 'App\\Models\\Capabilities', 1178, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:22:42', '2021-06-25 18:22:42'),
+(1161, 'default', 'updated', 'App\\Models\\Capabilities', 1182, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:22:42', '2021-06-25 18:22:42'),
+(1162, 'default', 'updated', 'App\\Models\\Capabilities', 1180, 'App\\Models\\User', 1, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:22:42', '2021-06-25 18:22:42'),
+(1163, 'default', 'created', 'App\\Models\\QuoteItem', 218, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"22\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1183\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0\",\"price\":\"30000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 18:23:22', '2021-06-25 18:23:22'),
+(1164, 'default', 'updated', 'App\\Models\\Quotes', 22, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"15\"},\"old\":{\"turnaround\":\"\"}}', '2021-06-25 18:23:54', '2021-06-25 18:23:54'),
+(1165, 'default', 'updated', 'App\\Models\\Quotes', 22, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-25 18:24:02', '2021-06-25 18:24:02'),
+(1166, 'default', 'updated', 'App\\Models\\Quotes', 22, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-25 18:24:14', '2021-06-25 18:24:14'),
+(1167, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:25:17', '2021-06-25 18:25:17'),
+(1168, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:30:59', '2021-06-25 18:30:59'),
+(1169, 'default', 'created', 'App\\Models\\Job', 4, 'App\\Models\\User', 24, '{\"attributes\":{\"quotes_id\":null,\"status\":\"0\"}}', '2021-06-25 18:32:00', '2021-06-25 18:32:00'),
+(1170, 'default', 'updated', 'App\\Models\\Job', 4, 'App\\Models\\User', 24, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:32:00', '2021-06-25 18:32:00'),
+(1171, 'default', 'created', 'App\\Models\\Jobitem', 17, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"4\",\"item_id\":\"1\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-25 18:37:38', '2021-06-25 18:37:38'),
+(1172, 'default', 'updated', 'App\\Models\\Jobitem', 17, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"QC-HTC-02\",\"serial\":\"Nil\",\"model\":\"HTC-2\",\"make\":\"China\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-25 18:37:38', '2021-06-25 18:37:38'),
+(1173, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:39:01', '2021-06-25 18:39:01'),
+(1174, 'default', 'updated', 'App\\Models\\Role', 6, 'App\\Models\\User', 19, '{\"attributes\":{\"permissions\":\"customer-index,customer-view,calibration-management,parameter-index,asset-index,capabilities-index,log-reviews,my-task-index,lab-task-index,create-site-task-assign,site-item-receiving-store,site-item-receiving-store,site-item-receiving-update,mytask-view,start-mytask,end-mytask,site-task-index,site-receiving-index\"},\"old\":{\"permissions\":\"customer-index,customer-view,calibration-management,parameter-index,asset-index,capabilities-index,log-reviews,my-task-index,lab-task-index,mytask-view,start-mytask,end-mytask,site-task-index,site-receiving-index\"}}', '2021-06-25 18:40:08', '2021-06-25 18:40:08'),
+(1175, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:40:13', '2021-06-25 18:40:13'),
+(1176, 'default', 'created', 'App\\Models\\Jobitem', 18, 'App\\Models\\User', 23, '{\"attributes\":{\"type\":\"1\",\"job_id\":\"2\",\"item_id\":\"9\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"1\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-25 18:41:35', '2021-06-25 18:41:35'),
+(1177, 'default', 'updated', 'App\\Models\\Jobitem', 18, 'App\\Models\\User', 23, '{\"attributes\":{\"eq_id\":\"RD-008\",\"serial\":\"3132414565\",\"model\":\"BS3534-CW\",\"make\":\"Sartorius\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null}}', '2021-06-25 18:41:35', '2021-06-25 18:41:35'),
+(1178, 'default', 'updated', 'App\\Models\\Jobitem', 18, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-24\",\"end\":\"2021-06-26\",\"assign_user\":\"23\",\"assign_assets\":\"53,110\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 18:42:12', '2021-06-25 18:42:12'),
+(1179, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:43:20', '2021-06-25 18:43:20'),
+(1180, 'default', 'updated', 'App\\Models\\Attendance', 30, 'App\\Models\\User', 19, '{\"attributes\":{\"check_out_date\":\"2021-06-25\",\"check_out\":\"11:44:25\",\"status\":\"1\"},\"old\":{\"check_out_date\":\"0000-00-00\",\"check_out\":\"09:07:18\",\"status\":\"0\"}}', '2021-06-25 18:44:25', '2021-06-25 18:44:25'),
+(1181, 'default', 'created', 'App\\Models\\Jobitem', 19, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"4\",\"item_id\":\"3\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-25 18:44:32', '2021-06-25 18:44:32'),
+(1182, 'default', 'updated', 'App\\Models\\Jobitem', 19, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"Nil\",\"serial\":\"1800077\",\"model\":\"F1 Class\",\"make\":\"China\",\"accessories\":\"Box\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-25 18:44:32', '2021-06-25 18:44:32'),
+(1183, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:46:35', '2021-06-25 18:46:35'),
+(1184, 'default', 'updated', 'App\\Models\\Jobitem', 18, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"2\"}}', '2021-06-25 18:54:49', '2021-06-25 18:54:49'),
+(1185, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 18:55:30', '2021-06-25 18:55:30'),
+(1186, 'default', 'updated', 'App\\Models\\Role', 8, 'App\\Models\\User', 19, '{\"attributes\":{\"permissions\":\"dashboard-index,order-management,awaiting-job-index,awaiting-job-show,print-delivery-note,print-gate-pass,create-lab-task-assign,complete-job,jobs-index,jobs-view,print-job-form,create-job,delete-job,update-receiving,rfq,generate-requests-index,pending-index,quote-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews\"},\"old\":{\"permissions\":\"dashboard-index,order-management,awaiting-job-index,awaiting-job-show,print-delivery-note,print-gate-pass,complete-job,jobs-index,jobs-view,print-job-form,create-job,delete-job,update-receiving,rfq,generate-requests-index,pending-index,quote-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews\"}}', '2021-06-25 18:56:19', '2021-06-25 18:56:19'),
+(1187, 'default', 'created', 'App\\Models\\Jobitem', 20, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"4\",\"item_id\":\"3\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-25 18:56:29', '2021-06-25 18:56:29'),
+(1188, 'default', 'updated', 'App\\Models\\Jobitem', 20, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"Nil\",\"serial\":\"1800078\",\"model\":\"E2 Class\",\"make\":\"China\",\"accessories\":\"Box\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-25 18:56:29', '2021-06-25 18:56:29'),
+(1189, 'default', 'updated', 'App\\Models\\Quotes', 9, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 19:00:09', '2021-06-25 19:00:09'),
+(1190, 'default', 'updated', 'App\\Models\\Quotes', 10, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 19:00:14', '2021-06-25 19:00:14'),
+(1191, 'default', 'updated', 'App\\Models\\Quotes', 11, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 19:00:19', '2021-06-25 19:00:19'),
+(1192, 'default', 'updated', 'App\\Models\\Quotes', 12, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 19:00:24', '2021-06-25 19:00:24'),
+(1193, 'default', 'updated', 'App\\Models\\Quotes', 13, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 19:00:29', '2021-06-25 19:00:29'),
+(1194, 'default', 'updated', 'App\\Models\\Quotes', 14, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-25 19:00:34', '2021-06-25 19:00:34'),
+(1195, 'default', 'updated', 'App\\Models\\Jobitem', 17, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-26\",\"assign_user\":\"23\",\"assign_assets\":\"39\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:05:25', '2021-06-25 19:05:25'),
+(1196, 'default', 'updated', 'App\\Models\\Jobitem', 6, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"79\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:10:00', '2021-06-25 19:10:00'),
+(1197, 'default', 'updated', 'App\\Models\\Jobitem', 7, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"81\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:10:24', '2021-06-25 19:10:24'),
+(1198, 'default', 'updated', 'App\\Models\\Jobitem', 8, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"81\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:11:26', '2021-06-25 19:11:26'),
+(1199, 'default', 'updated', 'App\\Models\\Jobitem', 9, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"81\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:11:58', '2021-06-25 19:11:58'),
+(1200, 'default', 'updated', 'App\\Models\\Jobitem', 10, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"185\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:12:27', '2021-06-25 19:12:27'),
+(1201, 'default', 'updated', 'App\\Models\\Jobitem', 11, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"185\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:12:52', '2021-06-25 19:12:52'),
+(1202, 'default', 'updated', 'App\\Models\\Jobitem', 12, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"185\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:13:59', '2021-06-25 19:13:59'),
+(1203, 'default', 'updated', 'App\\Models\\Jobitem', 13, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"185\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:14:20', '2021-06-25 19:14:20'),
+(1204, 'default', 'updated', 'App\\Models\\Jobitem', 14, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-28\",\"assign_user\":\"23\",\"assign_assets\":\"185\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:14:45', '2021-06-25 19:14:45'),
+(1205, 'default', 'updated', 'App\\Models\\Jobitem', 18, 'App\\Models\\User', 23, '{\"attributes\":{\"serial\":\"3141511642\",\"model\":\"BSA224S-CW\"},\"old\":{\"serial\":\"3132414565\",\"model\":\"BS3534-CW\"}}', '2021-06-25 19:14:49', '2021-06-25 19:14:49'),
+(1206, 'default', 'updated', 'App\\Models\\Jobitem', 15, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-30\",\"assign_user\":\"23\",\"assign_assets\":\"185\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:15:08', '2021-06-25 19:15:08'),
+(1207, 'default', 'updated', 'App\\Models\\Jobitem', 18, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-25 19:15:10', '2021-06-25 19:15:10'),
+(1208, 'default', 'updated', 'App\\Models\\Jobitem', 16, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-30\",\"assign_user\":\"23\",\"assign_assets\":\"139\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 19:15:31', '2021-06-25 19:15:31'),
+(1209, 'default', 'updated', 'App\\Models\\Jobitem', 18, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 12:16:02\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 19:16:02', '2021-06-25 19:16:02'),
+(1210, 'default', 'updated', 'App\\Models\\Jobitem', 18, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 12:16:16\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 19:16:16', '2021-06-25 19:16:16'),
+(1211, 'default', 'updated', 'App\\Models\\Jobitem', 16, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 12:17:56\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 19:17:56', '2021-06-25 19:17:56'),
+(1212, 'default', 'updated', 'App\\Models\\Jobitem', 17, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 12:19:07\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 19:19:07', '2021-06-25 19:19:07'),
+(1213, 'default', 'updated', 'App\\Models\\Jobitem', 17, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 12:19:15\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 19:19:15', '2021-06-25 19:19:15'),
+(1214, 'default', 'updated', 'App\\Models\\Jobitem', 6, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 12:20:04\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 19:20:04', '2021-06-25 19:20:04'),
+(1215, 'default', 'updated', 'App\\Models\\Jobitem', 6, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 12:20:20\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 19:20:20', '2021-06-25 19:20:20'),
+(1216, 'default', 'created', 'App\\Models\\Procedure', 84, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"BS 5655-6:2011\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Lifts and service lifts. Code of practice for the selection, installation and location of new lifts\"}}', '2021-06-25 19:20:23', '2021-06-25 19:20:23'),
+(1217, 'default', 'updated', 'App\\Models\\Jobitem', 7, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 12:20:45\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 19:20:45', '2021-06-25 19:20:45'),
+(1218, 'default', 'updated', 'App\\Models\\Jobitem', 7, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 12:20:58\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 19:20:58', '2021-06-25 19:20:58'),
+(1219, 'default', 'updated', 'App\\Models\\Jobitem', 8, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 12:22:12\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 19:22:12', '2021-06-25 19:22:12'),
+(1220, 'default', 'updated', 'App\\Models\\Jobitem', 8, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 12:22:22\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 19:22:22', '2021-06-25 19:22:22'),
+(1221, 'default', 'updated', 'App\\Models\\Jobitem', 9, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 12:23:00\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 19:23:00', '2021-06-25 19:23:00'),
+(1222, 'default', 'updated', 'App\\Models\\Jobitem', 9, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 12:23:26\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 19:23:26', '2021-06-25 19:23:26'),
+(1223, 'default', 'created', 'App\\Models\\Procedure', 85, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"BS EN 14492-2:2019\",\"uncertainties\":\"standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc\",\"description\":\"Power driven winches and hoists. Power driven hoists\"}}', '2021-06-25 19:23:31', '2021-06-25 19:23:31'),
+(1224, 'default', 'updated', 'App\\Models\\Jobitem', 10, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 12:24:41\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 19:24:41', '2021-06-25 19:24:41'),
+(1225, 'default', 'updated', 'App\\Models\\Jobitem', 10, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 12:24:51\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 19:24:51', '2021-06-25 19:24:51'),
+(1226, 'default', 'created', 'App\\Models\\Capabilities', 1184, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Lift Elevators Cargo \\/ Passenger\",\"parameter\":\"33\",\"procedure\":\"84\",\"range\":null,\"price\":\"7000\",\"accuracy\":\"NA\",\"unit\":\"189\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-25 19:28:06', '2021-06-25 19:28:06'),
+(1227, 'default', 'created', 'App\\Models\\Capabilities', 1185, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Platform Hoist\",\"parameter\":\"33\",\"procedure\":\"85\",\"range\":null,\"price\":\"6000\",\"accuracy\":\"NA\",\"unit\":\"189\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-25 19:30:12', '2021-06-25 19:30:12'),
+(1228, 'default', 'created', 'App\\Models\\Capabilities', 1186, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Beam Stackers\",\"parameter\":\"33\",\"procedure\":\"80\",\"range\":null,\"price\":\"7000\",\"accuracy\":\"NA\",\"unit\":\"189\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-25 19:32:04', '2021-06-25 19:32:04'),
+(1229, 'default', 'created', 'App\\Models\\Quotes', 23, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"125\",\"type\":null,\"rfq_mode\":\"email\",\"rfq_mode_details\":\"25 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"383\",\"revision\":\"0\"}}', '2021-06-25 19:48:40', '2021-06-25 19:48:40'),
+(1230, 'default', 'updated', 'App\\Models\\Quotes', 23, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-25 19:48:40', '2021-06-25 19:48:40'),
+(1231, 'default', 'created', 'App\\Models\\QuoteItem', 219, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"23\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"323\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0,35\",\"price\":\"4500\",\"quantity\":\"10\",\"rf_checks\":null}}', '2021-06-25 19:50:44', '2021-06-25 19:50:44'),
+(1232, 'default', 'updated', 'App\\Models\\Quotes', 23, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"SITE\"},\"old\":{\"type\":null}}', '2021-06-25 19:50:44', '2021-06-25 19:50:44'),
+(1233, 'default', 'created', 'App\\Models\\QuoteItem', 220, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"23\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"325\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"1,120\",\"price\":\"6500\",\"quantity\":\"6\",\"rf_checks\":null}}', '2021-06-25 19:51:44', '2021-06-25 19:51:44'),
+(1234, 'default', 'created', 'App\\Models\\QuoteItem', 221, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"23\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"326\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"1,300\",\"price\":\"7000\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-25 19:52:39', '2021-06-25 19:52:39'),
+(1235, 'default', 'created', 'App\\Models\\QuoteItem', 222, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"23\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"327\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"1,1500\",\"price\":\"12000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 19:53:19', '2021-06-25 19:53:19'),
+(1236, 'default', 'created', 'App\\Models\\QuoteItem', 223, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"23\",\"status\":\"0\",\"parameter\":\"33\",\"capability\":\"719\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,0\",\"price\":\"1000\",\"quantity\":\"4\",\"rf_checks\":null}}', '2021-06-25 19:54:37', '2021-06-25 19:54:37'),
+(1237, 'default', 'created', 'App\\Models\\QuoteItem', 224, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"23\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1065\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"6000\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-25 19:55:21', '2021-06-25 19:55:21'),
+(1238, 'default', 'updated', 'App\\Models\\Quotes', 23, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"BOTH\"},\"old\":{\"type\":\"SITE\"}}', '2021-06-25 19:55:21', '2021-06-25 19:55:21'),
+(1239, 'default', 'created', 'App\\Models\\QuoteItem', 225, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"23\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1039\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"5000\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-25 19:55:45', '2021-06-25 19:55:45'),
+(1240, 'default', 'updated', 'App\\Models\\QuoteItem', 222, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"10000\"},\"old\":{\"price\":\"12000\"}}', '2021-06-25 19:56:21', '2021-06-25 19:56:21'),
+(1241, 'default', 'updated', 'App\\Models\\QuoteItem', 223, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"3000\"},\"old\":{\"price\":\"1000\"}}', '2021-06-25 19:57:02', '2021-06-25 19:57:02'),
+(1242, 'default', 'updated', 'App\\Models\\Quotes', 23, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"15\"},\"old\":{\"turnaround\":\"\"}}', '2021-06-25 19:57:25', '2021-06-25 19:57:25'),
+(1243, 'default', 'updated', 'App\\Models\\Quotes', 23, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-25 19:57:33', '2021-06-25 19:57:33'),
+(1244, 'default', 'updated', 'App\\Models\\Quotes', 23, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-25 19:57:46', '2021-06-25 19:57:46'),
+(1245, 'default', 'created', 'App\\Models\\Quotes', 24, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"195\",\"type\":null,\"rfq_mode\":\"email\",\"rfq_mode_details\":\"Dated 25 Jun, 2021\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"593\",\"revision\":\"0\"}}', '2021-06-25 20:01:45', '2021-06-25 20:01:45'),
+(1246, 'default', 'updated', 'App\\Models\\Quotes', 24, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-25 20:01:45', '2021-06-25 20:01:45');
+INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `subject_id`, `causer_type`, `causer_id`, `properties`, `created_at`, `updated_at`) VALUES
+(1247, 'default', 'created', 'App\\Models\\QuoteItem', 226, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"24\",\"status\":\"0\",\"parameter\":\"6\",\"capability\":\"266\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,1800\",\"price\":\"15000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 20:02:23', '2021-06-25 20:02:23'),
+(1248, 'default', 'updated', 'App\\Models\\Quotes', 24, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"SITE\"},\"old\":{\"type\":null}}', '2021-06-25 20:02:23', '2021-06-25 20:02:23'),
+(1249, 'default', 'created', 'App\\Models\\QuoteItem', 227, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"24\",\"status\":\"0\",\"parameter\":\"105\",\"capability\":\"1132\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,0\",\"price\":\"20000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 20:02:46', '2021-06-25 20:02:46'),
+(1250, 'default', 'updated', 'App\\Models\\Quotes', 24, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"5\"},\"old\":{\"turnaround\":\"\"}}', '2021-06-25 20:03:05', '2021-06-25 20:03:05'),
+(1251, 'default', 'updated', 'App\\Models\\Quotes', 24, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-25 20:03:13', '2021-06-25 20:03:13'),
+(1252, 'default', 'updated', 'App\\Models\\Quotes', 24, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-25 20:03:28', '2021-06-25 20:03:28'),
+(1253, 'default', 'updated', 'App\\Models\\Jobitem', 11, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 13:03:53\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 20:03:53', '2021-06-25 20:03:53'),
+(1254, 'default', 'updated', 'App\\Models\\Jobitem', 11, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 13:03:59\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 20:03:59', '2021-06-25 20:03:59'),
+(1255, 'default', 'updated', 'App\\Models\\Jobitem', 12, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 13:04:17\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 20:04:17', '2021-06-25 20:04:17'),
+(1256, 'default', 'updated', 'App\\Models\\Jobitem', 12, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 13:04:27\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 20:04:27', '2021-06-25 20:04:27'),
+(1257, 'default', 'updated', 'App\\Models\\Jobitem', 13, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 13:04:40\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 20:04:40', '2021-06-25 20:04:40'),
+(1258, 'default', 'updated', 'App\\Models\\Jobitem', 13, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 13:04:49\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 20:04:49', '2021-06-25 20:04:49'),
+(1259, 'default', 'updated', 'App\\Models\\Jobitem', 14, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 13:05:22\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 20:05:22', '2021-06-25 20:05:22'),
+(1260, 'default', 'updated', 'App\\Models\\Jobitem', 14, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 13:05:32\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 20:05:32', '2021-06-25 20:05:32'),
+(1261, 'default', 'updated', 'App\\Models\\Jobitem', 15, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 13:05:56\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 20:05:56', '2021-06-25 20:05:56'),
+(1262, 'default', 'updated', 'App\\Models\\Jobitem', 15, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 13:06:06\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 20:06:06', '2021-06-25 20:06:06'),
+(1263, 'default', 'updated', 'App\\Models\\Jobitem', 16, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 13:06:26\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 20:06:26', '2021-06-25 20:06:26'),
+(1264, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 20:08:48', '2021-06-25 20:08:48'),
+(1265, 'default', 'created', 'App\\Models\\Quotes', 25, 'App\\Models\\User', 1, '{\"attributes\":{\"customer_id\":\"1\",\"type\":null,\"rfq_mode\":\"email\",\"rfq_mode_details\":\"Dated\",\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null,\"status\":\"0\",\"turnaround\":\"\",\"remarks\":null,\"tm\":\"20\",\"principal\":\"2\",\"revision\":\"0\"}}', '2021-06-25 21:14:41', '2021-06-25 21:14:41'),
+(1266, 'default', 'updated', 'App\\Models\\Quotes', 25, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"0\",\"turnaround\":\"\",\"revision\":\"0\"},\"old\":{\"status\":null,\"turnaround\":null,\"revision\":null}}', '2021-06-25 21:14:41', '2021-06-25 21:14:41'),
+(1267, 'default', 'created', 'App\\Models\\QuoteItem', 228, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"81\",\"capability\":\"14\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0,5000\",\"price\":\"1500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 21:17:40', '2021-06-25 21:17:40'),
+(1268, 'default', 'updated', 'App\\Models\\Quotes', 25, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"LAB\"},\"old\":{\"type\":null}}', '2021-06-25 21:17:40', '2021-06-25 21:17:40'),
+(1269, 'default', 'updated', 'App\\Models\\Jobitem', 5, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-25\",\"end\":\"2021-06-25\",\"assign_user\":\"23\",\"assign_assets\":\"149\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-25 21:20:50', '2021-06-25 21:20:50'),
+(1270, 'default', 'created', 'App\\Models\\QuoteItem', 229, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"17\",\"capability\":\"776\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0,200\",\"price\":\"1500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 21:43:37', '2021-06-25 21:43:37'),
+(1271, 'default', 'updated', 'App\\Models\\Quotes', 25, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"BOTH\"},\"old\":{\"type\":\"LAB\"}}', '2021-06-25 21:43:37', '2021-06-25 21:43:37'),
+(1272, 'default', 'created', 'App\\Models\\QuoteItem', 230, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1054\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 21:44:04', '2021-06-25 21:44:04'),
+(1273, 'default', 'created', 'App\\Models\\QuoteItem', 231, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"33\",\"capability\":\"730\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,0\",\"price\":\"6500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 21:44:25', '2021-06-25 21:44:25'),
+(1274, 'default', 'created', 'App\\Models\\Capabilities', 1187, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Weighing Scale\",\"parameter\":\"13\",\"procedure\":\"50\",\"range\":null,\"price\":\"8000\",\"accuracy\":\"0.5\",\"unit\":\"166\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-25 21:47:39', '2021-06-25 21:47:39'),
+(1275, 'default', 'updated', 'App\\Models\\Jobitem', 5, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-25 14:47:42\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-25 21:47:42', '2021-06-25 21:47:42'),
+(1276, 'default', 'updated', 'App\\Models\\Jobitem', 5, 'App\\Models\\User', 23, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-25 14:47:50\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-25 21:47:50', '2021-06-25 21:47:50'),
+(1277, 'default', 'updated', 'App\\Models\\Job', 3, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-25 21:48:56', '2021-06-25 21:48:56'),
+(1278, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-25 21:54:02', '2021-06-25 21:54:02'),
+(1279, 'default', 'created', 'App\\Models\\Capabilities', 1188, 'App\\Models\\User', 1, '{\"attributes\":{\"name\":\"Weighing Scale\",\"parameter\":\"13\",\"procedure\":\"50\",\"range\":null,\"price\":\"10000\",\"accuracy\":\"1 kg\",\"unit\":\"166\",\"remarks\":\"NA\",\"location\":\"site\",\"accredited\":\"no\"}}', '2021-06-25 21:55:46', '2021-06-25 21:55:46'),
+(1280, 'default', 'created', 'App\\Models\\QuoteItem', 232, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"13\",\"capability\":\"1187\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,500\",\"price\":\"8000\",\"quantity\":\"5\",\"rf_checks\":null}}', '2021-06-25 21:57:40', '2021-06-25 21:57:40'),
+(1281, 'default', 'created', 'App\\Models\\QuoteItem', 233, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"33\",\"capability\":\"1186\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,5\",\"price\":\"7000\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-25 21:58:06', '2021-06-25 21:58:06'),
+(1282, 'default', 'created', 'App\\Models\\QuoteItem', 234, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"6\",\"capability\":\"270\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0,100 cN\",\"price\":\"3000\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-25 21:58:32', '2021-06-25 21:58:32'),
+(1283, 'default', 'created', 'App\\Models\\QuoteItem', 235, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"27\",\"capability\":\"864\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"25,500\",\"price\":\"4000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 21:59:03', '2021-06-25 21:59:03'),
+(1284, 'default', 'created', 'App\\Models\\QuoteItem', 236, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1071\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"6000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 22:00:47', '2021-06-25 22:00:47'),
+(1285, 'default', 'created', 'App\\Models\\QuoteItem', 237, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"33\",\"capability\":\"725\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,0\",\"price\":\"7500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 22:01:23', '2021-06-25 22:01:23'),
+(1286, 'default', 'created', 'App\\Models\\QuoteItem', 238, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"81\",\"capability\":\"214\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"yes\",\"range\":\"0,100\",\"price\":\"3000\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 22:01:58', '2021-06-25 22:01:58'),
+(1287, 'default', 'created', 'App\\Models\\QuoteItem', 239, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"10\",\"capability\":\"305\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"no\",\"range\":\"0,5000\",\"price\":\"3000\",\"quantity\":\"5\",\"rf_checks\":null}}', '2021-06-25 22:02:25', '2021-06-25 22:02:25'),
+(1288, 'default', 'created', 'App\\Models\\QuoteItem', 240, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"21\",\"capability\":\"830\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"1,99999\",\"price\":\"2500\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-25 22:02:54', '2021-06-25 22:02:54'),
+(1289, 'default', 'created', 'App\\Models\\QuoteItem', 241, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1065\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"9500\",\"quantity\":\"1\",\"rf_checks\":null}}', '2021-06-25 22:03:22', '2021-06-25 22:03:22'),
+(1290, 'default', 'created', 'App\\Models\\QuoteItem', 242, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"14\",\"capability\":\"1039\",\"not_available\":null,\"location\":\"lab\",\"accredited\":\"yes\",\"range\":\"0\",\"price\":\"5000\",\"quantity\":\"2\",\"rf_checks\":null}}', '2021-06-25 22:03:49', '2021-06-25 22:03:49'),
+(1291, 'default', 'created', 'App\\Models\\QuoteItem', 243, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"33\",\"capability\":\"1185\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,3\",\"price\":\"6000\",\"quantity\":\"5\",\"rf_checks\":null}}', '2021-06-25 22:04:20', '2021-06-25 22:04:20'),
+(1292, 'default', 'created', 'App\\Models\\QuoteItem', 244, 'App\\Models\\User', 1, '{\"attributes\":{\"quote_id\":\"25\",\"status\":\"0\",\"parameter\":\"33\",\"capability\":\"1184\",\"not_available\":null,\"location\":\"site\",\"accredited\":\"no\",\"range\":\"0,5\",\"price\":\"7000\",\"quantity\":\"3\",\"rf_checks\":null}}', '2021-06-25 22:04:39', '2021-06-25 22:04:39'),
+(1293, 'default', 'updated', 'App\\Models\\QuoteItem', 233, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"6500\"},\"old\":{\"price\":\"7000\"}}', '2021-06-25 22:05:51', '2021-06-25 22:05:51'),
+(1294, 'default', 'updated', 'App\\Models\\QuoteItem', 239, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"2500\"},\"old\":{\"price\":\"3000\"}}', '2021-06-25 22:06:36', '2021-06-25 22:06:36'),
+(1295, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 22:10:25', '2021-06-25 22:10:25'),
+(1296, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 22:12:38', '2021-06-25 22:12:38'),
+(1297, 'default', 'updated', 'App\\Models\\QuoteItem', 241, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"6000\"},\"old\":{\"price\":\"9500\"}}', '2021-06-25 22:43:05', '2021-06-25 22:43:05'),
+(1298, 'default', 'updated', 'App\\Models\\QuoteItem', 244, 'App\\Models\\User', 1, '{\"attributes\":{\"price\":\"6500\"},\"old\":{\"price\":\"7000\"}}', '2021-06-25 22:43:38', '2021-06-25 22:43:38'),
+(1299, 'default', 'updated', 'App\\Models\\Quotes', 25, 'App\\Models\\User', 1, '{\"attributes\":{\"turnaround\":\"10\"},\"old\":{\"turnaround\":\"\"}}', '2021-06-25 22:44:33', '2021-06-25 22:44:33'),
+(1300, 'default', 'updated', 'App\\Models\\Quotes', 25, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"1\"},\"old\":{\"status\":\"0\"}}', '2021-06-25 22:44:42', '2021-06-25 22:44:42'),
+(1301, 'default', 'updated', 'App\\Models\\Quotes', 25, 'App\\Models\\User', 1, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-25 22:44:54', '2021-06-25 22:44:54'),
+(1302, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 22:50:16', '2021-06-25 22:50:16'),
+(1303, 'default', 'created', 'App\\Models\\Journal', 8, 'App\\Models\\User', 21, '{\"attributes\":{\"id\":8,\"customize_id\":\"0\",\"date\":\"2021-06-24T19:00:00.000000Z\",\"type\":\"sales invoice\",\"created_by\":\"21\",\"updated_by\":null,\"acc_code\":null,\"narration\":null,\"dr\":null,\"cr\":null}}', '2021-06-25 22:51:11', '2021-06-25 22:51:11'),
+(1304, 'default', 'updated', 'App\\Models\\Journal', 8, 'App\\Models\\User', 21, '{\"attributes\":[],\"old\":[]}', '2021-06-25 22:51:11', '2021-06-25 22:51:11'),
+(1305, 'default', 'updated', 'App\\Models\\Job', 3, 'App\\Models\\User', 21, '{\"attributes\":{\"status\":\"2\"},\"old\":{\"status\":\"1\"}}', '2021-06-25 22:51:11', '2021-06-25 22:51:11'),
+(1306, 'default', 'updated', 'App\\Models\\Customer', 76, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"0\",\"customer_type\":\"cash\",\"pay_terms\":\"advance\",\"updated_at\":\"2021-06-25T11:41:24.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-25 23:41:24', '2021-06-25 23:41:24'),
+(1307, 'default', 'updated', 'App\\Models\\Customer', 79, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"0\",\"customer_type\":\"cash\",\"pay_terms\":\"against delivery\",\"updated_at\":\"2021-06-25T11:43:54.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-25 23:43:54', '2021-06-25 23:43:54'),
+(1308, 'default', 'updated', 'App\\Models\\Customer', 80, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"300000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T11:45:15.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-25 23:45:15', '2021-06-25 23:45:15'),
+(1309, 'default', 'updated', 'App\\Models\\Customer', 82, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T11:49:08.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-25 23:49:08', '2021-06-25 23:49:08'),
+(1310, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-25 23:51:59', '2021-06-25 23:51:59'),
+(1311, 'default', 'updated', 'App\\Models\\Customer', 212, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T11:52:58.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-25 23:52:58', '2021-06-25 23:52:58'),
+(1312, 'default', 'updated', 'App\\Models\\Customer', 83, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T11:53:24.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-25 23:53:24', '2021-06-25 23:53:24'),
+(1313, 'default', 'updated', 'App\\Models\\Customer', 86, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:12:11.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:12:11', '2021-06-26 00:12:11'),
+(1314, 'default', 'updated', 'App\\Models\\Customer', 87, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:12:55.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:12:55', '2021-06-26 00:12:55'),
+(1315, 'default', 'updated', 'App\\Models\\Customer', 89, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:16:51.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:16:51', '2021-06-26 00:16:51'),
+(1316, 'default', 'updated', 'App\\Models\\Customer', 12, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"200000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:20:29.000000Z\"},\"old\":{\"credit_limit\":\"50000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:59:37.000000Z\"}}', '2021-06-26 00:20:29', '2021-06-26 00:20:29'),
+(1317, 'default', 'updated', 'App\\Models\\Customer', 92, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:21:56.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:21:56', '2021-06-26 00:21:56'),
+(1318, 'default', 'updated', 'App\\Models\\Customer', 94, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:23:15.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:23:15', '2021-06-26 00:23:15'),
+(1319, 'default', 'updated', 'App\\Models\\Customer', 98, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:24:16.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:24:16', '2021-06-26 00:24:16'),
+(1320, 'default', 'updated', 'App\\Models\\Customer', 96, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:24:57.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T06:25:59.000000Z\"}}', '2021-06-26 00:24:57', '2021-06-26 00:24:57'),
+(1321, 'default', 'updated', 'App\\Models\\Customer', 99, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:26:45.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:26:45', '2021-06-26 00:26:45'),
+(1322, 'default', 'updated', 'App\\Models\\Customer', 100, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:27:43.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:27:43', '2021-06-26 00:27:43'),
+(1323, 'default', 'updated', 'App\\Models\\Customer', 104, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:29:04.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:29:04', '2021-06-26 00:29:04'),
+(1324, 'default', 'updated', 'App\\Models\\Customer', 106, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:37:01.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:37:01', '2021-06-26 00:37:01'),
+(1325, 'default', 'updated', 'App\\Models\\Customer', 108, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:38:28.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:38:28', '2021-06-26 00:38:28'),
+(1326, 'default', 'updated', 'App\\Models\\Customer', 110, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:39:41.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T06:25:59.000000Z\"}}', '2021-06-26 00:39:41', '2021-06-26 00:39:41'),
+(1327, 'default', 'updated', 'App\\Models\\Customer', 111, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:40:15.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:40:15', '2021-06-26 00:40:15'),
+(1328, 'default', 'updated', 'App\\Models\\Customer', 112, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:41:00.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:41:00', '2021-06-26 00:41:00'),
+(1329, 'default', 'updated', 'App\\Models\\Customer', 114, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:41:48.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:41:48', '2021-06-26 00:41:48'),
+(1330, 'default', 'updated', 'App\\Models\\Customer', 117, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:43:20.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:43:20', '2021-06-26 00:43:20'),
+(1331, 'default', 'updated', 'App\\Models\\Customer', 119, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:44:38.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:44:38', '2021-06-26 00:44:38'),
+(1332, 'default', 'updated', 'App\\Models\\Customer', 121, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:45:11.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:45:11', '2021-06-26 00:45:11'),
+(1333, 'default', 'updated', 'App\\Models\\Customer', 123, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"300000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T12:45:54.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 00:45:54', '2021-06-26 00:45:54'),
+(1334, 'default', 'updated', 'App\\Models\\Customer', 126, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:33:02.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:33:02', '2021-06-26 02:33:02'),
+(1335, 'default', 'updated', 'App\\Models\\Customer', 128, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"300000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:33:51.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:33:51', '2021-06-26 02:33:51'),
+(1336, 'default', 'updated', 'App\\Models\\Customer', 129, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:35:59.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:35:59', '2021-06-26 02:35:59'),
+(1337, 'default', 'updated', 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"150000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:37:24.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:37:24', '2021-06-26 02:37:24'),
+(1338, 'default', 'updated', 'App\\Models\\Customer', 131, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:38:13.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:38:13', '2021-06-26 02:38:13'),
+(1339, 'default', 'updated', 'App\\Models\\Customer', 132, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:38:53.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:38:53', '2021-06-26 02:38:53'),
+(1340, 'default', 'updated', 'App\\Models\\Customer', 135, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:39:48.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:39:48', '2021-06-26 02:39:48'),
+(1341, 'default', 'updated', 'App\\Models\\Customer', 136, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:41:42.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:41:42', '2021-06-26 02:41:42'),
+(1342, 'default', 'updated', 'App\\Models\\Customer', 138, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:44:06.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:44:06', '2021-06-26 02:44:06'),
+(1343, 'default', 'updated', 'App\\Models\\Customer', 139, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:45:05.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T06:25:59.000000Z\"}}', '2021-06-26 02:45:05', '2021-06-26 02:45:05'),
+(1344, 'default', 'updated', 'App\\Models\\Customer', 141, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"0\",\"customer_type\":\"cash\",\"pay_terms\":\"against delivery\",\"updated_at\":\"2021-06-25T14:47:02.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:47:02', '2021-06-26 02:47:02'),
+(1345, 'default', 'updated', 'App\\Models\\Customer', 142, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:47:50.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:47:50', '2021-06-26 02:47:50'),
+(1346, 'default', 'updated', 'App\\Models\\Customer', 143, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:48:56.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:48:56', '2021-06-26 02:48:56'),
+(1347, 'default', 'updated', 'App\\Models\\Customer', 144, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"250000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:52:34.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:52:34', '2021-06-26 02:52:34'),
+(1348, 'default', 'updated', 'App\\Models\\Customer', 146, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:53:29.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T06:25:59.000000Z\"}}', '2021-06-26 02:53:29', '2021-06-26 02:53:29'),
+(1349, 'default', 'updated', 'App\\Models\\Customer', 148, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:55:04.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:55:04', '2021-06-26 02:55:04'),
+(1350, 'default', 'updated', 'App\\Models\\Customer', 150, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:56:17.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:56:17', '2021-06-26 02:56:17'),
+(1351, 'default', 'updated', 'App\\Models\\Customer', 151, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"0\",\"customer_type\":\"cash\",\"pay_terms\":\"against delivery\",\"updated_at\":\"2021-06-25T14:57:11.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:57:11', '2021-06-26 02:57:11'),
+(1352, 'default', 'updated', 'App\\Models\\Customer', 153, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:58:15.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:58:15', '2021-06-26 02:58:15'),
+(1353, 'default', 'updated', 'App\\Models\\Customer', 155, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-25T14:59:00.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 02:59:00', '2021-06-26 02:59:00'),
+(1354, 'default', 'updated', 'App\\Models\\Quotes', 15, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:18', '2021-06-26 07:00:18'),
+(1355, 'default', 'updated', 'App\\Models\\Quotes', 16, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:24', '2021-06-26 07:00:24'),
+(1356, 'default', 'updated', 'App\\Models\\Quotes', 17, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:29', '2021-06-26 07:00:29'),
+(1357, 'default', 'updated', 'App\\Models\\Quotes', 18, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:34', '2021-06-26 07:00:34'),
+(1358, 'default', 'updated', 'App\\Models\\Quotes', 19, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:39', '2021-06-26 07:00:39'),
+(1359, 'default', 'updated', 'App\\Models\\Quotes', 20, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:44', '2021-06-26 07:00:44'),
+(1360, 'default', 'updated', 'App\\Models\\Quotes', 21, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:49', '2021-06-26 07:00:49'),
+(1361, 'default', 'updated', 'App\\Models\\Quotes', 22, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:54', '2021-06-26 07:00:54'),
+(1362, 'default', 'updated', 'App\\Models\\Quotes', 23, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:00:59', '2021-06-26 07:00:59'),
+(1363, 'default', 'updated', 'App\\Models\\Quotes', 24, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:01:04', '2021-06-26 07:01:04'),
+(1364, 'default', 'updated', 'App\\Models\\Quotes', 25, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 07:01:09', '2021-06-26 07:01:09'),
+(1365, 'default', 'updated', 'App\\Models\\Customer', 156, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"50000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-26T04:20:24.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 16:20:24', '2021-06-26 16:20:24'),
+(1366, 'default', 'updated', 'App\\Models\\Customer', 246, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"100000\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-26T04:21:15.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 16:21:15', '2021-06-26 16:21:15'),
+(1367, 'default', 'updated', 'App\\Models\\Customer', 157, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-26T04:24:08.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 16:24:08', '2021-06-26 16:24:08'),
+(1368, 'default', 'updated', 'App\\Models\\Customer', 159, 'App\\Models\\User', 1, '{\"attributes\":{\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-26T04:25:08.000000Z\"},\"old\":{\"pay_terms\":\"15 days\",\"updated_at\":\"2021-06-18T07:28:14.000000Z\"}}', '2021-06-26 16:25:08', '2021-06-26 16:25:08'),
+(1369, 'default', 'updated', 'App\\Models\\Customer', 159, 'App\\Models\\User', 1, '{\"attributes\":{\"credit_limit\":\"0\",\"customer_type\":\"cash\",\"pay_terms\":\"against delivery\",\"updated_at\":\"2021-06-26T04:27:28.000000Z\"},\"old\":{\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-26T04:25:08.000000Z\"}}', '2021-06-26 16:27:28', '2021-06-26 16:27:28'),
+(1370, 'default', 'updated', 'App\\Models\\Customer', 159, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"Qarshi Research International (Pvt) Ltd\",\"ntn\":\"1531398-7\",\"address\":\"Plot 56\\/1-4 Industrial Estate Hattar - KPK, Pakistan\",\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"updated_at\":\"2021-06-26T04:29:59.000000Z\"},\"old\":{\"reg_name\":\"Green Crescent Environmental Consultants Pvt. Ltd.\",\"ntn\":\"7131884-5\",\"address\":\"112 C\\/E-1, Hali Road, Gulberg III, Lahore\",\"credit_limit\":\"0\",\"customer_type\":\"cash\",\"pay_terms\":\"against delivery\",\"updated_at\":\"2021-06-26T04:27:28.000000Z\"}}', '2021-06-26 16:29:59', '2021-06-26 16:29:59'),
+(1371, 'default', 'created', 'App\\Models\\Chartofaccount', 503, 'App\\Models\\User', 1, '{\"attributes\":{\"code1\":\"1\",\"code2\":\"1\",\"code3\":\"3\",\"acc_code\":\"10103259\",\"title\":\"Million Classic Cable (Pvt) Limited\"}}', '2021-06-26 16:40:13', '2021-06-26 16:40:13'),
+(1372, 'default', 'created', 'App\\Models\\Customer', 259, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"Million Classic Cable (Pvt) Limited\",\"ntn\":\"7448506-1\",\"region\":\"2\",\"address\":\"35 KM Raiwand Road Opposite Sunder Estate Gate no #3 Raiwind Road Lahore\",\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"prin_name_1\":null,\"prin_phone_1\":null,\"prin_email_1\":null,\"prin_name_2\":null,\"prin_phone_2\":null,\"prin_email_2\":null,\"prin_name_3\":null,\"prin_phone_3\":null,\"prin_email_3\":null,\"pur_name\":null,\"pur_phone\":null,\"pur_email\":null,\"acc_name\":null,\"acc_phone\":null,\"acc_email\":null,\"deleted_at\":null,\"created_at\":\"2021-06-26T04:40:13.000000Z\",\"updated_at\":\"2021-06-26T04:40:13.000000Z\"}}', '2021-06-26 16:40:13', '2021-06-26 16:40:13'),
+(1373, 'default', 'created', 'App\\Models\\Chartofaccount', 504, 'App\\Models\\User', 1, '{\"attributes\":{\"code1\":\"1\",\"code2\":\"1\",\"code3\":\"3\",\"acc_code\":\"10103260\",\"title\":\"English Biscuit Manufacturers (PVT) Limited\"}}', '2021-06-26 16:43:50', '2021-06-26 16:43:50'),
+(1374, 'default', 'created', 'App\\Models\\Customer', 260, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"English Biscuit Manufacturers (PVT) Limited\",\"ntn\":\"0710330-1\",\"region\":\"4\",\"address\":\"Plot 1-4, Sector 23, Korangi Industrial Area Karachi\",\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"prin_name_1\":null,\"prin_phone_1\":null,\"prin_email_1\":null,\"prin_name_2\":null,\"prin_phone_2\":null,\"prin_email_2\":null,\"prin_name_3\":null,\"prin_phone_3\":null,\"prin_email_3\":null,\"pur_name\":null,\"pur_phone\":null,\"pur_email\":null,\"acc_name\":null,\"acc_phone\":null,\"acc_email\":null,\"deleted_at\":null,\"created_at\":\"2021-06-26T04:43:50.000000Z\",\"updated_at\":\"2021-06-26T04:43:50.000000Z\"}}', '2021-06-26 16:43:50', '2021-06-26 16:43:50'),
+(1375, 'default', 'updated', 'App\\Models\\Customer', 260, 'App\\Models\\User', 1, '{\"attributes\":{\"updated_at\":\"2021-06-26T04:48:16.000000Z\"},\"old\":{\"updated_at\":\"2021-06-26T04:43:50.000000Z\"}}', '2021-06-26 16:48:16', '2021-06-26 16:48:16'),
+(1376, 'default', 'updated', 'App\\Models\\Customer', 256, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"Nuchem (Pvt) Limited\",\"ntn\":\"4379570-6\",\"address\":\"Plot No. 187, Industrial Estate Part II, Multan\",\"credit_limit\":\"200000\",\"updated_at\":\"2021-06-26T04:53:35.000000Z\"},\"old\":{\"reg_name\":\"Future Scientific\",\"ntn\":\"2979549-4\",\"address\":\"FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi\",\"credit_limit\":\"50000\",\"updated_at\":\"2021-06-24T04:46:16.000000Z\"}}', '2021-06-26 16:53:35', '2021-06-26 16:53:35'),
+(1377, 'default', 'created', 'App\\Models\\Chartofaccount', 505, 'App\\Models\\User', 1, '{\"attributes\":{\"code1\":\"1\",\"code2\":\"1\",\"code3\":\"3\",\"acc_code\":\"10103261\",\"title\":\"Hextar Industries (Pvt) Limited\"}}', '2021-06-26 16:56:53', '2021-06-26 16:56:53'),
+(1378, 'default', 'created', 'App\\Models\\Customer', 261, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"Hextar Industries (Pvt) Limited\",\"ntn\":\"3935068-1\",\"region\":\"2\",\"address\":\"Pind Khand, Stop Pando Ke Jugian, 4Km off Sue Asal, Ferozepur Rd, Lahore\",\"credit_limit\":\"200000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"prin_name_1\":null,\"prin_phone_1\":null,\"prin_email_1\":null,\"prin_name_2\":null,\"prin_phone_2\":null,\"prin_email_2\":null,\"prin_name_3\":null,\"prin_phone_3\":null,\"prin_email_3\":null,\"pur_name\":null,\"pur_phone\":null,\"pur_email\":null,\"acc_name\":null,\"acc_phone\":null,\"acc_email\":null,\"deleted_at\":null,\"created_at\":\"2021-06-26T04:56:53.000000Z\",\"updated_at\":\"2021-06-26T04:56:53.000000Z\"}}', '2021-06-26 16:56:53', '2021-06-26 16:56:53'),
+(1379, 'default', 'created', 'App\\Models\\Chartofaccount', 506, 'App\\Models\\User', 1, '{\"attributes\":{\"code1\":\"1\",\"code2\":\"1\",\"code3\":\"3\",\"acc_code\":\"10103262\",\"title\":\"Punjab Food Authority\"}}', '2021-06-26 17:01:44', '2021-06-26 17:01:44'),
+(1380, 'default', 'created', 'App\\Models\\Customer', 262, 'App\\Models\\User', 1, '{\"attributes\":{\"reg_name\":\"Punjab Food Authority\",\"ntn\":\"9021314-2\",\"region\":\"2\",\"address\":\"Old P&D Building, 2 - Bank Road Lahore\\u00a0\",\"credit_limit\":\"100000\",\"customer_type\":\"credit\",\"pay_terms\":\"30 days\",\"prin_name_1\":null,\"prin_phone_1\":null,\"prin_email_1\":null,\"prin_name_2\":null,\"prin_phone_2\":null,\"prin_email_2\":null,\"prin_name_3\":null,\"prin_phone_3\":null,\"prin_email_3\":null,\"pur_name\":null,\"pur_phone\":null,\"pur_email\":null,\"acc_name\":null,\"acc_phone\":null,\"acc_email\":null,\"deleted_at\":null,\"created_at\":\"2021-06-26T05:01:44.000000Z\",\"updated_at\":\"2021-06-26T05:01:44.000000Z\"}}', '2021-06-26 17:01:44', '2021-06-26 17:01:44'),
+(1381, 'default', 'updated', 'App\\Models\\User', 19, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-26 17:06:26', '2021-06-26 17:06:26'),
+(1382, 'default', 'updated', 'App\\Models\\User', 23, 'App\\Models\\User', 23, '{\"attributes\":[],\"old\":[]}', '2021-06-26 17:09:55', '2021-06-26 17:09:55'),
+(1383, 'default', 'created', 'App\\Models\\Attendance', 31, 'App\\Models\\User', 19, '{\"attributes\":{\"user_id\":\"19\",\"check_in_date\":\"2021-06-26\",\"check_out_date\":\"0000-00-00\",\"check_in\":\"10:10:12\",\"check_out\":\"10:10:12\",\"day\":\"Sat\",\"worked_hours\":null,\"status\":\"0\",\"leave_id\":null,\"remarks\":\"Present manual marked by user\"}}', '2021-06-26 17:10:12', '2021-06-26 17:10:12'),
+(1384, 'default', 'updated', 'App\\Models\\Role', 8, 'App\\Models\\User', 19, '{\"attributes\":{\"permissions\":\"staff-details,staff-index,staff-create,dashboard-index,order-management,awaiting-job-index,awaiting-job-show,print-delivery-note,print-gate-pass,create-lab-task-assign,complete-job,jobs-index,jobs-view,print-job-form,create-job,delete-job,update-receiving,rfq,generate-requests-index,pending-index,quote-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews\"},\"old\":{\"permissions\":\"dashboard-index,order-management,awaiting-job-index,awaiting-job-show,print-delivery-note,print-gate-pass,create-lab-task-assign,complete-job,jobs-index,jobs-view,print-job-form,create-job,delete-job,update-receiving,rfq,generate-requests-index,pending-index,quote-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews\"}}', '2021-06-26 17:20:48', '2021-06-26 17:20:48'),
+(1385, 'default', 'updated', 'App\\Models\\Quotes', 7, 'App\\Models\\User', 1, '{\"attributes\":{\"approval_mode\":\"By Phone\",\"approval_mode_details\":\"Verbal Approval by Miss. Habiba Mansoor\",\"approval_date\":\"2021-06-26\"},\"old\":{\"approval_mode\":null,\"approval_mode_details\":null,\"approval_date\":null}}', '2021-06-26 17:22:32', '2021-06-26 17:22:32'),
+(1386, 'default', 'updated', 'App\\Models\\Quotes', 7, 'App\\Models\\User', 1, '{\"attributes\":{\"type\":\"SPLIT\",\"status\":\"3\"},\"old\":{\"type\":\"BOTH\",\"status\":\"2\"}}', '2021-06-26 17:30:46', '2021-06-26 17:30:46'),
+(1387, 'default', 'created', 'App\\Models\\Attendance', 32, 'App\\Models\\User', 24, '{\"attributes\":{\"user_id\":\"24\",\"check_in_date\":\"2021-06-26\",\"check_out_date\":\"0000-00-00\",\"check_in\":\"10:42:59\",\"check_out\":\"10:42:59\",\"day\":\"Sat\",\"worked_hours\":null,\"status\":\"0\",\"leave_id\":null,\"remarks\":\"Present manual marked by user\"}}', '2021-06-26 17:42:59', '2021-06-26 17:42:59'),
+(1388, 'default', 'created', 'App\\Models\\Job', 5, 'App\\Models\\User', 24, '{\"attributes\":{\"quotes_id\":null,\"status\":\"0\"}}', '2021-06-26 17:54:57', '2021-06-26 17:54:57'),
+(1389, 'default', 'updated', 'App\\Models\\Job', 5, 'App\\Models\\User', 24, '{\"attributes\":[],\"old\":[]}', '2021-06-26 17:54:57', '2021-06-26 17:54:57'),
+(1390, 'default', 'created', 'App\\Models\\Jobitem', 21, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"41\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:07:22', '2021-06-26 18:07:22'),
+(1391, 'default', 'updated', 'App\\Models\\Jobitem', 21, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-THM-01\",\"serial\":\"---\",\"model\":\"76mm\",\"make\":\"GH Zeal\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:07:22', '2021-06-26 18:07:22'),
+(1392, 'default', 'created', 'App\\Models\\Jobitem', 22, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"40\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:10:10', '2021-06-26 18:10:10'),
+(1393, 'default', 'updated', 'App\\Models\\Jobitem', 22, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-BM-01\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"GREINORM\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:10:10', '2021-06-26 18:10:10'),
+(1394, 'default', 'created', 'App\\Models\\Jobitem', 23, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"40\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:12:45', '2021-06-26 18:12:45'),
+(1395, 'default', 'updated', 'App\\Models\\Jobitem', 23, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-BM-02\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"HBG Germany\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:12:45', '2021-06-26 18:12:45'),
+(1396, 'default', 'created', 'App\\Models\\Jobitem', 24, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"40\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:13:57', '2021-06-26 18:13:57'),
+(1397, 'default', 'updated', 'App\\Models\\Jobitem', 24, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-BM-03\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"Dr. N Gerber\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:13:57', '2021-06-26 18:13:57'),
+(1398, 'default', 'created', 'App\\Models\\Jobitem', 25, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"43\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:23:08', '2021-06-26 18:23:08');
+INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `subject_id`, `causer_type`, `causer_id`, `properties`, `created_at`, `updated_at`) VALUES
+(1399, 'default', 'updated', 'App\\Models\\Jobitem', 25, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-LM-01\",\"serial\":\"---\",\"model\":\"Quevenne\",\"make\":\"Norm Germany\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:23:08', '2021-06-26 18:23:08'),
+(1400, 'default', 'created', 'App\\Models\\Jobitem', 26, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"43\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:29:38', '2021-06-26 18:29:38'),
+(1401, 'default', 'updated', 'App\\Models\\Jobitem', 26, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-LM-02\",\"serial\":\"---\",\"model\":\"Quevenne\",\"make\":\"Precision\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:29:38', '2021-06-26 18:29:38'),
+(1402, 'default', 'created', 'App\\Models\\Jobitem', 27, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"39\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:31:19', '2021-06-26 18:31:19'),
+(1403, 'default', 'updated', 'App\\Models\\Jobitem', 27, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-MC-01\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"PYREX\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:31:19', '2021-06-26 18:31:19'),
+(1404, 'default', 'created', 'App\\Models\\Jobitem', 28, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"39\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:33:49', '2021-06-26 18:33:49'),
+(1405, 'default', 'updated', 'App\\Models\\Jobitem', 28, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-MC-500-1\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"PYREX\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:33:49', '2021-06-26 18:33:49'),
+(1406, 'default', 'created', 'App\\Models\\Jobitem', 29, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"38\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:39:20', '2021-06-26 18:39:20'),
+(1407, 'default', 'updated', 'App\\Models\\Jobitem', 29, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-MP-1-01\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"HBG Germany\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:39:20', '2021-06-26 18:39:20'),
+(1408, 'default', 'created', 'App\\Models\\User', 26, 'App\\Models\\User', 20, '{\"attributes\":{\"id\":26,\"fname\":\"Khalid\",\"lname\":\"Hussain\",\"profile\":null,\"user.cnic\":null,\"address\":\"Chak No 190 R.B, Tehsil & Distt Faisalabad\"}}', '2021-06-26 18:40:56', '2021-06-26 18:40:56'),
+(1409, 'default', 'updated', 'App\\Models\\User', 26, 'App\\Models\\User', 20, '{\"attributes\":[],\"old\":[]}', '2021-06-26 18:40:56', '2021-06-26 18:40:56'),
+(1410, 'default', 'created', 'App\\Models\\Jobitem', 30, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"38\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:41:37', '2021-06-26 18:41:37'),
+(1411, 'default', 'updated', 'App\\Models\\Jobitem', 30, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-MP-10-01\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"HBG Germany\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:41:37', '2021-06-26 18:41:37'),
+(1412, 'default', 'created', 'App\\Models\\Jobitem', 31, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"38\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:43:06', '2021-06-26 18:43:06'),
+(1413, 'default', 'updated', 'App\\Models\\Jobitem', 31, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-BP-1-01\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"HBG Germany\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:43:06', '2021-06-26 18:43:06'),
+(1414, 'default', 'created', 'App\\Models\\Jobitem', 32, 'App\\Models\\User', 24, '{\"attributes\":{\"type\":\"0\",\"job_id\":\"5\",\"item_id\":\"38\",\"eq_id\":null,\"serial\":null,\"resolution\":null,\"accuracy\":null,\"range\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\",\"start\":null,\"end\":null,\"started_at\":null,\"ended_at\":null,\"assign_user\":null,\"assign_assets\":null,\"group_users\":null,\"group_assets\":null,\"certificate\":null}}', '2021-06-26 18:44:28', '2021-06-26 18:44:28'),
+(1415, 'default', 'updated', 'App\\Models\\Jobitem', 32, 'App\\Models\\User', 24, '{\"attributes\":{\"eq_id\":\"SD-MP-01\",\"serial\":\"---\",\"model\":\"---\",\"make\":\"BOECO Germany\",\"accessories\":\"NIL\",\"visual_inspection\":\"OK\",\"status\":\"1\"},\"old\":{\"eq_id\":null,\"serial\":null,\"model\":null,\"make\":null,\"accessories\":null,\"visual_inspection\":null,\"status\":\"0\"}}', '2021-06-26 18:44:28', '2021-06-26 18:44:28'),
+(1416, 'default', 'updated', 'App\\Models\\Jobitem', 21, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-26\",\"end\":\"2021-06-30\",\"assign_user\":\"26\",\"assign_assets\":\"33\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-26 18:48:25', '2021-06-26 18:48:25'),
+(1417, 'default', 'updated', 'App\\Models\\Jobitem', 22, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-26\",\"end\":\"2021-06-30\",\"assign_user\":\"26\",\"assign_assets\":\"110\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-26 18:49:22', '2021-06-26 18:49:22'),
+(1418, 'default', 'updated', 'App\\Models\\Jobitem', 23, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-26\",\"end\":\"2021-06-30\",\"assign_user\":\"26\",\"assign_assets\":\"110\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-26 18:49:52', '2021-06-26 18:49:52'),
+(1419, 'default', 'updated', 'App\\Models\\Jobitem', 24, 'App\\Models\\User', 20, '{\"attributes\":{\"status\":\"2\",\"start\":\"2021-06-26\",\"end\":\"2021-06-30\",\"assign_user\":\"26\",\"assign_assets\":\"110\"},\"old\":{\"status\":\"1\",\"start\":null,\"end\":null,\"assign_user\":null,\"assign_assets\":null}}', '2021-06-26 18:50:42', '2021-06-26 18:50:42'),
+(1420, 'default', 'updated', 'App\\Models\\Jobitem', 21, 'App\\Models\\User', 26, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-26 11:51:27\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-26 18:51:27', '2021-06-26 18:51:27'),
+(1421, 'default', 'updated', 'App\\Models\\Jobitem', 21, 'App\\Models\\User', 26, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-26 11:51:54\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-26 18:51:54', '2021-06-26 18:51:54'),
+(1422, 'default', 'updated', 'App\\Models\\Jobitem', 22, 'App\\Models\\User', 26, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-26 11:53:28\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-26 18:53:28', '2021-06-26 18:53:28'),
+(1423, 'default', 'updated', 'App\\Models\\Jobitem', 22, 'App\\Models\\User', 26, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-26 11:55:06\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-26 18:55:06', '2021-06-26 18:55:06'),
+(1424, 'default', 'updated', 'App\\Models\\Jobitem', 23, 'App\\Models\\User', 26, '{\"attributes\":{\"status\":\"3\",\"started_at\":\"2021-06-26 11:56:33\"},\"old\":{\"status\":\"2\",\"started_at\":null}}', '2021-06-26 18:56:33', '2021-06-26 18:56:33'),
+(1425, 'default', 'updated', 'App\\Models\\Jobitem', 23, 'App\\Models\\User', 26, '{\"attributes\":{\"status\":\"4\",\"ended_at\":\"2021-06-26 11:59:35\"},\"old\":{\"status\":\"3\",\"ended_at\":null}}', '2021-06-26 18:59:35', '2021-06-26 18:59:35'),
+(1426, 'default', 'updated', 'App\\Models\\Quotes', 15, NULL, NULL, '{\"attributes\":[],\"old\":[]}', '2021-06-26 19:00:11', '2021-06-26 19:00:11'),
+(1427, 'default', 'created', 'App\\Models\\User', 27, 'App\\Models\\User', 20, '{\"attributes\":{\"id\":27,\"fname\":\"Ahmad\",\"lname\":\"Baksh\",\"profile\":null,\"user.cnic\":null,\"address\":\"Moza Aura Sharif, Muzafar Garh-Johar Abad Road, Tehsil & Distt Jhang\"}}', '2021-06-26 19:05:43', '2021-06-26 19:05:43'),
+(1428, 'default', 'updated', 'App\\Models\\User', 27, 'App\\Models\\User', 20, '{\"attributes\":[],\"old\":[]}', '2021-06-26 19:05:44', '2021-06-26 19:05:44'),
+(1429, 'default', 'created', 'App\\Models\\User', 28, 'App\\Models\\User', 20, '{\"attributes\":{\"id\":28,\"fname\":\"Muhammad\",\"lname\":\"Aqib\",\"profile\":null,\"user.cnic\":null,\"address\":\"Chak No 225 R.B., Ahmad Nager, House # 214, Faisalabad\"}}', '2021-06-26 19:14:48', '2021-06-26 19:14:48'),
+(1430, 'default', 'updated', 'App\\Models\\User', 28, 'App\\Models\\User', 20, '{\"attributes\":[],\"old\":[]}', '2021-06-26 19:14:48', '2021-06-26 19:14:48'),
+(1431, 'default', 'updated', 'App\\Models\\User', 28, 'App\\Models\\User', 19, '{\"attributes\":[],\"old\":[]}', '2021-06-26 19:16:38', '2021-06-26 19:16:38'),
+(1432, 'default', 'updated', 'App\\Models\\User', 28, 'App\\Models\\User', 28, '{\"attributes\":[],\"old\":[]}', '2021-06-26 19:17:20', '2021-06-26 19:17:20');
 
 -- --------------------------------------------------------
 
@@ -2042,7 +2365,10 @@ INSERT INTO `attendances` (`id`, `user_id`, `check_in_date`, `check_out_date`, `
 (26, 1, '2021-06-10', '0000-00-00', '11:56:18', '11:56:18', 'Thu', 0, NULL, 'Present manual marked by user', '2021-06-10 18:56:18', '2021-06-10 18:56:18'),
 (27, 19, '2021-06-10', '2021-06-24', '13:08:05', '12:12:14', 'Thu', 1, NULL, 'Present manual marked by user', '2021-06-10 20:08:05', '2021-06-24 19:12:14'),
 (28, 20, '2021-06-22', '0000-00-00', '16:31:36', '16:31:36', 'Tue', 0, NULL, 'Present manual marked by user', '2021-06-22 23:31:36', '2021-06-22 23:31:36'),
-(29, 19, '2021-06-24', '0000-00-00', '12:12:20', '12:12:20', 'Thu', 0, NULL, 'Present manual marked by user', '2021-06-24 19:12:20', '2021-06-24 19:12:20');
+(29, 19, '2021-06-24', '2021-06-25', '12:12:20', '09:07:14', 'Thu', 1, NULL, 'Present manual marked by user', '2021-06-24 19:12:20', '2021-06-25 16:07:14'),
+(30, 19, '2021-06-25', '2021-06-25', '09:07:18', '11:44:25', 'Fri', 1, NULL, 'Present manual marked by user', '2021-06-25 16:07:18', '2021-06-25 18:44:25'),
+(31, 19, '2021-06-26', '0000-00-00', '10:10:12', '10:10:12', 'Sat', 0, NULL, 'Present manual marked by user', '2021-06-26 17:10:12', '2021-06-26 17:10:12'),
+(32, 24, '2021-06-26', '0000-00-00', '10:42:59', '10:42:59', 'Sat', 0, NULL, 'Present manual marked by user', '2021-06-26 17:42:59', '2021-06-26 17:42:59');
 
 -- --------------------------------------------------------
 
@@ -2908,7 +3234,20 @@ INSERT INTO `capabilities` (`id`, `name`, `parameter`, `procedure`, `range`, `mi
 (1172, 'Dead Weight 1000 kg', 13, 49, NULL, '1000', '1000', NULL, NULL, 6000, 'F2 and below', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-24 18:39:41', '2021-06-24 18:39:41'),
 (1173, 'Viscosity Tubes', 11, 67, NULL, '0.5', '5.5', NULL, NULL, 25000, '0.1', '93', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-24 20:23:39', '2021-06-24 20:23:39'),
 (1174, 'Digestor Block COD', 27, 4, NULL, '30', '180', '30', '180', 4000, '0.5', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-24 20:35:53', '2021-06-24 20:35:53'),
-(1175, 'Cool / Hot Cabinets', 27, 39, NULL, '-20', '20', '-20', '20', 6000, '1 C', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-24 20:39:12', '2021-06-24 20:39:12');
+(1175, 'Cool / Hot Cabinets', 27, 39, NULL, '-20', '20', '-20', '20', 6000, '1 C', '171', 'NA', 'site', 'yes', 'general-calculator', 0, NULL, NULL, '2021-06-24 20:39:12', '2021-06-24 20:39:12'),
+(1176, 'Flue Gas Analyzer NO', 8, 12, NULL, '500', '500', NULL, NULL, 6000, '0.5', '178', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-25 17:54:18', '2021-06-25 17:54:18'),
+(1177, 'Flue Gas Analyzer NO', 8, 12, NULL, '100', '500', NULL, NULL, 6000, '0.5', '178', 'NA', 'site', 'no', 'general-calculator', 0, 1183, NULL, '2021-06-25 18:03:05', '2021-06-25 18:22:42'),
+(1178, 'Flue Gas Analyzer NO2', 8, 12, NULL, '100', '100', NULL, NULL, 6000, '5 ppm', '178', 'NA', 'lab', 'no', 'general-calculator', 0, 1183, NULL, '2021-06-25 18:09:16', '2021-06-25 18:22:42'),
+(1179, 'Flue Gas Analyzer CO', 8, 12, NULL, '100', '500', NULL, NULL, 6000, '5', '178', 'NA', 'lab', 'no', 'general-calculator', 0, 1183, NULL, '2021-06-25 18:12:23', '2021-06-25 18:22:42'),
+(1180, 'Flue Gas Analyzer SO2', 8, 12, NULL, '10', '500', NULL, NULL, 6000, '5 ppm', '178', 'NA', 'lab', 'no', 'general-calculator', 0, 1183, NULL, '2021-06-25 18:14:04', '2021-06-25 18:22:42'),
+(1181, 'Flue Gas Analyzer CO2', 8, 12, NULL, '100', '100', NULL, NULL, 6000, '5 ppm', '178', 'NA', 'lab', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-25 18:15:50', '2021-06-25 18:15:50'),
+(1182, 'Flue Gas Analyzer O2', 8, 12, NULL, '7', '18', NULL, NULL, 6000, '5 ppm', '178', 'NA', 'lab', 'no', 'general-calculator', 0, 1183, NULL, '2021-06-25 18:20:26', '2021-06-25 18:22:42'),
+(1183, 'Flue Gas Analyzer', 14, 0, NULL, '0', '0', '0', '0', 0, '0', '0', 'Non-Accredit', 'lab', '--', '0', 1, NULL, NULL, '2021-06-25 18:22:42', '2021-06-25 18:22:42'),
+(1184, 'Lift Elevators Cargo / Passenger', 33, 84, NULL, '0', '5', NULL, NULL, 7000, 'NA', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-25 19:28:06', '2021-06-25 19:28:06'),
+(1185, 'Platform Hoist', 33, 85, NULL, '0', '3', NULL, NULL, 6000, 'NA', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-25 19:30:12', '2021-06-25 19:30:12'),
+(1186, 'Beam Stackers', 33, 80, NULL, '0', '5', NULL, NULL, 7000, 'NA', '189', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-25 19:32:04', '2021-06-25 19:32:04'),
+(1187, 'Weighing Scale', 13, 50, NULL, '0', '500', NULL, NULL, 8000, '0.5', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-25 21:47:39', '2021-06-25 21:47:39'),
+(1188, 'Weighing Scale', 13, 50, NULL, '0', '1000', NULL, NULL, 10000, '1 kg', '166', 'NA', 'site', 'no', 'general-calculator', 0, NULL, NULL, '2021-06-25 21:55:46', '2021-06-25 21:55:46');
 
 -- --------------------------------------------------------
 
@@ -3047,7 +3386,7 @@ INSERT INTO `customers` (`id`, `reg_name`, `ntn`, `region`, `address`, `bill_to_
 (9, 'Hadeed Pakistan (Pvt) Limited', '4178239-9', '2', 'Dera Masjid Wala,Qila Sattar Shah Stop, 23 Km Kot Pindi Daas Road, Sheikhupura Lahore, Sheikupura', 'Dera Masjid Wala,Qila Sattar Shah Stop, 23 Km Kot Pindi Daas Road, Sheikhupura Lahore, Sheikupura', 200000, '10103009', 'credit', '15 days', 'Manufacturing Sheet Metal', 'Lahore', 2, NULL, '2021-06-02 19:05:22', '2021-06-18 19:56:07'),
 (10, 'Mari Petroleum Company Limited', '1414673-8', '2', '21, Mauve Area, 3rd Road, G-10/4, Islamabad-44000-Pakistan', '21, Mauve Area, 3rd Road, G-10/4, Islamabad-44000-Pakistan', 200000, '10103010', 'credit', '30 days', 'Oil and Gas Production', 'Dharki Field', 2, NULL, '2021-06-02 19:08:29', '2021-06-18 19:57:29'),
 (11, '3W Systems (Pvt.) Limited', '2530493-3', '2', '37-GCP Employees Cooperative Housing Society، near Johar Town', '37-GCP Employees Cooperative Housing Society، near Johar Town', 50000, '10103011', 'credit', '15 days', 'Services Water Engineering', 'Lahore', 3, NULL, '2021-06-02 19:09:28', '2021-06-18 19:58:47'),
-(12, 'Cosmo Pro (Pvt) Limited', '4133130-3', '2', 'Plot 145 Street 9, I-10/3 I 10/3 I-10, Islamabad, Islamabad Capital Territory 44000', 'Plot 145 Street 9, I-10/3 I 10/3 I-10, Islamabad, Islamabad Capital Territory 44000', 50000, '10103012', 'credit', '15 days', 'Manufacturing Personal Care Products', 'Islamabad', 1, NULL, '2021-06-02 19:11:58', '2021-06-18 19:59:37'),
+(12, 'Cosmo Pro (Pvt) Limited', '4133130-3', '2', 'Plot 145 Street 9, I-10/3 I 10/3 I-10, Islamabad, Islamabad Capital Territory 44000', 'Plot 145 Street 9, I-10/3 I 10/3 I-10, Islamabad, Islamabad Capital Territory 44000', 200000, '10103012', 'credit', '30 days', 'Manufacturing Personal Care Products', 'Islamabad', 1, NULL, '2021-06-02 19:11:58', '2021-06-26 00:20:29'),
 (13, 'Mari Petroleum Company Limited', '1414673-8', '2', '\"12-KM Ghauri Link Road, Off G.T Road Sohawa Chakwal Mor,\r\nJhelum\r\n\"', '21, Mauve Area, 3rd Road, G-10/4, Islamabad-44000\r\nJhelum\r\n\"', 200000, '10103013', 'credit', '30 days', 'Oil and Gas Production', 'Jhelam Field', 1, NULL, '2021-06-02 19:12:08', '2021-06-18 20:01:50'),
 (14, 'Excel Labs', '1203511-4', '2', 'Ground Floor, Reshi Plaza, 110 A.K.M. Fazl-ul-Haq Rd, Islamabad, 44010', 'Ground Floor, Reshi Plaza, 110 A.K.M. Fazl-ul-Haq Rd, Islamabad, 44010', 0, '10103014', 'cash', 'against delivery', 'Services Medical Diagnostics', 'Islamabad', 1, NULL, '2021-06-02 19:14:22', '2021-06-18 20:03:43'),
 (15, 'Asian Verification Pvt Ltd', '5125047-6', '2', 'Plot G-1, Block E Phase 1 Johar Town, Lahore, Punjab', 'Plot G-1, Block E Phase 1 Johar Town, Lahore, Punjab', 0, '10103015', 'cash', 'against delivery', 'Services Inspection and Testing', 'Lahore', 1, NULL, '2021-06-02 19:15:53', '2021-06-18 20:04:57'),
@@ -3111,90 +3450,90 @@ INSERT INTO `customers` (`id`, `reg_name`, `ntn`, `region`, `address`, `bill_to_
 (73, 'Skyways Aviation (Pvt) Limited', '7583948-8', '2', 'Hajj Terminal, Allama Iqbal Int\'l Airport. City: Lahore', '4 Bawa Park Upper Mall Lahore Punjab', 200000, '10103073', 'credit', '15 days', 'Services Aviation', 'Lahore', 1, NULL, '2021-06-03 17:30:48', '2021-06-18 19:28:14'),
 (74, 'Northern Technik', '0000000-0', '2', '\"AUG-09, BLOCK A, SPRING HOMES, KHOKHAR ROAD, RAWALPINDI\r\n\"', '\"AUG-09, BLOCK A, SPRING HOMES, KHOKHAR ROAD, RAWALPINDI\r\n\"', 200000, '10103074', 'credit', '15 days', 'Services Aviation', 'Rawalpindi', 1, NULL, '2021-06-03 17:32:18', '2021-06-18 19:28:14'),
 (75, 'Nestle Pakistan', '0225862-5', '2', 'Khanewal-Kabirwala Rd, Nestle Colony, Allahabad, Kabirwala, Khanewal.', 'Khanewal-Kabirwala Rd, Nestle Colony, Allahabad, Kabirwala, Khanewal.', 200000, '10103075', 'credit', '15 days', 'Manufacturing Food and Beverage', 'Kabirwala Milk Plant', 2, NULL, '2021-06-03 17:34:00', '2021-06-18 19:28:14'),
-(76, 'Nisa Impex', '00000000-0', '2', 'Maxim Arcade Usman Block، jeddah Town G.T Rd، Rawalpindi, Islamabad', 'Maxim Arcade Usman Block، jeddah Town G.T Rd، Rawalpindi, Islamabad', 200000, '10103076', 'credit', '15 days', 'Manufacutring Pharmaceuticals', 'Islamabad', 1, NULL, '2021-06-03 17:34:55', '2021-06-18 19:28:14'),
+(76, 'Nisa Impex', '00000000-0', '2', 'Maxim Arcade Usman Block، jeddah Town G.T Rd، Rawalpindi, Islamabad', 'Maxim Arcade Usman Block، jeddah Town G.T Rd، Rawalpindi, Islamabad', 0, '10103076', 'cash', 'advance', 'Manufacutring Pharmaceuticals', 'Islamabad', 1, NULL, '2021-06-03 17:34:55', '2021-06-25 23:41:24'),
 (77, 'Nestle Pakistan', '0225862-5', '2', '29-kM Lahore Sheikhupura Road Sheikhupura', '29-kM Lahore Sheikhupura Road Sheikhupura', 200000, '10103077', 'credit', '15 days', 'Manufacturing Food and Beverage', 'Sheikhupura Plant', 2, NULL, '2021-06-03 17:37:22', '2021-06-18 18:25:59'),
 (78, 'Focus & Rulz Pharmaceuticals', '0000000-0', '2', 'Plot No. 44, Industrial Triangle, Kahuta Road, Islamabad', 'Plot No. 44, Industrial Triangle, Kahuta Road, Islamabad', 200000, '10103078', 'credit', '15 days', 'Manufacutring Pharmaceuticals', 'Islamabad', 1, NULL, '2021-06-03 17:38:05', '2021-06-18 19:28:14'),
-(79, 'Caraway Pharmaceuticals', '0000000-0', '2', 'Plot No. 12, N-3, National Industrial Area Rawat', 'Plot No. 12, N-3, National Industrial Area Rawat', 200000, '10103079', 'credit', '15 days', 'Manufacutring Pharmaceuticals', 'Islamabad', 1, NULL, '2021-06-03 17:39:33', '2021-06-18 19:28:14'),
-(80, 'National Foods Limited', '0000000-0', '4', 'F- 160/C,F- 133, SITE Area , Karachi', 'F- 160/C,F- 133, SITE Area , Karachi', 200000, '10103080', 'credit', '15 days', 'Manufacturing Food', 'Karachi', 1, NULL, '2021-06-03 17:42:32', '2021-06-18 19:28:14'),
+(79, 'Caraway Pharmaceuticals', '0000000-0', '2', 'Plot No. 12, N-3, National Industrial Area Rawat', 'Plot No. 12, N-3, National Industrial Area Rawat', 0, '10103079', 'cash', 'against delivery', 'Manufacutring Pharmaceuticals', 'Islamabad', 1, NULL, '2021-06-03 17:39:33', '2021-06-25 23:43:54'),
+(80, 'National Foods Limited', '0000000-0', '4', 'F- 160/C,F- 133, SITE Area , Karachi', 'F- 160/C,F- 133, SITE Area , Karachi', 300000, '10103080', 'credit', '30 days', 'Manufacturing Food', 'Karachi', 2, NULL, '2021-06-03 17:42:32', '2021-06-25 23:45:15'),
 (81, 'Nestle Pakistan', '0225862-5', '2', 'I-10/3, Islamabad', 'I-10/3, Islamabad', 200000, '10103081', 'credit', '15 days', 'Manufacturing Food and Beverage', 'Islamabad', 2, NULL, '2021-06-03 17:45:36', '2021-06-18 19:28:14'),
-(82, '50 Aviation Sqn. Air Wing MOI', '9012100-7', '15', 'Khalid Base Quetta Cantt. Balochistan', 'Khalid Base Quetta Cantt. Balochistan', 200000, '10103082', 'credit', '15 days', 'Services Aviation', 'Quetta', 1, NULL, '2021-06-03 17:47:25', '2021-06-18 19:28:14'),
-(83, 'Soil & Water Testing Laboratory', '9020504-9', '2', 'Ranglipur Multan', 'Ranglipur Multan', 200000, '10103083', 'credit', '15 days', 'Services Testing Agriculture', 'Multan', 1, NULL, '2021-06-03 17:48:27', '2021-06-18 19:28:14'),
+(82, '50 Aviation Sqn. Air Wing MOI', '9012100-7', '15', 'Khalid Base Quetta Cantt. Balochistan', 'Khalid Base Quetta Cantt. Balochistan', 200000, '10103082', 'credit', '30 days', 'Services Aviation', 'Quetta', 1, NULL, '2021-06-03 17:47:25', '2021-06-25 23:49:08'),
+(83, 'Soil & Water Testing Laboratory', '9020504-9', '2', 'Ranglipur Multan', 'Ranglipur Multan', 200000, '10103083', 'credit', '30 days', 'Services Testing Agriculture', 'Multan', 1, NULL, '2021-06-03 17:48:27', '2021-06-25 23:53:24'),
 (84, 'Pesticide Residue Laboratory', '0000000-0', '2', 'M2 Tool Plaza Kala Shah Kako', 'M2 Tool Plaza Kala Shah Kako', 200000, '10103084', 'credit', '15 days', 'Services Tesing Pesticides', 'Lahore', 1, NULL, '2021-06-03 17:49:25', '2021-06-18 19:28:14'),
 (85, 'ICI Pakistan Ltd.', '0710672-6', '2', '45-KM, off Multan Road, Lahore.', '45-KM, off Multan Road, Lahore.', 200000, '10103085', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Life Sciences', 2, NULL, '2021-06-03 17:49:33', '2021-06-18 19:28:14'),
-(86, 'Zxmco Pakistan (Pvt) Limited', '2143667-7', '2', 'Dar-u-Salam Road Off Raiwind Road, 23 KM, Thokar Niaz Baig، Lahore', 'Dar-u-Salam Road Off Raiwind Road, 23 KM, Thokar Niaz Baig، Lahore', 200000, '10103086', 'credit', '15 days', 'Manufacturing Motor Bike', 'Lahore', 1, NULL, '2021-06-03 17:50:22', '2021-06-18 19:28:14'),
-(87, 'Rice Research Institute KSK', '9020000-4', '2', 'Kala Shah Kako, 17-kM GT Road Lahore', 'Kala Shah Kako, 17-kM GT Road Lahore', 200000, '10103087', 'credit', '15 days', 'Services Rice Testing', 'Lahore', 2, NULL, '2021-06-03 17:51:23', '2021-06-18 19:28:14'),
+(86, 'Zxmco Pakistan (Pvt) Limited', '2143667-7', '2', 'Dar-u-Salam Road Off Raiwind Road, 23 KM, Thokar Niaz Baig، Lahore', 'Dar-u-Salam Road Off Raiwind Road, 23 KM, Thokar Niaz Baig، Lahore', 100000, '10103086', 'credit', '30 days', 'Manufacturing Motor Bike', 'Lahore', 1, NULL, '2021-06-03 17:50:22', '2021-06-26 00:12:11'),
+(87, 'Rice Research Institute KSK', '9020000-4', '2', 'Kala Shah Kako, 17-kM GT Road Lahore', 'Kala Shah Kako, 17-kM GT Road Lahore', 100000, '10103087', 'credit', '30 days', 'Services Rice Testing', 'Lahore', 2, NULL, '2021-06-03 17:51:23', '2021-06-26 00:12:55'),
 (88, 'Schazoo Zaka (Pvt) Ltd.', '2251963-7', '2', 'Kalalwala 20 Km Lahore - Jaranwala Rd, District Sheikhupura', 'Kalalwala 20 Km Lahore - Jaranwala Rd, District Sheikhupura', 200000, '10103088', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Shekiupura Plant', 2, NULL, '2021-06-03 17:51:34', '2021-06-18 21:06:35'),
-(89, 'Allmed (Pvt) Limited', '2797411-1', '2', '590, Sundar Industrial Estate, Lahore', '590, Sundar Industrial Estate, Lahore', 200000, '10103089', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Lahore', 2, NULL, '2021-06-03 17:52:29', '2021-06-18 19:28:14'),
+(89, 'Allmed (Pvt) Limited', '2797411-1', '2', '590, Sundar Industrial Estate, Lahore', '590, Sundar Industrial Estate, Lahore', 200000, '10103089', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Lahore', 2, NULL, '2021-06-03 17:52:29', '2021-06-26 00:16:51'),
 (90, 'Nutrico Morinaga (Private) Limited', '2211386-2', '2', '30-km Lahore Sheikhupura Road, Lahore, Punjab', '30-km Lahore Sheikhupura Road, Lahore, Punjab', 200000, '10103090', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Shekiupura Plant', 1, NULL, '2021-06-03 17:53:32', '2021-06-18 19:28:14'),
 (91, 'Cosmo Pro (Pvt) Limited', '4133130-3', '2', 'Plot 145 Street 9, I-10/3 I 10/3 I-10, Islamabad', 'Plot 145 Street 9, I-10/3 I 10/3 I-10, Islamabad', 200000, '10103091', 'credit', '15 days', 'Manufacturing Personal Care Products', 'Islamabad', 1, '2021-06-23 01:05:01', '2021-06-03 17:53:39', '2021-06-23 01:05:01'),
-(92, 'Gonal International', '4213465-0', '2', 'Plot # 117,Phase 2, Multan Industrial Estate,Multan', 'Plot # 117,Phase 2, Multan Industrial Estate,Multan', 200000, '10103092', 'credit', '15 days', 'Manufacturing Pesticides', 'Multan', 1, NULL, '2021-06-03 17:54:49', '2021-06-18 19:28:14'),
+(92, 'Gonal International', '4213465-0', '2', 'Plot # 117,Phase 2, Multan Industrial Estate,Multan', 'Plot # 117,Phase 2, Multan Industrial Estate,Multan', 100000, '10103092', 'credit', '30 days', 'Manufacturing Pesticides', 'Multan', 1, NULL, '2021-06-03 17:54:49', '2021-06-26 00:21:56'),
 (93, 'Unilever Pakistan Limited', '0000000-0', '2', 'Khanewal-Peerowal Road', 'Khanewal-Peerowal Road', 200000, '10103093', 'credit', '15 days', 'Manufacturing Food and Beverage', 'Tea Factory Khanewal', 1, NULL, '2021-06-03 17:55:55', '2021-06-18 19:28:14'),
-(94, 'Envorinmental Servcies Paksitan', '7384297-4', '2', 'Office No. 731, Block-2, Sector D1, Shah Jilani Road, Township Lahore', 'Office No. 731, Block-2, Sector D1, Shah Jilani Road, Township Lahore', 200000, '10103094', 'credit', '15 days', 'Services Consultancy', 'Lahore', 1, NULL, '2021-06-03 17:56:17', '2021-06-18 19:28:14'),
+(94, 'Envorinmental Servcies Paksitan', '7384297-4', '2', 'Office No. 731, Block-2, Sector D1, Shah Jilani Road, Township Lahore', 'Office No. 731, Block-2, Sector D1, Shah Jilani Road, Township Lahore', 200000, '10103094', 'credit', '30 days', 'Services Environmental Consultancy', 'Lahore', 1, NULL, '2021-06-03 17:56:17', '2021-06-26 00:23:15'),
 (95, 'Unilever Pakistan Limited', '0000000-0', '4', 'N 10, Sindh Industrial Trading Estate Karachi', 'N 10, Sindh Industrial Trading Estate Karachi', 200000, '10103095', 'credit', '15 days', 'Manufacturing Food and Beverage', 'Tea Factory Karachi', 1, NULL, '2021-06-03 17:58:16', '2021-06-18 19:28:14'),
-(96, 'Velosi Integrity & Safety Pakistan (Pvt.) Ltd', '3559392-0', '4', 'Suite # 401, 4th Floor Business Center, PECHS, Block-6, Karachi', 'Suite # 401, 4th Floor Business Center, PECHS, Block-6, Karachi', 200000, '10103096', 'credit', '15 days', 'Services Inspection and Testing', 'Karachi', 4, NULL, '2021-06-03 17:59:27', '2021-06-18 18:25:59'),
+(96, 'Velosi Integrity & Safety Pakistan (Pvt.) Ltd', '3559392-0', '4', 'Suite # 401, 4th Floor Business Center, PECHS, Block-6, Karachi', 'Suite # 401, 4th Floor Business Center, PECHS, Block-6, Karachi', 200000, '10103096', 'credit', '30 days', 'Services Inspection and Testing', 'Karachi', 4, NULL, '2021-06-03 17:59:27', '2021-06-26 00:24:57'),
 (97, 'Unilever Pakistan Limited', '0000000-0', '2', '46-kM Multan Road, Kasur', '46-kM Multan Road, Kasur', 200000, '10103097', 'credit', '15 days', 'Manufacturing Food and Beverage', 'Walls Ice Cream', 2, NULL, '2021-06-03 18:00:45', '2021-06-18 19:28:14'),
-(98, 'Velosi Integrity & Safety Pakistan (Pvt.) Ltd', '3559392-0', '2', '207-A, P-Block, Gulberg-III, Lahore', '207-A, P-Block, Gulberg-III, Lahore', 200000, '10103098', 'credit', '15 days', 'Services Inspection and Testing', 'Lahore', 3, NULL, '2021-06-03 18:01:38', '2021-06-18 19:28:14'),
-(99, 'Solehre Brothers Industries', '1417877-1', '2', 'Mahabat Khan Petrol Pump, 12-km Daska Rd, Mohabatkhan Industrial Town, Sialkot', 'Mahabat Khan Petrol Pump, 12-km Daska Rd, Mohabatkhan Industrial Town, Sialkot', 200000, '10103099', 'credit', '15 days', 'Manufacturing Sports Ware', 'Sialkot', 1, NULL, '2021-06-03 18:03:00', '2021-06-18 19:28:14'),
-(100, 'Volka Food International Limited', '7342134-6', '2', '3-KM BAHAWALPUR ROAD MULTAN ', '3-KM BAHAWALPUR ROAD MULTAN ', 200000, '10103100', 'credit', '15 days', 'Manufacturing Paper Board', 'Multan', 3, NULL, '2021-06-03 18:04:37', '2021-06-18 19:28:14'),
+(98, 'Velosi Integrity & Safety Pakistan (Pvt.) Ltd', '3559392-0', '2', '207-A, P-Block, Gulberg-III, Lahore', '207-A, P-Block, Gulberg-III, Lahore', 50000, '10103098', 'credit', '30 days', 'Services Inspection and Testing', 'Lahore', 3, NULL, '2021-06-03 18:01:38', '2021-06-26 00:24:16'),
+(99, 'Solehre Brothers Industries', '1417877-1', '2', 'Mahabat Khan Petrol Pump, 12-km Daska Rd, Mohabatkhan Industrial Town, Sialkot', 'Mahabat Khan Petrol Pump, 12-km Daska Rd, Mohabatkhan Industrial Town, Sialkot', 100000, '10103099', 'credit', '30 days', 'Manufacturing Sports Ware', 'Sialkot', 1, NULL, '2021-06-03 18:03:00', '2021-06-26 00:26:45'),
+(100, 'Volka Food International Limited', '7342134-6', '2', '3-KM BAHAWALPUR ROAD MULTAN ', '3-KM BAHAWALPUR ROAD MULTAN ', 50000, '10103100', 'credit', '30 days', 'Manufacturing Paper Board', 'Multan', 3, NULL, '2021-06-03 18:04:37', '2021-06-26 00:27:43'),
 (101, 'Naveena Denim Limited', '0676615-3', '4', 'Plot #01 & 02, Sector-28 Karachi', 'Plot #01 & 02, Sector-28 Karachi', 200000, '10103101', 'credit', '15 days', 'Manufacturing Textile', 'Karachi', 4, NULL, '2021-06-03 18:05:15', '2021-06-18 18:25:59'),
 (102, 'Pakistan Textile Testing Foundation', '2204660-7', '2', '1st Floor, PTEA Building, 30/7, Faisalabad Bypass, near State Bank, Textile, Civil Lines, Faisalabad', '1st Floor, PTEA Building, 30/7, Faisalabad Bypass, near State Bank, Textile, Civil Lines, Faisalabad', 200000, '10103102', 'credit', '15 days', 'Services Testing Textile Products', 'Faisalabad', 2, NULL, '2021-06-03 18:07:10', '2021-06-18 19:28:14'),
 (103, 'Naveena Denim Limited', '0676615-3', '2', '3.5 KM Defence Road, off Bhoptian Chowk, Raiwind Road, Lahore', '3.5 KM Defence Road, off Bhoptian Chowk, Raiwind Road, Lahore', 200000, '10103103', 'credit', '15 days', 'Manufacturing Textile', 'Lahore', 2, NULL, '2021-06-03 18:07:27', '2021-06-18 19:28:14'),
-(104, 'Route 2 Health', '0000000-0', '2', 'Plot No. 229, Sundar Estate Lahore', 'Plot No. 229, Sundar Estate Lahore', 200000, '10103104', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Lahore', 1, NULL, '2021-06-03 18:14:04', '2021-06-18 19:28:14'),
+(104, 'Route 2 Health', '0000000-0', '2', 'Plot No. 229, Sundar Estate Lahore', 'Plot No. 229, Sundar Estate Lahore', 200000, '10103104', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Lahore', 1, NULL, '2021-06-03 18:14:04', '2021-06-26 00:29:04'),
 (105, 'CHT Pakistan (Pvt.) Ltd', '2463668-1', '2', 'Sundar Industrial Estate 54-B | 55150 Lahore', 'Sundar Industrial Estate 54-B | 55150 Lahore', 200000, '10103105', 'credit', '15 days', 'Manufacturing Chemical', 'Lahore', 2, NULL, '2021-06-03 18:17:35', '2021-06-18 19:28:14'),
-(106, 'M-Tech (Pvt) Limited', '1999292-7', '2', '22 Km, Off Ferozepur Road Lahore', '22 Km, Off Ferozepur Road Lahore', 200000, '10103106', 'credit', '15 days', 'Manufacturing Transformer', 'Lahore', 1, NULL, '2021-06-03 18:19:34', '2021-06-18 19:28:14'),
+(106, 'M-Tech (Pvt) Limited', '1999292-7', '2', '22 Km, Off Ferozepur Road Lahore', '22 Km, Off Ferozepur Road Lahore', 50000, '10103106', 'credit', '30 days', 'Manufacturing Transformer', 'Lahore', 1, NULL, '2021-06-03 18:19:34', '2021-06-26 00:37:01'),
 (107, 'Fauji Foods Ltd.', '0786271-7', '2', 'Sargodha Road Bhalwal', 'Sargodha Road Bhalwal', 200000, '10103107', 'credit', '15 days', 'Manufacturing Food and Beverage', 'Bhalwal Plant', 2, NULL, '2021-06-03 18:20:38', '2021-06-18 19:28:14'),
-(108, 'Thermosole Industries (Pvt) Limited', '0683814-6', '2', '140 Main Quaid e Azam Industrial Estates, Kot Lakhpat', '140 Main Quaid e Azam Industrial Estates, Kot Lakhpat', 200000, '10103108', 'credit', '15 days', 'Manufacturing Plastic Parts', 'Lahore', 1, NULL, '2021-06-03 18:23:06', '2021-06-18 19:28:14'),
+(108, 'Thermosole Industries (Pvt) Limited', '0683814-6', '2', '140 Main Quaid e Azam Industrial Estates, Kot Lakhpat', '140 Main Quaid e Azam Industrial Estates, Kot Lakhpat', 50000, '10103108', 'credit', '30 days', 'Manufacturing Plastic Parts', 'Lahore', 1, NULL, '2021-06-03 18:23:06', '2021-06-26 00:38:28'),
 (109, 'Dynatis Pakistan (Pvt) Ltd.', '0712649-2', '2', 'Plot No. 710, Sunder Industrial Estate, Lahore, Pakistan.', 'Plot No. 710, Sunder Industrial Estate, Lahore, Pakistan.', 200000, '10103109', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Sunder Plant Lahore', 3, NULL, '2021-06-03 18:24:28', '2021-06-18 19:28:14'),
-(110, 'Punjab Forensic Science Agency', '9020284-7', '2', 'Thokar Niaz Baig، Multan Rd, Canal Colony, Lahore', 'Thokar Niaz Baig، Multan Rd, Canal Colony, Lahore', 200000, '10103110', 'credit', '15 days', 'Services Crime Investigation', 'Lahore', 1, NULL, '2021-06-03 18:42:40', '2021-06-18 18:25:59'),
-(111, 'Chanar Sugar Mills Limited', '0225970-2', '2', 'Chak No. 407-GB Tandlianwala, Faisalabad', 'Chak No. 407-GB Tandlianwala, Faisalabad', 200000, '10103111', 'credit', '15 days', 'Manufacturing Sugar', 'Faisalabad', 2, NULL, '2021-06-03 18:44:24', '2021-06-18 19:28:14'),
-(112, 'Parwaz Engineering Co. (Pvt) Limited.', '0000000-0', '2', '6th Km. G.T Road, Gujart', '6th Km. G.T Road, Gujart', 200000, '10103112', 'credit', '15 days', 'Manufacturing Fans', 'Gujrat', 1, NULL, '2021-06-03 18:45:43', '2021-06-18 19:28:14'),
+(110, 'Punjab Forensic Science Agency', '9020284-7', '2', 'Thokar Niaz Baig، Multan Rd, Canal Colony, Lahore', 'Thokar Niaz Baig، Multan Rd, Canal Colony, Lahore', 100000, '10103110', 'credit', '30 days', 'Services Crime Investigation', 'Lahore', 1, NULL, '2021-06-03 18:42:40', '2021-06-26 00:39:41'),
+(111, 'Chanar Sugar Mills Limited', '0225970-2', '2', 'Chak No. 407-GB Tandlianwala, Faisalabad', 'Chak No. 407-GB Tandlianwala, Faisalabad', 200000, '10103111', 'credit', '30 days', 'Manufacturing Sugar', 'Faisalabad', 2, NULL, '2021-06-03 18:44:24', '2021-06-26 00:40:15'),
+(112, 'Parwaz Engineering Co. (Pvt) Limited.', '0000000-0', '2', '6th Km. G.T Road, Gujart', '6th Km. G.T Road, Gujart', 50000, '10103112', 'credit', '30 days', 'Manufacturing Fans', 'Gujrat', 1, NULL, '2021-06-03 18:45:43', '2021-06-26 00:41:00'),
 (113, 'Indus Pharma (Pvt) Limited', '0710697-1', '4', 'Plot No. 65, Sector 27, Korangi Industrial Area Karachi', 'Plot No. 65, Sector 27, Korangi Industrial Area Karachi', 200000, '10103113', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Karachi', 4, NULL, '2021-06-03 18:46:42', '2021-06-18 19:28:14'),
-(114, 'Inspectest (Pvt) Limited', '1273922-7', '2', '18-Km Ferozepur Road Lahore Pakistan', '18-Km Ferozepur Road Lahore Pakistan', 200000, '10103114', 'credit', '15 days', 'Services Inspection and Testing', 'Lahore', 2, NULL, '2021-06-03 18:48:58', '2021-06-18 19:28:14'),
+(114, 'Inspectest (Pvt) Limited', '1273922-7', '2', '18-Km Ferozepur Road Lahore Pakistan', '18-Km Ferozepur Road Lahore Pakistan', 100000, '10103114', 'credit', '30 days', 'Services Inspection and Testing', 'Lahore', 2, NULL, '2021-06-03 18:48:58', '2021-06-26 00:41:48'),
 (115, 'Nishat Mills Ltd.', '2180652-7', '2', 'Nishatabad Faisalabad', 'Nishatabad Faisalabad', 200000, '10103115', 'credit', '15 days', 'Manufacturing Textile', 'SPU No. 2, Faisalabad', 2, NULL, '2021-06-03 18:49:12', '2021-06-18 19:28:14'),
 (116, 'Nishat Mills Ltd.', '2180652-7', '2', '5-kM Nishat Avenue, 22-kM Ferozpur Road Lahore', '5-kM Nishat Avenue, 22-kM Ferozpur Road Lahore', 200000, '10103116', 'credit', '15 days', 'Manufacturing Textile', 'Unit 31 & 32', 2, NULL, '2021-06-03 18:54:23', '2021-06-18 19:28:14'),
-(117, 'REETS International (Pvt) Limited', '1989632-8', '2', 'Block D Mohlanwal, Lahore', 'Block D Mohlanwal, Lahore', 200000, '10103117', 'credit', '15 days', 'Services Inspection and Testing', 'Lahore', 2, NULL, '2021-06-03 18:55:52', '2021-06-18 19:28:14'),
+(117, 'REETS International (Pvt) Limited', '1989632-8', '2', 'Block D Mohlanwal, Lahore', 'Block D Mohlanwal, Lahore', 100000, '10103117', 'credit', '30 days', 'Services Inspection and Testing', 'Lahore', 2, NULL, '2021-06-03 18:55:52', '2021-06-26 00:43:20'),
 (118, 'Nishat Mills Ltd.', '2180652-7', '2', '5-kM Nishat Avenue, 22-kM Ferozpur Road Lahore', '5-kM Nishat Avenue, 22-kM Ferozpur Road Lahore', 200000, '10103118', 'credit', '15 days', 'Manufacturing Textile', 'Unit 29 & 34', 2, NULL, '2021-06-03 18:56:16', '2021-06-18 19:28:14'),
-(119, 'Mega Transformer (Pvt) Limited', '3415767-5', '2', '4-kM Talib Sarai, Managa-Raiwind Kasur', '4-kM Talib Sarai, Managa-Raiwind Kasur', 200000, '10103119', 'credit', '15 days', 'Manufacturing Transformer', 'Lahore', 2, NULL, '2021-06-03 18:57:41', '2021-06-18 19:28:14'),
+(119, 'Mega Transformer (Pvt) Limited', '3415767-5', '2', '4-kM Talib Sarai, Managa-Raiwind Kasur', '4-kM Talib Sarai, Managa-Raiwind Kasur', 50000, '10103119', 'credit', '30 days', 'Manufacturing Transformer', 'Lahore', 2, NULL, '2021-06-03 18:57:41', '2021-06-26 00:44:38'),
 (120, 'Nishat Mills Ltd.', '2180652-7', '2', '5-kM Nishat Avenue, 22-kM Ferozpur Road Lahore', '5-kM Nishat Avenue, 22-kM Ferozpur Road Lahore', 200000, '10103120', 'credit', '15 days', 'Manufacturing Textile', 'Unit 35', 2, NULL, '2021-06-03 18:58:23', '2021-06-18 19:28:14'),
-(121, 'Quality Control Services', '0000000-0', '2', 'Office C, First Floor, Nadir Plaza, Gate 2, DHA GT Road Islamabad', 'Office C, First Floor, Nadir Plaza, Gate 2, DHA GT Road Islamabad', 200000, '10103121', 'credit', '15 days', 'Services  Calibration', 'Rawalpindi', 1, NULL, '2021-06-03 18:59:14', '2021-06-18 19:28:14'),
+(121, 'Quality Control Services', '0000000-0', '2', 'Office C, First Floor, Nadir Plaza, Gate 2, DHA GT Road Islamabad', 'Office C, First Floor, Nadir Plaza, Gate 2, DHA GT Road Islamabad', 200000, '10103121', 'credit', '30 days', 'Services  Calibration', 'Rawalpindi', 1, NULL, '2021-06-03 18:59:14', '2021-06-26 00:45:11'),
 (122, 'Nishat Mills Ltd.', '2180652-7', '2', '5-kM Nishat Avenue, 22-kM Ferozpur Road Lahore', '5-kM Nishat Avenue, 22-kM Ferozpur Road Lahore', 200000, '10103122', 'credit', '15 days', 'Manufacturing Textile', 'Unit 36', 2, NULL, '2021-06-03 18:59:56', '2021-06-18 19:28:14'),
-(123, 'ReadyGo (Pvt) Limited', '7363312-7', '2', 'Sheikhupura Road Lahore', 'Sheikhupura Road Lahore', 200000, '10103123', 'credit', '15 days', 'Manufacturing Food', 'Lahore', 1, NULL, '2021-06-03 19:00:59', '2021-06-18 19:28:14'),
+(123, 'ReadyGo (Pvt) Limited', '7363312-7', '2', 'Sheikhupura Road Lahore', 'Sheikhupura Road Lahore', 300000, '10103123', 'credit', '30 days', 'Manufacturing Food', 'Lahore', 1, NULL, '2021-06-03 19:00:59', '2021-06-26 00:45:54'),
 (124, 'Nishat Mills Ltd.', '2180652-7', '2', '2-Km, Nishat Avenue, Off 22-km, Ferozpur Road Lahore', '2-Km, Nishat Avenue, Off 22-km, Ferozpur Road Lahore', 200000, '10103124', 'credit', '15 days', 'Manufacturing Textile', 'Bath Div. Lahore', 2, NULL, '2021-06-03 19:01:21', '2021-06-18 19:28:14'),
 (125, 'Indus Home Limited', '2681448-0', '2', '2.5 kM, Manag Raiwind Road, Manga Mandi Lahore', '2.5 kM, Manag Raiwind Road, Manga Mandi Lahore', 200000, '10103125', 'credit', '15 days', 'Manufacturing Textile', 'Manga Lahore', 2, NULL, '2021-06-03 19:03:45', '2021-06-18 18:25:59'),
-(126, 'Wahid Industries Limited', '0000000-0', '2', 'GT Road, Gujrat', 'GT Road, Gujrat', 200000, '10103126', 'credit', '15 days', 'Manufacturing Fans', 'Gujrat', 1, NULL, '2021-06-03 19:04:27', '2021-06-18 19:28:14'),
+(126, 'Wahid Industries Limited', '0000000-0', '2', 'GT Road, Gujrat', 'GT Road, Gujrat', 50000, '10103126', 'credit', '30 days', 'Manufacturing Fans', 'Gujrat', 1, NULL, '2021-06-03 19:04:27', '2021-06-26 02:33:02'),
 (127, 'Elmetec (Pvt) Ltd.', '1021045-8', '2', '19-KM Ferozepur Rd, Glaxo Town, Lahore', '19-KM Ferozepur Rd, Glaxo Town, Lahore', 200000, '10103127', 'credit', '15 days', 'Manufacturing Transformer', 'Lahore', 1, NULL, '2021-06-03 19:05:35', '2021-06-18 19:28:14'),
-(128, 'Chashma Sugar Mills 1 & 2', '1158077-1', '2', 'Indus Highway, Ramak DI Khan KPK', 'Indus Highway, Ramak DI Khan KPK', 200000, '10103128', 'credit', '15 days', 'Manufacturing Sugar', 'DI Khan', 2, NULL, '2021-06-03 19:06:03', '2021-06-18 19:28:14'),
-(129, 'Exin Chemicals Corporation', '1133874-1', '2', '33-B, Industrial Estate Multan', '33-B, Industrial Estate Multan', 200000, '10103129', 'credit', '15 days', 'Manufacturing Pesticides', 'Multan', 1, NULL, '2021-06-03 19:06:53', '2021-06-18 19:28:14'),
-(130, 'Agri Force Chemicals', '1689341-1', '2', 'Plot No. 217-18 Industrial Estate Multan', 'Plot No. 217-18 Industrial Estate Multan', 200000, '10103130', 'credit', '15 days', 'Manufacturing Pesticides', 'Multan', 2, NULL, '2021-06-03 19:08:02', '2021-06-18 19:28:14'),
-(131, 'Herbion Pakistan (Pvt) Limited', '0823835-9', '2', 'Plot # 553, Sundar Industrial Estate, Lahore', 'Plot # 553, Sundar Industrial Estate, Lahore', 200000, '10103131', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Lahore', 3, NULL, '2021-06-03 19:09:44', '2021-06-18 19:28:14'),
-(132, 'Pharmagen Limited', '0786323-3', '2', 'Kot Nabi Bukshwala, 34 - KM Ferozepur Road, Lahore', 'Kot Nabi Bukshwala, 34 - KM Ferozepur Road, Lahore', 200000, '10103132', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Lahore', 2, NULL, '2021-06-03 19:11:05', '2021-06-18 19:28:14'),
+(128, 'Chashma Sugar Mills 1 & 2', '1158077-1', '2', 'Indus Highway, Ramak DI Khan KPK', 'Indus Highway, Ramak DI Khan KPK', 300000, '10103128', 'credit', '30 days', 'Manufacturing Sugar', 'DI Khan', 2, NULL, '2021-06-03 19:06:03', '2021-06-26 02:33:51'),
+(129, 'Exin Chemicals Corporation', '1133874-1', '2', '33-B, Industrial Estate Multan', '33-B, Industrial Estate Multan', 200000, '10103129', 'credit', '30 days', 'Manufacturing Pesticides', 'Multan', 1, NULL, '2021-06-03 19:06:53', '2021-06-26 02:35:59'),
+(130, 'Agri Force Chemicals', '1689341-1', '2', 'Plot No. 217-18 Industrial Estate Multan', 'Plot No. 217-18 Industrial Estate Multan', 150000, '10103130', 'credit', '30 days', 'Manufacturing Pesticides', 'Multan', 2, NULL, '2021-06-03 19:08:02', '2021-06-26 02:37:24'),
+(131, 'Herbion Pakistan (Pvt) Limited', '0823835-9', '2', 'Plot # 553, Sundar Industrial Estate, Lahore', 'Plot # 553, Sundar Industrial Estate, Lahore', 100000, '10103131', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Lahore', 3, NULL, '2021-06-03 19:09:44', '2021-06-26 02:38:13'),
+(132, 'Pharmagen Limited', '0786323-3', '2', 'Kot Nabi Bukshwala, 34 - KM Ferozepur Road, Lahore', 'Kot Nabi Bukshwala, 34 - KM Ferozepur Road, Lahore', 200000, '10103132', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Lahore', 2, NULL, '2021-06-03 19:11:05', '2021-06-26 02:38:53'),
 (133, 'Shaigan Pharmaceuticals (Pvt) Limited', '0712088-5', '2', '14 KM, Adyala Road, P.O Dahgal, Rawalpindi-Pakistan.', '14 KM, Adyala Road, P.O Dahgal, Rawalpindi-Pakistan.', 500000, '10103133', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Dahgal Rawalpindi', 2, NULL, '2021-06-03 19:11:57', '2021-06-18 22:44:45'),
 (134, 'Univet Pharmaceuticals', '1250865-9', '2', '14 KM, Adyala Road, P.O Dahgal, Rawalpindi-Pakistan.', '14 KM, Adyala Road, P.O Dahgal, Rawalpindi-Pakistan.', 200000, '10103134', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Dahgal Rawalpindi', 1, NULL, '2021-06-03 19:16:19', '2021-06-18 18:25:59'),
-(135, 'National Institute of Electronics', '9013702-7', '2', 'Plot # 17, Street 6, Sector H-9/1 H 9/1 H-9, Islamabad, Islamabad', 'Plot # 17, Street 6, Sector H-9/1 H 9/1 H-9, Islamabad, Islamabad', 200000, '10103135', 'credit', '15 days', 'Services Research', 'Islamabad', 3, NULL, '2021-06-03 19:16:27', '2021-06-18 19:28:14'),
-(136, 'Provincial Reference Fertilzer Testing Lab', '9020504-9', '2', 'Near, Govt. Degree College for Women, Raiwind, Lahore', 'Near, Govt. Degree College for Women, Raiwind, Lahore', 200000, '10103136', 'credit', '15 days', 'Services Fertilzier Testing', 'Lahore', 2, NULL, '2021-06-03 19:19:05', '2021-06-18 19:28:14'),
+(135, 'National Institute of Electronics', '9013702-7', '2', 'Plot # 17, Street 6, Sector H-9/1 H 9/1 H-9, Islamabad, Islamabad', 'Plot # 17, Street 6, Sector H-9/1 H 9/1 H-9, Islamabad, Islamabad', 200000, '10103135', 'credit', '30 days', 'Services Research', 'Islamabad', 3, NULL, '2021-06-03 19:16:27', '2021-06-26 02:39:48'),
+(136, 'Provincial Reference Fertilzer Testing Lab', '9020504-9', '2', 'Near, Govt. Degree College for Women, Raiwind, Lahore', 'Near, Govt. Degree College for Women, Raiwind, Lahore', 200000, '10103136', 'credit', '30 days', 'Services Fertilzier Testing', 'Lahore', 2, NULL, '2021-06-03 19:19:05', '2021-06-26 02:41:42'),
 (137, 'Intertek Pakistan (Pvt) Limited', '1475637-4', '2', 'Intertek House, 465/ GIII Main Boulevard, Near Khokar Chowk Johar Town, Lahore', 'Intertek House, 465/ GIII Main Boulevard, Near Khokar Chowk Johar Town, Lahore', 200000, '10103137', 'credit', '30 days', 'Services Testing and Consultancy', 'Lahore', 2, NULL, '2021-06-03 19:19:18', '2021-06-18 22:38:26'),
-(138, 'Ayub Agricultre Research Institute', '9020504-9', '2', 'Jhang Rd, Faisalabad', 'Jhang Rd, Faisalabad', 200000, '10103138', 'credit', '15 days', 'Services Research', 'Faisalabad', 2, NULL, '2021-06-03 19:20:01', '2021-06-18 19:28:14'),
-(139, 'Ercon Group of Industries', '7249207-4', '2', '22-KM of Ferozpur Road, Rohi Nala Opp. Comfort Factory, Lahore', '22-KM of Ferozpur Road, Rohi Nala Opp. Comfort Factory, Lahore', 200000, '10103139', 'credit', '15 days', 'Manufacturing Electrical Panels', 'Lahore', 2, NULL, '2021-06-03 19:21:59', '2021-06-18 18:25:59'),
+(138, 'Ayub Agricultre Research Institute', '9020504-9', '2', 'Jhang Rd, Faisalabad', 'Jhang Rd, Faisalabad', 200000, '10103138', 'credit', '30 days', 'Services Research', 'Faisalabad', 2, NULL, '2021-06-03 19:20:01', '2021-06-26 02:44:06'),
+(139, 'Ercon Group of Industries', '7249207-4', '2', '22-KM of Ferozpur Road, Rohi Nala Opp. Comfort Factory, Lahore', '22-KM of Ferozpur Road, Rohi Nala Opp. Comfort Factory, Lahore', 50000, '10103139', 'credit', '30 days', 'Manufacturing Electrical Panels', 'Lahore', 2, NULL, '2021-06-03 19:21:59', '2021-06-26 02:45:05'),
 (140, 'Intertek Pakistan (Pvt) Limited', '1475637-4', '4', 'Plot No. 1-5/11-A, Sector-5. Korangi Industrial Area Karachi', 'Plot No. 1-5/11-A, Sector-5. Korangi Industrial Area Karachi', 200000, '10103140', 'credit', '15 days', 'Services Testing and Consultancy', 'Karachi', 2, NULL, '2021-06-03 19:22:22', '2021-06-18 18:25:59'),
-(141, 'Zahid Packages (Pvt) Limited', '0000000-0', '2', '4KM Kot Momin Road Bhalwal, Sargodha', '4KM Kot Momin Road Bhalwal, Sargodha', 200000, '10103141', 'credit', '15 days', 'Manufacturing Paper Products', 'Sargodha', 1, NULL, '2021-06-03 19:22:56', '2021-06-18 19:28:14'),
-(142, 'Treet Corporation Limited', '2189285-7', '2', '72-B Industrial Area Kot Lakhpat,Lahore', '72-B Industrial Area Kot Lakhpat,Lahore', 200000, '10103142', 'credit', '15 days', 'Manufacturing Blades', 'Bike Lahore', 1, NULL, '2021-06-03 19:24:16', '2021-06-18 19:28:14'),
-(143, 'Treet Group of Companies', '2189285-7', '2', '72-B Industrial Area Kot Lakhpat,Lahore', '72-B Industrial Area Kot Lakhpat,Lahore', 200000, '10103143', 'credit', '15 days', 'Manufacturing Motor Bike', 'Lahore', 1, NULL, '2021-06-03 19:25:30', '2021-06-18 19:28:14'),
-(144, 'Firt Treet Manufacturing Modaraba', '2551646-9', '2', 'Treet Battery Plant Sahianwala M3 Exit (Darul-Ehsan) FIEDMC Industrial City 5th Round About Faisalabad', 'Treet Battery Plant Sahianwala M3 Exit (Darul-Ehsan) FIEDMC Industrial City 5th Round About Faisalabad', 200000, '10103144', 'credit', '15 days', 'Manufacturing Batteries', 'Faisalabad', 2, NULL, '2021-06-03 19:26:30', '2021-06-18 19:28:14'),
+(141, 'Zahid Packages (Pvt) Limited', '0000000-0', '2', '4KM Kot Momin Road Bhalwal, Sargodha', '4KM Kot Momin Road Bhalwal, Sargodha', 0, '10103141', 'cash', 'against delivery', 'Manufacturing Paper Products', 'Sargodha', 1, NULL, '2021-06-03 19:22:56', '2021-06-26 02:47:02'),
+(142, 'Treet Corporation Limited', '2189285-7', '2', '72-B Industrial Area Kot Lakhpat,Lahore', '72-B Industrial Area Kot Lakhpat,Lahore', 50000, '10103142', 'credit', '30 days', 'Manufacturing Blades', 'Bike Lahore', 1, NULL, '2021-06-03 19:24:16', '2021-06-26 02:47:50'),
+(143, 'Treet Group of Companies', '2189285-7', '2', '72-B Industrial Area Kot Lakhpat,Lahore', '72-B Industrial Area Kot Lakhpat,Lahore', 100000, '10103143', 'credit', '30 days', 'Manufacturing Motor Bike', 'Lahore', 1, NULL, '2021-06-03 19:25:30', '2021-06-26 02:48:56'),
+(144, 'Firt Treet Manufacturing Modaraba', '2551646-9', '2', 'Treet Battery Plant Sahianwala M3 Exit (Darul-Ehsan) FIEDMC Industrial City 5th Round About Faisalabad', 'Treet Battery Plant Sahianwala M3 Exit (Darul-Ehsan) FIEDMC Industrial City 5th Round About Faisalabad', 250000, '10103144', 'credit', '30 days', 'Manufacturing Batteries', 'Faisalabad', 2, NULL, '2021-06-03 19:26:30', '2021-06-26 02:52:34'),
 (145, 'Artistic Milliner', '2645727-0', '4', 'Plot No 4, Main Korangi Industrial Rd, Sector 25 Korangi Industrial Area, Karachi', 'Plot No 4, Main Korangi Industrial Rd, Sector 25 Korangi Industrial Area, Karachi', 200000, '10103145', 'credit', '15 days', 'Manufacturing Textile', 'M2 Karachi', 4, NULL, '2021-06-03 19:26:32', '2021-06-18 18:25:59'),
-(146, 'HNR Company (Pvt) Limited', '1263333-1', '2', '19.5-kM Raiwind Road Lahore', '19.5-kM Raiwind Road Lahore', 200000, '10103146', 'credit', '15 days', 'Manufacturing Home Appliances', 'Lahore', 2, NULL, '2021-06-03 19:28:21', '2021-06-18 18:25:59'),
+(146, 'HNR Company (Pvt) Limited', '1263333-1', '2', '19.5-kM Raiwind Road Lahore', '19.5-kM Raiwind Road Lahore', 100000, '10103146', 'credit', '30 days', 'Manufacturing Home Appliances', 'Lahore', 2, NULL, '2021-06-03 19:28:21', '2021-06-26 02:53:29'),
 (147, 'Artistic Milliner', '2645727-0', '4', '\"Plot # 10,11,14,15 & 104\r\nDeh Kanto Tappo landhi, Bin Qasim Town, Karachi\r\n\"', '\"Plot # 10,11,14,15 & 104\r\nDeh Kanto Tappo landhi, Bin Qasim Town, Karachi\r\n\"', 200000, '10103147', 'credit', '15 days', 'Manufacturing Textile', 'M5 Karachi', 4, NULL, '2021-06-03 19:30:53', '2021-06-18 19:28:14'),
-(148, 'CSH Pharmaceuticals (Pvt) Limited', '0000000-0', '2', '32-KM Lahore – Kasur Rd, Atto Asal, Lahore', '32-KM Lahore – Kasur Rd, Atto Asal, Lahore', 200000, '10103148', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Lahore', 1, NULL, '2021-06-03 19:32:31', '2021-06-18 19:28:14'),
+(148, 'CSH Pharmaceuticals (Pvt) Limited', '0000000-0', '2', '32-KM Lahore – Kasur Rd, Atto Asal, Lahore', '32-KM Lahore – Kasur Rd, Atto Asal, Lahore', 100000, '10103148', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Lahore', 1, NULL, '2021-06-03 19:32:31', '2021-06-26 02:55:04'),
 (149, 'Mapple Leaf Cement Factory Ltd.', '0786576-7', '2', 'Iskandarabad, Mianwali', 'Iskandarabad, Mianwali', 200000, '10103149', 'credit', '15 days', 'Manufacturing Cement', 'Mianwali', 2, NULL, '2021-06-03 19:33:12', '2021-06-18 19:28:14'),
-(150, 'Wimits Pharmaceuticals (Pvt) Limited', '3646773-1', '2', 'Plot No. 129 – Sunder Industrial Estate Lahore', 'Plot No. 129 – Sunder Industrial Estate Lahore', 200000, '10103150', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Lahore', 1, NULL, '2021-06-03 19:33:54', '2021-06-18 19:28:14'),
-(151, 'Sunrise Pharma (Pvt.) Limited', '3803561-8', '2', '594/A; Sunder Industrial Estate', '594/A; Sunder Industrial Estate', 200000, '10103151', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Lahore', 2, NULL, '2021-06-03 19:35:05', '2021-06-18 19:28:14'),
+(150, 'Wimits Pharmaceuticals (Pvt) Limited', '3646773-1', '2', 'Plot No. 129 – Sunder Industrial Estate Lahore', 'Plot No. 129 – Sunder Industrial Estate Lahore', 50000, '10103150', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Lahore', 1, NULL, '2021-06-03 19:33:54', '2021-06-26 02:56:17'),
+(151, 'Sunrise Pharma (Pvt.) Limited', '3803561-8', '2', '594/A; Sunder Industrial Estate', '594/A; Sunder Industrial Estate', 0, '10103151', 'cash', 'against delivery', 'Manufacturing Pharmaceuticals', 'Lahore', 2, NULL, '2021-06-03 19:35:05', '2021-06-26 02:57:11'),
 (152, 'Hyundai Nishat Motor (Private) Limited', '0000000-0', '2', 'Plot no 181-187 & 198-208, Phase - II, M-3 Industrial Area, Faisalabad', 'Plot no 181-187 & 198-208, Phase - II, M-3 Industrial Area, Faisalabad', 200000, '10103152', 'credit', '15 days', 'Manufacturing Automobile', 'FIEDMC Fsd', 1, NULL, '2021-06-03 19:35:07', '2021-06-18 19:28:14'),
-(153, 'Evolution Pharmaceuticals (Pvt) Limited', '7277859-0', '2', 'treet S-1, Rawat Industrial Estate, Islamabad, Rawalpindi, Islamabad', 'treet S-1, Rawat Industrial Estate, Islamabad, Rawalpindi, Islamabad', 200000, '10103153', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Islamabad', 3, NULL, '2021-06-03 19:37:45', '2021-06-18 19:28:14'),
+(153, 'Evolution Pharmaceuticals (Pvt) Limited', '7277859-0', '2', 'treet S-1, Rawat Industrial Estate, Islamabad, Rawalpindi, Islamabad', 'treet S-1, Rawat Industrial Estate, Islamabad, Rawalpindi, Islamabad', 200000, '10103153', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Islamabad', 3, NULL, '2021-06-03 19:37:45', '2021-06-26 02:58:15'),
 (154, 'Phoenix Aviation (Pvt) Ltd.', '1551151-7', '2', 'Hangar No. 1, ADA Gate, Old Terminal, Lahore International Airport,، Cantt, Lahore', 'Shianwala Faisalabad', 200000, '10103154', 'credit', '15 days', 'Services Aviation', 'Old Airport Lahore', 3, NULL, '2021-06-03 19:39:30', '2021-06-18 19:28:14'),
-(155, 'Danas Pharmaceuticals (Pvt) Ltd.', '2107255-8', '2', 'Plot No. 312, Industrial Triangle Kahuta Road IslamabadIslamabad', 'Plot No. 312, Industrial Triangle Kahuta Road IslamabadIslamabad', 200000, '10103155', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Islamabad', 3, NULL, '2021-06-03 19:39:52', '2021-06-18 19:28:14'),
-(156, 'Master Engineering Company', '2144125-1', '2', 'default', 'default', 200000, '10103156', 'credit', '15 days', 'Manufacturing Motor Bike', 'Lahore', 1, NULL, '2021-06-03 19:41:24', '2021-06-18 19:28:14'),
-(157, 'Gohar Textile Mills (Pvt.) Limited', '1410980-8', '2', '3-KM Chak Jhumra Rd, Khurianwala, Faisalabad', '3-KM Chak Jhumra Rd, Khurianwala, Faisalabad', 200000, '10103157', 'credit', '15 days', 'Manufacturing Textile', 'Faisalabad', 3, NULL, '2021-06-03 19:45:55', '2021-06-18 19:28:14'),
+(155, 'Danas Pharmaceuticals (Pvt) Ltd.', '2107255-8', '2', 'Plot No. 312, Industrial Triangle Kahuta Road IslamabadIslamabad', 'Plot No. 312, Industrial Triangle Kahuta Road IslamabadIslamabad', 200000, '10103155', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Islamabad', 3, NULL, '2021-06-03 19:39:52', '2021-06-26 02:59:00'),
+(156, 'Master Engineering Company', '2144125-1', '2', 'default', 'default', 50000, '10103156', 'credit', '30 days', 'Manufacturing Motor Bike', 'Lahore', 1, NULL, '2021-06-03 19:41:24', '2021-06-26 16:20:24'),
+(157, 'Gohar Textile Mills (Pvt.) Limited', '1410980-8', '2', '3-KM Chak Jhumra Rd, Khurianwala, Faisalabad', '3-KM Chak Jhumra Rd, Khurianwala, Faisalabad', 200000, '10103157', 'credit', '30 days', 'Manufacturing Textile', 'Faisalabad', 3, NULL, '2021-06-03 19:45:55', '2021-06-26 16:24:08'),
 (158, 'Metropole Laboratories (Pvt) Limited', '6425279-8', '2', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 200000, '10103158', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Rawalpindi', 3, '2021-06-03 20:12:36', '2021-06-03 19:50:03', '2021-06-03 20:12:36'),
-(159, 'Green Crescent Environmental Consultants Pvt. Ltd.', '7131884-5', '2', '112 C/E-1, Hali Road, Gulberg III, Lahore', '112 C/E-1, Hali Road, Gulberg III, Lahore', 200000, '10103159', 'credit', '15 days', 'Services Consultancy', 'Lahore', 2, NULL, '2021-06-03 19:56:06', '2021-06-18 19:28:14'),
+(159, 'Qarshi Research International (Pvt) Ltd', '1531398-7', '2', 'Plot 56/1-4 Industrial Estate Hattar - KPK, Pakistan', 'Plot 56/1-4 Industrial Estate Hattar - KPK, Pakistan', 200000, '10103159', 'credit', '30 days', 'Manufacturing Herbal Medicine', 'Hattar KPK', 2, NULL, '2021-06-03 19:56:06', '2021-06-26 16:29:59'),
 (160, 'Air Eagle Aviation Academy', '0657636-2', '2', 'T- 98, Near Punjab VIP Flight Complex, Old Terminal Allama Iqbal International Airport، Cantt, Lahore', 'T- 98, Near Punjab VIP Flight Complex, Old Terminal Allama Iqbal International Airport، Cantt, Lahore', 200000, '10103160', 'credit', '15 days', 'Services Aviation', 'Lahore', 1, NULL, '2021-06-03 19:57:24', '2021-06-18 19:28:14'),
 (161, 'Hydrocarbon Development Institute Pakistan', '2281526-7', '2', 'Plot No.18, Street 6, H-9/1, P.O. Box 1308, Islamabad', 'Plot No.18, Street 6, H-9/1, P.O. Box 1308, Islamabad', 200000, '10103161', 'credit', '15 days', 'Services Petroleum Products Testing', 'Islamabad', 1, NULL, '2021-06-03 22:13:57', '2021-06-18 19:28:14'),
 (162, 'Saffron Pharmaceuticals Pvt Ltd', '0000000-0', '2', '19 Km Sheikhupura Rd, Gatwala, Faisalabad', '19 Km Sheikhupura Rd, Gatwala, Faisalabad', 200000, '10103162', 'credit', '15 days', 'Manufacturing Pharmaceuticals', 'Faisalabad', 1, NULL, '2021-06-03 22:14:20', '2021-06-18 19:28:14'),
@@ -3248,7 +3587,7 @@ INSERT INTO `customers` (`id`, `reg_name`, `ntn`, `region`, `address`, `bill_to_
 (209, 'VIP Flight Governament of Punjab', '9023800-1', '2', 'Lahore International Airport (Old Terminal)', 'Lahore International Airport (Old Terminal)', 200000, '10103209', 'credit', '15 days', 'Services Aviation', '(RW) Lahore', 3, NULL, '2021-06-04 00:04:35', '2021-06-18 19:28:14'),
 (210, 'VIP Flight Governament of Punjab', '9023800-1', '2', 'Lahore International Airport (Old Terminal)', 'Lahore International Airport (Old Terminal)', 200000, '10103210', 'credit', '15 days', 'Services Aviation', '(FW) Lahore', 3, NULL, '2021-06-04 00:06:44', '2021-06-18 19:28:14'),
 (211, 'Sui Northern Gas Pipline Limited', '0801137-7', '2', '150-M Qauid-e-Azam Industrial Estate Lahore', '150-M Qauid-e-Azam Industrial Estate Lahore', 200000, '10103211', 'credit', '15 days', 'Services Gas Distribution', 'Corrosion Control Lahore', 2, NULL, '2021-06-04 00:06:51', '2021-06-18 19:28:14'),
-(212, 'Soil & Water Testing Laboratory', '9020504', '2', 'Datta Gunj Buksh Road, Rawalpindi', 'Datta Gunj Buksh Road, Rawalpindi', 200000, '10103212', 'credit', '15 days', 'Services Agricultre Testing', 'Rawalpindi', 2, NULL, '2021-06-04 00:08:44', '2021-06-18 19:28:14'),
+(212, 'Soil & Water Testing Laboratory', '9020504', '2', 'Datta Gunj Buksh Road, Rawalpindi', 'Datta Gunj Buksh Road, Rawalpindi', 200000, '10103212', 'credit', '30 days', 'Services Agricultre Testing', 'Rawalpindi', 2, NULL, '2021-06-04 00:08:44', '2021-06-25 23:52:58'),
 (213, 'AJ Corporation', '1323958-9', '2', '86-D, DHA Phase XII, EME Sector, Commercial Area, Multan Road, Lahore', '86-D, DHA Phase XII, EME Sector, Commercial Area, Multan Road, Lahore', 200000, '10103213', 'credit', '15 days', 'Services Engineering Manufacturing', 'Lahore', 2, NULL, '2021-06-04 00:09:11', '2021-06-04 00:09:11'),
 (214, 'Soil & Water Testing Laboratory', '9020504 9', '2', 'Industrial Estate 1, Gujranwala', 'Industrial Estate 1, Gujranwala', 200000, '10103214', 'credit', '30 days', 'Service Testing Soil and Water', 'Gujranwala', 2, NULL, '2021-06-04 00:10:26', '2021-06-19 19:14:03'),
 (215, 'Drugs Testing Laboratory Punjab', '9020841-6', '2', '1-Birdwood Road Lahore', '1-Birdwood Road Lahore', 200000, '10103215', 'credit', '15 days', 'Services Drugs Testing', 'Lahore', 2, NULL, '2021-06-04 00:12:10', '2021-06-18 19:28:14'),
@@ -3282,7 +3621,7 @@ INSERT INTO `customers` (`id`, `reg_name`, `ntn`, `region`, `address`, `bill_to_
 (243, 'Standpharm Pakistan (Pvt) Limited', '0786077-3', '2', '20-km Ferozepur Rd, Asif Town, Lahore', '20-km Ferozepur Rd, Asif Town, Lahore', 200000, '10103243', 'credit', '15 days', 'Manufacturer Pharmaceuticals', 'Lahore', 2, NULL, '2021-06-04 18:21:00', '2021-06-18 19:28:14'),
 (244, 'Abdullah Haseeb agro chemicals', '1315387-7', '2', '6A Industrial Estate Hwy, Industrial Estate, Multan', '6A Industrial Estate Hwy, Industrial Estate, Multan', 200000, '10103244', 'credit', '15 days', 'Manufacturer Pesticides', 'Multan', 3, NULL, '2021-06-04 18:23:27', '2021-06-18 19:28:14'),
 (245, 'Bunny\'s Limited- Pakistan', '0452482-9', '2', '105/A, Q. I. E. Kot Lakhpat, Lahore', '105/A, Q. I. E. Kot Lakhpat, Lahore', 200000, '10103245', 'credit', '15 days', 'Manufacturing Food', 'Lahore', 1, NULL, '2021-06-04 18:28:07', '2021-06-18 18:25:59'),
-(246, 'Water and Sanitation Agency', '9020019-3', '2', 'Out fall Road Lahore', 'Out fall Road Lahore', 200000, '10103246', 'credit', '15 days', 'Services Water and Sanitation', 'LDA Lahore', 1, NULL, '2021-06-04 18:53:37', '2021-06-18 19:28:14'),
+(246, 'Water and Sanitation Agency', '9020019-3', '2', 'Out fall Road Lahore', 'Out fall Road Lahore', 100000, '10103246', 'credit', '30 days', 'Services Water and Sanitation', 'LDA Lahore', 2, NULL, '2021-06-04 18:53:37', '2021-06-26 16:21:15'),
 (247, 'Sim Kool Industries', '1203611 7', '2', 'Rana Nisar Ahmad Road, Off Ali Akbar Road, Raiwind Rd, near Bhobatian Chowk, Lahore, Punjab 54500', 'Rana Nisar Ahmad Road, Off Ali Akbar Road, Raiwind Rd, near Bhobatian Chowk, Lahore, Punjab 54500', 0, '10103247', 'cash', 'against delivery', 'Manufacturing Cooling Machines', 'Lahore', 3, NULL, '2021-06-19 01:48:11', '2021-06-20 00:18:35'),
 (248, 'Shergar chemicals', '0000000 0', '2', 'Plot#57 industrial state phase 2 Multan', 'Plot#57 industrial state phase 2 Multan', 0, '10103248', 'cash', 'against delivery', 'Manufacturing Pesticide Chemicals', 'Multan', 3, NULL, '2021-06-19 19:27:59', '2021-06-19 19:27:59'),
 (249, 'Soil & Water Testing Laboratory', '9020504 9', '2', 'Sulemanpura Sargodha', 'Sulemanpura Sargodha', 200000, '10103249', 'credit', '30 days', 'Services Testing Soil and Water', 'Sargodha', 2, NULL, '2021-06-19 19:32:42', '2021-06-19 19:32:42'),
@@ -3292,9 +3631,13 @@ INSERT INTO `customers` (`id`, `reg_name`, `ntn`, `region`, `address`, `bill_to_
 (253, 'Winlet Pharmaceuticals (Pvt) Ltd', '3362195 7', '2', '30- kM, Laksian, Lahore Road Sargodha', 'House No. 73, Block G, Johar Town, Lahore.', 200000, '10103253', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Sargodha', 3, NULL, '2021-06-22 17:28:09', '2021-06-22 18:19:09'),
 (254, 'Engro Powergen Thar (Pvt.) Limited', '0000000 0', '4', 'Tharparkar Distt. Sindh', '16th Floor, The Harbor Front Building, HC # 3, Marine Drive, Block 4, Clifton, Karachi', 200000, '10103254', 'credit', '30 days', 'Power Generation', 'Tharparkar', 4, NULL, '2021-06-22 18:34:02', '2021-06-22 18:34:02'),
 (255, 'Metropole Laboratories (Pvt) Limited', '6425279 8', '2', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 200000, '10103255', 'credit', '30 days', 'Manufacturing Pharmaceuticals', 'Rawalpindi', 3, NULL, '2021-06-22 22:19:47', '2021-06-22 22:19:47'),
-(256, 'Future Scientific', '2979549-4', '2', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 'FS House, Main road, Shaheeh Town, Gangaal West, P.O. Fazaia Colony, Post Code: 46330, Rawalpindi', 50000, '10103256', 'credit', '30 days', 'Supplier Lab Equipment and Kits', 'Rawalpindi', 3, NULL, '2021-06-24 16:46:16', '2021-06-24 16:46:16'),
+(256, 'Nuchem (Pvt) Limited', '4379570-6', '2', 'Plot No. 187, Industrial Estate Part II, Multan', 'Plot No. 187, Industrial Estate Part II, Multan', 200000, '10103256', 'credit', '30 days', 'Manufacturing Pesticides', 'Multan', 1, NULL, '2021-06-24 16:46:16', '2021-06-26 16:53:35'),
 (257, 'EEPCON', '7486905 3', '2', '53 Multan Rd, Ali Block Rizwan Block Awan Town, Lahore', '53 Multan Rd, Ali Block Rizwan Block Awan Town, Lahore', 200000, '10103257', 'credit', '30 days', 'Services Engineering Manufacturing', 'Lahore', 3, NULL, '2021-06-24 17:59:37', '2021-06-24 17:59:37'),
-(258, 'Jinn Petroleum (Pvt) Limited', '721868 3', '2', '22 km main Arifwala Road, adda Shabil, Sahiwal', '22 km main Arifwala Road, adda Shabil, Sahiwal', 50000, '10103258', 'credit', '30 days', 'Service Petroleum Distribution', 'Sahiwal', 3, NULL, '2021-06-24 18:55:20', '2021-06-24 18:55:20');
+(258, 'Jinn Petroleum (Pvt) Limited', '721868 3', '2', '22 km main Arifwala Road, adda Shabil, Sahiwal', '22 km main Arifwala Road, adda Shabil, Sahiwal', 50000, '10103258', 'credit', '30 days', 'Service Petroleum Distribution', 'Sahiwal', 3, NULL, '2021-06-24 18:55:20', '2021-06-24 18:55:20'),
+(259, 'Million Classic Cable (Pvt) Limited', '7448506-1', '2', '35 KM Raiwand Road Opposite Sunder Estate Gate no #3 Raiwind Road Lahore', '35 KM Raiwand Road Opposite Sunder Estate Gate no #3 Raiwind Road Lahore', 200000, '10103259', 'credit', '30 days', 'Manufacturing Electrical Cables', 'Lahore', 3, NULL, '2021-06-26 16:40:13', '2021-06-26 16:40:13'),
+(260, 'English Biscuit Manufacturers (PVT) Limited', '0710330-1', '4', 'Plot 1-4, Sector 23, Korangi Industrial Area Karachi', 'Plot 1-4, Sector 23, Korangi Industrial Area Karachi', 200000, '10103260', 'credit', '30 days', 'Manufacturing Food', 'Karachi', 4, NULL, '2021-06-26 16:43:50', '2021-06-26 16:48:16'),
+(261, 'Hextar Industries (Pvt) Limited', '3935068-1', '2', 'Pind Khand, Stop Pando Ke Jugian, 4Km off Sue Asal, Ferozepur Rd, Lahore', 'Pind Khand, Stop Pando Ke Jugian, 4Km off Sue Asal, Ferozepur Rd, Lahore', 200000, '10103261', 'credit', '30 days', 'Manufacturing Pesticides', 'Lahore', 3, NULL, '2021-06-26 16:56:53', '2021-06-26 16:56:53'),
+(262, 'Punjab Food Authority', '9021314-2', '2', 'Old P&D Building, 2 - Bank Road Lahore ', 'Old P&D Building, 2 - Bank Road Lahore ', 100000, '10103262', 'credit', '30 days', 'Services Testing Foods', 'Lahore', 2, NULL, '2021-06-26 17:01:44', '2021-06-26 17:01:44');
 
 -- --------------------------------------------------------
 
@@ -3645,7 +3988,7 @@ INSERT INTO `customer_contacts` (`id`, `customer_id`, `type`, `name`, `email`, `
 (324, 105, 'principal', 'Muddasar Karim', 'mudassar.karim@cht.com', '0301 8443293', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
 (325, 106, 'principal', 'Muhammad Atiq', 'qctf.pk@mtechintl.com', '0300 9401486', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
 (326, 106, 'principal', 'Masood Haider', 'masood@mtechintl.com', '0300-9401486', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
-(327, 106, 'principal', 'Muhammad Atiq', NULL, NULL, NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
+(327, 106, 'principal', 'Muhammad Atiq', NULL, NULL, '2021-06-26 00:36:44', '2021-06-20 01:45:00', '2021-06-26 00:36:44'),
 (328, 107, 'purchase', 'M. Muzzamal', 'muhammad.muzammal@fajuifoods.com', '0300 5633560', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
 (329, 107, 'principal', 'Mr. Amjad Sharif', 'amjad.sharif@faujifoods.com', '0303 0903857', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
 (330, 107, 'principal', 'Mr. Muhammad Muzammal', 'muhammad.muzammal@fajuifoods.com', '0300 5633560', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
@@ -3667,7 +4010,7 @@ INSERT INTO `customer_contacts` (`id`, `customer_id`, `type`, `name`, `email`, `
 (346, 113, 'principal', 'Mujahid Hussain Head QO', 'mujahid.hussain@dynatispakistan.com', '0321 7327347', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
 (347, 113, 'principal', 'Muhammad Umair', 'muhammad.umair@indus-com', '0333 6297814', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
 (348, 113, 'principal', 'Ahsan Ali', 'ahsan.ali@dynatispakistan.com', NULL, NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
-(349, 114, 'purchase', 'Maheen Ijaz', NULL, '0320-8585334', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
+(349, 114, 'purchase', 'Maheen Ijaz', NULL, '0320-8585334', '2021-06-26 00:42:12', '2021-06-20 01:45:00', '2021-06-26 00:42:12'),
 (350, 114, 'principal', 'Maheen Manzoor', 'maheen.manzoor@inspectest.com', '0320 858 5334', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
 (351, 114, 'principal', 'Irfan Sajid', 'irfan.sajid@inspectest.com', '0321 8476701', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
 (352, 114, 'principal', 'Zeeshan Rasheed', 'zeeshan.rashid@inspectest.com', '0321 8476720', NULL, '2021-06-20 01:45:00', '2021-06-20 01:45:00'),
@@ -4113,7 +4456,22 @@ INSERT INTO `customer_contacts` (`id`, `customer_id`, `type`, `name`, `email`, `
 (792, 257, 'principal', 'Asim Anwar', 'asim.anwar@eepcon.com', '0304 9763436', NULL, '2021-06-24 18:03:26', '2021-06-24 18:03:26'),
 (793, 258, 'principal', 'Javed Iqbal', 'info@jinnpetroleum.com', '0309 5551865', NULL, '2021-06-24 18:57:03', '2021-06-24 18:57:03'),
 (794, 88, 'purchase', 'Muhammad Bilal', 'supplychain@schazoozaka.com', '056 2312044-46', NULL, '2021-06-24 20:55:59', '2021-06-24 20:55:59'),
-(795, 88, 'account', 'Muhammad Nawaz', 'accounts@schazoozaka.com', '056 2312044-46', NULL, '2021-06-24 20:56:38', '2021-06-24 20:56:38');
+(795, 88, 'account', 'Muhammad Nawaz', 'accounts@schazoozaka.com', '056 2312044-46', NULL, '2021-06-24 20:56:38', '2021-06-24 20:56:38'),
+(796, 237, 'principal', 'Asim Hussain', NULL, '03008437352', '2021-06-25 18:32:19', '2021-06-25 16:58:07', '2021-06-25 18:32:19'),
+(797, 237, 'principal', 'Asim Hameed', 'asim.hameed@pepsico.com', '0300 8437352', NULL, '2021-06-25 18:31:40', '2021-06-25 18:31:40');
+INSERT INTO `customer_contacts` (`id`, `customer_id`, `type`, `name`, `email`, `phone`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(798, 159, 'principal', 'Sarhan Akhlaq', 'sarhan.akhlaq@qarashi.com', '0345 5871290', NULL, '2021-06-26 16:31:08', '2021-06-26 16:31:08'),
+(799, 259, 'principal', 'Daniyal Tariq', 'daniyal@millionclassic.com', '0320 3070550', NULL, '2021-06-26 16:41:24', '2021-06-26 16:41:24'),
+(800, 260, 'principal', 'Rahil Ahmed', 'rahil.ahmed@ebm.com.pk', '0308 8882456', NULL, '2021-06-26 16:44:41', '2021-06-26 16:44:41'),
+(801, 260, 'principal', 'Mohsin Hameed', 'mohsin.khan@emb.com.pk', '0307 9297879', NULL, '2021-06-26 16:45:33', '2021-06-26 16:45:33'),
+(802, 260, 'principal', 'sameer Aslam,', 'sameer.aslam@emb.com.pk', '\'\'', NULL, '2021-06-26 16:46:16', '2021-06-26 16:46:16'),
+(803, 260, 'purchase', 'Fahad Ghani', 'fahad.ghani@emb.com.pk', '03040872119', NULL, '2021-06-26 16:47:06', '2021-06-26 16:47:06'),
+(804, 260, 'account', 'Abdul Raheem', 'abdu.raheem-c@emb.com.pk', '021 35060825', NULL, '2021-06-26 16:47:57', '2021-06-26 16:47:57'),
+(805, 256, 'principal', 'Sajid Ali', 'sajidqci@yahoo.com', '0300 7192509', NULL, '2021-06-26 16:54:45', '2021-06-26 16:54:45'),
+(806, 261, 'principal', 'Abdul Khaliq', 'info@hextar.com.pk', '03008496766', NULL, '2021-06-26 16:57:48', '2021-06-26 16:57:48'),
+(807, 262, 'principal', 'Ayaz Khurram', 'ayaz.khurram@gmail.com', '0330 1423157', NULL, '2021-06-26 17:02:57', '2021-06-26 17:02:57'),
+(808, 262, 'account', 'Anayat', NULL, '0300-8633709', NULL, '2021-06-26 17:04:24', '2021-06-26 17:04:24'),
+(809, 252, 'purchase', 'Mr. Shehryar', '0308 4445525', NULL, NULL, '2021-06-26 17:30:38', '2021-06-26 17:30:38');
 
 -- --------------------------------------------------------
 
@@ -4163,6 +4521,13 @@ CREATE TABLE `delivery_notes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `delivery_notes`
+--
+
+INSERT INTO `delivery_notes` (`id`, `cid`, `job_id`, `item`, `created_at`, `updated_at`) VALUES
+(1, 'DN/000001', 3, '5', '2021-06-25 21:49:12', '2021-06-25 21:49:12');
 
 -- --------------------------------------------------------
 
@@ -4361,6 +4726,45 @@ CREATE TABLE `formsandformats` (
 
 INSERT INTO `formsandformats` (`id`, `name`, `sops`, `parent_id`, `doc_no`, `rev_no`, `issue_no`, `file`, `issue`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'AIMS-HR-SOP-01 Personal Management', '1,5', NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-25 20:57:01', '2020-12-25 14:01:54', '2020-12-25 20:57:01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gate_passes`
+--
+
+CREATE TABLE `gate_passes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `cid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `out` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `in` timestamp NULL DEFAULT NULL,
+  `out_handed_over_by` int(11) NOT NULL,
+  `out_received_by` int(11) NOT NULL,
+  `in_received_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gate_pass_items`
+--
+
+CREATE TABLE `gate_pass_items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `gp_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `out_fcv` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `in_fcv` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `out_status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `in_status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `out_fcb` int(11) DEFAULT NULL,
+  `in_fcb` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -4607,7 +5011,8 @@ CREATE TABLE `invoices` (
 --
 
 INSERT INTO `invoices` (`id`, `voucher_id`, `job_id`, `title`, `status`, `created_at`, `updated_at`) VALUES
-(1, 7, 1, 'INV/000001', 0, '2021-06-23 21:40:40', '2021-06-23 21:40:40');
+(1, 7, 1, 'INV/000001', 0, '2021-06-23 21:40:40', '2021-06-23 21:40:40'),
+(2, 8, 3, 'INV/000003', 0, '2021-06-25 22:51:11', '2021-06-25 22:51:11');
 
 -- --------------------------------------------------------
 
@@ -4689,18 +5094,34 @@ INSERT INTO `jobitems` (`id`, `cid`, `cc`, `type`, `job_id`, `item_id`, `eq_id`,
 (2, 'CC/0000002', 1, 0, 1, 19, 'SIM-MM-01', '76625', NULL, NULL, NULL, 'Nil', 'CHUNBRAND', 'NIL', 'OK', 24, 4, '2021-06-21', '2021-06-22', '2021-06-21 11:27:51', '2021-06-21 11:27:56', 22, '139', '2021-06-20 14:14:21', '2021-06-22 01:27:56'),
 (3, 'CC/0000003', 1, 0, 1, 20, 'SIM-MT-01', 'Nil', NULL, NULL, NULL, 'GWA513', 'AKT', 'NIL', 'OK', 24, 4, '2021-06-21', '2021-06-22', '2021-06-21 11:28:07', '2021-06-21 11:28:15', 22, '126', '2021-06-20 14:14:49', '2021-06-22 01:28:15'),
 (4, 'CC/0000004', 1, 1, 1, 17, 'SIM-WS-01', '030096', NULL, NULL, NULL, 'ST-102 PLUS', 'Scale Tronix', 'NIL', 'OK', 24, 4, '2021-06-22', '2021-06-22', '2021-06-22 12:04:10', '2021-06-22 12:04:18', 23, '107', '2021-06-22 19:03:38', '2021-06-22 19:04:18'),
-(5, NULL, NULL, 0, 3, 16, 'TIPL/TTL/HVIT', NULL, NULL, NULL, NULL, '3125', 'KYRITSU', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-23 23:49:36', '2021-06-23 23:49:36'),
-(6, NULL, NULL, 0, 2, 7, 'QC-107', NULL, NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:01:22', '2021-06-24 18:01:22'),
-(7, NULL, NULL, 0, 2, 7, 'QC-108', NULL, NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:02:16', '2021-06-24 18:02:16'),
-(8, NULL, NULL, 0, 2, 7, NULL, '180300018', NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:04:15', '2021-06-24 18:04:15'),
-(9, NULL, NULL, 0, 2, 7, 'QC-110', '180300022', NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:05:51', '2021-06-24 21:46:15'),
-(10, NULL, NULL, 0, 2, 8, 'QC-075', 'N257763', NULL, NULL, NULL, 'AM-420L', 'Lutron', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 18:12:26', '2021-06-24 18:12:26'),
-(11, NULL, NULL, 0, 2, 12, 'QC-92', '---', NULL, NULL, NULL, 'HTC-2', 'China', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:02:49', '2021-06-24 19:02:49'),
-(12, NULL, NULL, 0, 2, 12, 'QC-47', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:07:38', '2021-06-24 19:07:38'),
-(13, NULL, NULL, 0, 2, 12, 'QC-68', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:08:10', '2021-06-24 19:08:10'),
-(14, NULL, NULL, 0, 2, 12, 'QC-46', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:08:36', '2021-06-24 19:08:36'),
-(15, NULL, NULL, 0, 2, 12, 'QC-40', '---', NULL, NULL, NULL, '---', 'Zeal', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:09:38', '2021-06-24 19:09:38'),
-(16, NULL, NULL, 0, 2, 11, 'QC-80', '331414780', NULL, NULL, NULL, '25mm', 'China', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-24 19:14:31', '2021-06-24 19:14:31');
+(5, 'CC/0000005', 1, 0, 3, 16, 'TIPL/TTL/HVIT', NULL, NULL, NULL, NULL, '3125', 'KYRITSU', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-25', '2021-06-25 14:47:42', '2021-06-25 14:47:50', 23, '149', '2021-06-23 23:49:36', '2021-06-25 21:47:50'),
+(6, 'CC/0000006', 1, 0, 2, 7, 'QC-107', NULL, NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-28', '2021-06-25 12:20:04', '2021-06-25 12:20:20', 23, '79', '2021-06-24 18:01:22', '2021-06-25 19:20:20'),
+(7, 'CC/0000007', 1, 0, 2, 7, 'QC-108', NULL, NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-28', '2021-06-25 12:20:45', '2021-06-25 12:20:58', 23, '81', '2021-06-24 18:02:16', '2021-06-25 19:20:58'),
+(8, 'CC/0000008', 1, 0, 2, 7, NULL, '180300018', NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-28', '2021-06-25 12:22:12', '2021-06-25 12:22:22', 23, '81', '2021-06-24 18:04:15', '2021-06-25 19:22:22'),
+(9, 'CC/0000009', 1, 0, 2, 7, 'QC-110', '180300022', NULL, NULL, NULL, '---', 'Taiwan', 'NIL', 'OK', 19, 4, '2021-06-25', '2021-06-28', '2021-06-25 12:23:00', '2021-06-25 12:23:26', 23, '81', '2021-06-24 18:05:51', '2021-06-25 19:23:26'),
+(10, 'CC/0000010', 1, 0, 2, 8, 'QC-075', 'N257763', NULL, NULL, NULL, 'AM-420L', 'Lutron', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-28', '2021-06-25 12:24:41', '2021-06-25 12:24:51', 23, '185', '2021-06-24 18:12:26', '2021-06-25 19:24:51'),
+(11, 'CC/0000011', 1, 0, 2, 12, 'QC-92', '---', NULL, NULL, NULL, 'HTC-2', 'China', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-28', '2021-06-25 13:03:53', '2021-06-25 13:03:59', 23, '185', '2021-06-24 19:02:49', '2021-06-25 20:03:59'),
+(12, 'CC/0000012', 1, 0, 2, 12, 'QC-47', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-28', '2021-06-25 13:04:17', '2021-06-25 13:04:27', 23, '185', '2021-06-24 19:07:38', '2021-06-25 20:04:27'),
+(13, 'CC/0000013', 1, 0, 2, 12, 'QC-68', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-28', '2021-06-25 13:04:40', '2021-06-25 13:04:49', 23, '185', '2021-06-24 19:08:10', '2021-06-25 20:04:49'),
+(14, 'CC/0000014', 1, 0, 2, 12, 'QC-46', '---', NULL, NULL, NULL, '---', 'ZEAL', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-28', '2021-06-25 13:05:22', '2021-06-25 13:05:32', 23, '185', '2021-06-24 19:08:36', '2021-06-25 20:05:32'),
+(15, 'CC/0000015', 1, 0, 2, 12, 'QC-40', '---', NULL, NULL, NULL, '---', 'Zeal', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-30', '2021-06-25 13:05:56', '2021-06-25 13:06:06', 23, '185', '2021-06-24 19:09:38', '2021-06-25 20:06:06'),
+(16, 'CC/0000016', 1, 0, 2, 11, 'QC-80', '331414780', NULL, NULL, NULL, '25mm', 'China', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-30', '2021-06-25 12:17:56', '2021-06-25 13:06:26', 23, '139', '2021-06-24 19:14:31', '2021-06-25 20:06:26'),
+(17, 'CC/0000017', 1, 0, 4, 1, 'QC-HTC-02', 'Nil', NULL, NULL, NULL, 'HTC-2', 'China', 'NIL', 'OK', 24, 4, '2021-06-25', '2021-06-26', '2021-06-25 12:19:07', '2021-06-25 12:19:15', 23, '39', '2021-06-25 18:37:38', '2021-06-25 19:19:15'),
+(18, 'CC/0000018', 1, 1, 2, 9, 'RD-008', '3141511642', NULL, NULL, NULL, 'BSA224S-CW', 'Sartorius', 'NIL', 'OK', 23, 4, '2021-06-24', '2021-06-26', '2021-06-25 12:16:02', '2021-06-25 12:16:16', 23, '53,110', '2021-06-25 18:41:35', '2021-06-25 19:16:16'),
+(19, NULL, NULL, 0, 4, 3, 'Nil', '1800077', NULL, NULL, NULL, 'F1 Class', 'China', 'Box', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-25 18:44:32', '2021-06-25 18:44:32'),
+(20, NULL, NULL, 0, 4, 3, 'Nil', '1800078', NULL, NULL, NULL, 'E2 Class', 'China', 'Box', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-25 18:56:29', '2021-06-25 18:56:29'),
+(21, 'CC/0000021', 1, 0, 5, 41, 'SD-THM-01', '---', NULL, NULL, NULL, '76mm', 'GH Zeal', 'NIL', 'OK', 24, 4, '2021-06-26', '2021-06-30', '2021-06-26 11:51:27', '2021-06-26 11:51:54', 26, '33', '2021-06-26 18:07:22', '2021-06-26 18:51:54'),
+(22, 'CC/0000022', 1, 0, 5, 40, 'SD-BM-01', '---', NULL, NULL, NULL, '---', 'GREINORM', 'NIL', 'OK', 24, 4, '2021-06-26', '2021-06-30', '2021-06-26 11:53:28', '2021-06-26 11:55:06', 26, '110', '2021-06-26 18:10:10', '2021-06-26 18:55:06'),
+(23, 'CC/0000023', 1, 0, 5, 40, 'SD-BM-02', '---', NULL, NULL, NULL, '---', 'HBG Germany', 'NIL', 'OK', 24, 4, '2021-06-26', '2021-06-30', '2021-06-26 11:56:33', '2021-06-26 11:59:35', 26, '110', '2021-06-26 18:12:45', '2021-06-26 18:59:35'),
+(24, NULL, NULL, 0, 5, 40, 'SD-BM-03', '---', NULL, NULL, NULL, '---', 'Dr. N Gerber', 'NIL', 'OK', 24, 2, '2021-06-26', '2021-06-30', NULL, NULL, 26, '110', '2021-06-26 18:13:57', '2021-06-26 18:50:42'),
+(25, NULL, NULL, 0, 5, 43, 'SD-LM-01', '---', NULL, NULL, NULL, 'Quevenne', 'Norm Germany', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-26 18:23:08', '2021-06-26 18:23:08'),
+(26, NULL, NULL, 0, 5, 43, 'SD-LM-02', '---', NULL, NULL, NULL, 'Quevenne', 'Precision', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-26 18:29:38', '2021-06-26 18:29:38'),
+(27, NULL, NULL, 0, 5, 39, 'SD-MC-01', '---', NULL, NULL, NULL, '---', 'PYREX', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-26 18:31:19', '2021-06-26 18:31:19'),
+(28, NULL, NULL, 0, 5, 39, 'SD-MC-500-1', '---', NULL, NULL, NULL, '---', 'PYREX', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-26 18:33:49', '2021-06-26 18:33:49'),
+(29, NULL, NULL, 0, 5, 38, 'SD-MP-1-01', '---', NULL, NULL, NULL, '---', 'HBG Germany', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-26 18:39:20', '2021-06-26 18:39:20'),
+(30, NULL, NULL, 0, 5, 38, 'SD-MP-10-01', '---', NULL, NULL, NULL, '---', 'HBG Germany', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-26 18:41:37', '2021-06-26 18:41:37'),
+(31, NULL, NULL, 0, 5, 38, 'SD-BP-1-01', '---', NULL, NULL, NULL, '---', 'HBG Germany', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-26 18:43:06', '2021-06-26 18:43:06'),
+(32, NULL, NULL, 0, 5, 38, 'SD-MP-01', '---', NULL, NULL, NULL, '---', 'BOECO Germany', 'NIL', 'OK', 24, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-26 18:44:28', '2021-06-26 18:44:28');
 
 -- --------------------------------------------------------
 
@@ -4724,7 +5145,9 @@ CREATE TABLE `jobs` (
 INSERT INTO `jobs` (`id`, `cid`, `quote_id`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'JN/000001', 5, 2, '2021-06-19 14:10:54', '2021-06-23 21:40:40'),
 (2, 'JN/000002', 3, 0, '2021-06-21 20:16:58', '2021-06-21 20:16:58'),
-(3, 'JN/000003', 4, 0, '2021-06-23 23:45:14', '2021-06-23 23:45:14');
+(3, 'JN/000003', 4, 2, '2021-06-23 23:45:14', '2021-06-25 22:51:11'),
+(4, 'JN/000004', 1, 0, '2021-06-25 18:32:00', '2021-06-25 18:32:00'),
+(5, 'JN/000005', 7, 0, '2021-06-26 17:54:57', '2021-06-26 17:54:57');
 
 -- --------------------------------------------------------
 
@@ -4755,7 +5178,8 @@ INSERT INTO `journals` (`id`, `business_line`, `customize_id`, `type`, `referenc
 (4, 1, 'PV.080621.004', 'payment voucher', NULL, 21, '2021-06-07', '2021-06-08 23:52:46', '2021-06-08 23:52:46'),
 (5, 1, 'PV.190621.005', 'payment voucher', NULL, 21, '2021-06-19', '2021-06-19 23:30:14', '2021-06-19 23:30:14'),
 (6, 1, 'PV.190621.006', 'payment voucher', NULL, 21, '2021-06-19', '2021-06-19 23:30:31', '2021-06-19 23:30:31'),
-(7, 1, 'SI.230621.001', 'sales invoice', NULL, 21, '2021-06-23', '2021-06-23 21:40:40', '2021-06-23 21:40:40');
+(7, 1, 'SI.230621.001', 'sales invoice', NULL, 21, '2021-06-23', '2021-06-23 21:40:40', '2021-06-23 21:40:40'),
+(8, 1, 'SI.250621.002', 'sales invoice', NULL, 21, '2021-06-25', '2021-06-25 22:51:11', '2021-06-25 22:51:11');
 
 -- --------------------------------------------------------
 
@@ -4796,7 +5220,10 @@ INSERT INTO `journal_details` (`id`, `parent_id`, `acc_code`, `narration`, `dr`,
 (13, 6, '10206001', 'XPV Repairing', 1880, NULL, NULL, NULL, '2021-06-19 23:30:31', '2021-06-19 23:30:31'),
 (14, 7, '10103247', 'ACCOUNTS RECEIVABLE OF SIM KOOL INDUSTRIES AGAINST INV/000001', 12180, NULL, NULL, NULL, '2021-06-23 21:40:40', '2021-06-23 21:40:40'),
 (15, 7, '40101001', 'SERVICE CHARGES OF INV/000001', NULL, 10500, NULL, NULL, '2021-06-23 21:40:40', '2021-06-23 21:40:40'),
-(16, 7, '20101001', 'PRA OF INV/000001', NULL, 1680, NULL, NULL, '2021-06-23 21:40:40', '2021-06-23 21:40:40');
+(16, 7, '20101001', 'PRA OF INV/000001', NULL, 1680, NULL, NULL, '2021-06-23 21:40:40', '2021-06-23 21:40:40'),
+(17, 8, '10103191', 'ACCOUNTS RECEIVABLE OF TRANSFOPOWER INDUSTRIES (PVT.) LIMITED AGAINST INV/000003', 5220, NULL, NULL, NULL, '2021-06-25 22:51:11', '2021-06-25 22:51:11'),
+(18, 8, '40101001', 'SERVICE CHARGES OF INV/000003', NULL, 4500, NULL, NULL, '2021-06-25 22:51:11', '2021-06-25 22:51:11'),
+(19, 8, '20101001', 'PRA OF INV/000003', NULL, 720, NULL, NULL, '2021-06-25 22:51:11', '2021-06-25 22:51:11');
 
 -- --------------------------------------------------------
 
@@ -6091,6 +6518,7 @@ CREATE TABLE `notifications` (
 
 INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
 ('022029c2-afe6-44ab-ac7c-2c88e9b429cd', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000021 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/21\"}}', NULL, '2021-06-24 20:48:13', '2021-06-24 20:48:13'),
+('02e84915-9a5d-40bb-b16a-bb0e299a05a0', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000007\",\"redirectURL\":\"\\/quotes\\/view\\/7\"}}', NULL, '2021-06-26 17:30:48', '2021-06-26 17:30:48'),
 ('02e93b38-185d-4f4e-bd55-3ebc3cdb2d5d', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000013 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/13\"}}', NULL, '2021-06-22 21:43:54', '2021-06-22 21:43:54'),
 ('07ec5d0b-7c56-4000-8b00-67edad41b88e', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000005\",\"redirectURL\":\"\\/quotes\\/view\\/5\"}}', NULL, '2021-06-20 00:04:29', '2021-06-20 00:04:29'),
 ('091de603-a7ba-48a0-b81d-4e4b3cbbfd7f', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000012 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/12\"}}', NULL, '2021-06-22 21:01:23', '2021-06-22 21:01:23'),
@@ -6102,20 +6530,25 @@ INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `
 ('2074fc73-912a-4659-8688-0efa3f13dc22', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000001\",\"redirectURL\":\"\\/quotes\\/view\\/1\"}}', NULL, '2021-06-24 21:00:14', '2021-06-24 21:00:14'),
 ('226aca38-4725-4d72-8959-83bb4d6ada0e', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 00:34:40', '2021-06-24 00:34:40'),
 ('2a9ab9f4-d3d5-4fb9-98c0-2577c63c8200', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000004\",\"redirectURL\":\"\\/quotes\\/view\\/4\"}}', NULL, '2021-06-23 19:05:48', '2021-06-23 19:05:48'),
+('2f64dc8e-e7e6-45ff-896e-b56a9b0ab3de', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000023 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/23\"}}', NULL, '2021-06-25 19:57:34', '2021-06-25 19:57:34'),
+('30b97550-ab70-49bd-b224-7f30fbf48d1c', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000023 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/23\"}}', NULL, '2021-06-25 19:57:34', '2021-06-25 19:57:34'),
+('371b89d3-e4d4-4074-8f68-4a39bd491514', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000024 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/24\"}}', NULL, '2021-06-25 20:03:13', '2021-06-25 20:03:13'),
 ('3df507e7-9c1f-4aaa-997c-a3aa42529570', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000003 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/3\"}}', NULL, '2021-06-18 23:10:46', '2021-06-18 23:10:46'),
 ('406d4797-5004-413e-b1bb-38b263836142', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000001 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/1\"}}', NULL, '2021-06-18 22:00:47', '2021-06-18 22:00:47'),
 ('48fedd82-1e0b-4b4c-8987-8e1acedbbbc5', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000002 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/2\"}}', NULL, '2021-06-18 22:36:35', '2021-06-18 22:36:35'),
 ('521924e1-d633-468e-b6b3-f2313a9036ad', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000005 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/5\"}}', NULL, '2021-06-19 01:55:54', '2021-06-19 01:55:54'),
 ('596acb11-278f-4128-95ba-ab77933e9151', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 21:09:47', '2021-06-24 21:09:47'),
 ('5a2b1a71-abf5-4ad7-958e-76bb7426fd7e', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000005 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/5\"}}', NULL, '2021-06-19 01:55:54', '2021-06-19 01:55:54'),
-('5aaabf35-073d-47c1-98c4-a4fe48dec9e3', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 21:20:36', '2021-06-24 21:20:36'),
+('5aaabf35-073d-47c1-98c4-a4fe48dec9e3', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', '2021-06-25 16:15:42', '2021-06-24 21:20:36', '2021-06-25 16:15:42'),
 ('5da3ab55-1143-4fea-aee4-fdc3e118109f', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 02:24:10', '2021-06-24 02:24:10'),
+('6ba45434-b30e-4e89-8f8b-fcb9f71a65c7', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000007\",\"redirectURL\":\"\\/quotes\\/view\\/7\"}}', NULL, '2021-06-26 17:30:48', '2021-06-26 17:30:48'),
 ('6fada3c4-ef1a-4a3b-be4b-e0b79f761355', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 02:24:10', '2021-06-24 02:24:10'),
 ('6fb90565-9d7c-46c9-857b-bd2843b8efd7', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000012 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/12\"}}', NULL, '2021-06-22 21:01:23', '2021-06-22 21:01:23'),
 ('74e78d3a-0e6b-4a02-a6f6-e522cf29b607', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000017 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/17\"}}', NULL, '2021-06-24 18:45:39', '2021-06-24 18:45:39'),
 ('758d68dc-806e-4f02-842a-013544ea053f', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 21:20:36', '2021-06-24 21:20:36'),
 ('7c51f87e-4881-42f0-9ba5-39ea1eefb672', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000004 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/4\"}}', NULL, '2021-06-19 00:48:46', '2021-06-19 00:48:46'),
 ('80cfd94c-224c-4c52-83ef-8e5d7b494758', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000015 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/15\"}}', NULL, '2021-06-24 00:03:55', '2021-06-24 00:03:55'),
+('817aa249-ab15-4bce-ad62-4ac5e6725acc', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000022 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/22\"}}', NULL, '2021-06-25 18:24:02', '2021-06-25 18:24:02'),
 ('81faa871-f51b-4472-94ec-cb8df6942541', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000016 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/16\"}}', NULL, '2021-06-24 17:04:32', '2021-06-24 17:04:32'),
 ('828afde1-bd4b-4d58-a08f-51d2c22e068f', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000004 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/4\"}}', NULL, '2021-06-19 00:48:46', '2021-06-19 00:48:46'),
 ('88b4ec26-c791-453a-90a2-41f569311d2d', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000011 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/11\"}}', NULL, '2021-06-22 18:13:44', '2021-06-22 18:13:44'),
@@ -6129,14 +6562,15 @@ INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `
 ('a8b85594-7334-467b-8650-850d532ca5ed', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000008 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/8\"}}', NULL, '2021-06-21 17:40:06', '2021-06-21 17:40:06'),
 ('abf08839-57f0-4875-a376-e2e065e6d797', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 20:06:45', '2021-06-24 20:06:45'),
 ('ad1dd9d5-2060-4b66-8b8b-709894b180e8', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000006 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/6\"}}', NULL, '2021-06-19 16:54:50', '2021-06-19 16:54:50'),
+('afc410ec-ce52-4315-8afc-7165fb36f285', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000024 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/24\"}}', NULL, '2021-06-25 20:03:13', '2021-06-25 20:03:13'),
 ('b02b65bb-310f-4317-800b-c3712dc14485', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000018 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/18\"}}', NULL, '2021-06-24 19:09:03', '2021-06-24 19:09:03'),
 ('b64315ae-b91d-4416-8f8f-3da579fe5008', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000020 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/20\"}}', NULL, '2021-06-24 20:26:00', '2021-06-24 20:26:00'),
 ('b7acc312-9179-448a-ab1d-3ba513a56c92', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000006 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/6\"}}', NULL, '2021-06-19 16:54:50', '2021-06-19 16:54:50'),
-('c28a117d-2dd7-4123-8a66-075213af0f17', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', NULL, '2021-06-24 21:09:47', '2021-06-24 21:09:47'),
+('c28a117d-2dd7-4123-8a66-075213af0f17', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000019 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/19\"}}', '2021-06-25 16:08:39', '2021-06-24 21:09:47', '2021-06-25 16:08:39'),
 ('c33cdc17-7f52-4391-bc30-de81721bdaf2', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000021 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/21\"}}', NULL, '2021-06-24 20:48:13', '2021-06-24 20:48:13'),
 ('c4cbcdff-f50e-4f27-bdd1-dec6f516dba3', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000007 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/7\"}}', NULL, '2021-06-19 22:30:24', '2021-06-19 22:30:24'),
 ('c92e3409-3b11-4a15-858c-ea90bd3ae716', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000011 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/11\"}}', NULL, '2021-06-22 18:13:44', '2021-06-22 18:13:44'),
-('ce968a90-97de-47e9-9cde-8cf1a6cc5c08', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000001\",\"redirectURL\":\"\\/quotes\\/view\\/1\"}}', NULL, '2021-06-24 21:00:14', '2021-06-24 21:00:14'),
+('ce968a90-97de-47e9-9cde-8cf1a6cc5c08', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000001\",\"redirectURL\":\"\\/quotes\\/view\\/1\"}}', '2021-06-25 16:15:58', '2021-06-24 21:00:14', '2021-06-25 16:15:58'),
 ('cf6aac22-5363-45fc-be18-45b95e09d8dd', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000009 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/9\"}}', NULL, '2021-06-22 16:44:51', '2021-06-22 16:44:51'),
 ('d4adf1f6-306c-4d95-b168-e13c14ed4be6', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000004\",\"redirectURL\":\"\\/quotes\\/view\\/4\"}}', NULL, '2021-06-23 19:05:48', '2021-06-23 19:05:48'),
 ('d5cdbdcf-d059-4c30-bc4c-79fe129d6952', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000016 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/16\"}}', NULL, '2021-06-24 17:04:32', '2021-06-24 17:04:32'),
@@ -6145,9 +6579,12 @@ INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `
 ('db3b176b-ec93-4f4e-878b-cc945a3908ca', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000010 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/10\"}}', NULL, '2021-06-22 17:07:47', '2021-06-22 17:07:47'),
 ('e2b86354-97e9-4b84-9820-2c9124e51c20', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000014 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/14\"}}', NULL, '2021-06-22 22:51:53', '2021-06-22 22:51:53'),
 ('e32dd7bd-ce5a-49a5-bf59-6a950e9cf652', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000003\",\"redirectURL\":\"\\/quotes\\/view\\/3\"}}', NULL, '2021-06-21 20:16:35', '2021-06-21 20:16:35'),
+('e8a8fc9b-0847-41c0-a178-03e9719ae366', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 1, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000025 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/25\"}}', NULL, '2021-06-25 22:44:43', '2021-06-25 22:44:43'),
 ('ec0c72c6-8b69-4e34-9d60-823438a21d56', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000020 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/20\"}}', NULL, '2021-06-24 20:26:00', '2021-06-24 20:26:00'),
 ('efd2221f-a59b-4098-8702-2cca4784f628', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000013 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/13\"}}', NULL, '2021-06-22 21:43:54', '2021-06-22 21:43:54'),
-('f6225824-5463-4af4-a7ee-f9b04a1014fc', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000003\",\"redirectURL\":\"\\/quotes\\/view\\/3\"}}', NULL, '2021-06-21 20:16:35', '2021-06-21 20:16:35');
+('f01160c7-7b7e-4645-9ee8-0c7e1c4de70b', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000022 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/22\"}}', NULL, '2021-06-25 18:24:02', '2021-06-25 18:24:02'),
+('f6225824-5463-4af4-a7ee-f9b04a1014fc', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been approved\",\"by\":1,\"body\":\"Imtiaz Ahmed has approved QTN\\/000003\",\"redirectURL\":\"\\/quotes\\/view\\/3\"}}', NULL, '2021-06-21 20:16:35', '2021-06-21 20:16:35'),
+('fa62c16a-2d3a-4335-b488-d7d110b789b1', 'App\\Notifications\\CustomNotification', 'App\\Models\\User', 19, '{\"data\":{\"title\":\"RFQ has been marked as complete\",\"by\":1,\"body\":\"Imtiaz Ahmed has marked this RFQ QTN\\/000025 as completed. \",\"redirectURL\":\"\\/quotes\\/view\\/25\"}}', NULL, '2021-06-25 22:44:43', '2021-06-25 22:44:43');
 
 -- --------------------------------------------------------
 
@@ -6607,7 +7044,9 @@ INSERT INTO `procedures` (`id`, `name`, `uncertainties`, `description`, `deleted
 (80, 'BS ISO 5766: 1990', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Pallet stackers and high-lift platform trucks. Stability tests', NULL, '2021-06-15 23:04:13', '2021-06-15 23:04:13'),
 (81, 'Euramet cg-03', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Calibration of Pressure Balances', NULL, '2021-06-17 17:08:24', '2021-06-17 17:08:24'),
 (82, 'BS EN 1494: 2001', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Mobile Jacks and Associated Lifting Equipment', NULL, '2021-06-17 18:22:19', '2021-06-17 18:22:19'),
-(83, 'AIMS-TM-LCP-P-03', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Procedure for Hydro/Pneumatic Testing of Vessels and Piping', NULL, '2021-06-17 18:28:47', '2021-06-17 18:28:47');
+(83, 'AIMS-TM-LCP-P-03', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Procedure for Hydro/Pneumatic Testing of Vessels and Piping', NULL, '2021-06-17 18:28:47', '2021-06-17 18:28:47'),
+(84, 'BS 5655-6:2011', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Lifts and service lifts. Code of practice for the selection, installation and location of new lifts', NULL, '2021-06-25 19:20:23', '2021-06-25 19:20:23'),
+(85, 'BS EN 14492-2:2019', 'standard-deviation,uncertainty-type-a,combined-uncertainty-of-standard,uncertainty-due-to-resolution-of-uuc', 'Power driven winches and hoists. Power driven hoists', NULL, '2021-06-25 19:23:31', '2021-06-25 19:23:31');
 
 -- --------------------------------------------------------
 
@@ -6806,21 +7245,25 @@ INSERT INTO `quotes` (`id`, `cid`, `customer_id`, `type`, `rfq_mode`, `rfq_mode_
 (4, 'QTN/000004', 191, 'LAB', 'email', 'Dated 18 Jun, 2021', 'By Email', 'Dated 23 Jun, 20219', '2021-06-23', 3, '5', 'Can be calibrated up to 5 kV', 4, 19, '582', 0, '2021-06-18', NULL, '2021-06-19 00:44:45', '2021-06-23 19:05:47'),
 (5, 'QTN/000005', 247, 'SPLIT', 'whatsapp', 'From Rashid Mehmood Cell No. 0300 0998393', 'By Walk-in', 'Tayyab Hussain walked in with Instruments.', '2021-06-19', 3, '5', NULL, 1, 19, '766', 0, '2021-06-18', NULL, '2021-06-19 01:49:18', '2021-06-20 00:04:29'),
 (6, 'QTN/000006', 235, 'BOTH', 'email', 'Dated 16 Jun, 2021', NULL, NULL, NULL, 2, '30', 'All Items will be calibrated at Site. Quote is supposed to be for a single site.', 4, 19, '726', 0, '2021-06-19', NULL, '2021-06-19 16:28:25', '2021-06-22 19:00:12'),
-(7, 'QTN/000007', 252, 'BOTH', 'email', 'Dated 9 Jun, 2021', NULL, NULL, NULL, 2, '15', 'NA', 4, 19, '774', 0, '2021-06-19', NULL, '2021-06-19 20:43:34', '2021-06-22 19:00:17'),
+(7, 'QTN/000007', 252, 'SPLIT', 'email', 'Dated 9 Jun, 2021', 'By Phone', 'Verbal Approval by Miss. Habiba Mansoor', '2021-06-26', 3, '15', 'NA', 4, 19, '774', 0, '2021-06-19', NULL, '2021-06-19 20:43:34', '2021-06-26 17:30:46'),
 (8, 'QTN/000008', 241, 'LAB', 'email', '18 Jun, 2021', NULL, NULL, NULL, 2, '5', 'Strain Gauge Meter with Transducers will be calibrated by Applying tensile load.', 4, 19, '745', 0, '2021-06-21', NULL, '2021-06-21 17:37:16', '2021-06-24 19:00:11'),
-(9, 'QTN/000009', 194, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 2, 19, '590', 0, '2021-06-22', NULL, '2021-06-22 16:42:42', '2021-06-24 07:00:23'),
-(10, 'QTN/000010', 125, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '10', 'Calibration and Adjustment (If required) Maintenance if needed will be charged additionally.', 2, 19, '776', 0, '2021-06-22', NULL, '2021-06-22 16:57:11', '2021-06-24 07:00:28'),
-(11, 'QTN/000011', 253, 'BOTH', 'email', '21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'Part Item will calibrated at site and part at AIMS Lab.', 2, 19, '777', 0, '2021-06-22', NULL, '2021-06-22 17:30:29', '2021-06-24 07:00:33'),
-(12, 'QTN/000012', 254, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'All Items will be calibrated at Site.', 2, 20, '779', 0, '2021-06-22', NULL, '2021-06-22 20:49:33', '2021-06-24 07:00:38'),
-(13, 'QTN/000013', 132, 'BOTH', 'email', '21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'Quoted Prices are as of 2019.', 2, 20, '780', 0, '2021-06-22', NULL, '2021-06-22 21:31:54', '2021-06-24 07:00:43'),
-(14, 'QTN/000014', 255, 'BOTH', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '15', NULL, 2, 20, '781', 0, '2021-06-22', NULL, '2021-06-22 22:22:47', '2021-06-24 07:00:48'),
-(15, 'QTN/000015', 195, 'BOTH', 'email', '22 Jun, 2021', NULL, NULL, NULL, 2, '30', NULL, 1, 20, '786', 5, '2021-06-23', NULL, '2021-06-23 16:54:05', '2021-06-24 07:00:54'),
-(16, 'QTN/000016', 256, 'LAB', 'whatsapp', 'Dated 23 Jun, 2021', NULL, NULL, NULL, 2, '5', 'NA', 0, 1, '791', 0, '2021-06-24', NULL, '2021-06-24 16:53:32', '2021-06-24 17:04:55'),
-(17, 'QTN/000017', 257, 'BOTH', 'whatsapp', 'Dated 23 Jun, 2021', NULL, NULL, NULL, 2, '15', NULL, 0, 20, '792', 0, '2021-06-24', NULL, '2021-06-24 18:11:13', '2021-06-24 18:45:51'),
-(18, 'QTN/000018', 258, 'LAB', 'whatsapp', '23 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 0, 20, '793', 0, '2021-06-24', NULL, '2021-06-24 18:58:32', '2021-06-24 19:09:14'),
-(19, 'QTN/000019', 241, 'SITE', 'email', 'Dated 24 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 0, 20, '745', 2, '2021-06-24', NULL, '2021-06-24 20:02:14', '2021-06-24 21:20:46'),
-(20, 'QTN/000020', 191, 'SITE', 'email', 'Dated 24 Jun, 2021', NULL, NULL, NULL, 2, '5', 'Will be Calibrated at Site.', 0, 20, '582', 0, '2021-06-24', NULL, '2021-06-24 20:24:58', '2021-06-24 20:26:12'),
-(21, 'QTN/000021', 195, 'BOTH', 'email', 'Dated 22 Jun, 2021', NULL, NULL, NULL, 2, '10', 'NA', 0, 20, '786', 0, '2021-06-24', NULL, '2021-06-24 20:30:44', '2021-06-24 20:48:27');
+(9, 'QTN/000009', 194, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 4, 19, '590', 0, '2021-06-22', NULL, '2021-06-22 16:42:42', '2021-06-25 19:00:09'),
+(10, 'QTN/000010', 125, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '10', 'Calibration and Adjustment (If required) Maintenance if needed will be charged additionally.', 4, 19, '776', 0, '2021-06-22', NULL, '2021-06-22 16:57:11', '2021-06-25 19:00:14'),
+(11, 'QTN/000011', 253, 'BOTH', 'email', '21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'Part Item will calibrated at site and part at AIMS Lab.', 4, 19, '777', 0, '2021-06-22', NULL, '2021-06-22 17:30:29', '2021-06-25 19:00:19'),
+(12, 'QTN/000012', 254, 'SITE', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'All Items will be calibrated at Site.', 4, 20, '779', 0, '2021-06-22', NULL, '2021-06-22 20:49:33', '2021-06-25 19:00:24'),
+(13, 'QTN/000013', 132, 'BOTH', 'email', '21 Jun, 2021', NULL, NULL, NULL, 2, '15', 'Quoted Prices are as of 2019.', 4, 20, '780', 0, '2021-06-22', NULL, '2021-06-22 21:31:54', '2021-06-25 19:00:29'),
+(14, 'QTN/000014', 255, 'BOTH', 'email', 'Dated 21 Jun, 2021', NULL, NULL, NULL, 2, '15', NULL, 4, 20, '781', 0, '2021-06-22', NULL, '2021-06-22 22:22:47', '2021-06-25 19:00:34'),
+(15, 'QTN/000015', 195, 'BOTH', 'email', '22 Jun, 2021', NULL, NULL, NULL, 2, '30', NULL, 4, 20, '786', 5, '2021-06-23', NULL, '2021-06-23 16:54:05', '2021-06-26 19:00:11'),
+(16, 'QTN/000016', 256, 'LAB', 'whatsapp', 'Dated 23 Jun, 2021', NULL, NULL, NULL, 2, '5', 'NA', 2, 1, '791', 0, '2021-06-24', NULL, '2021-06-24 16:53:32', '2021-06-26 07:00:24'),
+(17, 'QTN/000017', 257, 'BOTH', 'whatsapp', 'Dated 23 Jun, 2021', NULL, NULL, NULL, 2, '15', NULL, 2, 20, '792', 0, '2021-06-24', NULL, '2021-06-24 18:11:13', '2021-06-26 07:00:29'),
+(18, 'QTN/000018', 258, 'LAB', 'whatsapp', '23 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 2, 20, '793', 0, '2021-06-24', NULL, '2021-06-24 18:58:32', '2021-06-26 07:00:34'),
+(19, 'QTN/000019', 241, 'SITE', 'email', 'Dated 24 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 2, 20, '745', 2, '2021-06-24', NULL, '2021-06-24 20:02:14', '2021-06-26 07:00:39'),
+(20, 'QTN/000020', 191, 'SITE', 'email', 'Dated 24 Jun, 2021', NULL, NULL, NULL, 2, '5', 'Will be Calibrated at Site.', 2, 20, '582', 0, '2021-06-24', NULL, '2021-06-24 20:24:58', '2021-06-26 07:00:44'),
+(21, 'QTN/000021', 195, 'BOTH', 'email', 'Dated 22 Jun, 2021', NULL, NULL, NULL, 2, '10', 'NA', 2, 20, '786', 0, '2021-06-24', NULL, '2021-06-24 20:30:44', '2021-06-26 07:00:49'),
+(22, 'QTN/000022', 237, 'BOTH', 'whatsapp', 'Call Dated 24 Jun, 2021', NULL, NULL, NULL, 2, '15', NULL, 1, 20, '732', 0, '2021-06-25', NULL, '2021-06-25 16:59:12', '2021-06-26 07:00:54'),
+(23, 'QTN/000023', 125, 'BOTH', 'email', '25 Jun, 2021', NULL, NULL, NULL, 2, '15', NULL, 1, 20, '383', 0, '2021-06-25', NULL, '2021-06-25 19:48:40', '2021-06-26 07:00:59'),
+(24, 'QTN/000024', 195, 'SITE', 'email', 'Dated 25 Jun, 2021', NULL, NULL, NULL, 2, '5', NULL, 1, 20, '593', 0, '2021-06-25', NULL, '2021-06-25 20:01:45', '2021-06-26 07:01:04'),
+(25, 'QTN/000025', 1, 'BOTH', 'email', 'Dated', NULL, NULL, NULL, 2, '10', NULL, 1, 20, '2', 0, '2021-06-25', NULL, '2021-06-25 21:14:41', '2021-06-26 07:01:09');
 
 -- --------------------------------------------------------
 
@@ -7055,7 +7498,47 @@ INSERT INTO `quote_items` (`id`, `quote_id`, `status`, `parameter`, `capability`
 (201, 21, 0, 31, 947, NULL, 'lab', 'yes', '1,25', 1500, 63, 4, NULL, NULL, NULL, '2021-06-24 20:45:34', '2021-06-24 20:45:34'),
 (202, 21, 0, 13, 321, NULL, 'site', 'yes', '0.001,220', 4000, 165, 1, NULL, NULL, NULL, '2021-06-24 20:46:01', '2021-06-24 20:46:01'),
 (203, 21, 0, 14, 1116, NULL, 'lab', 'yes', '0', 3000, 0, 3, NULL, NULL, NULL, '2021-06-24 20:47:48', '2021-06-24 20:47:48'),
-(204, 19, 0, 6, 264, NULL, 'site', 'no', '0,5', 8000, 75, 1, NULL, NULL, NULL, '2021-06-24 21:20:20', '2021-06-24 21:20:20');
+(204, 19, 0, 6, 264, NULL, 'site', 'no', '0,5', 8000, 75, 1, NULL, NULL, NULL, '2021-06-24 21:20:20', '2021-06-24 21:20:20'),
+(205, 22, 0, 26, 855, NULL, 'lab', 'no', '114,114', 2500, 47, 1, NULL, NULL, NULL, '2021-06-25 16:59:37', '2021-06-25 16:59:37'),
+(206, 22, 0, 27, 863, NULL, 'lab', 'yes', '-20,650', 4500, 171, 1, NULL, NULL, NULL, '2021-06-25 17:00:09', '2021-06-25 17:00:09'),
+(207, 22, 0, 14, 1116, NULL, 'lab', 'yes', '0', 3000, 0, 1, NULL, NULL, NULL, '2021-06-25 17:32:17', '2021-06-25 17:32:17'),
+(208, 22, 0, 13, 321, NULL, 'site', 'yes', '0.001,220', 4000, 165, 1, NULL, NULL, NULL, '2021-06-25 17:32:52', '2021-06-25 17:32:52'),
+(209, 22, 0, 14, 1094, NULL, 'site', 'yes', '0', 7000, 0, 1, NULL, NULL, NULL, '2021-06-25 17:33:17', '2021-06-25 17:33:17'),
+(210, 22, 0, 14, 1068, NULL, 'site', 'yes', '0', 4000, 0, 3, NULL, NULL, NULL, '2021-06-25 17:34:00', '2021-06-25 17:41:52'),
+(211, 22, 0, 14, 1034, NULL, 'site', 'yes', '0', 4000, 0, 1, NULL, NULL, NULL, '2021-06-25 17:34:18', '2021-06-25 17:34:18'),
+(212, 22, 0, 27, 1174, NULL, 'site', 'yes', '30,180', 4000, 171, 1, NULL, NULL, NULL, '2021-06-25 17:38:02', '2021-06-25 17:38:02'),
+(213, 22, 0, 27, 879, NULL, 'site', 'yes', '10,50', 6000, 171, 1, NULL, NULL, NULL, '2021-06-25 17:40:00', '2021-06-25 17:40:00'),
+(214, 22, 0, 27, 880, NULL, 'site', 'yes', '25,250', 6000, 171, 1, NULL, NULL, NULL, '2021-06-25 17:40:21', '2021-06-25 17:40:21'),
+(215, 22, 0, 13, 323, NULL, 'site', 'yes', '0,35', 4500, 166, 1, NULL, NULL, NULL, '2021-06-25 17:41:00', '2021-06-25 17:41:00'),
+(216, 22, 0, 4, 222, NULL, 'site', 'no', '0,21', 8000, 174, 1, NULL, NULL, NULL, '2021-06-25 17:41:26', '2021-06-25 17:41:26'),
+(217, 22, 0, 17, 1018, NULL, 'site', 'yes', '0,70', 1500, 200, 7, NULL, NULL, NULL, '2021-06-25 17:52:01', '2021-06-25 17:52:01'),
+(218, 22, 0, 14, 1183, NULL, 'lab', 'no', '0', 30000, 0, 1, NULL, NULL, NULL, '2021-06-25 18:23:22', '2021-06-25 18:23:22'),
+(219, 23, 0, 13, 323, NULL, 'site', 'yes', '0,35', 4500, 166, 10, NULL, NULL, NULL, '2021-06-25 19:50:44', '2021-06-25 19:50:44'),
+(220, 23, 0, 13, 325, NULL, 'site', 'yes', '1,120', 6500, 166, 6, NULL, NULL, NULL, '2021-06-25 19:51:44', '2021-06-25 19:51:44'),
+(221, 23, 0, 13, 326, NULL, 'site', 'yes', '1,300', 7000, 166, 2, NULL, NULL, NULL, '2021-06-25 19:52:39', '2021-06-25 19:52:39'),
+(222, 23, 0, 13, 327, NULL, 'site', 'no', '1,1500', 10000, 166, 1, NULL, NULL, NULL, '2021-06-25 19:53:19', '2021-06-25 19:56:21'),
+(223, 23, 0, 33, 719, NULL, 'site', 'no', '0,0', 3000, 189, 4, NULL, NULL, NULL, '2021-06-25 19:54:37', '2021-06-25 19:57:02'),
+(224, 23, 0, 14, 1065, NULL, 'lab', 'yes', '0', 6000, 0, 2, NULL, NULL, NULL, '2021-06-25 19:55:21', '2021-06-25 19:55:21'),
+(225, 23, 0, 14, 1039, NULL, 'lab', 'yes', '0', 5000, 0, 3, NULL, NULL, NULL, '2021-06-25 19:55:45', '2021-06-25 19:55:45'),
+(226, 24, 0, 6, 266, NULL, 'site', 'no', '0,1800', 15000, 75, 1, NULL, NULL, NULL, '2021-06-25 20:02:23', '2021-06-25 20:02:23'),
+(227, 24, 0, 105, 1132, NULL, 'site', 'no', '0,0', 20000, 257, 1, NULL, NULL, NULL, '2021-06-25 20:02:46', '2021-06-25 20:02:46'),
+(228, 25, 0, 81, 14, NULL, 'lab', 'no', '0,5000', 1500, 113, 1, NULL, NULL, NULL, '2021-06-25 21:17:40', '2021-06-25 21:17:40'),
+(229, 25, 0, 17, 776, NULL, 'site', 'yes', '0,200', 1500, 200, 1, NULL, NULL, NULL, '2021-06-25 21:43:37', '2021-06-25 21:43:37'),
+(230, 25, 0, 14, 1054, NULL, 'lab', 'yes', '0', 4000, 0, 1, NULL, NULL, NULL, '2021-06-25 21:44:04', '2021-06-25 21:44:04'),
+(231, 25, 0, 33, 730, NULL, 'site', 'no', '0,0', 6500, 189, 1, NULL, NULL, NULL, '2021-06-25 21:44:25', '2021-06-25 21:44:25'),
+(232, 25, 0, 13, 1187, NULL, 'site', 'no', '0,500', 8000, 166, 5, NULL, NULL, NULL, '2021-06-25 21:57:40', '2021-06-25 21:57:40'),
+(233, 25, 0, 33, 1186, NULL, 'site', 'no', '0,5', 6500, 189, 3, NULL, NULL, NULL, '2021-06-25 21:58:06', '2021-06-25 22:05:51'),
+(234, 25, 0, 6, 270, NULL, 'lab', 'no', '0,100 cN', 3000, 211, 3, NULL, NULL, NULL, '2021-06-25 21:58:32', '2021-06-25 21:58:32'),
+(235, 25, 0, 27, 864, NULL, 'lab', 'yes', '25,500', 4000, 171, 1, NULL, NULL, NULL, '2021-06-25 21:59:03', '2021-06-25 21:59:03'),
+(236, 25, 0, 14, 1071, NULL, 'lab', 'yes', '0', 6000, 0, 1, NULL, NULL, NULL, '2021-06-25 22:00:47', '2021-06-25 22:00:47'),
+(237, 25, 0, 33, 725, NULL, 'site', 'no', '0,0', 7500, 189, 1, NULL, NULL, NULL, '2021-06-25 22:01:23', '2021-06-25 22:01:23'),
+(238, 25, 0, 81, 214, NULL, 'site', 'yes', '0,100', 3000, 116, 1, NULL, NULL, NULL, '2021-06-25 22:01:58', '2021-06-25 22:01:58'),
+(239, 25, 0, 10, 305, NULL, 'lab', 'no', '0,5000', 2500, 155, 5, NULL, NULL, NULL, '2021-06-25 22:02:25', '2021-06-25 22:06:36'),
+(240, 25, 0, 21, 830, NULL, 'lab', 'yes', '1,99999', 2500, 48, 3, NULL, NULL, NULL, '2021-06-25 22:02:54', '2021-06-25 22:02:54'),
+(241, 25, 0, 14, 1065, NULL, 'lab', 'yes', '0', 6000, 0, 1, NULL, NULL, NULL, '2021-06-25 22:03:22', '2021-06-25 22:43:05'),
+(242, 25, 0, 14, 1039, NULL, 'lab', 'yes', '0', 5000, 0, 2, NULL, NULL, NULL, '2021-06-25 22:03:49', '2021-06-25 22:03:49'),
+(243, 25, 0, 33, 1185, NULL, 'site', 'no', '0,3', 6000, 189, 5, NULL, NULL, NULL, '2021-06-25 22:04:20', '2021-06-25 22:04:20'),
+(244, 25, 0, 33, 1184, NULL, 'site', 'no', '0,5', 6500, 189, 3, NULL, NULL, NULL, '2021-06-25 22:04:39', '2021-06-25 22:43:38');
 
 -- --------------------------------------------------------
 
@@ -7122,9 +7605,9 @@ INSERT INTO `roles` (`id`, `name`, `permissions`, `deleted_at`, `created_at`, `u
 (3, 'Proposal', 'session-index,session-create,session-edit,session-send-to-customer,session-complete,session-view,quote-index,quotes-index,quote-edit,quote-delete', '2020-12-21 17:31:54', '2020-09-27 20:21:01', '2020-12-21 17:31:54'),
 (4, 'Accounting & Finance', 'customer-index,customer-create,customer-edit,customer-view,customer-delete,settings-index,staff-details,calibration-management,dashboard-index,manage-jobs,finance-accounts,invoicing-ledger-index,expenses-index,expense-categories,create-expense-category,update-expense-category,add-expenses,update-expense,add-job-invoice-receiving,update-job-invoice-receiving', NULL, '2020-12-21 17:33:08', '2020-12-23 18:37:39'),
 (5, 'Technician', 'customer-index,customer-create,customer-edit,customer-view,customer-delete,mytask-index,mytask-view,start-mytask,end-mytask,get-certificate,calibration-management,parameter-index,asset-index,capabilities-index,units-index,dashboard-index,log-reviews', NULL, '2020-12-23 12:20:55', '2021-06-21 16:45:14'),
-(6, 'Calibration Engineer', 'customer-index,customer-view,calibration-management,parameter-index,asset-index,capabilities-index,log-reviews,my-task-index,lab-task-index,mytask-view,start-mytask,end-mytask,site-task-index,site-receiving-index', NULL, '2021-06-02 22:20:22', '2021-06-22 19:00:07'),
+(6, 'Calibration Engineer', 'customer-index,customer-view,calibration-management,parameter-index,asset-index,capabilities-index,log-reviews,my-task-index,lab-task-index,create-site-task-assign,site-item-receiving-store,site-item-receiving-store,site-item-receiving-update,mytask-view,start-mytask,end-mytask,site-task-index,site-receiving-index', NULL, '2021-06-02 22:20:22', '2021-06-25 18:40:08'),
 (7, 'Assistant Accountant', 'customer-view,dashboard-index,finance-accounts,create-payment-voucher,update-payment-voucher,view-payment-voucher,print-payment-voucher,add-sales-invoice,view-sales-invoice,sales-invoice,vouchers-index,journal-index,purchase,indent-index,vendors-index,purchase-order,material-receiving-index', NULL, '2021-06-08 03:12:24', '2021-06-23 21:39:22'),
-(8, 'Technical Manager', 'dashboard-index,order-management,awaiting-job-index,awaiting-job-show,print-delivery-note,print-gate-pass,complete-job,jobs-index,jobs-view,print-job-form,create-job,delete-job,update-receiving,rfq,generate-requests-index,pending-index,quote-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews', NULL, '2021-06-19 16:45:32', '2021-06-22 22:29:27'),
+(8, 'Technical Manager', 'staff-details,staff-index,staff-create,dashboard-index,order-management,awaiting-job-index,awaiting-job-show,print-delivery-note,print-gate-pass,create-lab-task-assign,complete-job,jobs-index,jobs-view,print-job-form,create-job,delete-job,update-receiving,rfq,generate-requests-index,pending-index,quote-index,log-reviews,add-log-reviews,update-log-reviews,view-log-reviews,delete-log-reviews', NULL, '2021-06-19 16:45:32', '2021-06-26 17:20:48'),
 (9, 'Store Incharge', 'dashboard-index,order-management,awaiting-job-index,awaiting-job-show,print-delivery-note,print-gate-pass,lab-item-receiving-store,lab-item-receiving-update,jobs-index,jobs-view,print-job-form,create-job,delete-job,add-recieving,update-receiving,inventory-index,inventory-categories-index,inventories-index,log-reviews,add-log-reviews,view-log-reviews', NULL, '2021-06-23 23:30:28', '2021-06-23 23:51:33');
 
 -- --------------------------------------------------------
@@ -7172,7 +7655,8 @@ CREATE TABLE `site_plans` (
 --
 
 INSERT INTO `site_plans` (`id`, `cid`, `job_id`, `start`, `end`, `quote_items`, `assigned_assets`, `assigned_users`, `created_at`, `updated_at`) VALUES
-(1, 'GP/000001', 1, '2021-06-22', '2021-06-22', '17', '107', '23', '2021-06-23 01:58:28', '2021-06-23 01:58:28');
+(1, 'GP/000001', 1, '2021-06-22', '2021-06-22', '17', '107', '23', '2021-06-23 01:58:28', '2021-06-23 01:58:28'),
+(2, 'GP/000002', 2, '2021-06-24', '2021-06-26', '9,10,13,14,15', '4,53,78,83,110,181,191', '22,23', '2021-06-24 22:00:10', '2021-06-24 22:00:10');
 
 -- --------------------------------------------------------
 
@@ -7290,6 +7774,17 @@ CREATE TABLE `suggestions` (
   `capabilities` int(11) NOT NULL,
   `assets` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `suggestions`
+--
+
+INSERT INTO `suggestions` (`id`, `capabilities`, `assets`) VALUES
+(1, 170, '139,142'),
+(2, 172, '139,142'),
+(3, 171, '139,142'),
+(5, 494, '146,127,132,135'),
+(6, 493, '102,314,121,124');
 
 -- --------------------------------------------------------
 
@@ -7588,13 +8083,16 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `user_type`, `designation`, `department`, `fname`, `lname`, `father_name`, `cv`, `profile`, `phone`, `cnic`, `address`, `email`, `email_verified_at`, `password`, `dob`, `joining`, `signature`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, 1, 'Imtiaz', 'Ahmed', 'Ghulam Hussain', NULL, '1623065535.png', '+923016236150', '38403-6480748-5', 'House No. 324, Block R3, Johar Town Lahore', 'imtiaz@aimscal.com', NULL, '$2y$10$R5NCcC7wWwFjVU3Dftn8ce5rsLmKn7GnNaLM6UtSom.9QiWpJ9zB2', '1972-04-04', '2017-01-01', '1624355771-imtiaz sign.jpg', '1bIhQ3euWgsPM1wezfUVosKr6TBpACfiRZnlAmassbtHgi1EuvYgT630VY83', '2020-10-10 03:35:24', '2021-06-22 21:56:11'),
-(19, 1, 1, 7, 'Muhammad', 'Azeem', 'Mansab Ali', NULL, '1623213572.png', '03040647306', '33100-1231231-7', 'Nishat Mills Faisalabad', 'emazeem07@gmail.com', NULL, '$2y$10$sSdmMbwDbzeBqdhLvnglJejjmhD2dK6DquWgSSNjqQo4Yf/CuCct2', '1998-08-13', '2020-09-13', '1623386360-azeem signature.png', '9bpGYOelprmjjy5N8BIDTXPZSfUMZrXbmE8Bskv0b5Tme8ReWFgC0ceYFdsk', NULL, '2021-06-17 23:40:59'),
+(19, 1, 1, 7, 'Muhammad', 'Azeem', 'Mansab Ali', NULL, '1624595040.png', '03040647306', '33100-1231231-7', 'Nishat Mills Faisalabad', 'emazeem07@gmail.com', NULL, '$2y$10$sSdmMbwDbzeBqdhLvnglJejjmhD2dK6DquWgSSNjqQo4Yf/CuCct2', '1998-08-13', '2020-09-13', '1623386360-azeem signature.png', 'wGZrmbWZvlBaOUOk45IbE42rIzlsN1vFDfEWiPI5l7uyqg5KM6R7xSf1rM0M', NULL, '2021-06-25 16:24:00'),
 (20, 8, 7, 3, 'Riaz', 'Ahmad', 'Khushi Muhammad', NULL, '1624444046.png', '03010002467', '42401-7450240-1', 'Al Hafiz Town, 80 ft Road Maraghzar Colony Multan Road Lahore', 'tm@aimscal.com', NULL, '$2y$10$xJZwTy9Cosw.j8CcnDexT.ClYlaE5db4X2HtgqgZwrEJE4kfgRQOe', '1975-05-03', '2017-09-23', '1624355817-riaz sign.jpg', NULL, '2021-06-19 16:48:15', '2021-06-23 22:31:29'),
 (21, 7, 16, 6, 'Ahmed', 'Raza', 'Muhammad Azam', NULL, NULL, '03124310035', '34202-1128221-5', 'Gujrat Pakistan', 'acc.aimscal2021@gmail.com', NULL, '$2y$10$AVaDMfoO4J7zNpD6h/hCweN.ZkkE7Kqif8MvkSFSVuIX5Nsg5zRau', '2002-06-01', '2020-09-07', '1624444344-Document 17_1.jpg', NULL, '2021-06-19 22:17:02', '2021-06-23 22:32:24'),
 (22, 5, 18, 3, 'Tanveer', 'Hussain', 'Jahangir Hussain', NULL, NULL, '03124364710', '35202-4390615-5', 'Mahe Road, Sara-e-Alamgir, Gujrat, Pakistan', 'paripakar94@gmail.com', NULL, '$2y$10$9F/ao6s/bz6lSvmfF7Af.ujYSHxF3Oykbk82sHBKT8QXvX1plKIRq', '1994-07-10', '2016-11-01', '', NULL, '2021-06-21 16:42:09', '2021-06-21 16:42:09'),
-(23, 6, 9, 3, 'Taimoor', 'Hassan', 'Imtiaz Ahmed', NULL, NULL, '03027694833', '38403-1086570-7', 'H#324, Block R3, M.A Johar town, Lahore, Pakistan', 'taimur2299@gmail.com', NULL, '$2y$10$QZKlnSKUco4e3EmxYM9vOu8g30.ML6g0Hii4bpzcb6bgaHquiQ1Ba', '1998-04-14', '2017-04-01', '', 'aJBzVBMLhTJa6RFQS0LZ1nu4nH5rdZpMWcAJY2CQgyrHJlZNvkZoOF3vsxd4', '2021-06-22 18:57:48', '2021-06-22 18:57:48'),
+(23, 6, 9, 3, 'Taimoor', 'Hassan', 'Imtiaz Ahmed', NULL, NULL, '03027694833', '38403-1086570-7', 'H#324, Block R3, M.A Johar town, Lahore, Pakistan', 'taimur2299@gmail.com', NULL, '$2y$10$QZKlnSKUco4e3EmxYM9vOu8g30.ML6g0Hii4bpzcb6bgaHquiQ1Ba', '1998-04-14', '2017-04-01', '', 'EVYUctu86xlbuZzlkva5ZwM6zGhKPY1SJzGs4qXshSWTCQ2588Z0QqrV2qd6', '2021-06-22 18:57:48', '2021-06-22 18:57:48'),
 (24, 9, 13, 4, 'Nazir', 'Hussain', 'Muhammad Shaffiq', NULL, NULL, '03228017815', '35201-1543555-5', '26 KM main feroz pur road kana Lahore', 'aimscal2020@gmail.com', NULL, '$2y$10$KATrebFyDNzNzlLm4vr65uPpDhMkmh3x3X4Zi.UCxdYRU686hUwUG', '1988-03-15', '2020-09-16', '', NULL, '2021-06-23 23:29:19', '2021-06-23 23:35:08'),
-(25, 2, 7, 3, 'Shahzad', 'Ahmed', 'Muhammad Siddique', '1624450505-Shahzad-CV-(24-6-2020).pdf', '1624450955.png', '+923014743861', '35202-3478576-3', '58, B-Block, OPF Society, Lahore, Pakistan', 'shahzad@aimscal.com', NULL, '$2y$10$lDwpuUY.YBZi8LtqahthY.Ic1QPkkbHSQGjs9Jk2k34UfWtiGkTNW', '1975-07-17', '2016-07-16', '1624450505-Shahzad Ahmed.jpg', NULL, '2021-06-24 00:15:05', '2021-06-24 00:22:35');
+(25, 2, 7, 3, 'Shahzad', 'Ahmed', 'Muhammad Siddique', '1624450505-Shahzad-CV-(24-6-2020).pdf', '1624450955.png', '+923014743861', '35202-3478576-3', '58, B-Block, OPF Society, Lahore, Pakistan', 'shahzad@aimscal.com', NULL, '$2y$10$lDwpuUY.YBZi8LtqahthY.Ic1QPkkbHSQGjs9Jk2k34UfWtiGkTNW', '1975-07-17', '2016-07-16', '1624450505-Shahzad Ahmed.jpg', NULL, '2021-06-24 00:15:05', '2021-06-24 00:22:35'),
+(26, 6, 18, 3, 'Khalid', 'Hussain', 'Ali Ahmed', NULL, NULL, '03235710339', '33100-3315996-9', 'Chak No 190 R.B, Tehsil & Distt Faisalabad', 'khalid.aimscal@gmail.com', NULL, '$2y$10$KLjacztqu.0j9tLbOSHLFeCwpxlYDFMDnfbj6IK9k0qTQYozQ4UhW', '1973-02-05', '2018-07-10', '1624689656-Khalid.png', NULL, '2021-06-26 18:40:56', '2021-06-26 18:40:56'),
+(27, 5, 10, 3, 'Ahmad', 'Baksh', 'Muhammad Ramzan', NULL, NULL, '03020002467', '33202-6072126-7', 'Moza Aura Sharif, Muzafar Garh-Johar Abad Road, Tehsil & Distt Jhang', 'ahmedbaksh.aimscal@gmail.com', NULL, '$2y$10$JQVjJUTYkcShFvVV4gxUOO0m5kTQmApJ5msFpbhg86WnWzhCvl8TW', '1989-12-10', '2017-09-13', '1624691144-Ahmad Baksh.png', NULL, '2021-06-26 19:05:43', '2021-06-26 19:05:44'),
+(28, 5, 10, 3, 'Muhammad', 'Aqib', 'Ghulam Mustafa', NULL, NULL, '03060644366', '33100-8818301-9', 'Chak No 225 R.B., Ahmad Nager, House # 214, Faisalabad', 'aqib.aimscal@gmail.com', NULL, '$2y$10$gZkiqG2S0oIaRRjMyt2zeOc8TzibppLnBu2poPvEOwq2lGY350qTq', '2000-03-06', '2019-08-17', '1624691688-Aqib.png', NULL, '2021-06-26 19:14:48', '2021-06-26 19:17:20');
 
 -- --------------------------------------------------------
 
@@ -7844,6 +8342,18 @@ ALTER TABLE `expenses`
 -- Indexes for table `formsandformats`
 --
 ALTER TABLE `formsandformats`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gate_passes`
+--
+ALTER TABLE `gate_passes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gate_pass_items`
+--
+ALTER TABLE `gate_pass_items`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -8225,7 +8735,7 @@ ALTER TABLE `zvalues`
 -- AUTO_INCREMENT for table `acc_level_fours`
 --
 ALTER TABLE `acc_level_fours`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=503;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=507;
 
 --
 -- AUTO_INCREMENT for table `acc_level_ones`
@@ -8249,7 +8759,7 @@ ALTER TABLE `acc_level_twos`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1116;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1433;
 
 --
 -- AUTO_INCREMENT for table `assetgroups`
@@ -8267,7 +8777,7 @@ ALTER TABLE `assets`
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `business_lines`
@@ -8279,7 +8789,7 @@ ALTER TABLE `business_lines`
 -- AUTO_INCREMENT for table `capabilities`
 --
 ALTER TABLE `capabilities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1176;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1189;
 
 --
 -- AUTO_INCREMENT for table `capabilitiesgroups`
@@ -8297,13 +8807,13 @@ ALTER TABLE `cost_centers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=263;
 
 --
 -- AUTO_INCREMENT for table `customer_contacts`
 --
 ALTER TABLE `customer_contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=796;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=810;
 
 --
 -- AUTO_INCREMENT for table `dataentries`
@@ -8315,7 +8825,7 @@ ALTER TABLE `dataentries`
 -- AUTO_INCREMENT for table `delivery_notes`
 --
 ALTER TABLE `delivery_notes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `departments`
@@ -8340,6 +8850,18 @@ ALTER TABLE `empcontracts`
 --
 ALTER TABLE `formsandformats`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `gate_passes`
+--
+ALTER TABLE `gate_passes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gate_pass_items`
+--
+ALTER TABLE `gate_pass_items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `generaldataentries`
@@ -8399,7 +8921,7 @@ ALTER TABLE `inventorycategories`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `invoice_vs_receipts`
@@ -8417,25 +8939,25 @@ ALTER TABLE `inv_payments`
 -- AUTO_INCREMENT for table `jobitems`
 --
 ALTER TABLE `jobitems`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `journals`
 --
 ALTER TABLE `journals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `journal_details`
 --
 ALTER TABLE `journal_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `leave_applications`
@@ -8543,7 +9065,7 @@ ALTER TABLE `preventivemaintenancerecords`
 -- AUTO_INCREMENT for table `procedures`
 --
 ALTER TABLE `procedures`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `purchaseindentitems`
@@ -8573,13 +9095,13 @@ ALTER TABLE `quoterevisionlogs`
 -- AUTO_INCREMENT for table `quotes`
 --
 ALTER TABLE `quotes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `quote_items`
 --
 ALTER TABLE `quote_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
 
 --
 -- AUTO_INCREMENT for table `requisitions`
@@ -8603,7 +9125,7 @@ ALTER TABLE `scope_of_supplies`
 -- AUTO_INCREMENT for table `site_plans`
 --
 ALTER TABLE `site_plans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sops`
@@ -8621,7 +9143,7 @@ ALTER TABLE `spectrophotometerentries`
 -- AUTO_INCREMENT for table `suggestions`
 --
 ALTER TABLE `suggestions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `uncertainties`
@@ -8639,7 +9161,7 @@ ALTER TABLE `units`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `vendors`

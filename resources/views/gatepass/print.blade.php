@@ -62,9 +62,9 @@
         <div class="col-12 d-flex justify-content-between">
             <p class="float-left"><b>Returnable</b> <input type="checkbox" checked></p>
             <p class="float-left"><b>Non-Returnable</b> <input type="checkbox"></p>
-            <p class="float-left"><b>Date In :</b> <span class="custom-bottom-border">{{$gp->in->format('d-m-Y')}}</span></p>
+            <p class="float-left"><b>Date In :</b> <span class="custom-bottom-border">{{$gp->in?$gp->in->format('d-m-Y'):null}}</span></p>
             <p class="float-left"><b>Received Back By :</b> <span class="custom-bottom-border">{{$gp->inreceivedby->fname.' '.$gp->inreceivedby->lname}}</span></p>
-            <p class="float-left"><b>Time In :</b> <span class="custom-bottom-border">{{$gp->in->format('h:i A')}}</span></p>
+            <p class="float-left"><b>Time In :</b> <span class="custom-bottom-border">{{$gp->in?$gp->in->format('h:i A'):null}}</span></p>
         </div>
     </div>
     <div class="col-12 text-center">
