@@ -63,17 +63,17 @@
           <entry key="css" value="375" />
           <entry key="html" value="580" />
           <entry key="js" value="8" />
-          <entry key="php" value="93794" />
+          <entry key="php" value="93837" />
           <entry key="txt" value="2232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="56711" />
+          <entry key="Blade" value="56712" />
           <entry key="CSS" value="376" />
           <entry key="HTML" value="630" />
           <entry key="JavaScript" value="8" />
-          <entry key="PHP" value="37032" />
+          <entry key="PHP" value="37074" />
           <entry key="PLAIN_TEXT" value="2232" />
         </counts>
       </usages-collector>
@@ -82,7 +82,7 @@
           <entry key="css" value="19" />
           <entry key="html" value="16" />
           <entry key="js" value="8" />
-          <entry key="php" value="1533" />
+          <entry key="php" value="1535" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -92,7 +92,7 @@
           <entry key="CSS" value="19" />
           <entry key="HTML" value="16" />
           <entry key="JavaScript" value="8" />
-          <entry key="PHP" value="674" />
+          <entry key="PHP" value="676" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -106,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/capabilities/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="136" selection-start-line="136" selection-end-line="136" />
+            <state relative-caret-position="66">
+              <caret line="179" column="67" selection-start-line="179" selection-start-column="50" selection-end-line="179" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -115,8 +115,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/suggestions/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="63" column="54" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="54" />
+            <state relative-caret-position="748">
+              <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="105" column="103" selection-start-line="105" selection-start-column="103" selection-end-line="105" selection-end-column="103" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TaskController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -124,8 +142,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="69" column="110" selection-start-line="69" selection-start-column="110" selection-end-line="69" selection-end-column="110" />
+            <state relative-caret-position="385">
+              <caret line="265" column="34" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -159,7 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>change</find>
       <find>changep</find>
       <find>change_p</find>
       <find>set_profile</find>
@@ -189,6 +206,7 @@
       <find>print_gat</find>
       <find>gate</find>
       <find>$plan</find>
+      <find>respective-assets</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -262,7 +280,6 @@
         <option value="$PROJECT_DIR$/resources/views/my_task/index_site.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/JobController.php" />
         <option value="$PROJECT_DIR$/app/Models/SitePlan.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/GatePass.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/GatePassController.php" />
         <option value="$PROJECT_DIR$/resources/views/gatepass/print.blade.php" />
@@ -272,6 +289,7 @@
         <option value="$PROJECT_DIR$/resources/views/capabilities/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SuggestionController.php" />
         <option value="$PROJECT_DIR$/resources/views/suggestions/index.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php" />
       </list>
     </option>
@@ -761,12 +779,12 @@
       <workItem from="1623840445522" duration="37265000" />
       <workItem from="1623941508779" duration="53112000" />
       <workItem from="1624180767625" duration="48584000" />
-      <workItem from="1624422314266" duration="53036000" />
+      <workItem from="1624422314266" duration="53952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="665396000" />
+    <option name="totallyTimeSpent" value="666312000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -942,13 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/assign_item/sitejob.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1078,13 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="270" selection-start-line="270" selection-end-line="270" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -1149,20 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/capabilities/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/suggestions/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="63" column="54" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1177,10 +1167,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="89" column="20" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/capabilities/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="179" column="67" selection-start-line="179" selection-start-column="50" selection-end-line="179" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/suggestions/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="105" column="103" selection-start-line="105" selection-start-column="103" selection-end-line="105" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapabilitiesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="69" column="110" selection-start-line="69" selection-start-column="110" selection-end-line="69" selection-end-column="110" />
+        <state relative-caret-position="385">
+          <caret line="265" column="34" selection-start-line="265" selection-start-column="34" selection-end-line="265" selection-end-column="34" />
         </state>
       </provider>
     </entry>

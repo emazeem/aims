@@ -60,9 +60,7 @@
                 .then((willDelete) => {
                     if (willDelete) {
                         e.preventDefault();
-
                         var id = $(this).attr('data-id');
-
                         var token = '{{csrf_token()}}';
                         e.preventDefault();
                         var request_method = $("#suggestionform"+id).attr("method");

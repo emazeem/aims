@@ -39,6 +39,7 @@ class CapabilitiesController extends Controller
         if ($ip=='127.0.0.1'){
             $data=Capabilities::with('parameters')->where('is_group',0)->get()->take(10);
         }
+        $data=Capabilities::with('parameters')->where('is_group',0)->get();
         return DataTables::of($data)
             ->addColumn('@', function ($data) {
                 if ($data->group_id!=null){
@@ -259,13 +260,16 @@ class CapabilitiesController extends Controller
         foreach (Asset::all() as $asset){
             if ($asset->other_parameter){
                 if (in_array($id,explode(',',$asset->other_parameter))){
-                    $ids[]=$asset->parameter;
+                    $ids[]=$asset->id;
                 }
+            }
+            if ($asset->parameter==$id){
+                $ids[]=$asset->id;
             }
         }
 
         $ids=array_unique($ids);
-        $assets=Asset::whereIn('parameter',$ids)->get();
+        $assets=Asset::whereIn('id',$ids)->get();
         return response()->json($assets);
     }
     //
