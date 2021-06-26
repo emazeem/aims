@@ -41,7 +41,7 @@ class SitePlanController extends Controller
     public function show($id){
         $this->authorize('site-receiving-index');
         $site=SitePlan::find($id);
-        $items=QuoteItem::whereIn('id',[$site->quote_items])->get();
+        $items=QuoteItem::whereIn('id',explode(',',$site->quote_items))->get();
         $sitejobs=Jobitem::where('job_id',$site->job_id)->where('type',1)->get();
         return view('site_receiving.show',compact('site','items','sitejobs'));
     }
