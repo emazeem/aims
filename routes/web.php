@@ -370,7 +370,7 @@ Route::group(['prefix'=> 'certificates'],function() {
 });
 Route::group(['prefix'=> 'suggestions'],function() {
     Route::post('create',[App\Http\Controllers\SuggestionController::class, 'create'])->middleware('auth')->name('suggestions.create');
-    Route::post('delete',[App\Http\Controllers\SuggestionController::class, 'destroy'])->middleware('auth')->name('suggestions.delete');
+    Route::delete('delete',[App\Http\Controllers\SuggestionController::class, 'destroy'])->middleware('auth')->name('suggestions.delete');
 });
 Route::group(['prefix'=> 'invoicing-ledger'],function() {
     Route::get('',[App\Http\Controllers\InvoicingLedgerController::class, 'index'])->middleware('auth')->name('invoicing_ledger');

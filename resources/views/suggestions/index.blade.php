@@ -50,7 +50,7 @@
                 $('select[name="assets[]"]').empty();
             }
         });
-        $(document).on('click', '.delete-suggestions', function (e) {
+        $(document).on('click','.delete-suggestions', function (e) {
             swal({
                 title: "Are you sure to delete this suggestion?",
                 icon: "warning",
@@ -61,15 +61,14 @@
                     if (willDelete) {
                         e.preventDefault();
                         var id = $(this).attr('data-id');
+                        alert(id);
                         var token = '{{csrf_token()}}';
                         e.preventDefault();
-                        var request_method = $("#suggestionform"+id).attr("method");
-                        var form_data = $("#suggestionform" + id).serialize();
                         $.ajax({
                             url: "{{route('suggestions.delete')}}/",
-                            type: request_method,
+                            type: 'DELETE',
                             dataType: "JSON",
-                            data: form_data,
+                            data: {'id': id, _token: token},
                             success: function (data) {
 
                                 swal('success', data.success, 'success').then((value) => {

@@ -63,12 +63,8 @@ class CapabilitiesController extends Controller
                         $sug.=Asset::find($asset)->name.'<b>( '.Asset::find($asset)->code.' )</b><br>';
                     }
                     if (Auth::user()->can('delete-suggestions')){
-                        $sug.="</small><a class=\"float-right text-danger delete-suggestions\" data-id='{$data->id}' href=\"javascript:void(0)\"><i
-                                                    class=\"fa fa-trash\"></i></a><form id=\"suggestionform$data->id\" method=\"post\" role='form'>
-                      <input name=\"_token\" type=\"hidden\" value=\"$token\">
-                      <input name=\"id\" type=\"hidden\" value=\"$suggestion->id\">
-                      <input name=\"_method\" type=\"hidden\" value=\"POST\">
-                      </form>";
+                        $sug.="</small><a class=\"float-right text-danger delete-suggestions\" data-id='{$suggestion->id}' href=\"javascript:void(0)\"><i
+                                            class=\"fa fa-trash\"></i></a>";
                     }
                     $sug.='</div>';
                 }
