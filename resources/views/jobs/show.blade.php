@@ -20,17 +20,20 @@
                 @endcan
                 @can('print-delivery-note')
                     @if($job->status==2)
-                            <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
-                               href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
-                                        class="fa fa-print"></i> Merge DN</a>
-                        @endif
+                        <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                           href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print'
+                           class='pull-left btn btn-sm btn-info'><i
+                                    class="fa fa-print"></i> Merge DN</a>
+                    @endif
                     @if($job->status==1)
-                    <a data-toggle="modal" data-target="#add_delivery_note" href class='pull-left btn btn-sm btn-success'><i
-                                class="feather icon-plus-circle"></i> DN</a>
+                        <a data-toggle="modal" data-target="#add_delivery_note" href
+                           class='pull-left btn btn-sm btn-success'><i
+                                    class="feather icon-plus-circle"></i> DN</a>
                     @endif
                     @foreach($job->dn as $dn)
                         <a onclick="window.open('{{url('/delivery_note/print/DN/'.$dn->id)}}','newwindow','width=1100,height=1000');return false;"
-                           href="{{url('/delivery_note/print/DN/'.$dn->id)}}" title='Print' class='pull-left btn btn-sm btn-info'><i
+                           href="{{url('/delivery_note/print/DN/'.$dn->id)}}" title='Print'
+                           class='pull-left btn btn-sm btn-info'><i
                                     class="fa fa-print"></i> {{$dn->cid}}</a>
 
                     @endforeach
@@ -192,39 +195,37 @@
                     window.location.href = 'https://' + url + '/' + type + '/' + id;
                 }, 2000);
             });
-            $("#add_delivery_note_form").on('submit',(function(e) {
+            $("#add_delivery_note_form").on('submit', (function (e) {
                 e.preventDefault();
                 var val = [];
                 $('.delivery_items:checked').each(function (i) {
                     val[i] = $(this).attr('data-id');
                 });
                 $('#delivery_item_id').val(val);
-                var button=$('.delivery-note-add-btn');
-                var previous=$(button).html();
-                button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                var button = $('.delivery-note-add-btn');
+                var previous = $(button).html();
+                button.attr('disabled', 'disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
                 $.ajax({
                     url: "{{route('delivery_note.store')}}",
                     type: "POST",
-                    data:  new FormData(this),
+                    data: new FormData(this),
                     contentType: false,
                     cache: false,
-                    processData:false,
-                    success: function(data)
-                    {
-                        button.attr('disabled',null).html(previous);
-                        swal('success',data.success,'success').then((value) => {
+                    processData: false,
+                    success: function (data) {
+                        button.attr('disabled', null).html(previous);
+                        swal('success', data.success, 'success').then((value) => {
                             $('#add_delivery_note').modal('hide');
                             location.reload();
                         });
 
                     },
-                    error: function(xhr)
-                    {
+                    error: function (xhr) {
 
-                        button.attr('disabled',null).html(previous);
-                        var error='';
+                        button.attr('disabled', null).html(previous);
+                        var error = '';
                         $.each(xhr.responseJSON.errors, function (key, item) {
-                            error+=item;
+                            error += item;
                         });
                         swal("Failed", error, "error");
                     }
@@ -343,8 +344,11 @@
                                                 <p class="m-0">↪ <b>Make : </b>{{$labjob->make}}</p>
                                                 <p class="m-0">↪ <b>Model : </b>{{$labjob->model}}</p>
                                                 <p class="m-0">↪ <b>Accessories : </b>{{$labjob->accessories}}</p>
-                                                <p class="m-0">↪ <b>Visual Inspection : </b>{{$labjob->visual_inspection}}</p>
-                                                <p class="m-0">↪ <b>Receiving By : </b>{{$labjob->receiving_user->fname}} {{$labjob->receiving_user->lname}}</p>
+                                                <p class="m-0">↪ <b>Visual Inspection
+                                                        : </b>{{$labjob->visual_inspection}}</p>
+                                                <p class="m-0">↪ <b>Receiving By
+                                                        : </b>{{$labjob->receiving_user->fname}} {{$labjob->receiving_user->lname}}
+                                                </p>
                                             @endif
                                             @if($labjob->status<2)
                                                 <span class="badge badge-info px-3 py-2 m-1">Not Assigned yet</span>
@@ -391,53 +395,61 @@
             <div class="tab-pane fade" id="site" role="tabpanel" aria-labelledby="site-tab">
                 @if(count($job->siteplanings)>0)
                     @foreach($job->siteplanings as $k=>$siteplaning)
-                        <div class="col-12 card bg-light">
+                        <div class="col-12 card bg-light row">
                             <div class="card-header">
                                 <h4 class="font-weight-light card-title float-left">Planning # {{$k+1}}</h4>
                                 @can('create-gate-pass')
-                                    <button type="button" class="btn btn-sm btn-primary shadow-sm float-right add-gate-pass" data-id="{{$siteplaning->id}}"><i class="feather icon-plus-circle"></i> Gate Pass</button>
+                                    <button type="button"
+                                            class="btn btn-sm btn-primary shadow-sm float-right add-gate-pass"
+                                            data-id="{{$siteplaning->id}}"><i class="feather icon-plus-circle"></i> Gate
+                                        Pass
+                                    </button>
                                 @endcan
                             </div>
                             <div class="table-responsive mb-2">
                                 @can('print-gate-pass')
                                     @if(count($siteplaning->gatepasses)>0)
-                                <table class="table bg-white table-bordered table-hover table-sm">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Date/Time Out</th>
-                                        <th>Date/Time In</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($siteplaning->gatepasses as $gatepass)
-                                        <tr>
-                                            <td>{{$gatepass->cid}}</td>
-                                            <td>{{$gatepass->out->format('d-m-Y h:i A')}}</td>
-                                            <td>{{$gatepass->in?$gatepass->in->format('d-m-Y h:i A'):''}}</td>
-                                            <td>
-                                                <?php
-                                                $showgp=true;
-                                                    foreach ($gatepass->gpitems as $i){
-                                                        if ($i->out_fcb==null){
-                                                            $showgp=false;
+                                        <table class="table bg-white table-bordered table-hover table-sm">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date/Time Out</th>
+                                                <th>Date/Time In</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($siteplaning->gatepasses as $gatepass)
+                                                <tr>
+                                                    <td>{{$gatepass->cid}}</td>
+                                                    <td>{{$gatepass->out->format('d-m-Y h:i A')}}</td>
+                                                    <td>{{$gatepass->in?$gatepass->in->format('d-m-Y h:i A'):''}}</td>
+                                                    <td>
+                                                        <?php
+                                                        $showgp = true;
+                                                        foreach ($gatepass->gpitems as $i) {
+                                                            if ($i->out_fcb == null) {
+                                                                $showgp = false;
+                                                            }
                                                         }
-                                                    }
-                                                ?>
-                                            @if($showgp==true)
-                                                <a title='Gatepass'
-                                                   onclick="window.open('{{url('gate_pass/print/'.$gatepass->id)}}','newwindow','width=1100,height=1000');return false;"
-                                                   class='btn btn-sm btn-info' href="{{url('gate_pass/print/'.$gatepass->id)}}"><i class="fa fa-print"></i></a>
-                                                    <button class="btn btn-sm btn-success gp-item-receive" data-id="{{$gatepass->id}}"> GP Receiving <i class="feather icon-chevron-down"></i></button>
-                                                @endif
+                                                        ?>
+                                                        @if($showgp==true)
+                                                            <a title='Gatepass'
+                                                               onclick="window.open('{{url('gate_pass/print/'.$gatepass->id)}}','newwindow','width=1100,height=1000');return false;"
+                                                               class='btn btn-sm btn-info'
+                                                               href="{{url('gate_pass/print/'.$gatepass->id)}}"><i
+                                                                        class="fa fa-print"></i></a>
+                                                            <button class="btn btn-sm btn-success gp-item-receive"
+                                                                    data-id="{{$gatepass->id}}"> GP Receiving <i
+                                                                        class="feather icon-chevron-down"></i></button>
+                                                        @endif
 
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    @endif
                                 @endcan
                             </div>
                             <div class="table-responsive mb-2">
@@ -528,8 +540,11 @@
                                                 <p class="m-0">↪ <b>Make : </b>{{$sitejob->make}}</p>
                                                 <p class="m-0">↪ <b>Model : </b>{{$sitejob->model}}</p>
                                                 <p class="m-0">↪ <b>Accessories : </b>{{$sitejob->accessories}}</p>
-                                                <p class="m-0">↪ <b>Visual Inspection : </b>{{$sitejob->visual_inspection}}</p>
-                                                <p class="m-0">↪ <b>Receiving By : </b>{{$sitejob->receiving_user->fname}} {{$sitejob->receiving_user->lname}}</p>
+                                                <p class="m-0">↪ <b>Visual Inspection
+                                                        : </b>{{$sitejob->visual_inspection}}</p>
+                                                <p class="m-0">↪ <b>Receiving By
+                                                        : </b>{{$sitejob->receiving_user->fname}} {{$sitejob->receiving_user->lname}}
+                                                </p>
                                             @endif
 
 
