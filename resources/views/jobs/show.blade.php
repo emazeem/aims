@@ -400,6 +400,7 @@
                             </div>
                             <div class="table-responsive mb-2">
                                 @can('print-gate-pass')
+                                    @if(count($siteplaning->gatepasses)>0)
                                 <table class="table bg-white table-bordered table-hover table-sm">
                                     <thead>
                                     <tr>
@@ -436,6 +437,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                        @endif
                                 @endcan
                             </div>
                             <div class="table-responsive mb-2">
