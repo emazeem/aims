@@ -154,17 +154,9 @@ class JobController extends Controller
         $dn=DeliveryNotes::find($dn);
         return view('jobs.deliverynote',compact('job','items','dn'));
     }
-    public function print_jt($loc,$index,$id){
+    public function print_jt($id){
         $tag=Jobitem::find($id);
-        $total=0;
-        $total=count(Jobitem::where('job_id',$tag->job_id)->get()->toArray());
-        $data = [
-            'tag' =>$tag,
-            'index' =>$index,
-            'loc' =>$loc,
-            'total' =>$total,
-        ];
-        return view('jobs.jobtag',compact('tag','index','total','loc'));
+        return view('jobs.jobtag',compact('tag'));
     }
     public function store(Request $request){
         $job = new Job();

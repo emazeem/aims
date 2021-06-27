@@ -279,7 +279,7 @@
                     <div class="col-12">
                         @php $sr=0; @endphp
                         <div class="row">
-                            @foreach($labjobs as $labjob)
+                            @foreach($labjobs as $k=>$labjob)
                                 <div class="col-md-4 col-12 mt-1">
                                     <div class="card">
                                         <div class="card-header">
@@ -289,8 +289,7 @@
                                                 @can('create-lab-task-assign')
                                                     <button type="button" data-id="{{$labjob->id}}"
                                                             class="btn btn-sm btn-light border pull-right assign-lab-task">
-                                                        <i
-                                                                class="fa fa-plus-square"></i> Assign
+                                                        <i class="fa fa-plus-square"></i> Assign
                                                     </button>
                                                 @endcan
                                                 @can('lab-item-receiving-update')
@@ -301,6 +300,11 @@
                                                             Receiving</a>
                                                     @endif
                                                 @endcan
+                                                    <a onclick="window.open('{{url('jobs/print/jobtag/'.$labjob->id)}}','newwindow','width=500,height=520');return false;"
+                                                       href="{{url('jobs/print/jobtag/'.$labjob->id)}}"
+                                                       class="btn btn-light border btn-sm"><i
+                                                                class="fa fa-tag"></i>
+                                                    </a>
                                             @endif
                                         </div>
                                         <div class="card-body">
