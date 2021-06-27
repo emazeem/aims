@@ -61,7 +61,6 @@
                     if (willDelete) {
                         e.preventDefault();
                         var id = $(this).attr('data-id');
-                        alert(id);
                         var token = '{{csrf_token()}}';
                         e.preventDefault();
                         $.ajax({
