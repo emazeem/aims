@@ -36,8 +36,13 @@
                 type: "POST",
                 data: {'id': id,_token: '{{csrf_token()}}'},
                 dataType : "json",
+                beforeSend : function()
+                {
+                    $(".loader-gif").fadeIn();
+                },
                 success: function(data)
                 {
+                    $(".loader-gif").hide();
 
                     $('select[name="pay_way"]').empty();
                     if (data.customer_type == 'cash') {

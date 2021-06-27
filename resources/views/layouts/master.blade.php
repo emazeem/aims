@@ -12,7 +12,6 @@
     <meta name="description" content=""/>
     <meta name="keywords" content="">
     <meta name="author" content=""/>
-
     <link rel="icon" href="{{url('img/rubic-logo-favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{url('assets/css/styling.css')}}">
     <link rel="stylesheet" href="{{url('css/styling.css')}}">
@@ -36,6 +35,8 @@
             background:rgba(0,0,0,0.9);
             transition: 1s 0.4s;
             width: 100%;
+            height: 100%;
+            object-fit: cover;
             opacity: 0.9;
             display: none;
         }

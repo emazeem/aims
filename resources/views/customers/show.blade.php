@@ -1,5 +1,5 @@
 <div class="modal fade" id="show-customer" tabindex="-1" role="dialog" aria-labelledby="show-customer" aria-hidden="true">
-    <div class="modal-dialog  modal-xl modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
                 <h5 class="modal-title font-weight-light" id="show-customer"> <i class="feather icon-plus-circle"></i> Show Customer</h5>
@@ -7,8 +7,8 @@
                     <i class="feather icon-x-circle"></i>
                 </button>
             </div>
-            <div class="modal-body">
-                <table class="table text-dark table-sm bg-white table-bordered table-responsive-sm table-hover font-13 customer-show">
+            <div class="modal-body table-responsive">
+                <table class="table text-dark table-sm bg-white table-bordered table-hover font-13 customer-show">
 
                 </table>
             </div>
@@ -26,8 +26,13 @@
                 type: "POST",
                 data: {'id': id,_token: '{{csrf_token()}}'},
                 dataType : "json",
+                beforeSend : function()
+                {
+                    $(".loader-gif").fadeIn();
+                },
                 success: function(data)
                 {
+                    $(".loader-gif").hide();
                     $('#show-customer').modal('toggle');
                     $('.customer-show').empty();
                     $('.customer-show').append(
