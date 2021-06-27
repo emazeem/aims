@@ -21,9 +21,17 @@ class JobController extends Controller
         $assets=Asset::all();
         return view('jobs.index',compact('users','assets'));
     }
-    public function fetch(){
+    public function fetch(Request $request){
         $this->authorize('jobs-index');
-        $data=Job::with('quotes')->get();
+        if ($request->search=='pending'){
+            $data=Job::with('quotes')->where('status',0)->get();
+        }
+        if ($request->search=='completed'){
+            $data=Job::with('quotes')->where('status','>',0)->get();
+        }
+        if ($request->search=='all'){
+            $data=Job::with('quotes')->get();
+        }
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->cid;

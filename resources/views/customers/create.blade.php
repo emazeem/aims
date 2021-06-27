@@ -111,7 +111,7 @@
     <div class="modal-dialog  modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-light">
-                <h5 class="modal-title font-weight-light" id="add-customer"> <i class="feather icon-plus-circle"></i> Add Customer</h5>
+                <h5 class="modal-title font-weight-light" id="add-customer"> <i class="feather icon-plus-circle"></i> Add/Edit Customer</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <i class="feather icon-x-circle"></i>
                 </button>
@@ -120,18 +120,18 @@
                 <form id="add-customer-form" class="row">
                     @csrf
                     <input type="hidden" value="" name="id" id="edit-id">
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="name" class="control-label">Registered Name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Registered Name"
                                autocomplete="off" value="{{old('name')}}">
                     </div>
 
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="ntn" class="control-label">NTN / FTN</label>
                         <input type="text" class="form-control" id="ntn" name="ntn" placeholder="NTN / FTN"
                                autocomplete="off" value="{{old('ntn')}}">
                     </div>
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="region" class="control-label">Select Region</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="region" name="region">
@@ -144,31 +144,31 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="plant" class="control-label">Plant / Stie</label>
                         <input type="text" class="form-control" id="plant" name="plant" placeholder="Plant / Site" autocomplete="off" value="{{old('plant')}}">
                     </div>
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="industry" class="control-label">Industry</label>
                         <input type="text" class="form-control" id="industry" name="industry" placeholder="Industry" autocomplete="off" value="{{old('industry')}}">
                     </div>
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="credit_limit" class="control-label">Credit Limit</label>
                         <input type="text" class="form-control" id="credit_limit" name="credit_limit" placeholder="Credit Limit" autocomplete="off" value="{{old('credit_limit',200000)}}">
                     </div>
-                    <div class="form-group m-0 col-6">
+                    <div class="form-group m-0 col-md-6 col-12">
                         <label for="address" class="control-label">Shipping Address</label>
                         <textarea type="text" class="form-control" rows="1" id="address" name="address"
                                   placeholder="Shipping Address" autocomplete="off">{{old('address')}}</textarea>
                     </div>
-                    <div class="form-group m-0 col-6">
+                    <div class="form-group m-0 col-md-6 col-12">
                         <label for="bill_to_address" class="control-label">Bill to Address</label>
                         <textarea type="text" class="form-control" rows="1" id="bill_to_address" name="bill_to_address"
                                   placeholder="Bill To Address" autocomplete="off">{{old('bill_to_address')}}</textarea>
                     </div>
 
 
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="pay_type" class="control-label">Payment Type</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="pay_type" name="pay_type">
@@ -182,7 +182,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="pay_way" class="control-label">Payment Way</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="pay_way" name="pay_way">
@@ -191,7 +191,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group m-0 col-4">
+                    <div class="form-group m-0 col-md-4 col-12">
                         <label for="tax_case" class="control-label">Tax Case</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="tax_case" name="tax_case">

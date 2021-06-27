@@ -40,7 +40,6 @@
             opacity: 0.9;
             display: none;
         }
-        
     </style>
 
     @include('layouts.menu-list')

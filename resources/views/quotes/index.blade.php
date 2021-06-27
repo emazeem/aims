@@ -28,6 +28,7 @@
                 <option value="all">All Quotes & RFQ</option>
             </select>
         </div>
+
     </div>
 
     <div class="col-lg-12">
@@ -141,6 +142,7 @@
             var search = $(this).val();
             InitTable(search);
         });
+
         $(document).on('click', '.delete', function (e) {
             swal({
                 title: "Are you sure to delete this quote?",
