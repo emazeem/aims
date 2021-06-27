@@ -147,8 +147,13 @@
                 type: "POST",
                 data: {'id': id,_token: '{{csrf_token()}}'},
                 dataType : "json",
+                beforeSend : function()
+                {
+                    $(".loader-gif").fadeIn();
+                },
                 success: function(data)
                 {
+                    $(".loader-gif").hide();
                     $('#edit_capabilities_modal').modal('toggle');
                     $('#edit_id').val(data.id);
                     $('#edit_name').val(data.name);
@@ -225,7 +230,13 @@
                     url: '/units/fetch/previous_units/'+parameter,
                     type: "GET",
                     dataType: "json",
+                    beforeSend : function()
+                    {
+                        $(".loader-gif").fadeIn();
+                    },
+
                     success:function(data) {
+                        $(".loader-gif").hide();
                         $('#edit_unit').empty();
                         $('#edit_unit').append('<option disabled selected>--Select Units</option>');
                         $.each(data['previous'], function(key, value) {

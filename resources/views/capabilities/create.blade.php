@@ -139,10 +139,6 @@
                 contentType: false,
                 cache: false,
                 processData:false,
-                beforeSend : function()
-                {
-                    $(".loader-gif").fadeIn();
-                },
                 statusCode: {
                     401: function () {
                         swal("Failed", "This unit is not under this parameter", "error");
@@ -151,8 +147,6 @@
                 },
                 success: function(data)
                 {
-                    $(".loader-gif").hide();
-
                     button.attr('disabled',null).html(previous);
                     swal('success',data.success,'success').then((value) => {
                         $('#add_capabilities').modal('hide');
@@ -162,7 +156,6 @@
                 },
                 error: function(xhr)
                 {
-                    $(".loader-gif").hide();
                     button.attr('disabled',null).html(previous);
                     var error='';
                     $.each(xhr.responseJSON.errors, function (key, item) {
@@ -180,7 +173,12 @@
                     url: '/units/fetch/previous_units/'+parameter,
                     type: "GET",
                     dataType: "json",
+                    beforeSend : function()
+                    {
+                        $(".loader-gif").fadeIn();
+                    },
                     success:function(data) {
+                        $(".loader-gif").hide();
                         $('#add_unit').empty();
                         $.each(data['previous'], function(key, value) {
                             $('#add_unit').append('<option value="'+value.id+'">'+ value.unit +'</option>');
