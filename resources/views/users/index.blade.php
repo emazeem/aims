@@ -172,11 +172,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-12 text-right">
-                            <button class="btn btn-primary btn-sm authorization-save-btn" type="submit"><i
-                                        class="feather icon-save"></i> Save
-                            </button>
-                        </div>
+                        <button class="btn btn-primary btn-sm authorization-save-btn float-right my-2" type="submit"><i
+                                    class="feather icon-save"></i> Save
+                        </button>
                     </form>
                 </div>
             </div>

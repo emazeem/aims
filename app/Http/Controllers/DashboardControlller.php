@@ -30,6 +30,7 @@ use Stevebauman\Location\Facades\Location;
 class DashboardControlller extends Controller
 {
     public function index(){
+        $this->authorize('dashboard-index');
         //$columns = Schema::getColumnListing('journals');
         //dd($columns);
 
