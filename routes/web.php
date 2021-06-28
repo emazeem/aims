@@ -4,7 +4,6 @@ Route::get('optimize', function () {
     \Artisan::call('optimize');
     dd("Done");
 });
-
 Route::get('/home', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth');
 Route::get('/', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth')->name('home');
 Route::post('/get-location', [App\Http\Controllers\DashboardControlller::class, 'get_location'])->middleware('auth')->name('dashboard.get.location');
@@ -93,6 +92,11 @@ Route::group(['prefix'=> 'users'],function() {
     Route::get('/fetch/designation/{id}',[App\Http\Controllers\UserController::class, 'fetchDesignation'])->middleware('auth')->name('users.fetch.designation');
     Route::get('/list/of/employment',[App\Http\Controllers\UserController::class, 'list_of_employees'])->middleware('auth')->name('users.list.of.employees');
 });
+Route::group(['prefix'=> 'user_vs_parameter'],function() {
+    Route::post('store',[App\Http\Controllers\ParameterAuthorizationController::class, 'store'])->middleware('auth')->name('authorization.store');
+    Route::delete('delete',[App\Http\Controllers\ParameterAuthorizationController::class, 'delete'])->middleware('auth')->name('authorization.destroy');
+});
+
 Route::group(['prefix'=> 'capabilities'],function() {
     Route::get('',[App\Http\Controllers\CapabilitiesController::class, 'index'])->middleware('auth')->name('capabilities');
     Route::post('',[App\Http\Controllers\CapabilitiesController::class, 'fetch'])->middleware('auth')->name('capabilities.fetch');

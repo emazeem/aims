@@ -69,6 +69,7 @@ class CapabilitiesController extends Controller
                     $sug.='</div>';
                 }
                 return $sug;
+
             })
             ->addColumn('name', function ($data) {
                 return $data->name;

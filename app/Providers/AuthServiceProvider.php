@@ -696,8 +696,20 @@ class AuthServiceProvider extends ServiceProvider
 
     public function staf()
     {
-        Gate::define('staff-details', function ($user) {
-            if (in_array('staff-details',explode(',',$user->roles->permissions))){
+        Gate::define('staff-index', function ($user) {
+            if (in_array('staff-index',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('add-staff-parameter-authorization', function ($user) {
+            if (in_array('add-staff-parameter-authorization',explode(',',$user->roles->permissions))){
+                return true;
+            }
+            return false;
+        });
+        Gate::define('delete-staff-parameter-authorization', function ($user) {
+            if (in_array('delete-staff-parameter-authorization',explode(',',$user->roles->permissions))){
                 return true;
             }
             return false;

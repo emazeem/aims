@@ -53,6 +53,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class);
     }
+    public function parameters()
+    {
+        return $this->belongsToMany('App\Models\Parameter', 'parameter_user');
+    }
     protected static $logAttributes = ['id', 'fname', 'lname','profile','user.cnic','address'];
     protected static $logOnlyDirty = true;
 }

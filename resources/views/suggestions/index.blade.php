@@ -69,11 +69,9 @@
                             dataType: "JSON",
                             data: {'id': id, _token: token},
                             success: function (data) {
-
                                 swal('success', data.success, 'success').then((value) => {
                                     $("#example").DataTable().ajax.reload(null, false);
                                 });
-
                             },
                             error: function () {
                                 swal("Failed", "Unable to delete.", "error");

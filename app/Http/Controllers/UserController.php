@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Attendance;
 use App\Models\Department;
 use App\Models\Designation;
+use App\Models\Parameter;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
@@ -22,7 +24,8 @@ class UserController extends Controller
     public function index(){
         $this->authorize('staff-index');
         //$columns = Schema::getColumnListing('users');
-        return view('users.index');
+        $parameters=Parameter::all();
+        return view('users.index',compact('parameters'));
     }
     public function attendances(){
         $this->authorize('staff-index');
@@ -86,21 +89,39 @@ class UserController extends Controller
                 return $data->phone;
             })
             ->addColumn('designation', function ($data) {
-                $designation=Designation::find($data->designation);
-                return $designation->name;
+                return $data->designations->name;
             })
+            ->addColumn('auth_parameters', function ($data) {
+                $sug=null;
+                foreach ($data->parameters as $paramter){
+                    $delete=null;
+                    if (Auth::user()->can('delete-staff-parameter-authorization')){
+                        $delete='delete-authorization-parameter';
+                    }
+                    $sug.='<small data-id="'.$paramter->id.'" data-user-id="'.$data->id.'" class="p-2 px-2 m-1 '.$delete.' badge bg-danger text-light float-left">';
+                    $sug.=$paramter->name.' <i class="float-right feather icon-delete text-light"></i></small>';
+                }
+                return $sug;
+            })
+
             ->addColumn('department', function ($data) {
                 return $data->departments->name;
             })
             ->addColumn('options', function ($data) {
 
-                return "&emsp;
-                    <a title='Detail' class='btn btn-sm btn-primary' href='" . url('/users/view/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>
-                  <a title='Edit' class='btn btn-sm btn-success' href='" . url('/users/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                  ";
-
+                $action=null;
+                if (Auth::user()->can('staff-view')){
+                    $action.="<a title='Detail' class='btn btn-sm btn-primary' href='" . url('/users/view/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                }
+                if (Auth::user()->can('staff-edit')){
+                    $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/users/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                }
+                if (Auth::user()->can('add-staff-parameter-authorization')){
+                    $action.= '<button data-id="'.$data->id.'" class="btn btn-sm btn-dark add_authorization_btn" data-id="'.$data->id.'"><i class="feather icon-plus-circle"></i> Authorization</button>';
+                }
+                return $action;
             })
-            ->rawColumns(['options'])
+            ->rawColumns(['options','auth_parameters'])
             ->make(true);
 
     }
