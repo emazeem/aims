@@ -9,9 +9,7 @@
         <a href="{{route('users.list.of.employees')}}" class="btn btn-sm btn-warning shadow-sm float-right mt-2"><i class="fa fa-tasks"></i> List of Employees</a>
     </div>
   <div class="col-lg-12">
-
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
-
       <thead>
       <tr>
         <th>Name</th>
@@ -180,7 +178,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 

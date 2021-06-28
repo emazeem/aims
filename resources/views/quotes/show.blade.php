@@ -130,6 +130,51 @@
                     <td><b>Created on</b></td>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
                 </tr>
+                @if($show->status==3)
+                <tr>
+                    <th>Add Attachments</th>
+                    <td>
+                        <form id="quote-attachments-form" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$show->id}}">
+                            <div class="row">
+                                <label for="type_of_attachment"></label>
+                                <select class="form-control col-md-4 col-sm-12 my-sm-2" id="type_of_attachment" name="type_of_attachment">
+                                    <option disabled selected>Select Type of Attachments</option>
+                                    <option value="PO">PO</option>
+                                    <option value="List of Items">List of Items</option>
+                                </select>
+                                <div class="custom-file col-md-4 col-sm-12 my-sm-2">
+                                    <input type="file" class="custom-file-input" name="attachment" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                                <button class="btn rounded col-md-4 col-sm-12 my-sm-2 btn-primary quote-attachment-save-btn" type="submit">Attach Files</button>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+
+                @endif
+                @if(count($show->attachments)>0)
+                    <tr>
+                        <td>Attachments</td>
+                        <td>
+                            @foreach($show->attachments as $attachment)
+                            <div class="row border-bottom">
+                                    <div class="col-2"><a class="btn">{{$attachment->title}}</a></div>
+                                    <div class="col">
+                                        <a href="{{Storage::disk('local')->url('public/quote-attachments/'.$attachment->attachment)}}" target="_blank" class="btn">
+                                            <i class="feather icon-file"></i>
+                                            {{substr($attachment->attachment,10)}} ( {{number_format((Storage::disk('local')->size('public/quote-attachments/'.$attachment->attachment)/1024),2)}} KBs )
+                                        </a>
+                                        <style>.delete-attachment{cursor: pointer}</style>
+                                        <i data-id="{{$attachment->id}}" class="delete-attachment feather icon-x text-danger"></i>
+                                    </div>
+                            </div>
+                            @endforeach
+                        </td>
+                    </tr>
+                @endif
 
             </table>
         </div>
@@ -266,7 +311,7 @@
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <button class="btn btn-primary" type="submit">Discount</button>
+                                        <button class="btn btn-primary " type="submit">Discount</button>
                                     </div>
                                 </div>
                             </form>
@@ -277,6 +322,7 @@
             @endif
             @endif
         </div>
+
     </div>
 
     <div class="row">
@@ -414,6 +460,84 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $(document).on('click','.delete-attachment', function (e) {
+                swal({
+                    title: "Are you sure to delete this attachment?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            e.preventDefault();
+                            var id = $(this).attr('data-id');
+                            var token = '{{csrf_token()}}';
+                            e.preventDefault();
+                            $.ajax({
+                                url: "{{route('quotes.attachments.destroy')}}",
+                                type: 'DELETE',
+                                dataType: "JSON",
+                                data: {'id': id, _token: token},
+                                success: function (data) {
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                    });
+                                },
+                                error: function (data) {
+                                    button.attr('disabled',null).html(previous);
+                                    $(".loader-gif").hide();
+                                    var errors='';
+                                    $.each(data.responseJSON.errors,function (i,v) {
+                                        errors=errors+v[0]+'* ';
+
+                                    });
+                                    swal("Failed", errors, "error");
+                                }
+                            });
+
+                        }
+                    });
+
+            });
+
+
+            $("#quote-attachments-form").on('submit', (function (e) {
+                e.preventDefault();
+                var button=$('.quote-attachment-save-btn');
+                var previous=$('.quote-attachment-save-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                $.ajax({
+                    url: "{{route('quotes.attachments.store')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    beforeSend : function()
+                    {
+                        $(".loader-gif").fadeIn();
+                    },
+                    success: function (data) {
+                        button.attr('disabled',null).html(previous);
+                        $(".loader-gif").hide();
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
+
+                    },
+                    error: function (data) {
+                        button.attr('disabled',null).html(previous);
+                        $(".loader-gif").hide();
+                        var errors='';
+                        $.each(data.responseJSON.errors,function (i,v) {
+                            errors=errors+v[0]+'* ';
+
+                        });
+                        swal("Failed", errors, "error");
+                    }
+                });
+            }));
             $("#edit_na_form").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -445,6 +569,7 @@
                     }
                 });
             }));
+
             $("#quote-approve-form").on('submit', (function (e) {
                 e.preventDefault();
                 var button=$('.approve-quote-save-btn');
@@ -733,4 +858,7 @@
             @endforeach
         </table>
     @endif
+
+
+
 @endsection

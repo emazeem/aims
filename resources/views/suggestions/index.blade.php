@@ -64,7 +64,7 @@
                         var token = '{{csrf_token()}}';
                         e.preventDefault();
                         $.ajax({
-                            url: "{{route('suggestions.delete')}}/",
+                            url: "{{route('suggestions.delete')}}",
                             type: 'DELETE',
                             dataType: "JSON",
                             data: {'id': id, _token: token},

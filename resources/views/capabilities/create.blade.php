@@ -177,6 +177,7 @@
                     {
                         $(".loader-gif").fadeIn();
                     },
+
                     success:function(data) {
                         $(".loader-gif").hide();
                         $('#add_unit').empty();

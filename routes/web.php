@@ -96,8 +96,14 @@ Route::group(['prefix'=> 'user_vs_parameter'],function() {
     Route::post('store',[App\Http\Controllers\ParameterAuthorizationController::class, 'store'])->middleware('auth')->name('authorization.store');
     Route::delete('delete',[App\Http\Controllers\ParameterAuthorizationController::class, 'delete'])->middleware('auth')->name('authorization.destroy');
 });
+Route::group(['prefix'=> 'quote-attachments'],function() {
+    Route::post('store',[App\Http\Controllers\QuotesAttachmentsController::class, 'store'])->middleware('auth')->name('quotes.attachments.store');
+    Route::delete('delete',[App\Http\Controllers\QuotesAttachmentsController::class, 'delete'])->middleware('auth')->name('quotes.attachments.destroy');
+});
+
 
 Route::group(['prefix'=> 'capabilities'],function() {
+
     Route::get('',[App\Http\Controllers\CapabilitiesController::class, 'index'])->middleware('auth')->name('capabilities');
     Route::post('',[App\Http\Controllers\CapabilitiesController::class, 'fetch'])->middleware('auth')->name('capabilities.fetch');
     Route::get('/create',[App\Http\Controllers\CapabilitiesController::class, 'create'])->middleware('auth')->name('capabilities.create');
