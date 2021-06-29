@@ -14,15 +14,15 @@ class ActivityLogController extends Controller
     public function index(){
         return view('activitylog.index');
     }
-    /*public function show(){
+    public function show(){
         $activities = Activity::orderBy('id','DESC')->get();
         return view('activitylog.show',compact('activities'));
     }
-    */
+    /*
     public function show()
     {
         return view('activitylog.show');
-    }
+    }*/
     public function show_fetch(Request $request)
     {
         $activities=Activity::where('id', '>=', ($request->page-1)*10)->limit(10)->get();
