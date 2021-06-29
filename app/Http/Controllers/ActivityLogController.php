@@ -33,7 +33,7 @@ class ActivityLogController extends Controller
     }*/
     public function show_fetch(Request $request)
     {
-        $activities=Activity::where('id', '>=', ($request->page-1)*10)->limit(10)->get();
+        $activities=Activity::orderBy('id', 'desc')->where('id', '>=', ($request->page-1)*10)->limit(10)->get();
         foreach ($activities as $activity) {
             $activity['subject_type']=str_replace('App\Models','',$activity['subject_type']);
             $activity['created']=$activity['created_at']->diffForHumans();
