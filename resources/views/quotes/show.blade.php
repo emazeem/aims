@@ -213,22 +213,22 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="col-12">
-                                <div class="form-group">
-                                        <label for="details">Approval Details</label>
+                                <div class="col-10 mt-md-2">
+                                    <label for="details">Approval Details
+                                        ( PO# for by PO, Email-ID for Email, Name/Phone for by
+                                        phone
+                                        or walk-in )</label>
+                                    <textarea type="text" class="form-control " id="details" name="details"
+                                              placeholder="Details (PO# for by PO, Email-ID for Email, Name/Phone for by phone or walk-in)"
+                                              autocomplete="off"
+                                              rows="2">{{($show->approval_mode_details)?$show->approval_mode_details:""}}</textarea>
 
-                                        <textarea type="text" class="form-control " id="details" name="details"
-                                                  placeholder="Details (PO# for by PO, Email-ID for Email, Name/Phone for by phone or walk-in)"
-                                                  autocomplete="off"
-                                                  rows="2">{{($show->approval_mode_details)?$show->approval_mode_details:""}}</textarea>
 
-                                        <label for="details">PO# for by PO, Email-ID for Email, Name/Phone for by
-                                            phone
-                                            or walk-in</label>
-                                    </div>
+                                </div>
+                                <div class="col-2 mt-auto">
+                                    <button class="btn btn-primary rounded float-right approve-quote-save-btn" type="submit">{{(empty($show->approval_mode))?"Add":"Update"}} Approval Details</button>
                                 </div>
                             </div>
-                            <button class="btn btn-primary rounded float-right approve-quote-save-btn" type="submit">{{(empty($show->approval_mode))?"Add":"Update"}} Approval Details</button>
                         </form>
                     </td>
                 </tr>
