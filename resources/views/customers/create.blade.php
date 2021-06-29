@@ -55,6 +55,7 @@
                         $('select[name="pay_way"]').append('<option value="60 days">60 days</option>');
                         $('select[name="pay_way"]').append('<option value="120 days">120 days</option>');
                     }
+
                     $('#add-customer').modal('toggle');
                     $('#edit-id').val(data.id);
                     $('#name').val(data.reg_name);
@@ -68,6 +69,7 @@
                     $('#credit_limit').val(data.credit_limit);
                     $('#industry').val(data.industry);
                     $('#plant').val(data.plant);
+                    $('#allowance_applicable').val(data.allowance_applicable);
                 }
             });
         });
@@ -182,6 +184,7 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="form-group m-0 col-md-4 col-12">
                         <label for="pay_way" class="control-label">Payment Way</label>
                         <div class="form-check form-check-inline" style="width: 100%">
@@ -203,7 +206,16 @@
                             </select>
                         </div>
                     </div>
-
+                    <div class="form-group m-0 col-md-4 col-12">
+                        <label for="allowance_applicable" class="control-label">Allowance Applicable</label>
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" id="allowance_applicable" name="allowance_applicable">
+                                <option selected disabled="disabled">--Select Allowance Applicable</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer text-right bg-light">
                 <button type="submit" class="btn btn-sm btn-primary float-right customer-save-btn"><i class="fa fa-save"></i> Save</button>

@@ -81,11 +81,16 @@ class CustomerController extends Controller
         }elseif($show->tax_case==3){
             $tax_case="<b>Case-3 : Income Tax At SOURCE + Service Tax By AIMS</b>";
         }
+        if ($show->allowance_applicable==0){
+            $show->allowance_applicable='NO';
+        }else{
+            $show->allowance_applicable='YES';
+        }
         $show->tax_case=$tax_case;
         $show['contacts']=$show->contacts;
         return response()->json($show);
     }
-    public function fetch(Request $request){
+    public function fetch(){
         $data=Customer::all();
         //dd($data);
         return DataTables::of($data)
@@ -136,6 +141,7 @@ class CustomerController extends Controller
             'plant' => 'required',
             'region' => 'required',
             'tax_case' => 'required',
+            'allowance_applicable' => 'required',
 
         ],[
             'name.required' => 'Company Name field is required *',
@@ -146,6 +152,7 @@ class CustomerController extends Controller
             'pay_way.required' => 'Payment Way field is required *',
             'industry.required' => 'Industry field is required *',
             'credit_limit.required' => 'Credit Limit field is required *',
+            'allowance_applicable.required' => 'Allowance Applicable field is required *',
 
         ]);
         if ($request->id){
@@ -162,6 +169,7 @@ class CustomerController extends Controller
             $customer->region=$request->region;
             $customer->pay_terms=$request->pay_way;
             $customer->bill_to_address=$request->bill_to_address;
+            $customer->allowance_applicable=$request->allowance_applicable;
 
             $customer->save();
             return response()->json(['success'=>'Customer updated successfully']);
@@ -179,6 +187,7 @@ class CustomerController extends Controller
             $customer->region=$request->region;
             $customer->bill_to_address=$request->bill_to_address;
             $customer->pay_terms=$request->pay_way;
+            $customer->allowance_applicable=$request->allowance_applicable;
             $acc = new Chartofaccount();
             $acc->code4 = 000;
             $acc->code3 = 3;
@@ -189,10 +198,8 @@ class CustomerController extends Controller
             $acc->acc_code = 10103 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
             $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
             $acc->save();
-
             $customer->acc_code=$acc->acc_code;
             $customer->save();
-
             return response()->json(['success'=>'Customer added successfully']);
         }
     }

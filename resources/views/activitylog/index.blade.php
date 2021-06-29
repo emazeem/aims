@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('content')
     <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
-
     <style>
         .causer-profile{
             object-fit: cover;
@@ -79,7 +78,7 @@
 
                             '<li class="active-feed">'+
                             '<div class="feed-user-img">'+
-                            '<img src="'+value.profile_path+'" title="'+value.causer_id+'" class="img-radius causer-profile" alt="User-Profile-Image">'+
+                            '<img src="'+value.profile_path+'" title="'+value.causer_id+'" class="img-radius causer-profile" alt="Profile-Img">'+
                             '</div>'+
                             '<h6><span class="badge badge-danger">'+value.description+'</span> '+value.subject_type+'( '+value.subject_id+' ) <small class="text-muted">'+value.created+'</small></h6>'+
                             '<p class="m-t-15">'+
