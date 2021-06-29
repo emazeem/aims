@@ -3,6 +3,9 @@
     <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
 
     <style>
+        .causer-profile{
+            object-fit: cover;
+        }
         .loader {
             border: 10px solid #d8f5f7; /* Light grey */
             border-top: 10px solid #3498db; /* Blue */
@@ -18,55 +21,38 @@
         }
     </style>
     <div class="row">
-        <div class="col-12">
-            <ul class="list-unstyled timeline">
-                @foreach($activities as $activity)
-                    <li>
-                        <div class="block">
-                            <div class="tags">
-                                <a href="" class="tag">
-                                    <span class="text-capitalize">{{$activity->description}}</span>
-                                </a>
-                            </div>
-                            <div class="block_content">
-                                <h2 class="title text-primary">
-                                    <a class="h6">{{$activity->subject_type}}</a>
-                                </h2>
-                                <div class="byline text-danger">
-                                    <small >{{$activity['created_at']->diffForHumans()}} by {{\App\Models\User::find($activity->causer_id)->fname.' '.\App\Models\User::find($activity->causer_id)->lname}}</small>
-                                </div>
-                                <div class="excerpt">
-
-                                    <div class="col-12 p-0 text-info">Subject ⟹ {{$activity->subject_id}}</div>
-                                    <div class="col-12 p-0 small">New Values</div>
-                                    @php $properties=json_decode($activity->properties,true); @endphp
-                                    @foreach($properties['attributes'] as $k=>$property)
-                                        <div class="col-12 p-0 ml-4">
-                                            ↳ <span class="bg-danger text-light px-2">{{$k}}</span> ⟹ <b class="text-danger">{{$property}}</b>
-                                        </div>
-                                    @endforeach
-                                    @if(isset($properties['old']))
-                                        <div class="col-12 p-0 small">Old Values</div>
-                                        @foreach($properties['old'] as $k=>$property)
-                                            <div class="col-12 p-0 ml-4">
-                                                ↳ <span class="bg-danger text-light px-2">{{$k}}</span> ⟹ <span class="text-danger">{{$property}}</span>
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Activity Feed</h5>
+                    <div class="card-header-right">
+                        <div class="btn-group card-option">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="feather icon-more-horizontal"></i>
+                            </button>
+                            <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                                <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                            </ul>
                         </div>
-                    </li>
-                @endforeach
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="feed-blog pl-0">
 
-            </ul>
-            <div class="col-12 ">
-                <div class="mx-auto loader"></div>
+
+                    </ul>
+                    <div class="col-12 ">
+                        <div class="mx-auto loader"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    {{--<script>
+    <script>
 
 
         $(document).ready(function () {
@@ -92,27 +78,34 @@
                 success:function (data) {
 
                     $.each(data, function(key, value) {
-                        $('.list-unstyled').append(
-                            "<li>" +
-                            "<div class='block'> " +
-                            "<div class='tags'> " +
-                            "<a href class='tag'> " +
-                            "<span class='text-capitalize'>"+value.description+" </span>" +
-                            "</a> " +
-                            "</div> " +
-                            "<div class='block_content'> " +
-                            "<h2 class='title text-primary'> " +
-                            "<a class='h6'> </a> " +
-                            "</h2> " +
-                            "<div class='byline text-danger'> " +
-                            "<small > "+value.created_at+" by "+value.causer_id+" </small>" +
-                            "</div>" +
-                            "<div class='excerpt'>" +
-                            "<div class='col-12 p-0 text-info'>Subject ⟹ </div> " +
-                            "</div>" +
-                            "</div>" +
-                            "</div>" +
-                            "</li>"
+                        var new_values='';
+                        $.each(value['new'],function (i,v) {
+                            new_values=new_values+'<p class="text-muted m-b-0"><small>'+i+'<i class="feather icon-chevron-right text-danger"></i> '+v+'</small></p>';
+                        });
+                        var old_values='';
+                        $.each(value['old'],function (i,v) {
+                            old_values=old_values+'<p class="text-muted m-b-0"><small>'+i+' <i class="feather icon-chevron-right text-danger"></i> '+v+'</small></p>';
+                        });
+
+                        $('.feed-blog').append(
+
+                        '<li class="active-feed">'+
+                            '<div class="feed-user-img">'+
+                            '<img src="'+value.profile_path+'" class="img-radius causer-profile" alt="User-Profile-Image">'+
+                            '</div>'+
+                            '<h6><span class="badge badge-danger">'+value.description+'</span> '+value.subject_type+'( '+value.subject_id+' ) <small class="text-muted">'+value.created+'</small></h6>'+
+                        '<p class="m-t-15">'+
+                            '<b>By '+value.causer_id+'</b><br>'+
+                        '</p>'+
+                        '<div class="row">'+
+                            '<div class="col-auto">'+
+                            '<h6 class="m-t-15 m-b-0">Old Data</h6>'+old_values+
+                        '</div>'+
+                        '<div class="col-auto">'+
+                            '<h6 class="m-t-15 m-b-0">New Data</h6>'+new_values+
+                        '</div>'+
+                        '</div>'+
+                        '</li>'
                         );
                     });
                 }
@@ -120,5 +113,4 @@
 
         }
     </script>
-    --}}
 @endsection
