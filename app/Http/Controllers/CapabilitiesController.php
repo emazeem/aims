@@ -55,12 +55,14 @@ class CapabilitiesController extends Controller
                 }
             })
             ->addColumn('suggestions', function ($data) {
-                /*$sug=null;
-                $token=csrf_token();
+                $sug=null;
                 foreach ($data->suggestions as $k=>$suggestion){
                     $sug.='<div class="col-12 py-1"><small class="badge bg-danger text-light">';
                     foreach(explode(',',$suggestion->assets) as $asset){
-                        $sug.=Asset::find($asset)->name.'<b>( '.Asset::find($asset)->code.' )</b><br>';
+                        $as=Asset::findOrFail($asset);
+                        if (isset($as)){
+                            $sug.=$as->name.'<b>( '.$as->code.' )</b><br>';
+                        }
                     }
                     if (Auth::user()->can('delete-suggestions')){
                         $sug.="</small><a class=\"float-right text-danger delete-suggestions\" data-id='{$suggestion->id}' href=\"javascript:void(0)\"><i
@@ -68,9 +70,7 @@ class CapabilitiesController extends Controller
                     }
                     $sug.='</div>';
                 }
-                */
-                return 1;
-                //return $sug;
+                return $sug;
 
             })
             ->addColumn('name', function ($data) {
