@@ -55,7 +55,7 @@ class CapabilitiesController extends Controller
                 }
             })
             ->addColumn('suggestions', function ($data) {
-                $sug=null;
+                /*$sug=null;
                 $token=csrf_token();
                 foreach ($data->suggestions as $k=>$suggestion){
                     $sug.='<div class="col-12 py-1"><small class="badge bg-danger text-light">';
@@ -68,7 +68,9 @@ class CapabilitiesController extends Controller
                     }
                     $sug.='</div>';
                 }
-                return $sug;
+                */
+                return 1;
+                //return $sug;
 
             })
             ->addColumn('name', function ($data) {
