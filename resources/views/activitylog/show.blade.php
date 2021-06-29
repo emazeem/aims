@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-12">
             <ul class="list-unstyled timeline">
-{{--                @foreach($activities as $activity)
+                @foreach($activities as $activity)
                     <li>
                         <div class="block">
                             <div class="tags">
@@ -57,7 +57,8 @@
                             </div>
                         </div>
                     </li>
-                @endforeach--}}
+                @endforeach
+
             </ul>
             <div class="col-12 ">
                 <div class="mx-auto loader"></div>
@@ -65,7 +66,7 @@
         </div>
     </div>
 
-    <script>
+    {{--<script>
 
 
         $(document).ready(function () {
@@ -119,4 +120,5 @@
 
         }
     </script>
+    --}}
 @endsection

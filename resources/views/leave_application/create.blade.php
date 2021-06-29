@@ -5,12 +5,11 @@
             $(document).ready(function () {
                 swal("Success", "{{session('success')}}", "success");
             });
-
         </script>
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Add Employee Leave Application</h3>
+            <h3 class="font-weight-light"><i class="feather icon-plus-circle"></i> Add Employee Leave Application</h3>
         </div>
         <div class="col-md-8 col-12">
             <form action="{{route('leave_application.store')}}" method="post" enctype="multipart/form-data">
