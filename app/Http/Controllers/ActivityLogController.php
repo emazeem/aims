@@ -15,23 +15,7 @@ class ActivityLogController extends Controller
     public function index(){
         return view('activitylog.index');
     }
-    public function show(){
-
-
-
-
-
-        $activities = Activity::orderBy('id','DESC')->get();
-
-        return view('activitylog.show',compact('activities'));
-    }
-
-
-    /*public function show()
-    {
-        return view('activitylog.show');
-    }*/
-    public function show_fetch(Request $request)
+    public function fetch(Request $request)
     {
         $activities=Activity::orderBy('id', 'desc')->where('id', '>=', ($request->page-1)*10)->limit(10)->get();
         foreach ($activities as $activity) {
@@ -47,38 +31,12 @@ class ActivityLogController extends Controller
                     $activity['old']=$property;
                 }
             }
-            $activity['profile_path']=Storage::disk('local')->url('profile/'.$activity->causers->id.'/'.$activity->causers->profile);
+            if ($activity->causers->profile){
+                $activity['profile_path']=Storage::disk('local')->url('profile/'.$activity->causers->id.'/'.$activity->causers->profile);
+            }else{
+                $activity['profile_path']=url('img/profile.png');
+            }
         }
         return response()->json($activities);
     }
-
-    public function fetch(){
-        $data=Activity::all();
-        return DataTables::of($data)
-            ->addColumn('id', function ($data) {
-                return $data->id;
-            })
-            ->addColumn('description', function ($data) {
-                return $data->description;
-            })
-            ->addColumn('subject_id', function ($data) {
-                return $data->subject_id;
-            })
-            ->addColumn('subject_type', function ($data) {
-                return $data->subject_type;
-            })
-            ->addColumn('causer_id', function ($data) {
-                return User::find($data->causer_id)->fname.' '.User::find($data->causer_id)->lname;
-            })
-            ->addColumn('properties', function ($data) {
-                return $data->properties;
-            })
-            ->addColumn('created_at', function ($data) {
-                return $data->created_at;
-            })
-            ->rawColumns(['options'])
-            ->make(true);
-    }
-
-    //
 }
