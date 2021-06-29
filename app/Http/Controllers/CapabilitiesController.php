@@ -59,7 +59,7 @@ class CapabilitiesController extends Controller
                 foreach ($data->suggestions as $k=>$suggestion){
                     $sug.='<div class="col-12 py-1"><small class="badge bg-danger text-light">';
                     foreach(explode(',',$suggestion->assets) as $asset){
-                        $as=Asset::findOrFail($asset);
+                        $as=Asset::find($asset);
                         if (isset($as)){
                             $sug.=$as->name.'<b>( '.$as->code.' )</b><br>';
                         }
