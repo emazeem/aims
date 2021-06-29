@@ -112,8 +112,43 @@
                         <td>{{$show->turnaround}} working days</td>
                     </tr>
                 @endif
+                @if($show->status==0)
+                    <tr>
+                        <th>Remarks and Turnaround</th>
+                        <td>
+                            <form id="rfq-remarks-form" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$show->id}}">
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="font-italic form-group p-0 m-0">
+                                            <label for="remarks">Remarks (if any)</label>
+                                            <textarea class="form-control " id="remarks" name="remarks" autocomplete="off" placeholder="Enter RFQ Remarks" rows="1"></textarea>
+                                        </div>
+                                    </div>
+                                    <?php $quantity=0;?>
+                                    @foreach($show->items as $q)
+                                        <?php $quantity=$quantity+$q->quantity;?>
+                                    @endforeach
+                                    <div class="col-12 col-md-4">
+                                        <label for="turnaround"><i>Tentative Turnaround</i></label>
+                                        <select class="form-control" id="turnaround" name="turnaround">
+                                            <option disabled selected>--Select Turnaround</option>
+                                            <option value="5" {{($quantity>0 && $quantity<=5)?'selected':''}}>5 working days</option>
+                                            <option value="10" {{($quantity>5 && $quantity<=10)?'selected':''}}>10 working days</option>
+                                            <option value="15" {{($quantity>10 && $quantity<=50)?'selected':''}}>15 working days</option>
+                                            <option value="30" {{($quantity>50)?'selected':''}}>30 working days</option>
+                                        </select>
 
-
+                                    </div>
+                                    <div class="col-12 col-md-2 mt-auto">
+                                        <button class="btn btn-primary rounded remarks-btn" type="submit"><i class="fa fa-save"></i> Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                @endif
                 <tr>
                     <td><b>Created on</b></td>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
@@ -159,64 +194,6 @@
                 </tfoot>
             </table>
         </div>
-        @if($show->status==0)
-            <div class="col-12">
-                <div class="card shadow">
-                    <!-- Card Header - Accordion -->
-                    <a href="#remarks_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                       aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary"> Remarks & Turnaround</h6>
-                    </a>
-                    <div class="collapse" id="remarks_card">
-                        <div class="card-body">
-                            <form action="{{url('/quotes/remarks')}}" method="post">
-                                @csrf
-                                <input type="hidden" name="id" value="{{$show->id}}">
-                                <div class="row">
-                                    <div class="col-12 col-md-5">
-                                        <div class="font-italic form-group p-0 m-0">
-                                            <label for="remarks">Remarks (if any)</label>
-                                            <input type="text" class="form-control " id="remarks" name="remarks" autocomplete="off" value="{{old('remarks')}}" placeholder="Enter RFQ Remarks">
-                                        </div>
-                                        @if ($errors->has('remarks'))
-                                            <span class="text-danger">
-                                            <strong>{{ $errors->first('remarks') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                    <?php $quantity=0;?>
-                                    @foreach($show->items as $q)
-                                        <?php $quantity=$quantity+$q->quantity;?>
-                                    @endforeach
-                                    <div class="col-12 col-md-5">
-                                        <label for="turnaround"><i>Tentative Turnaround</i></label>
-                                        <div class="form-check form-check-inline" style="width: 100%">
-                                            <select class="form-control" id="turnaround" name="turnaround">
-                                                <option disabled selected>--Select Turnaround</option>
-                                                <option value="5" {{($quantity>0 && $quantity<=5)?'selected':''}}>5 working days</option>
-                                                <option value="10" {{($quantity>5 && $quantity<=10)?'selected':''}}>10 working days</option>
-                                                <option value="15" {{($quantity>10 && $quantity<=50)?'selected':''}}>15 working days</option>
-                                                <option value="30" {{($quantity>50)?'selected':''}}>30 working days</option>
-                                            </select>
-                                            @if ($errors->has('turnaround'))
-                                                <span class="text-danger">
-                                                <strong>{{ $errors->first('turnaround') }}</strong>
-                                            </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-2">
-                                        <button class="btn btn-primary mt-4" type="submit"><i class="fa fa-save"></i> Save</button>
-                                    </div>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        @endif
 
     </div>
     <script>
@@ -366,7 +343,6 @@
                     });
 
             });
-
             $(document).on('click', '.edit_multi', function (e) {
                 e.preventDefault();
                 var id=$(this).attr('data-id');
@@ -386,6 +362,36 @@
                     }
                 });
             });
+
+            $("#rfq-remarks-form").on('submit', (function (e) {
+                e.preventDefault();
+                var button=$('.remarks-btn');
+                var previous=$('.remarks-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                $.ajax({
+                    url: "{{route('quotes.remarks')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
+                    },
+                    error: function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
         });
 
     </script>

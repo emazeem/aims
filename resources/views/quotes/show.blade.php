@@ -53,7 +53,7 @@
                 <tr>
                     <td><b>Customer</b></td>
                     <td>
-                        <a href="{{url('/customers/view/'.$show->customers->id)}}">{{$show->customers->reg_name}}</a>
+                        {{$show->customers->reg_name}}
                     </td>
                 </tr>
 
@@ -153,7 +153,6 @@
                         </form>
                     </td>
                 </tr>
-
                 @endif
                 @if(count($show->attachments)>0)
                     <tr>
@@ -175,153 +174,131 @@
                         </td>
                     </tr>
                 @endif
-
-            </table>
-        </div>
-        <div class="col-12">
-            @if($show->status>1)
-            @if($show->status<3)
-                <div class="card shadow">
-                    <!-- Card Header - Accordion -->
-                    <a href="#approval_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                       aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">{{(empty($show->approval_mode))?"Add":"Update"}}
-                            Customer Approval</h6>
-                    </a>
-                    <!-- Card Content - Collapse -->
-                    <div class="collapse" id="approval_card">
-                        <div class="card-body">
-                            <form id="quote-approve-form" method="post">
-                                @csrf
-                                <div class="row">
-                                    <input type="hidden" name="id" value="{{$show->id}}">
-                                    <div class="col-12">
-                                        <div class="font-italic form-group p-0 m-0">
-                                            <label class="" id="approval_date">Approval Date</label>
-                                            <?php $date = date('Y-m-d'); ?>
-                                            <input type="date" class="form-control " id="approval_date"
-                                                   name="approval_date"
-                                                   autocomplete="off"
-                                                   value="{{($show->approval_date)?$show->approval_date:$date}}">
-                                        </div>
-
-                                        <label id="mode">Approval Mode</label>
-
-                                        <div class="form-check form-check-inline" style="width: 100%">
-                                            <select class="form-control col-12 " id="mode" name="mode">
-                                                <option disabled selected>Select Mode of Approval</option>
-                                                <option value="By Email" {{($show->approval_mode=="By Email")?"selected":""}}>
-                                                    By Email
-                                                </option>
-                                                <option value="By Phone" {{($show->approval_mode=="By Phone")?"selected":""}}>
-                                                    By Phone
-                                                </option>
-                                                <option value="By PO" {{($show->approval_mode=="By PO")?"selected":""}}>
-                                                    By PO
-                                                </option>
-                                                <option value="By Walk-in" {{($show->approval_mode=="By Walk-in")?"selected":""}}>
-                                                    By Walk-in
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group mt-2">
-                                            <label id="details">Approval Details</label>
-
-                                            <textarea type="text" class="form-control " id="details" name="details"
-                                                      placeholder="Details (PO# for by PO, Email-ID for Email, Name/Phone for by phone or walk-in)"
-                                                      autocomplete="off"
-                                                      rows="5">{{($show->approval_mode_details)?$show->approval_mode_details:""}}</textarea>
-
-                                            <label id="details">PO# for by PO, Email-ID for Email, Name/Phone for by
-                                                phone
-                                                or walk-in</label>
-                                        </div>
+                @if($show->status>1)
+                @if($show->status<3)
+                <tr>
+                    <th>{{(empty($show->approval_mode))?"Add":"Update"}}
+                        Customer Approval</th>
+                    <td>
+                        <form id="quote-approve-form" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$show->id}}">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group p-0 m-0">
+                                        <label for="approval_date">Approval Date</label>
+                                        <?php $date = date('Y-m-d'); ?>
+                                        <input type="date" class="form-control col" id="approval_date"
+                                               name="approval_date"
+                                               autocomplete="off"
+                                               value="{{($show->approval_date)?$show->approval_date:$date}}">
                                     </div>
                                 </div>
-                                <button class="btn btn-primary approve-quote-save-btn" type="submit">{{(empty($show->approval_mode))?"Add":"Update"}} Approval Details</button>
-                            </form>
+                                <div class="col-md-6 col-12">
 
-                        </div>
-                    </div>
-                </div>
-                <div class="card shadow">
-                    <!-- Card Header - Accordion -->
-                    <a href="#purchase_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                       aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary">{{(count($purchase)==0)?'Add':'Update'}}
-                            Purchase Details</h6>
-                    </a>
-                    <!-- Card Content - Collapse -->
-                    <div class="collapse" id="purchase_card">
-                        <div class="card-body">
-                            <ul>
+                                    <label for="mode">Approval Mode</label>
+                                    <select class="form-control" id="mode" name="mode">
+                                        <option disabled selected>Select Mode of Approval</option>
+                                        <option value="By Email" {{($show->approval_mode=="By Email")?"selected":""}}>
+                                            By Email
+                                        </option>
+                                        <option value="By Phone" {{($show->approval_mode=="By Phone")?"selected":""}}>
+                                            By Phone
+                                        </option>
+                                        <option value="By PO" {{($show->approval_mode=="By PO")?"selected":""}}>
+                                            By PO
+                                        </option>
+                                        <option value="By Walk-in" {{($show->approval_mode=="By Walk-in")?"selected":""}}>
+                                            By Walk-in
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                <div class="form-group">
+                                        <label for="details">Approval Details</label>
+
+                                        <textarea type="text" class="form-control " id="details" name="details"
+                                                  placeholder="Details (PO# for by PO, Email-ID for Email, Name/Phone for by phone or walk-in)"
+                                                  autocomplete="off"
+                                                  rows="2">{{($show->approval_mode_details)?$show->approval_mode_details:""}}</textarea>
+
+                                        <label for="details">PO# for by PO, Email-ID for Email, Name/Phone for by
+                                            phone
+                                            or walk-in</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary rounded float-right approve-quote-save-btn" type="submit">{{(empty($show->approval_mode))?"Add":"Update"}} Approval Details</button>
+                        </form>
+                    </td>
+                </tr>
+                    <tr>
+                        <th>
+                            Add Purchase Details
+                            <br>
+                            <ol>
                                 @foreach($show->customers->contacts as $contact)
                                     @if($contact->type=='purchase')
-                                        <li>{{$contact->name.' '.$contact->email.' '.$contact->phone}}</li>
+                                        <li class="font-weight-light">{!! $contact->name.' <i class="text-danger"> > </i> '.$contact->email.' <i class="text-danger"> > </i> '.$contact->phone!!}</li>
                                     @endif
                                 @endforeach
-                            </ul>
-                            <form action="{{url('quotes/purchase_details')}}" id="add-purchase-form" method="post">
+                            </ol>
+                        </th>
+                        <td><form action="{{url('quotes/purchase_details')}}" id="add-purchase-form" method="post">
                                 @csrf
                                 <input type="hidden" value="{{$show->customers->id}}" name="customer">
                                 <div class="row ">
-                                    <div class="col-8 bg-white">
-                                        <label for="purchase" class="col-form-label">Purchase Contact</label>
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="purchase" name="pur_name"
                                                    placeholder="Name">
                                         </div>
-                                        <div class="form-group">
+                                    </div>
+                                    <div class="col-md-3 col-12">
+                                    <div class="form-group">
                                             <input type="text" class="form-control" id="pur_phone"
                                                    name="pur_phone"
                                                    placeholder="Phone">
                                         </div>
+                                    </div>
+                                    <div class="col-md-3 col-12">
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="purchase" name="pur_email"
                                                    placeholder="Email">
                                         </div>
-                                        <div class="text-right">
-                                            <button class="btn btn-primary add-purchase-btn" type="submit">{{(count($purchase)==0)?'Add':'Update'}} Purchase Details</button>
-                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-12">
+                                        <button class="btn rounded btn-primary add-purchase-btn" type="submit">Add Purchase Details</button>
                                     </div>
 
-
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="card shadow">
-                    <!-- Card Header - Accordion -->
-                    <a href="#discount_card" class="d-block card-header py-3" data-toggle="collapse" role="button"
-                       aria-expanded="true" aria-controls="collapseCardExample">
-                        <h6 class="m-0 font-weight-bold text-primary"> Apply Discount</h6>
-                    </a>
-                    <!-- Card Content - Collapse -->
-                    <div class="collapse" id="discount_card">
-                        <div class="card-body">
-                            <form action="{{route('quotes.discount')}}" method="post">
+                            </form></td>
+                    </tr>
+                    <tr>
+                        <th>Apply Discount</th>
+                        <td>
+                            <form id="discount-form" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$show->id}}">
                                 <div class="row py-3">
-                                    <div class="col-6">
+                                    <div class="col-md-4 col-12">
                                         <div class="font-italic form-group p-0 m-0">
                                             <input type="text" class="form-control " id="discount" name="discount"
                                                    autocomplete="off" value="" placeholder="Enter % of Discount">
                                         </div>
                                     </div>
-                                    <div class="col-4">
-                                        <button class="btn btn-primary " type="submit">Discount</button>
+                                    <div class="col-md-4 col-12">
+                                        <button class="btn btn-primary rounded discount-btn" type="submit">Discount</button>
                                     </div>
                                 </div>
                             </form>
-
-                        </div>
-                    </div>
-                </div>
-            @endif
-            @endif
+                        </td>
+                    </tr>
+                @endif
+                    @endif
+            </table>
         </div>
+
 
     </div>
 
@@ -538,6 +515,38 @@
                     }
                 });
             }));
+            $("#discount-form").on('submit', (function (e) {
+                e.preventDefault();
+                var button=$('.discount-btn');
+                var previous=$('.discount-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                $.ajax({
+                    url: "{{route('quotes.discount')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
+
+                    },
+                    error: function (data) {
+                        button.attr('disabled',null).html(previous);
+                        var errors='';
+                        $.each(data.responseJSON.errors,function (i,v) {
+                            errors=errors+v[0]+'* ';
+
+                        });
+                        swal("Failed", errors, "error");
+                    }
+                });
+            }));
+
             $("#edit_na_form").on('submit', (function (e) {
                 e.preventDefault();
                 $.ajax({

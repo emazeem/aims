@@ -279,6 +279,8 @@ class QuotesController extends Controller
     public function purchase_details(Request $request){
         $this->validate(request(), [
             'pur_name' => 'required',
+            'pur_email'=>'required_without:pur_phone',
+            'pur_phone'=>'required_without:pur_email',
         ],[
             'pur_name.required' => 'Purchase Name field is required *',
         ]);
@@ -294,29 +296,19 @@ class QuotesController extends Controller
     public function approval_details(Request $request){
         //$this->authorize('quote-print-details');
         $session=Quotes::find($request->id);
-        if (isset($request->mode)){
-            $this->validate(request(),[
-                'mode'=>'required',
-                'details'=>'required',
-                'approval_date'=>'required',
-            ]);
-            $session->approval_mode=($request->mode)?$request->mode:null;
-            $session->approval_mode_details=($request->details)?$request->details:null;
-            $session->approval_date=$request->approval_date;
-        }
+        $this->validate(request(),[
+            'mode'=>'required',
+            'details'=>'required',
+            'approval_date'=>'required',
+        ],[
+            'mode.required'=>'RFQ Approval mode field is required. *',
+            'details.required'=>'RFQ Approval details are required. *',
+        ]);
+        $session->approval_mode=($request->mode)?$request->mode:null;
+        $session->approval_mode_details=($request->details)?$request->details:null;
+        $session->approval_date=$request->approval_date;
+
         $session->save();
-        /*if (isset($request->pur_name)){
-            $this->validate(request(),[
-                'pur_name'=>'required',
-                'pur_phone_1'=>'required',
-                'pur_email'=>'required',
-            ]);
-            $customer=Customer::find($session->customer_id);
-            $customer->pur_name=($request->pur_name)?$request->pur_name:null;
-            $customer->pur_phone=$request->pur_phone_1."-".$request->pur_phone_2;
-            $customer->pur_email=($request->pur_email)?$request->pur_email:null;
-            $customer->save();
-        }*/
         return response()->json(['success'=>'Quote details updated successfully']);
     }
 
@@ -427,6 +419,9 @@ class QuotesController extends Controller
         return response()->json(['success'=>'Quote is marked as sent to customer']);
     }
     public function discount(Request $request){
+        $this->validate($request,[
+           'discount'=>'required'
+        ]);
         $items=QuoteItem::where('quote_id',$request->id)->get();
         foreach ($items as $item){
             if ($item->status==0 || $item->status==2){
@@ -445,7 +440,7 @@ class QuotesController extends Controller
         $revision=Quotes::find($request->id);
         $revision->revision=$revision->revision+1;
         $revision->save();
-        return back()->with('success', 'Discount added successfully');
+        return response()->json(['success'=>'Discount applied successfully']);
     }
     public function remarks(Request $request){
         $this->validate(request(),[
@@ -455,7 +450,7 @@ class QuotesController extends Controller
         $quote->remarks=($request->remarks)?$request->remarks:null;
         $quote->turnaround=$request->turnaround;
         $quote->save();
-        return back()->with('success', 'Remarks & Turnaround added successfully');
+        return response()->json(['success'=>'Remarks & Turnaround added successfully']);
     }
     public function destroy(Request $request){
         QuoteItem::where('quote_id',$request->id)->delete();
