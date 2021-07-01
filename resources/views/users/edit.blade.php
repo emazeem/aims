@@ -18,6 +18,18 @@
 
             <form class="form-horizontal" action="{{url('/users/update/'.$edit->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
+                <div class="form-group row">
+
+                    <label for="cid" class="col-sm-2 control-label">Employee ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="cid" name="cid" placeholder="Employee ID" autocomplete="off" value="{{old('cid',$edit->cid)}}">
+                        @if ($errors->has('cid'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('cid') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
 
                 <div class="form-group mt-md-4 row">
 
@@ -55,6 +67,7 @@
                         @endif
                     </div>
                 </div>
+
 
                 <div class="form-group row">
 

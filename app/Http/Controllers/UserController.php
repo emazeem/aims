@@ -23,7 +23,6 @@ class UserController extends Controller
 {
     public function index(){
         $this->authorize('staff-index');
-
         //$columns = Schema::getColumnListing('users');
         $parameters=Parameter::all();
         return view('users.index',compact('parameters'));
@@ -169,7 +168,11 @@ class UserController extends Controller
         $user->address=$request->address;
         $user->designation=$request->designation;
         $user->department=$request->department;
+        $user->cid='E-000';
         $user->save();
+        $user->cid='E-'.str_pad($user->id, 3, '0', STR_PAD_LEFT);
+        $user->save();
+
         $activity = Activity::all()->last();
         $activity->description;
         if (isset($request->cv)){
@@ -204,6 +207,7 @@ class UserController extends Controller
             'dob' => 'required',
             'joining' => 'required',
             'roles' => 'required',
+            'cid' => 'required',
         ],[
             'fname.required' => 'First Name field is required *',
             'lname.required' => 'Last Name field is required *',
@@ -217,6 +221,7 @@ class UserController extends Controller
             'department.required' => 'Department field is required *',
             'joining.required' => 'Joining field is required *',
             'roles.required' => 'Roles field is required *',
+            'cid.required' => 'Employee ID field is required *',
         ]);
 
         $user=User::find($id);
@@ -236,6 +241,7 @@ class UserController extends Controller
         $user->address=$request->address;
         $user->designation=$request->designation;
         $user->department=$request->department;
+        $user->cid=$request->cid;
         $user->save();
         if (isset($request->cv)){
             $user=User::find($user->id);
