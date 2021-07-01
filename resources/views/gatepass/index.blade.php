@@ -24,7 +24,7 @@
                     $('#gp_items').empty();
                         $.each(data['assets'],function (i,v) {
                        $('#gp_items').append(
-                            '<option value="'+v.id+'">'+v.name+'-'+v.code+'</option> '
+                            '<option value="'+v.id+'" selected>'+v.name+'-'+v.code+'</option> '
                        );
                     });
 

@@ -369,8 +369,6 @@ class QuotesController extends Controller
         $approval->status=3;
         $approval->type=$type;
         $approval->save();
-
-
         $users = User::whereIn('user_type', [1,8])->get();
         $url = '/quotes/view/'.$approval->id;
         $message = collect(['title' => 'RFQ has been approved','by'=>auth()->user()->id, 'body' => \auth()->user()->fname.' '.\auth()->user()->lname.' has approved '.$approval->cid, 'redirectURL' => $url]);
