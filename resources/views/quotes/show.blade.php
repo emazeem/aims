@@ -130,7 +130,7 @@
                     <td><b>Created on</b></td>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
                 </tr>
-                @if($show->status==3)
+                @if($show->status>=2)
                 <tr>
                     <th>Add Attachments</th>
                     <td>

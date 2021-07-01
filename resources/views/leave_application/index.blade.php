@@ -3,20 +3,27 @@
     <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
         <div class="col-12">
-            <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> All Leave Applications</h3>
-            <a href="{{route('leave_application.create')}}" class="btn btn-sm float-right btn-primary shadow-sm"><i
+            <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> My Leave Applications</h3>
+            <div class="form-check form-check-inline float-right">
+                <label for="search"></label>
+                <select class="form-control form-control-sm" id="search" name="search">
+                    <option value="my">My Leaves</option>
+                    @can('all-leave-applications')
+                        <option value="all">All Leaves</option>
+                    @endcan
+                </select>
+            </div>
+            <a href="{{route('leave_application.create')}}" class="btn btn-sm float-right btn-primary shadow-sm mr-2"><i
                         class="fa fa-plus-circle"></i> Leave Application</a>
         </div>
         <div class="col-lg-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" width="100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Nature of Leave</th>
                     <th>Type of Leave</th>
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From-To</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -24,12 +31,10 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Nature of Leave</th>
                     <th>Type of Leave</th>
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From-To</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -38,7 +43,7 @@
         </div>
     </div>
     <script>
-        function InitTable() {
+        function InitTable(filter) {
             $('#example').DataTable({
                 responsive: true,
                 "bDestroy": true,
@@ -51,21 +56,23 @@
                     "url": "{{ route('leave_application.fetch') }}",
                     "dataType": "json",
                     "type": "POST",
-                    "data": {_token: "{{csrf_token()}}"}
+                    "data": {'filter':filter,_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
                     {"data": "name"},
                     {"data": "nature"},
                     {"data": "type"},
-                    {"data": "from"},
-                    {"data": "to"},
+                    {"data": "from-to"},
                     {"data": "options", "orderable": false},
                 ]
             });
         }
         $(document).ready(function () {
-            InitTable();
+            InitTable('my');
+            $('select[name="search"]').on('change', function() {
+                var search = $(this).val();
+                InitTable(search);
+            });
         });
     </script>
 @endsection

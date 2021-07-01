@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(session('success'))
         <script>
             $(document).ready(function () {
@@ -10,20 +11,22 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom"><i class="fa fa-plus-circle"></i> Edit Employee Leave Application</h3>
+            <h3 class="float-left font-weight-light"><i class="feather icon-plus-circle"></i> Edit Employee Leave Application</h3>
         </div>
         <div class="col-md-8 col-12">
-            <form action="{{route('leave_application.update')}}" method="post" enctype="multipart/form-data">
+            <form id="application-form" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" value="{{$edit->id}}" name="id">
                 <div class="row">
                     <div class="col-12 mb-1">
                         <label for="employee">Select Employee</label>
+
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="employee" name="employee">
+
                                 <option selected disabled="">Select Employee</option>
                                 @foreach($employees as $employee)
-                                    <option value="{{$employee->id}}" {{$edit->appraisal_id=$employee->id?'selected':''}}>{{$employee->fname}} {{$employee->lname}}</option>
+                                    <option value="{{$employee->id}}" {{$edit->user_id==$employee->id?'selected':''}}>{{$employee->fname}} {{$employee->lname}}</option>
                                 @endforeach
                             </select>
                             @if ($errors->has('employee'))
@@ -60,7 +63,7 @@
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="nature_of_leave" name="nature_of_leave">
                                 <option selected disabled="">Select Nature of Leave</option>
-                                @foreach($natures as $nature)
+                                @foreach($natures->child as $nature)
                                     <option value="{{$nature->slug}}" {{$edit->nature_of_leave==$nature->slug?'selected':''}}>{{$nature->name}}</option>
                                 @endforeach
                             </select>
@@ -126,7 +129,7 @@
 
                 </div>
                 <div class="text-right my-3">
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Update</button>
+                    <button class="btn btn-primary save-application-btn" type="submit"><i class="fa fa-save"></i> Update</button>
                 </div>
             </form>
         </div>
@@ -141,6 +144,38 @@
                     $('.type_time').hide();
                 }
             });
+
+            $("#application-form").on('submit',(function(e) {
+                var button=$('.save-application-btn');
+                var previous=$('.save-application-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('leave_application.update')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then((value) => {
+                            window.location.href="{{url('my-leave-applications/show')}}/"+data.id;
+                        });
+                    },
+                    error: function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
         });
     </script>
 @endsection

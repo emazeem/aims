@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -17,21 +17,20 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom pull-left">
-                <i class="fa fa-tasks"></i>
+            <h3 class="float-left font-weight-light">
+                <i class="feather icon-list"></i>
                 Leave Application
             </h3>
             <span class="float-right">
-                <a href="{{route('leave_application.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i></a>
+                <a href="{{route('leave_application.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i> Print</a>
             </span>
         </div>
         <div class="col-12">
 
-            <table class="table table-hover font-13 table-bordered bg-white">
-
+            <table class="table table-hover table-sm table-bordered bg-white">
                 <tr>
                     <th>Full Name</th>
-                    <td>{{$show->appraisal->fname}} {{$show->appraisal->lname}}</td>
+                    <td>{{$show->users->fname}} {{$show->users->lname}}</td>
                 </tr>
                 <tr>
                     <th>Nature of Leave</th>

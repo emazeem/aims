@@ -27,6 +27,7 @@
                     <option value="all">All Jobs</option>
                 </select>
             </div>
+
         </div>
         <div class="col-12">
         <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"

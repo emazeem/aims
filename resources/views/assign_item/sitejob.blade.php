@@ -72,7 +72,7 @@
                 @foreach($items as $item)
                     <tr>
                         <td>{{\App\Models\Job::find($id)->cid}}</td>
-                        <td>{{$item->capability}}{{$item->capabilities->name}}</td>
+                        <td>{{$item->capabilities->name}}</td>
                         <td>{{$item->parameters->name}}</td>
                         <td>{{$item->quantity}}</td>
                     </tr>

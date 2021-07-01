@@ -86,6 +86,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->asset_requisition();
         $this->logreview();
         $this->payment_vouchers();
+        $this->leave_app();
         $this->gatepass();
         //
     }
@@ -112,6 +113,44 @@ class AuthServiceProvider extends ServiceProvider
 
 
     }
+    public function leave_app()
+    {
+        Gate::define('leave-application-index', function ($user) {
+            if (in_array('leave-application-index', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('all-leave-applications', function ($user) {
+            if (in_array('all-leave-applications', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('my-leave-applications', function ($user) {
+            if (in_array('my-leave-applications', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('add-update-my-application', function ($user) {
+            if (in_array('add-update-my-application', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('view-my-applications', function ($user) {
+            if (in_array('view-my-applications', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+
+
+
+
+    }
+
     public function logreview()
     {
         Gate::define('log-reviews', function ($user) {
@@ -673,15 +712,6 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-        Gate::define('leave-application-index', function ($user) {
-            if (in_array('leave-application-index',explode(',',$user->roles->permissions))){
-                return true;
-            }
-            return false;
-        });
-
-
-
     }
 
     public function sop()

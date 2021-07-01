@@ -56,10 +56,10 @@
                     <td>Section</td>
                 </tr>
                 <tr>
-                    <td>{{$show->appraisal->fname.' '.$show->appraisal->lname}}</td>
-                    <td>E-{{$show->appraisal_id}}</td>
-                    <td>{{$show->appraisal->departments->name}}</td>
-                    <td>{{$show->appraisal->designations->name}}</td>
+                    <td>{{$show->users->fname.' '.$show->users->lname}}</td>
+                    <td>E-{{$show->user_id}}</td>
+                    <td>{{$show->users->departments->name}}</td>
+                    <td>{{$show->users->designations->name}}</td>
                 </tr>
             </table>
         </div>
@@ -229,7 +229,7 @@
                     To
                 </div>
                 <div class="col-9 custom-bottom-border">
-                    {{$show->appraisal->fname.' '.$show->appraisal->lname}}
+                    {{$show->users->fname.' '.$show->users->lname}}
                 </div>
             </div>
             <div class="col-6 row">
@@ -237,7 +237,7 @@
                     Employ No.
                 </div>
                 <div class="col-9 custom-bottom-border">
-                    E - {{$show->appraisal_id}}
+                    E - {{$show->user_id}}
                 </div>
             </div>
 

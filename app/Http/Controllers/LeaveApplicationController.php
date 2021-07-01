@@ -7,23 +7,28 @@ use App\Models\LeaveApplication;
 use App\Models\Preference;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class LeaveApplicationController extends Controller
 {
     public function index(){
+        $this->authorize('my-leave-applications');
         return view('leave_application.index');
     }
-
     public function create(){
+        $this->authorize('add-update-my-application');
         $employees=User::all();
-        $natures=Preference::where('category',14)->get();
+        $natures=Preference::where('slug','nature-of-leave-applications')->first();
+        $natures=Preference::with('child')->find($natures->id);
         return view('leave_application.create',compact('employees','natures'));
     }
     public function edit($id){
+        $this->authorize('add-update-my-application');
         $edit=LeaveApplication::find($id);
         $employees=User::all();
-        $natures=Preference::where('category',14)->get();
+        $natures=Preference::where('slug','nature-of-leave-applications')->first();
+        $natures=Preference::with('child')->find($natures->id);
         return view('leave_application.edit',compact('employees','natures','edit'));
 
     }public function prints($id){
@@ -34,9 +39,8 @@ class LeaveApplicationController extends Controller
         $show=LeaveApplication::find($id);
         return view('leave_application.show',compact('show'));
     }
-
-
     public function store(Request $request){
+        $this->authorize('add-update-my-application');
         $this->validate(request(), [
             'employee' => 'required',
             'from' => 'required',
@@ -51,9 +55,8 @@ class LeaveApplicationController extends Controller
                 'type_time' => 'required',
             ]);
         }
-
         $leave=new LeaveApplication();
-        $leave->appraisal_id=$request->employee;
+        $leave->user_id=$request->employee;
         $leave->from=$request->from;
         $leave->to=$request->to;
         $leave->nature_of_leave=$request->nature_of_leave;
@@ -63,10 +66,11 @@ class LeaveApplicationController extends Controller
         $leave->address_contact=$request->address_contact;
         $leave->head_id=1;
         $leave->ceo_id=1;
-        $leave->save();
-        return redirect()->back()->with('success','Leave Application applied successfully. You will be notified soon after action performed');
+        $leave->save();;
+        return response()->json(['success'=>'Leave Application applied successfully. You will be notified soon after action performed','id'=>$leave->id]);
     }
     public function update(Request $request){
+        $this->authorize('add-update-my-application');
         $this->validate(request(), [
             'employee' => 'required',
             'from' => 'required',
@@ -83,7 +87,7 @@ class LeaveApplicationController extends Controller
         }
 
         $leave=LeaveApplication::find($request->id);
-        $leave->appraisal_id=$request->employee;
+        $leave->user_id=$request->employee;
         $leave->from=$request->from;
         $leave->to=$request->to;
         $leave->nature_of_leave=$request->nature_of_leave;
@@ -94,17 +98,24 @@ class LeaveApplicationController extends Controller
         $leave->head_id=1;
         $leave->ceo_id=1;
         $leave->save();
-        return redirect()->back()->with('success','Leave Application updated successfully.');
+        return response()->json(['success'=>'Leave Application updated successfully.','id'=>$leave->id]);
     }
 
-    public function fetch(){
-        $data=LeaveApplication::all();
+    public function fetch(Request $request){
+        $this->authorize('my-leave-applications');
+        if ($request->filter=='my'){
+            $data=LeaveApplication::where('user_id',auth()->user()->id)->get();
+        }
+        if ($request->filter=='all'){
+            $data=LeaveApplication::all();
+        }
+
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->id;
             })
             ->addColumn('name', function ($data) {
-                return $data->appraisal->fname.' '.$data->appraisal->lname;
+                return $data->users->fname.' '.$data->users->lname;
             })
             ->addColumn('nature', function ($data) {
                 $leave=Preference::where('slug',$data->nature_of_leave)->first();
@@ -113,17 +124,18 @@ class LeaveApplicationController extends Controller
             ->addColumn('type', function ($data) {
                 return $data->type_of_leave==1?'Full Day':'Half Time';
             })
-            ->addColumn('from', function ($data) {
-                return $data->from->format('d/m/Y');
-            })
-            ->addColumn('to', function ($data) {
-                return $data->to->format('d/m/Y');
+            ->addColumn('from-to', function ($data) {
+                return $data->from->format('d-m-Y').' '.$data->to->format('d-m-Y');
             })
             ->addColumn('options', function ($data) {
                 $action=null;
-                return "&emsp;                                
-                <a title='Edit' class='btn btn-sm btn-success' href='" . url('/leave-application/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>
-                <a title='Show' class='btn btn-sm btn-warning' href='" . url('/leave-application/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                if (Auth::user()->can('add-update-my-application')){
+                    $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/my-leave-applications/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                }
+                if (Auth::user()->can('view-my-applications')){
+                    $action.="<a title='Show' class='btn btn-sm btn-warning' href='" . url('/my-leave-applications/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                }
+                return $action;
             })
             ->rawColumns(['options'])
             ->make(true);
