@@ -23,6 +23,13 @@ class UserController extends Controller
 {
     public function index(){
         $this->authorize('staff-index');
+        $users=User::all();
+        foreach ($users as $user){
+            $user->cid='E-'.str_pad($user->id, 3, '0', STR_PAD_LEFT);
+            $user->save();
+        }
+        dd($users);
+
         //$columns = Schema::getColumnListing('users');
         $parameters=Parameter::all();
         return view('users.index',compact('parameters'));
