@@ -195,7 +195,7 @@ class CustomerController extends Controller
             $acc->code1 = 1;
             $acc->title = $customer->reg_name;
             $code4=(Chartofaccount::withTrashed()->where('code3',3)->count());
-            $acc->acc_code = 10103 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
+            $acc->acc_code = 10103 .str_pad($code4+1, 3, '0', STR_PAD_LEFT);
             $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
             $acc->save();
             $customer->acc_code=$acc->acc_code;

@@ -27,7 +27,6 @@
                             '<option value="'+v.id+'" selected>'+v.name+'-'+v.code+'</option> '
                        );
                     });
-
                     $.each(data['users'],function (i,v) {
                        $('#handed_over_to').append(
                             '<option value="'+v.id+'">'+v.fname+'-'+v.lname+'</option> '
@@ -140,8 +139,6 @@
                             <label for="time_out">Time OUT</label>
                             <input type="time" class="form-control" id="time_out" name="time_out">
                         </div>
-
-
                     </div>
 
             </div>
