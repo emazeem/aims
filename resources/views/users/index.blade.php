@@ -12,6 +12,7 @@
       <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0" width="100%">
       <thead>
       <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Department</th>
@@ -26,6 +27,7 @@
       </tbody>
       <tfoot>
       <tr>
+          <th>ID</th>
           <th>Name</th>
           <th>Email</th>
           <th>Department</th>
@@ -60,6 +62,7 @@
                 "data":{ _token: "{{csrf_token()}}"}
             },
             "columns": [
+                { "data": "id" },
                 { "data": "name" },
                 { "data": "email" },
                 { "data": "department" },

@@ -77,7 +77,7 @@ class UserController extends Controller
         //dd($data);
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
-                return $data->id;
+                return $data->cid;
             })
             ->addColumn('name', function ($data) {
                 return $data->fname." ".$data->lname;
