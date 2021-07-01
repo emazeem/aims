@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\QuoteReminder::class
+        Commands\QuoteReminder::class,
+        Commands\DatabaseBackUp::class,
         //
     ];
 
@@ -26,7 +27,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('command:quote_reminder')->everySixHours();
+        $schedule->command('command:quote_reminder')->everySixHours();
+        $schedule->command('database:backup')->daily();
     }
 
     /**

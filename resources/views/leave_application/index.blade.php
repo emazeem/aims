@@ -4,15 +4,15 @@
     <div class="row">
         <div class="col-12">
             <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> My Leave Applications</h3>
+            @can('all-leave-applications')
             <div class="form-check form-check-inline float-right">
                 <label for="search"></label>
                 <select class="form-control form-control-sm" id="search" name="search">
                     <option value="my">My Leaves</option>
-                    @can('all-leave-applications')
                         <option value="all">All Leaves</option>
-                    @endcan
                 </select>
             </div>
+            @endcan
             <a href="{{route('leave_application.create')}}" class="btn btn-sm float-right rounded btn-primary shadow-sm mr-2"><i
                         class="feather icon-plus-circle"></i> Leave Application</a>
         </div>

@@ -584,7 +584,7 @@ Route::group(['prefix'=> 'emp_orientation'],function() {
 });
 
 
-Route::group(['prefix'=> 'my-leave-applications'],function() {
+Route::group(['prefix'=> 'leave-applications'],function() {
     Route::get('/',[App\Http\Controllers\LeaveApplicationController::class, 'index'])->middleware('auth')->name('leave_application.index');
     Route::post('',[App\Http\Controllers\LeaveApplicationController::class, 'fetch'])->middleware('auth')->name('leave_application.fetch');
     Route::get('create',[App\Http\Controllers\LeaveApplicationController::class, 'create'])->middleware('auth')->name('leave_application.create');

@@ -129,12 +129,6 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-        Gate::define('my-leave-applications', function ($user) {
-            if (in_array('my-leave-applications', explode(',', $user->roles->permissions))) {
-                return true;
-            }
-            return false;
-        });
         Gate::define('add-update-my-application', function ($user) {
             if (in_array('add-update-my-application', explode(',', $user->roles->permissions))) {
                 return true;

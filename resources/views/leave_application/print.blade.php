@@ -50,14 +50,14 @@
         <div class="row">
             <table class="table table-bordered">
                 <tr>
-                    <td>Employ Name</td>
-                    <td>Employ No.</td>
-                    <td>Department</td>
-                    <td>Section</td>
+                    <th>Employ Name</th>
+                    <th>Employ No.</th>
+                    <th>Department</th>
+                    <th>Section</th>
                 </tr>
                 <tr>
                     <td>{{$show->users->fname.' '.$show->users->lname}}</td>
-                    <td>E-{{$show->user_id}}</td>
+                    <td>{{$show->users->cid}}</td>
                     <td>{{$show->users->departments->name}}</td>
                     <td>{{$show->users->designations->name}}</td>
                 </tr>
@@ -93,19 +93,27 @@
             </div>
         </div>
     </div>
+    <?php
+    $fdate = $show->from;
+    $tdate = $show->to;
+    $datetime1 = new DateTime($fdate);
+    $datetime2 = new DateTime($tdate);
+    $interval = $datetime1->diff($datetime2);
+    $days = $interval->format('%a');
+    ?>
     <div class=" ml-3 font-weight-bold">Leave Schedule:</div>
     <div class="col-12 row p-4">
         <div class="col-4 row">
-            <div class="col-6">From:</div>
+            <div class="col-6 b">From:</div>
             <div class="col-5 custom-bottom-border">{{$show->from->format('d-m-Y')}}</div>
         </div>
         <div class="col-4 row">
-            <div class="col-6">To:</div>
+            <div class="col-6 b">To:</div>
             <div class="col-5 custom-bottom-border">{{$show->to->format('d-m-Y')}}</div>
         </div>
         <div class="col-4 row">
             <div class="col-7">Total No of Leave Days</div>
-            <div class="col-5 custom-bottom-border"></div>
+            <div class="col-5 custom-bottom-border">{{$days+1}}</div>
         </div>
     </div>
     <div class="col-12 p-0">
@@ -160,9 +168,9 @@
         </div>
 
         <div class="col-12 text-center mt-5">
-                <span class="custom-top-border">
-                Applicant Signature / Date
-                </span>
+            <img src="{{Storage::disk('local')->url('public/signature/'.auth()->user()->id.'/'.auth()->user()->signature)}}" width="140" class="img-fluid mb-3 border-bottom pb-3 border-dark mx-5">
+            <br>
+            Applicant Signature / Date
         </div>
 
     </div>

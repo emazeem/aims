@@ -22,6 +22,9 @@
                 Leave Application
             </h3>
             <span class="float-right">
+                @can('add-update-my-application')
+                    <a href="{{url('leave-applications/edit/'.$show->id)}}" class="btn float-right"><i class="feather icon-edit-2"></i> Edit</a>
+                @endcan
                 <a href="{{route('leave_application.print',[$show->id])}}" class="btn btn-success btn-sm"><i class="fa fa-print"></i> Print</a>
             </span>
         </div>

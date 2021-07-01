@@ -10,13 +10,13 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="font-weight-light"><i class="feather icon-plus-circle"></i> Add Employee Leave Application</h3>
+            <h5 class="mb-3 font-weight-light"><i class="feather icon-plus-circle"></i> Add Employee Leave Application</h5>
         </div>
-        <div class="col-md-8 col-12">
+        <div class="col-12">
             <form id="application-form" method="post">
                 @csrf
                 <div class="row">
-                    <div class="col-12 mb-1">
+                    <div class="col-md-4 col-12 mb-1">
                         <label for="employee">Select Employee</label>
                         <input type="hidden" value="{{auth()->user()->id}}" name="employee" id="employee">
                         <div class="form-check form-check-inline" style="width: 100%">
@@ -33,7 +33,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-12 mb-1">
+                    <div class="col-md-4 col-12 mb-1">
                         <label for="from">From</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <input type="date" class="form-control" id="from" placeholder="Enter From Date" name="from" value="{{old('from',date('Y-m-d'))}}">
@@ -44,7 +44,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-12 mb-1">
+                    <div class="col-md-4 col-12 mb-1">
                         <label for="to">To</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <input type="date" class="form-control" id="to" placeholder="Enter To Date" name="to" value="{{old('to',date('Y-m-d'))}}">
@@ -55,7 +55,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-12 mb-1">
+                    <div class="col-md-4 col-12 mb-1">
                         <label for="nature_of_leave">Select Nature of Leave</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="nature_of_leave" name="nature_of_leave">
@@ -71,7 +71,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-12 mb-1">
+                    <div class="col-md-4 col-12 mb-1">
                         <label for="type_of_leave">Select Type of Leave</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="type_of_leave" name="type_of_leave">
@@ -86,7 +86,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-12 mb-1 type_time">
+                    <div class="col-md-4 col-12 mb-1 type_time">
                         <label for="type_time">Select Type Time</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" id="type_time" name="type_time">
@@ -101,7 +101,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-12 mb-1">
+                    <div class="col-md-6 col-12 mb-1">
                         <label for="reason">Reason of Leave</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <textarea type="text" class="form-control" id="reason" placeholder="Enter Reason of Leave" name="reason">{{old('reason')}}</textarea>
@@ -112,7 +112,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-12 mb-1">
+                    <div class="col-md-6 col-12 mb-1">
                         <label for="address_contact">Address & Contact</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <textarea type="text" class="form-control" id="address_contact" placeholder="Enter Address & Contact" name="address_contact">{{old('address_contact',auth()->user()->phone.' - '.auth()->user()->address)}}</textarea>
@@ -159,7 +159,7 @@
                     {
                         button.attr('disabled',null).html(previous);
                         swal('success',data.success,'success').then((value) => {
-                            window.location.href="{{url('my-leave-applications/show')}}/"+data.id;
+                            window.location.href="{{url('leave-applications/show')}}/"+data.id;
                         });
                     },
                     error: function(xhr)

@@ -13,7 +13,7 @@ use Yajra\DataTables\DataTables;
 class LeaveApplicationController extends Controller
 {
     public function index(){
-        $this->authorize('my-leave-applications');
+        $this->authorize('leave-application-index');
         return view('leave_application.index');
     }
     public function create(){
@@ -102,7 +102,7 @@ class LeaveApplicationController extends Controller
     }
 
     public function fetch(Request $request){
-        $this->authorize('my-leave-applications');
+        $this->authorize('leave-application-index');
         if ($request->filter=='my'){
             $data=LeaveApplication::where('user_id',auth()->user()->id)->get();
         }
@@ -130,10 +130,10 @@ class LeaveApplicationController extends Controller
             ->addColumn('options', function ($data) {
                 $action=null;
                 if (Auth::user()->can('add-update-my-application')){
-                    $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/my-leave-applications/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
+                    $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/leave-applications/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
                 }
                 if (Auth::user()->can('view-my-applications')){
-                    $action.="<a title='Show' class='btn btn-sm btn-warning' href='" . url('/my-leave-applications/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                    $action.="<a title='Show' class='btn btn-sm btn-warning' href='" . url('/leave-applications/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
                 }
                 return $action;
             })
