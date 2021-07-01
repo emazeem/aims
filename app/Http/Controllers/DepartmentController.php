@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Activitylog\Models\Activity;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -16,6 +17,7 @@ class DepartmentController extends Controller
         return view('department',compact('users'));
     }
     public function fetch(){
+        $this->authorize('department-index');
         $data=Department::with('heads')->get();
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
@@ -28,10 +30,10 @@ class DepartmentController extends Controller
                 return $data->heads->fname.' '.$data->heads->lname;
             })
             ->addColumn('options', function ($data) {
-
-                return "&emsp;
-                    <button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='feather icon-edit'></i></button>
-                  ";
+                if (Auth::user()->can('department-edit')){
+                    $action="<button type='button' title='Edit' class='btn edit btn-sm btn-success' data-toggle='modal' data-id='" . $data->id . "'><i class='feather icon-edit'></i></button>";
+                }
+                return $action;
 
             })
             ->rawColumns(['options'])
