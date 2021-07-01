@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -73,6 +74,21 @@
                     <th>Created on</th>
                     <td>{{date('h:i A - d M,Y ',strtotime($show->created_at))}}</td>
                 </tr>
+                @if(count($show->parameters)>0)
+                <tr>
+                    <th>Auth Parameters</th>
+                    <td>
+                        @foreach ($show->parameters as $paramter)
+                            <?php $delete=null; ?>
+                        @can('delete-staff-parameter-authorization')
+                            <?php $delete='delete-authorization-parameter';?>
+                        @endcan
+                        <small data-id="{{$paramter->id}}" data-user-id="{{$show->id}}" class="m-1 {{$delete}} badge bg-danger text-light float-left">
+                            {{$paramter->name}} <i class="float-right feather icon-delete text-light ml-2"></i></small>
+                        @endforeach
+                    </td>
+                </tr>
+                    @endif
             </table>
         </div>
         <div class="col-4">
@@ -88,5 +104,41 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $(document).on('click','.delete-authorization-parameter', function (e) {
+                swal({
+                    title: "Are you sure to delete this authorization parameter of this user?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            e.preventDefault();
+                            var id = $(this).attr('data-id');
+                            var user_id = $(this).attr('data-user-id');
+                            var token = '{{csrf_token()}}';
+                            e.preventDefault();
+                            $.ajax({
+                                url: "{{route('authorization.destroy')}}",
+                                type: 'DELETE',
+                                dataType: "JSON",
+                                data: {'id': id,'user_id':user_id, _token: token},
+                                success: function (data) {
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                    });
+                                },
+                                error: function () {
+                                    swal("Failed", "Unable to delete.", "error");
+                                },
+                            });
 
+                        }
+                    });
+
+            });
+        });
+    </script>
 @endsection

@@ -89,19 +89,6 @@ class UserController extends Controller
             ->addColumn('designation', function ($data) {
                 return $data->designations->name;
             })
-            ->addColumn('auth_parameters', function ($data) {
-                $sug=null;
-                foreach ($data->parameters as $paramter){
-                    $delete=null;
-                    if (Auth::user()->can('delete-staff-parameter-authorization')){
-                        $delete='delete-authorization-parameter';
-                    }
-                    $sug.='<small data-id="'.$paramter->id.'" data-user-id="'.$data->id.'" class="p-2 px-2 m-1 '.$delete.' badge bg-danger text-light float-left">';
-                    $sug.=$paramter->name.' <i class="float-right feather icon-delete text-light"></i></small>';
-                }
-                return $sug;
-            })
-
             ->addColumn('department', function ($data) {
                 return $data->departments->name;
             })

@@ -17,7 +17,6 @@
         <th>Email</th>
         <th>Department</th>
         <th>Designation</th>
-        <th>Auth Parameters</th>
         <th>Action</th>
       </tr>
 
@@ -32,7 +31,6 @@
           <th>Email</th>
           <th>Department</th>
           <th>Designation</th>
-          <th>Auth Parameters</th>
           <th>Action</th>
       </tr>
       </tfoot>
@@ -67,7 +65,6 @@
                 { "data": "email" },
                 { "data": "department" },
                 { "data": "designation" },
-                { "data": "auth_parameters" },
                 { "data": "options" ,"orderable":false},
             ]
 
@@ -111,40 +108,6 @@
                     swal("Failed", error, "error");
                 }
             });
-        });
-
-        $(document).on('click','.delete-authorization-parameter', function (e) {
-            swal({
-                title: "Are you sure to delete this authorization parameter of this user?",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        e.preventDefault();
-                        var id = $(this).attr('data-id');
-                        var user_id = $(this).attr('data-user-id');
-                        var token = '{{csrf_token()}}';
-                        e.preventDefault();
-                        $.ajax({
-                            url: "{{route('authorization.destroy')}}",
-                            type: 'DELETE',
-                            dataType: "JSON",
-                            data: {'id': id,'user_id':user_id, _token: token},
-                            success: function (data) {
-                                swal('success', data.success, 'success').then((value) => {
-                                    $("#example").DataTable().ajax.reload(null, false);
-                                });
-                            },
-                            error: function () {
-                                swal("Failed", "Unable to delete.", "error");
-                            },
-                        });
-
-                    }
-                });
-
         });
     });
 </script>
