@@ -1,5 +1,4 @@
 
-
 <div class="modal fade" id="assign-lab-task" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  >
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -63,10 +62,11 @@
                             <div class="col-12">
                                 <div class="form-check form-check-inline" style="width: 100%">
                                     <select class="form-control select-2-asset" multiple id="assets" name="assets[]" style="width: 100%">
-                                        <option disabled>Select Assets</option>
+                                        {{--<option disabled>Select Assets</option>
                                         @foreach(\App\Models\Asset::all() as $asset)
-                                            <option style="font-size: 11px" value="{{$asset->id}}" {{--{{(in_array($asset->id,$sug)?"selected":"")}}--}}>{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
+                                            <option style="font-size: 11px" value="{{$asset->id}}" --}}{{--{{(in_array($asset->id,$sug)?"selected":"")}}--}}{{-->{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
                                         @endforeach
+                                        --}}
                                     </select>
                                 </div>
                             </div>

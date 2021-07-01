@@ -380,6 +380,7 @@ Route::group(['prefix'=> 'certificates'],function() {
 });
 Route::group(['prefix'=> 'suggestions'],function() {
     Route::post('create',[App\Http\Controllers\SuggestionController::class, 'create'])->middleware('auth')->name('suggestions.create');
+    Route::get('for_lab_job/{task_id}',[App\Http\Controllers\SuggestionController::class, 'for_lab_job'])->middleware('auth')->name('suggestions.for.lab.job');
     Route::delete('delete',[App\Http\Controllers\SuggestionController::class, 'destroy'])->middleware('auth')->name('suggestions.delete');
 });
 Route::group(['prefix'=> 'invoicing-ledger'],function() {

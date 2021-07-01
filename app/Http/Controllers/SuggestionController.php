@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
+use App\Models\Jobitem;
 use App\Models\Suggestion;
 use Illuminate\Http\Request;
 
@@ -25,6 +27,20 @@ class SuggestionController extends Controller
         Suggestion::find($request->id)->delete();
         return response()->json(['success'=>'Suggestion deleted successfully']);
 
+    }
+    public function for_lab_job($task){
+        $data['assets']=Asset::all();
+        $item=Jobitem::find($task);
+
+        $suggestions=Suggestion::where('capabilities',$item->item->capability)->get();
+        $sug_id=[];
+        foreach ($suggestions as $suggestion) {
+            $temp=explode(',',$suggestion->assets);
+            $sug_id[]=$temp[0];
+        }
+        $data['suggestions']=$sug_id;
+        //dd($data);
+        return response()->json($data);
     }
     //
 }

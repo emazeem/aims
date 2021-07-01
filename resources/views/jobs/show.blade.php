@@ -107,6 +107,13 @@
     </div>
     <script>
         'use strict';
+        function inArray(needle, haystack) {
+            var length = haystack.length;
+            for(var i = 0; i < length; i++) {
+                if(haystack[i] == needle) return true;
+            }
+            return false;
+        }
         $(document).ready(function () {
             $(document).on('click', '.complete-job-btn', function (e) {
                 e.preventDefault();
@@ -156,11 +163,33 @@
             $('.select-2-users').select2();
             $('.select-2-asset').select2();
 
+
             $(document).on('click', '.assign-lab-task', function () {
                 var id = $(this).attr('data-id');
-
+                alert(id);
                 $('#assign-lab-task').modal('show');
                 $('#lab_task_id').val(id);
+                $('.select-2-asset').empty();
+                $.ajax({
+                    url: "{{url('suggestions/for_lab_job')}}/"+id,
+                    type: "GET",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        $.each(data['assets'],function (i,v) {
+                            var selection='';
+                            if(inArray(v.id,data['suggestions'])){
+                                selection='selected';
+                            }
+
+                            $('.select-2-asset').append(
+                                '<option value="'+v.id+'" '+selection+'>'+v.code+'-'+v.name+'-'+v.range+'-'+v.accuracy+'-'+v.resolution+'</option>'
+                            );
+                        });
+                    },
+                });
+
             });
             $(document).on('click', '.scan', function () {
                 var id = $(this).attr('data-id');
