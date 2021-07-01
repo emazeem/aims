@@ -115,7 +115,7 @@
                     <div class="col-12 mb-1">
                         <label for="address_contact">Address & Contact</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <textarea type="text" class="form-control" id="address_contact" placeholder="Enter Address & Contact" name="address_contact">{{old('address_contact')}}</textarea>
+                            <textarea type="text" class="form-control" id="address_contact" placeholder="Enter Address & Contact" name="address_contact">{{old('address_contact',auth()->user()->phone.' - '.auth()->user()->address)}}</textarea>
                              @if ($errors->has('address_contact'))
                                 <span class="text-danger">
                                 <strong>{{ $errors->first('address_contact') }}</strong>
