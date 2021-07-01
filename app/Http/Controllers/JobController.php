@@ -109,6 +109,7 @@ class JobController extends Controller
                 $delivered_id[]=$d;
             }
         }
+
         return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close','delivered_id'));
     }
     public function print_job_form($id){

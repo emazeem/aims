@@ -31,7 +31,6 @@ class SuggestionController extends Controller
     public function for_lab_job($task){
         $data['assets']=Asset::all();
         $item=Jobitem::find($task);
-
         $suggestions=Suggestion::where('capabilities',$item->item->capability)->get();
         $sug_id=[];
         foreach ($suggestions as $suggestion) {

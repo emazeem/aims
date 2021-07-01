@@ -70,10 +70,9 @@
                 </tr>
 
                 @foreach($items as $item)
-
                     <tr>
                         <td>{{\App\Models\Job::find($id)->cid}}</td>
-                        <td>{{$item->capabilities->name}}</td>
+                        <td>{{$item->capability}}{{$item->capabilities->name}}</td>
                         <td>{{$item->parameters->name}}</td>
                         <td>{{$item->quantity}}</td>
                     </tr>
@@ -125,7 +124,7 @@
                         <select class="form-control select-2-assets-site" multiple id="assets" name="assets[]" style="width: 100%;">
                             <option disabled>Select Assets</option>
                             @foreach(\App\Models\Asset::all() as $asset)
-                                <option value="{{$asset->id}}">{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
+                                <option value="{{$asset->id}}" {{in_array($asset->id,$site_suggestions)?'selected':''}}>{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
                             @endforeach
                         </select>
 

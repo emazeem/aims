@@ -127,7 +127,18 @@ return response()->json(['success'=>'Tasks assigned successfully']);
     }
     public function site_assign($id,$items){
         $items=QuoteItem::whereIn('id',explode(',',$items))->get();
-        return view('assign_item.sitejob',compact('id','items'));
+        $sug_id=[];
+        foreach ($items as $item){
+            $suggestions=Suggestion::where('capabilities',$item->capability)->get();
+            foreach ($suggestions as $suggestion) {
+                $temp=explode(',',$suggestion->assets);
+                if (count($temp)>0) {
+                    $sug_id[]=$temp[0];
+                }
+            }
+        }
+        $site_suggestions=$sug_id;
+        return view('assign_item.sitejob',compact('id','items','site_suggestions'));
     }
     //
 }
