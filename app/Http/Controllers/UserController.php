@@ -23,12 +23,6 @@ class UserController extends Controller
 {
     public function index(){
         $this->authorize('staff-index');
-        $users=User::all();
-        foreach ($users as $user){
-            $user->cid='E-'.str_pad($user->id, 3, '0', STR_PAD_LEFT);
-            $user->save();
-        }
-        dd($users);
 
         //$columns = Schema::getColumnListing('users');
         $parameters=Parameter::all();
@@ -36,10 +30,8 @@ class UserController extends Controller
     }
     public function attendances(){
         $this->authorize('staff-index');
-
         $year=date('Y',time());
         $month=date('m',time());
-
         $dates=array();
         for ($date=0;$date<=31;$date++){
             if (checkdate($month,$date,$year)==true){
