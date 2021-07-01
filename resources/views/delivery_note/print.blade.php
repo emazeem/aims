@@ -80,7 +80,7 @@
                     <tr>
                         <td class="font-11">{{$k+1}}</td>
                         <td class="font-11">{{$item->item->capabilities->name}}</td>
-                        <td class="font-11">{{$item->eq_id}}</td>
+                        <td class="font-11">{{$item->eq_id?$item->eq_id:$item->serial}}</td>
                         <td class="font-11">{{$item->cid}}</td>
                         <td class="font-11">{{$item->accessories}}</td>
                         <td class="font-11">{{$item->visual_inspection}}</td>

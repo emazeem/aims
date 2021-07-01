@@ -13,8 +13,8 @@
                     @endcan
                 </select>
             </div>
-            <a href="{{route('leave_application.create')}}" class="btn btn-sm float-right btn-primary shadow-sm mr-2"><i
-                        class="fa fa-plus-circle"></i> Leave Application</a>
+            <a href="{{route('leave_application.create')}}" class="btn btn-sm float-right rounded btn-primary shadow-sm mr-2"><i
+                        class="feather icon-plus-circle"></i> Leave Application</a>
         </div>
         <div class="col-lg-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" width="100%">
