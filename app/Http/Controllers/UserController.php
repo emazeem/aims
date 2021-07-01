@@ -176,9 +176,9 @@ class UserController extends Controller
             $user->signature=$attachment;
             $user->save();
         }
-        return redirect()->back()->with('success', 'Personnel Added Successfully');
+        return response()->json(['success'=>'Personnel Updated Successfully','id'=>$user->id]);
     }
-    public function update($id,Request $request){
+    public function update(Request $request){
         $this->authorize('staff-edit');
         $this->validate(request(), [
             'fname' => 'required',
@@ -194,7 +194,7 @@ class UserController extends Controller
             'dob' => 'required',
             'joining' => 'required',
             'roles' => 'required',
-            'cid' => 'required',
+            'cid' => 'required|unique:users,cid,'.$request->id,
         ],[
             'fname.required' => 'First Name field is required *',
             'lname.required' => 'Last Name field is required *',
@@ -211,7 +211,7 @@ class UserController extends Controller
             'cid.required' => 'Employee ID field is required *',
         ]);
 
-        $user=User::find($id);
+        $user=User::find($request->id);
         $user->user_type=0;
         $user->user_type=$request->roles;
         $user->fname=$request->fname;
@@ -249,7 +249,7 @@ class UserController extends Controller
          Activity::all()->last();
         //$lastLoggedActivity->description;
 
-        return redirect()->back()->with('success', 'Personnel Updated Successfully');
+        return response()->json(['success'=>'Personnel Updated Successfully','id'=>$user->id]);
     }
     public function fetchDesignation($id){
         $designation=Designation::where('department_id',$id)->pluck('id', 'name');

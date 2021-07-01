@@ -15,7 +15,10 @@
     </style>
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="font-weight-light pb-1"><i class="feather icon-eye"></i> Personnel</h3>
+            <h3 class="font-weight-light float-left"><i class="feather icon-eye"></i> Personnel</h3>
+            @can('staff-edit')
+            <a href="{{url('users/edit/'.$show->id)}}" class="btn float-right"><i class="feather icon-edit-2"></i> Edit</a>
+            @endcan
         </div>
         <div class="col-8">
             <table class="table table-borderless bg-white table-sm table-responsive-sm table-hover font-13">
@@ -88,7 +91,7 @@
                         @endforeach
                     </td>
                 </tr>
-                    @endif
+                @endif
             </table>
         </div>
         <div class="col-4">

@@ -86,7 +86,7 @@ Route::group(['prefix'=> 'users'],function() {
     Route::get('/create',[App\Http\Controllers\UserController::class, 'create'])->middleware('auth')->name('users.create');
     Route::get('/view/{id}',[App\Http\Controllers\UserController::class, 'show'])->middleware('auth')->name('users.show');
     Route::get('/edit/{id}',[App\Http\Controllers\UserController::class, 'edit'])->middleware('auth')->name('users.edit');
-    Route::post('/update/{id}',[App\Http\Controllers\UserController::class, 'update'])->middleware('auth')->name('users.update');
+    Route::post('/update',[App\Http\Controllers\UserController::class, 'update'])->middleware('auth')->name('users.update');
     Route::post('',[App\Http\Controllers\UserController::class, 'fetch'])->middleware('auth')->name('users.fetch');
     Route::post('/store',[App\Http\Controllers\UserController::class, 'store'])->middleware('auth')->name('users.store');
     Route::get('/fetch/designation/{id}',[App\Http\Controllers\UserController::class, 'fetchDesignation'])->middleware('auth')->name('users.fetch.designation');

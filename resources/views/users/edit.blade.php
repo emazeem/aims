@@ -16,10 +16,10 @@
 
         <div class="col-12">
 
-            <form class="form-horizontal" action="{{url('/users/update/'.$edit->id)}}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" id="user-form" method="post" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" value="{{$edit->id}}" name="id" id="id">
                 <div class="form-group row">
-
                     <label for="cid" class="col-sm-2 control-label">Employee ID</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="cid" name="cid" placeholder="Employee ID" autocomplete="off" value="{{old('cid',$edit->cid)}}">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="form-group mt-md-4 row">
+                <div class="form-group row">
 
                     <label for="fname" class="col-sm-2 control-label">First Name</label>
                     <div class="col-sm-10">
@@ -248,7 +248,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer mt-3">
                     <a href="{{ URL::previous() }}" class="btn bg-white border"><i class="feather icon-chevron-left"></i> Cancel</a>
-                    <button type="submit" class="btn btn-primary float-right"><i class="feather icon-save"></i> Update</button>
+                    <button type="submit" class="btn btn-primary user-btn float-right"><i class="feather icon-save"></i> Update</button>
                 </div>
                 <!-- /.box-footer -->
             </form>
@@ -278,9 +278,40 @@
                     $('select[name="designation"]').empty();
                 }
             });
+
+            $("#user-form").on('submit',(function(e) {
+                var button=$('.user-btn');
+                var previous=$('.user-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('users.update')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success').then(() => {
+                            window.location.href='{{url('users/view')}}/'+data.id;
+                        });
+
+                    },
+                    error: function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
         });
-
     </script>
-
 @endsection
 
