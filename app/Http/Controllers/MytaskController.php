@@ -40,7 +40,20 @@ class MytaskController extends Controller
 
     public function fetch_lab(Request $request){
         $this->authorize('lab-task-index');
-        $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',0);
+        if ($request->search=='pending'){
+            $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',0)->where('status',2);
+        }
+        if ($request->search=='started'){
+            $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',0)->where('status',3);
+        }
+        if ($request->search=='completed'){
+            $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',0)->where('status',4);
+        }
+        if ($request->search=='all'){
+            $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',0);
+        }
+
+
         return DataTables::of($data)
             ->addColumn('job', function ($data) {
                 return $data->jobs->cid;
@@ -103,7 +116,19 @@ class MytaskController extends Controller
 
     public function fetch_site(Request $request){
         $this->authorize('site-task-index');
-        $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',1);
+        if ($request->search=='pending'){
+            $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',1)->where('status',2);
+        }
+        if ($request->search=='started'){
+            $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',1)->where('status',3);
+        }
+        if ($request->search=='completed'){
+            $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',1)->where('status',4);
+        }
+        if ($request->search=='all'){
+            $data=Jobitem::all()->where('assign_user',auth()->user()->id)->where('type',1);
+        }
+
         return DataTables::of($data)
             ->addColumn('job', function ($data) {
                 return $data->jobs->cid;
