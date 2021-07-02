@@ -129,6 +129,7 @@ class JournalVouhcerController extends Controller
                 $assets->save();
             }
         }
+
         return response()->json(['success'=>'JV added']);
     }
 
@@ -174,6 +175,7 @@ class JournalVouhcerController extends Controller
                 $assets->save();
             }
         }
+
         return response()->json(['success'=>'JV Updated']);
     }
 }

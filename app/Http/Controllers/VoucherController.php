@@ -218,6 +218,16 @@ class VoucherController extends Controller
             $details->dr=$request->dr[$k];
             $details->save();
         }
+        if ($request->attachments){
+            foreach ($request->attachments as $files) {
+                $attachment=$journal->id.$files->getClientOriginalName();
+                Storage::disk('local')->put('/public/vouchers/'.$journal->id.'/'.$attachment, File::get($files));
+                $assets=new Journalassets();
+                $assets->voucher_id=$journal->id;
+                $assets->attachment=$attachment;
+                $assets->save();
+            }
+        }
         return response()->json(['success'=>'Voucher updated Successfully']);
     }
     public function get_po_details($id){
