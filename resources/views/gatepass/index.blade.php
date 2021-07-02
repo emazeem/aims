@@ -170,7 +170,7 @@
                     <div class="row">
                         <div class="form-group col-12  float-left">
                             <label for="date_in">Date IN</label>
-                            <input type="date" class="form-control" id="date_in" name="date_in">
+                            <input type="date" class="form-control" id="date_in" name="date_in" value="{{date('Y-m-d')}}">
                         </div>
                         <div class="form-group col-12  float-left">
                             <label for="time_in">Time IN</label>

@@ -227,20 +227,110 @@
             }));
         });
     </script>
+    <div class="row table-responsive p-0 m-0">
+        <table class='table mt-3 table-bordered table-sm table-hover bg-white'>
+            <thead>
+            <tr>
+                <th class="px-1 py-2" title="Capability & Parameter">Capabilities<br>[Parameter]</th>
+                <th class="px-1 py-2" title="Range">Range</th>
+                <th class="px-1 py-2" title="Accreditation">Accred.</th>
+                <th class="px-1 py-2" title="Status">Status</th>
+                <th class="px-1 py-2" title="Equipment ID / Serial">ID<br>Serial</th>
+                <th class="px-1 py-2" title="Make">Make</th>
+                <th class="px-1 py-2" title="Model">Model</th>
+                <th class="px-1 py-2" title="Accessories">Acce.</th>
+                <th class="px-1 py-2" title="Visual Inspection">V.I</th>
+                <th class="px-1 py-2" title="Start / End">Start<br>End</th>
+                <th class="px-1 py-2" title="Assigned Technician / Engineer">Tech</th>
+                <th class="px-1 py-2" title="Assigned Assets">Assets</th>
+                <th class="px-1 py-2" title="Started At / Ended At">Started <br> Ended</th>
+                <th class="px-1 py-2" title="Certificate #">Cert#</th>
+                <th class="px-1 py-2" title="Action">Action</th>
+            </tr>
+            </thead>
+            <tbody>
 
-    @foreach($sitejobs as $sitejob)
-        <div class="col-md-4 col-12 mt-1">
+            @foreach($sitejobs as $sitejob)
+                    <tr>
+                        <td class="p-1 m-0">
+                            {{\App\Models\Capabilities::find($sitejob->item->capability)->name}}
+                            <br>[ <small>
+                                {{\App\Models\Parameter::find($sitejob->item->parameter)->name}}
+                            </small>]
+                        </td>
+                        <td class="p-1 m-0">{{$sitejob->item->range}}</td>
+                        <td class="p-1 m-0">{{$sitejob->item->accredited}}</td>
+                        <td class="p-1 m-0">
+
+                            @if($sitejob->status==0)
+                                <span class="badge badge-primary">Pending</span>
+                            @elseif($sitejob->status==1)
+                                <span class="badge badge-success">Received</span>
+                            @elseif($sitejob->status==2)
+                                <span class="badge badge-danger">Assigned</span>
+                            @elseif($sitejob->status==3)
+                                <span class="badge badge-success">Started</span>
+                            @elseif($sitejob->status==4)
+                                <span class="badge badge-success">Ended</span>
+                            @endif
+                        </td>
+                        <td class="p-1 m-0">{{$sitejob->eq_id}}<br>{{$sitejob->serial}}</td>
+                        <td class="p-1 m-0">{{$sitejob->make}}</td>
+                        <td class="p-1 m-0">{{$sitejob->model}}</td>
+                        <td class="p-1 m-0">{{$sitejob->accessories}}</td>
+                        <td class="p-1 m-0">{{$sitejob->visual_inspection}}</td>
+                        <td class="p-1 m-0">@if($sitejob->status>1){{date('d M,y',strtotime($sitejob->start))}}@endif
+                            <br>@if($sitejob->status>1){{date('d M,y',strtotime($sitejob->end))}}@endif</td>
+                        <td class="p-1 m-0">
+                            @if($sitejob->status>1)
+                                @if($sitejob->assign_user)
+                                    {{$sitejob->assignuser->fname.' '.$sitejob->assignuser->lname}}
+                                @endif
+                            @endif
+                        </td>
+                        <td class="p-1 m-0">
+                            @if($sitejob->status>1)
+                                @if($sitejob->assign_assets)
+                                    @php $assets=explode(',',$sitejob->assign_assets); @endphp
+                                    @foreach($assets as $asset)
+                                        <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
+                                    @endforeach
+                                @endif
+                            @endif
+
+                        </td>
+                        <td class="p-1 m-0">
+                            @if($sitejob->status>2)
+                                {{date(' h:i A d M,y',strtotime($sitejob->started_at))}}
+                            @endif
+                            <br>
+                            @if($sitejob->status>3)
+                                {{date(' h:i A d M,y',strtotime($sitejob->ended_at))}}
+                            @endif
+                        </td>
+                        <td class="p-1 m-0">
+                            {{$sitejob->cid}}
+                        </td>
+                        <td class="p-1 m-0">
+                            <a href="#" data-id="{{$sitejob->id}}" data-type="lab" class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
+                            @can('create-site-task-assign')
+                                <button type="button" data-id="{{$sitejob->id}}" class="btn btn-sm btn-light border pull-right assign-site-task"><i class="fa fa-plus-square"></i> Assign</button>
+                            @endcan
+                            @can('site-item-receiving-update')
+                                @if($sitejob->status>0)
+                                    <a href="#" data-id="{{$sitejob->id}}" class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i> Receiving</a>
+                                @endif
+                            @endcan
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+{{--        <div class="col-md-4 col-12 mt-1">
             <div class="card">
                 <div class="card-header">
-                    <a href="#" data-id="{{$sitejob->id}}" data-type="lab" class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
-                    @can('create-site-task-assign')
-                    <button type="button" data-id="{{$sitejob->id}}" class="btn btn-sm btn-light border pull-right assign-site-task"><i class="fa fa-plus-square"></i> Assign</button>
-                    @endcan
-                    @can('site-item-receiving-update')
-                    @if($sitejob->status>0)
-                        <a href="#" data-id="{{$sitejob->id}}" class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i> Receiving</a>
-                    @endif
-                    @endcan
+
                 </div>
                 <div class="card-body">
                     <p class="m-0">↪ <b>Parameter : </b>{{\App\Models\Parameter::find($sitejob->item->parameter)->name}}</p>
@@ -296,8 +386,8 @@
 
                 </div>
             </div>
-        </div>
-    @endforeach
+        </div>--}}
+
     <div class="modal fade" id="edit_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -425,10 +515,6 @@
                     $('select[name="optassets[]"]').empty();
                 }
             });
-
-
-
-
             $("#assign_lab_task").on('submit', (function (e) {
                 e.preventDefault();
                 var button = $('.lab-items-save-btn');
@@ -460,7 +546,6 @@
                     }
                 });
             }));
-
         });
     </script>
 
