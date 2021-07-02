@@ -51,6 +51,7 @@
                     <th>Voucher Date</th>
                     <td>{{$show->date->format('d-m-Y')}}</td>
                 </tr>
+
                 @if($po)
                 <tr>
                     <th>PO</th>
@@ -66,7 +67,7 @@
                     <td>
                         @foreach($show->attachments as $file)
 
-                            <a href="{{asset('storage/vouchers/'.$show->id.'/'.$file->attachment)}}" download target="_blank"
+                            <a href="{{asset('storage/vouchers/'.$show->id.'/'.$file->attachment)}}" target="_blank"
                                class="btn btn-warning">
                                 <i class="fa fa-cloud-download"></i>
                                 {{number_format((Storage::disk('local')->size('public/vouchers/'.$show->id.'/'.$file->attachment)/1024),2)}} KBs

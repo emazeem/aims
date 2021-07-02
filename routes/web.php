@@ -4,7 +4,9 @@ Route::get('optimize', function () {
     \Artisan::call('optimize');
     dd("Done");
 });
-Route::get('/home', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth');
+Auth::routes();
+
+Route::get('/home', function (){return redirect('/');})->middleware('auth');
 Route::get('/', [App\Http\Controllers\DashboardControlller::class, 'index'])->middleware('auth')->name('home');
 Route::post('/get-location', [App\Http\Controllers\DashboardControlller::class, 'get_location'])->middleware('auth')->name('dashboard.get.location');
 Route::get('notifications', [App\Http\Controllers\DashboardControlller::class, 'notification'])->middleware('auth')->name('notification');
@@ -14,7 +16,6 @@ Route::get('/change_password', [App\Http\Controllers\UserController::class, 'cha
 Route::post('/change_password', [App\Http\Controllers\UserController::class, 'changepassword'])->middleware('auth')->name('change-password');
 Route::post('/set_profile', [App\Http\Controllers\UserController::class, 'setprofile'])->middleware('auth')->name('setprofile');
 
-Auth::routes();
 Route::get('/quote',function (){return view('docs.quotation');});
 Route::get('/jobtag',function (){return view('docs.jobtag');});
 Route::get('/certificate',function (){return view('worksheets.certificate');});

@@ -60,6 +60,7 @@ class InvoiceController extends Controller
         $journal->type='sales invoice';
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
+        $journal->reference=$job->cid;
         $journal->save();
         $invoice->voucher_id=$journal->id;
         $invoice->save();

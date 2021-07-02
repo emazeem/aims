@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Process;
 
 class DatabaseBackUp extends Command
 {
@@ -38,13 +40,12 @@ class DatabaseBackUp extends Command
      */
     public function handle()
     {
-        $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
 
-        $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD') . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . "  | gzip > " . storage_path() . "/app/backup/" . $filename;
-
-        $returnVar = NULL;
-        $output  = NULL;
-
-        exec($command, $output, $returnVar);
+        $date = Carbon::now()->format('Y-m-d_h-i');
+        $user = env('DB_USERNAME');
+        $password = env('DB_PASSWORD');
+        $database = env('DB_DATABASE');
+        $command = "mysqldump --user={$user} -p{$password} {$database} > {$date}.sql";
+        dd($command);
     }
 }
