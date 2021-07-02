@@ -61,6 +61,9 @@ class JobController extends Controller
                     $status= '<b class="badge badge-danger px-2 py-1 mt-2">Pending</b>';
                 }else {
                     $status= '<b class="badge badge-success px-2 py-1 mt-2">Complete</b>';
+                    if ($data->status=='2'){
+                        $status.= '<i class="feather icon-check-circle ml-3" title="Invoice Generated"></i>';
+                    }
                 }
                 return $status;
             })
