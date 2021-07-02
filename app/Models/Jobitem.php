@@ -34,6 +34,10 @@ class Jobitem extends Model
     {
         return $this->belongsTo('App\Models\User', 'store_incharge_id','id')->withDefault();
     }
+    public function assignuser()
+    {
+        return $this->belongsTo('App\Models\User', 'assign_user','id')->withDefault();
+    }
 
 
     protected static $logAttributes = ["type", "job_id", "item_id", "eq_id", "serial", "resolution", "accuracy", "range", "model", "make", "accessories", "visual_inspection", "status", "start", "end", "started_at", "ended_at", "assign_user", "assign_assets", "group_users", "group_assets", "certificate"];

@@ -251,14 +251,12 @@
                         @if($sitejob->status==0)
                             <span class="badge badge-primary">Pending</span>
                         @elseif($sitejob->status==1)
-                            <span class="badge badge-success">Assigned</span>
+                            <span class="badge badge-danger">Checked-In</span>
                         @elseif($sitejob->status==2)
-                            <span class="badge badge-danger">Checked-in</span>
+                            <span class="badge badge-success">Assigned</span>
                         @elseif($sitejob->status==3)
                             <span class="badge badge-success">Started</span>
                         @elseif($sitejob->status==4)
-                            <span class="badge badge-success">Calculated</span>
-                        @elseif($sitejob->status==5)
                             <span class="badge badge-success">Ended</span>
                         @endif
                     </p>
