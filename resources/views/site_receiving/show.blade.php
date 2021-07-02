@@ -105,7 +105,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" type="submit"><i class="feather icon-save"></i> Save</button>
+                    <button class="btn btn-primary site-receiving-btn" type="submit"><i class="feather icon-save"></i> Save</button>
                     </form>
                 </div>
             </div>
@@ -124,6 +124,10 @@
                 $('#add_details').modal('toggle');
             });
             $("#add_details_form").on('submit',(function(e) {
+                var button=$('.site-receiving-btn');
+                var previous=$('.site-receiving-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
                 e.preventDefault();
                 $.ajax({
                     url: "{{route('checkin.store')}}",
@@ -134,13 +138,15 @@
                     processData:false,
                     success: function(data)
                     {
+                        button.attr('disabled',null).html(previous);
                         $('#add_details').modal('toggle');
                         swal('success',data.success,'success').then((value) => {
                             location.reload();
                         });
                     },
-                    error:  function(xhr, status)
+                    error:  function(xhr)
                     {
+                        button.attr('disabled',null).html(previous);
                         var error='';
                         $.each(xhr.responseJSON.errors, function (key, item) {
                             error+=item;
@@ -151,7 +157,6 @@
             }));
             $(document).on('click', '.assign-site-task', function () {
                 var id = $(this).attr('data-id');
-
                 $('#assign-site-task').modal('show');
                 $('#site_task_id').val(id);
             });
@@ -175,10 +180,9 @@
                         $('#edit_visualinspection').val(data.visual_inspection);
                         //Populating Form Data to Edit Ends
                     },
-                    error:  function(xhr, status, error)
+                    error:  function(xhr)
                     {
-                        var error;
-                        error=null;
+                        var error='';
                         $.each(xhr.responseJSON.errors, function (key, item) {
                             error+=item;
                         });
@@ -186,6 +190,10 @@
                 });
             });
             $("#edit_details_form").on('submit',(function(e) {
+                var button=$('.site-receiving-btn-edit');
+                var previous=$('.site-receiving-btn-edit').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
                 e.preventDefault();
                 $.ajax({
                     url: "{{route('checkin.update')}}",
@@ -332,17 +340,11 @@
                                 <label for="edit_visualinspection">Visual Inspection</label>
                                 <input type="text" class="form-control" id="edit_visualinspection" name="visualinspection" placeholder="Visual Inspection" autocomplete="off" value="">
                             </div>
-
-
-                            <div class="col-3">
-                                <button class="btn btn-primary" type="submit">Update</button>
+                            <div class="col-12 text-right">
+                                <button class="btn btn-primary site-receiving-btn-edit" type="submit">Update</button>
                             </div>
-
                         </div>
-
                     </form>
-                </div>
-                <div class="modal-footer">
                 </div>
             </div>
         </div>
