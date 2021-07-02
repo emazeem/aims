@@ -7,7 +7,6 @@
                     <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                 </button>
             </div>
-
             <div class="modal-body">
                 <form id="item_checkout_form">
                     @csrf
@@ -27,7 +26,7 @@
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control" id="out_status" name="out_status">
                                     <option selected disabled="disabled">--Select Out Status</option>
-                                    <option value="ok">OK</option>
+                                    <option value="ok" selected>OK</option>
                                     <option value="not-ok">NOT-OK</option>
                                 </select>
                             </div>
@@ -73,7 +72,7 @@
                             <div class="form-check form-check-inline" style="width: 100%">
                                 <select class="form-control" id="in_status" name="in_status">
                                     <option selected disabled="disabled">--Select In Status</option>
-                                    <option value="ok">OK</option>
+                                    <option value="ok" selected>OK</option>
                                     <option value="not-ok">NOT-OK</option>
                                 </select>
                             </div>
