@@ -17,6 +17,26 @@
                     <th>Job</th>
                     <td>{{$show->plan->jobs->cid}}</td>
                 </tr>
+                @if(count($show->plan->jobs->quotes->attachments)>0)
+                    <tr>
+                        <td>Quote Attachments</td>
+                        <td>
+                            @foreach($show->plan->jobs->quotes->attachments as $attachment)
+                                <div class="row border-bottom">
+                                    <div class="col-2"><a class="btn">{{$attachment->title}}</a></div>
+                                    <div class="col">
+                                        <a href="{{Storage::disk('local')->url('public/quote-attachments/'.$attachment->attachment)}}" target="_blank" class="btn">
+                                            <i class="feather icon-file"></i>
+                                            {{substr($attachment->attachment,10)}} ( {{number_format((Storage::disk('local')->size('public/quote-attachments/'.$attachment->attachment)/1024),2)}} KBs )
+                                        </a>
+                                        <style>.delete-attachment{cursor: pointer}</style>
+                                        <i data-id="{{$attachment->id}}" class="delete-attachment feather icon-x text-danger"></i>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </td>
+                    </tr>
+                @endif
                 <tr>
                     <th>Date Out</th>
                     <td>{{$show->out->format('d-m-Y')}}</td>
