@@ -63,6 +63,7 @@
                 @php $dr=0;$cr=0; @endphp
                 @foreach($entries as $entry)
                     <tr>
+                        @if($entry->parent)
                         <td class="text-center">{{$entry->parent->date->format('d-M-Y')}}</td>
                         <td class="text-xs">{{$entry->parent->customize_id}}</td>
                         <td class="text-xs">{{$entry->narration}}</td>
@@ -80,14 +81,17 @@
                             @endif
                                 {{$opening_balance>0?number_format($opening_balance): '('.number_format(abs($opening_balance)).')'}}
                         </td>
+
                     </tr>
                     @php $dr=$dr+$entry->dr;$cr=$cr+$entry->cr; @endphp
+                    @endif
                 @endforeach
                     <tr>
                         <td colspan="5"></td>
                         <td class="text-right">{{number_format($dr)}}</td>
                         <td class="text-right">{{number_format($cr)}}</td>
                     </tr>
+
                 </tbody>
             </table>
         </div>

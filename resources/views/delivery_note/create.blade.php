@@ -25,7 +25,7 @@
                             <input type="hidden" name="delivery_item_id" id="delivery_item_id"  value="">
                             <div class="row">
                                 @foreach($job->jobitems as $item)
-                                    <div class='checkbox col-12 checkbox-fill d-inline'>
+                                    <div class='checkbox col-6 checkbox-fill d-inline'>
                                         <input type='checkbox' data-id='{{$item->id}}' name='delivery_items' class='delivery_items' id='delivery_items{{$item->id}}'
                                         {{(in_array($item->id,$delivered_id)?'selected disabled':'')}}>
                                         <label class='cr {{(in_array($item->id,$delivered_id)?'line-through':'')}}' for='delivery_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
