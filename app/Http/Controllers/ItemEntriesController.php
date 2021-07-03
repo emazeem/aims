@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jobitem;
 use App\Models\QuoteItem;
+use App\Models\SitePlan;
 use Illuminate\Http\Request;
 
 class ItemEntriesController extends Controller
@@ -29,6 +30,7 @@ class ItemEntriesController extends Controller
             'accessories'=>'required',
             'visualinspection'=>'required',
         ]);
+
         $item=QuoteItem::find($request->id);
         $jobitem = new Jobitem();
         if ($item->location == "site") {
@@ -53,6 +55,19 @@ class ItemEntriesController extends Controller
         $details->store_incharge_id=auth()->user()->id;
         $details->status=1;
         $details->visual_inspection=$request->visualinspection;
+        if ($request->receiving_assigning=='1'){
+            $this->authorize('create-site-task-assign');
+            $this->validate($request,[
+                'assets'=>'required',
+            ]);
+            $site=SitePlan::where('job_id',$details->job_id)->first();
+            $details->start=$site->start;
+            $details->end=$site->end;
+            $details->status=2;
+            $details->assign_user=auth()->user()->id;
+            $details->assign_assets=implode(',',$request->assets);
+
+        }
         $details->save();
         return response()->json(['success'=>'Added/Updated successfully']);
 

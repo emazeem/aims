@@ -61,7 +61,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Add Details</h5>
+                    <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Receiving & Assign</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                     </button>
@@ -98,7 +98,18 @@
                                 <label for="visualinspection">Visual Inspection</label>
                                 <input type="text" class="form-control" id="visualinspection" name="visualinspection" placeholder="Visual Inspection" autocomplete="off" value="OK">
                             </div>
-
+                            <input type="hidden" name="receiving_assigning" value="1">
+                            <div class="form-group col-12">
+                                <label for="assets" class="control-label">Select Assets</label>
+                                <div class="form-check form-check-inline" style="width: 100%">
+                                    <select class="form-control select-2-asset" multiple id="assets" name="assets[]" style="width: 100%">
+                                        <option disabled>Select Assets</option>
+                                        @foreach(\App\Models\Asset::whereIn('id',explode(',',$site->assigned_assets))->get() as $asset)
+                                            <option style="font-size: 11px" value="{{$asset->id}}">{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
 
                         </div>
 
@@ -115,6 +126,7 @@
         $(document).ready(function () {
             $('.select-2-users').select2();
             $('.select-2-asset').select2();
+            $('.select-2-assets').select2();
 
             $(document).on('click', '.add', function () {
                 var id = $(this).attr('data-id');
@@ -314,11 +326,11 @@
                         <td class="p-1 m-0">
                             <a href="#" data-id="{{$sitejob->id}}" data-type="lab" class="btn btn-light border btn-sm scan"><i class="fa fa-search"></i></a>
                             @can('create-site-task-assign')
-                                <button type="button" data-id="{{$sitejob->id}}" class="btn btn-sm btn-light border pull-right assign-site-task"><i class="fa fa-plus-square"></i> Assign</button>
+                                <button type="button" data-id="{{$sitejob->id}}" class="btn btn-sm btn-light border pull-right assign-site-task"><i class="feather icon-edit-2"></i> Assign</button>
                             @endcan
                             @can('site-item-receiving-update')
                                 @if($sitejob->status>0)
-                                    <a href="#" data-id="{{$sitejob->id}}" class="btn edit btn-light border btn-sm"><i class="fa fa-edit"></i> Receiving</a>
+                                    <a href="#" data-id="{{$sitejob->id}}" class="btn edit btn-light border btn-sm"><i class="feather icon-edit-2"></i> Receiving</a>
                                 @endif
                             @endcan
                         </td>
@@ -327,66 +339,6 @@
                 </tbody>
             </table>
         </div>
-{{--        <div class="col-md-4 col-12 mt-1">
-            <div class="card">
-                <div class="card-header">
-
-                </div>
-                <div class="card-body">
-                    <p class="m-0">↪ <b>Parameter : </b>{{\App\Models\Parameter::find($sitejob->item->parameter)->name}}</p>
-                    <p class="m-0">↪ <b>Capability : </b>{{\App\Models\Capabilities::find($sitejob->item->capability)->name}}</p>
-                    <p class="m-0">↪ <b>Range : </b>{{$sitejob->item->range}}</p>
-                    <p class="m-0">↪ <b>Accredited : </b>{{$sitejob->item->accredited}}</p>
-                    <p class="m-0">↪ <b>Status : </b>
-                        @if($sitejob->status==0)
-                            <span class="badge badge-primary">Pending</span>
-                        @elseif($sitejob->status==1)
-                            <span class="badge badge-danger">Checked-In</span>
-                        @elseif($sitejob->status==2)
-                            <span class="badge badge-success">Assigned</span>
-                        @elseif($sitejob->status==3)
-                            <span class="badge badge-success">Started</span>
-                        @elseif($sitejob->status==4)
-                            <span class="badge badge-success">Ended</span>
-                        @endif
-                    </p>
-                    @if($sitejob->status<1)
-                        <span class="badge badge-info px-3 py-2 m-1">Waiting for store entry</span>
-                    @else
-                        <p class="m-0">↪ <b>Equipment ID : </b>{{$sitejob->eq_id}}</p>
-                        <p class="m-0">↪ <b>Serial : </b>{{$sitejob->serial}}</p>
-                        <p class="m-0">↪ <b>Make : </b>{{$sitejob->make}}</p>
-                        <p class="m-0">↪ <b>Model : </b>{{$sitejob->model}}</p>
-                        <p class="m-0">↪ <b>Accessories : </b>{{$sitejob->accessories}}</p>
-                        <p class="m-0">↪ <b>Visual Inspection : </b>{{$sitejob->eq_id}}</p>
-                    @endif
-
-
-                    @if($sitejob->status<2)
-                        <span class="badge badge-info px-3 py-2 m-1">Not Assigned yet</span>
-                    @else
-                        <p class="m-0">↪ <b>Start : </b>{{$sitejob->start}}</p>
-                        <p class="m-0">↪ <b>End : </b>{{$sitejob->end}}</p>
-                        <p class="m-0">↪ <b>Assign User : </b>
-                            @if($sitejob->assign_user)
-                                {{\App\Models\User::find($sitejob->assign_user)->fname}}{{\App\Models\User::find($sitejob->assign_user)->lname}}
-                            @endif
-                        </p>
-                        <p class="m-0">↪ <b>Assign Asset : </b>
-                            <br>
-                            @if($sitejob->assign_assets)
-                                @php $assets=explode(',',$sitejob->assign_assets); @endphp
-                                @foreach($assets as $asset)
-                                    <span class="badge badge-info py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
-                                @endforeach
-                            @endif
-
-                        </p>
-                    @endif
-
-                </div>
-            </div>
-        </div>--}}
 
     <div class="modal fade" id="edit_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -476,7 +428,7 @@
                             <label for="assets" class="col-12 control-label">Select Assets</label>
                             <div class="col-12">
                                 <div class="form-check form-check-inline" style="width: 100%">
-                                    <select class="form-control select-2-asset" multiple id="assets" name="assets[]" style="width: 100%">
+                                    <select class="form-control select-2-assets" multiple id="assets" name="assets[]" style="width: 100%">
                                         <option disabled>Select Assets</option>
                                         @foreach(\App\Models\Asset::whereIn('id',explode(',',$site->assigned_assets))->get() as $asset)
                                             <option style="font-size: 11px" value="{{$asset->id}}">{{$asset->code}}-{{$asset->name}}-{{$asset->range}}-{{$asset->resolution}}-{{$asset->accuracy}}</option>
@@ -485,6 +437,7 @@
                                 </div>
                             </div>
                         </div>
+
                 </div>
                 <div class="modal-footer bg-light">
                     <button type="submit" class="btn lab-items-save-btn btn-primary btn-sm float-right"><i class="fa fa-save"></i> Save</button>
