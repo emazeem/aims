@@ -20,7 +20,6 @@
 <body>
 <button onclick="window.print()" id="printPageButton" class="btn btn-danger btn-sm float-right">Print</button>
 <div class="container">
-
     <div class="col-12 font-style mt-2">
         <div class="row">
             <div class="col-2 text-center custom-border">

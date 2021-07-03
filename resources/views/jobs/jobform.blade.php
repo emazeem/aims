@@ -125,27 +125,27 @@
                 @php $i=1; @endphp
                 @foreach($labjobs as $labjob)
                     <tr>
-                        <td class="font-md">{{$i}}</td>
+                        <td class="font-11">{{$i}}</td>
                         @php $i++; @endphp
-                        <td class="font-md">{{\App\Models\QuoteItem::find($labjob->item_id)->capabilities->name}}</td>
-                        <td class="font-md">{{$labjob->eq_id?$labjob->eq_id:$labjob->serial}}</td>
-                        <td class="font-md">{{$labjob->model}}</td>
-                        <td class="font-md">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
-                        <td class="font-md">{{$labjob->accessories}}</td>
-                        <td class="font-md">{{$labjob->visual_inspection}}</td>
+                        <td class="font-11">{{\App\Models\QuoteItem::find($labjob->item_id)->capabilities->name}}</td>
+                        <td class="font-11">{{$labjob->eq_id?$labjob->eq_id:$labjob->serial}}</td>
+                        <td class="font-11">{{$labjob->model}}</td>
+                        <td class="font-11">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
+                        <td class="font-11">{{$labjob->accessories}}</td>
+                        <td class="font-11">{{$labjob->visual_inspection}}</td>
                     </tr>
                 @endforeach
                 @foreach($sitejobs as $sitejob)
                     <tr>
-                        <td class="font-md">{{$i}}</td>
+                        <td class="font-11">{{$i}}</td>
                         @php $i++; @endphp
-                        <td class="font-md">{{$sitejob->item->capabilities->name}}</td>
-                        <td class="font-md">{{$sitejob->eq_id?$sitejob->eq_id:$sitejob->serial}}</td>
-                        <td class="font-md">{{$sitejob->model}}</td>
-                        <td class="font-md">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
+                        <td class="font-11">{{$sitejob->item->capabilities->name}}</td>
+                        <td class="font-11">{{$sitejob->eq_id?$sitejob->eq_id:$sitejob->serial}}</td>
+                        <td class="font-11">{{$sitejob->model}}</td>
+                        <td class="font-11">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
 
-                        <td class="font-md">{{$sitejob->accessories}}</td>
-                        <td class="font-md">{{$sitejob->visual_inspection}}</td>
+                        <td class="font-11">{{$sitejob->accessories}}</td>
+                        <td class="font-11">{{$sitejob->visual_inspection}}</td>
                     </tr>
                 @endforeach
 
@@ -191,8 +191,6 @@
                 signing you also agree with the terms and conditions mentioned below or on the reverse side of this
                 Calibration Job
                 Form.
-
-
             </p>
 
             <table class="table table-bordered">
