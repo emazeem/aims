@@ -21,6 +21,12 @@ class VoucherController extends Controller
 {
     public function index(){
         $this->authorize('vouchers-index');
+
+        $vouchers=Journal::where('type','payment voucher')->get();
+        foreach ($vouchers as $voucher){
+            $voucher->delete();
+        }
+        
         return view('paymentvoucher.index');
     }
     public function all(){
