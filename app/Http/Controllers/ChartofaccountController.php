@@ -7,6 +7,7 @@ use App\Models\AccLevelThree;
 use App\Models\AccLevelTwo;
 use App\Models\Chartofaccount;
 use App\Models\CostCenter;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
@@ -15,6 +16,30 @@ class ChartofaccountController extends Controller
 {
     public function index()
     {
+
+
+
+        /*$customers = Customer::all();
+        foreach ($customers as $customer) {
+            $acc = new Chartofaccount();
+            $acc->code3 = 3;
+            $acc->code2 = 1;
+            $acc->code1 = 1;
+            $acc->title = $customer->reg_name.'-'.$customer->plant;
+            $acc->opening_balance=0;
+            $code4=(Chartofaccount::withTrashed()->where('code3',3)->count());
+            $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
+            $acc->acc_code = $acc->codeone->code1 . $acc->codetwo->code2 . $acc->codethree->code3 . str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
+            $acc->save();
+            $customer->acc_code=$acc->acc_code;
+            $customer->save();
+        }
+        dd(1);*/
+
+
+
+
+
         $this->authorize('index-coa');
         $ones = AccLevelOne::all();
         $twos = AccLevelTwo::all();
@@ -109,7 +134,6 @@ class ChartofaccountController extends Controller
         $code4=(Chartofaccount::withTrashed()->where('code3',$request->level3of4)->count());
         $acc->code4 = str_pad($code4+1, 3, '0', STR_PAD_LEFT);
         $acc->acc_code = $acc->codeone->code1 . $acc->codetwo->code2 . $acc->codethree->code3 . str_pad($code4+1, 3, '0', STR_PAD_LEFT);;
-
         $acc->save();
         return response()->json(['success'=> 'Chart of Account has added successfully.']);
     }
@@ -134,7 +158,7 @@ class ChartofaccountController extends Controller
         $acc->opening_balance=$request->opening_balance?$request->opening_balance:0;
         $acc->title = $request->title;
         $acc->save();
-        return redirect()->back()->with('success', 'Chart of Account has updated successfully.');
+        return response()->json(['success'=> 'Chart of Account has updated successfully.']);
     }
     public function destroy(Request $request){
         $this->authorize('delete-coa');

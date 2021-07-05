@@ -30,7 +30,7 @@
                 @endcan
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-3">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" cellspacing="0"
                    width="100%">
                 <thead>

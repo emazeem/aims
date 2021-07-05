@@ -14,21 +14,22 @@
             });
         </script>
     @endif
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if($level==4)
     <div class="row ">
         <div class="col-12">
+            <h3 class="font-weight-light"><i class="fa fa-money"></i> Chart of Account</h3>
             <div class="card shadow">
                 <!-- Card Header - Accordion -->
                 <a href="#levels4" class="d-block card-header py-3" data-toggle="collapse" role="button"
                    aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary"> Chart of Account</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-pencil-alt"></i> Chart of Account</h6>
                 </a>
                 <!-- Card Content - Collapse -->
                 <div class="collapse {{$level==4?'show':''}}" id="levels4">
                     <div class="card-body">
                         <div class="col-12">
-                            <form class="form-horizontal" action="{{route('acc_level_four.update')}}" method="post">
+                            <form class="form-horizontal" id="add_level_form" method="post">
                                 @csrf
                                 <input type="hidden" class="form-control" id="id" name="id" value="{{$edit->id}}"/>
                                 <div class="form-group mt-md-4 row">
@@ -107,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-right">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
+                                    <button type="submit" class="btn btn-primary acc-save-btn"><i class="fa fa-save"></i> Update</button>
                                 </div>
                             </form>
                         </div>
@@ -127,7 +128,11 @@
                         url: '/acc_level_three/get_level2/'+level1of3,
                         type: "GET",
                         dataType: "json",
+                        beforeSend : function() {
+                            $(".loader-gif").fadeIn();
+                        },
                         success:function(data) {
+                            $(".loader-gif").hide();
                             $('select[name="level2of3"]').empty();
                             $('select[name="level2of3"]').append('<option disabled selected>Select Level 2</option>');
                             $.each(data, function(key, value) {
@@ -136,6 +141,7 @@
                         }
                     });
                 }else{
+                    $(".loader-gif").hide();
                     $('select[name="level2of3"]').empty();
                 }
             });
@@ -146,7 +152,11 @@
                         url: '/acc_level_three/get_level2/'+level1of4,
                         type: "GET",
                         dataType: "json",
+                        beforeSend : function() {
+                            $(".loader-gif").fadeIn();
+                        },
                         success:function(data) {
+                            $(".loader-gif").hide();
                             $('select[name="level2of4"]').empty();
                             $('select[name="level2of4"]').append('<option disabled selected>Select Level 2</option>');
                             $.each(data, function(key, value) {
@@ -155,6 +165,7 @@
                         }
                     });
                 }else{
+                    $(".loader-gif").hide();
                     $('select[name="level2of4"]').empty();
                 }
             });
@@ -165,7 +176,11 @@
                         url: '/acc_level_three/get_level3/'+level2of4,
                         type: "GET",
                         dataType: "json",
+                        beforeSend : function() {
+                            $(".loader-gif").fadeIn();
+                        },
                         success:function(data) {
+                            $(".loader-gif").hide();
                             $('select[name="level3of4"]').empty();
                             $('select[name="level3of4"]').append('<option disabled selected>Select Level 3</option>');
                             $.each(data, function(key, value) {
@@ -174,12 +189,38 @@
                         }
                     });
                 }else{
+                    $(".loader-gif").hide();
                     $('select[name="level3of4"]').empty();
                 }
             });
-
+            $("#add_level_form").on('submit',(function(e) {
+                e.preventDefault();
+                var button=$('.acc-save-btn');
+                var previous=$('.acc-save-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+                $.ajax({
+                    url: "{{route('acc_level_four.update')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        swal('success',data.success,'success');
+                    },
+                    error: function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
         });
     </script>
-
-
 @endsection

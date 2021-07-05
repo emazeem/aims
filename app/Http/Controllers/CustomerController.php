@@ -50,6 +50,9 @@ class CustomerController extends Controller
             }
         }
         dd('contacts saved');*/
+
+
+
         $saletaxes=Preference::where('category',1)->get();
         $this->authorize('customer-index');
         $customers=Customer::orderBy('reg_name','ASC')->get();

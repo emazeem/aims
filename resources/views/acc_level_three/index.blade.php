@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -17,8 +17,8 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="border-bottom pull-left"><i class="fa fa-list"></i> Accounting Level Three</h3>
-            <div class="text-right mt-2">
+            <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> Accounting Level Three</h3>
+            <div class="float-right mt-2">
                 <button type="button" class="btn btn-sm btn-primary shadow-sm pull-right " data-toggle="modal" data-target="#add-level"><i class="fa fa-plus-circle"></i> Add Level Three</button>
 
                 <a class="btn btn-info btn-sm" href="{{route('acc_level_one')}}"><b>1</b></a>
@@ -27,7 +27,8 @@
                 <a class="btn btn-success btn-sm" href="{{route('acc_level_four')}}">Chart of Account</a>
 
             </div>
-
+        </div>
+        <div class="col-12 mt-3">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap bg-white" cellspacing="0"
                    width="100%">
                 <thead>
@@ -58,7 +59,7 @@
     <script>
 
         function InitTable() {
-            $(".loading").fadeIn();
+            $(".Processing").fadeIn();
 
             $('#example').DataTable({
                 responsive: true,
@@ -94,7 +95,11 @@
                         url: '/acc_level_three/get_level2/'+level1,
                         type: "GET",
                         dataType: "json",
+                        beforeSend : function() {
+                            $(".loader-gif").fadeIn();
+                        },
                         success:function(data) {
+                            $(".loader-gif").hide();
                             $('select[name="level2of3"]').empty();
                             $('select[name="level2of3"]').append('<option disabled selected>Select Level 2</option>');
                             $.each(data, function(key, value) {
@@ -103,15 +108,16 @@
                         }
                     });
                 }else{
+                    $(".loader-gif").hide();
                     $('select[name="level2of3"]').empty();
                 }
             });
 
             $("#add_level_form").on('submit',(function(e) {
                 e.preventDefault();
-                var button=$(this).find('input[type="submit"],button');
+                var button=$('.acc-save-btn');
                 var previous=$(button).html();
-                button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                button.attr('disabled','disabled').html('Processing <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
                 $.ajax({
                     url: "{{route('acc_level_three.store')}}",
                     type: "POST",
@@ -141,9 +147,9 @@
             }));
             $("#edit_level_form").on('submit',(function(e) {
                 e.preventDefault();
-                var button=$(this).find('input[type="submit"],button');
+                var button=$('.acc-update-btn');
                 var previous=$(button).html();
-                button.attr('disabled','disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                button.attr('disabled','disabled').html('Processing <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
                 $.ajax({
                     url: "{{route('acc_level_three.update')}}",
                     type: "POST",
@@ -232,9 +238,9 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Add Level Three</h5>
+                    <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Add Level Three</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <i class="feather icon-x-circle"></i>
                     </button>
                 </div>
 
@@ -253,7 +259,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="level2of3" class="col-sm-2 control-label">Level 2</label>
+                            <label for="level2of3" class="col-12 control-label">Level 2</label>
                             <div class="col-12">
                                 <select class="form-control text-xs" id="level2of3" name="level2of3">
                                     <option value="" selected disabled>Select Level 2</option>
@@ -269,7 +275,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-12 text-right">
-                        <button class="btn btn-success btn-sm " type="submit"> <i class="fa fa-save"></i> Save</button>
+                        <button class="btn btn-success btn-sm acc-save-btn" type="submit"> <i class="fa fa-save"></i> Save</button>
                     </div>
                     </form>
                 </div>
@@ -280,9 +286,9 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fa fa-plus-circle"></i> Update Level Three</h5>
+                    <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Update Level Three</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <i class="feather icon-x-circle"></i>
                     </button>
                 </div>
 
@@ -303,7 +309,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="edit-level2of3" class="col-sm-2 control-label">Level 2</label>
+                            <label for="edit-level2of3" class="col-12 control-label">Level 2</label>
                             <div class="col-12">
                                 <select class="form-control text-xs" id="edit-level2of3" name="level2of3">
                                     <option value="" selected disabled>Select Level 2</option>
@@ -319,7 +325,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-12 text-right">
-                        <button class="btn btn-success btn-sm " type="submit"> <i class="fa fa-save"></i> Update</button>
+                        <button class="btn btn-success btn-sm acc-update-btn" type="submit"> <i class="fa fa-save"></i> Update</button>
                     </div>
                     </form>
                 </div>

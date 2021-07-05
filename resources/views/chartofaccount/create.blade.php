@@ -14,17 +14,16 @@
             });
         </script>
     @endif
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row ">
-        <h3 class="border-bottom pull-left"><i class="fa fa-money"></i> Chart of Account</h3>
         <div class="col-12">
+            <h3 class="font-weight-light"><i class="fa fa-money"></i> Chart of Account</h3>
 
             <div class="card shadow">
                 <!-- Card Header - Accordion -->
                 <a href="#levels4" class="d-block card-header py-3" data-toggle="collapse" role="button"
                    aria-expanded="true" aria-controls="collapseCardExample">
-                    <h6 class="m-0 font-weight-bold text-primary"> Chart of Account</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"> <i class="fa fa-plus-circle"></i> Chart of Account</h6>
                 </a>
                 <!-- Card Content - Collapse -->
                 <div class="collapse show" id="levels4">
@@ -110,7 +109,7 @@
                                 </div>
 
                                 <div class="col-12 text-right">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save
+                                    <button type="submit" class="btn btn-primary acc-save-btn"><i class="fa fa-save"></i> Save
                                     </button>
                                 </div>
                             </form>
@@ -130,7 +129,12 @@
                         url: '/acc_level_three/get_level2/'+level1of4,
                         type: "GET",
                         dataType: "json",
+                        beforeSend : function() {
+                            $(".loader-gif").fadeIn();
+                        },
+
                         success:function(data) {
+                            $(".loader-gif").hide();
                             $('select[name="level2of4"]').empty();
                             $('select[name="level2of4"]').append('<option disabled selected>Select Level 2</option>');
                             $.each(data, function(key, value) {
@@ -139,6 +143,7 @@
                         }
                     });
                 }else{
+                    $(".loader-gif").hide();
                     $('select[name="level2of4"]').empty();
                 }
             });
@@ -149,7 +154,11 @@
                         url: '/acc_level_three/get_level3/'+level2of4,
                         type: "GET",
                         dataType: "json",
+                        beforeSend : function() {
+                            $(".loader-gif").fadeIn();
+                        },
                         success:function(data) {
+                            $(".loader-gif").hide();
                             $('select[name="level3of4"]').empty();
                             $('select[name="level3of4"]').append('<option disabled selected>Select Level 3</option>');
                             $.each(data, function(key, value) {
@@ -158,12 +167,16 @@
                         }
                     });
                 }else{
+                    $(".loader-gif").hide();
                     $('select[name="level3of4"]').empty();
                 }
             });
 
             $("#add_level_form").on('submit',(function(e) {
                 e.preventDefault();
+                var button=$('.acc-save-btn');
+                var previous=$('.acc-save-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
                 $.ajax({
                     url: "{{route('acc_level_four.store')}}",
                     type: "POST",
@@ -173,10 +186,10 @@
                     processData:false,
                     success: function(data)
                     {
+                        button.attr('disabled',null).html(previous);
                         swal('success',data.success,'success').then((value) => {
                             //
                         });
-
                     },
                     error: function(xhr)
                     {
@@ -189,9 +202,6 @@
                     }
                 });
             }));
-
         });
     </script>
-
-
 @endsection
