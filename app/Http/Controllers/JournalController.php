@@ -17,8 +17,14 @@ class JournalController extends Controller
 
         $vouchers=Journal::where('type','payment voucher')->get();
         foreach ($vouchers as $voucher){
-            echo '"DELETE FROM vouchers WHERE id = '.$voucher->id.';"';
+            echo '"DELETE FROM journals WHERE id = '.$voucher->id.';"';
         }
+        foreach ($vouchers as $voucher){
+            foreach ($voucher->details as $detail){
+                echo '"DELETE FROM journal_details WHERE id = '.$detail->id.';"';
+            }
+        }
+
         dd('sql');
 
 
