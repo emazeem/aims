@@ -54,7 +54,7 @@
                         <td>{{$user->fname.' '.$user->lname}}</td>
                         <td>{{$user->designations->name}}</td>
                         <td>{{$user->cnic}}</td>
-                        <td>{{$user->joining}}</td>
+                        <td>{{$user->joining->format('d-m-Y')}}</td>
                     </tr>
                 @endforeach
                 </tbody>
