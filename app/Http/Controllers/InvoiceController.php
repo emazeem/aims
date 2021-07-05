@@ -22,7 +22,9 @@ class InvoiceController extends Controller
         $job->status=2;
         $invoice=new Invoice();
         $invoice->job_id=$request->id;
-        $invoice->title='INV/'.str_pad($request->id,6,0,STR_PAD_LEFT);
+        $invoice->title='INV';
+        $invoice->save();
+        $invoice->title='INV/'.str_pad($invoice->id,6,0,STR_PAD_LEFT);
         $invoice->save();
         //$customr_acc=Chartofaccount::where('acc_code',$invoice->job->quotes->customers->acc_code)->first();
         $c_id=[];
