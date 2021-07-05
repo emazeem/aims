@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Notifications\CustomNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
@@ -23,7 +24,12 @@ class LogReviewController extends Controller
     public function show($id){
         $this->authorize('view-log-reviews');
         $show=LogReview::find($id);
-        return view('logreview.show',compact('show','next','previous'));
+        $next=DB::select('select * from log_reviews where id = (select min(id) from log_reviews where id > '.$show->id.')');
+        $next=$next?$next[0]:$next;
+        $previous=DB::select('select * from log_reviews where id = (select max(id) from log_reviews where id < '.$show->id.')');
+        $previous=$previous?$previous[0]:$previous;
+
+        return view('logreview.show',compact('show','previous','next'));
     }
 
     public function fetch(){
