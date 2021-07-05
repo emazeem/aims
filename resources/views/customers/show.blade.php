@@ -47,6 +47,7 @@
                         "<tr><th class='p-md-2 px-0'>Plant</th><td>" + data.plant + "</td></tr>"+
                         "<tr><th class='p-md-2 px-0'>Region</th><td>" + data.region + "</td></tr>"+
                         "<tr><th class='p-md-2 px-0'>Tax Case</th><td>" + data.tax_case + "</td></tr>"+
+                        "<tr><th class='p-md-2 px-0'>Account #</th><td>" + data.acc_code + "</td></tr>"+
                         "<tr><th class='p-md-2 px-0'>Allowance Applicable</th><td>" + data.allowance_applicable + "</td></tr>"
                     );
                     $.each(data['contacts'], function (index, contact) {
