@@ -8,6 +8,7 @@ use App\Models\AccLevelTwo;
 use App\Models\Chartofaccount;
 use App\Models\CostCenter;
 use App\Models\Customer;
+use App\Models\Journal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;

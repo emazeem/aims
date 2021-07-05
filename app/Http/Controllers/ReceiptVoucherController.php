@@ -89,7 +89,7 @@ class ReceiptVoucherController extends Controller
         $c=Customer::where('acc_code',$request->customer_acc)->first();
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 5, 4);
+            $date=substr($voucher->customize_id, 3, 4);
             $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
                 if ($type=='RV'){
@@ -173,15 +173,13 @@ class ReceiptVoucherController extends Controller
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();
-        $journal->customize_id='RV'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='RV'.'.'.date('my').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
         $inv=Invoice::find($request->customer_inv);
         $vs=new InvoiceVsReceipts();
         $vs->invoice_id=$inv->voucher_id;
         $vs->receipt_id=$journal->id;
         $vs->save();
-
-
         if ($c->tax_case=='1'){
             //bank or cash
             $receipt=new JournalDetails();
@@ -316,7 +314,6 @@ class ReceiptVoucherController extends Controller
         }
         return response()->json($details);
     }
-
     public function get_payment_acc($type){
         if ($type=='cash'){
             $accounts=Chartofaccount::where('code3',2)->get();
@@ -326,5 +323,4 @@ class ReceiptVoucherController extends Controller
         }
         return response()->json($accounts);
     }
-
 }

@@ -105,7 +105,7 @@ class PurchaseInvoiceController extends Controller
 
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 5, 4);
+            $date=substr($voucher->customize_id, 3, 4);
             $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
                 if ($type=='PI'){
@@ -122,7 +122,7 @@ class PurchaseInvoiceController extends Controller
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();
-        $journal->customize_id='PI'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='PI'.'.'.date('my').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
 
         //Liability -> IR/GR Dr.

@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chartofaccount;
 use App\Models\Invoice;
-use App\Models\Item;
 use App\Models\Job;
 use App\Models\Jobitem;
 use App\Models\Journal;
@@ -27,10 +25,9 @@ class InvoiceController extends Controller
         $invoice->title='INV/'.str_pad($request->id,6,0,STR_PAD_LEFT);
         $invoice->save();
         //$customr_acc=Chartofaccount::where('acc_code',$invoice->job->quotes->customers->acc_code)->first();
-
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 5, 4);
+            $date=substr($voucher->customize_id, 3, 4);
             $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
                 if ($type=='SI'){
@@ -64,7 +61,7 @@ class InvoiceController extends Controller
         $journal->save();
         $invoice->voucher_id=$journal->id;
         $invoice->save();
-        $journal->customize_id='SI'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='SI'.'.'.date('my').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
 
         //Accounts Receivable of customer Dr.

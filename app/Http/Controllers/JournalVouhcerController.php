@@ -75,7 +75,7 @@ class JournalVouhcerController extends Controller
         $this->authorize('add-journal-vouchers');
         $c_id=[];
         foreach (Journal::all() as $voucher) {
-            $date=substr($voucher->customize_id, 5, 4);
+            $date=substr($voucher->customize_id, 3, 4);
             $type=substr($voucher->customize_id, 0, 2);
             if (date('my')==$date){
                 if ($type=='JV'){
@@ -107,7 +107,7 @@ class JournalVouhcerController extends Controller
         $journal->created_by=auth()->user()->id;
         $journal->customize_id=0;
         $journal->save();
-        $journal->customize_id='JV'.'.'.date('dmy').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
+        $journal->customize_id='JV'.'.'.date('my').'.'.(str_pad(count($c_id)+1, 3, '0', STR_PAD_LEFT));
         $journal->save();
         foreach ($request->account as $k=>$item){
             $details=new JournalDetails();
