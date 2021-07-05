@@ -50,7 +50,7 @@
                 @foreach($users as $k=>$user)
                     <tr>
                         <td>{{$k+1}}</td>
-                        <td>E-{{str_pad($user->id,3,0,STR_PAD_LEFT)}}</td>
+                        <td>{{$user->cid}}</td>
                         <td>{{$user->fname.' '.$user->lname}}</td>
                         <td>{{$user->designations->name}}</td>
                         <td>{{$user->cnic}}</td>
