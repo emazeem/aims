@@ -17,10 +17,7 @@ class ChartofaccountController extends Controller
 {
     public function index()
     {
-
-
-
-        /*$customers = Customer::all();
+        $customers = Customer::all();
         foreach ($customers as $customer) {
             $acc = new Chartofaccount();
             $acc->code3 = 3;
@@ -35,7 +32,8 @@ class ChartofaccountController extends Controller
             $customer->acc_code=$acc->acc_code;
             $customer->save();
         }
-        dd(1);*/
+        dd(1);
+
 
 
 
