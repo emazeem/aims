@@ -56,7 +56,7 @@
                     <tr>
                         <th>Bill / Invoice to:
                         </th>
-                        <td>{{$job->quotes->customers->reg_name}}</td>
+                        <th>{{$job->quotes->customers->reg_name}}</th>
                     </tr>
                     <tr>
                         <th>Address</th>
