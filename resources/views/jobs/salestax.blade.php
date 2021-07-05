@@ -92,7 +92,7 @@
                         <th>Customer Ref. No.:<br>
                             (PO / SO / Quote)
                         </th>
-                        <td>{{$job->quotes->approval_mode}}<br>{{$job->quotes->rfq_mode_details}}</td>
+                        <td>{{$job->quotes->approval_mode}}<br>{{$job->quotes->approval_mode_details}}</td>
                     </tr>
                     <tr>
                         <th>AIMS Ref. No.:</th>
