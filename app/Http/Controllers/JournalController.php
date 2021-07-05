@@ -14,6 +14,14 @@ class JournalController extends Controller
     public function index(){
         $this->authorize('journal-index');
         $chartofaccounts=Chartofaccount::all();
+
+        $vouchers=Journal::where('type','payment voucher')->get();
+        foreach ($vouchers as $voucher){
+            echo '"DELETE FROM vouchers WHERE id = '.$voucher->id.';"';
+        }
+        dd('sql');
+
+
         return view('journal.index',compact('chartofaccounts'));
     }
 
