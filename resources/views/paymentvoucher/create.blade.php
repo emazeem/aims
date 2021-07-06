@@ -15,7 +15,7 @@
             });
         </script>
     @endif
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="{{url('/assets/js/1.10.1/jquery.min.js')}}"></script>
 
     <div class="row pb-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -185,7 +185,7 @@
                     <tfoot>
                 </table>
                 <a href="{{ URL::previous() }}" class="btn btn-light border"> <i class="fa fa-angle-left"></i> Back</a>
-                <button type="submit" class="btn btn-primary float-right">Save</button>
+                <button type="submit" class="btn btn-primary float-right voucher-save-btn">Save</button>
             </form>
         </div>
     </div>
@@ -239,7 +239,13 @@
             });
 
             $("#add_voucher_form").on('submit',(function(e) {
+
                 e.preventDefault();
+                var button = $('.voucher-save-btn');
+                var previous = $(button).html();
+
+                button.attr('disabled', 'disabled').html('Processing <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+
                 $.ajax({
                     url: "{{route('vouchers.store')}}",
                     type: "POST",
@@ -249,10 +255,12 @@
                     processData:false,
                     success: function(data)
                     {
+                        button.attr('disabled', null).html(previous);
                         swal('success',data.success,'success');
                     },
                     error: function(xhr)
                     {
+                        button.attr('disabled', null).html(previous);
                         if (xhr.responseJSON.error){
                             swal("Failed", xhr.responseJSON.error, "error").then((value) => {
 
@@ -360,7 +368,6 @@
     </script>
     <style>
         .select2-results__option {
-            
             font-size: 10px;
         }
     </style>

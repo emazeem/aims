@@ -140,6 +140,7 @@
                                 dataType: "JSON",
                                 data: form_data,
                                 success: function (data) {
+                                    button.attr('disabled', null).html(previous);
                                     swal('success', data.success, 'success').then((value) => {
                                         location.reload();
                                     });
