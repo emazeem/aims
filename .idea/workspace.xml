@@ -151,26 +151,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="1" />
-          <entry key="php" value="55" />
+          <entry key="php" value="57" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="30" />
-          <entry key="PHP" value="25" />
+          <entry key="Blade" value="31" />
+          <entry key="PHP" value="26" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="10" />
-          <entry key="php" value="2838" />
+          <entry key="php" value="2859" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="1682" />
-          <entry key="PHP" value="1156" />
+          <entry key="Blade" value="1702" />
+          <entry key="PHP" value="1157" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
@@ -199,29 +199,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/paymentvoucher/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="258" column="63" lean-forward="true" selection-start-line="258" selection-start-column="63" selection-end-line="258" selection-end-column="63" />
+            <state relative-caret-position="210">
+              <caret line="262" column="41" selection-start-line="262" selection-start-column="41" selection-end-line="262" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/jobs/show.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoucherController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="143" selection-start-line="143" selection-end-line="143" />
+            <state relative-caret-position="418">
+              <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard.blade.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/paymentvoucher/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" selection-start-line="16" selection-end-line="17" />
+            <state relative-caret-position="396">
+              <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -301,7 +301,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LeaveApplicationController.php" />
         <option value="$PROJECT_DIR$/resources/views/leave_application/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/leave_application/create.blade.php" />
@@ -339,7 +338,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/JournalController.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/salestax.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VoucherController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PurchaseInvoiceController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/JournalVouhcerController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReceiptVoucherController.php" />
@@ -352,6 +350,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/paymentvoucher/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VoucherController.php" />
+        <option value="$PROJECT_DIR$/resources/views/paymentvoucher/index.blade.php" />
       </list>
     </option>
   </component>
@@ -798,12 +798,12 @@
       <workItem from="1625064046543" duration="22514000" />
       <workItem from="1625150548393" duration="20009000" />
       <workItem from="1625471057973" duration="16481000" />
-      <workItem from="1625543925575" duration="5845000" />
+      <workItem from="1625543925575" duration="6584000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="780749000" />
+    <option name="totallyTimeSpent" value="781488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -818,7 +818,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.20801815" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -867,13 +867,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/journal/ledger.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="85" column="71" selection-start-line="85" selection-start-column="71" selection-end-line="85" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/jobs/jobform.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1080,13 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoucherController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="152" column="46" lean-forward="true" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SalesInvoiceController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1674" />
@@ -1209,8 +1195,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/paymentvoucher/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="258" column="63" lean-forward="true" selection-start-line="258" selection-start-column="63" selection-end-line="258" selection-end-column="63" />
+        <state relative-caret-position="210">
+          <caret line="262" column="41" selection-start-line="262" selection-start-column="41" selection-end-line="262" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoucherController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/paymentvoucher/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
         </state>
       </provider>
     </entry>

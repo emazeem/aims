@@ -29,7 +29,6 @@
                    width="100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Customize ID</th>
                     <th>V Type</th>
                     <th>V Date</th>
@@ -42,7 +41,6 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
                     <th>Customize ID</th>
                     <th>V Type</th>
                     <th>V Date</th>
@@ -75,7 +73,6 @@
                     "data": {_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
                     {"data": "customize_id"},
                     {"data": "type"},
                     {"data": "date"},
