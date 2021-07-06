@@ -133,6 +133,7 @@ class VoucherController extends Controller
             'account.*' => 'required',
             'narration.*' => 'required',
             'price.*' => 'required',
+            'account' => 'required',
         ]);
         $dr=0;$cr=0;
         foreach ($request->account as $k=>$item){

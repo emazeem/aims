@@ -260,18 +260,13 @@
                     },
                     error: function(xhr)
                     {
+                        console.log(xhr);
                         button.attr('disabled', null).html(previous);
-                        if (xhr.responseJSON.error){
-                            swal("Failed", xhr.responseJSON.error, "error").then((value) => {
-
-                            });
-                        }else {
-                            var error='';
-                            $.each(xhr.responseJSON.errors, function (key, item) {
-                                error+=item;
-                            });
-                            swal("Failed", error, "error");
-                        }
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
                     }
                 });
             }));
