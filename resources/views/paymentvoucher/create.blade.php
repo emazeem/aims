@@ -184,9 +184,6 @@
                     </tbody>
                     <tfoot>
                 </table>
-
-
-
                 <a href="{{ URL::previous() }}" class="btn btn-light border"> <i class="fa fa-angle-left"></i> Back</a>
                 <button type="submit" class="btn btn-primary float-right">Save</button>
             </form>
@@ -222,7 +219,7 @@
                 count++;
                 var newRow = $("<tr>");
                 var cols = "";
-                cols += '<td><select name="tlevel[]"  class="form-control tlevel" id="tlevel'+count+'" data-tlevel="'+count+'"><option value="" selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->id.'">'.$account->codethree->title.'-'.$account->title.'</option>';}  @endphp</td>';
+                cols += '<td><select name="tlevel[]"  class="form-control tlevel" id="tlevel'+count+'" data-tlevel="'+count+'"><option value="" selected>Select Account</option>@php foreach ($accounts as $account){ echo '<option value="'.$account->id.'">'.$account->codetwo->title.'-'.$account->title.'</option>';}  @endphp</td>';
                 cols += '<td><select name="account[]"  class="form-control account" id="account_id'+count+'" data-account_id="'+count+'"><option value="" selected>Select Account</option>';
                 cols += '<td><select name="costcenter[]"  class="form-control costcenter_id" id="costcenter_id'+count+'"><option value="" selected>Select Cost Center</option></select></td>';
                 cols += '<td><textarea rows="1"  class="form-control" name="narration[]" placeholder="Narration"/></td>';

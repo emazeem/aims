@@ -151,25 +151,25 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="1" />
-          <entry key="php" value="51" />
+          <entry key="php" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Blade" value="28" />
-          <entry key="PHP" value="23" />
+          <entry key="PHP" value="25" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="env" value="10" />
-          <entry key="php" value="2551" />
+          <entry key="php" value="2571" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="1395" />
+          <entry key="Blade" value="1415" />
           <entry key="PHP" value="1156" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
@@ -181,10 +181,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartofaccountController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Chartofaccount.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/paymentvoucher/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3542" />
+            <state relative-caret-position="242">
+              <caret line="186" column="98" selection-start-line="186" selection-start-column="98" selection-end-line="186" selection-end-column="98" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -199,7 +219,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>checking.s</find>
       <find>task.</find>
       <find>task.s</find>
       <find>select-2-asset</find>
@@ -229,6 +248,7 @@
       <find>attendance-table</find>
       <find>lazy-loader</find>
       <find>date-attendance</find>
+      <find>$accounts</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -263,7 +283,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/leave_application/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LeaveApplicationController.php" />
         <option value="$PROJECT_DIR$/resources/views/leave_application/edit.blade.php" />
@@ -314,6 +333,7 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
+        <option value="$PROJECT_DIR$/resources/views/paymentvoucher/create.blade.php" />
       </list>
     </option>
   </component>
@@ -760,12 +780,12 @@
       <workItem from="1625064046543" duration="22514000" />
       <workItem from="1625150548393" duration="20009000" />
       <workItem from="1625471057973" duration="16481000" />
-      <workItem from="1625543925575" duration="4767000" />
+      <workItem from="1625543925575" duration="5016000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="779671000" />
+    <option name="totallyTimeSpent" value="779920000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -829,13 +849,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/my_task/index_lab.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="63" column="33" selection-start-line="63" selection-start-column="33" selection-end-line="63" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/journal/ledger.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1075,13 +1088,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartofaccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="34" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1173,9 +1179,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ChartofaccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Chartofaccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/paymentvoucher/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3542" />
+        <state relative-caret-position="242">
+          <caret line="186" column="98" selection-start-line="186" selection-start-column="98" selection-end-line="186" selection-end-column="98" />
+        </state>
       </provider>
     </entry>
   </component>
