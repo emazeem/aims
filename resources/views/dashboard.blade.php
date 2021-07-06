@@ -181,6 +181,32 @@
             </div>
         </div>
         <div class="col-12">
+            <div class="card">
+                <div class="card-body d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0 float-left font-weight-light">Attendance</h5>
+                    <label for="date-attendance"></label>
+                    <input type="date" id="date-attendance" class="form-control float-right col-md-3" name="date-attendance" value="{{date('Y-m-d')}}">
+                </div>
+                <div class="card-body border-top table-responsive" id="pro-det-edit-1">
+                    <table class="table table-hover table-sm bg-white">
+                        <thead>
+                        <tr>
+                            <th>By</th>
+                            <th>Check-in</th>
+                            <th>Check-out</th>
+                        </tr>
+                        </thead>
+                        <tbody class="attendance-table">
+                        </tbody>
+                    </table>
+                    <div class="col-12 text-center">
+                        <img src="{{url('assets/images/lazy-loader.gif')}}" alt="" class="lazy-loader" style="display: none;">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
             <div class="card p-0">
                 <div class="card-body">
                     <h6 class="mb-0 float-right">
@@ -349,7 +375,34 @@
     </div>
 
     <script>
+        function getAttendance(date){
+            $.ajax({
+                url: "{{route('dashboard.get.attendance')}}",
+                type: 'POST',
+                dataType: "JSON",
+                data: {date:date,_token: '{{csrf_token()}}'},
+                beforeSend: function () {
+                    $('#data-attendance').prop('disabled',true);
+                    $('.attendance-table').empty();
+                    $('.lazy-loader').fadeIn();
+                },
+                success: function (data) {
+                    $('.lazy-loader').hide();
+                    $('#data-attendance').prop('disabled',false);
+                    $.each(data ,function (i,v) {
+                        $('.attendance-table').append(
+                            "<tr><td>" + v.user + "</td><td>" + v.check_in + "</td><td>" + v.check_out + "</td></tr>"
+                        );
+                    });
+                },
+            });
+        }
         $(document).ready(function () {
+            getAttendance('{{date('Y-m-d')}}');
+            $('#date-attendance').on('change', function() {
+                var attendance = $(this).val();
+                getAttendance(attendance);
+            });
             $.ajax({
                 url: "{{route('dashboard.get.location')}}",
                 type: 'POST',
@@ -368,6 +421,8 @@
                     $('.temp-toggler').attr('checked','checked');
                 },
             });
+
+
             $(document).on('click', '.checkin', function (e) {
                 swal({
                     title: "Are you sure to check in?",

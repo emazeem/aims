@@ -12,6 +12,7 @@ class Attendance extends Model
     public function user(){
         return $this->belongsTo('App\Models\User','user_id','id');
     }
+    protected $dates=['check_in_date','check_out_date','check_in','check_out'];
 
     use LogsActivity;
     protected static $logAttributes = ["user_id","check_in_date","check_out_date","check_in","check_out","day","worked_hours","status","leave_id","remarks"];

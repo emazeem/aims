@@ -93,6 +93,9 @@ class DashboardControlller extends Controller
         $notsents_q=Quotes::all()->where('status',1)->count();
         $waitings_q=Quotes::all()->where('status',2)->count();
         $approved_q=Quotes::all()->where('status',3)->count();
+
+
+
         return view('dashboard',
             compact('head_applications','customers','calendar','indentforrevisions',
                             'indentforapprovals','capabilities','parameters','quotes','sessions',
@@ -133,6 +136,17 @@ class DashboardControlller extends Controller
         ];
         return response()->json($api);
         //4d934a76dfd686a9d005d8668f3c6de7
+    }
+    public function get_attendance(Request $request){
+        $attendances=Attendance::where('check_in_date',$request->date)->get();
+        $data=[];
+        foreach ($attendances as $k=>$attendance) {
+            $data[$k]['user']=$attendance->user->fname.' '.$attendance->user->lname;
+            $data[$k]['check_in']=$attendance->check_in->format('h:i A');
+            $data[$k]['check_out']=$attendance->status==0?'':$attendance->check_out->format('h:i A');
+        }
+
+        return response()->json($data);
     }
     //
 }
