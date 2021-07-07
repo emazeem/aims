@@ -37,7 +37,7 @@
                             </div>
                         @endif
                         @foreach($job->jobitems as $item)
-                            <div class='checkbox col-md-4 checkbox-fill d-inline'>
+                            <div class='checkbox col-md-3 checkbox-fill d-inline'>
                                 <input type='checkbox' data-id='{{$item->id}}' name='delivery_items' class='delivery_items' id='delivery_items{{$item->id}}'
                                         {{(in_array($item->id,$delivered_id)?'selected disabled':'')}}>
                                 <label class='cr {{(in_array($item->id,$delivered_id)?'line-through':'')}}' for='delivery_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
