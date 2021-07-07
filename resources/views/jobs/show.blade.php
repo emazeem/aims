@@ -25,7 +25,7 @@
                            class='pull-left btn btn-sm btn-info'><i
                                     class="fa fa-print"></i> Merge DN</a>
                     @endif
-                    @if($job->status==1)
+                    @if($job->status>=0)
                         <a data-toggle="modal" data-target="#add_delivery_note" href
                            class='pull-left btn btn-sm btn-success'><i
                                     class="feather icon-plus-circle"></i> DN</a>
@@ -35,7 +35,6 @@
                            href="{{url('/delivery_note/print/DN/'.$dn->id)}}" title='Print'
                            class='pull-left btn btn-sm btn-info'><i
                                     class="fa fa-print"></i> {{$dn->cid}}</a>
-
                     @endforeach
                 @endcan
                 @include('delivery_note.create')

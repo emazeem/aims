@@ -85,7 +85,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-xl-3 col-md-6">
                     <div class="card prod-p-card bg-c-green">
                         <div class="card-body">
@@ -146,7 +145,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-xl-3 col-md-6">
                     <div class="card prod-p-card bg-c-blue">
                         <div class="card-body">
@@ -177,9 +175,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+        @can('daily-attendance-dashboard')
         <div class="col-12">
             <div class="card">
                 <div class="card-body d-flex align-items-center justify-content-between">
@@ -206,6 +204,7 @@
                 </div>
             </div>
         </div>
+        @endcan
         <div class="col-12">
             <div class="card p-0">
                 <div class="card-body">

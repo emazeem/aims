@@ -88,9 +88,25 @@ class AuthServiceProvider extends ServiceProvider
         $this->payment_vouchers();
         $this->leave_app();
         $this->gatepass();
+        $this->dashboard();
         //
     }
 
+    public function dashboard()
+    {
+        Gate::define('dashboard-index', function ($user) {
+            if (in_array('dashboard-index', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('daily-attendance-dashboard', function ($user) {
+            if (in_array('daily-attendance-dashboard', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+    }
     public function gatepass()
     {
         Gate::define('create-gate-pass', function ($user) {
@@ -112,8 +128,8 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
-
     }
+
 
     public function leave_app()
     {
@@ -1376,12 +1392,6 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         });
 
-        Gate::define('dashboard-index', function ($user) {
-            if (in_array('dashboard-index', explode(',', $user->roles->permissions))) {
-                return true;
-            }
-            return false;
-        });
         Gate::define('manage-jobs', function ($user) {
             if (in_array('manage-jobs', explode(',', $user->roles->permissions))) {
                 return true;
