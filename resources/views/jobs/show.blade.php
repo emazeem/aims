@@ -19,7 +19,7 @@
                                 class="fa fa-print"></i> {{$job->cid}}</a>
                 @endcan
                 @can('print-delivery-note')
-                    @if($job->status==2)
+                    @if($job->status>=0)
                         <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
                            href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print'
                            class='pull-left btn btn-sm btn-info'><i
