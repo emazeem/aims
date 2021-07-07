@@ -96,7 +96,9 @@ class ItemEntriesController extends Controller
         $details->make=$request->make;
         $details->model=$request->model;
         $details->accessories=$request->accessories;
-        $details->status=1;
+        if ($details->status==0){
+            $details->status=1;
+        }
         $details->visual_inspection=$request->visualinspection;
         $details->save();
         return response()->json(['success'=>'Updated successfully']);

@@ -59,7 +59,7 @@
     </div>
     <div class="modal fade" id="add_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <div class="modal-content add_details_content">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Receiving & Assign</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
@@ -124,10 +124,9 @@
     </div>
     <script>
         $(document).ready(function () {
+
             $('.select-2-users').select2();
             $('.select-2-asset').select2();
-            $('.select-2-assets').select2();
-
             $(document).on('click', '.add', function () {
                 var id = $(this).attr('data-id');
                 var job = $(this).attr('data-target');
