@@ -15,8 +15,8 @@
                             <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                         </button>
                     </div>
-
-                    <form id="add_delivery_note_form">
+                </div>
+                <form id="add_delivery_note_form">
                         @csrf
                         <input type="hidden" name="job_id" value="{{$job->id}}">
                         <input type="hidden" name="delivery_item_id" id="delivery_item_id"  value="">
@@ -36,16 +36,19 @@
                                 </div>
                             </div>
                         @endif
-                        @foreach($job->jobitems as $item)
-                            <div class='checkbox col-md-3 checkbox-fill d-inline'>
-                                <input type='checkbox' data-id='{{$item->id}}' name='delivery_items' class='delivery_items' id='delivery_items{{$item->id}}'
-                                        {{(in_array($item->id,$delivered_id)?'selected disabled':'')}}>
-                                <label class='cr {{(in_array($item->id,$delivered_id)?'line-through':'')}}' for='delivery_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
+                        <div class="container">
+                            <div class="row">
+                            @foreach($job->jobitems as $item)
+                                <div class='checkbox col-md-4 col-12 checkbox-fill d-inline'>
+                                    <input type='checkbox' data-id='{{$item->id}}' name='delivery_items' class='delivery_items' id='delivery_items{{$item->id}}'
+                                            {{(in_array($item->id,$delivered_id)?'selected disabled':'')}}>
+                                    <label class='cr {{(in_array($item->id,$delivered_id)?'line-through':'')}}' for='delivery_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
+                                </div>
+                            @endforeach
                             </div>
-                        @endforeach
+                        </div>
                         <button class="btn btn-primary btn-sm rounded float-right delivery-note-add-btn" type="submit"><i class="feather icon-save"></i> Save</button>
                     </form>
-                </div>
             </div>
         </div>
     </div>
