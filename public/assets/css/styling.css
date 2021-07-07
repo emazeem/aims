@@ -22779,14 +22779,7 @@ pre[class*=language-]:before {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.menu-styler .style-toggler > a {
-    position: fixed;
-    right: 0;
-    top: 200px;
-    z-index: 1031;
-    -webkit-transition: 0.15s ease-in-out;
-    transition: 0.15s ease-in-out;
-}
+
 
 .menu-styler .style-toggler > a:before {
     content: "";
