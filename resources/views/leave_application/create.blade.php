@@ -11,6 +11,7 @@
     <div class="row pb-3">
         <div class="col-12">
             <h5 class="mb-3 font-weight-light"><i class="feather icon-plus-circle"></i> Add Employee Leave Application</h5>
+            <p class="text-danger ml-md-4"><b>Note :</b> Please apply separate for half leave</p>
         </div>
         <div class="col-12">
             <form id="application-form" method="post">
@@ -26,33 +27,19 @@
                                     <option value="{{$employee->id}}" disabled {{$employee->id==auth()->user()->id?'selected':''}}>{{$employee->fname}} {{$employee->lname}}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('employee'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('employee') }}</strong>
-                             </span>
-                            @endif
                         </div>
                     </div>
+
                     <div class="col-md-4 col-12 mb-1">
                         <label for="from">From</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <input type="date" class="form-control" id="from" placeholder="Enter From Date" name="from" value="{{old('from',date('Y-m-d'))}}">
-                             @if ($errors->has('from'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('from') }}</strong>
-                             </span>
-                            @endif
+                            <input type="date" class="form-control" id="from" placeholder="Enter From Date" name="from" value="{{old('from',date('Y-m-d'))}}" min="{{date('Y-m-d')}}">
                         </div>
                     </div>
                     <div class="col-md-4 col-12 mb-1">
                         <label for="to">To</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <input type="date" class="form-control" id="to" placeholder="Enter To Date" name="to" value="{{old('to',date('Y-m-d'))}}">
-                             @if ($errors->has('to'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('to') }}</strong>
-                             </span>
-                            @endif
+                            <input type="date" class="form-control" id="to" placeholder="Enter To Date" name="to" value="{{old('to',date('Y-m-d'))}}" min="{{date('Y-m-d')}}">
                         </div>
                     </div>
                     <div class="col-md-4 col-12 mb-1">
@@ -64,11 +51,6 @@
                                     <option value="{{$nature->slug}}">{{$nature->name}}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('nature_of_leave'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('nature_of_leave') }}</strong>
-                             </span>
-                            @endif
                         </div>
                     </div>
                     <div class="col-md-4 col-12 mb-1">
@@ -79,11 +61,6 @@
                                 <option value="0">Full Day</option>
                                 <option value="1">Half Day</option>
                             </select>
-                            @if ($errors->has('type_of_leave'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('type_of_leave') }}</strong>
-                             </span>
-                            @endif
                         </div>
                     </div>
                     <div class="col-md-4 col-12 mb-1 type_time">
@@ -94,35 +71,44 @@
                                 <option value="0">Morning</option>
                                 <option value="1">Evening</option>
                             </select>
-                            @if ($errors->has('type_time'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('type_time') }}</strong>
-                             </span>
-                            @endif
                         </div>
                     </div>
                     <div class="col-md-6 col-12 mb-1">
                         <label for="reason">Reason of Leave</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <textarea type="text" class="form-control" id="reason" placeholder="Enter Reason of Leave" name="reason">{{old('reason')}}</textarea>
-                             @if ($errors->has('reason'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('reason') }}</strong>
-                             </span>
-                            @endif
                         </div>
                     </div>
                     <div class="col-md-6 col-12 mb-1">
                         <label for="address_contact">Address & Contact</label>
                         <div class="form-check form-check-inline" style="width: 100%">
                             <textarea type="text" class="form-control" id="address_contact" placeholder="Enter Address & Contact" name="address_contact">{{old('address_contact',auth()->user()->phone.' - '.auth()->user()->address)}}</textarea>
-                             @if ($errors->has('address_contact'))
-                                <span class="text-danger">
-                                <strong>{{ $errors->first('address_contact') }}</strong>
-                             </span>
-                            @endif
                         </div>
                     </div>
+                    <div class="col-12 my-3">
+                        <h6 class="font-weight-light"><i class="feather icon-help-circle"></i> Approvals Sections</h6>
+                    </div>
+                    <div class="col-md-4 col-12 mb-1">
+                        <label for="head_id">Department Head</label>
+                        <input type="hidden" value="{{auth()->user()->departments->head}}" name="head_id" id="head_id">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" >
+                                <option selected disabled="disabled">--Select Department Head</option>
+                                <option value="{{auth()->user()->departments->head}}" selected>{{auth()->user()->departments->heads->fname.' '.auth()->user()->departments->heads->lname}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-12 mb-1">
+                        <label for="ceo_id">CEO {{auth()->user()->departments->heads->fname}}</label>
+                        <input type="hidden" value="{{auth()->user()->id}}" name="ceo_id" id="ceo_id">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" >
+                                <option selected disabled="disabled">--Select CEO</option>
+                                <option value="1" selected>{{\App\Models\User::find(1)->fname.' '.\App\Models\User::find(1)->lname}}</option>
+                            </select>
+                        </div>
+                    </div>
+
 
                 </div>
                 <div class="text-right my-3">

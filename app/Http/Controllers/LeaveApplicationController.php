@@ -20,7 +20,6 @@ class LeaveApplicationController extends Controller
         $this->authorize('add-update-my-application');
         $employees=User::all();
         $natures=Preference::where('slug','nature-of-leave-applications')->first();
-        dd($natures);
         $natures=Preference::with('child')->find($natures->id);
         return view('leave_application.create',compact('employees','natures'));
     }
@@ -37,6 +36,7 @@ class LeaveApplicationController extends Controller
         return view('leave_application.print',compact('show'));
     }
     public function show($id){
+        $this->authorize('view-my-applications');
         $show=LeaveApplication::find($id);
         return view('leave_application.show',compact('show'));
     }
@@ -65,8 +65,8 @@ class LeaveApplicationController extends Controller
         $leave->type_time=$request->type_time?$request->type_time:null;
         $leave->reason=$request->reason;
         $leave->address_contact=$request->address_contact;
-        $leave->head_id=1;
-        $leave->ceo_id=1;
+        $leave->head_id=$request->head_id;
+        $leave->ceo_id=$request->ceo_id;
         $leave->save();;
         return response()->json(['success'=>'Leave Application applied successfully. You will be notified soon after action performed','id'=>$leave->id]);
     }
@@ -143,10 +143,18 @@ class LeaveApplicationController extends Controller
     }
     public function head_approve($id){
         $leave=LeaveApplication::find($id);
-        $leave->head_recommendation_status=1;
+        $leave->head_recommendation_status=0;
         $leave->head_recommendation_date=date('Y-m-d');
         $leave->save();
         return redirect()->back()->with('success','Leave Application Approved By Head of Department');
     }
+    public function head_reject($id){
+        $leave=LeaveApplication::find($id);
+        $leave->head_recommendation_status=0;
+        $leave->head_recommendation_date=date('Y-m-d');
+        $leave->save();
+        return redirect()->back()->with('success','Leave Application Approved By Head of Department');
+    }
+
     //
 }

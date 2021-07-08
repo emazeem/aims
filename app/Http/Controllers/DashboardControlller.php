@@ -84,7 +84,7 @@ class DashboardControlller extends Controller
             $checkout_missing_status=1;
         }
 
-        $head_applications=LeaveApplication::where('head_recommendation_status',null)->where('head_id',\auth()->user()->id)->get();
+        $head_applications=LeaveApplication::where('status',0)->where('head_id',\auth()->user()->id)->get();
         //dd($head_applications);
 
         $gparameters=Parameter::all();

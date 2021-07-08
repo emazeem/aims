@@ -41,15 +41,14 @@
                 </tr>
                 <tr>
                     <th>Type of Leave</th>
-                    <td>{{$show->type_of_leave==1?'Full Day':'Half Day'}}
-                        {{$show->type_time?'['.$show->type_time.']':''}}</td>
+                    <td>{{$show->type_of_leave==0?'Full Day':'Half Day'}}
+                        <sup>{{$show->type_time==0?'[Morning]':'Evening'}}</sup>
+                    </td>
                 </tr>
-
                 <tr>
                     <th>From</th>
                     <td>{{$show->from->format('d/m/Y')}}</td>
                 </tr>
-
                 <tr>
                     <th>To</th>
                     <td>{{$show->to->format('d/m/Y')}}</td>
@@ -58,6 +57,15 @@
                     <th>Reason</th>
                     <td>{{$show->reason}}</td>
                 </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>
+                        @if($show->status==0)
+                            <span class="badge badge-info">Pending</span>
+                        @endif
+                    </td>
+                </tr>
+
                 <tr>
                     <th>Contact/Phone</th>
                     <td>{{$show->address_contact}}</td>

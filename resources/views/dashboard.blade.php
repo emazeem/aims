@@ -273,8 +273,8 @@
             </div>
         </div>
 
-        {{--<div class="col-12" style="overflow: hidden">
-            <h2 class="ml-2">Purchase Indent Revisions</h2>
+        <div class="col-12 table-responsive" style="overflow: hidden">
+            {{--<h2 class="ml-2">Purchase Indent Revisions</h2>
             <table class="table table-hover font-13 bg-white table-responsive">
                 <tbody>
                 <?php $count = 0;?>
@@ -338,23 +338,32 @@
                     <i>No Purchase indent items for approval</i>
                 @endif
             </table>
-            <h2 class="ml-2">Leave Application Department Approvals</h2>
+            --}}
+            <h4 class="font-weight-light">Leave Application Department Approvals</h4>
             @if(count($head_applications))
-                <table class="table table-hover font-13 bg-white table-responsive">
+                <table class="table table-hover bg-white table-responsive table-sm">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>From-To</th>
+                        <th>Reason</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
                     @foreach($head_applications as $head_application)
                         <tr>
-                            <td width="10%">{{$head_application->appraisal->fname}} {{$head_application->appraisal->lname}}</td>
-                            <td width="10%">{{$head_application->nature_of_leave}}</td>
-                            <td width="10%">{{$head_application->from->format('d-m-Y')}}</td>
-                            <td width="11%">{{$head_application->to->format('d-m-Y')}}</td>
+                            <td width="10%">{{$head_application->users->fname}} {{$head_application->users->lname}}</td>
+                            <td width="10%">{{$head_application->nature->name}}</td>
+                            <td width="10%">{{$head_application->from->format('d/m/Y').' '.$head_application->to->format('d/m/Y')}}</td>
                             <td width="10%">{{$head_application->reason}}</td>
                             <td width="10%">
                                 <a href="{{url('leave-application/head/reject/'.$head_application->id)}}"
                                    title="Reject" class="btn btn-danger btn-sm"><i
-                                            class="fa fa-close"></i></a>
+                                            class="feather icon-x"></i></a>
                                 <a href="{{url('leave-application/head/approve/'.$head_application->id)}}"
                                    title="Accept" class="btn btn-success btn-sm"><i
-                                            class="fa fa-check"></i></a>
+                                            class="feather icon-check"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -362,7 +371,7 @@
             @else
                 <i>No Application Approvals by Head of Department</i>
             @endif
-        </div>--}}
+        </div>
 
 
         <div class="col-12 mt-2">

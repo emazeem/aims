@@ -29,6 +29,7 @@
                     <th>Inv</th>
                     <th>Job</th>
                     <th>Customer</th>
+                    <th>Date</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -39,6 +40,7 @@
                     <th>Inv</th>
                     <th>Job</th>
                     <th>Customer</th>
+                    <th>Date</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
@@ -67,6 +69,7 @@
                     {"data": "inv"},
                     {"data": "job"},
                     {"data": "customer"},
+                    {"data": "date"},
                     {"data": "options", "orderable": false},
                 ]
             });

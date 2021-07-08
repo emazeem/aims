@@ -56,6 +56,12 @@ class SalesInvoiceController extends Controller
             ->addColumn('inv', function ($data) {
                 return $data->invoices->title;
             })
+            ->addColumn('date', function ($data) {
+                if ($data->invoices->created_at){
+                    return $data->invoices->created_at->format('d-m-Y');
+                }
+                return '00-00-0000';
+            })
             ->addColumn('customer', function ($data) {
                 return '<span class="view-customer text-primary" data-id="'.$data->quotes->customers->id.'">'.$data->quotes->customers->reg_name.'</span>';
             })
@@ -85,7 +91,7 @@ class SalesInvoiceController extends Controller
                 }else{
                     $action.="<a title='Show Invoice'
                 onclick=\"window.open('".url('/jobs/print/invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
-                href=".url('/jobs/print/invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-paperclip'></i> Invoice</a>";
+                href=".url('/jobs/print/invoice/'.$data->id)." class='btn mr-2 btn-sm btn-success'><i class='fa fa-paperclip'></i> Invoice</a>";
                     $action.="<a title='Show ST Invoice'
                 onclick=\"window.open('".url('/jobs/print/sales_invoice/'.$data->id)."','newwindow','width=1100,height=1000');return false;\"
                 href=".url('/jobs/print/sales_invoice/'.$data->id)." class='btn btn-sm btn-success'><i class='fa fa-paperclip'></i> ST Invoice</a>";
