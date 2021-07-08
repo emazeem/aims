@@ -358,10 +358,10 @@
                             <td width="10%">{{$head_application->from->format('d/m/Y').' '.$head_application->to->format('d/m/Y')}}</td>
                             <td width="10%">{{$head_application->reason}}</td>
                             <td width="10%">
-                                <a href="{{url('leave-application/head/reject/'.$head_application->id)}}"
+                                <a href="{{url('leave-applications/head/reject/'.$head_application->id)}}"
                                    title="Reject" class="btn btn-danger btn-sm"><i
                                             class="feather icon-x"></i></a>
-                                <a href="{{url('leave-application/head/approve/'.$head_application->id)}}"
+                                <a href="{{url('leave-applications/head/approve/'.$head_application->id)}}"
                                    title="Accept" class="btn btn-success btn-sm"><i
                                             class="feather icon-check"></i></a>
                             </td>

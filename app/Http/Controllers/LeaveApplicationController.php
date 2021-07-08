@@ -142,18 +142,20 @@ class LeaveApplicationController extends Controller
             ->make(true);
     }
     public function head_approve($id){
+        //0-Pending 1- 1st Apporval Reject 2- 1st Approval Approved 3- 2nd Approval Rejected 4- 2nd approval Approved
         $leave=LeaveApplication::find($id);
-        $leave->head_recommendation_status=0;
+        $leave->status=2;
         $leave->head_recommendation_date=date('Y-m-d');
         $leave->save();
         return redirect()->back()->with('success','Leave Application Approved By Head of Department');
     }
     public function head_reject($id){
+        //0-Pending 1- 1st Apporval Reject 2- 1st Approval Approved 3- 2nd Approval Rejected 4- 2nd approval Approved
         $leave=LeaveApplication::find($id);
-        $leave->head_recommendation_status=0;
+        $leave->status=1;
         $leave->head_recommendation_date=date('Y-m-d');
         $leave->save();
-        return redirect()->back()->with('success','Leave Application Approved By Head of Department');
+        return redirect()->back()->with('success','Leave Application Rejected By Head of Department');
     }
 
     //

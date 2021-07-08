@@ -37,10 +37,6 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-12 py-0 my-0">
-                <p>NTN : <span class="ml-4">{{$job->quotes->customers->ntn}}</span></p>
-            </div>
-
             <div class="col-4 py-0 my-0">
                 <p>Date of Issue <span class="custom-bottom-border px-md-5">
                         {{$job->invoices->created_at->format('d-m-Y')}}
@@ -62,6 +58,10 @@
                         <th>Bill / Invoice to:
                         </th>
                         <th>{{$job->quotes->customers->reg_name}}</th>
+                    </tr>
+                    <tr>
+                        <th>NTN :</th>
+                        <th>{{$job->quotes->customers->ntn}}</th>
                     </tr>
                     <tr>
                         <th>Address</th>

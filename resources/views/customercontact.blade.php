@@ -95,7 +95,7 @@
                                 <select class="form-control add-contact-customer-select-2" style="width: 100%" id="add_contact_customer" name="add_contact_customer">
                                     <option selected disabled="disabled">--Select Customer</option>
                                     @foreach($customers as $customer)
-                                        <option value="{{$customer->id}}">{{$customer->reg_name}}</option>
+                                        <option value="{{$customer->id}}">{{$customer->reg_name}} - {{$customer->plant}}</option>
                                     @endforeach
                                 </select>
                             </div>
