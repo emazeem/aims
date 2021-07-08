@@ -14,7 +14,7 @@ class Job extends Model
         return $this->belongsTo('App\Models\Quotes','quote_id');
     }
     public function invoices(){
-        return $this->belongsTo('App\Models\Invoice','id','job_id');
+        return $this->belongsTo('App\Models\Invoice','id','job_id')->withDefault();
     }
 
     public function siteplanings(){

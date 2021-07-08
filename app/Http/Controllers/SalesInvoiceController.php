@@ -48,13 +48,13 @@ class SalesInvoiceController extends Controller
     }
     public function create_fetch(){
         $this->authorize('add-sales-invoice');
-        $data=Job::with('quotes')->where('status','>',0)->get();
+        $data=Job::with('quotes')->with('invoices')->where('status','>',0)->get();
         return DataTables::of($data)
-            ->addColumn('id', function ($data) {
+            ->addColumn('job', function ($data) {
                 return $data->cid;
             })
-            ->addColumn('quote', function ($data) {
-                return $data->quotes->cid;
+            ->addColumn('inv', function ($data) {
+                return $data->invoices->title;
             })
             ->addColumn('customer', function ($data) {
                 return '<span class="view-customer text-primary" data-id="'.$data->quotes->customers->id.'">'.$data->quotes->customers->reg_name.'</span>';

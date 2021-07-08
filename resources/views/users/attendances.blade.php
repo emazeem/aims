@@ -37,7 +37,7 @@
             </form>
         </div>
         <div class="col-12">
-            <table class="table table-bordered table-responsive table-hover table-sm bg-white text-center attendance-scroll">
+            <table class="table table-sm table-bordered table-responsive table-hover table-sm bg-white text-center attendance-scroll">
                 <thead>
                 <tr>
                     <th>Users</th>
@@ -58,10 +58,13 @@
                                 $p=\App\Models\Attendance::where('user_id',$user->user_id)->where('check_in_date',date_format(date_create(date('Y')."-".date('m')."-".$date[0]),"Y-m-d"))->first();
                             @endphp
                             <td>
-                                @if(!empty($p))
-                                P
-                                @else
-                                    A
+                                @if(date_format(date_create(date('Y')."-".date('m')."-".$date[0]),"Y-m-d")>= date("Y-m-d"))
+                                    @else
+                                    @if(isset($p))
+                                        <p title="{{date('h:i A',strtotime($p->check_in)).'-'.date('h:i A',strtotime($p->check_out))}}">P</p>
+                                        @else
+                                        A
+                                    @endif
                                 @endif
                             </td>
                         @endforeach

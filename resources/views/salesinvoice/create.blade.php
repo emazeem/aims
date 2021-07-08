@@ -26,8 +26,8 @@
 
                 <thead>
                 <tr>
+                    <th>Inv</th>
                     <th>Job</th>
-                    <th>Quote ID</th>
                     <th>Customer</th>
                     <th>Action</th>
                 </tr>
@@ -36,8 +36,8 @@
                 </tbody>
                 <tfoot>
                 <tr>
+                    <th>Inv</th>
                     <th>Job</th>
-                    <th>Quote ID</th>
                     <th>Customer</th>
                     <th>Action</th>
                 </tr>
@@ -55,7 +55,7 @@
                 "processing": true,
                 "serverSide": true,
                 "Paginate": true,
-                "order": [[0, 'desc']],
+                "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
                     "url": "{{ route('sales.invoice.create.fetch') }}",
@@ -64,8 +64,8 @@
                     "data": {_token: "{{csrf_token()}}"}
                 },
                 "columns": [
-                    {"data": "id"},
-                    {"data": "quote"},
+                    {"data": "inv"},
+                    {"data": "job"},
                     {"data": "customer"},
                     {"data": "options", "orderable": false},
                 ]

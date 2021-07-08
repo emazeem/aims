@@ -20,6 +20,7 @@ class LeaveApplicationController extends Controller
         $this->authorize('add-update-my-application');
         $employees=User::all();
         $natures=Preference::where('slug','nature-of-leave-applications')->first();
+        dd($natures);
         $natures=Preference::with('child')->find($natures->id);
         return view('leave_application.create',compact('employees','natures'));
     }
