@@ -160,13 +160,13 @@
           <entry key="env" value="1" />
           <entry key="html" value="2" />
           <entry key="js" value="10" />
-          <entry key="php" value="132" />
+          <entry key="php" value="133" />
           <entry key="ts" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="78" />
+          <entry key="Blade" value="79" />
           <entry key="CSS" value="3" />
           <entry key="HTML" value="2" />
           <entry key="JavaScript" value="10" />
@@ -180,12 +180,12 @@
           <entry key="css" value="2" />
           <entry key="env" value="10" />
           <entry key="js" value="11" />
-          <entry key="php" value="9063" />
+          <entry key="php" value="9068" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="6332" />
+          <entry key="Blade" value="6337" />
           <entry key="CSS" value="2" />
           <entry key="JavaScript" value="11" />
           <entry key="PHP" value="2731" />
@@ -198,7 +198,17 @@
     <favorites_list name="aims" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/my_task/show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="40" column="73" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -209,7 +219,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>total</find>
       <find>toolTipFormatter</find>
       <find>dataSeries</find>
       <find>script</find>
@@ -239,6 +248,7 @@
       <find>task-item-delete-form</find>
       <find>task-item-delete-btn</find>
       <find>temp</find>
+      <find>cc</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -273,7 +283,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/chartofaccount/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/acc_level_three/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/acc_level_one/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" />
@@ -324,6 +333,7 @@
         <option value="$PROJECT_DIR$/resources/views/site_receiving/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site_receiving/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/my_task/show.blade.php" />
       </list>
     </option>
   </component>
@@ -628,6 +638,13 @@
               <item name="aims" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="my_task" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aims" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aims" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="site_receiving" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -760,12 +777,12 @@
       <workItem from="1625648104549" duration="25000" />
       <workItem from="1625717760940" duration="2234000" />
       <workItem from="1625720675203" duration="19976000" />
-      <workItem from="1625804477730" duration="16434000" />
+      <workItem from="1625804477730" duration="16679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="828117000" />
+    <option name="totallyTimeSpent" value="828362000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -778,6 +795,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" weight="0.32980332" />
@@ -807,13 +825,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/jobs/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/delivery_note/print.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1386" />
@@ -1169,6 +1180,13 @@
             <element signature="n#thead#0;n#table#0;n#div#1;n#div#0;n#div#6;n#div#0;n#!!top" />
             <element signature="e#0#26063#0#Blade" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/my_task/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="40" column="73" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="73" />
         </state>
       </provider>
     </entry>

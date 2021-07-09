@@ -38,7 +38,7 @@
                                                                         aria-hidden="true"></i> End CC
                 </button>
             </form>
-            <form method="post" id="task-end-form" class="row float-right mr-5">
+            <form method="post" id="task-end-form" class="row float-right">
                 @csrf
                 <input type="hidden" name="location" value="{{$location}}">
                 <input type="hidden" name="cc" value="0">
