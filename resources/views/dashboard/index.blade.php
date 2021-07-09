@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
         <form method="post" id="check_form">
             <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}"/>

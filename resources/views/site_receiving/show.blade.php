@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     <div class="row">
         <table class="table table-hover bg-white table-bordered table-sm mt-2">
             <thead>
@@ -113,117 +114,7 @@
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('.select-2-users').select2();
-            $('.select-2-asset').select2();
-            $(document).on('click', '.add', function () {
-                var id = $(this).attr('data-id');
-                var job = $(this).attr('data-target');
-                $('#add_id').val(id);
-                $('#add_job').val(job);
-                $('#add_details').modal('toggle');
-            });
-            $("#add_details_form").on('submit',(function(e) {
-                var button=$('.site-receiving-btn');
-                var previous=$('.site-receiving-btn').html();
-                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
 
-                e.preventDefault();
-                $.ajax({
-                    url: "{{route('checkin.store')}}",
-                    type: "POST",
-                    data:  new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                    success: function(data)
-                    {
-                        button.attr('disabled',null).html(previous);
-                        $('#add_details').modal('toggle');
-                        swal('success',data.success,'success').then((value) => {
-                            location.reload();
-                        });
-                    },
-                    error:  function(xhr)
-                    {
-                        button.attr('disabled',null).html(previous);
-                        var error='';
-                        $.each(xhr.responseJSON.errors, function (key, item) {
-                            error+=item;
-                        });
-                        swal("Failed", error, "error");
-                    },
-                });
-            }));
-            $(document).on('click', '.assign-site-task', function () {
-                var id = $(this).attr('data-id');
-                $('#assign-site-task').modal('show');
-                $('#site_task_id').val(id);
-            });
-            $(document).on('click', '.edit', function() {
-                var id = $(this).attr('data-id');
-
-                $.ajax({
-                    "url": "{{url('item_entries/edit/')}}/"+id,
-                    type: "POST",
-                    data: {'id': id,_token: '{{csrf_token()}}'},
-                    dataType : "json",
-                    success: function(data)
-                    {
-                        $('#edit_details').modal('toggle');
-                        $('#edit_id').val(data.id);
-                        $('#edit_eq_id').val(data.eq_id);
-                        $('#edit_make').val(data.make);
-                        $('#edit_serial').val(data.serial);
-                        $('#edit_model').val(data.model);
-                        $('#edit_accessories').val(data.accessories);
-                        $('#edit_visualinspection').val(data.visual_inspection);
-                        //Populating Form Data to Edit Ends
-                    },
-                    error:  function(xhr)
-                    {
-                        var error='';
-                        $.each(xhr.responseJSON.errors, function (key, item) {
-                            error+=item;
-                        });
-                        swal("Failed", error, "error");},
-                });
-            });
-            $("#edit_details_form").on('submit',(function(e) {
-                var button=$('.site-receiving-btn-edit');
-                var previous=$('.site-receiving-btn-edit').html();
-                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
-
-                e.preventDefault();
-                $.ajax({
-                    url: "{{route('checkin.update')}}",
-                    type: "POST",
-                    data:  new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData:false,
-                    success: function(data)
-                    {
-                        button.attr('disabled',null).html(previous);
-                        $('#edit_details').modal('toggle');
-                        swal('success',data.success,'success').then((value) => {
-                            location.reload();
-                        });
-                    },
-                    error:  function(xhr)
-                    {
-                        button.attr('disabled',null).html(previous);
-                        var error=null;
-                        $.each(xhr.responseJSON.errors, function (key, item) {
-                            error+=item;
-                        });
-                        swal("Failed", error, "error");
-                    },
-                });
-            }));
-        });
-    </script>
     <div class="row table-responsive p-0 m-0">
         <table class='table mt-3 table-bordered table-sm table-hover bg-white'>
             <thead>
@@ -318,10 +209,10 @@
                                     <a href="#" data-id="{{$sitejob->id}}" class="btn edit btn-light border btn-sm"><i class="feather icon-edit-2"></i> Receiving</a>
                                 @endif
                             @endcan
-                            <form id="task-item-delete" method="post" class="form-inline float-left">
+                            <button type="button" data-id="{{$sitejob->id}}" class="btn btn-sm btn-light border float-left task-item-delete-btn"><i class="feather icon-trash-2"></i></button>
+                            <form id="task-item-delete-form{{$sitejob->id}}" method="post">
                                 @csrf
                                 <input type="hidden" value="{{$sitejob->id}}" name="id">
-                                <button type="submit" class="btn btn-sm btn-light border float-left task-item-delete-btn"><i class="feather icon-trash-2"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -436,10 +327,9 @@
             </div>
         </div>
     </div>
-
-
     <script type="text/javascript">
         $(document).ready(function() {
+
             $('select[name="parameter"]').on('change', function() {
                 var parameter = $(this).val();
                 if(parameter) {
@@ -489,27 +379,26 @@
                     }
                 });
             }));
-
-            $("#task-item-delete").on('submit', (function (e) {
+            $(".task-item-delete-btn").on('click', (function (e) {
+                var id = $(this).attr('data-id');
+                var request_method = $("#task-item-delete-form" + id).attr("method");
+                var form_data = $("#task-item-delete-form" + id).serialize();
                 e.preventDefault();
                 swal({
                     title: "Are you sure to delete this task?",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
-                })
-                    .then((willDelete) => {
+                }).then((willDelete) => {
                         if (willDelete) {
                             var button = $('.task-item-delete-btn');
                             var previous = $('.task-item-delete-btn').html();
                             button.attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
                             $.ajax({
                                 url: '{{route('tasks.destroy')}}',
-                                type: "POST",
-                                data: new FormData(this),
-                                contentType: false,
-                                cache: false,
-                                processData: false,
+                                type: request_method,
+                                dataType: "JSON",
+                                data: form_data,
                                 success: function (data) {
                                     button.attr('disabled', null).html(previous);
                                     swal('success', data.success, 'success').then((value) => {
@@ -528,6 +417,115 @@
                         }
                     });
 
+            }));
+
+            $('.select-2-users').select2();
+            $('.select-2-asset').select2();
+
+            $(document).on('click', '.add', function () {
+                var id = $(this).attr('data-id');
+                var job = $(this).attr('data-target');
+                $('#add_id').val(id);
+                $('#add_job').val(job);
+                $('#add_details').modal('toggle');
+            });
+            $("#add_details_form").on('submit',(function(e) {
+                var button=$('.site-receiving-btn');
+                var previous=$('.site-receiving-btn').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('checkin.store')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        $('#add_details').modal('toggle');
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
+                    },
+                    error:  function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    },
+                });
+            }));
+            $(document).on('click', '.assign-site-task', function () {
+                var id = $(this).attr('data-id');
+                $('#assign-site-task').modal('show');
+                $('#site_task_id').val(id);
+            });
+            $(document).on('click', '.edit', function() {
+                var id = $(this).attr('data-id');
+
+                $.ajax({
+                    "url": "{{url('item_entries/edit/')}}/"+id,
+                    type: "POST",
+                    data: {'id': id,_token: '{{csrf_token()}}'},
+                    dataType : "json",
+                    success: function(data)
+                    {
+                        $('#edit_details').modal('toggle');
+                        $('#edit_id').val(data.id);
+                        $('#edit_eq_id').val(data.eq_id);
+                        $('#edit_make').val(data.make);
+                        $('#edit_serial').val(data.serial);
+                        $('#edit_model').val(data.model);
+                        $('#edit_accessories').val(data.accessories);
+                        $('#edit_visualinspection').val(data.visual_inspection);
+                        //Populating Form Data to Edit Ends
+                    },
+                    error:  function(xhr)
+                    {
+                        var error='';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");},
+                });
+            });
+            $("#edit_details_form").on('submit',(function(e) {
+                var button=$('.site-receiving-btn-edit');
+                var previous=$('.site-receiving-btn-edit').html();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+
+                e.preventDefault();
+                $.ajax({
+                    url: "{{route('checkin.update')}}",
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success: function(data)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        $('#edit_details').modal('toggle');
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
+                    },
+                    error:  function(xhr)
+                    {
+                        button.attr('disabled',null).html(previous);
+                        var error=null;
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error+=item;
+                        });
+                        swal("Failed", error, "error");
+                    },
+                });
             }));
         });
     </script>
