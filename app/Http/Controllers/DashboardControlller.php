@@ -85,6 +85,7 @@ class DashboardControlller extends Controller
         }
 
         $head_applications=LeaveApplication::where('status',0)->where('head_id',\auth()->user()->id)->get();
+        $ceo_applications=LeaveApplication::where('status',2)->where('head_id',\auth()->user()->id)->get();
         //dd($head_applications);
 
         $gparameters=Parameter::all();
@@ -96,11 +97,17 @@ class DashboardControlller extends Controller
 
 
 
-        return view('dashboard',
-            compact('head_applications','customers','calendar','indentforrevisions',
+
+        $pending_j=Job::all()->where('status',0)->count();
+        $completed_j=Job::all()->where('status',1)->count();
+        $invoiced_j=Job::all()->where('status',2)->count();
+
+        return view('dashboard.index',
+            compact('head_applications','ceo_applications','customers','calendar','indentforrevisions',
                             'indentforapprovals','capabilities','parameters','quotes','sessions',
                             'personnels','assets','jobs','departments','designations','check','checkout_missing_status',
-                            'gparameters','pendings_q','notsents_q','waitings_q','approved_q'));
+                            'gparameters','pendings_q','notsents_q','waitings_q','approved_q',
+                'pending_j','completed_j','invoiced_j'));
     }
     public function markRead($id)
     {

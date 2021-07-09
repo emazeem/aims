@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Master List of Equipments</title>
+    <title>Master List of Employees</title>
     <link rel="stylesheet" href="{{url('docs.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style> .font-custom{font-size: 12px;} </style>
@@ -18,9 +18,9 @@
 
             </div>
             <div class="col-7  my-auto py-auto">
-                <h6 class="text-center" style="margin-top: 10px">
+                <h3 class="text-center" style="margin-top: 10px">
                     LIST OF EMPLOYEES
-                </h6>
+                </h3>
             </div>
             <div class="col-3 row custom-border-left font-9 p-0">
                 <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
@@ -38,7 +38,6 @@
             <table class="table table-stripped mt-4 table-sm table-bordered font-custom">
                 <thead>
                 <tr>
-                    <th>Sr.</th>
                     <th>Employee #</th>
                     <th>Employee Name</th>
                     <th>Designation</th>
@@ -47,14 +46,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($users as $k=>$user)
+                @foreach($users as $user)
                     <tr>
-                        <td>{{$k+1}}</td>
-                        <td>{{$user->cid}}</td>
-                        <td>{{$user->fname.' '.$user->lname}}</td>
-                        <td>{{$user->designations->name}}</td>
-                        <td>{{$user->cnic}}</td>
-                        <td>{{$user->joining->format('d-m-Y')}}</td>
+                        <th>{{$user->cid}}</th>
+                        <th>{{$user->fname.' '.$user->lname}}</th>
+                        <th>{{$user->designations->name}}</th>
+                        <th>{{$user->cnic}}</th>
+                        <th>{{$user->joining->format('d-m-Y')}}</th>
                     </tr>
                 @endforeach
                 </tbody>

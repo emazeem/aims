@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attendance;
 use App\Models\Empcontract;
 use App\Models\LeaveApplication;
 use App\Models\Preference;
@@ -67,6 +68,7 @@ class LeaveApplicationController extends Controller
         $leave->address_contact=$request->address_contact;
         $leave->head_id=$request->head_id;
         $leave->ceo_id=$request->ceo_id;
+        $leave->admin_id=$request->admin_id;
         $leave->save();;
         return response()->json(['success'=>'Leave Application applied successfully. You will be notified soon after action performed','id'=>$leave->id]);
     }
@@ -157,6 +159,74 @@ class LeaveApplicationController extends Controller
         $leave->save();
         return redirect()->back()->with('success','Leave Application Rejected By Head of Department');
     }
+
+
+    public function ceo_reject($id){
+        //0-Pending 1- 1st Apporval Reject 2- 1st Approval Approved 3- 2nd Approval Rejected 4- 2nd approval Approved
+        $leave=LeaveApplication::find($id);
+        $leave->status=3;
+        $leave->ceo_recommendation_date=date('Y-m-d');
+        $leave->save();
+        return redirect()->back()->with('success','Leave Application Rejected By CEO');
+    }
+    public function remarks(Request $request){
+        $this->validate($request,[
+           'remarks'=>'required'
+        ]);
+        //0-Pending 1- 1st Apporval Reject 2- 1st Approval Approved 3- 2nd Approval Rejected 4- 2nd approval Approved
+        $leave=LeaveApplication::find($request->id);
+        if ($request->approvalno==1){
+            $leave->head_remarks=$request->remarks;
+        }
+        if ($request->approvalno==2){
+            $leave->ceo_remarks=$request->remarks;
+        }
+        if ($request->approvalno==3){
+            $leave->admin_remarks=$request->remarks;
+            $leave->admin_recommendation_date=date('Y-m-d');
+        }
+        $leave->save();
+        return redirect()->back()->with('success','Leave Application Remarks Added Successfully');
+    }
+    public function ceo_approve($id){
+
+        //0-Pending 1- 1st Apporval Reject 2- 1st Approval Approved 3- 2nd Approval Rejected 4- 2nd approval Approved
+        $leave=LeaveApplication::find($id);
+        $leave->status=4;
+        $leave->ceo_recommendation_date=date('Y-m-d');
+        $leave->save();
+
+        $fdate = $leave->from;
+        $tdate = $leave->to;
+        $datetime1 = new \DateTime($fdate);
+        $datetime2 = new \DateTime($tdate);
+        $interval = $datetime1->diff($datetime2);
+        $days = $interval->format('%a')+1;
+        for ($d=1;$d<=$days;$d++){
+            $date=date('d-m-Y',strtotime( $leave->from . " +".$d." days"));
+            $day=date('D',strtotime( $leave->from . " +".$d." days"));
+            $checkin=date('H:i:s',time());
+            $already=Attendance::where('check_in_date',date('Y-m-d',strtotime($date)))->where('user_id',$leave->user_id)->first();
+            if (isset($already)){
+                $attendance=Attendance::find($already->id);
+            }else{
+                $attendance=new Attendance();
+                $attendance->user_id=$leave->user_id;
+                $attendance->check_in_date=$date;
+                $attendance->check_out_date=$date;
+                $attendance->check_in=$checkin;
+                $attendance->check_out=$checkin;
+                //$attendance->worked_hours=0;
+                $attendance->status=0;
+                $attendance->day=$day;
+                $attendance->remarks="Leave applied by User";
+            }
+            $attendance->leave_id=$leave->id;
+            $attendance->save();
+        }
+        return redirect()->back()->with('success','Leave Application Approved By CEO');
+    }
+
 
     //
 }

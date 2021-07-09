@@ -99,8 +99,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-12 mb-1">
-                        <label for="ceo_id">CEO {{auth()->user()->departments->heads->fname}}</label>
-                        <input type="hidden" value="{{auth()->user()->id}}" name="ceo_id" id="ceo_id">
+                        <label for="ceo_id">CEO </label>
+                        <input type="hidden" value="1" name="ceo_id" id="ceo_id">
                         <div class="form-check form-check-inline" style="width: 100%">
                             <select class="form-control" >
                                 <option selected disabled="disabled">--Select CEO</option>
@@ -108,6 +108,17 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-md-4 col-12 mb-1">
+                        <label for="admin_id">Admin</label>
+                        <input type="hidden" value="36" name="admin_id" id="admin_id">
+                        <div class="form-check form-check-inline" style="width: 100%">
+                            <select class="form-control" >
+                                <option selected disabled="disabled">--Select Admin</option>
+                                <option value="1" selected>{{\App\Models\User::find(36)->fname.' '.\App\Models\User::find(36)->lname}}</option>
+                            </select>
+                        </div>
+                    </div>
+
 
 
                 </div>

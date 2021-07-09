@@ -25,8 +25,9 @@
 
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class=" font-weight-light pb-1"><i class="feather icon-clock"></i> Attendance [ {{date('F - Y',time())}} ]</h3>
-            <form class="float-right" method="post" >
+            <h3 class=" font-weight-light pb-1"><i class="feather icon-clock"></i> Attendance [ {{date('F - Y',time())}}
+                ]</h3>
+            <form class="float-right" method="post">
                 @csrf
                 <div class="float-left col-md-10">
                     <input type="month" class="form-control" name="searchmonth" required>
@@ -37,15 +38,15 @@
             </form>
         </div>
         <div class="col-12">
-            <table class="table table-sm table-bordered table-responsive table-hover table-sm bg-white text-center attendance-scroll">
+            <table id="repTb" class="table table-sm table-bordered table-responsive table-hover table-sm bg-white text-center attendance-scroll">
                 <thead>
                 <tr>
-                    <th>Users</th>
+                    <th class="pb-3">Users</th>
                     @foreach($dates as $date)
-                        <td>
+                        <th>
                             {{$date[0]}}<br>
                             {{$date[1]}}
-                        </td>
+                        </th>
                     @endforeach
                 </tr>
                 </thead>
@@ -56,13 +57,21 @@
                         @foreach($dates as $date)
                             @php
                                 $p=\App\Models\Attendance::where('user_id',$user->user_id)->where('check_in_date',date_format(date_create(date('Y')."-".date('m')."-".$date[0]),"Y-m-d"))->first();
+
                             @endphp
                             <td>
-                                @if(date_format(date_create(date('Y')."-".date('m')."-".$date[0]),"Y-m-d")>= date("Y-m-d"))
-                                    @else
+                                @if(date_format(date_create(date('Y')."-".date('m')."-".$date[0]),"Y-m-d")> date("Y-m-d"))
+
+                                @else
                                     @if(isset($p))
-                                        <p title="{{date('h:i A',strtotime($p->check_in)).'-'.date('h:i A',strtotime($p->check_out))}}">P</p>
+                                        @if($p->leave_id)
+                                            L
                                         @else
+                                            <p data-toggle="tooltip" data-placement="top" title="{{date('h:i A',strtotime($p->check_in)).'-'.date('h:i A',strtotime($p->check_out))}}">
+                                                P
+                                            </p>
+                                        @endif
+                                    @else
                                         A
                                     @endif
                                 @endif

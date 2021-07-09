@@ -16,12 +16,16 @@ class LeaveApplication extends Model
         return $this->belongsTo('App\Models\Preference','nature_of_leave','slug');
     }
     public function head(){
-        return $this->belongsTo('App\Models\User','head_id','id');
+        return $this->belongsTo('App\Models\User','head_id','id')->withDefault();
     }
     public function ceo(){
-        return $this->belongsTo('App\Models\User','ceo_id','id');
+        return $this->belongsTo('App\Models\User','ceo_id','id')->withDefault();
     }
-    protected $dates = ['from','to'];
+    public function admin(){
+        return $this->belongsTo('App\Models\User','admin_id','id')->withDefault();
+    }
+
+    protected $dates = ['from','to','admin_recommendation_date'];
 
     use LogsActivity;
     protected static $logAttributes = ["user_id","nature_of_leave","type_of_leave","type_time","from","to","reason","address_contact","head_id","head_recommendation_status","head_recommendation_date","head_remarks","ceo_id","ceo_recommendation_status","ceo_recommendation_date","ceo_remarks"];

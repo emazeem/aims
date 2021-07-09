@@ -140,5 +140,8 @@ return response()->json(['success'=>'Tasks assigned successfully']);
         $site_suggestions=$sug_id;
         return view('assign_item.sitejob',compact('id','items','site_suggestions'));
     }
-    //
+    public function destroy(Request $request){
+        Jobitem::find($request->id)->delete();
+        return response()->json(['success'=>'Item Deleted Successfully!']);
+    }
 }

@@ -124,7 +124,6 @@
     </div>
     <script>
         $(document).ready(function () {
-
             $('.select-2-users').select2();
             $('.select-2-asset').select2();
             $(document).on('click', '.add', function () {
@@ -332,6 +331,11 @@
                                     <a href="#" data-id="{{$sitejob->id}}" class="btn edit btn-light border btn-sm"><i class="feather icon-edit-2"></i> Receiving</a>
                                 @endif
                             @endcan
+                            <form id="task-item-delete" method="post" class="form-inline float-left">
+                                @csrf
+                                <input type="hidden" value="{{$sitejob->id}}" name="id">
+                                <button type="submit" class="btn btn-sm btn-light border float-left task-item-delete-btn"><i class="feather icon-trash-2"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -498,6 +502,41 @@
                     }
                 });
             }));
+
+            $("#task-item-delete").on('submit', (function (e) {
+                e.preventDefault();
+                var id = $(this).attr('data-id');
+
+                var button = $('.task-item-delete-btn');
+                var previous = $('.task-item-delete-btn').html();
+                button.attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+                $.ajax({
+                    url: '{{route('tasks.destroy')}}',
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+
+                        button.attr('disabled', null).html(previous);
+                        swal('success', data.success, 'success').then((value) => {
+
+                            location.reload();
+                        });
+
+                    },
+                    error: function (xhr) {
+                        button.attr('disabled', null).html(previous);
+                        var error = '';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error += item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+
         });
     </script>
 

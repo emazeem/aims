@@ -311,7 +311,7 @@ class UserController extends Controller
         return redirect()->back()->with('success', "Your password has been changed.");
     }
     public function list_of_employees(){
-        $users=User::all();
+        $users=User::orderBy('cid','ASC')->get();
         return view('users.listofemployees',compact('users'));
     }
     //

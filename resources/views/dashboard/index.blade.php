@@ -1,28 +1,5 @@
 @extends('layouts.master')
 @section('content')
-    <style>
-        .parameter-vs-assets::-webkit-scrollbar {
-            height: 5px;
-        }
-
-        .parameter-vs-assets::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .parameter-vs-assets::-webkit-scrollbar-thumb {
-            background-color: #136bf7;
-            outline: 1px solid #136bf7;
-        }
-    </style>
-    <script src="{{url('/assets/js/1.10.1/jquery.min.js')}}"></script>
-    @if(Session::has('success'))
-        <script>
-            $(document).ready(function () {
-                swal("Done!", '{{Session('success')}}', "success");
-            });
-        </script>
-        @php Session::forget('success') @endphp
-    @endif
     <div class="row">
         <form method="post" id="check_form">
             <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}"/>
@@ -31,7 +8,7 @@
             <div class="page-header-title float-left">
                 <h3 class="m-b-10 font-weight-light"><i class="feather icon-home"></i> Dashboard</h3>
             </div>
-        @if($check==0)
+            @if($check==0)
                 @if($checkout_missing_status==1)
                     <button type="submit" class="btn btn-sm btn-danger float-right btn-flat checkout">
                         <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
@@ -46,12 +23,10 @@
                 <button type="submit" class="btn btn-sm btn-danger float-right btn-flat checkout">
                     <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
                 </button>
-                @else
+            @else
 
             @endif
         </div>
-
-
         <div class="col-12">
             <div class="row mt-3">
 
@@ -178,32 +153,34 @@
             </div>
         </div>
         @can('daily-attendance-dashboard')
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body d-flex align-items-center justify-content-between">
-                    <h5 class="mb-0 float-left font-weight-light">Attendance</h5>
-                    <label for="date-attendance"></label>
-                    <input type="date" id="date-attendance" class="form-control float-right col-md-3" name="date-attendance" value="{{date('Y-m-d')}}">
-                </div>
-                <div class="card-body border-top table-responsive" id="pro-det-edit-1">
-                    <table class="table table-hover table-sm bg-white">
-                        <thead>
-                        <tr>
-                            <th>By</th>
-                            <th>Check-in</th>
-                            <th>Check-out</th>
-                        </tr>
-                        </thead>
-                        <tbody class="attendance-table">
-                        </tbody>
-                    </table>
-                    <div class="col-12 text-center">
-                        <img src="{{url('assets/images/lazy-loader.gif')}}" alt="" class="lazy-loader" style="display: none;">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0 float-left font-weight-light">Attendance</h5>
+                        <label for="date-attendance"></label>
+                        <input type="date" id="date-attendance" class="form-control float-right col-md-3"
+                               name="date-attendance" value="{{date('Y-m-d')}}">
                     </div>
+                    <div class="card-body border-top table-responsive" id="pro-det-edit-1">
+                        <table class="table table-hover table-sm bg-white">
+                            <thead>
+                            <tr>
+                                <th>By</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                            </tr>
+                            </thead>
+                            <tbody class="attendance-table">
+                            </tbody>
+                        </table>
+                        <div class="col-12 text-center">
+                            <img src="{{url('assets/images/lazy-loader.gif')}}" alt="" class="lazy-loader"
+                                 style="display: none;">
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
         @endcan
         <div class="col-12">
             <div class="card p-0">
@@ -252,26 +229,17 @@
                 </div>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-md-6 col-12">
             <div class="card">
-                <div class="card-header">
-                    <h5>Parameter vs Asset and Capabilities</h5>
-                </div>
-                <div class="card-body parameter-vs-assets" style="overflow-x: scroll">
-                    <div id="parameters-vs-assets" style="width: 2000px;"></div>
-                </div>
+                <div id="quoteContainer"></div>
             </div>
         </div>
         <div class="col-md-6 col-12">
             <div class="card">
-                <div class="card-header">
-                    <h5>Quote</h5>
-                </div>
-                <div class="card-body">
-                    <div id="quote-chart"></div>
-                </div>
+                <div id="jobContainer"></div>
             </div>
         </div>
+
 
         <div class="col-12 table-responsive" style="overflow: hidden">
             {{--<h2 class="ml-2">Purchase Indent Revisions</h2>
@@ -348,15 +316,29 @@
                         <th>Type</th>
                         <th>From-To</th>
                         <th>Reason</th>
+                        <th>Remarks</th>
                         <th>Action</th>
                     </tr>
                     </thead>
+
+                    <tbody>
                     @foreach($head_applications as $head_application)
                         <tr>
                             <td width="10%">{{$head_application->users->fname}} {{$head_application->users->lname}}</td>
                             <td width="10%">{{$head_application->nature->name}}</td>
                             <td width="10%">{{$head_application->from->format('d/m/Y').' '.$head_application->to->format('d/m/Y')}}</td>
                             <td width="10%">{{$head_application->reason}}</td>
+                            <td width="20%">
+                                {{$head_application->head_remarks}}
+                                <form action="{{route('leave_application.remarks')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$head_application->id}}">
+                                    <input type="hidden" name="approvalno" value="1">
+                                    <textarea type="text" class="form-control" id="reason"
+                                              placeholder="Enter Remarks of Application" name="remarks"></textarea>
+                                    <button type="submit" class="btn btn-sm btn-success btn-block">Save</button>
+                                </form>
+                            </td>
                             <td width="10%">
                                 <a href="{{url('leave-applications/head/reject/'.$head_application->id)}}"
                                    title="Reject" class="btn btn-danger btn-sm"><i
@@ -367,262 +349,83 @@
                             </td>
                         </tr>
                     @endforeach
+                    </tbody>
                 </table>
             @else
-                <i>No Application Approvals by Head of Department</i>
+                <table class="table table-hover bg-white table-responsive table-sm">
+                    <tr>
+                        <td colspan="5">No Application Approvals by Head of Department</td>
+                    </tr>
+                </table>
+            @endif
+            <h4 class="font-weight-light">Leave Application CEO Approvals</h4>
+            @if(count($ceo_applications))
+                <table class="table table-hover bg-white table-responsive table-sm">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>From-To</th>
+                        <th>Reason</th>
+                        <th>Remarks</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    @foreach($ceo_applications as $ceo_application)
+                        <tr>
+                            <td width="10%">{{$ceo_application->users->fname}} {{$ceo_application->users->lname}}</td>
+                            <td width="10%">{{$ceo_application->nature->name}}</td>
+                            <td width="10%">{{$ceo_application->from->format('d/m/Y').' '.$ceo_application->to->format('d/m/Y')}}</td>
+                            <td width="10%">{{$ceo_application->reason}}</td>
+                            <td width="20%">
+                                {{$ceo_application->ceo_remarks}}
+                                <form action="{{route('leave_application.remarks')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$ceo_application->id}}">
+                                    <input type="hidden" name="approvalno" value="2">
+                                    <textarea type="text" class="form-control" id="reason"
+                                              placeholder="Enter Remarks of Application" name="remarks"></textarea>
+                                    <button type="submit" class="btn btn-sm btn-success btn-block">Save</button>
+                                </form>
+                            </td>
+                            <td width="10%">
+                                <a href="{{url('leave-applications/ceo/reject/'.$ceo_application->id)}}"
+                                   title="Reject" class="btn btn-danger btn-sm"><i
+                                            class="feather icon-x"></i></a>
+                                <a href="{{url('leave-applications/ceo/approve/'.$ceo_application->id)}}"
+                                   title="Accept" class="btn btn-success btn-sm"><i
+                                            class="feather icon-check"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            @else
+                <table class="table table-hover bg-white table-responsive table-sm">
+                    <tr>
+                        <td colspan="5">No Application Approvals by CEO</td>
+                    </tr>
+                </table>
             @endif
         </div>
-
-
         <div class="col-12 mt-2">
-
             <h4 class="font-weight-light">Events and Deadlines</h4>
             {!! $calendar->calendar() !!}
             {!! $calendar->script() !!}
         </div>
     </div>
+    @include('dashboard.js')
+    <script src="{{url('js/canvasjs.min.js')}}"></script>
 
-    <script>
-        function getAttendance(date){
-            $.ajax({
-                url: "{{route('dashboard.get.attendance')}}",
-                type: 'POST',
-                dataType: "JSON",
-                data: {date:date,_token: '{{csrf_token()}}'},
-                beforeSend: function () {
-                    $('#data-attendance').prop('disabled',true);
-                    $('.attendance-table').empty();
-                    $('.lazy-loader').fadeIn();
-                },
-                success: function (data) {
-                    $('.lazy-loader').hide();
-                    $('#data-attendance').prop('disabled',false);
-                    $.each(data ,function (i,v) {
-                        $('.attendance-table').append(
-                            "<tr><td>" + v.user + "</td><td>" + v.check_in + "</td><td>" + v.check_out + "</td></tr>"
-                        );
-                    });
-                },
-            });
-        }
-        $(document).ready(function () {
-            getAttendance('{{date('Y-m-d')}}');
-            $('#date-attendance').on('change', function() {
-                var attendance = $(this).val();
-                getAttendance(attendance);
-            });
-            $.ajax({
-                url: "{{route('dashboard.get.location')}}",
-                type: 'POST',
-                dataType: "JSON",
-                data: {_token: '{{csrf_token()}}'},
-                beforeSend: function () {
-                    $(".loading-component").fadeIn();
-                },
-                success: function (data) {
-                    $(".loading-component").hide();
-                    $('.weather-description').html(data['weather-description']);
-                    $('.day').html(data['day']);
-                    $('.temp-in-centi').html(data['temp-in-centi']);
-                    $('.temp-icon').attr('src',data['icon']);
-                    $('.country-city').html('<i class="feather icon-map-pin"></i>'.data['city']+' '+data['country']);
-                    $('.temp-toggler').attr('checked','checked');
-                },
-            });
-
-
-            $(document).on('click', '.checkin', function (e) {
-                swal({
-                    title: "Are you sure to check in?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            var token = '{{csrf_token()}}';
-                            e.preventDefault();
-                            var request_method = $("#check_form").attr("method");
-                            var form_data = $("#check_form").serialize();
-                            //e.preventDefault();
-                            $.ajax({
-                                url: "{{route('attendance.checkin')}}",
-                                type: request_method,
-                                dataType: "JSON",
-                                data: form_data,
-                                statusCode: {
-                                    403: function () {
-                                        $(".loading").fadeOut();
-                                        swal("Failed", "Permission denied for this action.", "error");
-                                        return false;
-                                    }
-                                },
-                                success: function (data) {
-                                    swal("Success", "You are Checked in successfully.", "success");
-                                    setTimeout(function () {
-                                        window.location.reload();
-                                    }, 1000);
-                                },
-                                error: function () {
-                                    $(".loading").fadeOut();
-                                    swal("Failed", "Unable to check in.", "error");
-                                },
-                            });
-
-                        }
-                    });
-
-            });
-            $(document).on('click', '.checkout', function (e) {
-                swal({
-                    title: "Are you sure to check out?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            var token = '{{csrf_token()}}';
-                            e.preventDefault();
-                            var request_method = $("#check_form").attr("method");
-                            var form_data = $("#check_form").serialize();
-                            //e.preventDefault();
-                            $.ajax({
-                                url: "{{route('attendance.checkout')}}",
-                                type: request_method,
-                                dataType: "JSON",
-                                data: form_data,
-                                statusCode: {
-                                    403: function () {
-                                        $(".loading").fadeOut();
-                                        swal("Failed", "Permission denied for this action.", "error");
-                                        return false;
-                                    }
-                                },
-                                success: function (data) {
-                                    swal("Success", "You are Checked out successfully.", "success");
-                                    setTimeout(function () {
-                                        window.location.reload();
-                                    }, 1000);
-                                },
-                                error: function () {
-                                    $(".loading").fadeOut();
-                                    swal("Failed", "Unable to check out.", "error");
-                                },
-                            });
-
-                        }
-                    });
-
-            });
-        });
-    </script>
-    <script>
-
-        $(document).ready(function () {
-            setInterval(function () {
-                document.getElementById("current_time").innerText = moment().format('MMM D YYYY, h:mm:ss A');
-                document.getElementById("current_time_gadget").innerText = moment().format('h:mm:ss A');
-            }, 1000);
-            $(document).on('click','.temp-toggler',function () {
-                var checked=$('.temp-toggler').is(":checked");
-                if (checked==true){
-
-                    var centi=$('.temp-in-centi').html();
-                    $('.temp-in-centi').hide().html((centi*9/5)+32).fadeToggle(2000);
-
-                }else {
-
-                    var faren=$('.temp-in-centi').html();
-
-                    $('.temp-in-centi').hide().html((faren-32)*5/9).fadeToggle(2000);
-
-                }
-            });
-        });
-
-        $(function() {
-            var options = {
-                chart: {
-                    height: 400,
-                    type: 'area',
-                    zoom: {
-                        enabled: false
-                    },
-                    toolbar: {
-                        show: false,
-                    }
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    width: 2,
-                    curve: 'straight',
-                },
-                fill: {
-                    type: 'gradient',
-                    gradient: {
-                        shade: 'dark',
-                        gradientToColors: ['#4099ff'],
-                        shadeIntensity: 1,
-                        type: 'horizontal',
-                        opacityFrom: 0.9,
-                        opacityTo: 0.5,
-                        stops: [0, 100, 100, 100]
-                    },
-                },
-                yaxis: {
-                    labels: {
-                        show: true,
-                        maxWidth: 20,
-                    }
-                },
-                xaxis: {
-                    categories:[@php foreach ($gparameters as $gparameter){ echo "'$gparameter->name'".',';} @endphp],
-                },
-                colors: ["#4099ff","#ff1712"],
-                series: [{
-                    name: "Assets",
-                    data: [@php foreach ($gparameters as $gparameter){ echo count(\App\Models\Asset::where('parameter',$gparameter->id)->get()).',';} @endphp],
-                },{
-                    name: "Capabilities",
-                    data: [@php foreach ($gparameters as $gparameter){ echo count(\App\Models\Capabilities::where('parameter',$gparameter->id)->get()).',';} @endphp],
-                }],
-                grid: {
-                    row: {
-                        opacity: 0.5
-                    }
-                },
-            };
-            var chart = new ApexCharts(document.querySelector("#parameters-vs-assets"), options);
-            chart.render();
-        });
-        $(function() {
-            var options = {
-                chart: {
-                    height: 200,
-                    type: 'donut',
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                series: [{{$pendings_q}}, {{$notsents_q}}, {{$waitings_q}},{{$approved_q}}],
-                colors: ["#ff5370","#4099ff","#000000", "#2ed8b6"],
-                labels: ["Pending", "To be sent", "Waiting approval","Approved"],
-                legend: {
-                    show: true,
-                    position: 'bottom',
-                }
-            };
-            var chart = new ApexCharts(
-                document.querySelector("#quote-chart"),
-                options
-            );
-            chart.render();
-
-        });
-    </script>
-    <script src="{{url('assets/js/pages/chart.js')}}"></script>
-    <script src="{{url('assets/js/plugins/apexcharts.min.js')}}"></script>
 @endsection
+<style>
+
+    #quoteContainer,#jobContainer {
+
+        height: 300px;
+        width: 100%;
+    }
+</style>
+

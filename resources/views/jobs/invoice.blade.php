@@ -51,31 +51,30 @@
                 <table class="table table-bordered">
                     <tbody>
                     <tr>
-                        <th>Bill / Invoice to:
+                        <th>Invoice to:
                         </th>
-                        <th>{{$job->quotes->customers->reg_name}}</th>
+                        <th>
+                            {{$job->quotes->customers->ntn}}<br>
+                            {{$job->quotes->customers->reg_name}}</th>
                     </tr>
-                    <tr>
-                        <th>NTN :</th>
-                        <th>{{$job->quotes->customers->ntn}}</th>
-                    </tr>
+
 
                     <tr>
                         <th>Address</th>
-                        <td>{{$job->quotes->customers->address}}</td>
+                        <th>{{$job->quotes->customers->address}}</th>
                     </tr>
 
                     <tr>
                         <th>Contact Person</th>
-                        <td>{{$job->quotes->principals->name}}</td>
+                        <th>{{$job->quotes->principals->name}}</th>
                     </tr>
                     <tr>
-                        <th>Tel / Fax No.:</th>
-                        <td>{{$job->quotes->principals->phone}}</td>
+                        <th>Tel No :</th>
+                        <th>{{$job->quotes->principals->phone}}</th>
                     </tr>
                     <tr>
                         <th>Email:</th>
-                        <td>{{$job->quotes->principals->email}}</td>
+                        <th>{{$job->quotes->principals->email}}</th>
                     </tr>
 
 
@@ -89,24 +88,36 @@
                         <th>Customer Ref. No.:<br>
                             (PO / SO / Quote)
                         </th>
-                        <td>{{$job->quotes->approval_mode}}<br>{{$job->quotes->approval_mode_details}}</td>
+                        <th>{{$job->quotes->approval_mode}}<br>{{$job->quotes->approval_mode_details}}</th>
                     </tr>
                     <tr>
                         <th>AIMS Ref. No.:</th>
-                        <td>{{$job->cid}}</td>
+                        <th>{{$job->cid}}</th>
                     </tr>
                     <tr>
                         <th>AIMS Contact:</th>
-                        <td>{{auth()->user()->fname}} {{auth()->user()->lname}}</td>
+                        <th>{{auth()->user()->fname}} {{auth()->user()->lname}}</th>
                     </tr>
                     <tr>
-                        <th>Tel./ Fax No.:</th>
-                        <td>03060002467</td>
+                        <th>Tel No :</th>
+                        <th>03060002467</th>
                     </tr>
                     <tr>
                         <th>Email:</th>
-                        <td>acc.aimscal2021@gmail.com</td>
+                        <th>acc.aimscal2021@gmail.com</th>
                     </tr>
+                    <tr>
+                        <th colspan="2">
+                            @if($job->quotes->customers->tax_case==1)
+                                <b>Case-1 : Income Tax By AIMS + Service Tax By AIMS</b>
+                            @elseif($job->quotes->customers->tax_case==2)
+                                <b>Case-2 : Income Tax At SOURCE + Service Tax By SOURCE</b>
+                            @elseif($job->quotes->customers->tax_case==3)
+                                <b>Case-3 : Income Tax At SOURCE + Service Tax By AIMS</b>
+                            @endif
+                        </th>
+                    </tr>
+
                     </tbody>
                 </table>
             </div>

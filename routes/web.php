@@ -296,6 +296,7 @@ Route::group(['prefix'=> 'tasks'],function() {
     Route::get('edit/{id}',[App\Http\Controllers\TaskController::class, 'edit'])->middleware('auth')->name('tasks.edit');
     Route::get('/respective-assets/{id}',[App\Http\Controllers\TaskController::class, 'respectiveassets'])->middleware('auth')->name('tasks.respectiveassets');
     Route::post('store',[App\Http\Controllers\TaskController::class, 'store'])->middleware('auth')->name('tasks.store');
+    Route::post('destroy',[App\Http\Controllers\TaskController::class, 'destroy'])->middleware('auth')->name('tasks.destroy');
 });
 
 
@@ -596,8 +597,11 @@ Route::group(['prefix'=> 'leave-applications'],function() {
     Route::get('show/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'show'])->middleware('auth')->name('leave_application.show');
     Route::get('print/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'prints'])->middleware('auth')->name('leave_application.print');
 
+    Route::post('store/remarks',[App\Http\Controllers\LeaveApplicationController::class, 'remarks'])->middleware('auth')->name('leave_application.remarks');
     Route::get('/head/reject/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'head_reject'])->middleware('auth')->name('leave_application.head_reject');
     Route::get('/head/approve/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'head_approve'])->middleware('auth')->name('leave_application.head_approve');
+    Route::get('/ceo/reject/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'ceo_reject'])->middleware('auth')->name('leave_application.ceo_reject');
+    Route::get('/ceo/approve/{id}',[App\Http\Controllers\LeaveApplicationController::class, 'ceo_approve'])->middleware('auth')->name('leave_application.ceo_approve');
 
 });
 Route::group(['prefix'=> 'attendance'],function() {
