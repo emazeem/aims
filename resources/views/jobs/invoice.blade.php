@@ -128,11 +128,6 @@
             <div class="col-2 text-right font-10 b"><input type="checkbox"> AED</div>
             <div class="col-2 text-right font-10 b"><input type="checkbox"> USD</div>
         </div>
-
-
-        <div class="col-12 text-center">
-            <p class=" font-14 b mt-3">Items received for calibration</p>
-        </div>
         <div class="row">
             <table class="table table-bordered">
                 <thead class="text-center">

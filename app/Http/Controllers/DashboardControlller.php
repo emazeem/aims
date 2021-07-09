@@ -10,6 +10,7 @@ use App\Models\Customer;
 use App\Models\Department;
 use App\Models\Designation;
 use App\Models\Job;
+use App\Models\Jobitem;
 use App\Models\LeaveApplication;
 use App\Models\Notification;
 use App\Models\Parameter;
@@ -102,12 +103,19 @@ class DashboardControlller extends Controller
         $completed_j=Job::all()->where('status',1)->count();
         $invoiced_j=Job::all()->where('status',2)->count();
 
+        $pending_mt=Jobitem::all()->where('status',2)->where('assign_user',auth()->user()->id)->count();
+        $started_mt=Jobitem::all()->where('status',3)->where('assign_user',auth()->user()->id)->count();
+        $completed_mt=Jobitem::all()->where('status',4)->where('assign_user',auth()->user()->id)->count();
+
+
+
         return view('dashboard.index',
             compact('head_applications','ceo_applications','customers','calendar','indentforrevisions',
                             'indentforapprovals','capabilities','parameters','quotes','sessions',
                             'personnels','assets','jobs','departments','designations','check','checkout_missing_status',
                             'gparameters','pendings_q','notsents_q','waitings_q','approved_q',
-                'pending_j','completed_j','invoiced_j'));
+                'pending_j','completed_j','invoiced_j',
+                'pending_mt','completed_mt','started_mt'));
     }
     public function markRead($id)
     {

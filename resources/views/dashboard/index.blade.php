@@ -152,6 +152,41 @@
                 </div>
             </div>
         </div>
+        @if(Gate::check('lab-task-index') || Gate::check('site-task-index'))
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>My Tasks Summary</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h2 class="d-inline-block text-c-blue m-r-10">{{$pending_mt}}</h2>
+                            <div class="d-inline-block">
+                                @php $total=$pending_mt+$started_mt+$completed_mt; @endphp
+                                <p class="m-b-0"><i class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total==0?'0':round($pending_mt/($total_mt)*100)}}%</p>
+                                <p class="text-muted">My Pending Tasks</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h2 class="d-inline-block text-c-green m-r-10">{{$started_mt}}</h2>
+                            <div class="d-inline-block">
+                                <p class="m-b-0"><i class="fa fa-caret-down m-r-10 text-c-red"></i>{{$total==0?'0':round($started_mt/($total_mt)*100)}}%</p>
+                                <p class="text-muted">My Started Tasks</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <h2 class="d-inline-block text-c-red m-r-10">{{$completed_mt}}</h2>
+                            <div class="d-inline-block">
+                                <p class="m-b-0"><i class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total==0?'0':round($completed_mt/($total_mt)*100)}}%</p>
+                                <p class="text-muted">My Completed Tasks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
 
         <div class="col-12">
             <div class="card p-0">

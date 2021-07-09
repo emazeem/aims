@@ -136,16 +136,11 @@
         $(document).on('click','.temp-toggler',function () {
             var checked=$('.temp-toggler').is(":checked");
             if (checked==true){
-
                 var centi=$('.temp-in-centi').html();
-                $('.temp-in-centi').hide().html((centi*9/5)+32).fadeToggle(2000);
-
+                $('.temp-in-centi').hide().html((centi-32)*5/9).fadeToggle(2000);
             }else {
-
                 var faren=$('.temp-in-centi').html();
-
-                $('.temp-in-centi').hide().html((faren-32)*5/9).fadeToggle(2000);
-
+                $('.temp-in-centi').hide().html((faren*9/5)+32).fadeToggle(2000);
             }
         });
     });
