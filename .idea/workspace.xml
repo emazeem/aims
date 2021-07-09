@@ -180,12 +180,12 @@
           <entry key="css" value="2" />
           <entry key="env" value="10" />
           <entry key="js" value="11" />
-          <entry key="php" value="9060" />
+          <entry key="php" value="9063" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="6329" />
+          <entry key="Blade" value="6332" />
           <entry key="CSS" value="2" />
           <entry key="JavaScript" value="11" />
           <entry key="PHP" value="2731" />
@@ -198,85 +198,7 @@
     <favorites_list name="aims" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="69" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#4;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#5;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#6;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#7;n#div#0;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#3;n#div#0;n#!!top" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#thead#0;n#table#0;n#div#1;n#div#0;n#div#6;n#div#0;n#!!top" />
-                <element signature="e#0#26063#0#Blade" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="103" selection-start-line="103" selection-end-line="106" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/site_receiving/show.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="183" column="129" selection-start-line="183" selection-start-column="129" selection-end-line="183" selection-end-column="129" />
-              <folding>
-                <element signature="e#24648#25456#0#HTML" />
-                <element signature="e#24093#24342#0#HTML" />
-                <element signature="e#24405#25796#0#HTML" />
-                <element signature="e#25869#26032#0#HTML" />
-                <element signature="e#26091#27356#0#HTML" />
-                <element signature="e#27420#28825#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/site_receiving/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="1394" column="33" selection-start-line="1394" selection-start-column="29" selection-end-line="1394" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -287,7 +209,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>foreach</find>
       <find>total</find>
       <find>toolTipFormatter</find>
       <find>dataSeries</find>
@@ -317,6 +238,7 @@
       <find>task-item-delete</find>
       <find>task-item-delete-form</find>
       <find>task-item-delete-btn</find>
+      <find>temp</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -398,10 +320,10 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/js.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site_receiving/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/site_receiving/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" />
       </list>
     </option>
   </component>
@@ -838,12 +760,12 @@
       <workItem from="1625648104549" duration="25000" />
       <workItem from="1625717760940" duration="2234000" />
       <workItem from="1625720675203" duration="19976000" />
-      <workItem from="1625804477730" duration="16120000" />
+      <workItem from="1625804477730" duration="16434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="827803000" />
+    <option name="totallyTimeSpent" value="828117000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -856,7 +778,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" weight="0.32980332" />
@@ -1194,42 +1115,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="69" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#4;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#5;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#6;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#7;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#thead#0;n#table#0;n#div#1;n#div#0;n#div#6;n#div#0;n#!!top" />
-            <element signature="e#0#26063#0#Blade" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="103" selection-start-line="103" selection-end-line="106" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/site_receiving/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -1248,6 +1133,41 @@
             <element signature="e#25869#26032#0#HTML" />
             <element signature="e#26091#27356#0#HTML" />
             <element signature="e#27420#28825#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/customers/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="103" selection-start-line="103" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="183" column="65" selection-start-line="183" selection-start-column="65" selection-end-line="183" selection-end-column="65" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#5;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#6;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#div#7;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#thead#0;n#table#0;n#div#1;n#div#0;n#div#6;n#div#0;n#!!top" />
+            <element signature="e#0#26063#0#Blade" />
           </folding>
         </state>
       </provider>
