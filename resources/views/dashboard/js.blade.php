@@ -176,7 +176,7 @@
                 toolTipContent: "{name}: <strong>{y}</strong>",
                 indexLabel: "{name} - {y}",
                 dataPoints: [
-                    { y: {{$pendings_q}}, name: "Pending", exploded: true },
+                    { y: {{$pendings_q}}, name: "Pending" },
                     { y: {{$notsents_q}}, name: "To be Sent" },
                     { y: {{$waitings_q}}, name: "Waiting approval" },
                     { y: {{$approved_q}}, name: "Approved" },
@@ -200,7 +200,7 @@
                 toolTipContent: "{name}: <strong>{y}</strong>",
                 indexLabel: "{name} - {y}",
                 dataPoints: [
-                    { y: {{$pending_j}}, name: "Pending", exploded: true },
+                    { y: {{$pending_j}}, name: "Pending" },
                     { y: {{$completed_j}}, name: "Completed & Waiting for Invoice" },
                     { y: {{$invoiced_j}}, name: "Invoiced" },
                 ]
@@ -208,7 +208,7 @@
         });
         chart1.render();
         chart2.render();
-    }
+    };
 
     function explodePie (e) {
         if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
@@ -217,7 +217,6 @@
             e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
         }
         e.chart.render();
-
     }
 </script>
 

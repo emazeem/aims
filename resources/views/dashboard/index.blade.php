@@ -151,36 +151,7 @@
                 </div>
             </div>
         </div>
-        @can('daily-attendance-dashboard')
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body d-flex align-items-center justify-content-between">
-                        <h5 class="mb-0 float-left font-weight-light">Attendance</h5>
-                        <label for="date-attendance"></label>
-                        <input type="date" id="date-attendance" class="form-control float-right col-md-3"
-                               name="date-attendance" value="{{date('Y-m-d')}}">
-                    </div>
-                    <div class="card-body border-top table-responsive" id="pro-det-edit-1">
-                        <table class="table table-hover table-sm bg-white">
-                            <thead>
-                            <tr>
-                                <th>By</th>
-                                <th>Check-in</th>
-                                <th>Check-out</th>
-                            </tr>
-                            </thead>
-                            <tbody class="attendance-table">
-                            </tbody>
-                        </table>
-                        <div class="col-12 text-center">
-                            <img src="{{url('assets/images/lazy-loader.gif')}}" alt="" class="lazy-loader"
-                                 style="display: none;">
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        @endcan
         <div class="col-12">
             <div class="card p-0">
                 <div class="card-body">
@@ -228,6 +199,37 @@
                 </div>
             </div>
         </div>
+        @can('daily-attendance-dashboard')
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0 float-left font-weight-light">Attendance</h5>
+                        <label for="date-attendance"></label>
+                        <input type="date" id="date-attendance" class="form-control float-right col-md-3"
+                               name="date-attendance" value="{{date('Y-m-d')}}">
+                    </div>
+                    <div class="card-body border-top table-responsive" id="pro-det-edit-1">
+                        <table class="table table-hover table-sm bg-white">
+                            <thead>
+                            <tr>
+                                <th>By</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                            </tr>
+                            </thead>
+                            <tbody class="attendance-table">
+                            </tbody>
+                        </table>
+                        <div class="col-12 text-center">
+                            <img src="{{url('assets/images/lazy-loader.gif')}}" alt="" class="lazy-loader"
+                                 style="display: none;">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        @endcan
+        @can('quote-index')
         <div class="col-md-6 col-12">
             <div class="card py-3">
                 <div id="quoteContainer"></div>
@@ -238,8 +240,7 @@
                 <div id="jobContainer"></div>
             </div>
         </div>
-
-
+        @endcan
         <div class="col-12 table-responsive" style="overflow: hidden">
             {{--<h2 class="ml-2">Purchase Indent Revisions</h2>
             <table class="table table-hover font-13 bg-white table-responsive">
@@ -306,108 +307,117 @@
                 @endif
             </table>
             --}}
-            <h4 class="font-weight-light">Leave Application Department Approvals</h4>
-            @if(count($head_applications))
-                <table class="table table-hover bg-white table-responsive table-sm">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>From-To</th>
-                        <th>Reason</th>
-                        <th>Remarks</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
+            <div class="card">
+                <div class="card-header pb-0 mb-0">
+                    <h4 class="card-title font-weight-light">Leave Application Department Approvals</h4>
+                </div>
+                <div class="card-body py-0 my-0">
+                    <table class="table table-hover bg-white table-responsive table-sm">
+                        @if(count($head_applications))
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>From-To</th>
+                                <th>Reason</th>
+                                <th>Remarks</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
 
-                    <tbody>
-                    @foreach($head_applications as $head_application)
-                        <tr>
-                            <td width="10%">{{$head_application->users->fname}} {{$head_application->users->lname}}</td>
-                            <td width="10%">{{$head_application->nature->name}}</td>
-                            <td width="10%">{{$head_application->from->format('d/m/Y').' '.$head_application->to->format('d/m/Y')}}</td>
-                            <td width="10%">{{$head_application->reason}}</td>
-                            <td width="20%">
-                                {{$head_application->head_remarks}}
-                                <form action="{{route('leave_application.remarks')}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$head_application->id}}">
-                                    <input type="hidden" name="approvalno" value="1">
-                                    <textarea type="text" class="form-control" id="reason"
-                                              placeholder="Enter Remarks of Application" name="remarks"></textarea>
-                                    <button type="submit" class="btn btn-sm btn-success btn-block">Save</button>
-                                </form>
-                            </td>
-                            <td width="10%">
-                                <a href="{{url('leave-applications/head/reject/'.$head_application->id)}}"
-                                   title="Reject" class="btn btn-danger btn-sm"><i
-                                            class="feather icon-x"></i></a>
-                                <a href="{{url('leave-applications/head/approve/'.$head_application->id)}}"
-                                   title="Accept" class="btn btn-success btn-sm"><i
-                                            class="feather icon-check"></i></a>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            @else
-                <table class="table table-hover bg-white table-responsive table-sm">
-                    <tr>
-                        <td colspan="5">No Application Approvals by Head of Department</td>
-                    </tr>
-                </table>
-            @endif
-            <h4 class="font-weight-light">Leave Application CEO Approvals</h4>
-            @if(count($ceo_applications))
-                <table class="table table-hover bg-white table-responsive table-sm">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>From-To</th>
-                        <th>Reason</th>
-                        <th>Remarks</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
+                            <tbody>
+                            @foreach($head_applications as $head_application)
+                                <tr>
+                                    <td width="10%">{{$head_application->users->fname}} {{$head_application->users->lname}}</td>
+                                    <td width="10%">{{$head_application->nature->name}}</td>
+                                    <td width="10%">{{$head_application->from->format('d/m/Y').' '.$head_application->to->format('d/m/Y')}}</td>
+                                    <td width="10%">{{$head_application->reason}}</td>
+                                    <td width="20%">
+                                        {{$head_application->head_remarks}}
+                                        <form action="{{route('leave_application.remarks')}}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$head_application->id}}">
+                                            <input type="hidden" name="approvalno" value="1">
+                                            <textarea type="text" class="form-control" id="reason"
+                                                      placeholder="Enter Remarks of Application" name="remarks"></textarea>
+                                            <button type="submit" class="btn btn-sm btn-success btn-block">Save</button>
+                                        </form>
+                                    </td>
+                                    <td width="10%">
+                                        <a href="{{url('leave-applications/head/reject/'.$head_application->id)}}"
+                                           title="Reject" class="btn btn-danger btn-sm"><i
+                                                    class="feather icon-x"></i></a>
+                                        <a href="{{url('leave-applications/head/approve/'.$head_application->id)}}"
+                                           title="Accept" class="btn btn-success btn-sm"><i
+                                                    class="feather icon-check"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        @else
+                            <tr>
+                                <td colspan="5">No Application Approvals by Head of Department</td>
+                            </tr>
+                        @endif
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header pb-0 mb-0">
+                    <h4 class="card-title font-weight-light">Leave Application CEO Approvals</h4>
+                </div>
+                <div class="card-body py-0 my-0">
+                    <table class="table table-hover bg-white table-responsive table-sm">
+                        @if(count($ceo_applications))
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>From-To</th>
+                                <th>Reason</th>
+                                <th>Remarks</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
 
-                    <tbody>
-                    @foreach($ceo_applications as $ceo_application)
-                        <tr>
-                            <td width="10%">{{$ceo_application->users->fname}} {{$ceo_application->users->lname}}</td>
-                            <td width="10%">{{$ceo_application->nature->name}}</td>
-                            <td width="10%">{{$ceo_application->from->format('d/m/Y').' '.$ceo_application->to->format('d/m/Y')}}</td>
-                            <td width="10%">{{$ceo_application->reason}}</td>
-                            <td width="20%">
-                                {{$ceo_application->ceo_remarks}}
-                                <form action="{{route('leave_application.remarks')}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$ceo_application->id}}">
-                                    <input type="hidden" name="approvalno" value="2">
-                                    <textarea type="text" class="form-control" id="reason"
-                                              placeholder="Enter Remarks of Application" name="remarks"></textarea>
-                                    <button type="submit" class="btn btn-sm btn-success btn-block">Save</button>
-                                </form>
-                            </td>
-                            <td width="10%">
-                                <a href="{{url('leave-applications/ceo/reject/'.$ceo_application->id)}}"
-                                   title="Reject" class="btn btn-danger btn-sm"><i
-                                            class="feather icon-x"></i></a>
-                                <a href="{{url('leave-applications/ceo/approve/'.$ceo_application->id)}}"
-                                   title="Accept" class="btn btn-success btn-sm"><i
-                                            class="feather icon-check"></i></a>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            @else
-                <table class="table table-hover bg-white table-responsive table-sm">
-                    <tr>
-                        <td colspan="5">No Application Approvals by CEO</td>
-                    </tr>
-                </table>
-            @endif
+                            <tbody>
+                            @foreach($ceo_applications as $ceo_application)
+                                <tr>
+                                    <td width="10%">{{$ceo_application->users->fname}} {{$ceo_application->users->lname}}</td>
+                                    <td width="10%">{{$ceo_application->nature->name}}</td>
+                                    <td width="10%">{{$ceo_application->from->format('d/m/Y').' '.$ceo_application->to->format('d/m/Y')}}</td>
+                                    <td width="10%">{{$ceo_application->reason}}</td>
+                                    <td width="20%">
+                                        {{$ceo_application->ceo_remarks}}
+                                        <form action="{{route('leave_application.remarks')}}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$ceo_application->id}}">
+                                            <input type="hidden" name="approvalno" value="2">
+                                            <textarea type="text" class="form-control" id="reason"
+                                                      placeholder="Enter Remarks of Application" name="remarks"></textarea>
+                                            <button type="submit" class="btn btn-sm btn-success btn-block">Save</button>
+                                        </form>
+                                    </td>
+                                    <td width="10%">
+                                        <a href="{{url('leave-applications/ceo/reject/'.$ceo_application->id)}}"
+                                           title="Reject" class="btn btn-danger btn-sm"><i
+                                                    class="feather icon-x"></i></a>
+                                        <a href="{{url('leave-applications/ceo/approve/'.$ceo_application->id)}}"
+                                           title="Accept" class="btn btn-success btn-sm"><i
+                                                    class="feather icon-check"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        @else
+                            <tr>
+                                <td colspan="5">No Application Approvals by CEO</td>
+                            </tr>
+                        @endif
+                    </table>
+                </div>
+            </div>
+
         </div>
         <div class="col-12 mt-2">
             <h4 class="font-weight-light">Events and Deadlines</h4>
@@ -428,6 +438,9 @@
     }
     .canvasjs-chart-credit{
         display: none;
+    }
+    .fc-row.fc-week.fc-widget-content.fc-rigid {
+        background-color: white;
     }
 </style>
 
