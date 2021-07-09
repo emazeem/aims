@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
+
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -66,9 +66,7 @@
                     {"data": "customer"},
                     {"data": "options", "orderable": false},
                 ]
-
             });
-
         }
         $(document).ready(function () {
             InitTable();

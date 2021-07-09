@@ -29,7 +29,6 @@
         </div>
         <div class="col-12">
             <div class="row mt-3">
-
                 <div class="col-xl-3 col-md-6">
                     <div class="card prod-p-card bg-c-red">
                         <div class="card-body">
@@ -230,12 +229,12 @@
             </div>
         </div>
         <div class="col-md-6 col-12">
-            <div class="card">
+            <div class="card py-3">
                 <div id="quoteContainer"></div>
             </div>
         </div>
         <div class="col-md-6 col-12">
-            <div class="card">
+            <div class="card py-3">
                 <div id="jobContainer"></div>
             </div>
         </div>
@@ -426,6 +425,9 @@
 
         height: 300px;
         width: 100%;
+    }
+    .canvasjs-chart-credit{
+        display: none;
     }
 </style>
 

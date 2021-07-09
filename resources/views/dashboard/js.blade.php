@@ -41,7 +41,7 @@
                 $('.day').html(data['day']);
                 $('.temp-in-centi').html(data['temp-in-centi']);
                 $('.temp-icon').attr('src',data['icon']);
-                $('.country-city').html('<i class="feather icon-map-pin"></i>'.data['city']+' '+data['country']);
+                $('.country-city').html('<i class="feather icon-map-pin"></i> '+data['city']+', '+data['country']);
                 $('.temp-toggler').attr('checked','checked');
             },
         });
@@ -130,8 +130,8 @@
 
         });
         setInterval(function () {
-            document.getElementById("current_time").innerText = moment().format('MMM D YYYY, h:mm:ss A');
-            document.getElementById("current_time_gadget").innerText = moment().format('h:mm:ss A');
+            $('#current_time').html(moment().format('MMM D YYYY, h:mm:ss A'));
+            $('#current_time_gadget').html(moment().format('h:mm:ss A'));
         }, 1000);
         $(document).on('click','.temp-toggler',function () {
             var checked=$('.temp-toggler').is(":checked");
@@ -161,7 +161,6 @@
             ]);
         var chart1 = new CanvasJS.Chart("quoteContainer", {
             colorSet: "greenShades",
-            exportEnabled: true,
             animationEnabled: true,
             title:{
                 text: "Quotes",
@@ -185,9 +184,7 @@
             }]
         });
         var chart2 = new CanvasJS.Chart("jobContainer", {
-            exportEnabled: true,
             colorSet: "greenShades",
-
             animationEnabled: true,
             title:{
                 text: "Jobs",

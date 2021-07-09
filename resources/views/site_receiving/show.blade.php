@@ -1,14 +1,5 @@
 @extends('layouts.master')
 @section('content')
-    @if(Session::has('success'))
-        <script>
-            $(document).ready(function () {
-                swal("Done!", '{{Session('message')}}', "success");
-            });
-        </script>
-    @endif
-    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
-
     <div class="row">
         <table class="table table-hover bg-white table-bordered table-sm mt-2">
             <thead>
@@ -214,20 +205,16 @@
                     processData:false,
                     success: function(data)
                     {
-
-                        if(!data.errors)
-                        {
-                            $('#edit_details').modal('toggle');
-                            swal('success',data.success,'success').then((value) => {
-                                location.reload();
-                            });
-
-                        }
+                        button.attr('disabled',null).html(previous);
+                        $('#edit_details').modal('toggle');
+                        swal('success',data.success,'success').then((value) => {
+                            location.reload();
+                        });
                     },
-                    error:  function(xhr, status, error)
+                    error:  function(xhr)
                     {
-                        var error;
-                        error=null;
+                        button.attr('disabled',null).html(previous);
+                        var error=null;
                         $.each(xhr.responseJSON.errors, function (key, item) {
                             error+=item;
                         });
@@ -505,39 +492,43 @@
 
             $("#task-item-delete").on('submit', (function (e) {
                 e.preventDefault();
-                var id = $(this).attr('data-id');
+                swal({
+                    title: "Are you sure to delete this task?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var button = $('.task-item-delete-btn');
+                            var previous = $('.task-item-delete-btn').html();
+                            button.attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
+                            $.ajax({
+                                url: '{{route('tasks.destroy')}}',
+                                type: "POST",
+                                data: new FormData(this),
+                                contentType: false,
+                                cache: false,
+                                processData: false,
+                                success: function (data) {
+                                    button.attr('disabled', null).html(previous);
+                                    swal('success', data.success, 'success').then((value) => {
+                                        location.reload();
+                                    });
+                                },
+                                error: function (xhr) {
+                                    button.attr('disabled', null).html(previous);
+                                    var error = '';
+                                    $.each(xhr.responseJSON.errors, function (key, item) {
+                                        error += item;
+                                    });
+                                    swal("Failed", error, "error");
+                                }
+                            });
+                        }
+                    });
 
-                var button = $('.task-item-delete-btn');
-                var previous = $('.task-item-delete-btn').html();
-                button.attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing');
-                $.ajax({
-                    url: '{{route('tasks.destroy')}}',
-                    type: "POST",
-                    data: new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function (data) {
-
-                        button.attr('disabled', null).html(previous);
-                        swal('success', data.success, 'success').then((value) => {
-
-                            location.reload();
-                        });
-
-                    },
-                    error: function (xhr) {
-                        button.attr('disabled', null).html(previous);
-                        var error = '';
-                        $.each(xhr.responseJSON.errors, function (key, item) {
-                            error += item;
-                        });
-                        swal("Failed", error, "error");
-                    }
-                });
             }));
-
         });
     </script>
-
 @endsection
