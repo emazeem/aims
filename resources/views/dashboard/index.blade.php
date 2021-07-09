@@ -175,13 +175,13 @@
                         </div>
                         <div class="col text-right">
                             <div class="form-group mb-1">
-                                <label class="m-r-5 f-20 mb-0">°C</label>
+                                <label class="m-r-5 f-20 mb-0">°F</label>
 
                                 <div class="switch switch-primary d-inline">
                                     <input type="checkbox" id="switch-a-1" class="temp-toggler">
                                     <label for="switch-a-1" class="cr"></label>
                                 </div>
-                                <label class="m-l-5 f-20 mb-0">°F</label>
+                                <label class="m-l-5 f-20 mb-0">°C</label>
                             </div>
                         </div>
                         <div class="col-12">
