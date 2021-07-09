@@ -181,7 +181,7 @@
                                 @if($sitejob->assign_assets)
                                     @php $assets=explode(',',$sitejob->assign_assets); @endphp
                                     @foreach($assets as $asset)
-                                        <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
+                                        <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span><br>
                                     @endforeach
                                 @endif
                             @endif
