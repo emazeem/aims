@@ -17,7 +17,17 @@ class ActivityLogController extends Controller
     }
     public function fetch(Request $request)
     {
-        $activities=Activity::orderBy('id', 'desc')->where('id', '>=', ($request->page-1)*10)->limit(10)->get();
+        $page=$request->page*10;
+        $obslete=[];
+        $activities=Activity::latest()->get();
+        foreach ($activities as $k=>$activity){
+            $obslete[]=$activity->id;
+            if ($k==($page-1)){
+                break;
+            }
+        }
+        $activities=Activity::latest()->whereNotIn('id',$obslete)->limit(10)->get();
+
         foreach ($activities as $activity) {
             $activity['subject_type']=str_replace('App\Models','',$activity['subject_type']);
             $activity['created']=$activity['created_at']->diffForHumans();

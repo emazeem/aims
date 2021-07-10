@@ -56,7 +56,7 @@
 
             $.ajax({
                 url: "{{route('activitylog.fetch')}}",
-                data: {'page': 1, _token: '{{csrf_token()}}'},
+                data: {'page': page, _token: '{{csrf_token()}}'},
                 dataType: "json",
                 type: "POST",
                 beforeSend:function (data) {
@@ -82,7 +82,7 @@
                             '</div>'+
                             '<h6><span class="badge badge-danger">'+value.description+'</span> '+value.subject_type+'( '+value.subject_id+' ) <small class="text-muted">'+value.created+'</small></h6>'+
                             '<p class="m-t-15">'+
-                            '<b>By '+value.causer_id+'</b><br>'+
+                            '<b>By '+value.causer_id+value.id+'</b><br>'+
                             '</p>'+
                             '<div class="row">'+
                             '<div class="col-auto">'+
