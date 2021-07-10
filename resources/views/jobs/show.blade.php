@@ -20,10 +20,12 @@
                 @endcan
                 @can('print-delivery-note')
                     @if($job->status>=0)
+                        @if(count($job->dn)>0)
                         <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
                            href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print'
                            class='pull-left btn btn-sm btn-info'><i
                                     class="fa fa-print"></i> Merge DN</a>
+                        @endif
                     @endif
                     @if($job->status>=0)
                         <a data-toggle="modal" data-target="#add_delivery_note" href

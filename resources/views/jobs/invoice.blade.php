@@ -144,15 +144,16 @@
                 @php $i=1; $subtotal=0; $tax=0;@endphp
                 @foreach($labitems as $labitem)
                     <tr>
-
+                        @php $quantity=\App\Models\Jobitem::where('item_id',$labitem->id)->get()->count(); @endphp
                         <td class="font-11">{{$i}}</td>
                         <td class="font-11 text-left">Certification of {{$labitem->capabilities->name}}</td>
-                        <td class="font-11">{{$labitem->quantity}}</td>
+                        <td class="font-11">{{$quantity}}</td>
                         <td class="font-11">{{$labitem->price}}</td>
-                        <td class="font-11">{{$labitem->price*$labitem->quantity}}</td>
+                        <td class="font-11">{{$labitem->price*$quantity}}</td>
                     </tr>
-                    @php $i++;$subtotal=$subtotal+($labitem->quantity*$labitem->price); @endphp
+                    @php $i++;$subtotal=$subtotal+($quantity*$labitem->price); @endphp
                 @endforeach
+
                 <tr>
                     <th class="font-11 text-right" colspan="4">Total Service Charges</th>
                     <td class="font-11">{{$subtotal}}</td>

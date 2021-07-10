@@ -124,6 +124,7 @@ class JobController extends Controller
     }
     public function print_invoice($id){
         $job=Job::find($id);
+
         $jobitems=Jobitem::where('job_id',$job->id)->pluck('item_id');
         $unique_lab_items=array();
         foreach ($jobitems as $item){
@@ -132,6 +133,7 @@ class JobController extends Controller
         $items=array_unique($unique_lab_items);
         $items=array_values($items);
         $labitems=QuoteItem::whereIn('id',$items)->get();
+
         return view('jobs.invoice',compact('job','labitems'));
     }
     public function print_st_invoice($id){
