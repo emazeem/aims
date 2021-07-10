@@ -67,7 +67,7 @@
                 <tbody>
                 @foreach($show->gpitems as $gpitem)
                     <tr>
-                        <td class="p-1">{{$gpitem->items->name}}</td>
+                        <td class="p-1">{{$gpitem->items->name}} ( {{$gpitem->items->code}} )</td>
                         <td class="p-1">
                             @if($gpitem->out_fcb!=null)
                                 <b>OUT Function Check Value : </b>{{$gpitem->out_fcv}}<br>
