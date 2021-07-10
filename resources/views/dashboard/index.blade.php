@@ -163,7 +163,7 @@
                         <div class="col-sm-4">
                             <h2 class="d-inline-block text-c-blue m-r-10">{{$pending_mt}}</h2>
                             <div class="d-inline-block">
-                                @php $total=$pending_mt+$started_mt+$completed_mt; @endphp
+                                @php $total_mt=$pending_mt+$started_mt+$completed_mt; @endphp
                                 <p class="m-b-0"><i class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total==0?'0':round($pending_mt/($total_mt)*100)}}%</p>
                                 <p class="text-muted">My Pending Tasks</p>
                             </div>
@@ -187,7 +187,6 @@
             </div>
         </div>
         @endif
-
         <div class="col-12">
             <div class="card p-0">
                 <div class="card-body">
@@ -277,6 +276,33 @@
             </div>
         </div>
         @endcan
+        <div class="col-md-6 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Incoming Requests</h5>
+                </div>
+                <div class="card-body p-0 incomeing-scroll">
+                    <div class="mt-3 mb-3">
+                        <span class="px-4 d-block"><i class="fas fa-circle text-c-blue f-10 m-r-5"></i>Customers Scattering</span>
+                        <hr>
+                        <span class="px-4 d-block"><i class="fas fa-circle text-c-green f-10 m-r-5"></i>You have 2 pending requests..</span>
+                        <hr>
+                        <span class="px-4 d-block"><i class="fas fa-circle text-c-red f-10 m-r-5"></i>You have 3 pending tasks</span>
+                        <hr>
+                        <span class="px-4 d-block"><i class="fas fa-circle text-c-yellow f-10 m-r-5"></i>New order received</span>
+                        <hr>
+                        <span class="px-4 d-block"><i class="fas fa-circle text-c-purple f-10 m-r-5"></i>Incoming requests</span>
+                        <hr>
+                        <span class="px-4 d-block"><i class="fas fa-circle text-c-green f-10 m-r-5"></i>The 3 Golden Rules Professional Design..</span>
+                        <hr>
+                        <span class="px-4 d-block"><i class="fas fa-circle text-c-red f-10 m-r-5"></i>You have 4 pending tasks</span>
+                        <hr>
+                        <span class="px-4 d-block"><i class="fas fa-circle text-c-yellow f-10 m-r-5"></i>New order received</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-12 table-responsive" style="overflow: hidden">
             {{--<h2 class="ml-2">Purchase Indent Revisions</h2>
             <table class="table table-hover font-13 bg-white table-responsive">

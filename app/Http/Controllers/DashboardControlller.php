@@ -107,8 +107,7 @@ class DashboardControlller extends Controller
         $started_mt=Jobitem::all()->where('status',3)->where('assign_user',auth()->user()->id)->count();
         $completed_mt=Jobitem::all()->where('status',4)->where('assign_user',auth()->user()->id)->count();
 
-
-
+        
         return view('dashboard.index',
             compact('head_applications','ceo_applications','customers','calendar','indentforrevisions',
                             'indentforapprovals','capabilities','parameters','quotes','sessions',
