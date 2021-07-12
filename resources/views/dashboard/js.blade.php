@@ -46,13 +46,16 @@
             },
         });
         $(document).on('click', '.checkin', function (e) {
+            var button=$('.checkin');
+            var previous=$(button).html();
+            button.attr('disabled','disabled').html('Processing <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+
             swal({
                 title: "Are you sure to check in?",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
-            })
-                .then((willDelete) => {
+            }).then((willDelete) => {
                     if (willDelete) {
                         var token = '{{csrf_token()}}';
                         e.preventDefault();
@@ -66,28 +69,35 @@
                             data: form_data,
                             statusCode: {
                                 403: function () {
-                                    $(".loading").fadeOut();
+                                    button.attr('disabled',null).html(previous);
                                     swal("Failed", "Permission denied for this action.", "error");
                                     return false;
                                 }
                             },
                             success: function (data) {
-                                swal("Success", "You are Checked in successfully.", "success");
-                                setTimeout(function () {
-                                    window.location.reload();
-                                }, 1000);
+                                button.attr('disabled',null).html(previous);
+                                swal("Success", data.success, "success").then(response=>{
+                                    location.reload();
+                                });
                             },
                             error: function () {
-                                $(".loading").fadeOut();
+                                button.attr('disabled',null).html(previous);
                                 swal("Failed", "Unable to check in.", "error");
                             },
                         });
 
                     }
+                    else{
+                        button.attr('disabled',null).html(previous);
+                    }
                 });
 
         });
         $(document).on('click', '.checkout', function (e) {
+            var button=$('.checkout');
+            var previous=$(button).html();
+            button.attr('disabled','disabled').html('Processing <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+
             swal({
                 title: "Are you sure to check out?",
                 icon: "warning",
@@ -100,6 +110,8 @@
                         e.preventDefault();
                         var request_method = $("#check_form").attr("method");
                         var form_data = $("#check_form").serialize();
+
+
                         //e.preventDefault();
                         $.ajax({
                             url: "{{route('attendance.checkout')}}",
@@ -108,23 +120,26 @@
                             data: form_data,
                             statusCode: {
                                 403: function () {
-                                    $(".loading").fadeOut();
+                                    button.attr('disabled',null).html(previous);
                                     swal("Failed", "Permission denied for this action.", "error");
                                     return false;
                                 }
                             },
                             success: function (data) {
-                                swal("Success", "You are Checked out successfully.", "success");
-                                setTimeout(function () {
-                                    window.location.reload();
-                                }, 1000);
+                                button.attr('disabled',null).html(previous);
+                                swal("Success", data.success, "success").then(response=>{
+                                    location.reload();
+                                });
                             },
                             error: function () {
-                                $(".loading").fadeOut();
+                                button.attr('disabled',null).html(previous);
                                 swal("Failed", "Unable to check out.", "error");
                             },
                         });
 
+                    }
+                    else{
+                        button.attr('disabled',null).html(previous);
                     }
                 });
 

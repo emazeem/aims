@@ -57,7 +57,7 @@
                 e.preventDefault();
                 var button = $('.login-btn');
                 var previous = $(button).html();
-                button.attr('disabled', 'disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                button.attr('disabled', 'disabled').html('Processing <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
                 $.ajax({
                     url: "{{route('login')}}",
                     type: "POST",
@@ -66,13 +66,14 @@
                     cache: false,
                     processData: false,
                     success: function () {
+                        button.attr('disabled',null).html(previous);
                         $('.success-alert').html('You are logged in successfully!');
                         setTimeout(function() {
                             window.location.href='{{url('/')}}';
                         },1000);
                     },
                     error: function (xhr) {
-                        console.log(xhr.responseJSON.errors);
+                        button.attr('disabled',null).html(previous);
                         var error = '';
                         $.each(xhr.responseJSON.errors, function (key, item) {
                             if (item){
@@ -80,8 +81,6 @@
                             }
                         });
                         $('.message-alert').html(error);
-                        //swal("Failed", error, "error");
-
                     }
                 });
             }));
