@@ -3,7 +3,7 @@
 
 <head>
     @php $title=Route::currentRouteName(); @endphp
-    <title>Rubic - {{ucwords(str_replace('.',' ',str_replace('_',' ',$title)))}}</title>
+    <title>AIMS-LIMS - {{ucwords(str_replace('.',' ',str_replace('_',' ',$title)))}}</title>
     <script src="{{url('assets/js/html5shiv.js')}}"></script>
     <script src="{{url('assets/js/respond.min.js')}}"></script>
     <meta charset="utf-8">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asset;
+use App\Models\Capabilities;
 use App\Models\Jobitem;
 use App\Models\Labjob;
 use App\Models\Parameter;
@@ -129,13 +130,29 @@ return response()->json(['success'=>'Tasks assigned successfully']);
         $items=QuoteItem::whereIn('id',explode(',',$items))->get();
         $sug_id=[];
         foreach ($items as $item){
-            $suggestions=Suggestion::where('capabilities',$item->capability)->get();
-            foreach ($suggestions as $suggestion) {
-                $temp=explode(',',$suggestion->assets);
-                if (count($temp)>0) {
-                    $sug_id[]=$temp[0];
+            if (Capabilities::find($item->capability)->is_group==0){
+                $suggestions=Suggestion::where('capabilities',$item->capability)->get();
+                foreach ($suggestions as $suggestion) {
+                    $temp=explode(',',$suggestion->assets);
+                    if (count($temp)>0) {
+                        $sug_id[]=$temp[0];
+                    }
                 }
+            }else{
+
+                $cap_childs=Capabilities::where('group_id',$item->capability)->get();
+                foreach ($cap_childs as $child){
+                    $suggestions=Suggestion::where('capabilities',$child->id)->get();
+                    foreach ($suggestions as $suggestion) {
+                        $temp=explode(',',$suggestion->assets);
+                        if (count($temp)>0) {
+                            $sug_id[]=$temp[0];
+                        }
+                    }
+                }
+
             }
+
         }
         $site_suggestions=$sug_id;
         return view('assign_item.sitejob',compact('id','items','site_suggestions'));
