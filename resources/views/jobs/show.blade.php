@@ -156,7 +156,6 @@
                         </tr>
                         @endif
                     @endforeach
-
                     <tr>
                         <th>Mode of Delivery</th>
                         <td>

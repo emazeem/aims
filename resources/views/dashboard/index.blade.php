@@ -424,6 +424,7 @@
                     </table>
                 </div>
             </div>
+            @if(auth()->user()->id==1 or auth()->user()->id==19)
             <div class="card">
                 <div class="card-header pb-0 mb-0">
                     <h4 class="card-title font-weight-light">Leave Application CEO Approvals</h4>
@@ -479,6 +480,7 @@
                     </table>
                 </div>
             </div>
+            @endif
 
         </div>
         <div class="col-12 mt-2">

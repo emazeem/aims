@@ -86,7 +86,7 @@ class DashboardControlller extends Controller
         }
 
         $head_applications=LeaveApplication::where('status',0)->where('head_id',\auth()->user()->id)->get();
-        $ceo_applications=LeaveApplication::where('status',2)->where('head_id',\auth()->user()->id)->get();
+        $ceo_applications=LeaveApplication::where('status',2)->where('ceo_id',\auth()->user()->id)->get();
         //dd($head_applications);
 
         $gparameters=Parameter::all();
