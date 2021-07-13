@@ -184,15 +184,15 @@
           <entry key="css" value="2" />
           <entry key="env" value="10" />
           <entry key="js" value="11" />
-          <entry key="php" value="15117" />
+          <entry key="php" value="15201" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="10460" />
+          <entry key="Blade" value="10531" />
           <entry key="CSS" value="2" />
           <entry key="JavaScript" value="11" />
-          <entry key="PHP" value="4657" />
+          <entry key="PHP" value="4670" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
@@ -212,20 +212,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="88" column="77" selection-start-line="88" selection-start-column="70" selection-end-line="88" selection-end-column="77" />
+              <caret line="88" column="76" selection-start-line="88" selection-start-column="76" selection-end-line="88" selection-end-column="76" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/dashboard/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="432" column="51" selection-start-line="432" selection-start-column="34" selection-end-line="432" selection-end-column="51" />
+            <state relative-caret-position="252">
+              <caret line="435" column="19" lean-forward="true" selection-start-line="435" selection-start-column="19" selection-end-line="435" selection-end-column="19" />
+              <folding>
+                <element signature="n#div#0;n#div#8;n#div#0;n#!!top" />
+                <element signature="n#div#1;n#div#8;n#div#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -233,8 +237,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="141" column="44" selection-start-line="141" selection-start-column="22" selection-end-line="141" selection-end-column="44" />
+            <state relative-caret-position="386">
+              <caret line="159" column="8" selection-start-line="159" selection-start-column="8" selection-end-line="159" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -316,7 +320,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/resources/views/paymentvoucher/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/public/assets/css/styling.css" />
         <option value="$PROJECT_DIR$/resources/views/gatepass/print.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/designation.blade.php" />
@@ -334,8 +337,6 @@
         <option value="$PROJECT_DIR$/public/js/canvasjs.min.js" />
         <option value="$PROJECT_DIR$/resources/views/site_receiving/index.blade.php" />
         <option value="D:/Template/dist/widget-data.html" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/invoice.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/salestax.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ActivityLogController.php" />
@@ -366,6 +367,9 @@
         <option value="$PROJECT_DIR$/resources/views/jobs/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/JobController.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php" />
+        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" />
       </list>
     </option>
   </component>
@@ -781,12 +785,12 @@
       <workItem from="1625985359185" duration="377000" />
       <workItem from="1626062640261" duration="3251000" />
       <workItem from="1626073433980" duration="4317000" />
-      <workItem from="1626078441375" duration="17944000" />
+      <workItem from="1626078441375" duration="18268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="867709000" />
+    <option name="totallyTimeSpent" value="868033000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1152,13 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="141" column="44" selection-start-line="141" selection-start-column="22" selection-end-line="141" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/leave_application/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1166,17 +1163,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="432" column="51" selection-start-line="432" selection-start-column="34" selection-end-line="432" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardControlller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
-          <caret line="88" column="77" selection-start-line="88" selection-start-column="70" selection-end-line="88" selection-end-column="77" />
+          <caret line="88" column="76" selection-start-line="88" selection-start-column="76" selection-end-line="88" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="159" column="8" selection-start-line="159" selection-start-column="8" selection-end-line="159" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="435" column="19" lean-forward="true" selection-start-line="435" selection-start-column="19" selection-end-line="435" selection-end-column="19" />
+          <folding>
+            <element signature="n#div#0;n#div#8;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#8;n#div#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -153,39 +153,45 @@
             </div>
         </div>
         @if(Gate::check('lab-task-index') || Gate::check('site-task-index'))
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>My Tasks Summary</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h2 class="d-inline-block text-c-blue m-r-10">{{$pending_mt}}</h2>
-                            <div class="d-inline-block">
-                                @php $total_mt=$pending_mt+$started_mt+$completed_mt; @endphp
-                                <p class="m-b-0"><i class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total_mt==0?'0':round($pending_mt/($total_mt)*100)}}%</p>
-                                <p class="text-muted">My Pending Tasks</p>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>My Tasks Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-blue m-r-10">{{$pending_mt}}</h2>
+                                <div class="d-inline-block">
+                                    @php $total_mt=$pending_mt+$started_mt+$completed_mt; @endphp
+                                    <p class="m-b-0"><i
+                                                class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total_mt==0?'0':round($pending_mt/($total_mt)*100)}}
+                                        %</p>
+                                    <p class="text-muted">My Pending Tasks</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <h2 class="d-inline-block text-c-green m-r-10">{{$started_mt}}</h2>
-                            <div class="d-inline-block">
-                                <p class="m-b-0"><i class="fa fa-caret-down m-r-10 text-c-red"></i>{{$total_mt==0?'0':round($started_mt/($total_mt)*100)}}%</p>
-                                <p class="text-muted">My Started Tasks</p>
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-green m-r-10">{{$started_mt}}</h2>
+                                <div class="d-inline-block">
+                                    <p class="m-b-0"><i
+                                                class="fa fa-caret-down m-r-10 text-c-red"></i>{{$total_mt==0?'0':round($started_mt/($total_mt)*100)}}
+                                        %</p>
+                                    <p class="text-muted">My Started Tasks</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <h2 class="d-inline-block text-c-red m-r-10">{{$completed_mt}}</h2>
-                            <div class="d-inline-block">
-                                <p class="m-b-0"><i class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total_mt==0?'0':round($completed_mt/($total_mt)*100)}}%</p>
-                                <p class="text-muted">My Completed Tasks</p>
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-red m-r-10">{{$completed_mt}}</h2>
+                                <div class="d-inline-block">
+                                    <p class="m-b-0"><i
+                                                class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total_mt==0?'0':round($completed_mt/($total_mt)*100)}}
+                                        %</p>
+                                    <p class="text-muted">My Completed Tasks</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         @endif
         <div class="col-12">
             <div class="card p-0">
@@ -265,16 +271,16 @@
             </div>
         @endcan
         @can('quote-index')
-        <div class="col-md-6 col-12">
-            <div class="card py-3">
-                <div id="quoteContainer"></div>
+            <div class="col-md-6 col-12">
+                <div class="card py-3">
+                    <div id="quoteContainer"></div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6 col-12">
-            <div class="card py-3">
-                <div id="jobContainer"></div>
+            <div class="col-md-6 col-12">
+                <div class="card py-3">
+                    <div id="jobContainer"></div>
+                </div>
             </div>
-        </div>
         @endcan
         <div class="col-md-6 col-12">
             <div class="card">
@@ -369,118 +375,127 @@
                 @endif
             </table>
             --}}
-            <div class="card">
-                <div class="card-header pb-0 mb-0">
-                    <h4 class="card-title font-weight-light">Leave Application Department Approvals</h4>
-                </div>
-                <div class="card-body py-0 my-0">
-                    <table class="table table-hover bg-white table-responsive table-sm">
-                        @if(count($head_applications))
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>From-To</th>
-                                <th>Reason</th>
-                                <th>Remarks</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            @foreach($head_applications as $head_application)
+            @can('application-department-approval')
+                <div class="card">
+                    <div class="card-header pb-0 mb-0">
+                        <h4 class="card-title font-weight-light">Leave Application Department Approvals</h4>
+                    </div>
+                    <div class="card-body py-0 my-0">
+                        <table class="table table-hover bg-white table-responsive table-sm">
+                            @if(count($head_applications))
+                                <thead>
                                 <tr>
-                                    <td width="10%">{{$head_application->users->fname}} {{$head_application->users->lname}}</td>
-                                    <td width="10%">{{$head_application->nature->name}}</td>
-                                    <td width="10%">{{$head_application->from->format('d/m/Y').' '.$head_application->to->format('d/m/Y')}}</td>
-                                    <td width="10%">{{$head_application->reason}}</td>
-                                    <td width="20%">
-                                        {{$head_application->head_remarks}}
-                                        <form action="{{route('leave_application.remarks')}}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{$head_application->id}}">
-                                            <input type="hidden" name="approvalno" value="1">
-                                            <textarea type="text" class="form-control" id="reason"
-                                                      placeholder="Enter Remarks of Application" name="remarks"></textarea>
-                                            <button type="submit" class="btn btn-sm btn-success btn-block">Save</button>
-                                        </form>
-                                    </td>
-                                    <td width="10%">
-                                        <a href="{{url('leave-applications/head/reject/'.$head_application->id)}}"
-                                           title="Reject" class="btn btn-danger btn-sm"><i
-                                                    class="feather icon-x"></i></a>
-                                        <a href="{{url('leave-applications/head/approve/'.$head_application->id)}}"
-                                           title="Accept" class="btn btn-success btn-sm"><i
-                                                    class="feather icon-check"></i></a>
-                                    </td>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>From-To</th>
+                                    <th>Reason</th>
+                                    <th>Remarks</th>
+                                    <th>Action</th>
                                 </tr>
-                            @endforeach
-                            </tbody>
-                        @else
-                            <tr>
-                                <td colspan="5">No Application Approvals by Head of Department</td>
-                            </tr>
-                        @endif
-                    </table>
-                </div>
-            </div>
-            @if(auth()->user()->id==1 or auth()->user()->id==19)
-            <div class="card">
-                <div class="card-header pb-0 mb-0">
-                    <h4 class="card-title font-weight-light">Leave Application CEO Approvals</h4>
-                </div>
-                <div class="card-body py-0 my-0">
-                    <table class="table table-hover bg-white table-responsive table-sm">
-                        @if(count($ceo_applications))
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>From-To</th>
-                                <th>Reason</th>
-                                <th>Remarks</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
+                                </thead>
 
-                            <tbody>
-                            @foreach($ceo_applications as $ceo_application)
+                                <tbody>
+                                @foreach($head_applications as $head_application)
+                                    <tr>
+                                        <td width="10%">{{$head_application->users->fname}} {{$head_application->users->lname}}</td>
+                                        <td width="10%">{{$head_application->nature->name}}</td>
+                                        <td width="10%">{{$head_application->from->format('d/m/Y').' '.$head_application->to->format('d/m/Y')}}</td>
+                                        <td width="10%">{{$head_application->reason}}</td>
+                                        <td width="20%">
+                                            {{$head_application->head_remarks}}
+                                            <form action="{{route('leave_application.remarks')}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$head_application->id}}">
+                                                <input type="hidden" name="approvalno" value="1">
+                                                <textarea type="text" class="form-control" id="reason"
+                                                          placeholder="Enter Remarks of Application"
+                                                          name="remarks"></textarea>
+                                                <button type="submit" class="btn btn-sm btn-success btn-block">Save
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td width="10%">
+                                            <a href="{{url('leave-applications/head/reject/'.$head_application->id)}}"
+                                               title="Reject" class="btn btn-danger btn-sm"><i
+                                                        class="feather icon-x"></i></a>
+                                            <a href="{{url('leave-applications/head/approve/'.$head_application->id)}}"
+                                               title="Accept" class="btn btn-success btn-sm"><i
+                                                        class="feather icon-check"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            @else
                                 <tr>
-                                    <td width="10%">{{$ceo_application->users->fname}} {{$ceo_application->users->lname}}</td>
-                                    <td width="10%">{{$ceo_application->nature->name}}</td>
-                                    <td width="10%">{{$ceo_application->from->format('d/m/Y').' '.$ceo_application->to->format('d/m/Y')}}</td>
-                                    <td width="10%">{{$ceo_application->reason}}</td>
-                                    <td width="20%">
-                                        {{$ceo_application->ceo_remarks}}
-                                        <form action="{{route('leave_application.remarks')}}" method="post">
-                                            @csrf
-                                            <input type="hidden" name="id" value="{{$ceo_application->id}}">
-                                            <input type="hidden" name="approvalno" value="2">
-                                            <textarea type="text" class="form-control" id="reason"
-                                                      placeholder="Enter Remarks of Application" name="remarks"></textarea>
-                                            <button type="submit" class="btn btn-sm btn-success btn-block">Save</button>
-                                        </form>
-                                    </td>
-                                    <td width="10%">
-                                        <a href="{{url('leave-applications/ceo/reject/'.$ceo_application->id)}}"
-                                           title="Reject" class="btn btn-danger btn-sm"><i
-                                                    class="feather icon-x"></i></a>
-                                        <a href="{{url('leave-applications/ceo/approve/'.$ceo_application->id)}}"
-                                           title="Accept" class="btn btn-success btn-sm"><i
-                                                    class="feather icon-check"></i></a>
-                                    </td>
+                                    <td colspan="5">No Application Approvals by Head of Department</td>
                                 </tr>
-                            @endforeach
-                            </tbody>
-                        @else
-                            <tr>
-                                <td colspan="5">No Application Approvals by CEO</td>
-                            </tr>
-                        @endif
-                    </table>
+                            @endif
+                        </table>
+                    </div>
                 </div>
-            </div>
-            @endif
+            @endcan
+            @can('application-ceo-approval')
+                @if(auth()->user()->id==1 or auth()->user()->id==19)
+                    <div class="card">
+                        <div class="card-header pb-0 mb-0">
+                            <h4 class="card-title font-weight-light">Leave Application CEO Approvals</h4>
+                        </div>
+                        <div class="card-body py-0 my-0">
+                            <table class="table table-hover bg-white table-responsive table-sm">
+                                @if(count($ceo_applications))
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>From-To</th>
+                                        <th>Reason</th>
+                                        <th>Remarks</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    @foreach($ceo_applications as $ceo_application)
+                                        <tr>
+                                            <td width="10%">{{$ceo_application->users->fname}} {{$ceo_application->users->lname}}</td>
+                                            <td width="10%">{{$ceo_application->nature->name}}</td>
+                                            <td width="10%">{{$ceo_application->from->format('d/m/Y').' '.$ceo_application->to->format('d/m/Y')}}</td>
+                                            <td width="10%">{{$ceo_application->reason}}</td>
+                                            <td width="20%">
+                                                {{$ceo_application->ceo_remarks}}
+                                                <form action="{{route('leave_application.remarks')}}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{$ceo_application->id}}">
+                                                    <input type="hidden" name="approvalno" value="2">
+                                                    <textarea type="text" class="form-control" id="reason"
+                                                              placeholder="Enter Remarks of Application"
+                                                              name="remarks"></textarea>
+                                                    <button type="submit" class="btn btn-sm btn-success btn-block">
+                                                        Save
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <td width="10%">
+                                                <a href="{{url('leave-applications/ceo/reject/'.$ceo_application->id)}}"
+                                                   title="Reject" class="btn btn-danger btn-sm"><i
+                                                            class="feather icon-x"></i></a>
+                                                <a href="{{url('leave-applications/ceo/approve/'.$ceo_application->id)}}"
+                                                   title="Accept" class="btn btn-success btn-sm"><i
+                                                            class="feather icon-check"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                @else
+                                    <tr>
+                                        <td colspan="5">No Application Approvals by CEO</td>
+                                    </tr>
+                                @endif
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            @endcan
 
         </div>
         <div class="col-12 mt-2">
@@ -495,14 +510,16 @@
 @endsection
 <style>
 
-    #quoteContainer,#jobContainer {
+    #quoteContainer, #jobContainer {
 
         height: 300px;
         width: 100%;
     }
-    .canvasjs-chart-credit{
+
+    .canvasjs-chart-credit {
         display: none;
     }
+
     .fc-row.fc-week.fc-widget-content.fc-rigid {
         background-color: white;
     }

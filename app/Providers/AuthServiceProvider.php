@@ -145,6 +145,18 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
+        Gate::define('application-department-approval', function ($user) {
+            if (in_array('application-department-approval', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
+        Gate::define('application-ceo-approval', function ($user) {
+            if (in_array('application-ceo-approval', explode(',', $user->roles->permissions))) {
+                return true;
+            }
+            return false;
+        });
         Gate::define('add-update-my-application', function ($user) {
             if (in_array('add-update-my-application', explode(',', $user->roles->permissions))) {
                 return true;
