@@ -141,7 +141,7 @@ class ReceiptVoucherController extends Controller
                 'service_tax_narration' => 'required',
             ]);
             //dd($request->payment_charges,$request->service_tax_charges,$request->adv_income_tax_charges,$request->customer_charge);
-            if ($request->payment_charges!=$request->customer_charge){
+            if (($request->payment_charges+$request->service_tax_charges+$request->adv_income_tax_charges)!=$request->customer_charge){
                 return response()->json(['error'=>'Please verify that credit and debit amounts are equal'],422);
             }
         }
