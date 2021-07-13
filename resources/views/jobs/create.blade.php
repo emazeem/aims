@@ -52,7 +52,7 @@
                         @if($item->location=='lab')
                         @if($item->quantity > $jobitems)
                             @can('lab-item-receiving-store')
-                            <a href="#" title="Store Entry" data-id="{{$item->id}}" data-target="{{$job->id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i></a>
+                            <a href="#" title="Store Entry" data-id="{{$item->id}}" data-capability="{{$item->capabilities->name}}" data-target="{{$job->id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i></a>
                                 @endcan
                             @endif
                         @else
@@ -95,8 +95,10 @@
         $(document).on('click', '.add', function () {
             var id = $(this).attr('data-id');
             var job = $(this).attr('data-target');
+            var name = $(this).attr('data-capability');
             $('#add_id').val(id);
             $('#add_job').val(job);
+            $('#check-in-item-name').html(name);
             $('#add_details').modal('toggle');
         });
 
@@ -202,7 +204,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Add Details</h5>
+                <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Receiving ( <span id="check-in-item-name"></span> )</h5>
                 <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                 </button>
@@ -217,7 +219,6 @@
                             <label for="make">Make</label>
                             <input type="text" class="form-control" id="make" name="make" placeholder="make" autocomplete="off" value="">
                         </div>
-
                         <div class="form-group col-12  float-left">
                             <label for="model">Model</label>
                             <input type="text" class="form-control" id="model" name="model" placeholder="Model" autocomplete="off" value="">
@@ -239,11 +240,7 @@
                             <label for="visualinspection">Visual Inspection</label>
                             <input type="text" class="form-control" id="visualinspection" name="visualinspection" placeholder="Visual Inspection" autocomplete="off" value="OK">
                         </div>
-
-
                     </div>
-
-
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary item-entry-add-btn" type="submit"><i class="feather icon-save"></i> Save</button>

@@ -335,6 +335,7 @@ Route::group(['prefix'=> 'lab_task'],function() {
     Route::get('view/{id}',[App\Http\Controllers\MytaskController::class, 'show'])->middleware('auth')->name('mytasks.show');
     Route::post('start',[App\Http\Controllers\MytaskController::class, 'start'])->middleware('auth')->name('mytasks.start');
     Route::post('/end',[App\Http\Controllers\MytaskController::class, 'end'])->middleware('auth')->name('mytasks.end');
+    Route::post('/rar/store',[App\Http\Controllers\MytaskController::class, 'rar_store'])->middleware('auth')->name('mytasks.rar.store');
 });
 
 Route::group(['prefix'=> 'site_task'],function() {
@@ -376,6 +377,7 @@ Route::group(['prefix'=> 'jobs'],function() {
     Route::post('',[App\Http\Controllers\JobController::class, 'fetch'])->middleware('auth')->name('jobs.fetch');
     Route::post('store',[App\Http\Controllers\JobController::class, 'store'])->middleware('auth')->name('jobs.store');
     Route::post('complete',[App\Http\Controllers\JobController::class, 'complete'])->middleware('auth')->name('jobs.complete');
+    Route::post('modes',[App\Http\Controllers\JobController::class, 'modes'])->middleware('auth')->name('jobs.modes');
 });
 Route::group(['prefix'=> 'certificates'],function() {
     Route::get('',[App\Http\Controllers\CertificateController::class, 'index'])->middleware('auth')->name('certificates');

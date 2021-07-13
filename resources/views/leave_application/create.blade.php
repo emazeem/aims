@@ -33,13 +33,13 @@
                     <div class="col-md-4 col-12 mb-1">
                         <label for="from">From</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <input type="date" class="form-control" id="from" placeholder="Enter From Date" name="from" value="{{old('from',date('Y-m-d'))}}" min="{{date('Y-m-d')}}">
+                            <input type="date" class="form-control" id="from" placeholder="Enter From Date" name="from" value="{{old('from',date('Y-m-d'))}}" {{--min="{{date('Y-m-d')}}"--}}>
                         </div>
                     </div>
                     <div class="col-md-4 col-12 mb-1">
                         <label for="to">To</label>
                         <div class="form-check form-check-inline" style="width: 100%">
-                            <input type="date" class="form-control" id="to" placeholder="Enter To Date" name="to" value="{{old('to',date('Y-m-d'))}}" min="{{date('Y-m-d')}}">
+                            <input type="date" class="form-control" id="to" placeholder="Enter To Date" name="to" value="{{old('to',date('Y-m-d'))}}" {{--min="{{date('Y-m-d')}}"--}}>
                         </div>
                     </div>
                     <div class="col-md-4 col-12 mb-1">

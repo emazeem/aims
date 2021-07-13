@@ -53,6 +53,7 @@ class ItemEntriesController extends Controller
         $details->model=$request->model;
         $details->accessories=$request->accessories;
         $details->store_incharge_id=auth()->user()->id;
+        $details->check_in=date('Y-m-d');
         $details->status=1;
         $details->visual_inspection=$request->visualinspection;
         if ($request->receiving_assigning=='1'){

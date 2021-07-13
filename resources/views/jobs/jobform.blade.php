@@ -119,6 +119,7 @@
                     <th>Tentative return date</th>
                     <th>Accessories</th>
                     <th>Visual Inspection</th>
+                    <th>Check-In</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -133,6 +134,7 @@
                         <td class="font-11">{{date('d-m-Y',strtotime($job->created_at)+($job->quotes->turnaround*24*3600))}}</td>
                         <td class="font-11">{{$labjob->accessories}}</td>
                         <td class="font-11">{{$labjob->visual_inspection}}</td>
+                        <td class="font-11">{{$labjob->check_in}}</td>
                     </tr>
                 @endforeach
                 @foreach($sitejobs as $sitejob)

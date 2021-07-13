@@ -3,7 +3,7 @@
 
 <head>
     @php $title=Route::currentRouteName(); @endphp
-    <title>AIMS-LIMS - {{ucwords(str_replace('.',' ',str_replace('_',' ',$title)))}}</title>
+    <title>AIMS (LIMS) - {{ucwords(str_replace('.',' ',str_replace('_',' ',$title)))}}</title>
     <script src="{{url('assets/js/html5shiv.js')}}"></script>
     <script src="{{url('assets/js/respond.min.js')}}"></script>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
     <meta name="description" content=""/>
     <meta name="keywords" content="">
     <meta name="author" content=""/>
-    <link rel="icon" href="{{url('img/rubic-logo-favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{url('img/AIMS.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{url('assets/css/styling.css')}}">
     <link rel="stylesheet" href="{{url('css/styling.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/select2.min.css')}}">

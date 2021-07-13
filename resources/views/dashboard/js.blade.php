@@ -164,10 +164,10 @@
         CanvasJS.addColorSet("greenShades",
             [//colorSet Array
 
-                "#ff1712",
-                "#00a1ff",
+                "#ff5b51",
+                "#9eccff",
                 "#897399",
-                "#57aa00",
+                "#88aa5c",
             ]);
         var chart1 = new CanvasJS.Chart("quoteContainer", {
             colorSet: "greenShades",

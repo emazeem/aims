@@ -26,7 +26,6 @@
                                                                                        aria-hidden="true"></i> Start
                 </button>
             </form>
-
         @endif
         @if($show->status==3)
             <form method="post" id="task-end-form" class="row float-left mr-5">
@@ -120,6 +119,23 @@
                     <td>{{$show->eq_id}}</td>
                 </tr>
                 <tr>
+                    <th>Serial</th>
+                    <td>{{$show->serial}}</td>
+                </tr>
+
+                <tr>
+                    <th>Accuracy</th>
+                    <td>{{$show->accuracy}}</td>
+                </tr>
+                <tr>
+                    <th>Range</th>
+                    <td>{{$show->range}}</td>
+                </tr>
+                <tr>
+                    <th>Resolution</th>
+                    <td>{{$show->resolution}}</td>
+                </tr>
+                <tr>
                     <th>Model</th>
                     <td>{{$show->model}}</td>
                 </tr>
@@ -176,6 +192,32 @@
                             <b>Ended at : </b>{{date('d M, y h:i A',strtotime($show->ended_at))}}
 
                         @endif
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Range,Resoultion,Accracy
+                    </th>
+                    <td>
+                        <form method="post" id="rar-form" class="row p-0 m-0">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$show->id}}">
+                            <div class="form-group col p-0 m-0">
+                                <label for="range">Range</label>
+                                <input class="form-control" name="range" id="range" value="{{$show->range?$show->range:$show->item->range}}" placeholder="Enter Range"/>
+                            </div>
+                            <div class="form-group col p-0 m-0">
+                                <label for="resolution">Resolution</label>
+                                <input class="form-control" name="resolution" id="resolution" value="{{$show->resolution}}" placeholder="Enter Resolution"/>
+                            </div>
+                            <div class="form-group col p-0 m-0">
+                                <label for="accuracy">Accuracy</label>
+                                <input class="form-control" name="accuracy" id="accuracy" value="{{$show->accuracy}}" placeholder="Enter Accuracy"/>
+                            </div>
+                            <div class="col-12 text-right p-0 m-0 mt-2 ">
+                                <button class="btn btn-success btn-sm rounded rar-btn" type="submit"><i class="feather icon-save"></i> Save</button>
+                            </div>
+                        </form>
                     </td>
                 </tr>
 
@@ -648,8 +690,9 @@
                         console.log(data);
                         if (!data.errors) {
                             $('#add_details').modal('toggle');
-                            swal("Success", "Item checked in successfully", "success");
-                            location.reload();
+                            swal("Success", "Item checked in successfully", "success").then(response=>{
+                                location.reload();
+                            });
 
                         }
                     },
@@ -658,6 +701,36 @@
                     }
                 });
             }));
+            $("#rar-form").on('submit', (function (e) {
+                e.preventDefault();
+                var button = $('.rar-btn');
+                var previous = $(button).html();
+                button.attr('disabled', 'disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+
+                $.ajax({
+                    url: "{{route('mytasks.rar.store')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        button.attr('disabled', null).html(previous);
+                        swal("Success", data.success, "success").then(response=>{
+                            location.reload();
+                        });
+                    },
+                    error: function (xhr) {
+                        button.attr('disabled', null).html(previous);
+                        var error = '';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error += item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+
             $('select[name="assets"]').on('change', function () {
                 var parameter = $(this).val();
                 if (parameter) {

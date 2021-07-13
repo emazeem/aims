@@ -44,6 +44,7 @@
                                             {{(in_array($item->id,$delivered_id)?'selected disabled':'')}}>
                                     <label class='cr {{(in_array($item->id,$delivered_id)?'line-through':'')}}' for='delivery_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
                                 </div>
+
                             @endforeach
                             </div>
                         </div>

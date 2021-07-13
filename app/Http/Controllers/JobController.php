@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use  App\Models\Asset;
 use App\Models\DeliveryNotes;
+use App\Models\ItemRecieving;
 use App\Models\Job;
 use App\Models\Jobitem;
 use App\Models\QuoteItem;
@@ -180,6 +181,26 @@ class JobController extends Controller
         $job->save();
         return response()->json(['success'=>'Job # '.$job->cid.' is completed successfully!']);
     }
+    public function modes(Request $request){
+        if ($request->type=='receiving'){
+            $this->validate($request,[
+                'receiving_mode'=>'required',
+                'receiving_items'=>'required'
+            ]);
 
+            $receiving=new ItemRecieving();
+            $receiving->mode=$request->receiving_mode;
+            $receiving->items=$request->receiving_items;
+            $receiving->save();
+            return response()->json(['success','Items Received Successfully!']);
+        }
+        if ($request->type=='delivery'){
+            $this->validate($request,[
+                'receiving_mode'=>'required'
+            ]);
+        }
+
+
+    }
     //
 }

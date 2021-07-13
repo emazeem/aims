@@ -41,7 +41,7 @@
                     </td>
                     <td>
                         @if($jobitems=\App\Models\Jobitem::where('item_id',$item->id)->get()->count()<$item->quantity)
-                            <a href="#" title="Store Entry" data-id="{{$item->id}}" data-target="{{$site->job_id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i></a>
+                            <a href="#" title="Store Entry" data-id="{{$item->id}}" data-capability="{{$item->capabilities->name}}" data-target="{{$site->job_id}}" class="btn add btn-light border btn-sm"><i class="feather icon-plus"></i></a>
                         @endif
                     </td>
                 </tr>
@@ -53,7 +53,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content add_details_content">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Receiving & Assign</h5>
+                    <h5 class="modal-title font-weight-light" id="exampleModalCenterTitle"><i class="feather icon-plus-circle"></i> Receiving ( <span id="check-in-item-name"></span> ) & Assign</h5>
                     <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class="feather icon-x-circle"></i></span>
                     </button>
@@ -425,8 +425,10 @@
             $(document).on('click', '.add', function () {
                 var id = $(this).attr('data-id');
                 var job = $(this).attr('data-target');
+                var name = $(this).attr('data-capability');
                 $('#add_id').val(id);
                 $('#add_job').val(job);
+                $('#check-in-item-name').html(name);
                 $('#add_details').modal('toggle');
             });
             $("#add_details_form").on('submit',(function(e) {

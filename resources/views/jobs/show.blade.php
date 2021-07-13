@@ -21,10 +21,10 @@
                 @can('print-delivery-note')
                     @if($job->status>=0)
                         @if(count($job->dn)>0)
-                        <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
-                           href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print'
-                           class='pull-left btn btn-sm btn-info'><i
-                                    class="fa fa-print"></i> Merge DN</a>
+                            <a onclick="window.open('{{url('/jobs/print/DN/'.$job->id)}}','newwindow','width=1100,height=1000');return false;"
+                               href="{{url('/jobs/print/DN/'.$job->id)}}" title='Print'
+                               class='pull-left btn btn-sm btn-info'><i
+                                        class="fa fa-print"></i> Merge DN</a>
                         @endif
                     @endif
                     @if($job->status>=0)
@@ -77,7 +77,12 @@
                         @elseif($labjobs->count()==0 and $sitejobs->count()>0)
                             SITE
                         @else
-                            LAB+SITE
+                            @if($labjobs->count()==0 and $sitejobs->count()==0)
+                                ----
+                            @else
+                                LAB+SITE
+
+                            @endif
                         @endif
                     </td>
                 </tr>
@@ -86,6 +91,65 @@
                     <th>Turnaround</th>
                     <td>{{$job->quotes->turnaround}} Days</td>
                 </tr>
+                @if($labjobs->count()>0)
+                    <tr>
+                        <th>Mode of Receiving</th>
+                        <td>
+                            <form method="post" id="receiving-mode-form" class="row p-0 m-0">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$job->id}}">
+                                <input type="hidden" name="type" value="receiving">
+                                <div class="form-group col-12 p-0 m-0">
+                                    <label for="receiving_mode"></label>
+                                    <select class="form-control form-control-sm float-left" name="receiving_mode"
+                                            id="receiving_mode">
+                                        <option disabled selected>--Select Receiving Mode</option>
+                                        <option value="By Courier/Cargo">By Courier/Cargo</option>
+                                        <option value="By AIMS Team">By AIMS Team</option>
+                                        <option value="By Customer">By Customer</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-2">
+                                    @foreach($labjobs as $item)
+                                        <div class='checkbox checkbox-fill d-inline'>
+                                            <input type='checkbox' data-id='{{$item->id}}' name='receiving_items' class='receiving_items' id='receiving_items{{$item->id}}'>
+                                            <label class='cr' for='receiving_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                                <div class="col p-0 m-0 mt-2 text-right">
+                                    <button class="btn btn-success btn-sm rounded mode-btn ml-2" type="submit"><i
+                                                class="fa fa-plus-square"></i> Receiving</button>
+                                </div>
+                            </form>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>Mode of Delivery</th>
+                        <td>
+                            <form method="post" id="modes-form" class="row p-0 m-0">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$job->id}}">
+                                <input type="hidden" name="type" value="delivery">
+                                <div class="form-group col p-0 m-0">
+                                    <label for="delivery_mode"></label>
+                                    <select class="form-control form-control-sm float-left" name="delivery_mode"
+                                            id="delivery_mode">
+                                        <option disabled selected>--Select Delivery Mode</option>
+                                        <option value="By Courier/Cargo">By Courier/Cargo</option>
+                                        <option value="By AIMS Team">By AIMS Team</option>
+                                        <option value="By Customer">By Customer</option>
+                                    </select>
+                                </div>
+                                <div class="col p-0 m-0">
+                                    <button class="btn btn-success btn-sm rounded mode-btn ml-2" type="submit"><i class="fa fa-plus-square"></i></button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                @endif
             </table>
             @can('complete-job')
                 @if($job->status==0)
@@ -100,7 +164,6 @@
                     @endif
                 @endif
             @endcan
-
         </div>
         @if($job->status==0)
             @include('jobs.create')
@@ -110,8 +173,8 @@
         'use strict';
         function inArray(needle, haystack) {
             var length = haystack.length;
-            for(var i = 0; i < length; i++) {
-                if(haystack[i] == needle) return true;
+            for (var i = 0; i < length; i++) {
+                if (haystack[i] == needle) return true;
             }
             return false;
         }
@@ -129,7 +192,6 @@
                             e.preventDefault();
                             var button = $('.complete-job-btn');
                             var previous = $(button).html();
-
                             button.attr('disabled', 'disabled').html('Loading <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
 
                             var request_method = $("#complete-job-form").attr("method");
@@ -172,20 +234,20 @@
                 $('#lab_task_id').val(id);
                 $('.select-2-asset').empty();
                 $.ajax({
-                    url: "{{url('suggestions/for_lab_job')}}/"+id,
+                    url: "{{url('suggestions/for_lab_job')}}/" + id,
                     type: "GET",
                     contentType: false,
                     cache: false,
                     processData: false,
                     success: function (data) {
-                        $.each(data['assets'],function (i,v) {
-                            var selection='';
-                            if(inArray(v.id,data['suggestions'])){
-                                selection='selected';
+                        $.each(data['assets'], function (i, v) {
+                            var selection = '';
+                            if (inArray(v.id, data['suggestions'])) {
+                                selection = 'selected';
                             }
 
                             $('.select-2-asset').append(
-                                '<option value="'+v.id+'" '+selection+'>'+v.code+'-'+v.name+'-'+v.range+'-'+v.accuracy+'-'+v.resolution+'</option>'
+                                '<option value="' + v.id + '" ' + selection + '>' + v.code + '-' + v.name + '-' + v.range + '-' + v.accuracy + '-' + v.resolution + '</option>'
                             );
                         });
                     },
@@ -225,6 +287,35 @@
                     window.location.href = 'https://' + url + '/' + type + '/' + id;
                 }, 2000);
             });
+            $("#receiving-mode-form").on('submit', (function (e) {
+                e.preventDefault();
+                var button = $('.receiving-mode-btn');
+                var previous = $(button).html();
+                button.attr('disabled', 'disabled').html('Processing <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                $.ajax({
+                    url: "{{route('jobs.modes')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        button.attr('disabled', null).html(previous);
+                        swal("Success", data.success, "success").then(response => {
+                            location.reload();
+                        });
+                    },
+                    error: function (xhr) {
+                        button.attr('disabled', null).html(previous);
+                        var error = '';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error += item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+
             $("#add_delivery_note_form").on('submit', (function (e) {
                 e.preventDefault();
                 var val = [];
@@ -311,7 +402,8 @@
                             <table class='table mt-3 table-bordered table-sm table-hover bg-white'>
                                 <thead>
                                 <tr>
-                                    <th class="px-1 py-2" title="Capability & Parameter">Capabilities<br>[Parameter]</th>
+                                    <th class="px-1 py-2" title="Capability & Parameter">Capabilities<br>[Parameter]
+                                    </th>
                                     <th class="px-1 py-2" title="Range">Range</th>
                                     <th class="px-1 py-2" title="Accreditation">Accred.</th>
                                     <th class="px-1 py-2" title="Status">Status</th>
@@ -325,6 +417,7 @@
                                     <th class="px-1 py-2" title="Assigned Assets">Assets</th>
                                     <th class="px-1 py-2" title="Started At / Ended At">Started <br> Ended</th>
                                     <th class="px-1 py-2" title="Certificate #">Cert#</th>
+                                    <th class="px-1 py-2" title="Check In By">Check-in By</th>
                                     <th class="px-1 py-2" title="Action">Action</th>
                                 </tr>
                                 </thead>
@@ -333,9 +426,11 @@
                                     <tr>
                                         <td class="p-1 m-0">
                                             {{\App\Models\Capabilities::find($labjob->item->capability)->name}}
-                                            <br>[ <small>
+                                            <br>[
+                                            <small>
                                                 {{\App\Models\Parameter::find($labjob->item->parameter)->name}}
-                                            </small>]
+                                            </small>
+                                            ]
                                         </td>
                                         <td class="p-1 m-0">{{$labjob->item->range}}</td>
                                         <td class="p-1 m-0">{{$labjob->item->accredited}}</td>
@@ -364,36 +459,42 @@
                                         <td class="p-1 m-0">{{$labjob->accessories}}</td>
                                         <td class="p-1 m-0">{{$labjob->visual_inspection}}</td>
                                         <td class="p-1 m-0">@if($labjob->status>1){{date('d M,y',strtotime($labjob->start))}}@endif
-                                            <br>@if($labjob->status>1){{date('d M,y',strtotime($labjob->end))}}@endif</td>
+                                            <br>@if($labjob->status>1){{date('d M,y',strtotime($labjob->end))}}@endif
+                                        </td>
                                         <td class="p-1 m-0">
                                             @if($labjob->status>1)
-                                            @if($labjob->assign_user)
-                                                {{$labjob->assignuser->fname.' '.$labjob->assignuser->lname}}
-                                            @endif
+                                                @if($labjob->assign_user)
+                                                    {{$labjob->assignuser->fname.' '.$labjob->assignuser->lname}}
+                                                @endif
                                             @endif
                                         </td>
                                         <td class="p-1 m-0">
                                             @if($labjob->status>1)
-                                            @if($labjob->assign_assets)
-                                                @php $assets=explode(',',$labjob->assign_assets); @endphp
-                                                @foreach($assets as $asset)
-                                                    <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
-                                                @endforeach
-                                            @endif
+                                                @if($labjob->assign_assets)
+                                                    @php $assets=explode(',',$labjob->assign_assets); @endphp
+                                                    @foreach($assets as $asset)
+                                                        <span class="badge border py-1 px-2">{{\App\Models\Asset::find($asset)->name}}</span>
+                                                    @endforeach
+                                                @endif
                                             @endif
 
                                         </td>
                                         <td class="p-1 m-0">
                                             @if($labjob->status>2)
-                                            {{date(' h:i A d M,y',strtotime($labjob->started_at))}}
+                                                {{date(' h:i A d M,y',strtotime($labjob->started_at))}}
                                             @endif
-                                        <br>
+                                            <br>
                                             @if($labjob->status>3)
                                                 {{date(' h:i A d M,y',strtotime($labjob->ended_at))}}
                                             @endif
                                         </td>
                                         <td class="p-1 m-0">
                                             {{$labjob->cid}}
+                                        </td>
+                                        <td class="p-1 m-0">
+
+                                            {{$labjob->receiving_user->fname}} {{$labjob->receiving_user->lname}}
+                                            on {{$labjob->check_in}}
                                         </td>
                                         <td class="p-1 m-0">
                                             <a href="#" data-id="{{$labjob->id}}" data-type="lab"
@@ -652,7 +753,8 @@
                                 <table class='table mt-3 table-bordered table-sm table-hover bg-white'>
                                     <thead>
                                     <tr>
-                                        <th class="px-1 py-2" title="Capability & Parameter">Capabilities<br>[Parameter]</th>
+                                        <th class="px-1 py-2" title="Capability & Parameter">Capabilities<br>[Parameter]
+                                        </th>
                                         <th class="px-1 py-2" title="Range">Range</th>
                                         <th class="px-1 py-2" title="Accreditation">Accred.</th>
                                         <th class="px-1 py-2" title="Status">Status</th>
@@ -674,9 +776,11 @@
                                         <tr>
                                             <td class="p-1 m-0">
                                                 {{\App\Models\Capabilities::find($sitejob->item->capability)->name}}
-                                                <br>[ <small>
+                                                <br>[
+                                                <small>
                                                     {{\App\Models\Parameter::find($sitejob->item->parameter)->name}}
-                                                </small>]
+                                                </small>
+                                                ]
                                             </td>
                                             <td class="p-1 m-0">{{$sitejob->item->range}}</td>
                                             <td class="p-1 m-0">{{$sitejob->item->accredited}}</td>
@@ -700,7 +804,8 @@
                                             <td class="p-1 m-0">{{$sitejob->accessories}}</td>
                                             <td class="p-1 m-0">{{$sitejob->visual_inspection}}</td>
                                             <td class="p-1 m-0">@if($sitejob->status>1){{date('d M,y',strtotime($sitejob->start))}}@endif
-                                                <br>@if($sitejob->status>1){{date('d M,y',strtotime($sitejob->end))}}@endif</td>
+                                                <br>@if($sitejob->status>1){{date('d M,y',strtotime($sitejob->end))}}@endif
+                                            </td>
                                             <td class="p-1 m-0">
                                                 @if($sitejob->status>1)
                                                     @if($sitejob->assign_user)

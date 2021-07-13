@@ -257,5 +257,18 @@ class MytaskController extends Controller
         }
         return redirect()->back()->with('success','Certificate no. issued successfully');
     }
+    public function rar_store(Request $request){
+        $this->validate($request,[
+            'range'=>'required',
+            'accuracy'=>'required',
+            'resolution'=>'required',
+        ]);
+        $item=Jobitem::find($request->id);
+        $item->range=$request->range;
+        $item->resolution=$request->resolution;
+        $item->accuracy=$request->accuracy;
+        $item->save();
+        return response()->json(['success'=>'Range/Resolution/Accuracy added successfully!']);
+    }
     //
 }

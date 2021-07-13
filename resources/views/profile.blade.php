@@ -207,8 +207,8 @@
                                     <tr>
                                         <td>{{$attendence->check_in_date}}</td>
                                         <td>{{$attendence->day}}</td>
-                                        <td>{{$attendence->check_in_date}} {{date('h:i A',strtotime($attendence->check_in))}}</td>
-                                        <td>{{$attendence->check_out_date}} {{date('h:i A',strtotime($attendence->check_out))}}</td>
+                                        <td>{{$attendence->check_in_date->format('d-m-Y')}} {{date('h:i A',strtotime($attendence->check_in))}}</td>
+                                        <td>{{$attendence->check_out_date->format('d-m-Y')}} {{date('h:i A',strtotime($attendence->check_out))}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
