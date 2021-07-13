@@ -27,7 +27,7 @@
                 <div class="form-group col-6">
                     <label for="business_line" class="control-label">Select Business Line</label>
                     <select class="form-control" id="business_line" name="business_line" >
-                        <option value="" selected disabled>Select Business Line</option>
+                        <option value="" selected disabled>--Select Business Line</option>
                         @foreach($blines as $bline)
                             <option value="{{$bline->id}}" {{$bline->id==1?'selected':''}}>{{$bline->title}}</option>
                         @endforeach
@@ -76,7 +76,7 @@
                         <label for="customer_acc" class="col-2 control-label">Customer Account</label>
                         <div class="col-10">
                             <select class="form-control" id="customer_acc" name="customer_acc" >
-                                <option value="" selected disabled>Select Customer Acc</option>
+                                <option value="" selected disabled>--Select Customer Acc</option>
                                 @foreach($customers as $customer)
                                     <option value="{{$customer->acc_code}}">{{$customer->title}}</option>
                                 @endforeach
@@ -92,7 +92,7 @@
                         <label for="customer_inv" class="col-2 control-label">Customer Invoices</label>
                         <div class="col-10">
                             <select class="form-control" id="customer_inv" name="customer_inv" >
-                                <option value="" selected disabled>Select Customer Invoices</option>
+                                <option value="" selected disabled>--Select Customer Invoices</option>
                             </select>
                             @if ($errors->has('customer_inv'))
                                 <span class="text-danger">
@@ -143,7 +143,7 @@
                         <label for="payment_type" class="col-2 control-label">Select Payment Type</label>
                         <div class="col-10">
                             <select class="form-control" id="payment_type" name="payment_type" >
-                                <option value="" selected disabled>Select Payment Type</option>
+                                <option value="" selected disabled>--Select Payment Type</option>
                                 <option value="cash">CASH</option>
                                 <option value="bank">BANK</option>
                             </select>
@@ -158,7 +158,7 @@
                         <label for="payment_acc" class="col-2 control-label">Select Payment Acc</label>
                         <div class="col-10">
                             <select class="form-control" id="payment_acc" name="payment_acc" >
-                                <option value="" selected disabled>Select Payment Acc.</option>
+                                <option value="" selected disabled>--Select Payment Acc.</option>
                             </select>
                             @if ($errors->has('payment_acc'))
                                 <span class="text-danger">
@@ -197,7 +197,7 @@
                         <label for="service_tax_acc" class="col-2 control-label">Income Tax Acc</label>
                         <div class="col-10">
                             <select class="form-control" id="service_tax_acc" name="service_tax_acc" >
-                                <option value="" selected disabled>Select Income Tax Acc</option>
+                                <option value="" selected disabled>--Select Income Tax Acc</option>
                                 @foreach($servicetaxes as $incometax)
                                     <option value="{{$incometax->acc_code}}" selected>{{$incometax->title}}</option>
                                 @endforeach
@@ -238,7 +238,7 @@
                         <label for="adv_income_tax_acc" class="col-2 control-label">Advance Income Tax Acc</label>
                         <div class="col-10">
                             <select class="form-control" id="adv_income_tax_acc" name="adv_income_tax_acc">
-                                <option value="" selected disabled>Select Income Tax Acc</option>
+                                <option value="" selected disabled>--Select Income Tax Acc</option>
                                 @foreach($incometaxes as $incometax)
                                     <option value="{{$incometax->acc_code}}" selected>{{$incometax->title}}</option>
                                 @endforeach
@@ -279,7 +279,7 @@
                         <label for="payable_income_tax_acc" class="col-2 control-label">Income Tax Acc</label>
                         <div class="col-10">
                             <select class="form-control" id="payable_income_tax_acc" name="payable_income_tax_acc" >
-                                <option value="" selected disabled>Select Income Tax Acc</option>
+                                <option value="" selected disabled>--Select Income Tax Acc</option>
                                 @foreach($liability_incometaxes as $incometax)
                                     <option value="{{$incometax->acc_code}}" selected>{{$incometax->title}}</option>
                                 @endforeach
@@ -373,7 +373,7 @@
                         success:function(data) {
                             $('select[name="customer_inv"]').empty();
 
-                            $('select[name="customer_inv"]').append('<option disabled selected>Select Customer Invoices</option>');
+                            $('select[name="customer_inv"]').append('<option disabled selected>--Select Customer Invoices</option>');
                             $.each(data['invoices'], function(key, value) {
                                 $('select[name="customer_inv"]').append('<option value="'+ value.id +'">'+ value.title +'</option>');
                             });
@@ -432,7 +432,7 @@
                         success:function(data) {
                             $('select[name="payment_acc"]').empty();
 
-                            $('select[name="payment_acc"]').append('<option disabled selected>Select Payment Acc.</option>');
+                            $('select[name="payment_acc"]').append('<option disabled selected>--Select Payment Acc.</option>');
                             $.each(data, function(key, value) {
                                 $('select[name="payment_acc"]').append('<option value="'+ value.acc_code +'">'+ value.title +'</option>');
                             });

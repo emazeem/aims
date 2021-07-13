@@ -25,6 +25,7 @@ class ReceiptVoucherController extends Controller
         return view('receiptvoucher.index');
     }
     public function show($id){
+        //dd(1);
         $this->authorize('view-receipt-voucher');
         $show=Journal::find($id);
         return view('receiptvoucher.show',compact('show'));
@@ -63,7 +64,7 @@ class ReceiptVoucherController extends Controller
             ->addColumn('options', function ($data) {
                 $action=null;
                 $action.="<a title='Edit' class='btn btn-sm btn-success' href='" . url('/sales-voucher/edit/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-edit'></i></a>";
-                $action.="<a title='Show' class='btn btn-sm btn-primary' href='" . url('/sales-voucher/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
+                $action.="<a title='Show' class='btn btn-sm btn-primary' href='" . url('receipt-voucher/show/'. $data->id) . "' data-id='" . $data->id . "'><i class='fa fa-eye'></i></a>";
                 return $action;
             })->rawColumns(['options'])->make(true);
 
@@ -73,12 +74,9 @@ class ReceiptVoucherController extends Controller
         $blines=BusinessLine::all();
 
         $customers=Chartofaccount::where('code3',3)->orderBy('title','asc')->get();
-
         $servicetaxes=Chartofaccount::where('code3',13)->get();
-
         $incometaxes=Chartofaccount::where('code3',4)->get();
         $liability_incometaxes=Chartofaccount::where('code3',5)->get();
-
         foreach ($customers as $item){
             $item->title=str_replace("'","",$item->title);
         }
@@ -97,7 +95,6 @@ class ReceiptVoucherController extends Controller
                 }
             }
         }
-
         $this->validate(request(), [
             'business_line' => 'required',
             'v_date' => 'required',
@@ -143,7 +140,8 @@ class ReceiptVoucherController extends Controller
                 'service_tax_charges' => 'required',
                 'service_tax_narration' => 'required',
             ]);
-            if (($request->payment_charges+$request->service_tax_charges+$request->adv_income_tax_charges)!=$request->customer_charge){
+            //dd($request->payment_charges,$request->service_tax_charges,$request->adv_income_tax_charges,$request->customer_charge);
+            if ($request->payment_charges!=$request->customer_charge){
                 return response()->json(['error'=>'Please verify that credit and debit amounts are equal'],422);
             }
         }
@@ -213,7 +211,9 @@ class ReceiptVoucherController extends Controller
             $liability_it->save();
         }
         if ($c->tax_case=='2'){
-//bank/cash
+
+
+            //bank/cash
             $receipt=new JournalDetails();
             $receipt->parent_id=$journal->id;
             //$receipt->cost_center=$request->costcenter[$k];
@@ -235,13 +235,13 @@ class ReceiptVoucherController extends Controller
             $advance_it->narration=$request->adv_income_tax_narration;
             $advance_it->dr=$request->adv_income_tax_charges;
             $advance_it->save();
-
             //Liabilities -> Current Liabilities -> PRA Cr.
+
             $service_tax=new JournalDetails();
             $service_tax->parent_id=$journal->id;
             $service_tax->acc_code=$request->service_tax_acc;
             $service_tax->narration=$request->service_tax_narration;
-            $service_tax->dr=$request->service_tax_acc_charges;
+            $service_tax->dr=$request->service_tax_charges;
             $service_tax->save();
         }
         if ($c->tax_case=='3'){
