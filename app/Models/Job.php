@@ -26,8 +26,9 @@ class Job extends Model
     public function dn(){
         return $this->hasMany('App\Models\DeliveryNotes','job_id');
     }
-
-
+    public function receivings(){
+        return $this->hasMany('App\Models\ItemRecieving','job');
+    }
 
     protected static $logAttributes = ['quotes_id','status'];
     protected static $logOnlyDirty = true;

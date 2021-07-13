@@ -1,10 +1,8 @@
 <header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed header-blue">
     <div class="m-header bg-c-blue">
         <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-        <a href="#!" class="b-brand">
-            <!-- ========   change your logo hear   ============ -->
-            <img src="{{url('img/rubic-logo-text.png')}}" style="width: 110px" alt="" class="logo ml-md-5">
-            <img src="{{url('assets/images/logo-icon.png')}}" alt="" class="logo-thumb">
+        <a href="#!" class="text-center b-brand h4 font-weight-light mt-2">
+            AIMS LIMS ERP
         </a>
         <a href="#!" class="mob-toggler">
             <i class="feather icon-more-vertical"></i>

@@ -113,8 +113,13 @@ class JobController extends Controller
                 $delivered_id[]=$d;
             }
         }
-
-        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close','delivered_id'));
+        $already_received_items=[];
+        foreach ($job->receivings as $receiving){
+            foreach (explode(',',$receiving->items) as $item){
+                $already_received_items[]=$item;
+            }
+        }
+        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close','delivered_id','already_received_items'));
     }
     public function print_job_form($id){
         $this->authorize('print-job-form');
@@ -185,14 +190,16 @@ class JobController extends Controller
         if ($request->type=='receiving'){
             $this->validate($request,[
                 'receiving_mode'=>'required',
-                'receiving_items'=>'required'
+                'receiving_items'=>'required',
+                'receiving_details'=>'required'
             ]);
-
             $receiving=new ItemRecieving();
+            $receiving->job=$request->id;
             $receiving->mode=$request->receiving_mode;
-            $receiving->items=$request->receiving_items;
+            $receiving->details=$request->receiving_details;
+            $receiving->items=implode(',',$request->receiving_items);
             $receiving->save();
-            return response()->json(['success','Items Received Successfully!']);
+            return response()->json(['success'=>'Items Received Successfully!']);
         }
         if ($request->type=='delivery'){
             $this->validate($request,[

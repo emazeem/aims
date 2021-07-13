@@ -3,7 +3,7 @@
         color: black;
     }
 </style>
-<nav class="pcoded-navbar menupos-fixed menu-light ">
+<nav class="pcoded-navbar menupos-fixed menu-light navbar-collapsed">
     <div class="navbar-wrapper  ">
         <div class="navbar-content scroll-div " >
             <ul class="nav pcoded-inner-navbar ">

@@ -125,7 +125,7 @@ class LeaveApplicationController extends Controller
                 return $leave->name;
             })
             ->addColumn('type', function ($data) {
-                return $data->type_of_leave==1?'Full Day':'Half Time';
+                return $data->type_of_leave==0?'Full Day':'Half Time';
             })
             ->addColumn('from-to', function ($data) {
                 return $data->from->format('d-m-Y').' '.$data->to->format('d-m-Y');

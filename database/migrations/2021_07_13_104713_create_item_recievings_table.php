@@ -15,7 +15,9 @@ class CreateItemRecievingsTable extends Migration
     {
         Schema::create('item_recievings', function (Blueprint $table) {
             $table->id();
+            $table->integer('job');
             $table->string('mode');
+            $table->string('details');
             $table->string('items');
             $table->timestamps();
         });

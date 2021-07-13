@@ -1,9 +1,4 @@
-<style>
-    .line-through{
-        -webkit-text-decoration-line: line-through; /* Safari */
-        text-decoration-line: line-through;
-    }
-</style>
+
 <div class="modal fade" id="add_delivery_note" tabindex="-1" role="dialog" aria-labelledby="titleDeliveryNote" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">

@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('content')
+    <style>
+        .line-through{
+            -webkit-text-decoration-line: line-through; /* Safari */
+            text-decoration-line: line-through;
+        }
+
+    </style>
     @if(Session::has('success'))
         <script>
             $(document).ready(function () {
@@ -99,7 +106,7 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{$job->id}}">
                                 <input type="hidden" name="type" value="receiving">
-                                <div class="form-group col-12 p-0 m-0">
+                                <div class="form-group col-md-6 col-12 p-0 m-0">
                                     <label for="receiving_mode"></label>
                                     <select class="form-control form-control-sm float-left" name="receiving_mode"
                                             id="receiving_mode">
@@ -109,23 +116,46 @@
                                         <option value="By Customer">By Customer</option>
                                     </select>
                                 </div>
+                                <div class="form-group col-md-6 col-12 p-0 m-0">
+                                    <label for="receiving_details"></label>
+                                    <input class="form-control form-control-sm float-left" id="receiving_details" placeholder="Enter Details of Receiving" name="receiving_details"/>
+                                </div>
+
                                 <div class="form-group mt-2">
                                     @foreach($labjobs as $item)
                                         <div class='checkbox checkbox-fill d-inline'>
-                                            <input type='checkbox' data-id='{{$item->id}}' name='receiving_items' class='receiving_items' id='receiving_items{{$item->id}}'>
-                                            <label class='cr' for='receiving_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
+                                            <input type='checkbox' checked data-id='{{$item->id}}' name='receiving_items[]' {{in_array($item->id,$already_received_items)?'disabled':''}} multiple class='receiving_items' id='receiving_items{{$item->id}}' value="{{$item->id}}">
+                                            <label class='cr {{in_array($item->id,$already_received_items)?'line-through':''}}'  for='receiving_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
                                         </div>
                                     @endforeach
                                 </div>
 
                                 <div class="col p-0 m-0 mt-2 text-right">
-                                    <button class="btn btn-success btn-sm rounded mode-btn ml-2" type="submit"><i
+                                    <button class="btn btn-success btn-sm rounded receiving-mode-btn ml-2" type="submit"><i
                                                 class="fa fa-plus-square"></i> Receiving</button>
                                 </div>
                             </form>
                         </td>
-
                     </tr>
+
+                        @foreach($job->receivings as $k=>$receiving)
+                        <tr>
+                            <th>
+                                Mode of Receiving : <span class="font-weight-normal">{{$receiving->mode}}</span> (# {{$k+1}})<br>
+                                Details : <span class="font-weight-normal">{{$receiving->details}}</span>
+                            </th>
+                            <td>
+                                @foreach(explode(',',$receiving->items) as $item)
+                                    <span class="mx-1 rounded bg-success px-2">
+                                        {{\App\Models\Jobitem::find($item)->item->capabilities->name}}
+                                    </span>
+                                @endforeach
+                                <b class="float-right">{{date('d-m-Y',strtotime($receiving->created_at))}}</b>
+                            </td>
+                        </tr>
+
+                    @endforeach
+
                     <tr>
                         <th>Mode of Delivery</th>
                         <td>

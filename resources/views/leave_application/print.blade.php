@@ -329,7 +329,7 @@
                         Dated:
                     </div>
                     <div class="col-6 p-0 m-0 custom-bottom-border">
-                        {{$show->admin_recommendation_date->format('d-m-Y')}}
+                        {{$show->admin_recommendation_date?$show->admin_recommendation_date->format('d-m-Y'):''}}
                     </div>
                 </div>
             </div>
