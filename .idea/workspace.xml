@@ -184,12 +184,12 @@
           <entry key="css" value="2" />
           <entry key="env" value="10" />
           <entry key="js" value="11" />
-          <entry key="php" value="14632" />
+          <entry key="php" value="14686" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="10144" />
+          <entry key="Blade" value="10198" />
           <entry key="CSS" value="2" />
           <entry key="JavaScript" value="11" />
           <entry key="PHP" value="4488" />
@@ -227,8 +227,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/head.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="88" lean-forward="true" selection-start-line="6" selection-start-column="88" selection-end-line="6" selection-end-column="88" />
+            <state relative-caret-position="66">
+              <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -336,7 +336,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/paymentvoucher/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/paymentvoucher/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/public/assets/css/styling.css" />
@@ -387,6 +386,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/JobController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/menu-list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/head.blade.php" />
       </list>
     </option>
   </component>
@@ -796,12 +796,12 @@
       <workItem from="1625985359185" duration="377000" />
       <workItem from="1626062640261" duration="3251000" />
       <workItem from="1626073433980" duration="4317000" />
-      <workItem from="1626078441375" duration="14495000" />
+      <workItem from="1626078441375" duration="14789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="864260000" />
+    <option name="totallyTimeSpent" value="864554000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1187,8 +1187,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/head.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="88" lean-forward="true" selection-start-line="6" selection-start-column="88" selection-end-line="6" selection-end-column="88" />
+        <state relative-caret-position="66">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
         </state>
       </provider>
     </entry>

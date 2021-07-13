@@ -1,8 +1,8 @@
 <header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed header-blue">
     <div class="m-header bg-c-blue">
         <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-        <a href="#!" class="text-center b-brand h4 font-weight-light mt-2">
-            AIMS LIMS ERP
+        <a href="#!" class="b-brand">
+            AIMS LIMS
         </a>
         <a href="#!" class="mob-toggler">
             <i class="feather icon-more-vertical"></i>
