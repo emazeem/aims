@@ -115,11 +115,21 @@ class JobController extends Controller
         }
         $already_received_items=[];
         foreach ($job->receivings as $receiving){
-            foreach (explode(',',$receiving->items) as $item){
-                $already_received_items[]=$item;
+            if ($receiving->type==0){
+                foreach (explode(',',$receiving->items) as $item){
+                    $already_received_items[]=$item;
+                }
             }
         }
-        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close','delivered_id','already_received_items'));
+        $already_delivered_items=[];
+        foreach ($job->receivings as $delivered){
+            if ($delivered->type==1){
+                foreach (explode(',',$delivered->items) as $item){
+                    $already_delivered_items[]=$item;
+                }
+            }
+        }
+        return view('jobs.show',compact('job','labjobs','sitejobs','items','assigned_items','close','delivered_id','already_received_items','already_delivered_items'));
     }
     public function print_job_form($id){
         $this->authorize('print-job-form');
@@ -187,7 +197,7 @@ class JobController extends Controller
         return response()->json(['success'=>'Job # '.$job->cid.' is completed successfully!']);
     }
     public function modes(Request $request){
-        if ($request->type=='receiving'){
+        if ($request->type=='0'){
             $this->validate($request,[
                 'receiving_mode'=>'required',
                 'receiving_items'=>'required',
@@ -195,18 +205,28 @@ class JobController extends Controller
             ]);
             $receiving=new ItemRecieving();
             $receiving->job=$request->id;
+            $receiving->type=$request->type;
             $receiving->mode=$request->receiving_mode;
             $receiving->details=$request->receiving_details;
             $receiving->items=implode(',',$request->receiving_items);
             $receiving->save();
             return response()->json(['success'=>'Items Received Successfully!']);
         }
-        if ($request->type=='delivery'){
+        if ($request->type=='1'){
             $this->validate($request,[
-                'receiving_mode'=>'required'
+                'delivery_mode'=>'required',
+                'delivering_items'=>'required',
+                'delivery_details'=>'required'
             ]);
+            $receiving=new ItemRecieving();
+            $receiving->job=$request->id;
+            $receiving->type=$request->type;
+            $receiving->mode=$request->delivery_mode;
+            $receiving->details=$request->delivery_details;
+            $receiving->items=implode(',',$request->delivering_items);
+            $receiving->save();
+            return response()->json(['success'=>'Items delivery details added Successfully!']);
         }
-
 
     }
     //

@@ -105,7 +105,7 @@
                             <form method="post" id="receiving-mode-form" class="row p-0 m-0">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$job->id}}">
-                                <input type="hidden" name="type" value="receiving">
+                                <input type="hidden" name="type" value="0">
                                 <div class="form-group col-md-6 col-12 p-0 m-0">
                                     <label for="receiving_mode"></label>
                                     <select class="form-control form-control-sm float-left" name="receiving_mode"
@@ -123,7 +123,7 @@
 
                                 <div class="form-group mt-2">
                                     @foreach($labjobs as $item)
-                                        <div class='checkbox checkbox-fill d-inline'>
+                                        <div class='checkbox checkbox-fill checkbox-warning d-inline'>
                                             <input type='checkbox' checked data-id='{{$item->id}}' name='receiving_items[]' {{in_array($item->id,$already_received_items)?'disabled':''}} multiple class='receiving_items' id='receiving_items{{$item->id}}' value="{{$item->id}}">
                                             <label class='cr {{in_array($item->id,$already_received_items)?'line-through':''}}'  for='receiving_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
                                         </div>
@@ -131,7 +131,7 @@
                                 </div>
 
                                 <div class="col p-0 m-0 mt-2 text-right">
-                                    <button class="btn btn-success btn-sm rounded receiving-mode-btn ml-2" type="submit"><i
+                                    <button class="btn btn-warning btn-sm rounded receiving-mode-btn ml-2" type="submit"><i
                                                 class="fa fa-plus-square"></i> Receiving</button>
                                 </div>
                             </form>
@@ -139,6 +139,7 @@
                     </tr>
 
                         @foreach($job->receivings as $k=>$receiving)
+                            @if($receiving->type==0)
                         <tr>
                             <th>
                                 Mode of Receiving : <span class="font-weight-normal">{{$receiving->mode}}</span> (# {{$k+1}})<br>
@@ -146,24 +147,24 @@
                             </th>
                             <td>
                                 @foreach(explode(',',$receiving->items) as $item)
-                                    <span class="mx-1 rounded bg-success px-2">
+                                    <span class="mx-1 rounded bg-warning px-2">
                                         {{\App\Models\Jobitem::find($item)->item->capabilities->name}}
                                     </span>
                                 @endforeach
                                 <b class="float-right">{{date('d-m-Y',strtotime($receiving->created_at))}}</b>
                             </td>
                         </tr>
-
+                        @endif
                     @endforeach
 
                     <tr>
                         <th>Mode of Delivery</th>
                         <td>
-                            <form method="post" id="modes-form" class="row p-0 m-0">
+                            <form method="post" id="delivery-mode-form" class="row p-0 m-0">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$job->id}}">
-                                <input type="hidden" name="type" value="delivery">
-                                <div class="form-group col p-0 m-0">
+                                <input type="hidden" name="type" value="1">
+                                <div class="form-group col-md-6 col-12 p-0 m-0">
                                     <label for="delivery_mode"></label>
                                     <select class="form-control form-control-sm float-left" name="delivery_mode"
                                             id="delivery_mode">
@@ -173,12 +174,47 @@
                                         <option value="By Customer">By Customer</option>
                                     </select>
                                 </div>
-                                <div class="col p-0 m-0">
-                                    <button class="btn btn-success btn-sm rounded mode-btn ml-2" type="submit"><i class="fa fa-plus-square"></i></button>
+                                <div class="form-group col-md-6 col-12 p-0 m-0">
+                                    <label for="delivery_details"></label>
+                                    <input class="form-control form-control-sm float-left" id="delivery_details" placeholder="Enter Details of Delivery" name="delivery_details"/>
+                                </div>
+
+                                <div class="form-group mt-2">
+                                    @foreach($labjobs as $item)
+                                        @if(in_array($item->id,$already_received_items))
+                                        <div class='checkbox checkbox-fill d-inline'>
+                                            <input type='checkbox' checked name='delivering_items[]' {{in_array($item->id,$already_delivered_items)?'disabled':''}} multiple class='delivering_items' id='delivering_items{{$item->id}}' value="{{$item->id}}">
+                                            <label class='cr {{in_array($item->id,$already_delivered_items)?'line-through':''}}' for='delivering_items{{$item->id}}' >{{$item->item->capabilities->name}}</label>
+                                        </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                                <div class="col p-0 m-0 mt-2 text-right">
+                                    <button class="btn btn-success btn-sm rounded delivery-mode-btn ml-2" type="submit"><i
+                                                class="fa fa-plus-square"></i> Delivery</button>
                                 </div>
                             </form>
                         </td>
                     </tr>
+                    @foreach($job->receivings as $k=>$delivery)
+                        @if($delivery->type==1)
+                            <tr>
+                                <th>
+                                    Mode of Delivery : <span class="font-weight-normal">{{$delivery->mode}}</span> (# {{$k+1}})<br>
+                                    Details : <span class="font-weight-normal">{{$delivery->details}}</span>
+                                </th>
+                                <td>
+                                    @foreach(explode(',',$delivery->items) as $item)
+                                        <span class="mx-1 rounded bg-success px-2">
+                                        {{\App\Models\Jobitem::find($item)->item->capabilities->name}}
+                                    </span>
+                                    @endforeach
+                                    <b class="float-right">{{date('d-m-Y',strtotime($delivery->created_at))}}</b>
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
                 @endif
             </table>
             @can('complete-job')
@@ -345,6 +381,35 @@
                     }
                 });
             }));
+            $("#delivery-mode-form").on('submit', (function (e) {
+                e.preventDefault();
+                var button = $('.delivery-mode-btn');
+                var previous = $(button).html();
+                button.attr('disabled', 'disabled').html('Processing <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+                $.ajax({
+                    url: "{{route('jobs.modes')}}",
+                    type: "POST",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data) {
+                        button.attr('disabled', null).html(previous);
+                        swal("Success", data.success, "success").then(response => {
+                            location.reload();
+                        });
+                    },
+                    error: function (xhr) {
+                        button.attr('disabled', null).html(previous);
+                        var error = '';
+                        $.each(xhr.responseJSON.errors, function (key, item) {
+                            error += item;
+                        });
+                        swal("Failed", error, "error");
+                    }
+                });
+            }));
+
 
             $("#add_delivery_note_form").on('submit', (function (e) {
                 e.preventDefault();
