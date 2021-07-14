@@ -17,7 +17,7 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom float-left">
+            <h3 class="font-weight-light float-left">
                 <i class="fa fa-tasks"></i>
                 {{$show->customize_id}}
             </h3>
@@ -67,7 +67,7 @@
             </table>
         </div>
         <div class="col-12 table-responsive">
-            <h4 class="border-bottom pull-left">
+            <h4 class="font-weight-light pull-left">
                 <i class="fa fa-tasks"></i>
                 Voucher Details
             </h4>
