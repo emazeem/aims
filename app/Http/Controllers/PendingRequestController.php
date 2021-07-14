@@ -81,7 +81,8 @@ class PendingRequestController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'category' => 'required',
-            'range' => 'required',
+            'min_range' => 'required',
+            'max_range' => 'required',
             'unit' => 'required',
             'accuracy' => 'required',
             'price' => 'required',
@@ -90,19 +91,22 @@ class PendingRequestController extends Controller
         ],[
             'name.required' => 'Name field is required *',
             'category.required' => 'Category field is required *',
-            'range.required' => 'Range field is required *',
+            'min_range.required' => 'Min Range field is required *',
+            'max_range.required' => 'Max Range field is required *',
             'unit.required' => 'Unit field is required *',
             'accuracy.required' => 'Accuracy field is required *',
             'price.required' => 'Price field is required *',
             'remarks.required' => 'Remarks field is required *',
             'location.required' => 'Location field is required *',
-
-
         ]);
+
         $capabilities=new Capabilities();
         $capabilities->name=$request->name;
         $capabilities->parameter=$request->category;
-        $capabilities->range=$request->range;
+
+        $capabilities->min_range=$request->min_range;
+        $capabilities->max_range=$request->max_range;
+
         $capabilities->unit=$request->unit;
         $capabilities->accuracy=$request->accuracy;
         $capabilities->price=$request->price;
@@ -115,8 +119,9 @@ class PendingRequestController extends Controller
             $quotes->parameter=$request->category;
             $quotes->capability=$capabilities->id;
             $quotes->not_available=null;
+            $quotes->unit=$request->unit;
             $quotes->status=2;
-            $quotes->range=$request->range;
+            $quotes->range=$request->min_range.','.$request->max_range;
             $quotes->price=$request->price;
             $quotes->save();
         }

@@ -165,7 +165,7 @@
                                 </div>
                                 <div class="row align-items-center text-center">
                                     <div class="col">
-                                        <h6 class="m-b-0"><span class="count">{{$revenue}}</span> Rs</h6>
+                                        <h6 class="m-b-0"><span class="count">{{$revenue}}</span> Rs.</h6>
                                     </div>
                                 </div>
                                 <h6 class="pt-badge badge-light-danger">{{date('F')}}</h6>

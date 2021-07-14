@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    <script src="{{url('assets/js/1.10.1/jquery.min.js')}}"></script>
     @if(Session::has('success'))
         <script>
             $(document).ready(function() {
@@ -8,8 +9,8 @@
         </script>
     @endif
     <div class="d-sm-flex align-items-center justify-content-between mb-4 col-12">
-        <h1 class="h3 mb-0 border-bottom"><i class="fa fa-user-plus"></i> Add Capabilities & Quote</h1>
-        <a href="{{route('capabilities.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Add Parameters</a>
+        <h1 class="h3 mb-0 font-weight-light"><i class="feather icon-plus-circle"></i> Add Capabilities & Quote</h1>
+        <a href="{{route('capabilities.create')}}" class="d-none rounded d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Add Parameters</a>
     </div>
 
     <div class="row pb-3">
@@ -49,16 +50,31 @@
                     </div>
                 </div>
                 <div class="form-group  row">
-                    <label for="range" class="col-sm-2 control-label">Range</label>
+                    <label for="min_range" class="col-sm-2 control-label">Min Range</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="range" name="range" placeholder="Range" autocomplete="off" value="{{old('range')}}">
-                        @if ($errors->has('range'))
+                        <input type="text" class="form-control" id="min_range" name="min_range" placeholder="Min Range" autocomplete="off" value="{{old('min_range')}}">
+                        @if ($errors->has('min_range'))
                             <span class="text-danger">
-                          <strong>{{ $errors->first('range') }}</strong>
+                          <strong>{{ $errors->first('min_range') }}</strong>
                       </span>
                         @endif
                     </div>
                 </div>
+
+                <div class="form-group  row">
+                    <label for="max_range" class="col-sm-2 control-label">Max Range</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="max_range" name="max_range" placeholder="Max Range" autocomplete="off" value="{{old('max_range')}}">
+                        @if ($errors->has('max_range'))
+                            <span class="text-danger">
+                          <strong>{{ $errors->first('max_range') }}</strong>
+                      </span>
+                        @endif
+                    </div>
+                </div>
+
+
+
                 <div class="form-group row">
                     <label for="unit" class="col-sm-2 control-label">Unit</label>
                     <div class="col-sm-10">

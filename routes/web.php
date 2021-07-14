@@ -199,8 +199,16 @@ Route::group(['prefix'=> 'designations'],function() {
     Route::post('/edit',[App\Http\Controllers\DesignationController::class, 'edit'])->middleware('auth')->name('designations.edit');
     Route::post('/update',[App\Http\Controllers\DesignationController::class, 'update'])->middleware('auth')->name('designations.update');
 });
+Route::group(['prefix'=> 'notification-model'],function() {
+    Route::get('',[App\Http\Controllers\NotificationModalController::class, 'index'])->middleware('auth')->name('notifications.modas');
+    Route::post('',[App\Http\Controllers\NotificationModalController::class, 'fetch'])->middleware('auth')->name('notifications.modas.fetch');
+    Route::post('/store',[App\Http\Controllers\NotificationModalController::class, 'store'])->middleware('auth')->name('notifications.modas.store');
+    Route::post('/edit',[App\Http\Controllers\NotificationModalController::class, 'edit'])->middleware('auth')->name('notifications.modas.edit');
+    Route::post('/update',[App\Http\Controllers\NotificationModalController::class, 'update'])->middleware('auth')->name('notifications.modas.update');
+});
+
 Route::group(['prefix'=> 'log-reviews'],function() {
-    Route::get('',[App\Http\Controllers\LogReviewController::class, 'index'])->middleware('auth')->name('log_reviews');
+    Route::get('',[App\Http\Controllers\LogReviewController::class,'index'])->middleware('auth')->name('log_reviews');
     Route::post('',[App\Http\Controllers\LogReviewController::class, 'fetch'])->middleware('auth')->name('log_reviews.fetch');
     Route::post('/store',[App\Http\Controllers\LogReviewController::class, 'store'])->middleware('auth')->name('log_reviews.store');
     Route::post('/edit',[App\Http\Controllers\LogReviewController::class, 'edit'])->middleware('auth')->name('log_reviews.edit');

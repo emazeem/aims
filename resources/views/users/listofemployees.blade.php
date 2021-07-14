@@ -29,7 +29,7 @@
                 <div class="col-12 custom-bottom-border"></div>
                 <p class="text-center font-11 col-12 mt-2 mb-1">
                     Issue # 01
-                    <span class="px-4"></span>
+                    <span class="px-4">|</span>
                     Rev # 02
                 </p>
             </div>
@@ -59,7 +59,9 @@
             </table>
         </div>
     </div>
-
+    <div class="col-12 custom-border text-center">
+        <p class="font-custom b p-0 m-0">This document is the property of AIMS Cal Lab. It is not to be retransmitted, printed or copied without prior written permission of the company.</p>
+    </div>
 </div>
 </body>
 </html>
