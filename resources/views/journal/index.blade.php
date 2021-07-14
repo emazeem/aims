@@ -260,10 +260,9 @@
     </div>
 
     <script>
-        $(".select_2").select2({
-            dropdownParent: $('#general-ledger .modal-dialog .modal-body')
-        });
+
         $(document).ready(function() {
+            $(".select_2").select2();
             $('input[name="daterange"]').daterangepicker({
                 opens: 'left'
             });

@@ -9,14 +9,18 @@ use App\Models\Capabilities;
 use App\Models\Customer;
 use App\Models\Department;
 use App\Models\Designation;
+use App\Models\Invoice;
 use App\Models\Job;
 use App\Models\Jobitem;
+use App\Models\Journal;
+use App\Models\JournalDetails;
 use App\Models\LeaveApplication;
 use App\Models\Notification;
 use App\Models\Parameter;
 use App\Models\Purchaseindent;
 use App\Models\Quotes;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use LaravelFullCalendar\Facades\Calendar;
 use Stevebauman\Location\Facades\Location;
@@ -107,14 +111,27 @@ class DashboardControlller extends Controller
         $started_mt=Jobitem::all()->where('status',3)->where('assign_user',auth()->user()->id)->count();
         $completed_mt=Jobitem::all()->where('status',4)->where('assign_user',auth()->user()->id)->count();
 
-        
+
+        $invoices=Invoice::whereMonth('created_at', Carbon::now()->month)->get();
+        $revenue=0;
+        foreach (JournalDetails::whereMonth('created_at', Carbon::now()->month)->where('acc_code','40101001')->get() as $sale){
+            $revenue=$revenue+$sale->cr;
+        }
+
+        $expenses=0;
+        foreach (JournalDetails::whereMonth('created_at', Carbon::now()->month)->get() as $expense){
+            if (substr($expense->acc_code,0,1)==5){
+                $expenses=$expenses+$expense->dr;
+            }
+        }
+
         return view('dashboard.index',
             compact('head_applications','ceo_applications','customers','calendar','indentforrevisions',
                             'indentforapprovals','capabilities','parameters','quotes','sessions',
                             'personnels','assets','jobs','departments','designations','check','checkout_missing_status',
                             'gparameters','pendings_q','notsents_q','waitings_q','approved_q',
                 'pending_j','completed_j','invoiced_j',
-                'pending_mt','completed_mt','started_mt'));
+                'pending_mt','completed_mt','started_mt','invoices','revenue','expenses'));
     }
     public function markRead($id)
     {

@@ -159,8 +159,19 @@
             }
         });
     });
-
+    $('.count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 2000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
     window.onload = function () {
+
         CanvasJS.addColorSet("greenShades",
             [//colorSet Array
 
@@ -228,6 +239,14 @@
         }
         e.chart.render();
     }
+
+
+
+
+
+
+
+
 </script>
 
 {{--data: [@php foreach ($gparameters as $gparameter){ echo count(\App\Models\Asset::where('parameter',$gparameter->id)->get()).',';} @endphp],--}}

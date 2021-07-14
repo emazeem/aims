@@ -36,7 +36,7 @@
                             <div class="row align-items-center m-b-0">
                                 <div class="col">
                                     <h6 class="m-b-5 text-white">Customers</h6>
-                                    <h3 class="m-b-0 text-white">{{$customers}}</h3>
+                                    <h3 class="m-b-0 text-white count">{{$customers}}</h3>
                                 </div>
                                 <div class="col-auto">
                                     <i class="feather icon-user text-white"></i>
@@ -51,7 +51,7 @@
                             <div class="row align-items-center m-b-0">
                                 <div class="col">
                                     <h6 class="m-b-5 text-white">Parameters</h6>
-                                    <h3 class="m-b-0 text-white">{{$parameters}}</h3>
+                                    <h3 class="m-b-0 text-white count">{{$parameters}}</h3>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-list text-white"></i>
@@ -66,7 +66,7 @@
                             <div class="row align-items-center m-b-0">
                                 <div class="col">
                                     <h6 class="m-b-5 text-white">Capabilities</h6>
-                                    <h3 class="m-b-0 text-white">{{$capabilities}}</h3>
+                                    <h3 class="m-b-0 text-white count">{{$capabilities}}</h3>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-list text-white"></i>
@@ -81,7 +81,7 @@
                             <div class="row align-items-center m-b-0">
                                 <div class="col">
                                     <h6 class="m-b-5 text-white">Assets</h6>
-                                    <h3 class="m-b-0 text-white">{{$assets}}</h3>
+                                    <h3 class="m-b-0 text-white count">{{$assets}}</h3>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-building text-white"></i>
@@ -96,7 +96,7 @@
                             <div class="row align-items-center m-b-0">
                                 <div class="col">
                                     <h6 class="m-b-5 text-white">Quotes</h6>
-                                    <h3 class="m-b-0 text-white">{{$quotes}}</h3>
+                                    <h3 class="m-b-0 text-white count">{{$quotes}}</h3>
                                 </div>
                                 <div class="col-auto">
                                     <i class="feather icon-activity text-white"></i>
@@ -111,7 +111,7 @@
                             <div class="row align-items-center m-b-0">
                                 <div class="col">
                                     <h6 class="m-b-5 text-white">Jobs</h6>
-                                    <h3 class="m-b-0 text-white">{{$jobs}}</h3>
+                                    <h3 class="m-b-0 text-white count">{{$jobs}}</h3>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-list text-white"></i>
@@ -126,7 +126,7 @@
                             <div class="row align-items-center m-b-0">
                                 <div class="col">
                                     <h6 class="m-b-5 text-white">Users</h6>
-                                    <h3 class="m-b-0 text-white">{{$personnels}}</h3>
+                                    <h3 class="m-b-0 text-white count">{{$personnels}}</h3>
                                 </div>
                                 <div class="col-auto">
                                     <i class="feather icon-user text-white"></i>
@@ -141,7 +141,7 @@
                             <div class="row align-items-center m-b-0">
                                 <div class="col">
                                     <h6 class="m-b-5 text-white">Departments</h6>
-                                    <h3 class="m-b-0 text-white">{{$departments}}</h3>
+                                    <h3 class="m-b-0 text-white count">{{$departments}}</h3>
                                 </div>
                                 <div class="col-auto">
                                     <i class="fas fa-building text-white"></i>
@@ -150,8 +150,74 @@
                         </div>
                     </div>
                 </div>
+                @if(Gate::check('finance-accounts'))
+                    <div class="col-xl-4 col-md-12">
+                        <div class="card proj-t-card">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col-auto">
+                                        <i class="fa fa-money-bill text-c-red f-30"></i>
+                                    </div>
+                                    <div class="col p-l-0">
+                                        <h6 class="m-b-5">Revenue</h6>
+                                        <h6 class="m-b-0 text-c-red">Sales this Month</h6>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center text-center">
+                                    <div class="col">
+                                        <h6 class="m-b-0"><span class="count">{{$revenue}}</span> Rs</h6>
+                                    </div>
+                                </div>
+                                <h6 class="pt-badge badge-light-danger">{{date('F')}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-12">
+                        <div class="card proj-t-card">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col-auto">
+                                        <i class="fa fa-money-bill text-c-green f-30"></i>
+                                    </div>
+                                    <div class="col p-l-0">
+                                        <h6 class="m-b-5">Invoices</h6>
+                                        <h6 class="m-b-0 text-c-green">Invoices this Month</h6>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center text-center">
+                                    <div class="col">
+                                        <h6 class="m-b-0"> <span class="count">{{$invoices->count()}}</span> Inv</h6>
+                                    </div>
+                                </div>
+                                <h6 class="pt-badge badge-light-success">{{date('F')}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-12">
+                    <div class="card proj-t-card">
+                        <div class="card-body">
+                            <div class="row align-items-center m-b-30">
+                                <div class="col-auto">
+                                    <i class="fa fa-money-bill text-c-blue f-30"></i>
+                                </div>
+                                <div class="col p-l-0">
+                                    <h6 class="m-b-5">Expenses</h6>
+                                    <h6 class="m-b-0 text-c-blue">Expenses this Month</h6>
+                                </div>
+                            </div>
+                            <div class="row align-items-center text-center">
+                                <div class="col">
+                                    <h6 class="m-b-0"> <span class="count">{{$expenses}}</span> Rs.</h6>
+                                </div>
+                            </div>
+                            <h6 class="pt-badge badge-light-primary">{{date('F')}}</h6>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
+
         @if(Gate::check('lab-task-index') || Gate::check('site-task-index'))
             <div class="col-12">
                 <div class="card">
@@ -506,7 +572,6 @@
     </div>
     @include('dashboard.js')
     <script src="{{url('js/canvasjs.min.js')}}"></script>
-
 @endsection
 <style>
 

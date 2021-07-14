@@ -10,7 +10,7 @@
     @endif
     <div class="row">
         <div class="col-12">
-            <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> Site Tasks</h3>
+            <h3 class="font-weight-light float-left"><i class="feather icon-list"></i> Lab Tasks</h3>
             <div class="form-check form-check-inline float-right mb-2">
                 <label for="search"></label>
                 <select class="form-control" id="search" name="search">
