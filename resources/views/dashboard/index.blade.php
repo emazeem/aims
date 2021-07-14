@@ -348,7 +348,7 @@
                 </div>
             </div>
         @endcan
-        <div class="col-md-6 col-12">
+{{--        <div class="col-md-6 col-12">
             <div class="card">
                 <div class="card-header">
                     <h5>Incoming Requests</h5>
@@ -373,8 +373,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div>--}}
         <div class="col-12 table-responsive" style="overflow: hidden">
             {{--<h2 class="ml-2">Purchase Indent Revisions</h2>
             <table class="table table-hover font-13 bg-white table-responsive">
