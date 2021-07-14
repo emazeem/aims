@@ -143,19 +143,19 @@
     <session id="-332573018">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="10" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -164,17 +164,17 @@
           <entry key="env" value="1" />
           <entry key="html" value="6" />
           <entry key="js" value="10" />
-          <entry key="php" value="235" />
+          <entry key="php" value="238" />
           <entry key="ts" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="135" />
+          <entry key="Blade" value="136" />
           <entry key="CSS" value="3" />
           <entry key="HTML" value="6" />
           <entry key="JavaScript" value="10" />
-          <entry key="PHP" value="100" />
+          <entry key="PHP" value="102" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="1" />
         </counts>
@@ -184,12 +184,12 @@
           <entry key="css" value="2" />
           <entry key="env" value="10" />
           <entry key="js" value="11" />
-          <entry key="php" value="15348" />
+          <entry key="php" value="15364" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="10568" />
+          <entry key="Blade" value="10584" />
           <entry key="CSS" value="2" />
           <entry key="JavaScript" value="11" />
           <entry key="PHP" value="4780" />
@@ -204,58 +204,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReceiptVoucherController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="143" column="105" selection-start-line="143" selection-start-column="105" selection-end-line="143" selection-end-column="105" />
-              <folding>
-                <element signature="e#3894#5127#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/profile.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
-              <caret line="445" column="42" selection-start-line="445" selection-start-column="42" selection-end-line="445" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="709" column="41" selection-start-line="709" selection-start-column="26" selection-end-line="709" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/receiptvoucher/show.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/receiptvoucher/create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1924">
-              <caret line="445" column="32" selection-start-line="445" selection-start-column="16" selection-end-line="445" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="24" />
+              <caret line="207" column="87" selection-start-line="207" selection-start-column="87" selection-end-line="207" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -271,7 +223,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>full</find>
       <find>admin_recommendation_date</find>
       <find>line-through</find>
       <find>receiving_details</find>
@@ -301,6 +252,7 @@
       <find>service_tax_charges</find>
       <find>service_tax_acc_</find>
       <find>dd</find>
+      <find>email</find>
     </findStrings>
     <replaceStrings>
       <replace>You</replace>
@@ -367,7 +319,6 @@
         <option value="$PROJECT_DIR$/app/Models/Jobitem.php" />
         <option value="$PROJECT_DIR$/resources/views/jobs/jobform.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/js.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/profile.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/database/migrations/2021_07_13_104621_create_item_receivings_table.php" />
         <option value="$PROJECT_DIR$/resources/views/leave_application/create.blade.php" />
@@ -387,6 +338,7 @@
         <option value="$PROJECT_DIR$/resources/views/receiptvoucher/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/receiptvoucher/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReceiptVoucherController.php" />
+        <option value="$PROJECT_DIR$/resources/views/profile.blade.php" />
       </list>
     </option>
   </component>
@@ -544,7 +496,7 @@
       <path value="$PROJECT_DIR$/vendor/maxmind/web-service-common" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -686,7 +638,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="invoice&#9;null&#9;null&#10;aut&#9;null&#9;null&#10;leave&#9;null&#9;null&#10;profile&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/profile.blade.php&#10;jobit&#9;null&#9;null&#10;jobitem&#9;null&#9;null&#10;site&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/SitePlanController.php&#10;capabili&#9;null&#9;null&#10;jobcontroller&#9;null&#9;null&#10;mytask&#9;null&#9;null&#10;attendance&#9;null&#9;null&#10;depart&#9;null&#9;null&#10;leaveapp&#9;null&#9;null&#10;usercont&#9;null&#9;null&#10;master&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;styling&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/assets/css/styling.css&#10;itemen&#9;null&#9;null&#10;auth&#9;null&#9;null&#10;parameter&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/parameter.blade.php&#10;dashboar&#9;null&#9;null&#10;customer&#9;null&#9;null&#10;VOUCHER&#9;null&#9;null&#10;env&#9;FILE&#9;file://D:/Program Files/XAMPP/htdocs/aims/.env&#10;authser&#9;FILE&#9;file://D:/Program Files/XAMPP/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;logrev&#9;null&#9;null&#10;logre&#9;null&#9;null&#10;leaveappl&#9;null&#9;null&#10;activi&#9;null&#9;null&#10;itementries&#9;null&#9;null&#10;quoteatt&#9;null&#9;null&#10;quotes&#9;null&#9;null&#10;asset&#9;null&#9;null&#10;cap&#9;null&#9;null&#10;gener&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/GenerateRequestsController.php&#10;jobc&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;sugges&#9;null&#9;null&#10;das&#9;null&#9;null&#10;home&#9;null&#9;null&#10;siteplan&#9;null&#9;null&#10;quotecon&#9;null&#9;null&#10;docs.css&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/docs.css&#10;user&#9;null&#9;null&#10;genera&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/GenerateRequestsController.php&#10;hea&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/head.blade.php&#10;jobcont&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;we&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;menus&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/menus.blade.php&#10;grouped&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/groupedcapabilities&#10;three&#9;null&#9;null&#10;generate&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests" />
+    <property name="SearchEverywhereHistoryKey" value="quotecon&#9;null&#9;null&#10;invoice&#9;null&#9;null&#10;aut&#9;null&#9;null&#10;leave&#9;null&#9;null&#10;profile&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/profile.blade.php&#10;jobit&#9;null&#9;null&#10;jobitem&#9;null&#9;null&#10;site&#9;FILE&#9;file://C:/xampp/htdocs/aims/app/Http/Controllers/SitePlanController.php&#10;capabili&#9;null&#9;null&#10;jobcontroller&#9;null&#9;null&#10;mytask&#9;null&#9;null&#10;attendance&#9;null&#9;null&#10;depart&#9;null&#9;null&#10;leaveapp&#9;null&#9;null&#10;usercont&#9;null&#9;null&#10;master&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/layouts/master.blade.php&#10;styling&#9;FILE&#9;file://C:/xampp/htdocs/aims/public/assets/css/styling.css&#10;itemen&#9;null&#9;null&#10;auth&#9;null&#9;null&#10;parameter&#9;FILE&#9;file://C:/xampp/htdocs/aims/resources/views/parameter.blade.php&#10;dashboar&#9;null&#9;null&#10;customer&#9;null&#9;null&#10;VOUCHER&#9;null&#9;null&#10;env&#9;FILE&#9;file://D:/Program Files/XAMPP/htdocs/aims/.env&#10;authser&#9;FILE&#9;file://D:/Program Files/XAMPP/htdocs/aims/app/Providers/AuthServiceProvider.php&#10;logrev&#9;null&#9;null&#10;logre&#9;null&#9;null&#10;leaveappl&#9;null&#9;null&#10;activi&#9;null&#9;null&#10;itementries&#9;null&#9;null&#10;quoteatt&#9;null&#9;null&#10;quotes&#9;null&#9;null&#10;asset&#9;null&#9;null&#10;cap&#9;null&#9;null&#10;gener&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/GenerateRequestsController.php&#10;jobc&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;sugges&#9;null&#9;null&#10;das&#9;null&#9;null&#10;home&#9;null&#9;null&#10;siteplan&#9;null&#9;null&#10;docs.css&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/public/docs.css&#10;user&#9;null&#9;null&#10;genera&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/GenerateRequestsController.php&#10;hea&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/layouts/head.blade.php&#10;jobcont&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/app/Http/Controllers/JobController.php&#10;we&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/routes/web.php&#10;menus&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/menus.blade.php&#10;grouped&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/groupedcapabilities&#10;three&#9;null&#9;null&#10;generate&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/aims/resources/views/generate_requests" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="D:/oshespk.com" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -809,12 +761,14 @@
       <workItem from="1625985359185" duration="377000" />
       <workItem from="1626062640261" duration="3251000" />
       <workItem from="1626073433980" duration="4317000" />
-      <workItem from="1626078441375" duration="22643000" />
+      <workItem from="1626078441375" duration="23229000" />
+      <workItem from="1626235820563" duration="793000" />
+      <workItem from="1626238578451" duration="674000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="872408000" />
+    <option name="totallyTimeSpent" value="874461000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -837,7 +791,7 @@
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="TODO" order="3" weight="0.3295082" />
       <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Terminal" order="5" sideWeight="0.49546143" weight="0.43770492" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="5" sideWeight="0.49546143" visible="true" weight="0.43770492" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.5045386" side_tool="true" weight="0.43770492" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Run" order="8" />
@@ -969,9 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding>
-            <element signature="e#7#132#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1013,14 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="209" column="87" selection-start-line="209" selection-start-column="87" selection-end-line="209" selection-end-column="87" />
-          <caret line="210" column="88" selection-start-line="210" selection-start-column="88" selection-end-line="210" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Template/dist/bc_collapse.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
@@ -1028,13 +971,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_13_104621_create_item_receivings_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_07_13_104621_create_item_receivings_table.php" />
     <entry file="file://$PROJECT_DIR$/app/Models/ItemRecieving.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1122,9 +1059,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="731" column="16" lean-forward="true" selection-start-line="731" selection-start-column="16" selection-end-line="731" selection-end-column="16" />
-          <folding>
-            <element signature="e#34934#36213#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1139,9 +1073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="157" column="31" selection-start-line="157" selection-start-column="31" selection-end-line="157" selection-end-column="31" />
-          <folding>
-            <element signature="e#11467#12746#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1163,31 +1094,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="435" column="19" lean-forward="true" selection-start-line="435" selection-start-column="19" selection-end-line="435" selection-end-column="19" />
-          <folding>
-            <element signature="n#div#0;n#div#8;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#8;n#div#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/receiptvoucher/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="445" column="42" selection-start-line="445" selection-start-column="42" selection-end-line="445" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="709" column="41" selection-start-line="709" selection-start-column="26" selection-end-line="709" selection-end-column="41" />
+        <state relative-caret-position="306">
+          <caret line="469" column="16" lean-forward="true" selection-start-line="445" selection-start-column="12" selection-end-line="469" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1198,10 +1111,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/receiptvoucher/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1924">
-          <caret line="445" column="32" selection-start-line="445" selection-start-column="16" selection-end-line="445" selection-end-column="32" />
+        <state relative-caret-position="208">
+          <caret line="445" column="42" selection-start-line="445" selection-start-column="42" selection-end-line="445" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -1209,9 +1122,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="143" column="105" selection-start-line="143" selection-start-column="105" selection-end-line="143" selection-end-column="105" />
-          <folding>
-            <element signature="e#3894#5127#0#PHP" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvoiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QuotesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="271" column="6" selection-start-line="222" selection-start-column="4" selection-end-line="271" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="207" column="87" selection-start-line="207" selection-start-column="87" selection-end-line="207" selection-end-column="87" />
         </state>
       </provider>
     </entry>

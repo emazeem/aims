@@ -17,9 +17,9 @@
     @endif
     <div class="row pb-3">
         <div class="col-12">
-            <h3 class="border-bottom pull-left">
+            <h3 class="border-bottom float-left">
                 <i class="fa fa-tasks"></i>
-                Voucher # {{$show->id}}
+                {{$show->customize_id}}
             </h3>
             <span class="float-right">
                 @can('print-receipt-voucher')
@@ -31,10 +31,6 @@
 
             <table class="table table-hover table-sm font-13 table-bordered bg-white">
                 <tr>
-                    <th>ID</th>
-                    <td>{{$show->id}}</td>
-                </tr>
-                <tr>
                     <th>Customize ID</th>
                     <td>{{$show->customize_id}}</td>
                 </tr>
@@ -42,7 +38,6 @@
                     <th>Business Line</th>
                     <td>{{$show->businessLine->title}}</td>
                 </tr>
-
                 <tr>
                     <th>Voucher Type</th>
                     <td class="text-capitalize"> {{str_replace('-',' ',$show->type)}}</td>
@@ -71,7 +66,7 @@
 
             </table>
         </div>
-        <div class="col-12">
+        <div class="col-12 table-responsive">
             <h4 class="border-bottom pull-left">
                 <i class="fa fa-tasks"></i>
                 Voucher Details

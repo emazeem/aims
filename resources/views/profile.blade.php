@@ -205,10 +205,10 @@
                                 <tbody>
                                 @foreach($attendances as $attendence)
                                     <tr>
-                                        <td>{{$attendence->check_in_date}}</td>
+                                        <td>{{$attendence->check_in_date->format('d-m-Y')}}</td>
                                         <td>{{$attendence->day}}</td>
-                                        <td>{{$attendence->check_in_date->format('d-m-Y')}} {{date('h:i A',strtotime($attendence->check_in))}}</td>
-                                        <td>{{$attendence->check_out_date->format('d-m-Y')}} {{date('h:i A',strtotime($attendence->check_out))}}</td>
+                                        <td>{{date('h:i A',strtotime($attendence->check_in))}} <br><small>{{$attendence->check_in_date->format('d-m-Y')}}</small> </td>
+                                        <td>{{date('h:i A',strtotime($attendence->check_out))}} <br><small>{{$attendence->check_out_date->format('d-m-Y')}}</small> </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
