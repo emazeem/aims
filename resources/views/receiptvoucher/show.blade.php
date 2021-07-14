@@ -18,7 +18,7 @@
     <div class="row pb-3">
         <div class="col-12">
             <h3 class="font-weight-light float-left">
-                <i class="fa fa-tasks"></i>
+                <i class="feather icon-list"></i>
                 {{$show->customize_id}}
             </h3>
             <span class="float-right">
@@ -68,7 +68,7 @@
         </div>
         <div class="col-12 table-responsive">
             <h4 class="font-weight-light pull-left">
-                <i class="fa fa-tasks"></i>
+                <i class="feather icon-list"></i>
                 Voucher Details
             </h4>
             <table class="table table-hover table-sm font-13 table-bordered bg-white">
