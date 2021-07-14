@@ -259,7 +259,7 @@
                 </div>
             </div>
         @endif
-        <div class="col-12">
+        <div class="col-md-6 col-12">
             <div class="card p-0">
                 <div class="card-body">
                     <h6 class="mb-0 float-right">
