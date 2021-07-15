@@ -39,26 +39,22 @@ class QuoteReminder extends Command
         $mail = new PHPMailer(true);
         $mail->SMTPDebug = 4;
         $mail->isSMTP();
-        $mail->Host = "700rdns1.websouls.net";
+        $mail->Host = "mail.aimscal.com";
         $mail->SMTPAuth = true;
         $mail->Username = 'info@aimscal.com';
-        $mail->Password = '4Ghulamhussain@472';
+        $mail->Password = 'Bestbrands@22';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
-        $mail->setFrom('info@aimscal.com', 'info@aimscal.com');
-        $mail->addAddress('emazeem07@gmail.com', 'Joe User');     // Add a recipient
-        $mail->addAddress('emazeem07@gmail.com');               // Name is optional
-        //$mail->AddEmbeddedImage('http://aimslims.com/img/card.jpg','card','CARD');
-        //$mail->addAttachment(public_path('img/quotes/'.$attachment),$attachment);
+        $mail->setFrom('info@aimscal.com', 'Info@aimscal.com');
+        $mail->addAddress('emazeem07@gmail.com', 'Em_Azeem');
         $mail->isHTML(true);
-        $mail->Subject = 'QUOTE REMINDER';
-        $path='http://aimslims.com/img/card.jpg';
-        $mail->Body    = 'emazeem is sending you message';
+        $mail->AddEmbeddedImage('http://aimslims.com/img/card.jpg','card','CARD');
 
+        $mail->Subject = 'QTN/000080 Capital Aviation';
+        $path='http://aimslims.com/img/card.jpg';
+        
+        $mail->Body = 'Dear Sir, AIMS QTN/000002 have been forwarded to you for the calibration of mentioned instruments. <br> Kindly intimate quote approval status accordingly. <br> Regards : Imtiaz Ahmed <br> Cell # 03016236150 <img src='.$path.'>';
         if ($mail->send()) {
-            echo 'email sent';
-        } else {
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
         }
 
         /*
