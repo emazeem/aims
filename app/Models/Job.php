@@ -21,7 +21,7 @@ class Job extends Model
         return $this->hasMany('App\Models\SitePlan','job_id');
     }
     public function jobitems(){
-        return $this->hasMany('App\Models\JobItem','job_id');
+        return $this->hasMany('App\Models\Jobitem','job_id');
     }
     public function dn(){
         return $this->hasMany('App\Models\DeliveryNotes','job_id');
