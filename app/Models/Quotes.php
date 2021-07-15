@@ -33,6 +33,11 @@ class Quotes extends Model
         return $this->hasMany('App\Models\QuoteItem','quote_id');
         //
     }
+    public function jobs(){
+        return $this->hasMany('App\Models\Job','quote_id');
+        //
+    }
+
     public function attachments(){
         return $this->hasMany('App\Models\QuotesAttachments','quote_id');
         //

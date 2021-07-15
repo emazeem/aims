@@ -17,12 +17,42 @@ use Yajra\DataTables\DataTables;
 class ManageJobsController extends Controller
 {
     public function index(){
+
         $this->authorize('awaiting-job-index');
         return view('manage.index');
     }
-    public function fetch(){
+    public function fetch(Request $request){
         $this->authorize('awaiting-job-index');
-        $data=Quotes::with('customers')->where('status',3)->get();
+        $complete=[];
+        $incomplete=[];
+        $approvedQuotes=Quotes::with('customers')->where('status',3)->get();
+        foreach ($approvedQuotes as $static){
+            $quoteItems=0;
+            foreach ($static->items as $item){
+                $quoteItems=$item->quantity+$quoteItems;
+            }
+            $jobItems=0;
+            foreach ($static->jobs as $job){
+                $jobItems=$jobItems+$job->jobitems->count();
+            }
+
+            if ($quoteItems==$jobItems){
+                $complete[]=$static->id;
+            }
+            if ($quoteItems!=$jobItems){
+                $incomplete[]=$static->id;
+            }
+        }
+
+        if ($request->search=='incomplete'){
+            $data=Quotes::with('customers')->whereIn('id',$incomplete)->get();
+        }
+        if ($request->search=='complete'){
+            $data=Quotes::with('customers')->whereIn('id',$complete)->get();
+        }
+        if ($request->search=='all'){
+            $data=Quotes::with('customers')->where('status',3)->get();
+        }
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->cid;
@@ -40,16 +70,22 @@ class ManageJobsController extends Controller
                 return $data->turnaround.' Days';
             })
             ->addColumn('total', function ($data) {
-                $items=QuoteItem::where('quote_id',$data->id)->get();
-                $total=0;
-                foreach ($items as $item){
-                    $total=$total+$item->quantity;
+                $quoteItems=0;
+                foreach ($data->items as $item){
+                    $quoteItems=$item->quantity+$quoteItems;
                 }
-                return $total;
+                $jobItems=0;
+                foreach ($data->jobs as $job){
+                    $jobItems=$jobItems+$job->jobitems->count();
+                }
+                return $quoteItems.' / '.$jobItems;
             })
             ->addColumn('jobs', function ($data) {
-                $total=Job::where('quote_id',$data->id)->count();
-                return $total;
+                $jobs=null;
+                foreach ($data->jobs as $job){
+                    $jobs=$job->cid.' '.$jobs;
+                }
+                return $jobs;
             })
             ->addColumn('options', function ($data) {
                 $action=null;
@@ -71,6 +107,17 @@ class ManageJobsController extends Controller
             if ($job->status==0){
                 $createjob=false;
             }
+        }
+        $quoteItems=0;
+        foreach ($show->items as $item){
+            $quoteItems=$item->quantity+$quoteItems;
+        }
+        $jobItems=0;
+        foreach ($show->jobs as $job){
+            $jobItems=$jobItems+$job->jobitems->count();
+        }
+        if ($jobItems==$quoteItems){
+            $createjob=false;
         }
         return view('manage.show',compact('show','jobs','id','createjob'));
     }

@@ -18,6 +18,14 @@
     <div class="row">
         <div class="col-12">
             <h3 class="float-left font-weight-light"><i class="feather icon-list"></i> Manage Jobs</h3>
+            <div class="form-check form-check-inline col-3 p-0 m-0 float-right mb-2">
+                <select class="form-control" id="search" name="search">
+                    <option value="incomplete">Quotes having Pending Items</option>
+                    <option value="complete">Closed Quotes & its Closed Jobs</option>
+                    <option value="all">All Quotes</option>
+                </select>
+            </div>
+
         </div>
         <div class="col-12">
             <table id="example" class="table table-bordered table-hover table-sm display nowrap" cellspacing="0"
@@ -27,7 +35,7 @@
                     <th>ID</th>
                     <th>Customer</th>
                     <th>Turnaround</th>
-                    <th>Total Items</th>
+                    <th>Items (Q/J)</th>
                     <th>Jobs</th>
                     <th>Type</th>
                     <th>Action</th>
@@ -40,7 +48,7 @@
                     <th>ID</th>
                     <th>Customer</th>
                     <th>Turnaround</th>
-                    <th>Total Items</th>
+                    <th>Items (Q/J)</th>
                     <th>Jobs</th>
                     <th>Type</th>
                     <th>Action</th>
@@ -52,9 +60,7 @@
     </div>
     <script>
 
-        function InitTable() {
-            $(".loading").fadeIn();
-
+        function InitTable(search) {
             $('#example').DataTable({
                 responsive: true,
                 "bDestroy": true,
@@ -67,7 +73,7 @@
                     "url": "{{ route('jobs.manage.fetch') }}",
                     "dataType": "json",
                     "type": "POST",
-                    "data": {_token: "{{csrf_token()}}"}
+                    "data": {search:search,_token: "{{csrf_token()}}"}
                 },
                 "columns": [
                     {"data": "id"},
@@ -82,7 +88,11 @@
         }
 
         $(document).ready(function () {
-            InitTable();
+            InitTable('incomplete');
+            $('select[name="search"]').on('change', function() {
+                var search = $(this).val();
+                InitTable(search);
+            });
         });
     </script>
 @endsection
