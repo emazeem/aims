@@ -31,15 +31,15 @@ class ManageJobsController extends Controller
             foreach ($static->items as $item){
                 $quoteItems=$item->quantity+$quoteItems;
             }
-            $jobItems=0;
+            $jobItem=0;
             foreach ($static->jobs as $job){
-                $jobItems=$jobItems+$job->jobitems->count();
+                $jobItem=$jobItem+$job->jobitems->count();
             }
 
-            if ($quoteItems==$jobItems){
+            if ($quoteItems==$jobItem){
                 $complete[]=$static->id;
             }
-            if ($quoteItems!=$jobItems){
+            if ($quoteItems!=$jobItem){
                 $incomplete[]=$static->id;
             }
         }
@@ -117,7 +117,7 @@ class ManageJobsController extends Controller
             $jobItems=$jobItems+$job->jobitems->count();
         }
         if ($jobItems==$quoteItems){
-            $createjob=false;
+            $createjob==false;
         }
         return view('manage.show',compact('show','jobs','id','createjob'));
     }

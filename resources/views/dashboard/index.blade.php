@@ -517,6 +517,7 @@
                                         <th>Name</th>
                                         <th>Type</th>
                                         <th>From-To</th>
+                                        <th>Days</th>
                                         <th>Reason</th>
                                         <th>Remarks</th>
                                         <th>Action</th>
@@ -525,10 +526,20 @@
 
                                     <tbody>
                                     @foreach($ceo_applications as $ceo_application)
+                                        <?php
+                                        $fdate = $ceo_application->from;
+                                        $tdate = $ceo_application->to;
+                                        $datetime1 = new \DateTime($fdate);
+                                        $datetime2 = new \DateTime($tdate);
+                                        $interval = $datetime1->diff($datetime2);
+                                        $days = $interval->format('%a')+1;
+
+                                        ?>
                                         <tr>
                                             <td width="10%">{{$ceo_application->users->fname}} {{$ceo_application->users->lname}}</td>
                                             <td width="10%">{{$ceo_application->nature->name}}</td>
                                             <td width="10%">{{$ceo_application->from->format('d/m/Y').' '.$ceo_application->to->format('d/m/Y')}}</td>
+                                            <td width="10%">{{$days}}</td>
                                             <td width="10%">{{$ceo_application->reason}}</td>
                                             <td width="20%">
                                                 {{$ceo_application->ceo_remarks}}
