@@ -9,23 +9,14 @@
             <div class="page-header-title float-left">
                 <h3 class="m-b-10 font-weight-light"><i class="feather icon-home"></i> Dashboard</h3>
             </div>
-            @if($check==0)
-                @if($checkout_missing_status==1)
-                    <button type="submit" class="btn btn-sm btn-danger float-right btn-flat checkout">
-                        <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
-                    </button>
-                @else
-                    <button type="submit" class="btn btn-sm btn-success float-right btn-flat checkin">
-                        <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
-                    </button>
-                @endif
-
-            @elseif($check==1)
+            @if($todayCheckin)
                 <button type="submit" class="btn btn-sm btn-danger float-right btn-flat checkout">
                     <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
                 </button>
             @else
-
+                <button type="submit" class="btn btn-sm btn-success float-right btn-flat checkin">
+                    <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
+                </button>
             @endif
         </div>
         <div class="col-12">
@@ -186,7 +177,7 @@
                                 </div>
                                 <div class="row align-items-center text-center">
                                     <div class="col">
-                                        <h6 class="m-b-0"> <span class="count">{{$invoices->count()}}</span> Inv</h6>
+                                        <h6 class="m-b-0"><span class="count">{{$invoices->count()}}</span> Inv</h6>
                                     </div>
                                 </div>
                                 <h6 class="pt-badge badge-light-success">{{date('F')}}</h6>
@@ -194,26 +185,26 @@
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-12">
-                    <div class="card proj-t-card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-30">
-                                <div class="col-auto">
-                                    <i class="fa fa-money-bill text-c-blue f-30"></i>
+                        <div class="card proj-t-card">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col-auto">
+                                        <i class="fa fa-money-bill text-c-blue f-30"></i>
+                                    </div>
+                                    <div class="col p-l-0">
+                                        <h6 class="m-b-5">Expenses</h6>
+                                        <h6 class="m-b-0 text-c-blue">Expenses this Month</h6>
+                                    </div>
                                 </div>
-                                <div class="col p-l-0">
-                                    <h6 class="m-b-5">Expenses</h6>
-                                    <h6 class="m-b-0 text-c-blue">Expenses this Month</h6>
+                                <div class="row align-items-center text-center">
+                                    <div class="col">
+                                        <h6 class="m-b-0"><span class="count">{{$expenses}}</span> Rs.</h6>
+                                    </div>
                                 </div>
+                                <h6 class="pt-badge badge-light-primary">{{date('F')}}</h6>
                             </div>
-                            <div class="row align-items-center text-center">
-                                <div class="col">
-                                    <h6 class="m-b-0"> <span class="count">{{$expenses}}</span> Rs.</h6>
-                                </div>
-                            </div>
-                            <h6 class="pt-badge badge-light-primary">{{date('F')}}</h6>
                         </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>
@@ -320,8 +311,10 @@
                             <thead>
                             <tr>
                                 <th>By</th>
+                                <th>Date</th>
                                 <th>Check-in</th>
                                 <th>Check-out</th>
+                                <th>Remarks</th>
                             </tr>
                             </thead>
                             <tbody class="attendance-table">
@@ -348,32 +341,32 @@
                 </div>
             </div>
         @endcan
-{{--        <div class="col-md-6 col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Incoming Requests</h5>
-                </div>
-                <div class="card-body p-0 incomeing-scroll">
-                    <div class="mt-3 mb-3">
-                        <span class="px-4 d-block"><i class="fas fa-circle text-c-blue f-10 m-r-5"></i>Customers Scattering</span>
-                        <hr>
-                        <span class="px-4 d-block"><i class="fas fa-circle text-c-green f-10 m-r-5"></i>You have 2 pending requests..</span>
-                        <hr>
-                        <span class="px-4 d-block"><i class="fas fa-circle text-c-red f-10 m-r-5"></i>You have 3 pending tasks</span>
-                        <hr>
-                        <span class="px-4 d-block"><i class="fas fa-circle text-c-yellow f-10 m-r-5"></i>New order received</span>
-                        <hr>
-                        <span class="px-4 d-block"><i class="fas fa-circle text-c-purple f-10 m-r-5"></i>Incoming requests</span>
-                        <hr>
-                        <span class="px-4 d-block"><i class="fas fa-circle text-c-green f-10 m-r-5"></i>The 3 Golden Rules Professional Design..</span>
-                        <hr>
-                        <span class="px-4 d-block"><i class="fas fa-circle text-c-red f-10 m-r-5"></i>You have 4 pending tasks</span>
-                        <hr>
-                        <span class="px-4 d-block"><i class="fas fa-circle text-c-yellow f-10 m-r-5"></i>New order received</span>
+        {{--        <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Incoming Requests</h5>
+                        </div>
+                        <div class="card-body p-0 incomeing-scroll">
+                            <div class="mt-3 mb-3">
+                                <span class="px-4 d-block"><i class="fas fa-circle text-c-blue f-10 m-r-5"></i>Customers Scattering</span>
+                                <hr>
+                                <span class="px-4 d-block"><i class="fas fa-circle text-c-green f-10 m-r-5"></i>You have 2 pending requests..</span>
+                                <hr>
+                                <span class="px-4 d-block"><i class="fas fa-circle text-c-red f-10 m-r-5"></i>You have 3 pending tasks</span>
+                                <hr>
+                                <span class="px-4 d-block"><i class="fas fa-circle text-c-yellow f-10 m-r-5"></i>New order received</span>
+                                <hr>
+                                <span class="px-4 d-block"><i class="fas fa-circle text-c-purple f-10 m-r-5"></i>Incoming requests</span>
+                                <hr>
+                                <span class="px-4 d-block"><i class="fas fa-circle text-c-green f-10 m-r-5"></i>The 3 Golden Rules Professional Design..</span>
+                                <hr>
+                                <span class="px-4 d-block"><i class="fas fa-circle text-c-red f-10 m-r-5"></i>You have 4 pending tasks</span>
+                                <hr>
+                                <span class="px-4 d-block"><i class="fas fa-circle text-c-yellow f-10 m-r-5"></i>New order received</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>--}}
+                </div>--}}
         <div class="col-12 table-responsive" style="overflow: hidden">
             {{--<h2 class="ml-2">Purchase Indent Revisions</h2>
             <table class="table table-hover font-13 bg-white table-responsive">
@@ -453,6 +446,7 @@
                                     <th>Name</th>
                                     <th>Type</th>
                                     <th>From-To</th>
+                                    <th>Days</th>
                                     <th>Reason</th>
                                     <th>Remarks</th>
                                     <th>Action</th>
@@ -462,9 +456,19 @@
                                 <tbody>
                                 @foreach($head_applications as $head_application)
                                     <tr>
+                                        <?php
+                                        $fdate = $head_application->from;
+                                        $tdate = $head_application->to;
+                                        $datetime1 = new \DateTime($fdate);
+                                        $datetime2 = new \DateTime($tdate);
+                                        $interval = $datetime1->diff($datetime2);
+                                        $days = $interval->format('%a')+1;
+
+                                        ?>
                                         <td width="10%">{{$head_application->users->fname}} {{$head_application->users->lname}}</td>
-                                        <td width="10%">{{$head_application->nature->name}}</td>
-                                        <td width="10%">{{$head_application->from->format('d/m/Y').' '.$head_application->to->format('d/m/Y')}}</td>
+                                        <td width="10%">{{str_replace('Leaves','',$head_application->nature->name)}}</td>
+                                        <td width="10%">{{$head_application->from->format('d/m/Y')}}<br>{{$head_application->to->format('d/m/Y')}}</td>
+                                        <td width="10%">{{$days}}</td>
                                         <td width="10%">{{$head_application->reason}}</td>
                                         <td width="20%">
                                             {{$head_application->head_remarks}}

@@ -70,24 +70,6 @@ class DashboardControlller extends Controller
         }])->where('checked_by',\auth()->user()->id)->get();
 
 
-        $check=0;
-        $current_date=date('Y-m-d',time());
-        $current_day_attendance=Attendance::where('user_id',auth()->user()->id)->where('check_in_date',$current_date)->first();
-        //dd($current_day_attendance);
-        //show check in
-        if (isset($current_day_attendance)){
-            //show checkout and status gone 1
-            $check=1;
-            //dd('show check out');
-            if ($current_day_attendance->status==1){
-                $check=2;
-            }
-        }
-        $checkout_missing_status=0;
-        $checkout_missing=Attendance::where('user_id',auth()->user()->id)->where('status',0)->first();
-        if (isset($checkout_missing)){
-            $checkout_missing_status=1;
-        }
 
         $head_applications=LeaveApplication::where('status',0)->where('head_id',\auth()->user()->id)->get();
         $ceo_applications=LeaveApplication::where('status',2)->where('ceo_id',\auth()->user()->id)->get();
@@ -125,13 +107,17 @@ class DashboardControlller extends Controller
             }
         }
 
+        $todayCheckin=Attendance::where('check_in_date',date('Y-m-d'))->where('user_id',auth()->user()->id)->first();
+        //dd($todayCheckin);
+
+
         return view('dashboard.index',
             compact('head_applications','ceo_applications','customers','calendar','indentforrevisions',
                             'indentforapprovals','capabilities','parameters','quotes','sessions',
-                            'personnels','assets','jobs','departments','designations','check','checkout_missing_status',
+                            'personnels','assets','jobs','departments','designations',
                             'gparameters','pendings_q','notsents_q','waitings_q','approved_q',
                 'pending_j','completed_j','invoiced_j',
-                'pending_mt','completed_mt','started_mt','invoices','revenue','expenses'));
+                'pending_mt','completed_mt','started_mt','invoices','revenue','expenses','todayCheckin'));
     }
     public function markRead($id)
     {
@@ -175,6 +161,8 @@ class DashboardControlller extends Controller
             $data[$k]['user']=$attendance->user->fname.' '.$attendance->user->lname;
             $data[$k]['check_in']=$attendance->check_in->format('h:i A');
             $data[$k]['check_out']=$attendance->status==0?'':$attendance->check_out->format('h:i A');
+            $data[$k]['date']=date('d-m-Y',strtotime($attendance->check_in_date));
+            $data[$k]['remarks']=$attendance->remarks;
         }
 
         return response()->json($data);

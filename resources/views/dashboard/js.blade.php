@@ -15,7 +15,7 @@
                 $('#data-attendance').prop('disabled',false);
                 $.each(data ,function (i,v) {
                     $('.attendance-table').append(
-                        "<tr><td>" + v.user + "</td><td>" + v.check_in + "</td><td>" + v.check_out + "</td></tr>"
+                        "<tr><td>" + v.user + "</td><td>" + v.date + "</td><td>" + v.check_in + "</td><td>" + v.check_out + "</td><td>" + v.remarks + "</td></tr>"
                     );
                 });
             },

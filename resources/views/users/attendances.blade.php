@@ -7,22 +7,18 @@
             });
         </script>
     @endif
-
     <style>
         .attendance-scroll::-webkit-scrollbar {
             height: 5px;
         }
-
         .attendance-scroll::-webkit-scrollbar-track {
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
         }
-
         .attendance-scroll::-webkit-scrollbar-thumb {
             background-color: #136bf7;
             outline: 1px solid #136bf7;
         }
     </style>
-
     <div class="row pb-3">
         <div class="col-12">
             <h3 class=" font-weight-light pb-1"><i class="feather icon-clock"></i> Attendance [ {{date('F - Y',time())}}

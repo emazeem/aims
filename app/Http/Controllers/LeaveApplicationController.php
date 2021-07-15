@@ -42,6 +42,9 @@ class LeaveApplicationController extends Controller
         return view('leave_application.show',compact('show'));
     }
     public function store(Request $request){
+        if ($request->from>$request->to){
+            return response()->json(['error'=>'From & To dates are invalid!'],404);
+        }
         $this->authorize('add-update-my-application');
         $this->validate(request(), [
             'employee' => 'required',
@@ -202,10 +205,11 @@ class LeaveApplicationController extends Controller
         $datetime2 = new \DateTime($tdate);
         $interval = $datetime1->diff($datetime2);
         $days = $interval->format('%a')+1;
+
         for ($d=1;$d<=$days;$d++){
             $date=date('d-m-Y',strtotime( $leave->from . " +".$d." days"));
             $day=date('D',strtotime( $leave->from . " +".$d." days"));
-            $checkin=date('H:i:s',time());
+            $checkin=date('H:i:s');
             $already=Attendance::where('check_in_date',date('Y-m-d',strtotime($date)))->where('user_id',$leave->user_id)->first();
             if (isset($already)){
                 $attendance=Attendance::find($already->id);
