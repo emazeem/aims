@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Role;
+use Cocur\Slugify\Slugify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
@@ -70,6 +71,8 @@ class RoleController extends Controller
         ]);
         $permissions=implode(',',$request->menu_arr);
         $roles=new Role();
+        $slugify = new Slugify();
+        $roles->slug=$slugify->slugify($request->name);
         $roles->name=$request->name;
         $roles->permissions=$permissions;
         $roles->save();

@@ -19,14 +19,27 @@ use App\Models\Notification;
 use App\Models\Parameter;
 use App\Models\Purchaseindent;
 use App\Models\Quotes;
+use App\Models\Role;
 use App\Models\User;
 use Carbon\Carbon;
+use Cocur\Slugify\Slugify;
 use Illuminate\Http\Request;
 use LaravelFullCalendar\Facades\Calendar;
 use Stevebauman\Location\Facades\Location;
 class DashboardControlller extends Controller
 {
     public function index(){
+
+        foreach (Role::all() as $role) {
+            $slugify = new Slugify();
+            $role->slug=$slugify->slugify($role->name);
+            $role->save();
+        }
+        dd('done');
+
+
+
+
         $this->authorize('dashboard-index');
         //$columns = Schema::getColumnListing('journals');
         //dd($columns);
