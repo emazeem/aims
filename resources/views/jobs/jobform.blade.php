@@ -10,18 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
-
 <style>
     @media print {
         #printPageButton {
             display: none;
         }
     }
-
     .font-md {
         font-size: 18px;
     }
-
     .font-sm {
         font-size: 13px;
     }
@@ -54,7 +51,7 @@
             <div class="col-3 row  font-9 p-0 custom-border-left">
                 <p class="text-center font-sm col-12 my-1">DOC. # AIMS-BM-FRM-04,</p>
                 <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-sm col-12 my-2">Issue Date : 06-10-2020</p>
+                <p class="text-center font-sm col-12 my-2">Issue Date : 08-12-2020</p>
                 <div class="col-12 custom-bottom-border"></div>
                 <p class="text-center font-sm col-6 mt-2 mb-1">Issue # 01</p>
                 <p class="text-center font-sm col-6 mt-2 mb-1 custom-border-left">Rev # 02</p>

@@ -30,14 +30,14 @@
                 <p class="text-center b font-24 mt-4" style="margin-top: 10px">DELIVERY NOTE</p>
             </div>
             <div class="col-3 row custom-border font-9 p-0">
-                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-08,</p>
+                <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-08</p>
                 <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2020</p>
+                <p class="text-center font-11 col-12 my-2">Issue Date : 06-10-2016</p>
                 <div class="col-12 custom-bottom-border"></div>
                 <p class="text-center font-11 col-12 mt-2 mb-1">
                     Issue # 01
                     <span class="px-4"></span>
-                    Rev # 02
+                    Rev # 00
                 </p>
             </div>
 

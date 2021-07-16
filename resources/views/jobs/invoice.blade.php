@@ -223,9 +223,8 @@
                     Email: info@aimscal.com<br>
                     Website: www.aimscal.com
                 </div>
-
             </div>
-
+            <small class="col-12 ">Doc # AIMS-BM-FRM-09, rev:0, Issue Date: 06-10-2016</small>
             </p>
         </div>
     </div>

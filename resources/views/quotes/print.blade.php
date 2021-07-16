@@ -30,12 +30,12 @@
             <div class="col-3 row custom-border font-9 p-0">
                 <p class="text-center font-11 col-12 my-1">DOC. # AIMS-BM-FRM-04</p>
                 <div class="col-12 custom-bottom-border"></div>
-                <p class="text-center font-11 col-12 my-2">Issue Date : 07-06-2021</p>
+                <p class="text-center font-11 col-12 my-2">Issue Date : 06-11-2016</p>
                 <div class="col-12 custom-bottom-border"></div>
                 <p class="text-center font-11 col-12 mt-2 mb-1">
                     Issue # 01
                     <span class="px-4"></span>
-                    Rev # 03
+                    Rev # 00
                 </p>
             </div>
         </div>

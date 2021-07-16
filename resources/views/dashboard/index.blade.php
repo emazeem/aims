@@ -62,7 +62,71 @@
                 </div>
             </div>
         @endif
-        @if(auth()->user()->roles->name=='Store Incharge')
+        @if(auth()->user()->roles->slug=='store-incharge' || auth()->user()->roles->slug=='super-admin' || auth()->user()->roles->slug=='technician' || auth()->user()->roles->slug=='calibration-engineer')
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title font-weight-light"><i class="feather icon-bell"></i> Delivery Note</h4>
+                    </div>
+                    <div class="card-body p-0 incomeing-scroll">
+                        <div class="mt-3 mb-3">
+                            <table class='table table-light table-sm table-danger'>
+                                <thead>
+                                <tr>
+                                    <th>Job</th>
+                                    <th>DN</th>
+                                    <th>Mode</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><i class="fas fa-circle text-c-purple"></i> JN/00001</td>
+                                    <td>DN/000001</td>
+                                    <td>By Courier/Cargo</td>
+                                    <td>Delivered</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if(auth()->user()->roles->slug=='store-incharge' || auth()->user()->roles->slug=='super-admin')
+            <div class="col-12 col-md-6">
+                <div class="card prod-p-card bg-c-purple">
+                    <div class="card-body">
+                        <div class="row align-items-center m-b-0">
+                            <div class="col">
+                                <h6 class="m-b-5 text-white">DN to be Printed</h6>
+                                <h3 class="m-b-0 text-white count">0</h3>
+                            </div>
+                            <div class="col-auto">
+                                <i class="feather icon-list text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card prod-p-card bg-c-purple">
+                    <div class="card-body">
+                        <div class="row align-items-center m-b-0">
+                            <div class="col">
+                                <h6 class="m-b-5 text-white">DN Ready for Dispatch</h6>
+                                <h3 class="m-b-0 text-white count">0</h3>
+                            </div>
+                            <div class="col-auto">
+                                <i class="feather icon-list text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endif
+        @if(auth()->user()->roles->slug=='store-incharge' or auth()->user()->roles->slug=='technical-manager' || auth()->user()->roles->slug=='super-admin')
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
@@ -97,12 +161,9 @@
                 </div>
             </div>
         @endif
-
         <div class="col-12">
-
             <div class="row">
-
-                @if(auth()->user()->roles->name=='Technician')
+                @if(auth()->user()->roles->name=='technician' or auth()->user()->roles->name=='calibration-engineer' || auth()->user()->roles->slug=='super-admin')
                     <div class="col-12">
                         <h4 class="card-title font-weight-light"><i class="feather icon-list"></i> QA / QC Tasks </h4>
                     </div>
@@ -167,6 +228,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xl-3 col-md-6">
                         <div class="card prod-p-card bg-c-purple">
                             <div class="card-body">
