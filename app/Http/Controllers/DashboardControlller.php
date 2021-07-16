@@ -29,21 +29,9 @@ use Stevebauman\Location\Facades\Location;
 class DashboardControlller extends Controller
 {
     public function index(){
-
-        foreach (Role::all() as $role) {
-            $slugify = new Slugify();
-            $role->slug=$slugify->slugify($role->name);
-            $role->save();
-        }
-        dd('done');
-
-
-
-
         $this->authorize('dashboard-index');
         //$columns = Schema::getColumnListing('journals');
         //dd($columns);
-
         $departments=Department::all()->count();
         $designations=Designation::all()->count();
         $sessions=Quotes::all()->count();
