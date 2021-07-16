@@ -74,7 +74,7 @@ class CapabilitiesController extends Controller
 
             })
             ->addColumn('name', function ($data) {
-                return $data->name;
+                return $data->name.' - '.$data->id;
             })
 
             ->addColumn('parameter', function ($data) {
