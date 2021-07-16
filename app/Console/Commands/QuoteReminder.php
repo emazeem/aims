@@ -48,11 +48,11 @@ class QuoteReminder extends Command
         $mail->setFrom('info@aimscal.com', 'Info@aimscal.com');
         $mail->addAddress('emazeem07@gmail.com', 'Em_Azeem');
         $mail->isHTML(true);
-        $mail->AddEmbeddedImage('http://aimslims.com/img/card.jpg','card','CARD');
+        //$mail->AddEmbeddedImage('http://aimslims.com/public/img/card.jpg','card','CARD');
 
         $mail->Subject = 'QTN/000080 Capital Aviation';
-        $path='http://aimslims.com/img/card.jpg';
-        
+        $path='http://aimslims.com/public/img/card.jpg';
+
         $mail->Body = 'Dear Sir, AIMS QTN/000002 have been forwarded to you for the calibration of mentioned instruments. <br> Kindly intimate quote approval status accordingly. <br> Regards : Imtiaz Ahmed <br> Cell # 03016236150 <img src='.$path.'>';
         if ($mail->send()) {
         }

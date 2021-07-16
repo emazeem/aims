@@ -796,6 +796,7 @@
                                         </table>
                                     @endif
                                 @endcan
+
                             </div>
                             <div class="table-responsive mb-2">
                                 <table class="table bg-white table-bordered table-hover table-sm">
@@ -943,6 +944,7 @@
 
                     @endforeach
                 @endif
+
             </div>
         </div>
     </div>

@@ -24,6 +24,7 @@ class SitePlanController extends Controller
             }
         }
         $data=SitePlan::whereIn('id',$ids)->get();
+
         return DataTables::of($data)
             ->addColumn('id', function ($data) {
                 return $data->jobs->cid;

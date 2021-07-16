@@ -10,137 +10,369 @@
                 <h3 class="m-b-10 font-weight-light"><i class="feather icon-home"></i> Dashboard</h3>
             </div>
             @if($todayCheckin)
+                @if($todayCheckin->status==0)
                 <button type="submit" class="btn btn-sm btn-danger float-right btn-flat checkout">
                     <span class="fa fa-clock-o"></span> Check-out for : <span id="current_time"></span>
                 </button>
+                @endif
             @else
                 <button type="submit" class="btn btn-sm btn-success float-right btn-flat checkin">
                     <span class="fa fa-clock-o"></span> Check-In for : <span id="current_time"></span>
                 </button>
             @endif
         </div>
+        @if(Gate::check('lab-task-index') || Gate::check('site-task-index'))
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>My Tasks Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-blue m-r-10">{{$pending_mt}}</h2>
+                                <div class="d-inline-block">
+                                    @php $total_mt=$pending_mt+$started_mt+$completed_mt; @endphp
+                                    <p class="m-b-0"><i
+                                                class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total_mt==0?'0':round($pending_mt/($total_mt)*100)}}
+                                        %</p>
+                                    <p class="text-muted">My Pending Tasks</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-green m-r-10">{{$started_mt}}</h2>
+                                <div class="d-inline-block">
+                                    <p class="m-b-0"><i
+                                                class="fa fa-caret-down m-r-10 text-c-red"></i>{{$total_mt==0?'0':round($started_mt/($total_mt)*100)}}
+                                        %</p>
+                                    <p class="text-muted">My Started Tasks</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-red m-r-10">{{$completed_mt}}</h2>
+                                <div class="d-inline-block">
+                                    <p class="m-b-0"><i
+                                                class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total_mt==0?'0':round($completed_mt/($total_mt)*100)}}
+                                        %</p>
+                                    <p class="text-muted">My Completed Tasks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if(auth()->user()->roles->name=='Store Incharge')
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Jobs Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-blue m-r-10">0</h2>
+                                <div class="d-inline-block">
+                                    <p class="m-b-0"><i class="fa fa-caret-up m-r-10 text-c-green"></i>0%</p>
+                                    <p class="text-muted">Awaited Jobs</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-blue m-r-10">0</h2>
+                                <div class="d-inline-block">
+                                    <p class="m-b-0"><i class="fa fa-caret-up m-r-10 text-c-green"></i>0%</p>
+                                    <p class="text-muted">In Process Jobs</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <h2 class="d-inline-block text-c-blue m-r-10">0</h2>
+                                <div class="d-inline-block">
+                                    <p class="m-b-0"><i class="fa fa-caret-up m-r-10 text-c-green"></i>0%</p>
+                                    <p class="text-muted">Completed Jobs</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        <div class="col-12">
+
+            <div class="row">
+
+                @if(auth()->user()->roles->name=='Technician')
+                    <div class="col-12">
+                        <h4 class="card-title font-weight-light"><i class="feather icon-list"></i> QA / QC Tasks </h4>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-purple">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Intermediate Checks</h6>
+                                        <h3 class="m-b-0 text-white count">0</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card  bg-c-purple">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Preventive Maintenance</h6>
+                                        <h3 class="m-b-0 text-white count">0</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-purple">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Environment Graph</h6>
+                                        <h3 class="m-b-0 text-white count">0</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-purple">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Re Calibration</h6>
+                                        <h3 class="m-b-0 text-white count">0</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-purple">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Replicate Calibration</h6>
+                                        <h3 class="m-b-0 text-white count">0</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card  bg-c-purple">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">PT/ILC</h6>
+                                        <h3 class="m-b-0 text-white count">0</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-purple">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Internal Cal</h6>
+                                        <h3 class="m-b-0 text-white count">0</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-purple">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">------</h6>
+                                        <h3 class="m-b-0 text-white count">0</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                @endif
+            </div>
+
+        </div>
         <div class="col-12">
             <div class="row mt-3">
-                <div class="col-xl-3 col-md-6">
-                    <div class="card prod-p-card bg-c-red">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-0">
-                                <div class="col">
-                                    <h6 class="m-b-5 text-white">Customers</h6>
-                                    <h3 class="m-b-0 text-white count">{{$customers}}</h3>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="feather icon-user text-white"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card prod-p-card bg-c-blue">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-0">
-                                <div class="col">
-                                    <h6 class="m-b-5 text-white">Parameters</h6>
-                                    <h3 class="m-b-0 text-white count">{{$parameters}}</h3>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-list text-white"></i>
+                @if(Gate::check('customer-index'))
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-red">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Customers</h6>
+                                        <h3 class="m-b-0 text-white count">{{$customers}}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-user text-white"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card prod-p-card bg-c-green">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-0">
-                                <div class="col">
-                                    <h6 class="m-b-5 text-white">Capabilities</h6>
-                                    <h3 class="m-b-0 text-white count">{{$capabilities}}</h3>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-list text-white"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card prod-p-card bg-c-yellow">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-0">
-                                <div class="col">
-                                    <h6 class="m-b-5 text-white">Assets</h6>
-                                    <h3 class="m-b-0 text-white count">{{$assets}}</h3>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-building text-white"></i>
+                @endif
+
+                @if(Gate::check('parameter-index'))
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-blue">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Parameters</h6>
+                                        <h3 class="m-b-0 text-white count">{{$parameters}}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-list text-white"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card prod-p-card bg-c-green">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-0">
-                                <div class="col">
-                                    <h6 class="m-b-5 text-white">Quotes</h6>
-                                    <h3 class="m-b-0 text-white count">{{$quotes}}</h3>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="feather icon-activity text-white"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card prod-p-card bg-c-yellow">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-0">
-                                <div class="col">
-                                    <h6 class="m-b-5 text-white">Jobs</h6>
-                                    <h3 class="m-b-0 text-white count">{{$jobs}}</h3>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-list text-white"></i>
+                @endif
+                @if(Gate::check('capabilities-index'))
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-green">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Capabilities</h6>
+                                        <h3 class="m-b-0 text-white count">{{$capabilities}}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-list text-white"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card prod-p-card bg-c-blue">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-0">
-                                <div class="col">
-                                    <h6 class="m-b-5 text-white">Users</h6>
-                                    <h3 class="m-b-0 text-white count">{{$personnels}}</h3>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="feather icon-user text-white"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card prod-p-card bg-c-red">
-                        <div class="card-body">
-                            <div class="row align-items-center m-b-0">
-                                <div class="col">
-                                    <h6 class="m-b-5 text-white">Departments</h6>
-                                    <h3 class="m-b-0 text-white count">{{$departments}}</h3>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-building text-white"></i>
+                @endif
+                @if(Gate::check('asset-index'))
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-yellow">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Assets</h6>
+                                        <h3 class="m-b-0 text-white count">{{$assets}}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-building text-white"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
+                @if(Gate::check('quote-index'))
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-green">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Quotes</h6>
+                                        <h3 class="m-b-0 text-white count">{{$quotes}}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-activity text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @if(Gate::check('jobs-index'))
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-yellow">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Jobs</h6>
+                                        <h3 class="m-b-0 text-white count">{{$jobs}}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-list text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @if(Gate::check('staff-index'))
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-blue">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Users</h6>
+                                        <h3 class="m-b-0 text-white count">{{$personnels}}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="feather icon-user text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @if(Gate::check('department-index'))
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card prod-p-card bg-c-red">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-0">
+                                    <div class="col">
+                                        <h6 class="m-b-5 text-white">Departments</h6>
+                                        <h3 class="m-b-0 text-white count">{{$departments}}</h3>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-building text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 @if(Gate::check('finance-accounts'))
                     <div class="col-xl-4 col-md-12">
                         <div class="card proj-t-card">
@@ -209,47 +441,7 @@
             </div>
         </div>
 
-        @if(Gate::check('lab-task-index') || Gate::check('site-task-index'))
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>My Tasks Summary</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h2 class="d-inline-block text-c-blue m-r-10">{{$pending_mt}}</h2>
-                                <div class="d-inline-block">
-                                    @php $total_mt=$pending_mt+$started_mt+$completed_mt; @endphp
-                                    <p class="m-b-0"><i
-                                                class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total_mt==0?'0':round($pending_mt/($total_mt)*100)}}
-                                        %</p>
-                                    <p class="text-muted">My Pending Tasks</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <h2 class="d-inline-block text-c-green m-r-10">{{$started_mt}}</h2>
-                                <div class="d-inline-block">
-                                    <p class="m-b-0"><i
-                                                class="fa fa-caret-down m-r-10 text-c-red"></i>{{$total_mt==0?'0':round($started_mt/($total_mt)*100)}}
-                                        %</p>
-                                    <p class="text-muted">My Started Tasks</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <h2 class="d-inline-block text-c-red m-r-10">{{$completed_mt}}</h2>
-                                <div class="d-inline-block">
-                                    <p class="m-b-0"><i
-                                                class="fa fa-caret-up m-r-10 text-c-green"></i>{{$total_mt==0?'0':round($completed_mt/($total_mt)*100)}}
-                                        %</p>
-                                    <p class="text-muted">My Completed Tasks</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
+
         <div class="col-md-6 col-12">
             <div class="card p-0">
                 <div class="card-body">
@@ -329,6 +521,21 @@
                 </div>
             </div>
         @endcan
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title font-weight-light"><i class="feather icon-bell"></i> Notice Board / Internal Communication</h4>
+                </div>
+                <div class="card-body p-0 incomeing-scroll">
+                    <div class="mt-3 mb-3">
+                        <span class="px-4 d-block border-bottom border-top"><i class="fas fa-circle text-c-blue f-10 m-r-5"></i>Notification # 01</span>
+                        <span class="px-4 d-block border-bottom"><i class="fas fa-circle text-c-yellow f-10 m-r-5"></i>Notification # 02</span>
+                        <span class="px-4 d-block border-bottom"><i class="fas fa-circle text-c-purple f-10 m-r-5"></i>Notification # 03</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         @can('quote-index')
             <div class="col-md-6 col-12">
                 <div class="card py-3">
@@ -462,12 +669,13 @@
                                         $datetime1 = new \DateTime($fdate);
                                         $datetime2 = new \DateTime($tdate);
                                         $interval = $datetime1->diff($datetime2);
-                                        $days = $interval->format('%a')+1;
+                                        $days = $interval->format('%a') + 1;
 
                                         ?>
                                         <td width="10%">{{$head_application->users->fname}} {{$head_application->users->lname}}</td>
                                         <td width="10%">{{str_replace('Leaves','',$head_application->nature->name)}}</td>
-                                        <td width="10%">{{$head_application->from->format('d/m/Y')}}<br>{{$head_application->to->format('d/m/Y')}}</td>
+                                        <td width="10%">{{$head_application->from->format('d/m/Y')}}
+                                            <br>{{$head_application->to->format('d/m/Y')}}</td>
                                         <td width="10%">{{$days}}</td>
                                         <td width="10%">{{$head_application->reason}}</td>
                                         <td width="20%">
@@ -532,7 +740,7 @@
                                         $datetime1 = new \DateTime($fdate);
                                         $datetime2 = new \DateTime($tdate);
                                         $interval = $datetime1->diff($datetime2);
-                                        $days = $interval->format('%a')+1;
+                                        $days = $interval->format('%a') + 1;
 
                                         ?>
                                         <tr>
